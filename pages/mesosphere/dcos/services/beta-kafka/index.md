@@ -4,7 +4,6 @@ navigationTitle: Beta Kafka
 title: Beta Kafka
 menuWeight: 155
 excerpt: DC/OS Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees.
-featureMaturity:
 enterprise: false
 category: Messaging Queues
 beta: true

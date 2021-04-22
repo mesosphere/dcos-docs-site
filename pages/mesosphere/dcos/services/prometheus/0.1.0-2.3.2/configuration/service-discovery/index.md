@@ -4,7 +4,6 @@ navigationTitle: Service Discovery
 title: Service Discovery Configuration Options
 menuWeight: 45
 excerpt: Service Discovery
-featureMaturity:
 enterprise: false
 ---
 

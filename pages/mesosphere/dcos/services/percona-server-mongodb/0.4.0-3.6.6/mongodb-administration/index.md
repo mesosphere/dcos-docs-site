@@ -4,7 +4,6 @@ navigationTitle:  Percona Server for MongoDB Administration
 title: Percona Server for MongoDB Administration
 menuWeight: 65
 excerpt: Administrative options for Percona Sever for MongoDB
-featureMaturity:
 enterprise: false
 ---
 

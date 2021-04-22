@@ -4,7 +4,6 @@ navigationTitle:  Managing
 title: Managing
 menuWeight: 80
 excerpt: Managing your DC/OS NiFi Service configuration
-featureMaturity:
 enterprise: false
 ---
 

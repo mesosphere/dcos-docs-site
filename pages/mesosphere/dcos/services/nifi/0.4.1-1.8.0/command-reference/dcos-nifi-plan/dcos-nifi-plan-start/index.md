@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi plan start
 title: dcos nifi plan start
 menuWeight: 3
 excerpt: Start the plan with the provided name and any optional plan arguments.
-featureMaturity:
 enterprise: false
 model: ../../../../data.yml
 render: mustache

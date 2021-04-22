@@ -4,7 +4,6 @@ navigationTitle:  Percona-Server-MongoDB 0.4.2-3.6.10
 title: Percona-Server-MongoDB 0.4.2-3.6.10
 menuWeight: 1
 excerpt: Percona-Server-MongoDB 0.4.2-3.6.10
-featureMaturity:
 community: true
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache

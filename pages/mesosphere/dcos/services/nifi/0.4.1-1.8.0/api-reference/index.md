@@ -4,7 +4,6 @@ navigationTitle:  API Reference
 title: API Reference
 menuWeight: 90
 excerpt: DC/OS NiFi Service API Reference
-featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache

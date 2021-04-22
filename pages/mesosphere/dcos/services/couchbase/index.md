@@ -4,7 +4,6 @@ navigationTitle: Couchbase
 title: Couchbase
 menuWeight: 15
 excerpt: 
-featureMaturity:
 community: true
 model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache

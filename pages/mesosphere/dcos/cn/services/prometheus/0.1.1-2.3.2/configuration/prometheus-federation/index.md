@@ -4,7 +4,6 @@ navigationTitle: DC/OS Prometheus 联合
 title: DC/OS Prometheus 联合
 menuWeight: 35
 excerpt: 为 Prometheus 配置 Federation
-featureMaturity:
 enterprise: false
 ---
 

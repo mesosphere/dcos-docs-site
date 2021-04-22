@@ -5,7 +5,6 @@ title: Jenkins for DC/OS (Beta)
 menuWeight: 60
 beta: true
 excerpt: Run your continuous integration, automated testing, and continuous delivery jobs at scale with Jenkins for DC/OS.
-featureMaturity:
 enterprise: false
 category: Continuous Delivery
 ---

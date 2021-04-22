@@ -4,7 +4,6 @@ navigationTitle:  Mesosphere Jupyter Service
 title: Mesosphere Jupyter Service
 menuWeight: 1
 excerpt:
-featureMaturity:
 enterprise: false
 beta: true
 model: /mesosphere/dcos/services/beta-jupyter/data.yml

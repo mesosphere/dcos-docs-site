@@ -4,7 +4,6 @@ navigationTitle: Alerting Overview
 title:  Alerting Overview
 menuWeight: 25
 excerpt: DC/OS Prometheus Alerting Overview
-featureMaturity:
 enterprise: false
 ---
 

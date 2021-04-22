@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi update pause
 title: dcos nifi update pause
 menuWeight: 5
 excerpt: Pause update plan
-featureMaturity:
 enterprise: false
 model: ../../../../data.yml
 render: mustache

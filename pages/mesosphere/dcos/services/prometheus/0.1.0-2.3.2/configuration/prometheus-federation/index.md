@@ -4,7 +4,6 @@ navigationTitle: Prometheus Federation
 title: Federation
 menuWeight: 35
 excerpt: Configurating Federation for Prometheus
-featureMaturity:
 enterprise: false
 ---
 

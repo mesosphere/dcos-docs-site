@@ -4,7 +4,6 @@ navigationTitle:  Limitations
 title: Limitations
 menuWeight: 110
 excerpt: Limitations in Percona Server for MongoDB
-featureMaturity:
 enterprise: false
 ---
 

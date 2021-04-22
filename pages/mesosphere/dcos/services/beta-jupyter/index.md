@@ -4,7 +4,6 @@ navigationTitle: Mesosphere Jupyter Service
 title: Mesosphere Jupyter Service
 menuWeight: 155
 excerpt: JupyterLab is the next-generation web-based user interface for Project Jupyter
-featureMaturity:
 beta: true
 enterprise: false
 category: Data Processing

@@ -4,7 +4,6 @@ navigationTitle: Overview
 title: Overview
 menuWeight: 15
 excerpt: Getting started with DC/OS Apache NiFi Service
-featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache

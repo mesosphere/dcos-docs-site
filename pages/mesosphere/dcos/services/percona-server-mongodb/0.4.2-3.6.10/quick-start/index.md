@@ -4,7 +4,6 @@ navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 20
 excerpt: Getting Started with Percona Server for MongoDB
-featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache

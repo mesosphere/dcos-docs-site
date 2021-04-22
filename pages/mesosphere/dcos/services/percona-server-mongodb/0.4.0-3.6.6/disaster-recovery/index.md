@@ -4,7 +4,6 @@ navigationTitle:  Disaster Recovery
 title: Disaster Recovery
 menuWeight: 80
 excerpt: Creating a backup and recovery plan
-featureMaturity:
 enterprise: false
 ---
 

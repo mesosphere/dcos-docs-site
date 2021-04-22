@@ -4,7 +4,6 @@ navigationTitle: 版本注释
 title: 版本注释
 menuWeight: 130
 excerpt: 版本 0.1.1-2.3.2 的发行说明
-featureMaturity:
 enterprise: false
 ---
 

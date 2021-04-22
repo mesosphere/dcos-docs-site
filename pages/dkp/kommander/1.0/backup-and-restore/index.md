@@ -2,7 +2,6 @@
 layout: layout.pug
 navigationTitle: Back up and restore
 title: Back up and restore
-featureMaturity:
 excerpt: Back up and restore Kommander data and the Konvoy cluster
 category: K-Sphere
 menuWeight: 11

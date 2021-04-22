@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi plan pause
 title: dcos nifi plan pause
 menuWeight: 5
 excerpt: Pause the plan, or a specific phase in that plan with the provided phase name (or UUID).
-featureMaturity:
 enterprise: false
 model: ../../../../data.yml
 render: mustache

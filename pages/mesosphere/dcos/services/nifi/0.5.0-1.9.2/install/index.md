@@ -4,7 +4,6 @@ navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 10
 excerpt: Installing DC/OS NiFi from the UI or the CLI
-featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache

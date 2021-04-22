@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi update
 title: dcos nifi update
 menuWeight: 68
 excerpt: Displays update related informations and allows update operations of the NiFi service
-featureMaturity:
 enterprise: false
 model: ../../../data.yml
 render: mustache

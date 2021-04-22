@@ -4,7 +4,6 @@ navigationTitle:  Troubleshooting
 title: Troubleshooting
 menuWeight: 100
 excerpt: Troubleshooting DC/OS NiFi issues
-featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache

@@ -5,7 +5,6 @@ title: Jenkins for DC/OS Quickstart
 menuWeight: 10
 excerpt: Jenkins for DC/OS can be installed using either the web interface or the DC/OS CLI.
 beta: false
-featureMaturity:
 enterprise: false
 ---
 # About installing Jenkins for DC/OS

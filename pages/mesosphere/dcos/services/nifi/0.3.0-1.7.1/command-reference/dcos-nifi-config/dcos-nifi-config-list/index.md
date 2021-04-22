@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi config list
 title: dcos nifi config list
 menuWeight: 1
 excerpt: List IDs of all available configurations.
-featureMaturity:
 enterprise: false
 model: ../../../../data.yml
 render: mustache

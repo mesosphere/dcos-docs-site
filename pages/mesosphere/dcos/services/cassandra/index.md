@@ -4,7 +4,6 @@ navigationTitle:  Cassandra
 title: Cassandra
 menuWeight: 1
 excerpt:
-featureMaturity:
 enterprise: false
 category: Databases
 ---

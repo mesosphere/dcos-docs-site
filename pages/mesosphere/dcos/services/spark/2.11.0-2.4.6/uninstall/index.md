@@ -4,7 +4,6 @@ navigationTitle: Uninstall
 excerpt: Uninstalling DC/OS Apache Spark
 title: Uninstalling Spark
 menuWeight: 60
-featureMaturity:
 render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---

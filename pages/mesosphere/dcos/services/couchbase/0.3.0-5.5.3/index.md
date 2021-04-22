@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Documentation for DC/OS Couchbase 0.3.0-5.5.3
 model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache
-featureMaturity:
 community: true
 ---
 

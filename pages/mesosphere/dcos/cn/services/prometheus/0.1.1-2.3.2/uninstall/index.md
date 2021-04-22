@@ -4,7 +4,6 @@ navigationTitle: 卸载
 title: 卸载
 menuWeight: 40
 excerpt: 卸载 DC/OS Prometheus 服务
-featureMaturity:
 enterprise: false
 ---
 

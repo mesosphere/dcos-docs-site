@@ -4,7 +4,6 @@ navigationTitle:  CLI Reference
 title: CLI Reference
 menuWeight: 70
 excerpt: All CLI commands available
-featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache

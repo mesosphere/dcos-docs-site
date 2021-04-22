@@ -4,7 +4,6 @@ navigationTitle: NiFi 1.0.1-1.9.2
 title: NiFi 1.0.1-1.9.2
 menuWeight: 1
 excerpt: Overview of DC/OS Apache NiFi 1.0.1-1.9.2
-featureMaturity:
 community: false
 model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache

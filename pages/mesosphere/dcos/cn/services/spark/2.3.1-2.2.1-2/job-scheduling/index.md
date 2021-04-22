@@ -4,7 +4,6 @@ navigationTitle: 作业计划
 excerpt: 作业计划选项的概述
 title: 作业计划
 menuWeight: 110
-featureMaturity:
 model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---

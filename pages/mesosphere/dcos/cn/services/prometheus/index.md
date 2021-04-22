@@ -4,7 +4,6 @@ navigationTitle: Prometheus
 title: Prometheus 
 menuWeight: 50
 excerpt: DC/OS Prometheus 
-featureMaturity:
 enterprise: false
 ---
 

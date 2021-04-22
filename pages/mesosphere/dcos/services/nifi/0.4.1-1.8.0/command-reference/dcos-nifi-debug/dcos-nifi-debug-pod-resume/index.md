@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi debug pod resume
 title: dcos nifi debug pod resume
 menuWeight: 10
 excerpt: Resume a pod’s normal execution following a pause command.
-featureMaturity:
 enterprise: false
 model: ../../../../data.yml
 render: mustache

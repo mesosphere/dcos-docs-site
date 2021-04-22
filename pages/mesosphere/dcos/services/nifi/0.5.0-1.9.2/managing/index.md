@@ -4,7 +4,6 @@ navigationTitle:  Operations
 title: Operations
 menuWeight: 35
 excerpt: Managing your DC/OS NiFi service
-featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache

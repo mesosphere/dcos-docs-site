@@ -4,7 +4,6 @@ navigationTitle: 警报概述
 title: 警报概述
 menuWeight: 25
 excerpt: DC/OS Prometheus 警报概述
-featureMaturity:
 enterprise: false
 ---
 

@@ -4,7 +4,6 @@ navigationTitle: Restore
 title: Restore 
 menuWeight: 35
 excerpt: Restoring data backed up in AWS S3-compatible storage
-featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/minio/data.yml
 render: mustache

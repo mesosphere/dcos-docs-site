@@ -4,7 +4,6 @@ navigationTitle:  Debugging
 title: Debugging
 menuWeight: 102
 excerpt: Some common errors you might find
-featureMaturity:
 enterprise: false
 ---
 
