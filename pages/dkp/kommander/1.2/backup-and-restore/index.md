@@ -4,7 +4,6 @@ beta: false
 navigationTitle: Back up and restore
 title: Back up and restore
 excerpt: Back up and restore Kommander data and the Konvoy cluster
-category: K-Sphere
 menuWeight: 14
 ---
 

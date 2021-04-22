@@ -3,7 +3,6 @@ layout: layout.pug
 title: Store secrets in GitOps Repository using SealedSecrets
 navigationTitle: Store secrets in a GitOps Repository using SealedSecrets
 beta: false
-category: K-Sphere
 menuWeight: 105
 excerpt: Securely managing secrets in a GitOps workflow using SealedSecrets
 ---

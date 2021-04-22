@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Tutorials
 title: Tutorials
 beta: false
-category: K-Sphere
 menuWeight: 0
 ---
 

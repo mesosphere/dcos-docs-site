@@ -4,7 +4,6 @@ beta: true
 navigationTitle: Kommander 1.4 beta
 title: Kommander 1.4 beta
 version: 1.4
-category: K-Sphere
 menuWeight: 0
 ---
 

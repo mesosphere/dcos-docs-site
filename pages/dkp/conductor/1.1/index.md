@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Welcome to Conductor 1.1
 title: Welcome to Conductor 1.1
 beta: false
-category: K-Sphere
 menuWeight: 10
 ---
 
