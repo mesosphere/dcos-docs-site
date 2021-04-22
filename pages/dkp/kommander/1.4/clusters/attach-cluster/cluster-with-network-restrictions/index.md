@@ -34,7 +34,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
    b64ca_cert=$(kubectl get secret -n cert-manager kubernetes-root-ca -o=go-template='{{index .data "tls.crt"}}')
    ```
 
-   To view your base64 encoded Kubernetes secret value so you can copy it to your clipboard to paste into this field **Root CA Certificate** field, run:
+   To view your base64 encoded Kubernetes secret value to copy and paste into the **Root CA Certificate** field, run:
 
    ```shell
    echo $(kubectl get secret -n cert-manager kubernetes-root-ca -o=go-template='{{index .data "tls.crt"}}')
