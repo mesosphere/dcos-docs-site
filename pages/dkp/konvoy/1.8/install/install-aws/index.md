@@ -16,7 +16,7 @@ This section guides you through the basic steps to prepare your environment and 
 
 * The [aws](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) command line utility
 * [Docker](https://docs.docker.com/get-docker/) _version 18.09.2 or newer_
-* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) _v1.20.5 or newer_ (for interacting with the running cluster)
+* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) _v1.20.6 or newer_ (for interacting with the running cluster)
 * A valid AWS account with [credentials configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html).
 
 If you are not using an existing VPC, you must be authorized to create the following resources in the AWS account:
@@ -246,7 +246,7 @@ Plan: 41 to add, 0 to change, 0 to destroy.
 ## Control plane and worker nodes
 
 Control plane nodes are the nodes where the Kubernetes Control Plane components will be installed.
-The Control Plane contains [various components][kube_components], including `etcd`, `kube-apiserver` (that [you will interact with through `kubectl`][kubectl]), `kube-scheduler` and `kube-controller-manager`. Please also refer to the [Concepts section][concepts].
+The Control Plane contains [various components][kube_components], including `etcd`, `kube-apiserver` (that [you will interact with through `kubectl`][kubectl]), `kube-scheduler` and `kube-controller-manager`. You can also refer to the [Concepts section][concepts].
 Having three control plane nodes makes the cluster "highly available" to protect against failures.
 Worker nodes run your containers in [Kubernetes pods][kube_pods].
 

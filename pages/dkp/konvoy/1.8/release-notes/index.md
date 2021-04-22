@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 8, April 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 21, April 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -26,7 +26,7 @@ This release provides new features and enhancements to improve the user experien
 | ------------------ | ------- |
 |**Minimum** | 1.18.x |
 |**Maximum** | 1.20.x |
-|**Default** | 1.20.5 |
+|**Default** | 1.20.6 |
 
 ### Upstream industry changes
 
@@ -67,9 +67,11 @@ For details on how to migrate workloads to Spark 3.0, consult the official [migr
 - Include the missing `docker.io/mesosphere/pause:3.2` needed for air-gapped FIPS installation.
 - Allow for using custom CA when generating certificates for the Kubernetes control plane by copying `ca.crt` and `ca.key` files from `extras/pki` in the working directory, See the [Konvoy documentation][konvoy-ccontrol-plane-certificates].
 - Validate that konvoy is not being run from a host in the Kubernetes cluster. (COPS-6878)
+- Fix to allow for upgrading Konvoy v1.7.0 and v1.7.1 to any later version of Konvoy while running in FIPS mode.
 
 #### API
 
+- Set the default image to CentOS 7.9.
 - Allow for setting `spec.containerNetworking.calico.encapsulation` to `none` to disable Calico encapsulation (COPS-6836).
 - New configuration option `clusterConfiguration.spec.ntp.autoConfigure` that can be set to `false` to disable installing and configuring Chrony. (COPS-6282)
 
@@ -103,9 +105,9 @@ For details on how to migrate workloads to Spark 3.0, consult the official [migr
 - Go 1.16.2
 - Helm v3.5.2
 - kubeaddons-dispatch stable-1.19-1.4.1
-- kubeaddons-kommander testing-1.20-1.4.0-rc.1
-- kubernetes-base-addons testing-1.20-4.0.0-rc.1
-- Kubernetes v1.20.5
+- kubeaddons-kommander testing-1.20-1.4.0-rc.2
+- kubernetes-base-addons testing-1.20-4.0.0-rc.2
+- Kubernetes v1.20.6
 - Kubeaddons v0.26.0
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
 - Terraform v0.13.5

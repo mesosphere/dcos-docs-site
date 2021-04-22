@@ -10,7 +10,7 @@ enterprise: false
 
 Konvoy supports the following base Operating Systems.
 
-Please note, some features may not be fully supported in certain versions of these operating systems.
+<p class="message--note"><strong>NOTE: </strong>Some features may not be fully supported in certain versions of these operating systems.</p>
 
 ## CentOS
 

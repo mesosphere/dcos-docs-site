@@ -19,13 +19,13 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-- [kubectl][install_kubectl] v1.20.5 or later
+- [kubectl][install_kubectl] v1.20.6 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
 - The `konvoy_air_gapped.tar.bz2` that will contain the required artifacts to perform an air-gapped installation.
 
-- If you would like to use Kommander for multi-cluster management capabilities, you need to exercise additional configuration steps. Please refer to the [Kommander air-gapped installation documentation][kommander_air_gapped_install].
+- If you would like to use Kommander for multi-cluster management capabilities, you need to exercise additional configuration steps. Refer to the [Kommander air-gapped installation documentation][kommander_air_gapped_install].
 
 ## Control plane nodes
 
@@ -440,7 +440,7 @@ spec:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionMap:
-          1.20.5: testing-1.20-4.0.0-rc.1
+          1.20.6: testing-1.20-4.0.0-rc.2
         versionStrategy: mapped-kubernetes-version
 ```
 
@@ -498,18 +498,18 @@ spec:
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.2
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.2
       addonsList:
       - name: dispatch
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.2
       addonsList:
       - name: kommander
         enabled: false

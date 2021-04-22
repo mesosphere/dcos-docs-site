@@ -123,22 +123,22 @@ spec:
 
 | Region | AMI Id|
 | -------------- | --------------------- |
-| ap-northeast-1 | ami-0d09d267328197c99 |
-| ap-northeast-2 | ami-0cf8e67d10c823f2e |
-| ap-south-1     | ami-0dd861ee19fd50a16 |
-| ap-southeast-1 | ami-056251cdd6fd1c8eb |
-| ap-southeast-2 | ami-05f50d9ec7e4c3b02 |
-| ca-central-1   | ami-0252eebc56636a56b |
-| eu-central-1   | ami-095e1a4d3d632d215 |
-| eu-north-1     | ami-026f0eb2e8006617d |
-| eu-west-1      | ami-0d4002a13019b7703 |
-| eu-west-2      | ami-0aa3620fadad9198e |
-| eu-west-3      | ami-04552009264cbe9f4 |
-| sa-east-1      | ami-0c52a0227804a4318 |
-| us-east-1      | ami-06cf02a98a61f9f5e |
-| us-east-2      | ami-0a75b786d9a7f8144 |
-| us-west-1      | ami-02676464a065c9c05 |
-| us-west-2      | ami-0a248ce88bcc7bd23 |
+| ap-northeast-1 | ami-0ddea5e0f69c193a4 |
+| ap-northeast-2 | ami-0e4214f08b51e23cc |
+| ap-south-1     | ami-0ffc7af9c06de0077 |
+| ap-southeast-1 | ami-0adfdaea54d40922b |
+| ap-southeast-2 | ami-03d56f451ca110e99 |
+| ca-central-1   | ami-0a7c5b189b6460115 |
+| eu-central-1   | ami-08b6d44b4f6f7b279 |
+| eu-north-1     | ami-0358414bac2039369 |
+| eu-west-1      | ami-04f5641b0d178a27a |
+| eu-west-2      | ami-0b22fcaf3564fb0c9 |
+| eu-west-3      | ami-072ec828dae86abe5 |
+| sa-east-1      | ami-02334c45dd95ca1fc |
+| us-east-1      | ami-00e87074e52e6c9f9 |
+| us-east-2      | ami-00f8e2c955f7ffa9b |
+| us-west-1      | ami-08d2d8b00f270d03b |
+| us-west-2      | ami-0686851c4e7b1a8e1 |
 
 If you deploy Konvoy to a region not in the identifiers list, you must specify the appropriate region-specific CentOS 7 or Red Hat Enterprise Linux 7 `imageID` in the `cluster.yaml` file. Konvoy is tested with the operating systems listed on the [Operating Systems](../../supported-operating-systems) page.
 
