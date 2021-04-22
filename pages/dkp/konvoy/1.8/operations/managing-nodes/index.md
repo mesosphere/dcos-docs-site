@@ -10,11 +10,11 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-<p class="message--note"><strong>NOTE: </strong>The operations described in this document apply only to healthy clusters. If you are attempting to recover from a node failure, please see <a href="../../troubleshooting/replace-a-failed-node">Replace a Failed Node</a>, or <a href="../../troubleshooting/replace-failed-control-plane-node">Replace a Failed Control Plane Node</a>, instead.</p>
+<p class="message--note"><strong>NOTE: </strong>The operations described in this document apply only to healthy clusters. If you are attempting to recover from a node failure, see <a href="../../troubleshooting/replace-a-failed-node">Replace a Failed Node</a>, or <a href="../../troubleshooting/replace-failed-control-plane-node">Replace a Failed Control Plane Node</a>, instead.</p>
 
 # Add Nodes to an AWS, Azure, or GCP Cluster
 
-<p class="message--note"><strong>NOTE: </strong> This process only applies to clusters whose infrastructure Konvoy provisions, using Terraform. If your cluster is provisioned manually, please follow the steps in <a href="#add-nodes-to-an-on-premises-cluster">Add Nodes to an On-Premises Cluster</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>This process only applies to clusters whose infrastructure Konvoy provisions, using Terraform. If your cluster is provisioned manually, follow the steps in <a href="#add-nodes-to-an-on-premises-cluster">Add Nodes to an On-Premises Cluster</a>.</p>
 
 After you use `konvoy` to provision an AWS, Azure, or GCP cluster, you can use it to add more nodes. To safely add nodes, make sure your current working directory contains the following:
 
@@ -95,7 +95,7 @@ With this information and the files above, proceed with the following steps:
 
 # Change Nodes in an AWS, Azure, or GCP Cluster
 
-<p class="message--note"><strong>NOTE: </strong> This process only applies to clusters whose infrastructure Konvoy provisions, using Terraform. If your cluster is provisioned manually, please follow the steps in <a href="#adding-nodes-to-an-on-premises-cluster">Adding Nodes to an On-Premises Cluster</a>.</p>
+<p class="message--note"><strong>NOTE: </strong> This process only applies to clusters whose infrastructure Konvoy provisions, using Terraform. If your cluster is provisioned manually, follow the steps in <a href="#adding-nodes-to-an-on-premises-cluster">Adding Nodes to an On-Premises Cluster</a>.</p>
 
 Sometimes you need to change the nodes you have already deployed. For example, to use a newer machine image, you must change a `imageID` property of the node pool to the ID of the newer machine image.
 

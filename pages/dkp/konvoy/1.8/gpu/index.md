@@ -33,7 +33,7 @@ The following components provide Nvidia GPU support on Konvoy:
 
 1.  NVIDIA GPU with Fermie architecture version 2.1 or greater.
 
-1.  Nvidia driver must be running on each GPU host node. The Nvidia driver version needs to be < 460.x, because the [Nvidia DCGM exporter][nvidia_dcgm] does not support the latest Nvidia driver yet. Nvidia driver version `450.51.06-1` is recommended. Please follow the offcial [Nvidia Driver Installation Guide][nvidia_driver_installation_guide] to setup the driver on the host. For example,
+1.  Nvidia driver must be running on each GPU host node. The Nvidia driver version needs to be < 460.x, because the [Nvidia DCGM exporter][nvidia_dcgm] does not support the latest Nvidia driver yet. Nvidia driver version `450.51.06-1` is recommended. Follow the official [Nvidia Driver Installation Guide][nvidia_driver_installation_guide] to setup the driver on the host. For example,
 
 * Centos 7
 
@@ -130,7 +130,7 @@ spec:
       nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.20-4.0.0-rc.1
+    configVersion: testing-1.20-4.0.0-rc.2
     addonsList:
     - name: nvidia
       enabled: true
@@ -180,7 +180,7 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.20-4.0.0-rc.1
+    configVersion: testing-1.20-4.0.0-rc.2
     addonsList:
 ......
     - name: nvidia

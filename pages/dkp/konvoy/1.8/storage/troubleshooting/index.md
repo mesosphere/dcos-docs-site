@@ -105,7 +105,7 @@ Controllers are responsible for setting up workflows and reporting information a
 
 Sometimes, the controller has done it's job but the underlying storage is still not working properly. The answers may be in the underlying system the Kubernetes components are running on.
 
-Failures at this level, for example, the Linux device level, or the cloud storage provider level, can grow far beyond the scope of this document. If you deployed Konvoy using `AWS`, `GCP` or `Azure` storage drivers, please refer to the cloud storage provider's documentation to debug these issues further:
+Failures at this level, for example, the Linux device level, or the cloud storage provider level, can grow far beyond the scope of this document. If you deployed Konvoy using `AWS`, `GCP` or `Azure` storage drivers, refer to the cloud storage provider's documentation to debug these issues further:
 
 - [AWS EBS][awsstoragedocs]
 - [GCP][gcpstoragedocs]

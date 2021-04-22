@@ -16,6 +16,6 @@ Konvoy uses public IPs to communicate with the nodes. Konvoy sets `ansible_host`
 
 ## On-Premises
 
-In on-premises deployments you will need to update the `inventory.yaml` manually. Please refer to the [on-premises documentation][on-premises].
+In on-premises deployments you will need to update the `inventory.yaml` manually. Refer to the [on-premises documentation][on-premises].
 
 [on-premises]: ../../../install/install-onprem#specifying-ip-addresses-and-host-names

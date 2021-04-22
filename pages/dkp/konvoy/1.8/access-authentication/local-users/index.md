@@ -62,7 +62,7 @@ konvoy deploy addons
 
 ## Assign roles to local users
 
-We use Kubernetes RBAC to assign roles to local users. For more information, please refer to the official Kubernetes [RBAC][rbac] documentation. Below is an example of how to assign the `cluster-admin` role to a local user.
+We use Kubernetes RBAC to assign roles to local users. For more information, refer to the official Kubernetes [RBAC][rbac] documentation. Below is an example of how to assign the `cluster-admin` role to a local user.
 
 Create the following `ClusterRoleBinding` resource:
 

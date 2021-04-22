@@ -52,7 +52,7 @@ The following is an example of a `PersistentVolume` using a local volume and nod
 
   - `nodeAffinity` is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.
 
-For more details on the options available to create a `PersistentVolume` please check [Kubernetes PersistentVolume documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes).
+For more details on the options available to create a `PersistentVolume`, check [Kubernetes PersistentVolume documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes).
 
 To ensure the PVC binding decision also evaluates other node constraints the Pod may have, create a [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) with `volumeBindingMode` set to `WaitForFirstConsumer`.
 

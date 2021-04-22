@@ -31,12 +31,12 @@ All pods installed by Konvoy (such as addons) should be in `Running` or `Complet
 kubectl get pods --all-namespaces
 ```
 
-If any pod is not in `Running` or `Completed` status, please refer to the [troubleshooting guide][troubleshooting] for how to diagnose the issues.
+If any pod is not in `Running` or `Completed` status, refer to the [troubleshooting guide][troubleshooting] for how to diagnose the issues.
 
 ## Verify operation portal is working properly
 
-Last but not least, please verify that the operational portal is working properly.
-Please refer to this [guide][opsportal] for how to use the operational portal.
+Last but not least, verify that the operations portal is working properly.
+Refer to this [guide][opsportal] for how to use the operations portal.
 
 [troubleshooting_tools]: ../../troubleshooting/tools-and-techniques/
 [troubleshooting]: ../../troubleshooting/
