@@ -17,7 +17,7 @@ Though the required file is now generated, you still need to apply it to create 
 
 <p class="message--note"><strong>NOTE: </strong>After the initial connection is made, and your cluster become viewable as attached in the Kommander UI, the attachment and federated addons and platform services will still need to complete.
 This may take several additional minutes.
-If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the Kommander UI.
+If a cluster has limited resources to deploy all the federated platform services, the installation of the federated resources will fail and the cluster may become unreachable in the Kommander UI.
 If this happens, check if there are any pods that are not getting the resources required.</p>
 
 [attach-with-restrctions]: ../cluster-with-network-restrictions/
