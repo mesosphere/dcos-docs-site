@@ -2,9 +2,7 @@
 layout: layout.pug
 navigationTitle: Introducing Kommander
 title: Introducing Kommander
-featureMaturity:
 excerpt: Deploy and manage Kubernetes on an enterprise scale
-category: K-Sphere
 menuWeight: 2
 ---
 

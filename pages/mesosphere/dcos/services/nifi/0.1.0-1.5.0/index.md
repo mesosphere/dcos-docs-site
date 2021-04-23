@@ -4,7 +4,6 @@ navigationTitle: NiFi 0.1.0-1.5.0
 title: NiFi 0.1.0-1.5.0
 menuWeight: 7
 excerpt: Overview of DC/OS Apache NiFi 0.1.0-1.5.0
-featureMaturity:
 community: false
 ---
 

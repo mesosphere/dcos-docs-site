@@ -4,7 +4,6 @@ navigationTitle:
 excerpt: Limitations of DC/OS Apache Spark
 title: Limitations
 menuWeight: 135
-featureMaturity:
 render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---

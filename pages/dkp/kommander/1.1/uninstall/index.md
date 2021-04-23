@@ -2,9 +2,7 @@
 layout: layout.pug
 navigationTitle: Uninstall
 title: Uninstall
-featureMaturity:
 excerpt: Remove Kommander and related infrastructure
-category: K-Sphere
 menuWeight: 10
 ---
 

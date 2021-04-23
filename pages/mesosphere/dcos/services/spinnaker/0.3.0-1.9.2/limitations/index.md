@@ -4,7 +4,6 @@ navigationTitle:  Limitations
 title: Limitations
 menuWeight: 110
 excerpt: Understanding configuration limitations
-featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache

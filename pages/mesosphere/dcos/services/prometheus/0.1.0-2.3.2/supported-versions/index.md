@@ -4,7 +4,6 @@ navigationTitle:  Supported Versions
 title: Supported Versions
 menuWeight: 120
 excerpt: Understanding DC/OS Prometheus Services package versioning
-featureMaturity:
 enterprise: false
 ---
 

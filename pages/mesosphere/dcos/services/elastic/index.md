@@ -4,7 +4,6 @@ navigationTitle:  Elastic
 title: Elastic
 menuWeight: 40
 excerpt:
-featureMaturity:
 enterprise: false
 category: Data Services
 ---

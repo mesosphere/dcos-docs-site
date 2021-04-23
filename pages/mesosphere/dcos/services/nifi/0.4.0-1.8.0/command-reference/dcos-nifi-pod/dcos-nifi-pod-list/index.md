@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi pod list
 title: dcos nifi pod list
 menuWeight: 1
 excerpt: Display the list of known pod instances
-featureMaturity:
 enterprise: false
 model: ../../../../data.yml
 render: mustache

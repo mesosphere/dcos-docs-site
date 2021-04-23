@@ -4,7 +4,6 @@ navigationTitle: Usage Examples
 excerpt: Using DC/OS Apache Spark
 title: Usage Examples
 menuWeight: 15
-featureMaturity:
 render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---

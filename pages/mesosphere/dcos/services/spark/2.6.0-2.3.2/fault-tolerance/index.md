@@ -4,7 +4,6 @@ navigationTitle: Fault Tolerance
 excerpt: Understanding DC/OS Apache Spark fault tolerance
 title: Fault Tolerance
 menuWeight: 100
-featureMaturity:
 model: /mesosphere/dcos/services/spark/data.yml
 render: mustache
 ---

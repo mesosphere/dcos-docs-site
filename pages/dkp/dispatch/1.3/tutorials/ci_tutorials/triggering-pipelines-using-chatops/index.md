@@ -3,7 +3,6 @@ layout: layout.pug
 title: Running pipelines from ChatOps Commands
 navigationTitle: Run pipelines from ChatOps Commands
 beta: false
-category: K-Sphere
 menuWeight: 90
 excerpt: This tutorial describes how to trigger pipelines from Github comments
 ---

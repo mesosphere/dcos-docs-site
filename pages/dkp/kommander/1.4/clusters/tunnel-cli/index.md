@@ -264,8 +264,8 @@ To access services running on the remote cluster from the management cluster, co
 
 There are three methods:
 
-1. If the client program supports use of a kubeconfig file, use the managed cluster's kubeconfig;
-1. If the client program supports SOCKS5 proxying, use the proxy directly;
+1. If the client program supports use of a kubeconfig file, use the managed cluster's kubeconfig.
+1. If the client program supports SOCKS5 proxying, use the proxy directly.
 1. Otherwise deploy a proxy server on the management cluster.
 
 ### Managed cluster service
@@ -388,7 +388,7 @@ Commercial support is available at
 
 This is primarily useful for running `kubectl` commands on the management cluster to monitor the managed cluster.
 
-On the management cluster a `kubeconfig` file for the managed cluster configured to use the tunnel proxy is available as a Secret. The Secret's name can be identified using:
+On the management cluster, a `kubeconfig` file for the managed cluster configured to use the tunnel proxy is available as a Secret. The Secret's name can be identified using:
 ```shell
 kubeconfig_secret=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='{.status.kubeconfigRef.name}')
 ```
@@ -598,4 +598,4 @@ podname=$(kubectl get pods -n ${namespace} --selector=job-name=curl --field-sele
 kubectl logs -n ${namespace} ${podname}
 ```
 
-The final command returns the same output as for the job on the managed cluster, demonstrating that the job on the management cluster accessed the service running on the managed cluster.
+The final command returns the same output as the job on the managed cluster, demonstrating that the job on the management cluster accessed the service running on the managed cluster.

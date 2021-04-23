@@ -4,7 +4,6 @@ navigationTitle: Overview
 title: Overview
 menuWeight: 10
 excerpt: Getting started with DC/OS Apache NiFi Service
-featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache
@@ -42,9 +41,9 @@ The following components work together to deploy and maintain the service.
 
 # Deployment
 
-Internally, DC/OS {{model.techName }} treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
+Internally, DC/OS {{ model.techName }} treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
 
-- When DC/OS {{model.techName }} is first installed, deployment is moving from a null configuration to a deployed configuration.
+- When DC/OS {{ model.techName }} is first installed, deployment is moving from a null configuration to a deployed configuration.
 - When the deployed configuration is changed by editing an environment variable in the Scheduler, deployment is moving from an initial running configuration to a new proposed configuration.
 
 In this section, we’ll describe how these scenarios are handled by the Scheduler.
@@ -59,11 +58,11 @@ This is the flow for deploying a new service:
 
    2. A request is sent to the Cosmos packaging service to deploy the requested package along with a set of configuration options.
 
-   3. Cosmos creates a Marathon app definition by rendering DC/OS {{model.techName }}’s marathon.json.mustache with the configuration options provided in the request, which represents DC/OS {{model.techName }}’s Scheduler. Cosmos queries Marathon to create the app.
+   3. Cosmos creates a Marathon app definition by rendering DC/OS {{ model.techName }}’s marathon.json.mustache with the configuration options provided in the request, which represents DC/OS {{ model.techName }}’s Scheduler. Cosmos queries Marathon to create the app.
 
-   4. Marathon launches the DC/OS {{model.techName }}’s Scheduler somewhere in the cluster using the rendered app definition provided by Cosmos.
+   4. Marathon launches the DC/OS {{ model.techName }}’s Scheduler somewhere in the cluster using the rendered app definition provided by Cosmos.
 
-   5. DC/OS {{model.techName }}’s Scheduler is launched. From this point onwards, the SDK handles deployment.
+   5. DC/OS {{ model.techName }}’s Scheduler is launched. From this point onwards, the SDK handles deployment.
 
 ### Steps handled by the Scheduler
 
@@ -82,7 +81,7 @@ The Scheduler starts with the following state:
     - If the Framework ID is present, the Scheduler will attempt to reconnect to Mesos using that ID. This may result in a “Framework has been removed” error if Mesos doesn’t recognize that Framework ID, indicating an incomplete uninstall.
     - If the Framework ID is not present, the Scheduler will attempt to register with Mesos as a Framework. Assuming this is successful, the resulting Framework ID is then immediately stored.
 
-1. Now that the Scheduler has registered as a Mesos Framework, it is able to start interacting with Mesos and receiving offers. When this begins, the Scheduler will begin running the Offer Cycle and deploying DC/OS {{model.techName }}. See that section for more information.
+1. Now that the Scheduler has registered as a Mesos Framework, it is able to start interacting with Mesos and receiving offers. When this begins, the Scheduler will begin running the Offer Cycle and deploying DC/OS {{ model.techName }}. See that section for more information.
 
 1. The Scheduler retrieves its deployed task state from ZooKeeper and finds that there are tasks that should be launched. This is the first launch, so all tasks need to be launched.
 
@@ -128,7 +127,7 @@ Scheduler reconfiguration is slightly different from initial deployment because 
 
 ## Uninstallation
 
-This is the flow for uninstalling DC/OS {{model.techName }}.
+This is the flow for uninstalling DC/OS {{ model.techName }}.
 
 ### Steps handled by the Cluster
 

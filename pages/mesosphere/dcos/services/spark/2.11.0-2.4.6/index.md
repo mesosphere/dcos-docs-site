@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Documentation for DC/OS Apache Spark 2.11.0-2.4.6
 model: /mesosphere/dcos/services/spark/data.yml
 render: mustache
-featureMaturity:
 ---
 
 Welcome to the documentation for the DC/OS {{ model.techName }}. For more information about new and changed features, see the [release notes](/mesosphere/dcos/services/spark/2.11.0-2.4.6/release-notes/).

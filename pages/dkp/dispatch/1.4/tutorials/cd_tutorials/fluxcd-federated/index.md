@@ -3,7 +3,6 @@ layout: layout.pug
 title: Deploying with FluxCD to multiple clusters
 navigationTitle: Deploying with FluxCD to multiple clusters
 beta: false
-category: K-Sphere
 menuWeight: 105
 excerpt: This tutorial demonstrates how to setup a GitOps application using FluxCD and federation using Kommander.
 ---

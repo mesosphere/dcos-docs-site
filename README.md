@@ -81,16 +81,16 @@ New content should never be created without a ticket that ties back to a feature
 This jira ticket will be used to tie the PR to the work tracking. Stay tuned for process updates on how Jira tickets will run in parallel with feature development.
 
 ## Ensure the latest updates of the content
-### Checkout staging branch
-`git checkout staging` - puts you on our default base branch, this could also be **any** collaborative branch
+### Checkout main branch
+`git checkout main` - puts you on our default base branch, this could also be **any** collaborative branch
 ### Fetch the updates first (optional, but recommended)
 `git fetch` - queries a list of all changes since last query.
 This is useful to keep an eye on what branches are being worked on.
 
 ### Merge the updates
-`git pull origin <branch-name>` - queries the changes and automatically merges the staging branch in to update it
+`git pull origin <branch-name>` - queries the changes and automatically merges the main branch in to update it
 
-NB: Shortcut is `git pull` when you are on the `staging` branch
+NB: Shortcut is `git pull` when you are on the `main` branch
 
 
 ## Start work on a specific ticket
@@ -261,7 +261,7 @@ Use the GUI interface and click the plus sign `+` to add files in. There are tim
 
 ### Commit the files
 `git commit -m "<your message here>"` this commits with a custom message describing the commit. This should follow your team's best practices.
-Shortcut: If all the files are already in existence and you are only modifying them, you can double up the commands with: `git commit -a -m "<message"` and it will automatically add all known files to staging before committing.
+Shortcut: If all the files are already in existence and you are only modifying them, you can double up the commands with: `git commit -a -m "<message"` and it will automatically add all known files to main before committing.
 
 ### Rinse and repeat
 Continue this process of edits, saving your work, previewing, and committing until necessary edits are complete.
@@ -282,7 +282,7 @@ Docs PRs need a link to the eng side ticket to know what feature or fix this is 
 By this time, you should have a tech writer assigned to the PR and they will have given feedback. Once both sides have signed off, it is ready for a `ready-to-merge` label.
 
 ### Docs Team will merge your PR
-Staging builds go live as needed and sometimes multiple times in a day. For hotfixes, please make sure to communicate the reason for escalation to immediate promotion.
+docs builds go live as needed and sometimes multiple times in a day. For hotfixes, please make sure to communicate the reason for escalation to immediate promotion.
 
 # Docs Admin Workflows
 
@@ -290,12 +290,11 @@ Staging builds go live as needed and sometimes multiple times in a day. For hotf
 ### Standard Rebase and Merge
 Once you have a PR created and there are no conflicts listed on the auto-merge page, simply click the Green `Rebase and Merge` button available to you.
 
-### QA staging build
-Staging is literally that, a last place to accumulate changes before they go live. This should be considered live once anything reaches staging, as reverting things takes extra time.
-Best practice is to do a quick visual scan of the pages changed once built to staging, but is often skipped unless a spot check is needed. It is assumed PRs are run and checked before requesting a merge.
 
-### Promote to Master
-The script `./scripts/promote-staging-to-master.sh` will checkout staging, update itself, checkout master, update and merge in, and then push master up to trigger a webhook for the production build.
+### Automatic preview builds 
+Every docs PR is generated as a preview at the following URL:
+
+http://docs-d2iq-com-pr-<add_pr_##_here>.s3-website-us-west-2.amazonaws.com/
 
 ## Rebase your work
 
@@ -304,11 +303,11 @@ Rebasing is the preferred strategy for applying PRs. Rather than merging differe
 
 The most common use case is when a PR has become out of date and a conflict has occured because a page has diverging edits from someone else on a different task. Rebasing allows an interactive session in which merge conflicts are presented so that those conflicts can be handled one by one.
 
-Within the docs, typically, you will only ever rebase your own work to update it with the latest staging.
-Docs Admins will often rebase a PR before merging it to staging if there are outstanding conflicts.
+Within the docs, typically, you will only ever rebase your own work to update it with the latest main.
+Docs Admins will often rebase a PR before merging it to main if there are outstanding conflicts.
 Start from **YOUR** working branch, for example ck/DCOS-2
 
-`git rebase staging` This will try to do everything automatically, and put your work on top of the last know commit on staging.
+`git rebase main` This will try to do everything automatically, and put your work on top of the last know commit on main.
 
 `git rebase -i <commit/branch>` This starts an interactive rebase should you want to pick and choose which work from the other branch should be applied to yours. (Advanced)
 
@@ -316,7 +315,7 @@ If you encounter merge conflicts, the order of operations is slightly different 
 
 1. Find the file(s) that have conflicts
 1. Resolve any conflicts and save the files
-1. Add file to git staging area
+1. Add file to git main area
     - Click the `+` sign in the GUI next to the file name
     - OR `git add .`
 1. Continue the rebase `git rebase --continue`
@@ -324,7 +323,7 @@ If you encounter merge conflicts, the order of operations is slightly different 
 
 NB: Often you need to make choices and something might go wrong. `git rebase --abort` any time before it finishes will cancel and reset you to where you were.
 
-## Pushing a rebased branch to staging
+## Pushing a rebased branch to main
 Whenever a rebase occurs, or a few other operations that change the order of commits as they are saved to the branch, git will raise an error if you try to push those changes up to the remote repository (usually called origin by default). This is because the histories are incompatible and this is a protective measure against major changes.
 
 Override the history protection with the `--force` flag
@@ -351,12 +350,4 @@ Figure 1 - Folder Structure Example
 - **title**: longer title that shows up at top of content page
 - **excerpt**: presented below the title at the top of the content page, sometimes used in topic cards
 - **menuWeight**: this determines ordering within the nav structure, all numerical values except -1 accepted and sorted
-
-### Add Optional metadata:
-#### Product Labels
-
-* **enterprise: true** - use this to add an enterprise label to a page
-* **community: true** - use this to add an enterprise label to a page
-* **beta: true** - use this to add an enterprise label to a page
-
-NB: Labels are only added directly to the particular page and not to any subpages
+- **beta: true** - use this to add a beta label to a page

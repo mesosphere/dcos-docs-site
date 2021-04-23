@@ -3,7 +3,6 @@ layout: layout.pug
 title: Configuring DC/OS Access for Kafka Zookeeper
 menuWeight: 660
 excerpt:
-featureMaturity:
 enterprise: true
 ---
 

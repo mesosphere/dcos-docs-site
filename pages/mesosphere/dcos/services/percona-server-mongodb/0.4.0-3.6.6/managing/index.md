@@ -4,7 +4,6 @@ navigationTitle:  Managing
 title: Managing
 menuWeight: 60
 excerpt: Updating your configuration
-featureMaturity:
 enterprise: false
 ---
 

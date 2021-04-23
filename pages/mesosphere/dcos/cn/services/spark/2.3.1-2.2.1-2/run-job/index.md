@@ -4,7 +4,6 @@ navigationTitle: 运行 Spark 作业
 excerpt: 运行 Spark 作业
 title: 运行 Spark 作业
 menuWeight: 80
-featureMaturity:
 model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---

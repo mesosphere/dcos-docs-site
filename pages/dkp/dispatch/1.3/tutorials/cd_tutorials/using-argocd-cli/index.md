@@ -3,7 +3,6 @@ layout: layout.pug
 title: Configure the ArgoCD CLI with Dispatch
 navigationTitle: Configure the ArgoCD CLI with Dispatch
 beta: false
-category: K-Sphere
 menuWeight: 105
 excerpt: This tutorial describes how to use the ArgoCD CLI to operate the instance of ArgoCD that is bundled with Dispatch.
 ---

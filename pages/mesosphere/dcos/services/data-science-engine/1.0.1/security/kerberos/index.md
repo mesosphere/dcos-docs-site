@@ -38,7 +38,7 @@ Make sure your `keytab` file is in the DC/OS secret store, under a path that is 
 ## Example: Using HDFS with Spark in a Kerberized Environment
 Here is an example notebook of `Tensorflow on Spark` using `HDFS` as a storage backend in a Kerberized environment. 
 
-First of all, you need to make sure that HDFS service is installed and {{model.techName}} is configured with its endpoint. To read more about configuring an HDFS integration of {{model.techName}}, see the [Using HDFS with DC/OS Data Science Engine](/mesosphere/dcos/services/data-science-engine/1.0.1/integrations/hdfs/) section.
+First of all, you need to make sure that HDFS service is installed and {{ model.techName }} is configured with its endpoint. To read more about configuring an HDFS integration of {{ model.techName }}, see the [Using HDFS with DC/OS Data Science Engine](/mesosphere/dcos/services/data-science-engine/1.0.1/integrations/hdfs/) section.
 
 1. Make sure HDFS Client service is installed and running with the "Kerberos enabled" option. 
 

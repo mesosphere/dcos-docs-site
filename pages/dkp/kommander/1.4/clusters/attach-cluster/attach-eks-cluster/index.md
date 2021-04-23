@@ -8,15 +8,15 @@ beta: false
 enterprise: false
 ---
 
-You can attach existing Kubernetes clusters to Kommander. After attaching the cluster, you can use Kommander to [examine and manage](/dkp/kommander/1.4/clusters/) this cluster. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander.
+You can attach existing Kubernetes clusters to Kommander. After attaching the cluster, you can use Kommander to [examine and manage][manage-clusters] this cluster. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander.
 
 ## Before you begin
 
 This procedure requires the following items and configurations:
 
-- A fully configured and running Amazon [EKS](https://aws.amazon.com/eks/) cluster with administrative privileges.
-- Konvoy v1.5.0 or above, [installed and configured](/dkp/konvoy/1.5/install/) for your Amazon EKS cluster, on your machine.
-- Kommander v1.2.0 or above, [installed and configured](/dkp/kommander/1.4/install/) on your machine.
+- A fully configured and running Amazon [EKS][eks] cluster with administrative privileges.
+- Konvoy v1.5.0 or above, [installed and configured][konvoy-install] for your Amazon EKS cluster, on your machine.
+- Kommander v1.2.0 or above, [installed and configured][kommander-install] on your machine.
 
 <p class="message--note"><strong>NOTE: </strong>This procedure assumes you have an existing and spun up Amazon EKS cluster(s) with administrative privileges. Refer to the Amazon <a href="https://aws.amazon.com/eks/" target="_blank">EKS</a> for setup and configuration information.</p>
 
@@ -76,7 +76,7 @@ Attaching an Amazon EKS cluster to Kommander requires that you:
 
 ### Create and implement a kubeconfig file
 
-1. You must create a kubeconfig file that is compatible with the Kommander UI. Enter these commands to set the following environment variables:
+1. You must create a kubeconfig file that is compatible with Kommander. Enter these commands to set the following environment variables:
 
    ```bash
    export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')
@@ -87,13 +87,21 @@ Attaching an Amazon EKS cluster to Kommander requires that you:
    export CLUSTER_SERVER=$(kubectl config view --raw -o=go-template='{{range .clusters}}{{if eq .name "'''${CURRENT_CLUSTER}'''"}}{{ .cluster.server }}{{end}}{{ end }}')
    ```
 
-1. Confirm the variables are set correctly:
+1. Confirm the variables are set correctly. Run the following command:
 
    ```bash
    env | grep CLUSTER
    ```
 
-1. Create a kubeconfig file to use in the Kommander UI. Enter the following commands:
+1. You should see a response similar to this:
+
+   ```bash
+   CLUSTER_CA=LS0tLS1CRUdJTiBDRVJUtristiqueInterdumetmalesuadaUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1EUXhOakl3TWpjeU9Gb1hEVE14TURReE5ESXdNamN5T0Zvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTDVRCmJCV1pEMkd6N0oxeSswY3FuYWE2aDBqYVVOdXI0ZGJidkZ5N1VqcU55bTd0KzhHaFl6Wk5VQzZPVFpWT3FZRkMKKzJZK1FoV0xLYzR3SW1sTjdVYWZxamh4MExONC8zR3BpQ1ZwSU52ZG9HelNYTXdLalg0dHViVUN0OTRjUnV2QgpjMlVYR0kvS0paWWV5TDY5UGQwWno5RUNTdlJFa2VqWlU3RHB0WVVtUldhUmdXUkgvbHNoRWl6ODl3WmlHWVUxCLoremipsumdolorsitamet05secteturadipiscingelitSuspendi2xsodalesnisisedleofacilisisafringillapuruscursusProindictumsuscipitloremnonfringillaaugueultriciestristiqueInterdumetmalesuadafamesacanteipsumprimisinfaucibusNamatestnecmagnaultricesposuereMorbi05vallisnuncquamapellentesquemetustemporeuVivamusfinibusnibhutiaculismalesuadaDonecsitametlaciniafelisNamultriceseunibhvitaeultrice2xdvolutpatporttitortellusvitaehendreritVivamusetmagnatellusDuisidurnaodioFuscealiquamvelitetexpharetraluctusNamultriciesdignissimsagittisMaecenasquissapiensapienS0tLQo=
+   CLUSTER_SERVER=https://your-server-info.gr7.your-region-1.eks.amazonaws.com
+   CURRENT_CLUSTER=dkp-engineering-eks.us-west-2.eksctl.io
+   ```
+
+1. Create a kubeconfig file to use in Kommander. Enter the following command:
 
    ```bash
    cat << EOF > kommander-cluster-admin-config
@@ -134,30 +142,37 @@ Attaching an Amazon EKS cluster to Kommander requires that you:
 
 ### Attach the Amazon EKS cluster to Kommander
 
-1. Select the **Add Cluster** button in your Kommander window.
+1. From the Clusters page, select the **Add Cluster** button in your Kommander window.
 
-1. Select the **Attach Cluster** button. The **Connection Information** window displays.
+1. Select the **Attach Cluster** button. If you do not have any [additional networking restrictions][no-network-restrictions], select the **No additional networking restrictions** card. If you do have a cluster with networking restrictions, follow the instructions to [attach a cluster with networking restrictions][with-network-restrictions].
 
 1. Paste the contents of your clipboard into the **Connection Information** Kubeconfig File text box.
 
 1. Assign a name and add any desired labels for the cluster.
 
+1. Select the intended context with the config in the **Context** select list.
+
 1. Confirm you are assigning the cluster to your desired workspace.
 
 1. Select the **Submit** button.
 
-<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the Kommander UI. If this happens, please check if there are any pods that are not getting the resources required.</p>
+<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the Kommander UI. If this happens, check if there are any pods that are not getting the resources required.</p>
 
 ## Related information
 
 For information on related topics or procedures, refer to the following:
 
-- [Configuring and Running Amazon EKS Clusters](https://aws.amazon.com/eks/)
+- [Configuring and Running Amazon EKS Clusters][eks]
 
-- [Installing and Configuring Konvoy v1.5.0 or above](/dkp/konvoy/1.7/install/)
+- [Installing and Configuring Konvoy v1.5.0 or above][konvoy-install]
 
-- [Installing and Configuring Kommander v1.2.0 or above](/dkp/kommander/1.4/install/)
+- [Installing and Configuring Kommander v1.2.0 or above][kommander-install]
 
-- [Working with Kommander Clusters](/dkp/kommander/1.4/clusters/)
+- [Working with Kommander Clusters][manage-clusters]
 
 [eks]: https://aws.amazon.com/eks/
+[kommander-install]: /dkp/kommander/1.4/install/
+[konvoy-install]: /dkp/konvoy/1.8/install/
+[manage-clusters]: /dkp/kommander/1.4/clusters/
+[no-network-restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-no-network-restrictions/
+[with-network-restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-with-network-restrictions/

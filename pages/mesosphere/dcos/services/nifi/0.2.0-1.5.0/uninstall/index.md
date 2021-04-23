@@ -4,7 +4,6 @@ navigationTitle:  Uninstalling
 title: Uninstalling
 menuWeight: 40
 excerpt: Uninstalling DC/OS Apache NiFi Services
-featureMaturity:
 enterprise: false
 ---
 

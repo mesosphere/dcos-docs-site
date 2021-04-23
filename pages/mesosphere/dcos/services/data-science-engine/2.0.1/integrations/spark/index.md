@@ -111,7 +111,7 @@ You can configure SHS to use HDFS with the following steps:
     }
     ```
 
-    To find more about configuring HDFS integration of {{model.nickName}}, see the [Using HDFS with DC/OS Data Science Engine](/mesosphere/dcos/services/data-science-engine/2.0.1/storage/hdfs/) documentation.
+    To find more about configuring HDFS integration of {{ model.nickName }}, see the [Using HDFS with DC/OS Data Science Engine](/mesosphere/dcos/services/data-science-engine/2.0.1/storage/hdfs/) documentation.
 
 1.  Enable the `Spark Event` log and set the HDFS directory:
 

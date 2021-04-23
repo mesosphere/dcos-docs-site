@@ -4,19 +4,18 @@ navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 10
 excerpt: Installing DC/OS NiFi from the UI or the CLI
-featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache
 ---
 
- DC/OS {{model.techName }} is available in the Universe and can be installed by using either the UI or the DC/OS CLI.
+ DC/OS {{ model.techName }} is available in the Universe and can be installed by using either the UI or the DC/OS CLI.
 
-The default DC/OS {{model.techName }} service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
+The default DC/OS {{ model.techName }} service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
 ## Prerequisites
 
-- If you are using DC/OS Enterprise, you may [need to provision a service account](/mesosphere/dcos/latest/security/ent/service-auth/custom-service-auth/) before installing DC/OS {{model.techName }} Service. Only someone with `superuser` permission can create the service account.
+- If you are using DC/OS Enterprise, you may [need to provision a service account](/mesosphere/dcos/latest/security/ent/service-auth/custom-service-auth/) before installing DC/OS {{ model.techName }} Service. Only someone with `superuser` permission can create the service account.
   - `strict` [security mode](/mesosphere/dcos/latest/security/ent/service-auth/custom-service-auth/) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
@@ -24,14 +23,14 @@ The default DC/OS {{model.techName }} service installation provides reasonable d
 
 ### Installation Limitations
 
-The minimum memory requirement for DC/OS {{ model.techName }} installation is {{ model.install.minMemory }}. DC/OS {{model.techName }} installation will take time since the DC/OS {{model.techName }} application is approximately 1.10GB. The approximate installation time required would be around 20~25 minutes for a two node cluster.
+The minimum memory requirement for DC/OS {{ model.techName }} installation is {{ model.install.minMemory }}. DC/OS {{ model.techName }} installation will take time since the DC/OS {{ model.techName }} application is approximately 1.10GB. The approximate installation time required would be around 20~25 minutes for a two node cluster.
 
 
 <p class="message--note"><strong>NOTE: </strong>A complete guide to Configuring DC/OS Access for NiFi can be found <a href="/mesosphere/dcos/services/nifi/configure-dcos-access">here</a>.
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of DC/OS {{model.techName }}, run the following command on the DC/OS CLI. DC/OS Enterprise users must follow additional instructions.
+To start a basic test cluster of DC/OS {{ model.techName }}, run the following command on the DC/OS CLI. DC/OS Enterprise users must follow additional instructions.
 
    ```shell
    dcos package install {{ model.packageName }}
@@ -55,9 +54,9 @@ For more information on building the `options.json` file, see [DC/OS documentati
 
 # Installing from the DC/OS Web Interface
 
-You can install DC/OS {{model.techName }} from the DC/OS UI by selecting the app from the Catalog and then clicking on **Deploy**.
+You can install DC/OS {{ model.techName }} from the DC/OS UI by selecting the app from the Catalog and then clicking on **Deploy**.
 
-If you install DC/OS {{model.techName }} from the DC/OS UI, the
+If you install DC/OS {{ model.techName }} from the DC/OS UI, the
 `dcos {{ model.packageName }}` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
 
@@ -69,7 +68,7 @@ If you install DC/OS {{model.techName }} from the DC/OS UI, the
 
 ## Installing multiple instances
 
-By default, the DC/OS {{model.techName }} service is installed with a service name of `{{ model.packageName }}`. You may specify a different name using a custom service configuration as follows:
+By default, the DC/OS {{ model.techName }} service is installed with a service name of `{{ model.packageName }}`. You may specify a different name using a custom service configuration as follows:
 
    ```json
    {
@@ -85,7 +84,7 @@ When the above JSON configuration is passed to the `package install {{ model.pac
    dcos package install {{ model.packageName }} --options={{ model.packageName }}-other.json
    ```
 
-Multiple instances of DC/OS {{model.techName }} may be installed on your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of DC/OS {{model.techName }} named `{{ model.packageName }}-staging` and another named `{{ model.packageName }}-prod`, each with its own custom  configuration.
+Multiple instances of DC/OS {{ model.techName }} may be installed on your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of DC/OS {{ model.techName }} named `{{ model.packageName }}-staging` and another named `{{ model.packageName }}-prod`, each with its own custom  configuration.
 
 After specifying a custom name for your instance, it can be reached using `dcos {{ model.packageName }}` CLI commands or directly over HTTP as described below.
 <p class="message--important"><strong>IMPORTANT: </strong>The service name cannot be changed after initial install. Changing the service name would require installing a new instance of the service against the new name, then copying over any data as necessary to the new instance.</p>
@@ -132,11 +131,11 @@ Similarly, it could be queried directly over HTTP as follows:
    ```shell
    curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/{{ model.packageName }}-dev/v1/pod
    ```
-<p class="message--note"><strong>NOTE: </strong>You may add a `-v`(verbose) argument to any `dcos {{ model.packageName }}` command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, `dcos {{ model.packageName }}` commands are a thin wrapper around an HTTP interface provided by the DC/OS {{model.techName }} service itself.</p>
+<p class="message--note"><strong>NOTE: </strong>You may add a `-v`(verbose) argument to any `dcos {{ model.packageName }}` command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, `dcos {{ model.packageName }}` commands are a thin wrapper around an HTTP interface provided by the DC/OS {{ model.techName }} service itself.</p>
 
 ## Virtual Networks
 
-DC/OS {{model.techName }} supports deployment on virtual networks on DC/OS, allowing each container (task) to have its own IP address and not use port resources on the agent machines. This can be specified by passing the following configuration during installation:
+DC/OS {{ model.techName }} supports deployment on virtual networks on DC/OS, allowing each container (task) to have its own IP address and not use port resources on the agent machines. This can be specified by passing the following configuration during installation:
 
    ```json
    {
@@ -150,7 +149,7 @@ DC/OS {{model.techName }} supports deployment on virtual networks on DC/OS, allo
 
 ## Minimal Installation
 
-For development purposes, you may wish to install DC/OS {{model.techName }} on a local DC/OS cluster. For this, you can use `dcos-docker` or `dcos-vagrant`.
+For development purposes, you may wish to install DC/OS {{ model.techName }} on a local DC/OS cluster. For this, you can use `dcos-docker` or `dcos-vagrant`.
 To start a minimal cluster with a single node, create a JSON options file named `sample-{{ model.packageName }}-minimal.json`:
 
    ```json
@@ -278,4 +277,4 @@ Likewise, this file can be referenced to update a `{{ model.packageName }}` serv
    ```
 
 ## Secured Installation
-  Please refer to the [Security Guide](../security) for secured installation of DC/OS {{model.techName }}.
+  Please refer to the [Security Guide](../security) for secured installation of DC/OS {{ model.techName }}.

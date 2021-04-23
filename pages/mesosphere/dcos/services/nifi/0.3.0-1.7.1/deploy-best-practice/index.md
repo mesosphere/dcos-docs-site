@@ -4,7 +4,6 @@ navigationTitle:  Deployment Best Practices
 title: Deployment Best Practices
 menuWeight: 30
 excerpt: Best practices for production deployment
-featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache
@@ -18,7 +17,7 @@ render: mustache
 sudo sysctl -w net.ipv4.ip_local_port_range="10000 65000"
 ```
 
-- Tell Linux you never want DC/OS {{model.techName }} to swap. Swapping is fantastic for some applications. It is not good for something like DC/OS {{model.techName }} that always wants to be running.
+- Tell Linux you never want DC/OS {{ model.techName }} to swap. Swapping is fantastic for some applications. It is not good for something like DC/OS {{ model.techName }} that always wants to be running.
 
 To set swapping off you can edit `/etc/sysctl.conf` to add the following line
 
@@ -26,19 +25,19 @@ To set swapping off you can edit `/etc/sysctl.conf` to add the following line
 vm.swappiness = 0
 ```
 
-For the partitions handling the various DC/OS {{model.techName }} repos turn off things like `atime`. Doing so can cause a surprising bump in throughput. Edit the `/etc/fstab` file and for the partition(s) of interest add the `noatime` option.
+For the partitions handling the various DC/OS {{ model.techName }} repos turn off things like `atime`. Doing so can cause a surprising bump in throughput. Edit the `/etc/fstab` file and for the partition(s) of interest add the `noatime` option.
 
 ## Hardware Sizing Recommendations
 
-The following image shows the recommended hardware for a DC/OS {{model.techName }} production installation:
+The following image shows the recommended hardware for a DC/OS {{ model.techName }} production installation:
 
 ![Hardware Recommendation](../img/HardwareRecommendation.png)
 
-Figure 1. Hardware sizing recommendations for DC/OS {{model.techName }}
+Figure 1. Hardware sizing recommendations for DC/OS {{ model.techName }}
 
 ## Disk Recommendations
 
-DC/OS {{model.techName }} performs best when using disks with fast read and write patterns.
+DC/OS {{ model.techName }} performs best when using disks with fast read and write patterns.
 
 We recommend the following:
 

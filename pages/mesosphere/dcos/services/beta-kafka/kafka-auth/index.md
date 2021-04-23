@@ -3,7 +3,6 @@ layout: layout.pug
 title: Configuring DC/OS Access for Kafka
 menuWeight: 5
 excerpt:
-featureMaturity:
 enterprise: true
 beta: true
 model: /mesosphere/dcos/services/beta-kafka/data.yml

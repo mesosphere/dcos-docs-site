@@ -1,0 +1,44 @@
+Here is a status summary of all plans after installation in the KUDO Kafka Operator
+```
+kubectl kudo plan status --instance kafka -n test-project-zc6tc
+Plan(s) for "kafka" in namespace "test-project-zc6tc":
+.
+└── kafka (Operator-Version: "kafka-2.5.1-1.3.3" Active-Plan: "deploy")
+    ├── Plan cruise-control (serial strategy) [NOT ACTIVE]
+    │   └── Phase cruise-addon (serial strategy) [NOT ACTIVE]
+    │       └── Step deploy-cruise-control [NOT ACTIVE]
+    ├── Plan deploy (serial strategy) [COMPLETE], last updated 2021-04-15 02:28:18
+    │   ├── Phase deploy-kafka (serial strategy) [COMPLETE]
+    │   │   ├── Step generate-tls-certificates [COMPLETE]
+    │   │   ├── Step configuration [COMPLETE]
+    │   │   ├── Step service [COMPLETE]
+    │   │   └── Step app [COMPLETE]
+    │   └── Phase addons (parallel strategy) [COMPLETE]
+    │       ├── Step monitoring [COMPLETE]
+    │       ├── Step mirror [COMPLETE]
+    │       └── Step load [COMPLETE]
+    ├── Plan external-access (serial strategy) [NOT ACTIVE]
+    │   └── Phase resources (serial strategy) [NOT ACTIVE]
+    │       └── Step deploy [NOT ACTIVE]
+    ├── Plan kafka-connect (serial strategy) [NOT ACTIVE]
+    │   └── Phase deploy-kafka-connect (serial strategy) [NOT ACTIVE]
+    │       ├── Step deploy [NOT ACTIVE]
+    │       └── Step setup [NOT ACTIVE]
+    ├── Plan mirrormaker (serial strategy) [NOT ACTIVE]
+    │   └── Phase app (serial strategy) [NOT ACTIVE]
+    │       └── Step deploy [NOT ACTIVE]
+    ├── Plan not-allowed (serial strategy) [NOT ACTIVE]
+    │   └── Phase not-allowed (serial strategy) [NOT ACTIVE]
+    │       └── Step not-allowed [NOT ACTIVE]
+    ├── Plan service-monitor (serial strategy) [NOT ACTIVE]
+    │   └── Phase enable-service-monitor (serial strategy) [NOT ACTIVE]
+    │       └── Step deploy [NOT ACTIVE]
+    ├── Plan update-instance (serial strategy) [NOT ACTIVE]
+    │   └── Phase app (serial strategy) [NOT ACTIVE]
+    │       ├── Step conf [NOT ACTIVE]
+    │       ├── Step svc [NOT ACTIVE]
+    │       └── Step sts [NOT ACTIVE]
+    └── Plan user-workload (serial strategy) [NOT ACTIVE]
+        └── Phase workload (serial strategy) [NOT ACTIVE]
+            └── Step toggle-workload [NOT ACTIVE]
+```

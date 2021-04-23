@@ -4,7 +4,6 @@ navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 10
 excerpt: Discover the new features, updates, and known limitations in this release of the DC/OS Apache Spark Service 
-featureMaturity:
 ---
 
 # Release Notes for DC/OS Apache Spark Service version 2.6.0-2.3.2

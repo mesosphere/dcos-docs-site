@@ -4,7 +4,6 @@ navigationTitle:  Debugging
 title: Debugging
 menuWeight: 101
 excerpt: Some common errors you might find
-featureMaturity:
 enterprise: false
 model: ../../../data.yml
 render: mustache
@@ -44,7 +43,7 @@ You can also access the logs via the Mesos UI:
 
 # Replacing a Permanently Failed Node
 
-The DC/OS {{model.techName }} is resilient to temporary pod failures, automatically relaunching them in-place if they stop running. However, if a machine hosting a pod is permanently lost, manual intervention is required to discard the downed pod and reconstruct it on a new machine.
+The DC/OS {{ model.techName }} is resilient to temporary pod failures, automatically relaunching them in-place if they stop running. However, if a machine hosting a pod is permanently lost, manual intervention is required to discard the downed pod and reconstruct it on a new machine.
 
   1. The following command should be used to get a list of available pods. In this example we are querying a service named {{ model.serviceName }}-dev.
 

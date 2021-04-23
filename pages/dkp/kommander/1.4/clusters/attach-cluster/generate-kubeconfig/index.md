@@ -3,7 +3,7 @@ layout: layout.pug
 beta: true
 navigationTitle: Generate a kubeconfig File
 title: Generate a kubeconfig File
-menuWeight: 1
+menuWeight: 2
 excerpt: How to create a service account and generate a kubeconfig file for attaching an existing cluster
 ---
 
@@ -24,15 +24,15 @@ cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-name: kommander-cluster-admin
+  name: kommander-cluster-admin
 roleRef:
-apiGroup: rbac.authorization.k8s.io
-kind: ClusterRole
-name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
 subjects:
 - kind: ServiceAccount
-name: kommander-cluster-admin
-namespace: kube-system
+  name: kommander-cluster-admin
+  namespace: kube-system
 EOF
 ```
 
@@ -56,19 +56,19 @@ kind: Config
 current-context: ${CURRENT_CONTEXT}
 contexts:
 - name: ${CURRENT_CONTEXT}
-context:
-cluster: ${CURRENT_CONTEXT}
-user: kommander-cluster-admin
-namespace: kube-system
+  context:
+    cluster: ${CURRENT_CONTEXT}
+    user: kommander-cluster-admin
+    namespace: kube-system
 clusters:
 - name: ${CURRENT_CONTEXT}
-cluster:
-certificate-authority-data: ${CLUSTER_CA}
-server: ${CLUSTER_SERVER}
+  cluster:
+    certificate-authority-data: ${CLUSTER_CA}
+    server: ${CLUSTER_SERVER}
 users:
 - name: kommander-cluster-admin
-user:
-token: ${USER_TOKEN_VALUE}
+  user:
+    token: ${USER_TOKEN_VALUE}
 EOF
 ```
 
@@ -79,3 +79,15 @@ Before importing this configuration, you can verify that it is functional by run
 ```shell
 kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespaces
 ```
+
+Then, you can use this kubeconfig to:
+
+- Attach a cluster with [no additional networking restrictions][no-network-restrictions]
+- Attach a cluster that [has networking restrictions][with-network-restrictions]
+
+<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the Kommander UI. If this happens, check if there are any pods that are not getting the resources required.</p>
+
+[clusteradmin]: https://kubernetes.io/docs/concepts/cluster-administration/cluster-administration-overview/
+[kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[no-network-restrictions]: ../cluster-no-network-restrictions/
+[with-network-restrictions]: ../cluster-with-network-restrictions/

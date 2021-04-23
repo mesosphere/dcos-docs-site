@@ -4,7 +4,6 @@ navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 10
 excerpt: Release notes for DC/OS Apache Spark 2.11.0-2.4.6
-featureMaturity:
 render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---
@@ -54,7 +53,7 @@ model: /mesosphere/dcos/services/spark/data.yml
 ## Version Spark and Spark history 2.8.0-2.4.0
 
 ### New features
-- Mesos checkpointing support for Spark Drivers submitted to Dispatcher. For more information check [fault tolerance](/mesosphere/dcos/services/{{model.packageName}}/2.8.0-2.4.0/fault-tolerance/#mesos-checkpointing) documentation.
+- Mesos checkpointing support for Spark Drivers submitted to Dispatcher. For more information check [fault tolerance](/mesosphere/dcos/services/{{ model.packageName }}/2.8.0-2.4.0/fault-tolerance/#mesos-checkpointing) documentation.
 
 ### Updates
 - Upgraded Hadoop dependency to 2.9.2

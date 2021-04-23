@@ -47,19 +47,20 @@ Cluster labels are matched to the selectors created for [projects][projects]. If
 ##### Valid labels
 
 - Valid labels must have a key and a value, separated by a colon and a space. For example, "env: dev". If you are creating the label through the UI, the space is automatically added when entering your values in the fields.
-- Valid label keys and values must be alphanumeric and can contain “-”, “\_”, or “.”
-- Valid label keys and values must not start or end with “-”, “\_”, or “.”
+- Valid label keys and values must be alphanumeric and can contain `-`, `_`, or `.`
+- Valid label keys and values must not start or end with `-`, `_`, or `.`
 
 ### Statuses
 
-See [Statuses](/dkp/kommander/1.4/clusters/#statuses) for a list of possible statuses a cluster can have at attach or creation.
+See [Statuses][statuses] for a list of possible statuses a cluster can have at attach or creation.
 
+[attach_cluster]: /dkp/kommander/1.4/clusters/attach-cluster/
 [infra_provider]: /dkp/kommander/1.4/operations/infrastructure-providers/
-[licensing]: /dkp/kommander/1.4/licensing/
-[platform_service_req]: /dkp/kommander/1.4/workspaces/platform-service-requirements/
 [konvoy_aws]: /dkp/kommander/1.4/clusters/creating-konvoy-cluster-aws/
 [konvoy_azure]: /dkp/kommander/1.4/clusters/creating-konvoy-cluster-azure/
+[konvoy_init]: /dkp/konvoy/1.8/cli/command-line-interface/konvoy-init/
 [konvoy_onprem]: /dkp/kommander/1.4/clusters/creating-konvoy-cluster-on-prem/
-[konvoy_init]: /dkp/konvoy/latest/reference/command-line-interface/konvoy-init/
-[attach_cluster]: /dkp/kommander/1.4/clusters/attach-cluster/
+[licensing]: /dkp/kommander/1.4/licensing/
+[platform_service_req]: /dkp/kommander/1.4/workspaces/platform-service-requirements/
 [projects]: /dkp/kommander/1.4/projects/
+[statuses]: /dkp/kommander/1.4/clusters/#statuses

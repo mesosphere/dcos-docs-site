@@ -4,7 +4,6 @@ navigationTitle:  Advanced Configuration
 title: Advanced Configuration
 menuWeight: 50
 excerpt:
-featureMaturity:
 enterprise: false
 ---
 <h1>Advanced configuration</h1>

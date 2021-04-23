@@ -4,7 +4,6 @@ navigationTitle: Kafka ZooKeeper
 title: Kafka ZooKeeper
 menuWeight: 71
 excerpt:
-featureMaturity:
 enterprise: false
 category: Cluster Management
 ---

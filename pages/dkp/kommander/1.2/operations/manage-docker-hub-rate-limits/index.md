@@ -52,5 +52,5 @@ For Kommander, to add credentials for Docker Hub, set the options in your `clust
     ...
     ```
 
-For more information on configuring `imageRegistries` in the `cluster.yaml`, please refer to the following documentation: https://docs.d2iq.com/dkp/konvoy/1.6/reference/cluster-configuration/v1beta2/
+For more information on configuring `imageRegistries` in the `cluster.yaml`, refer to the following documentation: https://docs.d2iq.com/dkp/konvoy/1.6/reference/cluster-configuration/v1beta2/
 

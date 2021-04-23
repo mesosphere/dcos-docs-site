@@ -2,7 +2,6 @@
 layout: all-products-landing.pug
 navigationTitle: D2iQ Documentation
 title: D2iQ Documentation
-featureMaturity:
 enterprise: false
 menuWeight: 0
 ---

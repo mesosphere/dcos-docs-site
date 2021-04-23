@@ -47,7 +47,7 @@ Create a secret to be used by Dispatch to read the contents of your GitOps repos
 
 ![Secret for GitOps source](/dkp/kommander/1.3/img/project-cd-secret-create.png)
 
-Refer to this guide to learn more about [setting up credentials](/dkp/dispatch/1.4/tutorials/ci_tutorials/credentials#setting-up-github-credentials) for Dispatch. Note that the above screen creates a `types.kubefed.io/v1beta1, Kind=FederatedSecret` and this is not yet supported by Dispatch CLI. Please use the GUI as shown above to create a federated secret OR create a `FederatedSecret` manifest and apply it to the project namespace. Learn more about [FederatedSecrets](../project-secrets/).
+Refer to this guide to learn more about [setting up credentials](/dkp/dispatch/1.4/tutorials/ci_tutorials/credentials#setting-up-github-credentials) for Dispatch. Note that the above screen creates a `types.kubefed.io/v1beta1, Kind=FederatedSecret` and this is not yet supported by Dispatch CLI. Use the GUI as shown above to create a federated secret OR create a `FederatedSecret` manifest and apply it to the project namespace. Learn more about [FederatedSecrets](../project-secrets/).
 
 ### Creating GitOps Source
 

@@ -4,7 +4,6 @@ navigationTitle:  Terms of Use
 title: Terms of Use
 menuWeight: 150
 excerpt: Apache License terms of use
-featureMaturity:
 enterprise: false
 ---
 

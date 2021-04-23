@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi debug pod pause
 title: dcos nifi debug pod pause
 menuWeight: 9
 excerpt: Pause a pod’s tasks for debugging.
-featureMaturity:
 enterprise: false
 model: ../../../../data.yml
 render: mustache

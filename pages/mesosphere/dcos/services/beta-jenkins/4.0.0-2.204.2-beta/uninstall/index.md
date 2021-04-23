@@ -5,7 +5,6 @@ title: Uninstalling
 menuWeight: 70
 excerpt: Jenkins for DC/OS can be uninstalled using either the web interface or the CLI. 
 beta: true
-featureMaturity:
 enterprise: false
 ---
 # Uninstalling DC/OS Jenkins Service

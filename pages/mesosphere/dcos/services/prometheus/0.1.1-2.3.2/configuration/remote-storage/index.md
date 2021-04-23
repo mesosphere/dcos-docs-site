@@ -4,7 +4,6 @@ navigationTitle: Remote Storage
 title: Prometheus Remote Storage to InfluxDB
 menuWeight: 40
 excerpt: Integrating Prometheus with remote storage InfluxDB
-featureMaturity:
 enterprise: false
 ---
 

@@ -4,7 +4,6 @@ navigationTitle:  Operations
 title: Operations
 menuWeight: 35
 excerpt: Managing your DC/OS NiFi service
-featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache
@@ -19,7 +18,7 @@ This section describes various operations tasks you may need. DC/OS {{ model.tec
 
 # Updating Configuration
 
-You can make changes to the service after it has been launched. Configuration management is handled by the Scheduler process, which in turn handles DC/OS {{model.techName }} deployment itself.
+You can make changes to the service after it has been launched. Configuration management is handled by the Scheduler process, which in turn handles DC/OS {{ model.techName }} deployment itself.
 
 After making a change, the Scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `{{ model.serviceName }}-0`, then `{{ model.serviceName }}-1`, and so on.
 
@@ -295,7 +294,7 @@ dcos {{ model.serviceName }} update force-restart service-phase service-0:[node]
 
 ## Backing up
 
-The DC/OS {{model.techName }} framework allows you to back up your DC/OS {{model.techName }} application to Amazon S3. The following information/values are required for backup.
+The DC/OS {{ model.techName }} framework allows you to back up your DC/OS {{ model.techName }} application to Amazon S3. The following information/values are required for backup.
 
 1. AWS_ACCESS_KEY_ID
 1. AWS_SECRET_ACCESS_KEY
@@ -333,7 +332,7 @@ or with a command, including plan parameters itself:
 
 
 Once this plan execution is completed, the backup will be uploaded to S3.
-The DC/OS {{model.techName }} backup is taken using the DC/OS {{model.techName }} toolkit. The DC/OS {{model.techName }} backup will be done using three sidecar tasks:
+The DC/OS {{ model.techName }} backup is taken using the DC/OS {{ model.techName }} toolkit. The DC/OS {{ model.techName }} backup will be done using three sidecar tasks:
 
 1. **Backup** - Back up to local node (ROOT/MOUNT). The Backup task is responsible for backing up the local application to the local node, which may be on the ROOT or Mount Volume.
 
@@ -356,18 +355,18 @@ The DC/OS {{model.techName }} backup is taken using the DC/OS {{model.techName }
 
 <!-- How does a user restore the service? -->
 
-# DC/OS {{model.techName }} Toolkit Commands
+# DC/OS {{ model.techName }} Toolkit Commands
 
 
-The Admin Toolkit contains command line utilities for administrators to support DC/OS {{model.techName }} maintenance in standalone and clustered environments. These utilities include:
+The Admin Toolkit contains command line utilities for administrators to support DC/OS {{ model.techName }} maintenance in standalone and clustered environments. These utilities include:
 
-- **Notify** — The notification tool allows administrators to send bulletins to the DC/OS {{model.techName }} UI using the command line.
+- **Notify** — The notification tool allows administrators to send bulletins to the DC/OS {{ model.techName }} UI using the command line.
 - **Node Manager** — The node manager tool allows administrators to perform a status check on a node as well as to connect, disconnect, or remove nodes that are part of a cluster.
-- **File Manager** — The file manager tool allows administrators to backup, install or restore a DC/OS {{model.techName }} installation from backup.
+- **File Manager** — The file manager tool allows administrators to backup, install or restore a DC/OS {{ model.techName }} installation from backup.
 
-The Administration Toolkit is bundled with the `{{ model.serviceName }}-toolkit` and can be executed with scripts found in the `bin` folder. Further documentation is available at [DC/OS {{model.techName }} Administration Toolkit](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/html/administration-guide.html#admin-toolkit).
+The Administration Toolkit is bundled with the `{{ model.serviceName }}-toolkit` and can be executed with scripts found in the `bin` folder. Further documentation is available at [DC/OS {{ model.techName }} Administration Toolkit](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/html/administration-guide.html#admin-toolkit).
 
-To execute the DC/OS {{model.techName }} Administration Toolkit commands, run  a `dcos task exec` command to a DC/OS {{model.techName }} node. 
+To execute the DC/OS {{ model.techName }} Administration Toolkit commands, run  a `dcos task exec` command to a DC/OS {{ model.techName }} node. 
 
 1. Set the JAVA_HOME using the command:
     ```shell
@@ -441,7 +440,7 @@ This returns the Java home path:
 
 # Metrics
 
-To check the metrics for the DC/OS {{model.techName }} instances on individual agent nodes, we need to do the following:
+To check the metrics for the DC/OS {{ model.techName }} instances on individual agent nodes, we need to do the following:
 
 1. In the first step we need to obtain the `dcos auth` token by issuing the following command:
     ```shell

@@ -4,7 +4,6 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 5
 excerpt: Discover the new features, updates, and known limitations in this release of the NiFi Service
-featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache
@@ -20,23 +19,23 @@ render: mustache
 - Support for secrets file upload.
 
 ## Bug Fix
-- Fixed `cn dn node identity` value for default installation of DC/OS {{model.techName }}.
+- Fixed `cn dn node identity` value for default installation of DC/OS {{ model.techName }}.
 
 <!-- 
 ## Version 0.2.0-1.5.0
 
 ### New Features
 - Support for Kerberos and SSL authorization and authentication.
-- Support for DC/OS {{model.techName }} CLI.
-- Support for DC/OS {{model.techName }} Metrics using DCOS Metrics API
+- Support for DC/OS {{ model.techName }} CLI.
+- Support for DC/OS {{ model.techName }} Metrics using DCOS Metrics API
 
 ### Updates
-- Removing configurable settings for DC/OS {{model.techName }} like container path and some default configurations.
+- Removing configurable settings for DC/OS {{ model.techName }} like container path and some default configurations.
 
 
 ## Version 0.1.0-1.5.0
 
-This is the first release of DC/OS {{model.techName }} to Universe. Based on the latest stable release version of DC/OS {{model.techName }}, version 1.5.0, this installation would be supported on DCOS cluster 1.9 and above. This has been built using current stable version of SDK (Version 0.40.2).
+This is the first release of DC/OS {{ model.techName }} to Universe. Based on the latest stable release version of DC/OS {{ model.techName }}, version 1.5.0, this installation would be supported on DCOS cluster 1.9 and above. This has been built using current stable version of SDK (Version 0.40.2).
 
 ### Breaking Changes
 
@@ -49,7 +48,7 @@ Based on the latest stable release of the dcos-commons SDK (Version 0.40.2), thi
     - Integration with DC/OS features such as virtual networking and integration with DC/OS access controls.
     - Orchestrated software and configuration update, ability to add new nodes, increase memory and CPU. Installation on DCOS Cluster provides the ability to restart and replace nodes.
     - Placement constraints for pods.
-    - Uniform user experience across all DC/OS {{model.techName }} Cluster nodes.
+    - Uniform user experience across all DC/OS {{ model.techName }} Cluster nodes.
     - Graceful shutdown for nodes
     - Foldered Installation
 

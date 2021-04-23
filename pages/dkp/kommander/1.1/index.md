@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Kommander 1.1
 title: Kommander 1.1
 version: 1.1 Beta
-featureMaturity:
-category: K-Sphere
 menuWeight: 0
 ---
 

@@ -4,7 +4,6 @@ navigationTitle: 快速入门
 excerpt: Spark 入门
 title: 快速入门
 menuWeight: 1
-featureMaturity:
 model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---

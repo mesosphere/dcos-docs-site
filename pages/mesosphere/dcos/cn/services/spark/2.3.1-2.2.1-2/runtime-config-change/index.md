@@ -4,7 +4,6 @@ excerpt: 运行时自定义 Spark
 navigationTitle: 运行时更改
 title: 运行时配置更改
 menuWeight: 70
-featureMaturity:
 model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---

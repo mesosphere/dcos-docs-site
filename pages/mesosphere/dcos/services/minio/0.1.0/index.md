@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Documentation for DC/OS Minio 0.1.0
 model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
-featureMaturity:
 community: true
 ---
 

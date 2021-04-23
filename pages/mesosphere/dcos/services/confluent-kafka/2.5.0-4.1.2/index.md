@@ -6,7 +6,6 @@ title: Confluent Kafka 2.5.0-4.1.2
 menuWeight: 2
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
-featureMaturity:
 enterprise: true
 ---
 

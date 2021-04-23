@@ -4,7 +4,6 @@ navigationTitle: 版本政策
 excerpt: 支持的版本
 title: 版本政策
 menuWeight: 130
-featureMaturity:
 model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---

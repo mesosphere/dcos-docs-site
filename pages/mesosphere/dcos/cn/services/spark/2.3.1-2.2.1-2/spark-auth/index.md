@@ -4,7 +4,6 @@ title: 为  Spark 配置 DC/OS Access
 navigationTitle: 为  Spark 配置 DC/OS Access
 menuWeight: 1010
 excerpt:
-featureMaturity:
 enterprise: true
 ---
 # 版本

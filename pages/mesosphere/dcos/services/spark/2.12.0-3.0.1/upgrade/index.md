@@ -4,7 +4,6 @@ navigationTitle: Upgrade
 excerpt: Upgrading DC/OS Apache Spark
 title: Upgrade
 menuWeight: 50
-featureMaturity:
 render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---
