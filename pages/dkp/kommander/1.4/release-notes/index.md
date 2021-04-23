@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 beta: false
-navigationTitle: Release Notes Kommander 1.4.0 Beta 1
+navigationTitle: Release Notes Kommander 1.4.0
 title: Release Notes Kommander 1.4.0
 menuWeight: 0
 excerpt: View release-specific information for Kommander 1.4.0
