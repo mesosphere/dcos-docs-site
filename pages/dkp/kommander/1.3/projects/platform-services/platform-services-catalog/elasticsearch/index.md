@@ -1,42 +1,40 @@
 ---
 layout: layout.pug
-navigationTitle: Elasticsearch
+navigationTitle: Elasticsearch on Kommander
 render: mustache
-title: Elasticsearch
+title: Elasticsearch on Kommander
 menuWeight: 3
-excerpt: Day 2 Operations of Elasticsearch
+excerpt: Elasticsearch Day 2 Operations 
 beta: false
 ---
 
-### Elasticsearch
+### Elasticsearch overview
 
-[Elasticsearch](https://www.elastic.co/what-is/elasticsearch) is a distributed, RESTful search and analytics engine capable of addressing a growing number of use cases.
-As the heart of the Elastic Stack, it centrally stores your data for lightning fast search, fine‑tuned relevancy,
-and powerful analytics that scale with ease.
+[Elasticsearch](https://www.elastic.co/what-is/elasticsearch) is a distributed, RESTful search and analytics engine capable of addressing a growing number of use cases. As the core of the Elastic Stack, Elasticsearch centrally stores your data for lightning fast search, fine‑tuned relevancy, and powerful analytics that scale with ease.
 
-### Kommander Catalog
+### Kommander catalog
 
-Kommander Catalog adds integration for Elasticsearch via its [Helm based driver](https://docs.d2iq.com/dkp/kommander/1.3/projects/platform-services/helm-based/)
+Kommander catalog adds integration for Elasticsearch in [Helm-based drivers](https://docs.d2iq.com/dkp/kommander/1.3/projects/platform-services/helm-based/)
 
 To access the catalog: 
 #include /dkp/kommander/1.3/include/kommander-catalog-drilldown.tmpl
 
-### Installation
+### Install
 
-From the [Project Catalog](/dkp/kommander/1.3/projects/platform-services/) select the desired version of Elasticsearch and click Deploy.
+From the [Project Catalog](/dkp/kommander/1.3/projects/platform-services/) select the desired version of Elasticsearch, and select Deploy.
 
-Below is an example of what should appear in the Kommander UI.  The dialog is populated with appropriate defaults:
+Below is an example of what should appear in the Kommander UI. The dialog is populated with appropriate defaults:
 
 ![Elasticsearch Service Install Configuration](/dkp/kommander/1.3/img/platform-services-elasticsearch-config-dialog.png)
 
 - The **clusterName** field above is used by Kibana and other components to refer to Elasticsearch.
 
-With the included defaults, an Elasticsearch Cluster with the following topology is created:
+With the included defaults, an Elasticsearch cluster with the following topology is created:
 - 1 - Client Node
 - 3 - Master Nodes
 - 3 - Data Nodes 
 
-The following pods will be seen under the project namespace on the Kubernetes cluster:
+You will see the following pods under the project namespace on the Kubernetes cluster:
 ```
 $ kubectl get pods
 NAME                         READY   STATUS    RESTARTS   AGE
@@ -51,8 +49,7 @@ elasticsearch-oss-master-2   1/1     Running   0          69m
 
 Each of the above nodes correspond to the following [Elastic Node Roles](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html#node-roles)
 
-### Available Parameters
-
+### Parameters
 The Kommander Catalog Elasticsearch Platform Service creates an ensemble of the upstream [Elastic Helm Chart](https://github.com/elastic/helm-charts/tree/master/elasticsearch)
 
 Full list of [Configuration Parameters](https://github.com/elastic/helm-charts/tree/master/elasticsearch#configuration) that can be applied to any of the current node roles:
@@ -62,9 +59,8 @@ Full list of [Configuration Parameters](https://github.com/elastic/helm-charts/t
 - [elasticsearch-ingest](https://github.com/mesosphere/kubeaddons-elastic/blob/dee7f94458532c6cd8802647f59e59f69d18f58f/values.yaml#L70)
 
 The current set of default parameters applied are found [here](https://github.com/mesosphere/kubeaddons-elastic/blob/elastic-7.10.x/values.yaml).
-### Updating Parameters
-
-Parameters can be updated by directly modifying them via the Kommander Catalog UI:
+### Update parameters
+Update parameters by directly modifying them in the Kommander Catalog UI:
 
 **Example**: Increasing Data Node Replicas from the default to 4.
 
@@ -95,11 +91,11 @@ Parameters can be updated by directly modifying them via the Kommander Catalog U
     ```
 ### Monitoring
 
-Kommander includes Prometheus and Grafana as part of the federated [Workspace Platform Services](/dkp/kommander/1.3/workspaces/workspace-platform-services) along with [Centralized Monitoring](/dkp/kommander/1.3/centralized-monitoring/).
+Kommander includes Prometheus and Grafana as part of the federated [Workspace Platform Services](/dkp/kommander/1.3/workspaces/workspace-platform-services) along with [centralized monitoring](/dkp/kommander/1.3/centralized-monitoring/).
 
 The Kommander Catalog includes [Elasticsearch-Exporter](/dkp/kommander/1.3/projects/platform-services/platform-services-catalog/elasticsearch-exporter/) to be used in conjunction with Elasticsearch to export metrics to Prometheus and Grafana.
 
-### External Access
+### External access
 
 The Kommander Catalog includes [Kibana](/dkp/kommander/1.3/projects/platform-services/platform-services-catalog/kibana/) which provides a graphical way to view data stored in Elasticsearch
 
@@ -176,7 +172,7 @@ The following example shows how to query Elasticserach REST API:
 
 To troubleshoot deployments, look for issues in the following:
 
-1. Ensure `clusterName` and `masterService` fields are consistent across all the node-roles.
+1. Ensure `clusterName` and `masterService` fields are consistent across all node-roles.
 1. Look for crash-looping pods and inspect their logs.
     
     `watch kubectl get pods`
