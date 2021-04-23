@@ -4,7 +4,7 @@ navigationTitle: Install on a small environment
 title: Install Konvoy on a small environment
 menuWeight: 40
 excerpt: Install Konvoy on a small environment
-beta: false
+beta: true
 enterprise: false
 ---
 
