@@ -21,4 +21,4 @@ Use this option when you want to attach a cluster that does not require addition
 
 1. Select the **Submit** button to begin the cluster attachment processing.
 
-![Add Cluster Connect](/dkp/kommander/latest/img/add-cluster-connect.png)
+![Add Cluster Connect](/dkp/kommander/1.4/img/add-cluster-connect.png)
