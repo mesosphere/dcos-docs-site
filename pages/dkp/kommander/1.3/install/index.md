@@ -10,7 +10,7 @@ excerpt: Getting started with Kommander
 Kommander is a tool that provides a command console for deploying, monitoring, and managing production-ready Kubernetes clusters on an enterprise scale. Kommander supports both Konvoy and non-Konvoy clusters.
 
 # Before you begin
-Prerequisites for Kommander are the same as those for Konvoy. See the [Konvoy Prerequisites](/dkp/konvoy/1.7/quick-start/#prequisites) for information.
+Prerequisites for Kommander are the same as those for Konvoy. See the [Konvoy Prerequisites](/dkp/konvoy/1.7/quick-start/#prerequisites) for information.
 
 # Download and Install
 By default, Konvoy provides Kommander as part of [Kubernetes Base Addons](/dkp/konvoy/1.7/addons/). See the [Download Konvoy](/dkp/konvoy/1.7/download/) topic for more information on how to download Konvoy. Once Konvoy is downloaded, see [Installing Konvoy](/dkp/konvoy/1.7/quick-start/#installing-konvoy) for installation instructions. After Konvoy is installed with the default settings, Kommander is automatically provided on the cluster.
