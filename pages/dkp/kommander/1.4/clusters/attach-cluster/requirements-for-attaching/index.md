@@ -49,7 +49,7 @@ Consider the additional resource requirements for running the platform services 
 
 [attach_eks_cluster]: /dkp/kommander/1.4/clusters/attach-cluster/attach-eks-cluster/
 [attach_without_network_restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-no-network-restrictions
-[attach_with_network_restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-with-networking-restrictions
+[attach_with_network_restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-with-network-restrictions
 [manual_cli_attachment]: /dkp/kommander/1.4/clusters/tunnel-cli
 [platform_service_requirements]: /dkp/kommander/1.4/workspaces/platform-service-requirements/
 [projects]: /dkp/kommander/1.4/projects

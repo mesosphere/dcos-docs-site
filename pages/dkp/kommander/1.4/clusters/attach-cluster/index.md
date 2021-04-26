@@ -37,5 +37,5 @@ You have these security options when attaching a cluster:
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [no-network-restrictions]: cluster-no-network-restrictions/
 [platform_service_req]: /dkp/kommander/1.4/workspaces/platform-service-requirements/
-[with-network-restrictions]: cluster-with-networking-restrictions/
+[with-network-restrictions]: cluster-with-network-restrictions/
 [workspace_platform_services]: /dkp/kommander/1.4/workspaces/workspace-platform-services/
