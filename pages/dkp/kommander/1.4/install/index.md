@@ -10,10 +10,10 @@ excerpt: Getting started with Kommander
 Kommander is a tool that provides a command console for deploying, monitoring, and managing production-ready Kubernetes clusters on an enterprise scale. Kommander supports both Konvoy and non-Konvoy clusters.
 
 # Before you begin
-Prerequisites for Kommander are the same as those for Konvoy. See the [Konvoy Prerequisites](/dkp/konvoy/1.7/quick-start/#prequisites) for information.
+Prerequisites for Kommander are the same as those for Konvoy. See the [Konvoy Prerequisites][konvoy-prereq] for information.
 
 # Download and Install
-By default, Konvoy provides Kommander as part of [Kubernetes Base Addons](/dkp/konvoy/1.7/addons/). See the [Download Konvoy](/dkp/konvoy/1.7/download/) topic for more information on how to download Konvoy. Once Konvoy is downloaded, see [Installing Konvoy](/dkp/konvoy/1.7/quick-start/#installing-konvoy) for installation instructions. After Konvoy is installed with the default settings, Kommander is automatically provided on the cluster.
+By default, Konvoy provides Kommander as part of [Kubernetes Base Addons][konvoy-base-addons]. See the [Download Konvoy][konvoy-download] topic for more information on how to download Konvoy. Once Konvoy is downloaded, see [Installing Konvoy][konvoy-install] for installation instructions. After Konvoy is installed with the default settings, Kommander is automatically provided on the cluster.
 
 # Log in with Username and Password
 After you provision your first Konvoy cluster, your randomly-generated username, password, and a URL to Konvoy are printed to the command-line. Log in to Konvoy, and look for the "Kommander" button in the left sidebar. If it's not there, ensure you've installed the Konvoy release that includes Kommander, and that the Kommander addon is enabled.
@@ -29,3 +29,8 @@ You can also reach the Kommander UI via this url, given that Kommander is deploy
 ```
 https://<CLUSTER_URL>/ops/portal/kommander/ui
 ```
+
+[konvoy-base-addons]: /dkp/konvoy/1.8/addons/
+[konvoy-download]: /dkp/konvoy/1.8/download/
+[konvoy-install]: /dkp/konvoy/1.8/quick-start/#installing-konvoy
+[konvoy-prereq]: /dkp/konvoy/1.8/quick-start/#prequisites
