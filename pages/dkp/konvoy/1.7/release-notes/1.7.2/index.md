@@ -28,6 +28,8 @@ This release provides new features and enhancements to improve the user experien
 |**Maximum** | 1.19.x |
 |**Default** | 1.19.9 |
 
+<p class="message--note"><strong>NOTE: </strong>If you are upgrading to 1.7.2 with FIPS mode enabled, see the [Upgrading Konvoy KB](https://support.d2iq.com/s/article/Upgrading-Konvoy-V1-7-0-and-V1-7-1-FIPS-mode-clusters) before beginning.</p>
+
 ### New features and capabilities
 
 #### CLI
