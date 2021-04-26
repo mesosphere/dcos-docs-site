@@ -365,11 +365,11 @@ There may be additional dependencies that need to be installed that can be found
 
 Konvoy supports Kubernetes control plane high availability (HA) out-of-the-box for on-premises deployments if you do not have a third-party load balancer.
 
-The default control plane load balancer for Konvoy is based on [Keepalived][keepalived], which will be deployed on all control-plane nodes as static kubernetes pods.
+The default control plane load balancer for Konvoy is based on [Keepalived][keepalived], which will be deployed on all control-plane nodes as static Kubernetes pods.
 
 To use `keepalived` control plane load balancing:
 
-* Identify and reserve an unused virtual IP (VIP) address from your networking infrastructure. During the installation, the Konvoy installer will check if the designated IP isn't pingable, i.e if it's free for using as the keepalived's VIP.
+* Identify and reserve an unused virtual IP (VIP) address from your networking infrastructure. During the installation, the Konvoy installer will check if the designated IP isn't pingable, i.e if it is free for using as a Keepalived's VIP.
 
 * Configure your networking infrastructure so that the reserved virtual IP address is reachable:
   * from all hosts specified in the inventory file.
