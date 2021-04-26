@@ -4,7 +4,7 @@ navigationTitle: Elasticsearch on Kommander
 render: mustache
 title: Elasticsearch on Kommander
 menuWeight: 3
-excerpt: Elasticsearch Day 2 Operations 
+excerpt: Elasticsearch Day 2 Operations
 beta: false
 ---
 
@@ -16,7 +16,7 @@ beta: false
 
 Kommander catalog adds integration for Elasticsearch in [Helm-based drivers](https://docs.d2iq.com/dkp/kommander/1.3/projects/platform-services/helm-based/)
 
-To access the catalog: 
+To access the catalog:
 #include /dkp/kommander/1.3/include/kommander-catalog-drilldown.tmpl
 
 ### Install
@@ -32,7 +32,7 @@ Below is an example of what should appear in the Kommander UI. The dialog is pop
 With the included defaults, an Elasticsearch cluster with the following topology is created:
 - 1 - Client Node
 - 3 - Master Nodes
-- 3 - Data Nodes 
+- 3 - Data Nodes
 
 You will see the following pods under the project namespace on the Kubernetes cluster:
 ```
@@ -58,7 +58,7 @@ Full list of [Configuration Parameters](https://github.com/elastic/helm-charts/t
 - [elasticsearch-data](https://github.com/mesosphere/kubeaddons-elastic/blob/dee7f94458532c6cd8802647f59e59f69d18f58f/values.yaml#L47)
 - [elasticsearch-ingest](https://github.com/mesosphere/kubeaddons-elastic/blob/dee7f94458532c6cd8802647f59e59f69d18f58f/values.yaml#L70)
 
-The current set of default parameters applied are found [here](https://github.com/mesosphere/kubeaddons-elastic/blob/elastic-7.10.x/values.yaml).
+The current set of default parameters applied can be found [in this file](https://github.com/mesosphere/kubeaddons-elastic/blob/elastic-7.10.x/values.yaml).
 ### Update parameters
 Update parameters by directly modifying them in the Kommander Catalog UI:
 
@@ -113,9 +113,9 @@ elasticsearch-oss-master            ClusterIP   10.0.48.163   <none>        9200
 elasticsearch-oss-master-headless   ClusterIP   None          <none>        9200/TCP,9300/TCP   91m
 ```
 
-Elasticsearch provides comprehensive [REST API](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html) 
+Elasticsearch provides comprehensive [REST API](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html)
 
-The following example shows how to query Elasticserach REST API:
+The following example shows how to query Elasticsearch REST API:
 1. Port-forward the elasticsearch-client service:
     ```
     $ kubectl port-forward service/elasticsearch-oss-client 9200:9200 &
