@@ -338,11 +338,11 @@ In your working directory, create an `extras/images/<some-directory>/` and place
 
 Konvoy supports Kubernetes control plane high availability (HA) out-of-the-box for on-premises deployments if you do not have a third-party load balancer.
 
-The default control plane load balancer for Konvoy is based on [Keepalived][keepalived].
+The default control plane load balancer for Konvoy is based on [Keepalived][keepalived], which will be deployed on all control-plane nodes as static kubernetes pods.
 
 To use `keepalived` control plane load balancing:
 
-- Identify and reserve a virtual IP (VIP) address from your networking infrastructure.
+- Identify and reserve an unused virtual IP (VIP) address from your networking infrastructure. During the installation, the Konvoy installer will check if the designated IP isn't pingable, i.e if it's free for using as the keepalived's VIP.
 
 - Configure your networking infrastructure so that the reserved virtual IP address is reachable:
   - from all hosts specified in the inventory file.
@@ -367,7 +367,7 @@ spec:
 
 You could set `spec.kubernetes.controlPlane.keepalived.interface` to specify the network interface you want to use for the Keepalived VIP.
 This field is optional.
-If not set, Konvoy will automatically detect the network interface to use based on the route to the VIP.
+If not set, Konvoy will try to automatically detect the network interface to use based on the route to the VIP. If Konvoy fails detect the correct network interface, the Konvoy's deployment may fail on the kubeadm step.
 
 You could also set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the [Virtual Router ID][vrrp] used by Keepalived.
 This field is optional.
