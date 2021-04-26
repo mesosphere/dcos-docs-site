@@ -34,7 +34,8 @@ Licenses Error
 
 ## Entering a valid license via kubectl
 
-To add a license directly using `kubectl`, first create a secret, replacing `MY_LICENSE` in the below command with your D2iQ-provided Kommander license:
+You can add a license directly using `kubectl`.
+First create a secret, replacing `MY_LICENSE` in the below command with your D2iQ-provided Kommander license:
 
 ```bash
 kubectl create secret generic my-license-secret --from-literal=jwt=MY_LICENSE -n kommander
