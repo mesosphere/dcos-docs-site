@@ -33,4 +33,4 @@ https://<CLUSTER_URL>/ops/portal/kommander/ui
 [konvoy-base-addons]: /dkp/konvoy/1.8/addons/
 [konvoy-download]: /dkp/konvoy/1.8/download/
 [konvoy-install]: /dkp/konvoy/1.8/quick-start/#installing-konvoy
-[konvoy-prereq]: /dkp/konvoy/1.8/quick-start/#prequisites
+[konvoy-prereq]: /dkp/konvoy/1.8/quick-start/#prerequisites
