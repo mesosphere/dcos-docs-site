@@ -104,6 +104,12 @@ After creating your custom dashboard, configure Kommander to deploy it by modify
               }
 ```
 
+If you have already deployed your cluster, you will need to run this Konvoy command to deploy your custom dashboard:
+
+```bash
+konvoy deploy addons
+```
+
 ## Centralized Alerts
 
 A centralized view of alerts, from managed clusters, is provided using an alert dashboard called [Karma][karma_docs].
@@ -123,7 +129,8 @@ This is expected, and the error disappears when clusters are connected.</p>
 
 ### Federating Prometheus Alerting Rules
 
-You can define additional [Prometheus alerting rules][alerting_rules] on the Kommander cluster and federate them to all of the managed clusters by following these instructions:
+You can define additional [Prometheus alerting rules][alerting_rules] on the Kommander cluster and federate them to all of the managed clusters by following these instructions.
+In order to use these instructions, you will need to [install the kubefedctl CLI][kubefedctl].
 
 1. Enable the PrometheusRule type for federation.
 
@@ -160,8 +167,9 @@ You can define additional [Prometheus alerting rules][alerting_rules] on the Kom
    kubectl get federatedprometheusrules prometheus-kubeaddons-prom-alertmanager.rules -n kubeaddons -oyaml
    ```
 
-[thanos_query]: https://thanos.io/v0.5/components/query/#query
+[alerting_rules]: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
 [grafana_import_dashboards]: https://github.com/mesosphere/charts/tree/master/stable/grafana#import-dashboards
 [karma_docs]: https://github.com/prymitive/karma
-[alerting_rules]: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
 [kubefed_status_docs]: https://github.com/kubernetes-sigs/kubefed/blob/master/docs/userguide.md#propagation-status
+[kubefedctl]: https://github.com/kubernetes-sigs/kubefed/blob/master/docs/installation.md#kubefedctl-cli
+[thanos_query]: https://thanos.io/v0.5/components/query/#query
