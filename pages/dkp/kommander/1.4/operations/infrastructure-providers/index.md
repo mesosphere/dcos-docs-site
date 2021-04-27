@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Infrastructure Providers
 title: Infrastructure Providers
 menuWeight: 1

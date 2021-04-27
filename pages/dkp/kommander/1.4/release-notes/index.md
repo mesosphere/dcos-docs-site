@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-beta: true
-navigationTitle: Release Notes Kommander 1.4.0 Beta 1
+beta: false
+navigationTitle: Release Notes Kommander 1.4.0
 title: Release Notes Kommander 1.4.0
 menuWeight: 0
 excerpt: View release-specific information for Kommander 1.4.0
@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Kommander&reg; version 1.4.0 Beta 1 was released on March 11, 2021.**
+**D2iQ&reg; Kommander&reg; version 1.4.0 was released on April 29, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -29,6 +29,14 @@ Docker Hub announced an update to their image pull policies in August, 2020. The
 Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
 
 For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
+
+## New features
+
+### Helm charts
+- The Projects tab now shows all of the current Helm Release charts, their chart version, and the names of the clusters.
+
+### Cluster management
+- Kommander now supports attaching existing, external clusters that have additional networking restrictions in place such as a DMZ, a proxy server, or being behind a firewall. More information is available at, [Attaching an Existing Kubernetes Cluster](https://docs.d2iq.com/dkp/kommander/1.4/clusters/attach-cluster/).
 
 ## Component versions
 - Addon: 1.4.0-6

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Attach a Kubernetes Cluster using a Tunnel
 title: Attach Cluster using tunnel
 menuWeight: 7

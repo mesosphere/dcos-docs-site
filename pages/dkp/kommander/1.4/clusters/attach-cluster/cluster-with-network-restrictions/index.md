@@ -4,7 +4,7 @@ navigationTitle: Attach a cluster with networking restrictions
 title: Attach a cluster with networking restrictions
 menuWeight: 10
 excerpt: How to attach an existing cluster that has additional networking restrictions
-beta: true
+beta: false
 ---
 
 Use this option when you want to attach a cluster that is in a DMZ, behind a proxy server or a firewall, or that requires additional access information. This procedure gathers the information required to create a kubeconfig file for the network tunnel between Kommander and the cluster you want to attach.

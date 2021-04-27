@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Uninstall
 title: Uninstall
 excerpt: Remove Kommander and related infrastructure
