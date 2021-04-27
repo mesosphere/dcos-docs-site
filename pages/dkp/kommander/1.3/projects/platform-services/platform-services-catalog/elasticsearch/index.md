@@ -21,7 +21,7 @@ To access the catalog:
 
 ### Install
 
-From the [Project Catalog](/dkp/kommander/1.3/projects/platform-services/) select the desired version of Elasticsearch, and select Deploy.
+From the [Project Catalog](/dkp/kommander/1.3/projects/platform-services/) select the desired version of Elasticsearch, and select **Deploy**.
 
 Below is an example of what should appear in the Kommander UI. The dialog is populated with appropriate defaults:
 
