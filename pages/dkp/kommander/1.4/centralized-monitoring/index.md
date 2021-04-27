@@ -13,20 +13,20 @@ Kommander provides centralized monitoring, in a multi-cluster environment, using
 
 Managed clusters are distinguished by a monitoring ID.
 The monitoring ID corresponds to the kube-system namespace UID of the cluster.
-To find a cluster's monitoring ID, you can go to the Clusters tab on the Kommander UI (in the relevant workspace):
+To find a cluster's monitoring ID, you can go to the Clusters tab on the Kommander UI (in the relevant workspace), or go to the **Clusters** page in the **Global** workspace:
 
 ```
-https://<CLUSTER_URL>/ops/portal/kommander/ui/#/clusters
+https://<CLUSTER_URL>/ops/portal/kommander/ui/clusters
 ```
 
-Click on the `View Details` link on the managed cluster card, and the monitoring ID can be found under `Monitoring ID (clusterId)`.
+Click on the `View Details` link on the managed cluster card, and then click the **Configuration** tab, and find the monitoring ID under **Monitoring ID (clusterId)**.
 
 You may also search or filter by monitoring IDs on the Clusters page, linked above.
 
 You can also run this kubectl command, **using the correct cluster's context or kubeconfig**, to look up the cluster's kube-system namespace UID to determine which cluster the metrics and alerts correspond to:
 
 ```bash
-$ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
+kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
 ```
 
 ## Centralized Metrics
@@ -160,7 +160,7 @@ You can define additional [Prometheus alerting rules][alerting_rules] on the Kom
    kubectl get federatedprometheusrules prometheus-kubeaddons-prom-alertmanager.rules -n kubeaddons -oyaml
    ```
 
-[thanos_query]: https://thanos.io/components/query.md/
+[thanos_query]: https://thanos.io/v0.5/components/query/#query
 [grafana_import_dashboards]: https://github.com/mesosphere/charts/tree/master/stable/grafana#import-dashboards
 [karma_docs]: https://github.com/prymitive/karma
 [alerting_rules]: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
