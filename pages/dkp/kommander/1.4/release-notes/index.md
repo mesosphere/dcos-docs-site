@@ -32,7 +32,10 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 
 ## New features
 
-- The Projects tab can now show all of the current Helm Release charts, their chart version, and the names of the clusters.
+### Helm charts
+- The Projects tab now shows all of the current Helm Release charts, their chart version, and the names of the clusters.
+
+### Cluster management
 - Kommander now supports attaching existing, external clusters that have additional networking restrictions in place such as a DMZ, a proxy server, or being behind a firewall. More information is available at, [Attaching an Existing Kubernetes Cluster](https://docs.d2iq.com/dkp/kommander/1.4/clusters/attach-cluster/).
 
 ## Component versions
