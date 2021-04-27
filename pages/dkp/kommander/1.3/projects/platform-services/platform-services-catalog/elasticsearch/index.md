@@ -115,7 +115,7 @@ elasticsearch-oss-master-headless   ClusterIP   None          <none>        9200
 
 Elasticsearch provides comprehensive [REST API](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html)
 
-The following example shows how to query Elasticsearch REST API:
+The following example shows how to query the Elasticsearch REST API:
 1. Port-forward the elasticsearch-client service:
     ```
     $ kubectl port-forward service/elasticsearch-oss-client 9200:9200 &
