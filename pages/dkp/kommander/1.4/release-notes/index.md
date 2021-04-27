@@ -21,6 +21,20 @@ To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [ins
 # Release Summary
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated cost management across multiple clusters, whether they are a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
 
+## Network Tunneling
+
+Prior to release 1.4, Kommander required bi-directional connectivity between the Kommander management cluster and clusters that are under management. This effectively blocked several customer-specific use cases:
+
+- Kommander does not have direct access to the managed cluster, for example, when the cluster is on a laptop or behind a NAT gateway.
+
+- The managed cluster does not have direct access to Kommander, for example, Kommander is on-premise and the managed cluster is in a public cloud provider environment.
+
+- The managed cluster is behind a firewall, a proxy, or resides in a DMZ.
+
+A new component, `kubetunnel`, provides communication between Kommander and the managed cluster through a tunneling protocol resolving these blocked use cases. The TLS-encrypted tunnel enables you to access the cluster using SSO and to receive alerts, metrics, and kubecost data.
+
+For more information on this capability, see [Attach an Existing Kubernetes Cluster][attach_existing_kubernetes_cluster]
+
 # Breaking changes
 
 ## Docker hub rate limiting 
@@ -49,3 +63,5 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - Bump federated prometheus to 9.3.7
 - Bump kubecost to 0.7.0 which enables PodSecurityPolicy
 - Decrease the amount of time it takes to delete Kommander
+
+[attach_existing_kubernetes_cluster]: /dkp/kommander/1.4/clusters/attach-cluster
