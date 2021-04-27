@@ -25,7 +25,7 @@ At the **Projects** level, devops administrators or developers manage configurat
 
 ## Default Workspace
 
-To get started immediately, you can use the default workspace deployed in Kommander. Your workspace delegation can be done at a later time.
+To get started immediately, you can use the default workspace that is created when Kommander is deployed. Your workspace delegation can be done at a later time.
 
 # Workspace Procedures
 
