@@ -130,7 +130,7 @@ This is expected, and the error disappears when clusters are connected.</p>
 ### Federating Prometheus Alerting Rules
 
 You can define additional [Prometheus alerting rules][alerting_rules] on the Kommander cluster and federate them to all of the managed clusters by following these instructions.
-In order to use these instructions, you will need to [install the kubefedctl CLI][kubefedctl].
+To use these instructions you must [install the kubefedctl CLI][kubefedctl].
 
 1. Enable the PrometheusRule type for federation.
 
