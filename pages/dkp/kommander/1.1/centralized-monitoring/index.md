@@ -160,7 +160,7 @@ You can define additional [Prometheus alerting rules][alerting_rules] on the Kom
    kubectl get federatedprometheusrules prometheus-kubeaddons-prom-alertmanager.rules -n kubeaddons -oyaml
    ```
 
-[thanos_query]: https://thanos.io/components/query.md/
+[thanos_query]: https://thanos.io/v0.5/components/query/#query
 [grafana_import_dashboards]: https://github.com/mesosphere/charts/tree/master/stable/grafana#import-dashboards
 [karma_docs]: https://github.com/prymitive/karma
 [alerting_rules]: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
