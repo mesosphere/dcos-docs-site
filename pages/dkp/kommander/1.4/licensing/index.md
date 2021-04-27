@@ -36,13 +36,13 @@ Licenses Error
 
 You can add a license directly using `kubectl`.
 
-1. First create a secret, replacing `MY_LICENSE` in the below command with your D2iQ-provided Kommander license:
+1. Create a secret, replacing `MY_LICENSE` in the below command with your D2iQ-provided Kommander license:
 
    ```bash
    kubectl create secret generic my-license-secret --from-literal=jwt=MY_LICENSE -n kommander
    ```
 
-1. Then, create a license object:
+1. Create a license object:
 
    ```bash
    cat <<EOF | kubectl apply -f -
@@ -67,7 +67,7 @@ Licenses UI
 
 To delete a license from Kommander, you have to delete the `Secret` and `License` objects. In this example, the secret is named "my-license-secret".
 
-1. First, validate that the secret exists in the `kommander` namespace:
+1. Validate that the secret exists in the `kommander` namespace:
 
    ```bash
    kubectl describe secret -n kommander my-license-secret
@@ -88,7 +88,7 @@ To delete a license from Kommander, you have to delete the `Secret` and `License
    jwt:  455 bytes
    ```
 
-1. Then, delete the secret from the `kommander` namespace:
+1. Delete the secret from the `kommander` namespace:
 
    ```bash
    kubectl delete secret -n kommander my-license-secret
@@ -100,7 +100,7 @@ To delete a license from Kommander, you have to delete the `Secret` and `License
    secret "my-license-secret" deleted
    ```
 
-1. Once this is done, we do the same with the `License` object. First, validate that it exists in the `kommander` namespace:
+1. We do the same with the `License` object. Validate that it exists in the `kommander` namespace:
 
    ```bash
    kubectl describe license -n kommander my-license
@@ -140,7 +140,7 @@ To delete a license from Kommander, you have to delete the `Secret` and `License
      Normal  LicenseUpdateSuccess  7m7s (x2 over 7m7s)  LicenseSignature  License updated successfully
    ```
 
-1. Finally, delete the license from the `kommander` namespace:
+1. Delete the license from the `kommander` namespace:
 
    ```bash
    kubectl delete license -n kommander my-license
