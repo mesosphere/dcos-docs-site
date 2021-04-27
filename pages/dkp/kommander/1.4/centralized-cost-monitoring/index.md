@@ -14,7 +14,7 @@ By default, up to 15 days of cost metrics are retained, with no backup to an ext
 ## Centralized Costs
 
 The Kommander cluster collects cost metrics remotely, using Thanos, from each managed cluster.
-Costs from the last day 1 and last 7 days are displayed for each cluster, workspace, and project breakdown in the respective Kommander UI pages.
+Costs from the last day and the last 7 days are displayed for each cluster, workspace, and project in the respective Kommander UI pages.
 Further cost analysis and details can be found in the Kubecost UI running on Kommander, at:
 
 ```
@@ -25,7 +25,7 @@ For more information on cost allocation metrics and how to navigate this view in
 
 To identify the clusters in Kubecost, use the cluster's monitoring ID.
 The monitoring ID corresponds to the kube-system namespace UID of the cluster.
-To find the cluster's monitoring ID, select the **Clusters** tab on the Kommander UI in the relevant workspace:
+To find the cluster's monitoring ID, select the **Clusters** tab on the Kommander UI in the relevant workspace, or go to the **Clusters** page in the **Global** workspace:
 
 ```
 https://<CLUSTER_URL>/ops/portal/kommander/ui/clusters
@@ -38,7 +38,7 @@ You can also search or filter by monitoring ID on the **Clusters** page.
 To look up a cluster's kube-system namespace UID directly using the CLI, run the following kubectl command, **using the cluster's context or kubeconfig**.
 
 ```bash
-$ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
+kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
 ```
 
 ### Kubecost
@@ -54,7 +54,7 @@ You can access the attached cluster's Kubecost Settings page at:
 https://<MANAGED_CLUSTER_URL>/ops/portal/kubecost/frontend/settings.html
 ```
 
-<p class="message--important"><strong>IMPORTANT: </strong>Make sure you access the cluster's Kubecost UI linked above, not the centralized Kubecost UI running on Kommander.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Make sure you access the cluster's Kubecost UI linked above, not the centralized Kubecost UI running on the Kommander host cluster.</p>
 
 #### AWS
 
