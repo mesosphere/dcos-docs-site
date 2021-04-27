@@ -17,7 +17,7 @@ You can attach existing clusters with or without networking restrictions to Komm
 
 For [attaching existing clusters _without_ networking restrictions][attach_without_network_restrictions], the requirements depend on which Kommander version you are using. Each version of Kommander supports a specific range of Kubernetes versions. You must ensure that the target cluster is running a compatible version.
 
-For example, Kommander 1.3 supports Kubernetes versions between 1.17.0 and 1.19.x. Any cluster you want to attach using Kommander 1.3 must be running a Kubernetes version in that range.
+For example, Kommander 1.4 supports Kubernetes versions between 1.18.0 and 1.20.x. Any cluster you want to attach using Kommander 1.4 must be running a Kubernetes version in that range.
 
 For [attaching clusters _with_ networking restrictions][attach_with_network_restrictions], the Kubernetes version of the cluster you want to attach must be greater than or equal to version 1.19.x. For these types of clusters, the Kommander cluster uses a tunnel to access the clusters you plan to attach. Any managed service you want to expose in the Kommander cluster requires the creation of a reverse proxy, or the use of HTTPS_PROXY environment variables that point to the Kommander tunnel proxy server.
 
@@ -43,13 +43,14 @@ To attach an existing EKS cluster, refer to the specific information in [Attach 
 
 ## Attaching existing Azure clusters
 
-Attaching an existing, Azure-provisioned cluster requires that the cluster be fully-configured and running. The suggested default cluster configuration includes a control plane pool containing three (3) Standard_DS3_v2 nodes and a worker pool containing four (4) Standard_DS3_v2 nodes.
+Attaching an [existing][existing-clusters], Azure-provisioned cluster requires that the cluster be fully-configured and running. The suggested default cluster configuration includes a control plane pool containing three (3) Standard_DS3_v2 nodes and a worker pool containing four (4) Standard_DS3_v2 nodes.
 
 Consider the additional resource requirements for running the platform services you want Kommander to manage, and ensure that your existing clusters comply.
 
 [attach_eks_cluster]: /dkp/kommander/1.4/clusters/attach-cluster/attach-eks-cluster/
 [attach_without_network_restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-no-network-restrictions
 [attach_with_network_restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-with-network-restrictions
+[existing-clusters]: /dkp/kommander/1.4/clusters/attach-cluster/generate-kubeconfig/
 [manual_cli_attachment]: /dkp/kommander/1.4/clusters/tunnel-cli
 [platform_service_requirements]: /dkp/kommander/1.4/workspaces/platform-service-requirements/
 [projects]: /dkp/kommander/1.4/projects

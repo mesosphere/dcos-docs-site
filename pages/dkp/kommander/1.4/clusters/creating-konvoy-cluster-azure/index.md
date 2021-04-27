@@ -9,7 +9,7 @@ excerpt: A guide for creating Konvoy clusters on Azure
 
 ## Before you begin
 
-Configured [Azure Infrastructure Provider](/dkp/kommander/1.4/operations/infrastructure-providers/configure-azure-infrastructure-provider/)
+Configured [Azure Infrastructure Provider][azure-infra-provider]
 
 ## Simplified Cluster Creation on Azure
 
@@ -21,17 +21,20 @@ From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide 
 - **Kubernetes Version**: The initial version of Kubernetes to install on the cluster.
 - **Name**: A display name for referencing the cluster.
 
-Select the preconfigured [Azure Infrastructure Provider](/dkp/kommander/1.4/operations/infrastructure-providers/configure-azure-infrastructure-provider/) to display the options specific to Azure.
+Select the preconfigured [Azure Infrastructure Provider][azure-infra-provider] to display the options specific to Azure.
 
 - **Region**: Select the datacenter region to show selectable Availability Zones. [Azure maintains multiple datacenters per region][azure-datacenters].
 - **Resource Group**: The resource group where the Azure assets are assigned.
 - **VNET Name**: The virtual network name in which to create this cluster.
-- **VNET Route Table**: Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. To change any of Azure's default routing, create a [route table](https://docs.microsoft.com/en-us/azure/virtual-network/manage-route-table).
+- **VNET Route Table**: Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. To change any of Azure's default routing, create a [route table][route-table].
 - **Configure Node Pools**: Specify pools of nodes, their size, and quantity. The suggested default is a control plane pool containing 3 Standard_DS3_v2 nodes and a worker pool containing 4 Standard_DS3_v2 nodes. You can also specify labels, node taints, and subnet ID's as part of each pool.
-- **Add Infrastructure Provider Tags**: Specify tags on all resources created in your infrastructure provider for this cluster. You can add up to 10 tags in this form. Different infrastructure providers have varying restrictions on their tags. See the [Azure Tags User Guide](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources) for more information on using tags in Azure.
+- **Add Infrastructure Provider Tags**: Specify tags on all resources created in your infrastructure provider for this cluster. You can add up to 10 tags in this form. Different infrastructure providers have varying restrictions on their tags. See the [Azure Tags User Guide][azure-tags] for more information on using tags in Azure.
 - **Add Labels**: By default, your cluster has some labels that reflect the infrastructure provider provisioning. For example, in Azure your cluster may be labelled with the datacenter region as well as `provider: azure`. Cluster labels are matched to the selectors created for [projects][projects]. Changing a cluster label may add or remove the cluster from projects.
 
 Select **Continue** to begin provisioning the Konvoy cluster.
 
-[azure-datacenters]: https://azure.microsoft.com/en-us/global-infrastructure/regions/
+[azure-datacenters]: https://azure.microsoft.com/en-us/global-infrastructure/geographies/
+[azure-infra-provider]: /dkp/kommander/1.4/operations/infrastructure-providers/configure-azure-infrastructure-provider/
+[azure-tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources
 [projects]: /dkp/kommander/1.4/projects/
+[route-table]: https://docs.microsoft.com/en-us/azure/virtual-network/manage-route-table
