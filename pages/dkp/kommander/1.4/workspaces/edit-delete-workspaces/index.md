@@ -30,7 +30,7 @@ Labels that are added to a workspace, are also applied to all the clusters in th
 
 From the workspace selection dropdown at the top of the screen, select **Global**.
 From the left rail menu, click on **Workspaces**.
-Click on the three-button action menu to the right of the workspace you intend to delete and then click Delete:
+Click on the three-button action menu to the right of the workspace you want to delete and then click **Delete**:
 ![Workspace menu delete](/dkp/kommander/1.4/img/workspaces-menu-delete.png)
 <br />_Deleting a workspace_
 
