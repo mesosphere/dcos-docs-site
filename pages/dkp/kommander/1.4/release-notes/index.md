@@ -43,13 +43,14 @@ Prior to release 1.4, Kommander required bi-directional connectivity between the
 
 A new component, `kubetunnel`, provides communication between Kommander and the managed cluster through a tunneling protocol resolving these blocked use cases. The TLS-encrypted tunnel enables you to access the cluster using SSO and to receive alerts, metrics, and kubecost data.
 
-For more information on this capability, see [Attach an Existing Kubernetes Cluster][attach_existing_kubernetes_cluster]
+For more information on this capability, see [Attach an Existing Kubernetes Cluster](../clusters/attach-cluster)
+
+## Catalog Workload Certification
+
+D2iQ now certifies workloads for use with Kommander. All workloads that have been tested and certified for successful configuration and provisioning on Konvoy are flagged in Kommander with a certification icon. For more information, see [Project Platform Services](../projects/platform-services/).
 
 ## Helm charts
-The Projects tab now shows all of the current Helm Release charts, their chart version, and the names of the clusters. 
-
-## Cluster management
-Kommander now supports attaching existing, external clusters that have additional networking restrictions in place such as a DMZ, a proxy server, or being behind a firewall. For more information see [Attach an Existing Kubernetes Cluster](https://docs.d2iq.com/dkp/kommander/1.4/clusters/attach-cluster/).
+The Projects tab now shows all of the current Helm Release charts, their chart version, and the names of the clusters. For more information, see [Project Deployments](../projects/project-deployments/).
 
 # Breaking changes
 
