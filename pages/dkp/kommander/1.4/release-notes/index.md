@@ -45,11 +45,11 @@ A new component, `kubetunnel`, provides communication between Kommander and the 
 
 For more information on this capability, see [Attach an Existing Kubernetes Cluster][attach_existing_kubernetes_cluster]
 
-### Helm charts
-The Projects tab now shows all of the current Helm Release charts, their chart version, and the names of the clusters.
+## Helm charts
+The Projects tab now shows all of the current Helm Release charts, their chart version, and the names of the clusters. 
 
-### Cluster management
-Kommander now supports attaching existing, external clusters that have additional networking restrictions in place such as a DMZ, a proxy server, or being behind a firewall. More information is available at, [Attaching an Existing Kubernetes Cluster](https://docs.d2iq.com/dkp/kommander/1.4/clusters/attach-cluster/).
+## Cluster management
+Kommander now supports attaching existing, external clusters that have additional networking restrictions in place such as a DMZ, a proxy server, or being behind a firewall. For more information see [Attach an Existing Kubernetes Cluster](https://docs.d2iq.com/dkp/kommander/1.4/clusters/attach-cluster/).
 
 # Breaking changes
 
