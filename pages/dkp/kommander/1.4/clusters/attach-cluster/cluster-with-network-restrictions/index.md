@@ -7,7 +7,7 @@ excerpt: How to attach an existing cluster that has additional networking restri
 beta: true
 ---
 
-Use this option when you want to attach a cluster that is in a DMZ, behind a NAT gateway, behind a proxy server or a firewall, or that requires additional access information. This procedure gathers the information required to create a kubeconfig file for the network tunnel between Kommander and the cluster you want to attach.
+Use this option when you want to attach a cluster that is behind a firewall, NAT gateway, proxy server, in a DMZ, or another network configuration that does not have direct access from Kommander to the cluster to be managed. This procedure gathers the information required to create a kubeconfig file for the network tunnel between Kommander and the cluster you want to attach.
 
 <p class="message--note"><strong>NOTE: </strong>If your cluster blocks public access, you may need to make the additional step of allowing certain authorized networks where Docker images are hosted for Konvoy to use your cluster, specifically <code>https://registry-1.docker.io/</code>.</p>
 

@@ -23,7 +23,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 ## Network Tunneling
 
-Prior to release 1.4, Kommander required bi-directional connectivity between the Kommander management cluster and clusters that are under management. This effectively blocked several customer-specific use cases:
+Before release 1.4, Kommander required bi-directional connectivity between the Kommander management cluster and clusters that are under management. This effectively blocked several customer-specific use cases:
 
 - Kommander does not have direct access to the managed cluster, for example, when the cluster is on a laptop or behind a NAT gateway.
 
