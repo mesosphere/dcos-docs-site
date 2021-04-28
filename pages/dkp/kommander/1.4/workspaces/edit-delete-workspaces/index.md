@@ -25,7 +25,7 @@ Labels that are added to a workspace, are also applied to all the clusters in th
 ## Delete workspaces
 
 <p class="message--note"><strong>NOTE: </strong>
-  Workspaces can only be deleted if all the clusters in the workspace have been deleted.
+  Workspaces can only be deleted if all the clusters in the workspace have been deleted or detached.
 </p>
 
 From the workspace selection dropdown at the top of the screen, select **Global**.
