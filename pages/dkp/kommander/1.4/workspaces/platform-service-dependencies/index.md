@@ -77,7 +77,7 @@ These platform services provide the functionality to collect logs over time from
 
 These platform services provide monitoring capabilities by collecting metrics, including cost metrics, for Kubernetes, platform services, and applications deployed on managed clusters. They also provide the ability to visualize these metrics and evaluate rule expressions to trigger alerts.
 
-- [prometheus][prometheus]: A systems and service monitoring system that collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed. **Note:** Prometheus Alertmanager and Grafana are included in the Prometheus bundled installation.
+- [prometheus][prometheus]: A systems and service monitoring system that collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and triggers alerts when specified conditions are observed. **Note:** Prometheus Alertmanager and Grafana are included in the Prometheus bundled installation.
 - [prometheus-adapter][prometheus-adapter]: Exposes custom application metrics from Prometheus
 - [kubecost][kubecost]: A cost-monitoring tool that gives you visibility into your Kubernetes resources to reduce spend and prevent resource-based outages
 
