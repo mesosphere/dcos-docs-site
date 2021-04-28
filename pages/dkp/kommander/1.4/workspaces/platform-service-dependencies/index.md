@@ -61,7 +61,7 @@ The foundational components are comprised of the Kubeaddons controller and the f
 These platform services provide the functionality to collect logs over time from Kubernetes, platform services, and applications deployed on managed clusters. They also provide the ability to visualize and query the aggregated logs.
 
 - [elasticsearch][elasticsearch]: A distributed, RESTful search and analytics engine
-- [elasticsearchexporter][elasticsearchexporter]: A Prometheus exporter for various metrics about Elasticsearch
+- [elasticsearchexporter][elasticsearchexporter]: A Prometheus exporter for various Elasticsearch metrics
 - [fluentbit][fluentbit]: A log processor and forwarder which allows you to collect any data like metrics and logs from different sources, enrich them with filters and send them to multiple destinations
 - [kibana][kibana]: A user interface that provides search and data visualization capabilities for data indexed in Elasticsearch
 
