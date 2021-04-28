@@ -2,6 +2,7 @@
 layout: layout.pug
 beta: false
 navigationTitle: Configure an AWS Provider with a User Role
+menuWeight: 1
 title: Configure an AWS Provider with a User Role
 excerpt: Configure your provider to add resources to your AWS account
 ---
@@ -216,17 +217,19 @@ EOF
 
    ![Add Infrastructure Provider Form](/dkp/kommander/1.4/img/add-infrastructure-provider.png)
 
-   - Select the **Amazon Web Services (AWS)** option from the **Add Infrastructure Provider** dialog box.
+1. Select the **Amazon Web Services (AWS)** option.
 
    ![AWS Role Infrastructure Provider Form](/dkp/kommander/1.4/img/infrastructure-provider-form-aws-role.png)
 
-   - Ensure **Role** is selected as the **Authentication Method**.
+1. Ensure **Role** is selected as the **Authentication Method**.
 
-   - Enter a name for your infrastructure provider. Select a name that matches the AWS user.
+1. Enter a name for your infrastructure provider. Select a name that matches the AWS user.
 
-   - Enter the **Role ARN**.
+1. Enter the **Role ARN**.
 
-   - You can add an **External ID** if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Here you can read more about External IDs][external_id].
+1. You can add an **External ID** if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Here you can read more about External IDs][external_id].
+
+1. Select **Verify and Save** to verify the credentials are valid and to save your provider.
 
 After the provider is created, the display name or role can be updated.
 

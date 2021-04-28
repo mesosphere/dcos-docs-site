@@ -2,13 +2,14 @@
 layout: layout.pug
 beta: false
 navigationTitle: Configure an Azure Provider
+menuWeight: 3
 title: Azure Infrastructure Provider with Static Credentials
 excerpt: Configuring an Azure Infrastructure Provider
 ---
 
 ### Configuring an Azure infrastructure provider
 
-Before you configure an Azure Infrastructure Provider you must [install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+Before you configure an Azure Infrastructure Provider you must [install the Azure CLI][azure-cli].
 
 #### Create a new set of credentials using CLI commands
 
@@ -79,8 +80,8 @@ Navigate to **Administration > Infrastructure Providers** and click the **Add In
 
 - Enter a name for your infrastructure provider. Select a name that matches the Azure user.
 - Use the values assigned when you created the service principal above:
-  - Fill in Client ID with the `APP_ID` value.
-  - Fill in Client Secret with the `PASSWORD` value.
+  - Fill in Client App ID with the `APP_ID` value.
+  - Fill in Client Password with the `PASSWORD` value.
   - Fill in Tenant ID with the `TENANT` value.
   - Fill in Subscription ID with the `SUBSCRIPTION_ID` value.
 - Select **Verify and Save** to verify the credentials are valid and to save your provider.
@@ -89,3 +90,5 @@ Navigate to **Administration > Infrastructure Providers** and click the **Add In
 <br />_Azure Infrastructure Provider Form with values_
 
 After the infrastructure provider is created, its display name or credentials can be updated.
+
+[azure-cli]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest

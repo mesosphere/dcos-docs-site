@@ -9,7 +9,7 @@ excerpt: Managing infrastructure providers used by Kommander
 
 Infrastructure providers like AWS, Azure, and Google provide the infrastructure for your Konvoy clusters. To automate their provisioning, Kommander needs authentication keys for your preferred infrastructure provider. You may have many accounts for a single infrastructure provider.
 
-In order, to provision new clusters and manage them, Kommander needs infrastructure provider credentials. Currently AWS, Azure, and On Premise are supported.
+In order to provision new clusters and manage them, Kommander needs infrastructure provider credentials. Currently AWS, Azure, and On Premises are supported.
 
 ### View and Modify Infrastructure Providers
 
@@ -23,7 +23,7 @@ Infrastructure Provider credentials are configured in each workspace, so you mus
 
 #### AWS
 
-- [Configure AWS Provider with Role Credentials](/dkp/kommander/1.4/operations/infrastructure-providers/configure-aws-infrastructure-provider-roles) (Recommended)
+- [Configure AWS Provider with Role Credentials](/dkp/kommander/1.4/operations/infrastructure-providers/configure-aws-infrastructure-provider-roles) (Recommended if using AWS)
 - [Configure AWS Provider with Static Credentials](/dkp/kommander/1.4/operations/infrastructure-providers/configure-aws-infrastructure-provider-static-credentials)
 
 #### Azure

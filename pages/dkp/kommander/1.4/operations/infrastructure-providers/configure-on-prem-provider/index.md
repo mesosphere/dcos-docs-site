@@ -2,6 +2,7 @@
 layout: layout.pug
 beta: false
 navigationTitle: Configure an On-Premises provider
+menuWeight: 4
 title: On-Premises Infrastructure Provider
 excerpt: Configuring an On-Premises infrastructure provider
 ---
