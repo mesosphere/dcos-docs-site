@@ -62,7 +62,7 @@ These platform services provide the functionality to collect logs over time from
 
 - [elasticsearch][elasticsearch]: A distributed, RESTful search and analytics engine
 - [elasticsearchexporter][elasticsearchexporter]: A Prometheus exporter for various Elasticsearch metrics
-- [fluentbit][fluentbit]: A log processor and forwarder which allows you to collect any data like metrics and logs from different sources, enrich them with filters and send them to multiple destinations
+- [fluentbit][fluentbit]: A log processor that collects metrics and log data from different sources, enriches them with filters, and forwards them to multiple destinations.
 - [kibana][kibana]: A user interface that provides search and data visualization capabilities for data indexed in Elasticsearch
 
 |  **Platform Service** | **Dependencies** |
