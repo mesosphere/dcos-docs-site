@@ -31,7 +31,7 @@ By default, a unique ID Namespace will be auto-generated based on the first 57 c
 ![Workspace default naming](/dkp/kommander/1.4/img/workspace-default-name.png)
 <br />_Workspace namespace fields_
 
-To override this default behavior, add what you specifically want to be for Workspace's namespace.
+To override this default behavior, add your custom namespace name for the Workspace.
 ![Workspace default naming](/dkp/kommander/1.4/img/workspace-custom-name.png)
 <br />_Adding a custom namespace for your Workspace_
 
