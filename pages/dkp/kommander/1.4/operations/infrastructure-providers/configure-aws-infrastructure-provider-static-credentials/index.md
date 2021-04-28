@@ -13,7 +13,7 @@ When configuring an infrastructure provider with static credentials, you need an
 
 #### Create a new User via CLI commands
 
-You will need to have the [AWS CLI utility installed][aws-cli].
+You will need to have the [AWS CLI utility installed][aws-cli]. Create a new user via the AWS CLI commands below:
 
 ```
 aws iam create-user --user-name Kommander
