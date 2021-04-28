@@ -105,7 +105,7 @@ kommander-workspace-edit    Kommander Workspace Edit Role    2m18s
 kommander-workspace-view    Kommander Workspace View Role    2m18s
 ```
 
-To prevent propagation of the role, remove this annotation from the `KommanderWorkspaceRole` resource.
+To prevent propagation of the `kommander-workspace-view` role, remove this annotation from the `KommanderWorkspaceRole` resource.
 ```shell
 kubectl annotate kommanderworkspacerole -n test-qznrn-6sz52 kommander-workspace-view workspace.kommander.mesosphere.io/sync-to-project-
 ```
