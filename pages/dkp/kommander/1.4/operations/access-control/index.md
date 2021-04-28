@@ -88,27 +88,31 @@ ClusterRoles are named collections of rules defining which verbs can be applied 
 
 ![Cluster Roles](/dkp/kommander/1.4/img/access-control-cluster-roles.png)
 
-### Special Limitation for Workspace > Project Role Inheritance
+### Propagating Workspace Roles to Projects
 
-When granting users access to a workspace it is currently necessary to manually grant access to the projects within it.
-Each project is created with a set of admin/edit/view roles so it may be most convenient to add an additional RoleBinding to each group or user of the workspace for one of these project roles.
-Usually these are prefixed `kommander-project-(admin/edit/view)`.
-Here is an example RoleBinding that grants the Kommander Project Admin role for the project namespace to the engineering group:
+By default, users granted the Kommander Workspace Admin, Edit, or View roles will also be granted the equivalent Kommander Project Admin, Edit, or View role for any project created in the workspace.
+Other workspace roles are not automatically propagated to the equivalent role for a project in the workspace.
 
-```yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: workspace-admin-project1-admin
-  namespace: my-project-namespace-xxxxx
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: kommander-project-admin-xxxxx
-subjects:
-  - apiGroup: rbac.authorization.k8s.io
-    kind: Group
-    name: oidc:engineering
+Each workspace has roles defined using `KommanderWorkspaceRole` resources. 
+Automatic propagation is controlled using the annotation `"workspace.kommander.mesosphere.io/sync-to-project": "true"` on a `KommanderWorkspaceRole` resource.
+This can only be managed using the CLI.
+
+```shell
+kubectl get kommanderworkspaceroles -n test-qznrn-6sz52
+NAME                        DISPLAY NAME                     AGE
+kommander-workspace-admin   Kommander Workspace Admin Role   2m18s
+kommander-workspace-edit    Kommander Workspace Edit Role    2m18s
+kommander-workspace-view    Kommander Workspace View Role    2m18s
+```
+
+To prevent propagation of the role, remove this annotation from the `KommanderWorkspaceRole` resource.
+```shell
+kubectl annotate kommanderworkspacerole -n test-qznrn-6sz52 kommander-workspace-view workspace.kommander.mesosphere.io/sync-to-project-
+```
+
+To enable propagation of the role, add this annotation to the relevant `KommanderWorkspaceRole` resource.
+```shell
+kubectl annotate kommanderworkspacerole -n test-qznrn-6sz52 kommander-workspace-view workspace.kommander.mesosphere.io/sync-to-project=true
 ```
 
 ### Policies
