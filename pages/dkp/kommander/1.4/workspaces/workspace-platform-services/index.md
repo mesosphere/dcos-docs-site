@@ -24,7 +24,7 @@ Review the [workspace platform service resource requirements][platform-service-r
 
 ### Customize a workspace's platform services
 
-If you have access to edit a workspace, you can customize the platform services that are federated to a workspace's clusters using the Kommander UI.
+If you can edit a workspace, you can customize the platform services federated to a workspace's clusters using the Kommander UI.
 Access the settings page by going to the specific workspace's **Dashboard** page, selecting the **Actions** drop-down button on the top right of the Dashboard, and selecting **Edit Workspace Platform Services**.
 
 This takes you to the settings page which provides lists of platform services that you can enable or disable along with descriptions of the services.
