@@ -95,7 +95,7 @@ Other workspace roles are not automatically propagated to the equivalent role fo
 
 Each workspace has roles defined using `KommanderWorkspaceRole` resources. 
 Automatic propagation is controlled using the annotation `"workspace.kommander.mesosphere.io/sync-to-project": "true"` on a `KommanderWorkspaceRole` resource.
-This can only be managed using the CLI.
+You can manage this only by using the CLI.
 
 ```shell
 kubectl get kommanderworkspaceroles -n test-qznrn-6sz52
