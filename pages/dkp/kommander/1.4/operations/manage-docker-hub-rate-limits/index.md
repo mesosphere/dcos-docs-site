@@ -26,7 +26,7 @@ For Kommander, to add credentials for Docker Hub, set the options in your `clust
           docker-registry-password: <password>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can use environment variables to specify `imageRegistries` values. For example, if your yaml file has `password: ${REGISTRY_PASSWORD}`, `password` is set to the `REGISTRY_PASSWORD` value in your environment.</p>
+<p class="message--note"><strong>NOTE: </strong>You can use environment variables to specify <code>imageRegistries</code> values. For example, if your cluster.yaml file has <code>password: ${REGISTRY_PASSWORD}</code>, <code>password</code> is set to the <code>REGISTRY_PASSWORD</code> value in your environment.</p>
 
 1. Apply the changes to your cluster. Enter the following command:
 
@@ -34,10 +34,15 @@ For Kommander, to add credentials for Docker Hub, set the options in your `clust
     konvoy up
     ```
 
-1. Confirm the changes made to the cluster. Enter the following command to check the contents of the `containerd` configuration file:
+1. Confirm the changes made to the cluster. You will need to ssh into any of your cluster's nodes. From there, enter the following command to check the contents of the `containerd` configuration file:
 
     ```bash
     $ cat /etc/containerd/config.toml
+    ```
+   
+   You should see the output that contains your Docker Hub credentials:
+   
+    ```bash
     ...
     [plugins."io.containerd.grpc.v1.cri".registry]
           [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
@@ -52,5 +57,6 @@ For Kommander, to add credentials for Docker Hub, set the options in your `clust
     ...
     ```
 
-For more information on configuring `imageRegistries` in the `cluster.yaml`, refer to the following documentation: https://docs.d2iq.com/dkp/konvoy/1.6/reference/cluster-configuration/v1beta2/
+For more information on configuring `imageRegistries` in the `cluster.yaml`, refer to the [API documentation (v1beta2) documentation][konvoy-api-docs].
 
+[konvoy-api-docs]: /dkp/konvoy/1.8/reference/cluster-configuration/v1beta2/
