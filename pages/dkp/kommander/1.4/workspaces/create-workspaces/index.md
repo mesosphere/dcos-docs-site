@@ -35,4 +35,4 @@ To override this default behavior, add your custom namespace name for the Worksp
 ![Workspace default naming](/dkp/kommander/1.4/img/workspace-custom-name.png)
 <br />_Adding a custom namespace for your Workspace_
 
-<p class="message--warning"><strong>NOTE: </strong>By setting a custom ID for the Namespace, Kommander cannot guarantee safety and uniqueness of the namespace across all clusters, and that it may override any namespaces of the same name on imported clusters.</p>
+<p class="message--warning"><strong>NOTE: </strong>Setting a custom ID for the namespace in Kommander does not guarantee safety and uniqueness of the namespace across all clusters. This may override any namespaces, with the same name, on attached clusters.</p>
