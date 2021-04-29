@@ -33,7 +33,7 @@ Refer to the instructions in [Access Control][access_control] to disable this pr
 
 ## Network Tunneling
 
-Prior to release 1.4, Kommander required bi-directional connectivity between the Kommander management cluster and clusters that are under management. This effectively blocked several customer-specific use cases:
+Prior to release 1.4, Kommander required bi-directional connectivity between the Kommander management cluster and clusters that are under management. This effectively blocked several use cases:
 
 - Kommander did not have direct access to the managed cluster, for example, when the cluster was on a laptop or behind a NAT gateway.
 
