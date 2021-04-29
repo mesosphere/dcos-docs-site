@@ -358,11 +358,11 @@ In your working directory, create an `extras/images/<some-directory>/` and place
 
 Konvoy supports Kubernetes control plane high availability (HA) out-of-the-box for on-premises deployments if you do not have a third-party load balancer.
 
-The default control plane load balancer for Konvoy is based on [Keepalived][keepalived], which will be deployed on all control-plane nodes as static Kubernetes pods.
+The default control plane load balancer for Konvoy is based on [Keepalived][keepalived].
 
 To use `keepalived` control plane load balancing:
 
-- Identify and reserve an unused virtual IP (VIP) address from your networking infrastructure. During the installation, the Konvoy installer will check if the designated IP is not pingable, i.e if it is free for using as a Keepalived's VIP.
+- Identify and reserve a virtual IP (VIP) address from your networking infrastructure.
 
 - Configure your networking infrastructure so that the reserved virtual IP address is reachable:
   - from all hosts specified in the inventory file.
@@ -387,7 +387,7 @@ spec:
 
 You could set `spec.kubernetes.controlPlane.keepalived.interface` to specify the network interface you want to use for the Keepalived VIP.
 This field is optional.
-If not set, Konvoy will try to automatically detect the network interface to use based on the route to the VIP. If Konvoy fails to detect the correct network interface, the Konvoy's installation may fail on the kubeadm's deployment step.
+If not set, Konvoy will automatically detect the network interface to use based on the route to the VIP.
 
 You could also set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the [Virtual Router ID][vrrp] used by Keepalived.
 This field is optional.
@@ -440,7 +440,7 @@ spec:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionMap:
-          1.20.6: testing-1.20-4.0.0-rc.2
+          1.20.6: testing-1.20-4.0.0-rc.3
         versionStrategy: mapped-kubernetes-version
 ```
 
@@ -498,18 +498,18 @@ spec:
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.2
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.3
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.2
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.3
       addonsList:
       - name: dispatch
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.2
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.3
       addonsList:
       - name: kommander
         enabled: false

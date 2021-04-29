@@ -34,7 +34,7 @@ Details for supported operating systems on Konvoy can be found in [Supported Ope
 
 Konvoy support for KBA depends on the Kubernetes version it deploys with. Every KBA release has the supported Kubernetes version in its tag.
 
-For example, KBA version `testing-1.20-4.0.0-rc.2` is made up of:
+For example, KBA version `testing-1.20-4.0.0-rc.3` is made up of:
 
 ```text
 <release_channel>-<kubernetes_version>-<kba_version>

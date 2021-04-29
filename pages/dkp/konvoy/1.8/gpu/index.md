@@ -23,8 +23,8 @@ Konvoy runs every Nvidia GPU dependent component as daemonsets, making it easier
 The following components provide Nvidia GPU support on Konvoy:
 
 * [libnvidia-container][libnvidia_container] and [nvidia-container-runtime][nvidia_container_runtime]: Konvoy uses containerd as kubernetes container runtime by default. [libnvidia-container][libnvidia_container] and [nvidia-container-runtime][nvidia_container_runtime] shim between containerd and runc, which simplifies the container runtime integration with GPU support. Another benefit is this avoids using [nvidia-docker2][nvidia_docker].
-* [Nvidia Device Plugin][nvidia_k8s_device_plugin]: This plugin displays the number of GPUs on each node, tracks the health of the GPUs, and enables running GPU enabled containers on Kubernetes.
-* [Nvidia GPU Metrics Exporter][nvidia_gpu_metrics_exporter] and [NVIDIA Data Center GPU Manager][nvidia_dcgm]: This is a Prometheus exporter that displays Nvidia GPU metrics.
+* [Nvidia Device Plugin][nvidia_k8s_device_plugin]: Konvoy makes use of Nvidia GPUs via this Kubernetes device plugin. It enables running GPU enabled containers on Kubernetes, tracks the number of available GPUs on each node and their health.
+* [Nvidia GPU Metrics Exporter][nvidia_gpu_metrics_exporter] and [NVIDIA Data Center GPU Manager][nvidia_dcgm]: This is a Prometheus exporter that provides Nvidia GPU metrics.
 
 ## Requirements
 
@@ -130,7 +130,7 @@ spec:
       nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.20-4.0.0-rc.2
+    configVersion: testing-1.20-4.0.0-rc.3
     addonsList:
     - name: nvidia
       enabled: true
@@ -180,7 +180,7 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.20-4.0.0-rc.2
+    configVersion: testing-1.20-4.0.0-rc.3
     addonsList:
 ......
     - name: nvidia
