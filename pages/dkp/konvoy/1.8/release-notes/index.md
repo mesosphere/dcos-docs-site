@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 21, April 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 28, April 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -104,9 +104,9 @@ For details on how to migrate workloads to Spark 3.0, consult the official [migr
 - Docker v19.03.15
 - Go 1.16.2
 - Helm v3.5.2
-- kubeaddons-dispatch stable-1.19-1.4.1
-- kubeaddons-kommander testing-1.20-1.4.0-rc.2
-- kubernetes-base-addons testing-1.20-4.0.0-rc.2
+- kubeaddons-dispatch stable-1.19-1.4.5
+- kubeaddons-kommander testing-1.20-1.4.0-rc.3
+- kubernetes-base-addons testing-1.20-4.0.0-rc.3
 - Kubernetes v1.20.6
 - Kubeaddons v0.26.0
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
