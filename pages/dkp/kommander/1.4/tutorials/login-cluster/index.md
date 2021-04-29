@@ -11,9 +11,9 @@ excerpt: Access a specific cluster as a user
 
 This procedure requires the following configurations and background:
 
-- A Konvoy cluster with [Kommander installed](/dkp/kommander/1.4/install/).
-- An [Identity Provider](/dkp/kommander/1.4/tutorials/authorize-all-users/). This tutorial uses GitHub's identity provider.
-- A configured [group](/dkp/kommander/1.4/operations/identity-providers/) in Kommander.
+- A Konvoy cluster with [Kommander installed][kommander-install].
+- An [Identity Provider][id-provider-git]. This tutorial uses GitHub's identity provider.
+- A configured [group][groups] in Kommander.
 - At least one user in that group.
 
 ## Access a cluster
@@ -22,34 +22,34 @@ If your group can access a cluster managed by Kommander, you can connect to that
 
 In this example, the Kommander cluster has two managed clusters on Azure but, as a user, you can only access the management cluster.
 
-1. Go to the landing page, provided by an administrator, and select **Generate kubectl Token**.
+1. Go to the landing page, provided by an administrator, and select **Generate Kubectl Token**.
 
-![Konvoy Landing Page](/dkp/kommander/1.4/img/konvoy-landing-page.png)
+   ![Konvoy Landing Page](/dkp/kommander/1.4/img/konvoy-landing-page.png)
 
-2. Select the cluster you want to log into.
+1. Select the cluster you want to log into.
 
-![Generate Kubernetes Token](/dkp/kommander/1.4/img/generate-kubernetes-token.png)
+   ![Generate Kubernetes Token](/dkp/kommander/1.4/img/generate-kubernetes-token.png)
 
-3. As a user having access to the management cluster, select the `Main` cluster and log in using an identity provider.
+1. As a user having access to the management cluster, and wanting to generate a kubeconfig for this cluster, select the `Main` cluster and log in using an identity provider.
 
-![Login Identity Provider](/dkp/kommander/1.4/img/login-identity-provider.png)
+   ![Login Identity Provider](/dkp/kommander/1.4/img/login-identity-provider.png)
 
-4. Attach `kubectl` to the cluster using the interface instructions.
+1. Attach `kubectl` to the cluster using the interface instructions.
 
-![Connection Instructions](/dkp/kommander/1.4/img/kubectl-connection-instructions.png)
+   ![Connection Instructions](/dkp/kommander/1.4/img/kubectl-connection-instructions.png)
 
 Your local `kubectl` can now communicate with the cluster.
 Depending on your rights, you can view and edit different api-resources.
 
 ## Switch from a cluster to another cluster
 
-To log in to another cluster that is part of your Kommander infrastructure, use the [Access a cluster](*access-a-cluster) procedure again for the other cluster.
+To log in to another cluster that is part of your Kommander infrastructure, use the [Access a cluster][access-cluster] procedure again for the other cluster.
 
-Once `kubectl` is on this new cluster, you can switch between clusters using [contexts](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#context). Open-source tools such as [`kubectx`](https://github.com/ahmetb/kubectx) can make this operation faster.
+Once `kubectl` is on this new cluster, you can switch between clusters using [contexts][k8s-contexts]. Open-source tools such as [`kubectx`][kubectx] can make this operation faster.
 
 ### Messages when attached to a cluster that you do not have access
 
-The [Access a Cluster](#access_a_cluster) instructions work for any clusters (management and attached ones) even if you do not have access to them.
+The [Access a Cluster][access-cluster] instructions work for any clusters (management and attached ones) even if you do not have access to them.
 
 The difference is that, once you have attached the cluster, none of the `kubectl` commands will succeed as the user does not have access:
 
@@ -58,11 +58,38 @@ $ kubectl get pods -A
 Error from server (Forbidden): pods is forbidden: User "user@yourcompany.com" cannot list resource "pods" in API group "" at the cluster scope
 ```
 
+### Downloading a kubeconfig from the UI
+
+Certain managed clusters can also have the kubeconfig downloaded from the UI.
+
+If you are in the **Clusters** page from the **Global** workspace view, or the **Clusters** page from any workspace with clusters, you can click on the three button action menu from the card, and select **Download kubeconfig**.
+
+   ![Kommander Cards View](/dkp/kommander/1.4/img/download-kubeconfig-clusters-page.png)
+
+If you are in the detailed page for the specific cluster, you can click on the top right **Actions** dropdown menu, and select **Download kubeconfig**.
+
+  ![Kommander cluster details View](/dkp/kommander/1.4/img/download-kubeconfig-details-page.png)
+
+After downloaded, you can apply this kubeconfig to your `kubectl`.
+
+If you select the **Download kubeconfig** from the UI and Kommander presents a modal that says the kubeconfig is not available for download, you must retrieve the Kubernetes credentials using the [Access a cluster instructions][access-cluster].
+
 ## Related information
 
-- [Installing and configuring Kommander](/dkp/kommander/1.4/install/)
-- [Identity Providers in Kommander](/dkp/kommander/1.4/operations/identity-providers/)
-- [Configuring a GitHub Identity Provider in Kommander](/dkp/kommander/1.4/tutorials/authorize-all-users/)
-- [Granting access to Kubernetes resources in the CLI](/dkp/konvoy/1.4/security/external-idps/rbac/)
-- [Access control in Kommander](/dkp/kommander/1.4/operations/access-control/)
-- [Kubernetes RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+- [Installing and configuring Kommander][kommander-install]
+- [Identity Providers in Kommander][identity-provider]
+- [Configuring a GitHub Identity Provider in Kommander][id-provider-git]
+- [Granting access to Kubernetes resources in the CLI][rbac]
+- [Access control in Kommander][access-control]
+- [Kubernetes RBAC authorization][k8s-rbac]
+
+[access-cluster]: #access-a-cluster
+[access-control]: /dkp/kommander/1.4/operations/access-control/
+[groups]: /dkp/kommander/1.4/operations/identity-providers/#groups
+[id-provider-git]: /dkp/kommander/1.4/tutorials/authorize-all-users/
+[identity-provider]: /dkp/kommander/1.4/operations/identity-providers/
+[k8s-contexts]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#context
+[k8s-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[kommander-install]: /dkp/kommander/1.4/install
+[kubectx]: https://github.com/ahmetb/kubectx
+[rbac]: /dkp/konvoy/1.4/security/external-idps/rbac/
