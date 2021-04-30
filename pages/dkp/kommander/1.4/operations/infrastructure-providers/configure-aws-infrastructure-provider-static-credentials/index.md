@@ -2,6 +2,7 @@
 layout: layout.pug
 beta: true
 navigationTitle: AWS Static Credentials
+menuWeight: 2
 title: AWS Static Credentials
 excerpt: Configuring an AWS Infrastructure Provider with static credentials
 ---
@@ -12,16 +13,14 @@ When configuring an infrastructure provider with static credentials, you need an
 
 #### Create a new User via CLI commands
 
+You will need to have the [AWS CLI utility installed][aws-cli]. Create a new user via the AWS CLI commands below:
+
 ```
 aws iam create-user --user-name Kommander
 ```
 
 ```
-aws iam create-policy --policy-name kommander-policy --policy-document '{"Version":"2012-10-17","Statement":[{"Sid":"KommanderCloudProvider","Action":["ec2:AttachInternetGateway","ec2:AttachVolume","ec2:AuthorizeSecurityGroupEgress","ec2:AuthorizeSecurityGroupIngress","ec2:CreateInternetGateway","ec2:CreateRoute","ec2:CreateSecurityGroup","ec2:CreateSubnet","ec2:CreateTags","ec2:CreateVolume","ec2:CreateVpc","ec2:CreateVpcEndpoint","ec2:DeleteInternetGateway","ec2:DeleteKeyPair","ec2:DeleteRoute","ec2:DeleteTags","ec2:DeleteSecurityGroup","ec2:DeleteSubnet","ec2:DeleteVolume","ec2:DeleteVpc","ec2:DeleteVpcEndpoints","ec2:DescribeAccountAttributes","ec2:DescribeAvailabilityZones","ec2:DescribeImages","ec2:DescribeInstanceAttribute","ec2:DescribeInstanceCreditSpecifications","ec2:DescribeInstances","ec2:DescribeInternetGateways","ec2:DescribeKeyPairs","ec2:DescribeNetworkAcls","ec2:DescribeNetworkInterfaces","ec2:DescribeRegions","ec2:DescribeRouteTables","ec2:DescribeSecurityGroups","ec2:DescribeSubnets","ec2:DescribeTags","ec2:DescribeVolumes","ec2:DescribeVpcAttribute","ec2:DescribeVpcClassicLink","ec2:DescribeVpcClassicLinkDnsSupport","ec2:DescribeVpcs","ec2:DescribeVpcEndpoints","ec2:DescribeVpcEndpointConnectionNotifications","ec2:DescribeVpcEndpointConnections","ec2:DescribeVpcEndpointServiceConfigurations","ec2:DescribeVpcEndpointServicePermissions","ec2:DescribeVpcEndpointServices","ec2:DescribeVpcPeeringConnections","ec2:DescribePrefixLists","ec2:DetachInternetGateway","ec2:DetachNetworkInterface","ec2:DetachVolume","ec2:ImportKeyPair","ec2:ModifyInstanceAttribute","ec2:ModifySubnetAttribute","ec2:ModifyVpcAttribute","ec2:ModifyVpcEndpoint","ec2:RevokeSecurityGroupEgress","ec2:RevokeSecurityGroupIngress","ec2:RunInstances","ec2:TerminateInstances","elasticloadbalancing:AddTags","elasticloadbalancing:ApplySecurityGroupsToLoadBalancer","elasticloadbalancing:AttachLoadBalancerToSubnets","elasticloadbalancing:ConfigureHealthCheck","elasticloadbalancing:CreateLoadBalancer","elasticloadbalancing:CreateLoadBalancerListeners","elasticloadbalancing:DeleteLoadBalancer","elasticloadbalancing:DescribeLoadBalancerAttributes","elasticloadbalancing:DescribeLoadBalancers","elasticloadbalancing:DescribeTags","elasticloadbalancing:ModifyLoadBalancerAttributes","elasticloadbalancing:RegisterInstancesWithLoadBalancer","iam:AddRoleToInstanceProfile","iam:CreateInstanceProfile","iam:CreateRole","iam:DeleteInstanceProfile","iam:DeleteRole","iam:DeleteRolePolicy","iam:GetInstanceProfile","iam:GetRole","iam:GetRolePolicy","iam:ListAttachedRolePolicies","iam:ListInstanceProfilesForRole","iam:ListRolePolicies","iam:PassRole","iam:PutRolePolicy","iam:RemoveRoleFromInstanceProfile","sts:GetCallerIdentity","resource-groups:ListGroups","tag:GetResources","tag:GetTagKeys","tag:GetTagValues","tag:TagResources","tag:UntagResources"],"Resource":"*","Effect":"Allow"}]}'
-```
-
-```
-aws iam attach-user-policy --user-name Kommander --policy-arn $(aws iam list-policies --query 'Policies[?PolicyName==`kommander-policy`].Arn' | grep -o '".*"' | tr -d '"')
+aws iam create-policy --policy-name kommander-policy --policy-document '{"Version":"2012-10-17","Statement":[{"Sid":"KommanderCloudProvider","Action":["ec2:DescribeRegions","ec2:DescribeAvailabilityZones","ec2:AttachInternetGateway","ec2:AttachVolume","ec2:AuthorizeSecurityGroupEgress","ec2:AuthorizeSecurityGroupIngress","ec2:CreateInternetGateway","ec2:CreateRoute","ec2:CreateSecurityGroup","ec2:CreateSubnet","ec2:CreateTags","ec2:CreateVolume","ec2:CreateVpc","ec2:DeleteInternetGateway","ec2:DeleteKeyPair","ec2:DeleteSecurityGroup","ec2:DeleteSubnet","ec2:DeleteVolume","ec2:DeleteVpc","ec2:DescribeAccountAttributes","ec2:DescribeAvailabilityZones","ec2:DescribeImages","ec2:DescribeInstanceAttribute","ec2:DescribeInstanceCreditSpecifications","ec2:DescribeInstances","ec2:DescribeInternetGateways","ec2:DescribeKeyPairs","ec2:DescribeNetworkAcls","ec2:DescribeNetworkInterfaces","ec2:DescribeRouteTables","ec2:DescribeSecurityGroups","ec2:DescribeSubnets","ec2:DescribeTags","ec2:DescribeVolumes","ec2:DescribeVpcAttribute","ec2:DescribeVpcClassicLink","ec2:DescribeVpcClassicLinkDnsSupport","ec2:DescribeVpcs","ec2:DetachInternetGateway","ec2:DetachNetworkInterface","ec2:DetachVolume","ec2:ImportKeyPair","ec2:ModifyInstanceAttribute","ec2:ModifySubnetAttribute","ec2:ModifyVpcAttribute","ec2:RevokeSecurityGroupEgress","ec2:RevokeSecurityGroupIngress","ec2:RunInstances","ec2:TerminateInstances","elasticloadbalancing:AddTags","elasticloadbalancing:ApplySecurityGroupsToLoadBalancer","elasticloadbalancing:AttachLoadBalancerToSubnets","elasticloadbalancing:ConfigureHealthCheck","elasticloadbalancing:CreateLoadBalancer","elasticloadbalancing:CreateLoadBalancerListeners","elasticloadbalancing:DeleteLoadBalancer","elasticloadbalancing:DescribeLoadBalancerAttributes","elasticloadbalancing:DescribeLoadBalancers","elasticloadbalancing:DescribeTags","elasticloadbalancing:ModifyLoadBalancerAttributes","elasticloadbalancing:RegisterInstancesWithLoadBalancer","iam:AddRoleToInstanceProfile","iam:CreateInstanceProfile","iam:CreateRole","iam:DeleteInstanceProfile","iam:DeleteRole","iam:DeleteRolePolicy","iam:GetInstanceProfile","iam:GetRole","iam:GetRolePolicy","iam:ListInstanceProfilesForRole","iam:PassRole","iam:PutRolePolicy","iam:RemoveRoleFromInstanceProfile","sts:GetCallerIdentity"],"Resource":"*","Effect":"Allow"}]}'
 ```
 
 ```
@@ -159,25 +158,30 @@ Below is the minimal IAM policy required:
 
 #### Fill out the Add Infrastructure Provider form
 
-In Kommander, select the Workspace associated with the credentials you are adding.
+1. In Kommander, select the Workspace associated with the credentials you are adding.
 
-Navigate to **Administration > Infrastructure Providers** and click the **Add Infrastructure Provider** button.
+1. Navigate to **Administration > Infrastructure Providers** and click the **Add Infrastructure Provider** button.
 
-![Adding an Infrastructure Provider](/dkp/kommander/1.4/img/empty-infrastructure-providers.png)
-<br />_Adding an Infrastructure Provider_
+   ![Adding an Infrastructure Provider](/dkp/kommander/1.4/img/empty-infrastructure-providers.png)
+   <br />_Adding an Infrastructure Provider_
 
-![Add Infrastructure Provider Form](/dkp/kommander/1.4/img/add-infrastructure-provider.png)
-<br />_Add Infrastructure Provider Form_
+   ![Add Infrastructure Provider Form](/dkp/kommander/1.4/img/add-infrastructure-provider.png)
+   <br />_Add Infrastructure Provider Form_
 
-- Select the Amazon Web Services (AWS) option from the Add Infrastructure Provider form.
-- Ensure **Static** is selected as the Authentication Method.
-- Enter a name for your infrastructure provider for later reference. Consider choosing a name that matches the AWS user.
-- Fill out the access and secret keys using the keys generated above.
-- Select **Verify and Save** to verify the credentials are valid and to save your provider.
+1. Select the Amazon Web Services (AWS) option.
+
+1. Ensure **Static** is selected as the Authentication Method.
+
+1. Enter a name for your infrastructure provider for later reference. Consider choosing a name that matches the AWS user.
+
+1. Fill out the access and secret keys using the keys generated above.
+
+1. Select **Verify and Save** to verify the credentials are valid and to save your provider.
 
 ![Infrastructure Provider Form with values](/dkp/kommander/1.4/img/Infrastructure-provider-with-values.png)
 <br />_Infrastructure Provider Form with values_
 
 After the provider is created, its display name or credentials can be updated.
 
+[aws-cli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html

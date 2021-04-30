@@ -13,18 +13,19 @@ When attaching a cluster, Kommander federates certain platform services on the n
 On attachment, three factors impact successfully deploying a platform service on the attached cluster:
 
 1. Is the attached cluster a Konvoy cluster or not? For example, a cluster deployed using AWS EKS.
-2. Is the platform service enabled in the Workspace Platform Services settings?
-3. Does the platform service support the version of Kubernetes running on the cluster?
+1. Is the platform service enabled in the Workspace Platform Services settings?
+1. Does the platform service support the version of Kubernetes running on the cluster?
 
-The following tables describe the list of platform services that are federated on attachment, along with the versions of Kubernetes that they support. If the cluster is running a version of Kubernetes that is not in the supported list, the platform service is not federated to that cluster. If the platform service description indicates `only federated on non-Konvoy clusters`, the platform service is not installed into Konvoy clusters, since it is by default installed with Konvoy using [Kubernetes Base Addons](/dkp/konvoy/1.7/addons/).
+The following tables describe the list of platform services that are federated on attachment, along with the versions of Kubernetes that they support. If the cluster is running a version of Kubernetes that is not in the supported list, the platform service is not federated to that cluster. If the platform service description indicates `only federated on non-Konvoy clusters`, the platform service is not installed into Konvoy clusters, since it is by default installed with Konvoy using [Kubernetes Base Addons][base-addons].
 
 Currently, the monitoring stack is federated by default and the logging stack is not.
 
-Review the [workspace platform service resource requirements](/dkp/kommander/1.4/workspaces/platform-service-requirements/) to ensure that the attached clusters have sufficient resources.
+Review the [workspace platform service resource requirements][platform-service-requirements] to ensure the attached clusters have sufficient resources.
 
 ### Customize a workspace's platform services
 
-If you have access to edit a workspace, you can customize the platform services that are federated to a workspace's clusters using the Kommander UI. Access the settings page by going to the specific workspace's **Dashboard** page, locating the Workspace card, selecting the **Actions** drop-down button and selecting **Edit Workspace Platform Services**. You can also go to the Workspace Dashboard's **Actions** menu button to access the settings page.
+If you can edit a workspace, you can customize the platform services federated to a workspace's clusters using the Kommander UI.
+Access the settings page by going to the specific workspace's **Dashboard** page, selecting the **Actions** drop-down button on the top right of the Dashboard, and selecting **Edit Workspace Platform Services**.
 
 This takes you to the settings page which provides lists of platform services that you can enable or disable along with descriptions of the services.
 
@@ -50,4 +51,7 @@ If desired, the Kubeaddons Controller can also be disabled, though it is highly 
 | prometheusadapter                    | True                 | 1.16 - 1.20                   | True                                  |
 | reloader                             | True                 | 1.16 - 1.20                   | True                                  |
 | traefik                              | True                 | 1.16 - 1.20                   | True                                  |
-| traefik-forward-auth-kommander       | True                 | 1.16 - 1.20                   | False                                 |
+| traefik-forward-auth                 | True                 | 1.16 - 1.20                   | False                                 |
+
+[base-addons]: /dkp/konvoy/1.8/addons/
+[platform-service-requirements]: ../platform-service-requirements/
