@@ -22,7 +22,7 @@ If your group can access a cluster managed by Kommander, you can connect to that
 
 In this example, the Kommander cluster has two managed clusters on Azure but, as a user, you can only access the management cluster.
 
-1. Go to the landing page, provided by an administrator, and select **Generate Kubectl Token**.
+1. Go to the landing page provided by an administrator, and select **Generate Kubectl Token**.
 
    ![Konvoy Landing Page](/dkp/kommander/1.4/img/konvoy-landing-page.png)
 
