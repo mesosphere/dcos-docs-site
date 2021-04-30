@@ -20,7 +20,7 @@ This procedure requires the following configurations and background:
 
 If your group can access a cluster managed by Kommander, you can connect to that cluster from the Kommander landing page.
 
-In this example, the Kommander cluster has two managed clusters on Azure but, as a user, you can only access the management cluster.
+In this example, the Kommander cluster has two managed clusters on Azure but, as a user, you can only access the management cluster. In a different scenario, if you do have access to the other clusters, follow these steps to create a kubectl token for the desired attached or managed cluster.
 
 1. Go to the landing page provided by an administrator, and select **Generate Kubectl Token**.
 
@@ -30,11 +30,11 @@ In this example, the Kommander cluster has two managed clusters on Azure but, as
 
    ![Generate Kubernetes Token](/dkp/kommander/1.4/img/generate-kubernetes-token.png)
 
-1. As a user having access to the management cluster, and wanting to generate a kubeconfig for this cluster, select the `Main` cluster and log in using an identity provider.
+1. Login using an identity provider.
 
    ![Login Identity Provider](/dkp/kommander/1.4/img/login-identity-provider.png)
 
-1. Attach `kubectl` to the cluster using the interface instructions.
+1. Attach `kubectl` to the cluster using the instructions provided in the UI.
 
    ![Connection Instructions](/dkp/kommander/1.4/img/kubectl-connection-instructions.png)
 
