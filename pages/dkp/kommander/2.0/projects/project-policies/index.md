@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Project Role Bindings
 title: Project Role Bindings
 menuWeight: 4

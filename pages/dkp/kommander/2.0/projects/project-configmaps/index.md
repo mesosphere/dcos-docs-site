@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Project ConfigMaps
 title: Project ConfigMaps
 menuWeight: 5
@@ -9,7 +8,7 @@ excerpt: Project ConfigMaps can be created to make sure Kubernetes ConfigMaps ar
 
 Project ConfigMaps can be created to make sure Kubernetes ConfigMaps are automatically created on all Kubernetes clusters associated with the Project, in the corresponding namespace.
 
-As reference, a ConfigMap is a key-value pair to store some type of non-confidential data like "name=bob" or "state=CA". For a full reference to the concept, consult the Kubernetes documentation on the topic of ConfigMaps [here](https://kubernetes.io/docs/concepts/configuration/configmap/)
+As reference, a ConfigMap is a key-value pair to store some type of non-confidential data like "name=bob" or "state=CA". For a full reference to the concept, please consult the Kubernetes documentation on the topic of ConfigMaps [here](https://kubernetes.io/docs/concepts/configuration/configmap/)
 
 A Project ConfigMap can be created using the Kommander UI:
 
