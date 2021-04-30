@@ -70,7 +70,7 @@ If you are in the detailed page for the specific cluster, you can click on the t
 
   ![Kommander cluster details View](/dkp/kommander/1.4/img/download-kubeconfig-details-page.png)
 
-After downloaded, you can apply this kubeconfig to your `kubectl`.
+After it is downloaded, you can apply this kubeconfig to your `kubectl`.
 
 If you select the **Download kubeconfig** from the UI and Kommander presents a modal that says the kubeconfig is not available for download, you must retrieve the Kubernetes credentials using the [Access a cluster instructions][access-cluster].
 
