@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: true
 navigationTitle: Edit and Delete Workspaces
 title: Edit and Delete Workspaces
 menuWeight: 8

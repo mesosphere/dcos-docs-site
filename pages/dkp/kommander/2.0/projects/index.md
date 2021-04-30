@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Projects
 title: Projects
 menuWeight: 8
