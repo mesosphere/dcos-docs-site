@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Troubleshooting Kaptain 1.0
-title: Troubleshooting Kaptain 1.0
+navigationTitle: Troubleshooting Kaptain
+title: Troubleshooting Kaptain 
 menuWeight: 10
-excerpt: View troubleshooting information for Kaptain 1.1.0
+excerpt: View troubleshooting information for Kaptain
 beta: false
 enterprise: false
 ---

@@ -17,38 +17,30 @@ and Katib experiment results.
 -   You already provisioned a Konvoy cluster using at least `v1.7.0`.
 
 ## Overview
-By default, the MySQL cluster based on Percona XtraDB and which consists
-of 3 database nodes and 2 proxy nodes. The database nodes run MySQL daemons and store the data,
-and the proxy nodes run HAProxy and expose the database to the clients via Kubernetes Service.
+By default, the MySQL cluster is based on Percona XtraDB, and consists of 3 database nodes and 2 proxy nodes. The database nodes run MySQL daemons and store the data, and the proxy nodes run HAProxy and expose the database to the clients via a Kubernetes Service.
 
-The database nodes form a primary-primary database cluster which means there's no secondary nodes and
-all the data is consistent across all the cluster nodes when a database operation considered successful.
-Horizontal scaling of the database nodes will result in more replicas of the data available for recovery
-in case of a failure, however, will not result in a better performance because of the replication model.
-To achieve a better performance the database nodes should be scaled vertically which means the database pods will
-require adding more resources such as CPU and memory.
+The database nodes form a primary-primary database cluster.  This means there are no secondary nodes; i.e. all data is consistent across all the cluster nodes whenever a database operation completes successfully.
+
+Horizontally scaling the database nodes will result in more replicas of the data available for recovery in case of a failure.  However, it will not result in better performance because of the replication model.
+
+To achieve better performance, the database nodes should be scaled vertically by adding more resources such as CPU and memory.
 
 <div style="color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc; padding: 15px; margin-top: 10px; margin-bottom: 10px; border: 1px solid transparent; border-radius: 4px;">
-<p class="message--warning"><strong>WARNING: </strong>Kaptain MySQL cluster doesn't support changes in the resources
-and the number of nodes at the same time. If both operations required, it is recommended to perform them one by one</p>
+<p class="message--warning"><strong>WARNING: </strong>The Kaptain MySQL cluster does not support simultaneous changes to the database resources and the number of database nodes at the same time. If changes in both are required, you should perform them sequentially (i.e. increase resources, and then scale, or vice versa.)</p>
 </div>
 <div style="color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc; padding: 15px; margin-top: 10px; margin-bottom: 10px; border: 1px solid transparent; border-radius: 4px;">
-<p class="message--warning"><strong>WARNING: </strong>Kaptain MySQL cluster doesn't support updates of Proxy nodes and
-MySQL nodes at the same time. All the update operations should be performed for each component independently.</p>
+<p class="message--warning"><strong>WARNING: </strong>The Kaptain MySQL cluster does not support updates of Proxy nodes and MySQL nodes at the same time. Update operations should be performed for each component independently.</p>
 </div>
 
-## Scaling MySQL cluster horizontally
+## Scaling the MySQL cluster horizontally
 
 ### Scaling Proxy nodes
-To change the number of the proxy nodes, create or update a configuration file `parameters.yaml`
-to include the following property:
+To change the number of the proxy nodes, create or update a configuration file named `parameters.yaml` and include the following property:
 ```yaml
 datastoreProxyCount: "3"
 ```
 
-`datastoreProxyCount` parameter controls the number of HAProxy replicas which serve as a database endpoint
-exposed via Kubernetes `Service`. Increasing the number of proxies is recommended when there's a consistently
-high connection failure rate.
+The `datastoreProxyCount` property controls the number of HAProxy replicas which serve as the database endpoint and are exposed via a Kubernetes `Service`. Increasing the number of proxy replicas is recommended if you observe a consistently high connection failure rate.
 
 To install Kaptain with the provided parameters, run the following command on the cluster:
 ```bash
@@ -59,7 +51,7 @@ kubectl kudo install ./kubeflow-1.2.0_1.1.0.tgz \
 		--create-namespace
 ```
 
-To update already installed Kaptain instance with the provided parameters, run the following command on the cluster:
+To update an existing Kaptain instance with the updated properties, run the following command on the cluster:
 ```bash
 kubectl kudo update \
 		--instance kaptain \
@@ -68,16 +60,12 @@ kubectl kudo update \
 ```
 
 ### Scaling MySQL nodes
-To change the number of the database nodes, create or update a configuration file `parameters.yaml`
-to include the following property:
+To change the number of the database nodes, create or update a configuration file named `parameters.yaml` and include the following property:
 ```yaml
 datastoreNodeCount: "5"
 ```
 
-`datastoreNodeCount` parameter is responsible for the number of MySQL instances in the cluster. The higher the
-number, the more copies of the data will be stored. The default number of nodes is set to 3 for the best
-redundancy/throughput ratio. It is recommended to increase the number of replicas in case of unstable
-physical infrastructure or high risk of the data loss because of the unstable storage layer.
+The `datastoreNodeCount` property determines the number of MySQL instances in the cluster. The higher the number, the more copies of the data that will be stored. The default number of nodes is set to 3 for the best redundancy/throughput ratio. It is recommended to increase the number of replicas if you have unstable physical infrastructure or there is a high risk of data loss because of the unstable storage layers.
 
 To install Kaptain with the provided parameters, run the following command on the cluster:
 ```bash
@@ -88,7 +76,7 @@ kubectl kudo install ./kubeflow-1.2.0_1.1.0.tgz \
 		--create-namespace
 ```
 
-To update already installed Kaptain instance with the provided parameters, run the following command on the cluster:
+To update an existing Kaptain instance with the provided parameters, run the following command on the cluster:
 ```bash
 kubectl kudo update \
 		--instance kaptain \
@@ -97,23 +85,20 @@ kubectl kudo update \
 ```
 
 <div style="color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc; padding: 15px; margin-top: 10px; margin-bottom: 10px; border: 1px solid transparent; border-radius: 4px;">
-<p class="message--warning"><strong>WARNING: </strong>When scaling the existing database cluster down (decreasing the number of nodes),
-it is possible for the client to lose the connectivity in case the leader node is decommissioned. Once the
-new leader is elected, the new connections will be served as usual.</p>
+<p class="message--warning"><strong>WARNING: </strong>When scaling the existing database cluster down (i.e. decreasing the number of nodes), it is possible for clients to lose connectivity if the leader node is decommissioned. Once a new leader is elected, the clients will be able to reconnect.</p>
 </div>
 
 
 ## Configuring MySQL cluster resources
 
 ### Configuring resources for Proxy nodes
-To change the compute resources for the proxy nodes, create or update a configuration file `parameters.yaml`
-to include the following properties:
+To change the compute resources for the proxy nodes, create or update a configuration file named `parameters.yaml` and include the following properties:
 ```yaml
 datastoreProxyNodeMemory: "2G"
 datastoreProxyNodeCPU: "2"
 ```
 
-`datastoreProxyNodeCPU` and `datastoreProxyNodeMemory` parameters set the CPU and memory for HAProxy instances in the cluster.
+The `datastoreProxyNodeCPU` and `datastoreProxyNodeMemory` properties set the CPU and memory requests for the HAProxy instances in the cluster.
 
 To install Kaptain with the provided parameters, run the following command on the cluster:
 ```bash
@@ -124,7 +109,7 @@ kubectl kudo install ./kubeflow-1.2.0_1.1.0.tgz \
 		--create-namespace
 ```
 
-To update already installed Kaptain instance with the provided parameters, run the following command on the cluster:
+To update an existing Kaptain instance with the provided parameters, run the following command on the cluster:
 ```bash
 kubectl kudo update \
 		--instance kaptain \
@@ -133,14 +118,13 @@ kubectl kudo update \
 ```
 
 ### Configuring resources for MySQL nodes
-To change the compute resources for the database nodes, create or update a configuration file `parameters.yaml`
-to include the following properties:
+To change the compute resources for the database nodes, create or update a configuration file named `parameters.yaml` and include the following properties:
 ```yaml
 datastoreMySQLNodeMemory: "3G"
 datastoreMySQLNodeCPU: "3"
 ```
 
-`datastoreMySQLNodeCPU` and `datastoreMySQLNodeMemory` parameters set the CPU and memory for MySQL instances in the cluster.
+The `datastoreMySQLNodeCPU` and `datastoreMySQLNodeMemory` properties set the CPU and memory requests for the MySQL instances in the cluster.
 
 To install Kaptain with the provided parameters, run the following command on the cluster:
 ```bash
@@ -151,7 +135,7 @@ kubectl kudo install ./kubeflow-1.2.0_1.1.0.tgz \
 		--create-namespace
 ```
 
-To update already installed Kaptain instance with the provided parameters, run the following command on the cluster:
+To update an existing Kaptain instance with the provided parameters, run the following command on the cluster:
 ```bash
 kubectl kudo update \
 		--instance kaptain \
@@ -160,18 +144,15 @@ kubectl kudo update \
 ```
 
 <div style="color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc; padding: 15px; margin-top: 10px; margin-bottom: 10px; border: 1px solid transparent; border-radius: 4px;">
-<p class="message--warning"><strong>WARNING: </strong>When performing the update of the parameters, the existing database cluster will be
-restarted in a rolling manner (one node at a time), it is possible for the client to lose the connectivity when the leader node is recreated.
-Once the new leader is elected, the new connections will be served as usual.</p>
+<p class="message--warning"><strong>WARNING: </strong>To update the parameters, the existing database cluster will be restarted in a rolling manner, that is, one node at a time. It is possible for clients to lose connectivity when the leader node is restarted. Once a new leader is elected, clients will be able to reconnect.</p>
 </div>
 
 ## Creating a backup for the MySQL cluster
-Kaptain provides dedicated KUDO plans for on-demand backup and restore operations for the MySQL cluster. Currently, Kaptain
-supports backups to AWS S3 only. It is required to create a Kubernetes `Secret` with AWS access credentials for the backup
-and update Kaptain configuration to enable backup and configure the storage location.
+Kaptain provides dedicated KUDO plans for on-demand backup and restore operations for the MySQL cluster. Currently, Kaptain only supports backups to AWS S3.  
 
-Create a Kubernetes `Secret` with AWS access credentials in the same namespace where Kaptain is installed with the
-following contents:
+You must create a Kubernetes `Secret` with AWS access credentials for the backup and then update the Kaptain configuration to enable backup and configure the storage location.
+
+Create a Kubernetes `Secret` in the same namespace where Kaptain is installed using the AWS credentials as follows:
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -183,8 +164,7 @@ data:
   AWS_SECRET_ACCESS_KEY: <base64-enconded AWS Secret Access Key>
 ```
 
-To enable backups and configure backup location, create or update a configuration file `parameters.yaml`
-to include the following properties:
+To enable backups and configure backup location, create or update a configuration file named `parameters.yaml` and include the following properties:
 ```yaml
 backupEnabled: "true"
 backupBucket: "<S3 bucket to use for uploading the backup>"
@@ -202,7 +182,7 @@ kubectl kudo install ./kubeflow-1.2.0_1.1.0.tgz \
 		--create-namespace
 ```
 
-To update already installed Kaptain instance with the provided parameters, run the following command on the cluster:
+To update an existing Kaptain instance with the provided properties, run the following command on the cluster:
 ```bash
 kubectl kudo update \
 		--instance kaptain \
@@ -210,7 +190,7 @@ kubectl kudo update \
 		--namespace kubeflow
 ```
 
-To perform the backup operation, trigger Kaptain `backup` plan for the MySQL cluster component:
+To perform a backup, trigger the Kaptain `backup` plan for the MySQL cluster component:
 ```bash
 kubectl kudo plan trigger --name=backup \
         --instance kaptain-percona-xtradb-cluster-operator \
@@ -226,19 +206,17 @@ aws s3 ls s3://kaptain-backup/
 ```
 ## Restoring the MySQL cluster from a backup
 <div style="color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc; padding: 15px; margin-top: 10px; margin-bottom: 10px; border: 1px solid transparent; border-radius: 4px;">
-<p class="message--warning"><strong>WARNING: </strong>The restore operation terminates the running cluster and deletes all the data. 
-The data from the backup is then used to bootstrap the cluster. The restore operation introduces a downtime for the duration of the 
-restore process.</p>
+<p class="message--warning"><strong>WARNING: </strong>The restore operation will terminate the running MySQL cluster and delete all the existing data. The data from the backup will be used to bootstrap a new cluster. The restore operation introduces downtime for the duration of the restore process.</p>
 </div>
 
 There are two options for restoring the database cluster from a backup:
-* using the latest backup created via running KUDO backup plan,
-* or using some particular backup from S3
+* Using the latest backup created by running a KUDO backup plan
+* Using a selected backup, for example, an older one.
 
 Both approaches assume the backup has been performed at least once, and the data is available in S3.
 
 ### Restoring the MySQL cluster from the latest backup
-Make sure, the following properties are set:
+Before beginning, ensure that the following properties are set in the Kaptain installation:
 ```yaml
 backupEnabled: "true"
 backupBucket: "<S3 bucket to use for uploading the backup>"
@@ -247,14 +225,11 @@ backupSecretName: "<The name of the created secret, for example mysql-backup-sec
 backupEndpointUrl: "<Optionally specify the S3 storage endpoint>"
 ```
 
-If the operator has `backupRestoreSource` property set to a non-empty string, update this parameter
-in order to use the latest backup instead. To override the parameter, create or update a configuration file `parameters.yaml`
-and set `backupRestoreSource` property to an empty string:
+If the `backupRestoreSource` property is set to a non-empty string, you must update this property in order to use the latest backup. To override the property, create or update a configuration file named `parameters.yaml` and set the `backupRestoreSource` property to the empty string:
 ```yaml
 backupRestoreSource: ""
-```
 
-Update Kaptain using the created file:
+Then, update Kaptain using the created file:
 ```bash
 kubectl kudo update \
 		--instance kaptain \
@@ -262,7 +237,7 @@ kubectl kudo update \
 		--namespace kubeflow
 ```
 
-To perform the restore operation, trigger Kaptain `restore` plan for the MySQL cluster component:
+To perform a restore operation, trigger the Kaptain `restore` plan for the MySQL cluster component:
 ```bash
 kubectl kudo plan trigger --name=restore \
         --instance kaptain-percona-xtradb-cluster-operator \
@@ -272,7 +247,7 @@ kubectl kudo plan trigger --name=restore \
 The operation will use the latest backup data created by the `backup` plan.
 
 ### Restoring the MySQL cluster from a specific S3 backup
-Make sure, the following properties are set:
+Before beginning, ensure that the following properties are set in the Kaptain installation:
 ```yaml
 backupEnabled: "true"
 backupBucket: "<S3 bucket to use for uploading the backup>"
@@ -281,14 +256,14 @@ backupSecretName: "<The name of the created secret, for example mysql-backup-sec
 backupEndpointUrl: "<Optionally specify the S3 storage endpoint>"
 ```
 
-Configure `backupRestoreSource` property to point to the location of a backup which should be used for restoring the cluster.
-To set the parameter, create or update a configuration file `parameters.yaml` and set `backupRestoreSource` property.
+Configure the `backupRestoreSource` property to point to the location of a backup which should be used for restoring the cluster.
+To configure this property, create or update a configuration file named `parameters.yaml` and set the `backupRestoreSource` property.
 For example:
 ```yaml
 backupRestoreSource: "s3://kaptain-backup/kaptain-mysql-store-2021-04-05-23:49:57-full"
 ```
 
-Update Kaptain using the created file:
+Then, update Kaptain using the created file:
 ```bash
 kubectl kudo update \
 		--instance kaptain \
@@ -296,11 +271,11 @@ kubectl kudo update \
 		--namespace kubeflow
 ```
 
-To perform the restore operation, trigger Kaptain `restore` plan for the MySQL cluster component:
+To perform the restore operation, trigger the Kaptain `restore` plan for the MySQL cluster component:
 ```bash
 kubectl kudo plan trigger --name=restore \
         --instance kaptain-percona-xtradb-cluster-operator \
         --namespace kubeflow
 ```
 
-The operation will use the backup data from the location specified in `backupRestoreSource` parameter.
+The operation will use the backup data from the location specified in `backupRestoreSource` property.
