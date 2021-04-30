@@ -60,7 +60,7 @@ Error from server (Forbidden): pods is forbidden: User "user@yourcompany.com" ca
 
 ### Downloading a kubeconfig from the UI
 
-Certain managed clusters can also have the kubeconfig downloaded from the UI.
+You can use the UI to download certain managed clusters' kubeconfigs.
 
 If you are in the **Clusters** page from the **Global** workspace view, or the **Clusters** page from any workspace with clusters, you can click on the three button action menu from the card, and select **Download kubeconfig**.
 
