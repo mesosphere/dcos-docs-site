@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: true
 navigationTitle: Workspace Platform Services
 title: Workspace Platform Services
 menuWeight: 5
@@ -28,7 +27,7 @@ If you have access to edit a workspace, you can customize the platform services 
 
 This takes you to the settings page which provides lists of platform services that you can enable or disable along with descriptions of the services.
 
-<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the platform services, which are listed <a href="../platform-service-dependencies/">here</a>. Review them carefully prior to customizing to ensure that the platform services are deployed successfully.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the platform services, which are listed <a href="../platform-service-dependencies/">here</a>. Please review them carefully prior to customizing to ensure that the platform services are deployed successfully.</p>
 
 Platform services support a specific set of Kubernetes versions running on the attached cluster. See the column `Kubernetes Versions Supported` in the below chart for supported Kubernetes versions per platform service. Platform services will not be deployed to clusters running Kubernetes versions outside of those listed.
 

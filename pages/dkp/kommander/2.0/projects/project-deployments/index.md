@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Project Deployments
 title: Project Deployments
 menuWeight: 1
@@ -47,7 +46,7 @@ Create a secret to be used by Dispatch to read the contents of your GitOps repos
 
 ![Secret for GitOps source](../../img/project-cd-secret-create.png)
 
-Note that the above screen creates a `types.kubefed.io/v1beta1, Kind=FederatedSecret` and this is not yet supported by Dispatch CLI. Use the GUI as shown above to create a federated secret OR create a `FederatedSecret` manifest and apply it to the project namespace. Learn more about [FederatedSecrets](../project-secrets/).
+Note that the above screen creates a `types.kubefed.io/v1beta1, Kind=FederatedSecret` and this is not yet supported by Dispatch CLI. Please use the GUI as shown above to create a federated secret OR create a `FederatedSecret` manifest and apply it to the project namespace. Learn more about [FederatedSecrets](../project-secrets/).
 
 ### Creating GitOps Source
 

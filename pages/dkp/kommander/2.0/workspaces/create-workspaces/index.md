@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: true
 navigationTitle: Create New Workspaces
 title: Create New Workspaces
 menuWeight: 8
