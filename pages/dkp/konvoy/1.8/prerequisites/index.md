@@ -4,7 +4,7 @@ navigationTitle: Prerequisites
 title: Prerequisites
 menuWeight: 55
 excerpt: Requirements for installing Konvoy
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -33,9 +33,7 @@ Before starting the Konvoy installation, verify the following:
 
 Make sure the control plane nodes and worker nodes can access the following domains:
 
-#include /dkp/konvoy/1.7/include/required-domains.tmpl
-
-For the deploy host, make sure domain `registry.hub.docker.com`, `mesosphere.github.io`, and `github.com` are accessible.
+#include /dkp/konvoy/1.8/include/required-domains.tmpl
 
 In addition, FIPS mode enablement is a decision to make when installing and running Konvoy for the first time, or when you intend to create a new cluster. You can enable FIPS mode only at cluster creation. There is no way to apply FIPS mode to an existing cluster, you must provision a new one.
 

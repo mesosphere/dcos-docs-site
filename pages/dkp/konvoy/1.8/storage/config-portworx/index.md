@@ -4,7 +4,7 @@ navigationTitle: Configure Portworx
 title: Configure Portwork for On-prem Usage
 menuWeight: 20
 excerpt: Configure Portworx Essentials for On-prem Use
-beta: true
+beta: false
 enterprise: false
 ---
 

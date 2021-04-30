@@ -4,7 +4,7 @@ navigationTitle: Install on-premises
 title: Install on-premises
 menuWeight: 30
 excerpt: Install Konvoy in an on-premises environment
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -196,16 +196,16 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-1.20-4.0.0-rc.2
+    configVersion: testing-1.20-4.0.0-rc.3
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-    configVersion: stable-1.20-1.4.4
+    configVersion: stable-1.20-1.4.5
     addonsList:
     - name: dispatch
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: testing-1.20-1.4.0-rc.2
+    configVersion: testing-1.20-1.4.0-rc.3
     addonsList:
     - name: kommander
       enabled: true

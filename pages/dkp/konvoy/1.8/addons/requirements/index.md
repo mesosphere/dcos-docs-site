@@ -4,7 +4,7 @@ navigationTitle: Configuration Requirements
 title: Configuration Requirements
 menuWeight: 7
 excerpt: KBA Descriptions and Resource Requirements
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -12,7 +12,7 @@ enterprise: false
 
 #include /dkp/konvoy/1.7/include/kba-requirements.tmpl
 
-#include /dkp/konvoy/1.7/include/kba-addons-versions.tmpl
+#include /dkp/konvoy/1.8/include/kba-addons-versions.tmpl
 
 ## Related information
 

@@ -5,7 +5,7 @@ title: konvoy generate cluster-admin-serviceaccount
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
+beta: false
 excerpt: Generates the resources used to create a cluster-admin service account
 ---
 

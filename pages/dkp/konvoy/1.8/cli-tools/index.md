@@ -4,6 +4,6 @@ navigationTitle: CLI Tools
 title: CLI Tools
 menuWeight: 255
 excerpt: CLI Tools
-beta: true
+beta: false
 enterprise: false
 ---

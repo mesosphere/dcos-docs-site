@@ -4,7 +4,7 @@ navigationTitle: Kubernetes Base Addons
 title: Kubernetes Base Addons
 menuWeight: 0
 excerpt: View release-specific information for Kubernetes base addons
-beta: true
+beta: false
 enterprise: false
 ---
 

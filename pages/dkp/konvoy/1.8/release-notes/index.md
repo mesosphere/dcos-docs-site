@@ -4,13 +4,13 @@ navigationTitle: Release Notes
 title: Release Notes Konvoy 1.8
 menuWeight: 0
 excerpt: View release-specific information for Konvoy 1.8
-beta: true
+beta: false
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 21, April 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 03, May 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -28,26 +28,6 @@ This release provides new features and enhancements to improve the user experien
 |**Maximum** | 1.20.x |
 |**Default** | 1.20.6 |
 
-### Upstream industry changes
-
-The following sections refer to recent changes in the Open Source software used by DKP that may require action on your part as part of an upgrade or installation of D2iQ software.
-
-#### Docker hub rate limiting
-
-Docker Hub announced an [update](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/) to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
-
-Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
-
-For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
-
-<!--
-#### KUDO Spark compatibility
-
-Konvoy 1.7+ requires KUDO Spark 3.0 because Spark 2.4 does not support Kubernetes 1.19.
-To continue using KUDO Spark on Konvoy 1.7 and above, upgrade to KUDO Spark 3.0.
-For details on how to migrate workloads to Spark 3.0, consult the official [migration guides](https://spark.apache.org/releases/spark-release-3-0-0.html) for each relevant module.
--->
-
 ### New features and capabilities
 
 #### Addons
@@ -62,11 +42,11 @@ For details on how to migrate workloads to Spark 3.0, consult the official [migr
 #### CLI
 
 - Added support for RHEL/CentOS 7.9.
-- The auto-provisioner can be now uninstalled if the `autoProvisioning.disabled` is set to `true` after the initial installation.
+- You can now uninstall the auto-provisioner if the `autoProvisioning.disabled` is set to `true` after the initial installation.
 - Use the correct GPG key when installing FIPS RPM packages in an air-gapped environment.
 - Include the missing `docker.io/mesosphere/pause:3.2` needed for air-gapped FIPS installation.
-- Allow for using custom CA when generating certificates for the Kubernetes control plane by copying `ca.crt` and `ca.key` files from `extras/pki` in the working directory, See the [Konvoy documentation][konvoy-ccontrol-plane-certificates].
-- Validate that konvoy is not being run from a host in the Kubernetes cluster. (COPS-6878)
+- Added support for using a custom CA when generating certificates for the Kubernetes control plane by copying the `ca.crt` and `ca.key` files from `extras/pki` in the working directory, See the [Konvoy documentation][konvoy-ccontrol-plane-certificates].
+- Validate that Konvoy is not being run from a host in the Kubernetes cluster. (COPS-6878)
 - Fix to allow for upgrading Konvoy v1.7.0 and v1.7.1 to any later version of Konvoy while running in FIPS mode.
 
 #### API
@@ -81,19 +61,21 @@ For details on how to migrate workloads to Spark 3.0, consult the official [migr
 - Fix a bug where running `konvoy` may destroy machines when `subnetIDs` are specified. (COPS-6816)
 - Fix a cluster configuration validation error that marked AWS GovCloud KMS ARNs invalid. (COPS-6884)
 
-#### Azure
-
 #### vSphere
 
 - Terraform `wait_for_guest_net_routable` is now set to `false` to allow for air-gapped installations.
 
-#### Diagnose
+### Upstream industry changes
 
-#### Kommander
+The following sections refer to recent changes in the Open Source software used by DKP that may require action on your part as part of an upgrade or installation of D2iQ software.
 
-#### Kubeaddons
+#### Docker hub rate limiting
 
-#### Terraform
+Docker Hub announced an [update](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/) to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
+
+Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
+
+For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
 
 ### Component versions
 
@@ -102,23 +84,27 @@ For details on how to migrate workloads to Spark 3.0, consult the official [migr
 - Cluster-autoscaler v0.5.0
 - Containerd v1.3.9
 - Docker v19.03.15
+- EBS CSI 0.7.x
+- Elastic Search 7.10.1
+- Gatekeeper 3.4.0
 - Go 1.16.2
 - Helm v3.5.2
-- kubeaddons-dispatch stable-1.19-1.4.1
-- kubeaddons-kommander testing-1.20-1.4.0-rc.2
-- kubernetes-base-addons testing-1.20-4.0.0-rc.2
+- Istio 1.9.1
+- Kibana 7.9.3
+- kubeaddons-dispatch stable-1.19-1.4.5
+- kubeaddons-kommander testing-1.20-1.4.0-rc.3
+- kubernetes-base-addons testing-1.20-4.0.0-rc.3
 - Kubernetes v1.20.6
 - Kubeaddons v0.26.0
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
+- Prometheus 2.22.1
+- Prometheus Operator 0.43.0
+- snapshot-controller 3.0.2
 - Terraform v0.13.5
 - Terraform AWS plugin ~> 3.0
 - Terraform Azure plugin ~> 2.31
 - Terraform GCP plugin ~> 3.42
-
-<!--
-##### Previous releases
-Add links to previous release notes
--->
+- Velero >= 1.5
 
 ## Additional resources
 

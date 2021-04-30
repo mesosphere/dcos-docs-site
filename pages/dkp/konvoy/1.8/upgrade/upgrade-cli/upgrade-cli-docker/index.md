@@ -4,7 +4,7 @@ navigationTitle: Upgrade Konvoy Using a Private Docker Registry
 title: Upgrade Konvoy Using a Private Docker Registry
 menuWeight: 2
 excerpt: Upgrade Konvoy Using a Private Docker Registry
-beta: true
+beta: false
 enterprise: false
 ---
 

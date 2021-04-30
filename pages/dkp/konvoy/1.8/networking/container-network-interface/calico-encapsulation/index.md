@@ -4,7 +4,7 @@ navigationTitle: Calico Encapsulation
 title: Calico Encapsulation
 menuWeight: 8
 excerpt: Set Network Encapsulation type for Calico
-beta: true
+beta: false
 enterprise: false
 ---
 

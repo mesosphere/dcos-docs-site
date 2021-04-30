@@ -4,7 +4,7 @@ navigationTitle: Addon Repositories
 title: Addon Repositories
 menuWeight: 5
 excerpt: Learn more about addon repositories
-beta: true
+beta: false
 
 ---
 ## Addon Repositories
@@ -73,7 +73,7 @@ spec:
   ...
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.20-4.0.0-rc.2
+    configVersion: testing-1.20-4.0.0-rc.3
     addonsList:
     - name: awsebscsiprovisioner
       enabled: false

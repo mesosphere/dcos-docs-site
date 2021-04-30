@@ -4,7 +4,7 @@ navigationTitle: Workloads
 title: Workloads
 menuWeight: 155
 excerpt: Deploying Operators, Workloads, and Applications
-beta: true
+beta: false
 enterprise: false
 ---
 

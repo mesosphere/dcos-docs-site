@@ -5,7 +5,7 @@ title: konvoy config images save
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
+beta: false
 excerpt: Save all docker images used during the installation as tars
 ---
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Operator SDK
 title: Operator SDK
 menuWeight: 8
-beta: true
+beta: false
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: Install on secured machines
 title: Install on secured machines
 menuWeight: 37
 excerpt: Install on secured machines
-beta: true
+beta: false
 enterprise: false
 ---
 

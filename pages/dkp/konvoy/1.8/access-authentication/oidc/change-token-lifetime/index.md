@@ -4,7 +4,7 @@ navigationTitle: Change the Access Token Lifetime
 title: Change the Access Token Lifetime
 menuWeight: 40
 excerpt: Changing the Access Token Lifetime.
-beta: true
+beta: false
 enterprise: false
 ---
 

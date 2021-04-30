@@ -4,7 +4,7 @@ navigationTitle: Upgrade Istio when upgrading Konvoy CLI
 title: Upgrade Istio when upgrading Konvoy CLI from Konvoy 1.6.x
 menuWeight: 1
 excerpt: Upgrade Istio when upgrading Konvoy CLI
-beta: true
+beta: false
 enterprise: false
 ---
 

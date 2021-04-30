@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: KUDO Operators
 title: KUDO Operators
 menuWeight: 8
-beta: true
+beta: false
 enterprise: false
 ---
 
