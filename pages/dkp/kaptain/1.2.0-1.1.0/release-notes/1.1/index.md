@@ -15,7 +15,7 @@ This document describes the new features, caveats, and resolved issues in D2iQ K
 
 ### New features
 
-* Upgradability and configuration updates of existing Kaptain installations without user workloads interruption
+* Full live upgradability of Kaptain and all of its configurations without interruption of user workloads
 * Highly-available and scalable MinIO operator for in-cluster Pipelines data storage
 * Consolidated highly-available and scalable MySQL cluster for Katib, Metadata, and Pipelines
 * S3 Backup/Restore for the MySQL cluster
