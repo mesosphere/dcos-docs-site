@@ -77,6 +77,8 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - cost-analyzer: 1.71.1
 
 ## Fixed and Improved Issues
+
 - Bump federated prometheus to 9.3.7
 - Bump kubecost to 0.7.0 which enables PodSecurityPolicy
 - Decrease the amount of time it takes to delete Kommander
+- Fixed an issue where sometimes valid licenses were briefly displayed as invalid. (COPS-6912)
