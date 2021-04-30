@@ -4,7 +4,7 @@ navigationTitle: Helm
 title: Helm
 menuWeight: 5
 excerpt: Deployment Helm Workloads
-beta: true
+beta: false
 enterprise: false
 ---
 

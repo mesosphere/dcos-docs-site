@@ -4,7 +4,7 @@ navigationTitle: Calico BGP Route Reflectors
 title: Calico BGP Route Reflectors
 menuWeight: 8
 excerpt: Configure in-cluster BGP route reflectors for Calico
-beta: true
+beta: false
 enterprise: false
 ---
 

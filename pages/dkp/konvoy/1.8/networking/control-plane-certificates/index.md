@@ -4,7 +4,7 @@ navigationTitle: Control plane Certificate
 title: Control plane High Certificate
 menuWeight: 8
 excerpt: Configure Certificates for the Control Plane
-beta: true
+beta: false
 enterprise: false
 ---
 

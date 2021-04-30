@@ -4,7 +4,7 @@ navigationTitle: Granting Access to Kubernetes and Konvoy Resources
 title: Granting Access to Kubernetes and Konvoy Resources
 menuWeight: 10
 excerpt: Grant access to Konvoy Ops Portal and Kubernetes resources using RBAC
-beta: true
+beta: false
 enterprise: false
 ---
 

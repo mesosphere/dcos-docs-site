@@ -4,7 +4,7 @@ navigationTitle: CIDR Pools
 title: CIDR Pools
 menuWeight: 8
 excerpt: Configure custom CIDR pools
-beta: true
+beta: false
 enterprise: false
 ---
 

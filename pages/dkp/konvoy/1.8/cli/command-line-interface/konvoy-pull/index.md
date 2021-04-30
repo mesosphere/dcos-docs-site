@@ -5,7 +5,7 @@ title: konvoy pull
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
+beta: false
 excerpt: Pull cluster state
 ---
 

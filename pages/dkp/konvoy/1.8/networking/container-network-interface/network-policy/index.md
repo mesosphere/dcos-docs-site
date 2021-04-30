@@ -4,7 +4,7 @@ navigationTitle: Network Policy
 title: Network Policy
 menuWeight: 8
 excerpt: Kubernetes and Calico Network Policy
-beta: true
+beta: false
 enterprise: false
 ---
 

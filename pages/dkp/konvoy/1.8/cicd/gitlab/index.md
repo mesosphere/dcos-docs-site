@@ -4,7 +4,7 @@ navigationTitle: Install GitLab Enterprise on Konvoy
 title: Install GitLab Enterprise on Konvoy
 menuWeight: 5
 excerpt: Learn how to install GitLab Enterprise on a Konvoy cluster
-beta: true
+beta: false
 enterprise: false
 ---
 
