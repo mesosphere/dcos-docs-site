@@ -1,4 +1,4 @@
-# D2iQ Documentation
+# D2iQ Documentation - Private Beta
 
 # Detailed Environment Setup Guide
 
