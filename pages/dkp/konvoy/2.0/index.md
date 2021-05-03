@@ -4,7 +4,6 @@ navigationTitle: Konvoy 2.0 beta
 title: Welcome to Konvoy 2.0 beta
 subtree:
   beta: true
-  draft: true
 menuWeight: 0
 ---
 
