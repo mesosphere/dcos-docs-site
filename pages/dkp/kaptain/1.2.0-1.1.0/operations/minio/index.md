@@ -53,7 +53,7 @@ kubectl kudo install ./kubeflow-1.2.0_1.1.0.tgz \
 
 The MinIO cluster can be expanded by increasing the number of server pools in the cluster. 
 <div style="color: #8a6d3b; background-color: #fcf8e3; border-color: #faebcc; padding: 15px; margin-top: 10px; margin-bottom: 10px; border: 1px solid transparent; border-radius: 4px;">
-<p class="message--warning"><strong>WARNING: </strong>Expand an existing server pool is not supported. The cluster can only by adding additional server pools.</p>
+<p class="message--warning"><strong>WARNING: </strong>Expanding an existing server pool is not supported. The cluster can only by expanded by adding additional server pools.</p>
 </div>
 
 To update already installed Kaptain instance with the provided parameters, run the following command on the cluster:
