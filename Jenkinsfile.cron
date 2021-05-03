@@ -11,6 +11,9 @@ pipeline {
       parallel {
 
         stage("Update dev-image") {
+          environment {
+            DOCKER = credentials('docker-hub-credentials')
+          }
           steps {
             sh '''
               docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
