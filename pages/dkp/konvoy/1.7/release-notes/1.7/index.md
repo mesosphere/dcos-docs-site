@@ -135,8 +135,8 @@ Custom Resource Definitions of KUDO Spark Operator versions prior to 3.0.0-1.1.0
 Perform these steps prior to upgrading or installing Konvoy to prevent or mitigate disruption of currently-running Spark jobs and invalidating Spark CRDs:
 
 1. Wait for the KUDO Spark Operator jobs to finish, or terminate the running jobs.
-1. [Uninstall the KUDO Spark Operator](https://github.com/kudobuilder/operators/blob/master/repository/spark/docs/3.0.0-1.1.0/installation.md#uninstalling-the-spark-operator).
-1. [Install the new KUDO Spark version](https://github.com/kudobuilder/operators/blob/master/repository/spark/docs/3.0.0-1.1.0/installation.md#installing-the-operator).
+1. [Uninstall the KUDO Spark Operator](../../../../kommander/latest/projects/platform-services/platform-services-catalog/kudo-spark/index.md#uninstalling-the-spark-operator).
+1. [Install the new KUDO Spark version](../../../../kommander/latest/projects/platform-services/platform-services-catalog/kudo-spark/index.md#installation).
 1. [Upgrade](../../upgrade) or [install](../../install) Konvoy.
 
 ### Component versions
