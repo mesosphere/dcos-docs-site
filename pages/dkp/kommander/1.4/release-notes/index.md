@@ -82,18 +82,15 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - Do not deploy the mtls-proxy load balancers if the connection-type is of type unidirectional.
 - Add kubetunnel integration.
 - UI: Add support for Catalog platform service badges to identify certified, air-gapped and d2iq supported platform services
-- UI: Add ability to attach clusters with network restrictions.
 - Upgrade federated Prometheus to v12.11.10, which includes a change to use the kube-prometheus-stack upstream chart following the deprecation of helm/charts.
 - Duplicate namespaces no longer created per workspace.
 - UI: Update to handle new KUDO param types.
 - Decrease the amount of time it takes to delete Kommander.
 - Update the karma subchart to remove a liveness probe that could cause the karma container to be restarted unnecessarily, preventing its API from becoming available.
 - UI: Allow gitops source update.
-- UI: Update UI dependencies to mitigate CVE-2021-23337.
 - UI: Federated addon info is now displayed properly in UI cards.
 - Bump federated Kubeaddons to v0.26.1 to fix a bug causing unnecessary addon deployment delays.
 - UI: Handle license loading state, show loading instead of invalid when license is missing a status. (COPS-6912)
 - UI: Resolve kubecost performance issue.
-- Workspace admin roles are now automatically propagated to projects within the workspace.
 
 [attach_existing_kubernetes_cluster]: /dkp/kommander/1.4/clusters/attach-cluster
