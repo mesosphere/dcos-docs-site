@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Duplicate a Production Cluster
 title: Duplicate a Production Cluster
 menuWeight: 1

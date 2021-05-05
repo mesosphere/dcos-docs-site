@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Authentication and authorization
 title: Authentication and authorization architecture
 menuWeight: 9

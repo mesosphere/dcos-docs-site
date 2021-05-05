@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Editing Clusters
 title: Editing Clusters
 menuWeight: 7

@@ -4,7 +4,7 @@ navigationTitle: Requirements for Attaching an Existing Cluster to Kommander
 title: Requirements for Attaching an Existing Cluster to Kommander
 menuWeight: 1
 excerpt: Requirements for attaching an existing cluster to Kommander
-beta: true
+beta: false
 ---
 
 ## Basic requirements

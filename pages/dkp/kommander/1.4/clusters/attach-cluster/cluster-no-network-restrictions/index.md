@@ -4,7 +4,7 @@ navigationTitle: Attach a cluster with no networking restrictions
 title: Attach a cluster with no networking restrictions
 menuWeight: 5
 excerpt: How to attach an existing cluster that has no additional networking restrictions
-beta: true
+beta: false
 ---
 
 Use this option when you want to attach a cluster that does not require additional access information.
