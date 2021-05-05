@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 06, May 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 05, May 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -109,8 +109,6 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->
-
-For information about installing and using Konvoy, see the [Konvoy documentation][konvoy-doc].
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
