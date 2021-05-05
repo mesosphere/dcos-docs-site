@@ -112,6 +112,28 @@ Plan(s) for "spark-instance" in namespace "spark":
 
 You can view all configuration options [here](https://github.com/mesosphere/kudo-spark-operator/blob/master/kudo-spark-operator/docs/3.0.0-1.1.0/configuration.md)
 
+#### Uninstalling the Spark Operator
+The KUDO Spark Operator installation includes Custom Resource Definitions (CRDs) for Spark Applications and the KUDO Spark
+Operator instances. While Operator instance can be used on a per-namespace basis, the Custom Resource Definitions
+are a cluster-scoped resource which requires a manual cleanup when all KUDO Spark Operator instances are uninstalled.
+
+To completely remove KUDO Spark Operator from a Kubernetes cluster:
+1. Wait for the running jobs to complete or terminate them
+  ```
+  kubectl delete sparkapplications --all
+  kubectl delete scheduledsparkapplications --all
+  ```
+1. Uninstall each KUDO Spark Operator instance:
+  ```
+  kubectl kudo uninstall --instance spark-instance --namespace spark
+  ```
+1. Remove Spark Applications CRDs:
+  ```
+  kubectl delete crds sparkapplications.sparkoperator.k8s.io scheduledsparkapplications.sparkoperator.k8s.io
+  ```
+
+
+
 #### Installing multiple Spark Operator Instances
 
 Optionally, create dedicated namespaces for installing KUDO Spark instances(e.g. `spark-operator-1` and `spark-operator-2` in this example):
@@ -126,6 +148,19 @@ kubectl kudo install spark --instance=spark-2 --namespace spark-operator-2 -p sp
 The above commands will install two Spark Operators in two different namespaces. Spark Applications submitted to a specific
 namespace will be handled by the Operator installed in the same namespace. This is achieved by explicitly setting
 the `sparkJobNamespace` parameter to corresponding operator namespace.
+
+
+#### KUDO Spark Operator Upgrade Prior to Konvoy Upgrade or Install
+
+Custom Resource Definitions of KUDO Spark Operator versions prior to 3.0.0-1.1.0 do not specify default values for `x-kubernetes-list-map-keys` properties and will fail validation on Kubernetes versions 1.18.x and later.
+
+Perform these steps prior to upgrading or installing Konvoy to prevent or mitigate disruption of currently-running Spark jobs and invalidating Spark CRDs:
+
+1. Wait for the KUDO Spark Operator jobs to finish, or terminate the running jobs.
+1. [Uninstall the KUDO Spark Operator](#uninstalling-the-spark-operator).
+1. [Install the new KUDO Spark version](#Installation).
+1. [Upgrade](../../../../../../konvoy/latest/upgrade) or [install](../../../../../../konvoy/latest/install) Konvoy.
+
 
 ### Submitting Spark Applications
 
