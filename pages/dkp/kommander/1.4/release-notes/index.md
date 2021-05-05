@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-beta: true
-navigationTitle: Release Notes Kommander 1.4.0 Beta 1
+beta: false
+navigationTitle: Release Notes Kommander 1.4.0
 title: Release Notes Kommander 1.4.0
 menuWeight: 0
 excerpt: View release-specific information for Kommander 1.4.0
@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Kommander&reg; version 1.4.0 Beta 1 was released on March 11, 2021.**
+**D2iQ&reg; Kommander&reg; version 1.4.0 was released on May 5, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -21,19 +21,36 @@ To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [ins
 # Release Summary
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated cost management across multiple clusters, whether they are a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
 
+## New features
+
+## Workspace Permissions Updates
+
+In previous Kommander versions, Workspace roles were not automatically propagated to Project roles. A user with edit permissions for the Workspace did not automatically receive edit permissions to a Project inside the Workspace. Beginning with Kommander version 1.4, roles are propagated from Workspace to Project, and a user with edit permissions on the Workspace will also have edit permissions on the Project.
+
+<p class=“message--important”><strong>IMPORTANT: </strong>This change will propagate to all Projects, including existing Projects.</p>
+
+Refer to the instructions in [Access Control][access_control] to disable this propagation.
+
 ## Network Tunneling
 
-Prior to release 1.4, Kommander required bi-directional connectivity between the Kommander management cluster and clusters that are under management. This effectively blocked several customer-specific use cases:
+Prior to release 1.4, Kommander required bi-directional connectivity between the Kommander management cluster and clusters that are under management. This effectively blocked several use cases:
 
-- Kommander does not have direct access to the managed cluster, for example, when the cluster is on a laptop or behind a NAT gateway.
+- Kommander did not have direct access to the managed cluster, for example, when the cluster was on a laptop or behind a NAT gateway.
 
-- The managed cluster does not have direct access to Kommander, for example, Kommander is on-premise and the managed cluster is in a public cloud provider environment.
+- The managed cluster did not have direct access to Kommander, for example, Kommander was on-premise and the managed cluster was in a public cloud provider environment.
 
-- The managed cluster is behind a firewall, a proxy, or resides in a DMZ.
+- The managed cluster was behind a firewall, a proxy, or resident in a DMZ.
 
 A new component, `kubetunnel`, provides communication between Kommander and the managed cluster through a tunneling protocol resolving these blocked use cases. The TLS-encrypted tunnel enables you to access the cluster using SSO and to receive alerts, metrics, and kubecost data.
 
-For more information on this capability, see [Attach an Existing Kubernetes Cluster][attach_existing_kubernetes_cluster]
+For more information on this capability, see [Attach an Existing Kubernetes Cluster](../clusters/attach-cluster)
+
+## Catalog Workload Certification
+
+D2iQ now certifies workloads for use with Kommander. All workloads that have been tested and certified for successful configuration and provisioning on Konvoy are flagged in Kommander with a certification icon. For more information, see [Project Platform Services](../projects/platform-services/).
+
+## Helm charts
+The Projects tab now shows all of the current Helm Release charts, their chart version, and the names of the clusters. For more information, see [Project Deployments](../projects/project-deployments/).
 
 # Breaking changes
 
@@ -60,8 +77,10 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - cost-analyzer: 1.71.1
 
 ## Fixed and Improved Issues
+
 - Bump federated prometheus to 9.3.7
 - Bump kubecost to 0.7.0 which enables PodSecurityPolicy
 - Decrease the amount of time it takes to delete Kommander
+- Fixed an issue where sometimes valid licenses were briefly displayed as invalid. (COPS-6912)
 
 [attach_existing_kubernetes_cluster]: /dkp/kommander/1.4/clusters/attach-cluster
