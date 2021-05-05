@@ -23,6 +23,13 @@ Kommander provides a command center for all your cloud native management needs i
 
 ## New features
 
+- UI: Show status of Helm Releases in Project CD.
+- Do not deploy the mtls-proxy load balancers if the connection-type is of type unidirectional.
+- Add kubetunnel integration.
+- UI: Add support for Catalog platform service badges to identify certified, air-gapped and d2iq supported platform services
+- UI: Add ability to attach clusters with network restrictions.
+- Upgrade federated Prometheus to v12.11.10, which includes a change to use the kube-prometheus-stack upstream chart following the deprecation of helm/charts.
+
 ## Workspace Permissions Updates
 
 In previous Kommander versions, Workspace roles were not automatically propagated to Project roles. A user with edit permissions for the Workspace did not automatically receive edit permissions to a Project inside the Workspace. Beginning with Kommander version 1.4, roles are propagated from Workspace to Project, and a user with edit permissions on the Workspace will also have edit permissions on the Project.
@@ -54,7 +61,7 @@ The Projects tab now shows all of the current Helm Release charts, their chart v
 
 # Breaking changes
 
-## Docker hub rate limiting 
+## Docker hub rate limiting
 Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
 
 Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
@@ -62,25 +69,32 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
 
 ## Component versions
-- Addon: 1.4.0-6
-- Chart: 0.19.0
-- kommander-federation (yakcl): 0.10.0
-- kommander-licensing (yakcl): 0.10.0
-- UI: 6.91.1
-- kommander-karma: 0.3.12
-- kubeaddons-catalog: 0.1.15
-- kommander-thanos: 0.1.16
-- kubecost: 0.7.0
+- Addon: 1.4.0-22
+- Chart: 0.31.1
+- kommander-federation (yakcl): 0.16.1
+- kommander-licensing (yakcl): 0.16.1
+- UI: 6.98.0
+- kommander-karma: 0.3.19
+- kubeaddons-catalog: 0.1.16
+- kommander-thanos: 0.1.22
+- kubecost: 0.9.1
 - grafana: 6.6.0
 - karma: 0.70
-- thanos: 0.10.1
-- cost-analyzer: 1.71.1
+- thanos: 0.17.1
+- cost-analyzer: 1.77.1
 
 ## Fixed and Improved Issues
 
-- Bump federated prometheus to 9.3.7
-- Bump kubecost to 0.7.0 which enables PodSecurityPolicy
-- Decrease the amount of time it takes to delete Kommander
-- Fixed an issue where sometimes valid licenses were briefly displayed as invalid. (COPS-6912)
+- Duplicate namespaces no longer created per workspace.
+- UI: Update to handle new KUDO param types.
+- Decrease the amount of time it takes to delete Kommander.
+- Update the karma subchart to remove a liveness probe that could cause the karma container to be restarted unnecessarily, preventing its API from becoming available.
+- UI: Allow gitops source update.
+- UI: Update UI dependencies to mitigate CVE-2021-23337.
+- UI: Federated addon info is now displayed properly in UI cards.
+- Bump federated Kubeaddons to v0.26.1 to fix a bug causing unnecessary addon deployment delays.
+- UI: Handle license loading state, show loading instead of invalid when license is missing a status. (COPS-6912)
+- UI: Resolve kubecost performance issue.
+- Workspace admin roles are now automatically propagated to projects within the workspace.
 
 [attach_existing_kubernetes_cluster]: /dkp/kommander/1.4/clusters/attach-cluster
