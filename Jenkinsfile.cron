@@ -65,10 +65,26 @@ pipeline {
                 sh '''#!/bin/bash
                   set -euxo pipefail
 
+                  ##### ENHANCE ON SHALLOW REPO
+
                   git config user.name "Docs Bot"
                   git config user.email "docs-bot@d2iq.com"
                   git remote set-url origin git@github.com:mesosphere/dcos-docs-site.git
-                  git fetch && git checkout -t origin/main || git checkout main || echo "on main"
+                  git remote set-branches origin '*'
+                  git fetch -v
+                  git checkout -t origin/main || git checkout main || echo "on main"
+
+
+
+                  ##### UPDATE PRIVATE BETA
+
+                  git checkout -t origin/private-beta
+                  git rebase main
+                  git push origin private-beta --force-with-lease
+
+
+
+                  ##### CREATE SYNC PRS
 
                   apk add curl curl-dev rsync --no-cache
 
