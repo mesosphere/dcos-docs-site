@@ -203,7 +203,7 @@ spec:
 
 ## Nvidia GPU Monitoring
 
-Konvoy uses [Nvidia GPU Metrics Exporter][nvidia_gpu_metrics_exporter] and [NVIDIA Data Center GPU Manager][nvidia_dcgm] to display Nvidia GPU metrics. By default, Konvoy has a grafana dashboard called `GPUs/Nvidia` to monitor GPU metrics. This GPU dashboard is shown in Konvoy's Grafana UI.
+Konvoy uses [Nvidia GPU Metrics Exporter][nvidia_gpu_metrics_exporter] and [NVIDIA Data Center GPU Manager][nvidia_dcgm] to display Nvidia GPU metrics. By default, Konvoy has a Grafana dashboard called `GPUs/Nvidia` to monitor GPU metrics. This GPU dashboard is shown in Konvoy's Grafana UI.
 
 ## Upgrade
 
@@ -243,7 +243,7 @@ Konvoy is capable of automatically upgrading the Nvidia GPU addon. However, GPU 
     kubectl logs -n kube-system nvidia-kubeaddons-nvidia-device-plugin-dxtch
     ```
 
-1.  To recover from this problem, you must restart all Nvidia-addon pods that are running on the **SAME** host. In the example below, all Nvidia resources are restarted on the node `ip-10-0-129-201.us-west-2.compute.interna`:
+1.  To recover from this problem, you must restart all Nvidia-addon pods that are running on the **SAME** host. In the example below, all Nvidia resources are restarted on the node `ip-10-0-129-201.us-west-2.compute.internal`:
 
     ```bash
     $ kubectl get pod -A -o wide | grep nvidia
