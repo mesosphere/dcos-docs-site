@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 03, May 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 04, May 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -93,14 +93,14 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - Kibana 7.9.3
 - kubeaddons-dispatch stable-1.19-1.4.5
 - kubeaddons-kommander testing-1.20-1.4.0-rc.3
-- kubernetes-base-addons testing-1.20-4.0.0-rc.3
+- kubernetes-base-addons testing-1.20-4.0.0-rc.4
 - Kubernetes v1.20.6
 - Kubeaddons v0.26.0
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
 - Prometheus 2.22.1
 - Prometheus Operator 0.43.0
 - snapshot-controller 3.0.2
-- Terraform v0.13.5
+- Terraform v0.13.7
 - Terraform AWS plugin ~> 3.0
 - Terraform Azure plugin ~> 2.31
 - Terraform GCP plugin ~> 3.42

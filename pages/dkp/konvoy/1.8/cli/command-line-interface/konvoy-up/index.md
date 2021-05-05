@@ -20,7 +20,7 @@ konvoy up [flags]
 ### Options
 
 ```
-      --addons-repositories strings   A comma separated list of addons repositories with uri@version (default [https://github.com/mesosphere/kubeaddons-kommander@testing-1.20-1.4.0-rc.3,https://github.com/mesosphere/kubeaddons-dispatch@stable-1.20-1.4.5,https://github.com/mesosphere/kubernetes-base-addons@testing-1.20-4.0.0-rc.3])
+      --addons-repositories strings   A comma separated list of addons repositories with uri@version (default [https://github.com/mesosphere/kubeaddons-kommander@testing-1.20-1.4.0-rc.3,https://github.com/mesosphere/kubeaddons-dispatch@stable-1.20-1.4.5,https://github.com/mesosphere/kubernetes-base-addons@testing-1.20-4.0.0-rc.4])
       --cluster-name string           name used to prefix the cluster and all the created resources (default "konvoy")
       --force-push                    force push the cluster state
       --force-reduce-control-plane    allow a reduction for the number of control plane nodes in a cluster

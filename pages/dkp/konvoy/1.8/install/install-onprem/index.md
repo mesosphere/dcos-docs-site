@@ -196,7 +196,7 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-1.20-4.0.0-rc.3
+    configVersion: testing-1.20-4.0.0-rc.4
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
