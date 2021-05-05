@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Disconnect or Delete Clusters
 title: Disconnect or Delete Clusters
 menuWeight: 7

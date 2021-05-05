@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Configure an Azure Provider
 menuWeight: 3
 title: Azure Infrastructure Provider with Static Credentials

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Configure an AWS Provider with a User Role
 menuWeight: 1
 title: Configure an AWS Provider with a User Role

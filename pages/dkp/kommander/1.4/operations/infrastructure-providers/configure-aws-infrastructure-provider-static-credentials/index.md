@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: AWS Static Credentials
 menuWeight: 2
 title: AWS Static Credentials

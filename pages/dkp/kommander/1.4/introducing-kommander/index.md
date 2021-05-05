@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Introducing Kommander
 title: Introducing Kommander
 excerpt: Deploy and manage Kubernetes on an enterprise scale
