@@ -387,7 +387,7 @@ spec:
 
 You could set `spec.kubernetes.controlPlane.keepalived.interface` to specify the network interface you want to use for the Keepalived VIP.
 This field is optional.
-If not set, Konvoy will try to automatically detect the network interface to use based on the route to the VIP. If Konvoy fails detect the correct network interface, the Konvoy's deployment may fail on the kubeadm step.
+If not set, Konvoy will try to automatically detect the network interface to use based on the route to the VIP. If Konvoy fails to detect the correct network interface, the Konvoy's installation may fail on the kubeadm's deployment step.
 
 You could also set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the [Virtual Router ID][vrrp] used by Keepalived.
 This field is optional.
