@@ -23,13 +23,6 @@ Kommander provides a command center for all your cloud native management needs i
 
 ## New features
 
-- UI: Show status of Helm Releases in Project CD.
-- Do not deploy the mtls-proxy load balancers if the connection-type is of type unidirectional.
-- Add kubetunnel integration.
-- UI: Add support for Catalog platform service badges to identify certified, air-gapped and d2iq supported platform services
-- UI: Add ability to attach clusters with network restrictions.
-- Upgrade federated Prometheus to v12.11.10, which includes a change to use the kube-prometheus-stack upstream chart following the deprecation of helm/charts.
-
 ## Workspace Permissions Updates
 
 In previous Kommander versions, Workspace roles were not automatically propagated to Project roles. A user with edit permissions for the Workspace did not automatically receive edit permissions to a Project inside the Workspace. Beginning with Kommander version 1.4, roles are propagated from Workspace to Project, and a user with edit permissions on the Workspace will also have edit permissions on the Project.
@@ -83,8 +76,14 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - thanos: 0.17.1
 - cost-analyzer: 1.77.1
 
-## Fixed and Improved Issues
+## Fixes and Improvements 
 
+- UI: Show status of Helm Releases in Project CD.
+- Do not deploy the mtls-proxy load balancers if the connection-type is of type unidirectional.
+- Add kubetunnel integration.
+- UI: Add support for Catalog platform service badges to identify certified, air-gapped and d2iq supported platform services
+- UI: Add ability to attach clusters with network restrictions.
+- Upgrade federated Prometheus to v12.11.10, which includes a change to use the kube-prometheus-stack upstream chart following the deprecation of helm/charts.
 - Duplicate namespaces no longer created per workspace.
 - UI: Update to handle new KUDO param types.
 - Decrease the amount of time it takes to delete Kommander.
