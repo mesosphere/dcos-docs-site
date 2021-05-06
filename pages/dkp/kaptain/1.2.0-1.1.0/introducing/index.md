@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Introducing Kaptain
 title: Introducing Kaptain 1.1.0
 excerpt: Deploy and manage machine learning models with ease
-menuWeight: 0
+menuWeight: 1
 ---
 
 ![Kaptain](../img/d2iq-kaptain.png)
