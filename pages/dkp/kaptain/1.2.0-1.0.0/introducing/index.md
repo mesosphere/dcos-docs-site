@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Introducing Kaptain
-title: Introducing Kaptain
+title: Introducing Kaptain 1.0.0
 excerpt: Deploy and manage machine learning models with ease
 menuWeight: 1
 ---
@@ -21,7 +21,7 @@ D2iQ's Kaptain leverages our expertise in Kubernetes, so that companies can run 
 Kaptain is an opinionated distribution based on Kubeflow: everything you need to train, deploy, and scale models is packaged and tested, so you can rest assured that it works out of the box.
 
 
-If you want to learn more, please read our [blog post for Kaptain](https://d2iq.com/blog/kudo-for-kubeflow-the-enterprise-machine-learning-platform).
+To learn more, see [Kaptain blog post](https://d2iq.com/blog/kudo-for-kubeflow-the-enterprise-machine-learning-platform).
 
 ## Kaptain's Features and Benefits
 
