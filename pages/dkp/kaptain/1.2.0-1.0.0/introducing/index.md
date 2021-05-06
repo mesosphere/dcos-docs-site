@@ -32,4 +32,4 @@ If you want to learn more, please read our [blog post for Kaptain](https://d2iq.
 |
 | Train, tune, and deploy from a Jupyter notebook   | No context switching or credentials and CLI tools on individuals' laptops    |
 | Enterprise-grade security controls and profiles   | Multi-tenancy? No problem!                                      |
-| Day 2 operations                                  | Built-in lifecycle management operations such as updates and upgrades   |
+| Built for production use | Ready for day 2 with built-in observability, security, and cost management as well as zero-downtime upgradability of the entire platform with minimal or no interruptions of user workloads  |
