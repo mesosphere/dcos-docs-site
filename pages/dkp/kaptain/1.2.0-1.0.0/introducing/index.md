@@ -32,4 +32,3 @@ To learn more, see [Kaptain blog post](https://d2iq.com/blog/kudo-for-kubeflow-t
 |
 | Train, tune, and deploy from a Jupyter notebook   | No context switching or credentials and CLI tools on individuals' laptops    |
 | Enterprise-grade security controls and profiles   | Multi-tenancy? No problem!                                      |
-| Built for production use | Ready for day 2 with built-in observability, security, and cost management as well as zero-downtime upgradability of the entire platform with minimal or no interruptions of user workloads  |
