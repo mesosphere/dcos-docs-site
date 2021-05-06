@@ -92,8 +92,8 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - Istio 1.9.1
 - Kibana 7.9.3
 - kubeaddons-dispatch stable-1.19-1.4.5
-- kubeaddons-kommander testing-1.20-1.4.0-rc.3
-- kubernetes-base-addons testing-1.20-4.0.0-rc.4
+- kubeaddons-kommander stable-1.20-1.4.0
+- kubernetes-base-addons stable-1.20-4.0.0
 - Kubernetes v1.20.6
 - Kubeaddons v0.26.0
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
@@ -109,6 +109,8 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->
+
+For information about installing and using Konvoy, see the [Konvoy documentation][konvoy-doc].
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
