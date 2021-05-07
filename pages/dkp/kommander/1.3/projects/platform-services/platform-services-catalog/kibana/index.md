@@ -14,18 +14,18 @@ beta: false
 
 ### Kommander catalog
 
-Kommander catalog adds integration for Elasticsearch in [Helm-based drivers](https://docs.d2iq.com/dkp/kommander/1.4/projects/platform-services/helm-based/)
+Kommander catalog adds integration for Elasticsearch in [Helm-based drivers](https://docs.d2iq.com/dkp/kommander/1.3/projects/platform-services/helm-based/)
 
 To access the catalog:
-#include /dkp/kommander/1.4/include/kommander-catalog-drilldown.tmpl
+#include /dkp/kommander/1.3/include/kommander-catalog-drilldown.tmpl
 
 ### Install
 
-From the [Project Catalog](/dkp/kommander/1.4/projects/platform-services/) select the desired version of Elasticsearch, and select **Deploy**.
+From the [Project Catalog](/dkp/kommander/1.3/projects/platform-services/) select the desired version of Elasticsearch, and select **Deploy**.
 
 The Kommander UI should resemble the following image. The dialog is populated with appropriate defaults:
 
-![Kibana Service Install Configuration](/dkp/kommander/1.4/img/platform-services-kibana-config-dialog.png)
+![Kibana Service Install Configuration](/dkp/kommander/1.3/img/platform-services-kibana-config-dialog.png)
 
 - The **kibana.elasticsearchHosts** should point to the Elasticsearch client node.
 
