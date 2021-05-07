@@ -23,8 +23,8 @@ For example, Konvoy 1.5.0 supports:
 | Kubernetes Support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.15.4 |
-|**Maximum** | 1.18.16 |
-|**Default** | 1.18.16 |
+|**Maximum** | 1.18.18 |
+|**Default** | 1.18.18 |
 
 ## Supported operating systems
 
