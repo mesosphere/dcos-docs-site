@@ -14,18 +14,18 @@ beta: false
 
 ### Kommander catalog
 
-Kommander catalog adds integration for Elasticsearch Exporter in [Helm-based drivers](https://docs.d2iq.com/dkp/kommander/1.4/projects/platform-services/helm-based/)
+Kommander catalog adds integration for Elasticsearch Exporter in [Helm-based drivers](https://docs.d2iq.com/dkp/kommander/1.3/projects/platform-services/helm-based/)
 
 To access the catalog:
-#include /dkp/kommander/1.4/include/kommander-catalog-drilldown.tmpl
+#include /dkp/kommander/1.3/include/kommander-catalog-drilldown.tmpl
 
 ### Install
 
-From the [Project Catalog](/dkp/kommander/1.4/projects/platform-services/) select the desired version of Elasticsearch Exporter, and select **Deploy**.
+From the [Project Catalog](/dkp/kommander/1.3/projects/platform-services/) select the desired version of Elasticsearch Exporter, and select **Deploy**.
 
 The Kommander UI should resemble the following image. The dialog is populated with appropriate defaults:
 
-![Elasticsearch Exporter Service Install Configuration](/dkp/kommander/1.4/img/platform-services-elasticsearch-exporter-config-dialog.png)
+![Elasticsearch Exporter Service Install Configuration](/dkp/kommander/1.3/img/platform-services-elasticsearch-exporter-config-dialog.png)
 
 - The **es.uri** field above should refer to the Elasticsearch client.
 
