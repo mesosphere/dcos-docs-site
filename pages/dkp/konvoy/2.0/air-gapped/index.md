@@ -141,7 +141,7 @@ Note: these AMIs are created by the [konvoy-image-builder](https://github.com/me
 1.  Fetch the kubeconfig file:
 
     ```sh
-    kubectl get secret ${CLUSTER_NAME}-kubeconfig -o jsonpath='{.data.value}' | base64 --decode > ${CLUSTER_NAME}.conf
+    konvoy2 get kubeconfig > ${CLUSTER_NAME}.conf
     ```
 
 1.  List Nodes (it may take a couple of minutes for the Status to be `Ready` while `calico-node` pods are being deployed):
