@@ -43,47 +43,47 @@ If you are using a [private Docker registry][docker_registry] for your clusters,
 After you have the available Konvoy versions, you can upgrade your CLI by running the following command:
 
 ```bash
-konvoy image upgrade --version=v1.7.0
-Wrote Konvoy CLI version 'v1.7.0' to '.konvoy/cli_version'
+konvoy image upgrade --version=v1.8.0
+Wrote Konvoy CLI version 'v1.8.0' to '.konvoy/cli_version'
 ```
 
 After the upgrade command completes, you can start using the new Konvoy version.
 
-### Upgrading Konvoy from v1.6.x to v1.7.0
+### Upgrading Konvoy from v1.7.x to v1.8.0
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
-Konvoy v1.7.x requires Calico version `3.17.x`. If your `cluster.yaml` file specifies an older version of Calico you must update to that version. The latest supported version is `v3.17.3`,
+It is recommended to upgrade to the newest supported version of Kubernetes. Set `spec.kubernetes.version: 1.20.6` for of kind: ClusterConfiguration.
 
-It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.19.7`.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.20-4.0.0` for of kind: ClusterConfiguration.
 
-It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.9`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.20-1.4.0` for of kind: ClusterConfiguration.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.20-4.0.0`.
+If you have Dispatch enabled, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-dispatch` to be `configVersion: stable-1.20-1.4.5` for of kind: ClusterConfiguration
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.20-1.4.0`.
-
-The version of Konvoy is now `v1.7.0`, set `spec.version: v1.7.0`.
+The version of Konvoy is now `v1.8.0`, set `spec.version: v1.8.0`.
 
 ```yaml
+kind: ClusterProvisioner
+...
+  version: v1.8.0
+...
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
-    version: 1.19.7
-  ...
-  containerNetworking:
-    calico:
-      version: v3.17.3
-  ...
-  containerRuntime:
-    containerd:
-      version: 1.3.9
+    version: 1.20.6
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
       configVersion: stable-1.20-4.0.0
   ...
+    - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
+      configVersion: stable-1.20-1.4.5
+      addonsList:
+        - name: dispatch
+          enabled: true
+...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
       configVersion: stable-1.20-1.4.0
       addonsList:
@@ -92,10 +92,6 @@ spec:
   ...
   version: v1.7.0
 ```
-
-### [experimental]Upgrading the Istio addon while upgrading Konvoy from v1.6.x to v1.7.0[/experimental]
-
-If the Istio addon is enabled while running Konvoy 1.6.x and you want to upgrade, you have to make [further changes][istio-upgrade] before running `konvoy up --upgrade`.
 
 ## Upgrades and Running Workloads
 
