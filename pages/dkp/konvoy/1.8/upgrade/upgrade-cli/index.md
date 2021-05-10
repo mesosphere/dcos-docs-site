@@ -105,7 +105,7 @@ Konvoy preserves the availability of applications in the cluster by detecting:
 
 To force the node to upgrade, you can run `konvoy up --upgrade --force-upgrade`, which upgrades all the nodes and ignores the safety checks. This can result in temporary interruptions to application availability.
 
-During the `node drain` stage, Konvoy may exhibit a time-out error, while waiting for workloads to reschedule.
+<p class="message--important"><strong>IMPORTANT: </strong>During the <code>node drain</code> stage, Konvoy may exhibit a time-out error while waiting for workloads to reschedule. Users can bypass this process during upgrade by using <code>konvoy up --upgrade --force-upgrade --without-draining</code>. This usage can result in undefined behavior, interruptions to application availability and service downtime.</p>
 Users can bypass this process during upgrade by using `konvoy up --upgrade --force-upgrade --without-draining`.
 This usage can result in undefined behavior, interruptions to application availability and service downtime.
 
