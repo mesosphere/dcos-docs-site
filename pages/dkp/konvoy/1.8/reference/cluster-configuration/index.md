@@ -117,7 +117,7 @@ spec:
   - name: worker
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.20-4.0.0
+    configVersion: testing-1.20-4.0.0-rc.3
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -196,7 +196,7 @@ spec:
     - name: dispatch
       enabled: false
   - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: stable-1.20-1.4.0
+    configVersion: testing-1.20-1.4.0-rc.3
     addonsList:
     - name: kommander
       enabled: true

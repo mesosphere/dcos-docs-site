@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 05, May 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 03, May 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -92,8 +92,8 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - Istio 1.9.1
 - Kibana 7.9.3
 - kubeaddons-dispatch stable-1.19-1.4.5
-- kubeaddons-kommander stable-1.20-1.4.0
-- kubernetes-base-addons stable-1.20-4.0.0
+- kubeaddons-kommander testing-1.20-1.4.0-rc.3
+- kubernetes-base-addons testing-1.20-4.0.0-rc.3
 - Kubernetes v1.20.6
 - Kubeaddons v0.26.0
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
@@ -110,11 +110,8 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 
 <!-- Add links to external documentation as needed -->
 
-For information about installing and using Konvoy, see the [Konvoy documentation][konvoy-doc].
-
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
-[konvoy-doc]: ../introduction
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [konvoy-vsphere]: ../install/install-vsphere
 [konvoy-ccontrol-plane-certificates]: ../networking/control-plane-certificates/
