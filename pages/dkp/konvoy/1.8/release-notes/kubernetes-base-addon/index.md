@@ -68,7 +68,7 @@ May 5, 2021
     - Updating GitOps Source in Kommander.
     - Show certification badges in Kommander project catalog.
     - Allow creating Root CA secret when attaching a firewalled cluster in Kommander.
-    - Give list of loadbalncers when attaching a firewalled cluster in Kommander.
+    - Provide a list of loadbalancers when attaching a firewalled cluster in Kommander.
     - Resolve kubecost performance issue
     - Handle license loading state, show loading instead of invalid when license is missing a status
     - Fixes bug in OpsPortal & Kommander UI where LDAP Root CA is malformed when saved
