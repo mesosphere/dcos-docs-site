@@ -22,7 +22,7 @@ It is **strongly recommended** to view the [KUDO Spark Documentation](https://gi
 
 #### Kommander Catalog
 
-KUDO Spark is located in the Kommander Catalog.   To access the catalog:
+KUDO Spark is located in the Kommander Catalog. To access the catalog:
 #include /dkp/kommander/1.4/include/kommander-catalog-drilldown.tmpl
 
 From the [Project Catalog](/dkp/kommander/1.4/projects/platform-services/) select the desired version of Spark and click Deploy.
