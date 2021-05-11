@@ -15,7 +15,7 @@ Kommander Catalog adds integration for [KUDO Spark Operator](https://github.com/
 
 #include /dkp/kommander/1.4/include/kudo-intro.tmpl
 
-It is **strongly recommended** to view the [KUDO Spark Documentation](https://github.com/mesosphere/kudo-spark-operator/tree/master/kudo-spark-operator/docs/latest) which covers the KUDO Spark Operator in-depth. This document covers the integration aspects of KUDO Spark Operator with D2iQ Kommander.
+It is **strongly recommended** to view the [KUDO Spark Documentation](https://github.com/mesosphere/kudo-spark-operator/tree/master/kudo-spark-operator/docs/latest) which covers the KUDO Spark Operator in-depth. This document covers the integration aspects of KUDO Spark Operator with Kommander.
 
 
 ### Installation
