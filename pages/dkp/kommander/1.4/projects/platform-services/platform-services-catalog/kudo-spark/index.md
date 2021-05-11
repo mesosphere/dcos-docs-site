@@ -27,7 +27,7 @@ KUDO Spark is located in the Kommander Catalog. To access the catalog:
 
 From the [Project Catalog](/dkp/kommander/1.4/projects/platform-services/) select the desired version of Spark and click Deploy.
 
-Below is an example of what should appear in the Kommander UI.  The dialog is populated with sensible defaults:
+Below is an example of what should appear in the Kommander UI. The dialog is populated with sensible defaults:
 
 ![Spark Service Install Configuration](/dkp/kommander/1.4/img/platform-services-spark-config-dialog.png)
 
