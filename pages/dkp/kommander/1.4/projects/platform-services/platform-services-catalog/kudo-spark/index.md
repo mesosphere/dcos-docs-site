@@ -423,7 +423,7 @@ spark-instance-history-server-68f5645c57-5h2g4   1/1     Running   0          31
 
 To update multiple parameters at once, it is recommended to submit the updated parameters using the KUDO CLI.
 
-See [Available Parameters](#available-parameters) to get the full list of current parameters as a file.
+See [Available Parameters](#available-operator-parameters) to get the full list of current parameters as a file.
 
 Apply the desired updates in `spark-params.yml` using the KUDO CLI:
 ```
