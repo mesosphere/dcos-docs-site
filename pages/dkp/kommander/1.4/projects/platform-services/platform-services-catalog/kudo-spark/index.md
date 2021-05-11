@@ -66,7 +66,7 @@ Plan(s) for "spark-instance" in namespace "spark":
 Requirements:
 
 - Install the [KUDO controller](https://kudo.dev/docs/#getting-started)
-- Install the [KUDO CLI](https://kudo.dev/docs/cli/)
+- Install the [KUDO CLI](https://kudo.dev/docs/cli/installation.html#cli-installation)
 
 
 Check existing [limitations](https://github.com/mesosphere/kudo-spark-operator/blob/master/kudo-spark-operator/docs/3.0.0-1.1.0/limitations.md) before installing a KUDO Spark instance. Currently, multi-instance
