@@ -17,7 +17,7 @@ You need certain software configurations and settings before you start this proc
 - The latest bundle release of [Konvoy Image Bulder](https://github.com/mesosphere/konvoy-image-builder/releases).
 - A working `docker` setup
 
-Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS` folder. The bundled version of `konvoy-image` contains an embedded `docker` image that contains all the requirements for building. 
+Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS` folder. The bundled version of `konvoy-image` contains an embedded `docker` image that contains all the requirements for building.
 
 <p class="message--note"><strong>NOTE: </strong> Along with the `konvoy-image` binary, all supporting folders are also extracted. When run, `konvoy-image` will bind mount the current working directory (`${PWD}`) into the container to be used.</p>
 
@@ -25,11 +25,10 @@ Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS
 
 ## Override files
 
-The Konvoy Image Builder uses yaml `override` files to configure specific attributes of your AMI file. These files provide information to override default values for certain parts of your AMI file. 
+The Konvoy Image Builder uses yaml `override` files to configure specific attributes of your AMI file. These files provide information to override default values for certain parts of your AMI file.
 `override` files can modify the version and parameters of the image description and the ansible playbook. Common overrides are found in the [repo](https://github.com/mesosphere/konvoy-image-builder/tree/main/overrides). The parts these files address are:
 
 - **Base image:** The specific AMI image used as the base for your new AMI image.
-
 - **Container images:** The container images that will be used in your AMI image.
 
 ### Base image override files
@@ -65,7 +64,7 @@ packer:
   source_ami: "ami-0123456789"
 ```
 
-## Container image override files
+### Container image override files
 
 The ansible playbooks pull a minimal set of [container images](https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/defaults/main.yaml) for use. Additional images can be added or deleted by specifying an `override` file for the `extra_images` variable.
 
@@ -101,8 +100,7 @@ extra_images:
 
 <p class="message--note"><strong>NOTE: </strong>These are the current versions from the Konvoy2 repo. The Azure images are not required for AWS AMI's but are included here as examples.
 
-
-#### Build the image
+## Build the image
 
 Run the `konvoy-image` command to build and validate the image.
 
@@ -118,19 +116,19 @@ konvoy-image build --region us-east-1 --overrides override-source-ami.yaml --ove
 
 When the command is complete the `ami` id is printed and written to `./manifest.json`.
 
-
 <!- ## Konvoy2 Usage
 
 Link to Konvoy2 main documentation for installation.
 
-### Creating a bootstrap cluster
+## Creating a bootstrap cluster
 
 ```sh
 konvoy2 create bootstrap --kind-cluster-image mesosphere/konvoy2-bootstrap:v0.3.0-alpha
 ```
+
 -->
 
-### Launch a Konvoy2 cluster with a custom AMI
+## Launch a Konvoy2 cluster with a custom AMI
 
 To use the built `ami` with Konvoy2, specify it with the `--ami` flag when calling cluster create.
 
