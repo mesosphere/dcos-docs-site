@@ -65,7 +65,7 @@ Plan(s) for "spark-instance" in namespace "spark":
 
 Requirements:
 
-- Install the [KUDO controller](https://kudo.dev/docs/getting-started/)
+- Install the [KUDO controller](https://kudo.dev/docs/#getting-started)
 - Install the [KUDO CLI](https://kudo.dev/docs/cli/)
 
 
