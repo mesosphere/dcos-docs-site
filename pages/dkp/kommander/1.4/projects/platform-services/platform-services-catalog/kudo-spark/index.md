@@ -515,4 +515,4 @@ Dashboard installation:
 1) Press + button and pick `Import` item from the menu.
 1) Copy content of the dashboard json file and paste it to the textarea on importing form.
 
-For more information visit Grafana documentation: [Importing a dashboard guide](https://grafana.com/docs/reference/export_import/#importing-a-dashboard).
+For more information visit Grafana documentation: [Importing a dashboard guide](https://grafana.com/docs/grafana/next/dashboards/export-import/#importing-a-dashboard).
