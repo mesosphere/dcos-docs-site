@@ -81,7 +81,7 @@ Install a new instance of Spark operator from the official repository, use the f
 kubectl kudo install spark --namespace spark
 ```
 This will install a Spark operator instance with the name `spark-instance` to the provided namespace.
-You can also specify a different instance name using `--instance` parameter:
+You can also specify a different instance name using the `--instance` parameter:
 
 ```
 kubectl kudo install spark --instance spark-operator --namespace spark
