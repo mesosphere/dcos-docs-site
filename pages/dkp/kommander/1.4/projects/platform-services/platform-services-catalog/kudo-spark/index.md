@@ -11,7 +11,7 @@ beta: false
 <!-- markdownlint-disable MD018 -->
 ## KUDO Spark
 
-Kommander Catalog adds integration for [KUDO Spark Operator](https://github.com/mesosphere/kudo-spark-operator/), which simplifies day 2 operations of [Apache Spark](https://spark.apache.org/). 
+Kommander Catalog adds integration for [KUDO Spark Operator](https://github.com/mesosphere/kudo-spark-operator/), which simplifies day 2 operations of [Apache Spark](https://spark.apache.org/).
 
 #include /dkp/kommander/1.4/include/kudo-intro.tmpl
 
@@ -23,6 +23,7 @@ It is **strongly recommended** to view the [KUDO Spark Documentation](https://gi
 #### Kommander Catalog
 
 KUDO Spark is located in the Kommander Catalog. To access the catalog:
+
 #include /dkp/kommander/1.4/include/kommander-catalog-drilldown.tmpl
 
 From the [Project Catalog](/dkp/kommander/1.4/projects/platform-services/) select the desired version of Spark and click Deploy.
@@ -67,7 +68,6 @@ Requirements:
 
 - Install the [KUDO controller](https://kudo.dev/docs/#getting-started)
 - Install the [KUDO CLI](https://kudo.dev/docs/cli/installation.html#cli-installation)
-
 
 Check existing [limitations](https://github.com/mesosphere/kudo-spark-operator/blob/master/kudo-spark-operator/docs/3.0.0-1.1.0/limitations.md) before installing a KUDO Spark instance. Currently, multi-instance
 (multi-tenant) operator installation supports only a single instance per namespace.
@@ -118,21 +118,25 @@ Operator instances. While Operator instance can be used on a per-namespace basis
 are a cluster-scoped resource which requires a manual cleanup when all KUDO Spark Operator instances are uninstalled.
 
 To completely remove KUDO Spark Operator from a Kubernetes cluster:
+
 1. Wait for the running jobs to complete or terminate them
-  ```
-  kubectl delete sparkapplications --all
-  kubectl delete scheduledsparkapplications --all
-  ```
+
+   ```
+   kubectl delete sparkapplications --all
+   kubectl delete scheduledsparkapplications --all
+   ```
+
 1. Uninstall each KUDO Spark Operator instance:
-  ```
-  kubectl kudo uninstall --instance spark-instance --namespace spark
-  ```
+
+   ```
+   kubectl kudo uninstall --instance spark-instance --namespace spark
+   ```
+
 1. Remove Spark Applications CRDs:
-  ```
-  kubectl delete crds sparkapplications.sparkoperator.k8s.io scheduledsparkapplications.sparkoperator.k8s.io
-  ```
 
-
+   ```
+   kubectl delete crds sparkapplications.sparkoperator.k8s.io scheduledsparkapplications.sparkoperator.k8s.io
+   ```
 
 #### Installing multiple Spark Operator Instances
 
@@ -149,7 +153,6 @@ The above commands will install two Spark Operators in two different namespaces.
 namespace will be handled by the Operator installed in the same namespace. This is achieved by explicitly setting
 the `sparkJobNamespace` parameter to corresponding operator namespace.
 
-
 #### KUDO Spark Operator Upgrade Prior to Konvoy Upgrade or Install
 
 Custom Resource Definitions of KUDO Spark Operator versions prior to 3.0.0-1.1.0 do not specify default values for `x-kubernetes-list-map-keys` properties and will fail validation on Kubernetes versions 1.18.x and later.
@@ -161,14 +164,13 @@ Perform these steps prior to upgrading or installing Konvoy to prevent or mitiga
 1. [Install the new KUDO Spark version](#Installation).
 1. [Upgrade](../../../../../../konvoy/latest/upgrade) or [install](../../../../../../konvoy/latest/install) Konvoy.
 
-
 ### Submitting Spark Applications
 
 To submit Spark Application you should have KUDO Spark Operator installed.
 
 In order to deploy a Spark Application to Kubernetes using the KUDO Spark Operator, it should be described as a Kubernetes object. To do that, create a specification in `yaml` format with all the necessary configuration required for the application.
 
-Let's take a simple `SparkPi` application as an example. The `yaml` specification could be found here: [spark-pi.yaml](resources/spark-pi.yaml).  This example assumes that you installed KUDO spark to the `spark` namespace.
+Let's take a simple `SparkPi` application as an example. The `yaml` specification could be found here: [spark-pi.yaml](resources/spark-pi.yaml). This example assumes that you installed KUDO spark to the `spark` namespace.
 
 ```yaml
 apiVersion: "sparkoperator.k8s.io/v1beta2"
@@ -204,7 +206,7 @@ spec:
 
 Spark application configuration is placed under `spec` section including number of executors, number of cores for drivers/executors, amount of memory. There is also a `sparkConf` section, where you can place [configuration parameters](https://spark.apache.org/docs/latest/configuration.html#application-properties) in the form of key-value pairs.
 
-The format for the service account name is `{spark-operator name}-spark-service-account`.  If you have installed the spark operator without specifying the instance name, its name will be `spark-instance`, thus the service account name will need to be `spark-instance-spark-service-account`.
+The format for the service account name is `{spark-operator name}-spark-service-account`. If you have installed the spark operator without specifying the instance name, its name will be `spark-instance`, thus the service account name will need to be `spark-instance-spark-service-account`.
 
 #### Creating the application
 
@@ -247,6 +249,7 @@ Logging can be configured by placing a custom `log4j.properties` file to `SPARK_
 Spark Operator provides a mechanism for mounting Spark configuration files via K8s `ConfigMap` objects.
 
 1) Create a `ConfigMap` using the following `log4j.properties` as an example:
+
 ```bash
 $ cat <<'EOF'>> log4j.properties
 log4j.rootCategory=DEBUG, console
@@ -259,7 +262,9 @@ EOF
 ```bash
 $ kubectl create configmap spark-conf-map --from-file log4j.properties
 ```
+
 2) Add the following lines to `SparkApplication` spec:
+
 ```yaml
 apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication
@@ -273,6 +278,7 @@ spec:
     executor:
       javaOptions: "-Dlog4j.configuration=file:/etc/spark/conf/log4j.properties"
 ```
+
 The contents of `spark-conf-map` will be placed under `/etc/spark/conf` directory for driver and executor pods,
 and `SPARK_CONF_DIR` environment variable will be set to this directory.
 
@@ -337,6 +343,7 @@ After that the Spark UI should be available via URL: [localhost:4040](localhost:
 It is possible to create a service with special type that will expose our Spark UI globally via cloud network LB.
 
 Service specification can look like the following:
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -381,6 +388,7 @@ The current parameter set can be retrieved using the kubectl command in conjunct
 - [yq](https://mikefarah.gitbook.io/yq)
 
 To retrive the current parameters, issue the following command in the terminal with appropriate `INSTANCE` value set:
+
 ```
 INSTANCE=spark-instance;
 kubectl get instances -o json | jq ".items[] | select(.metadata.name == \"$INSTANCE\") | .spec.parameters" | yq eval -P > spark-params.yml
@@ -428,15 +436,14 @@ Wait for the deployment plan to `COMPLETE`.
 
 **Example**: Upgrade KUDO Spark Operator from `v3.0.0-1.0.1` to `v3.0.0-1.1.0`
 
-When upgrading, you should understand the mapping between Spark versions and operator versions.  
+When upgrading, you should understand the mapping between Spark versions and operator versions.
 Wait and monitor the deployment plan to become `COMPLETE`.
 
-**Note**: Spark Operator version doesn't necessarily have to match the Apache Spark version to run Spark Applications built with that version. For instance, it is possible to submit Spark 2.4.5 Application using the operator version 3.0.0-1.1.0.
-
+<p class="message--note"><strong>NOTE: </strong>Spark Operator version doesn't necessarily have to match the Apache Spark version to run Spark Applications built with that version. For instance, it is possible to submit Spark 2.4.5 Application using the operator version 3.0.0-1.1.0.</p>
 
 ### Monitoring
 
-KUDO Spark Operator has metrics reporting support, which can be enabled during the installation of the operator.  
+KUDO Spark Operator has metrics reporting support, which can be enabled during the installation of the operator.
 By default, it supports integration with the [Prometheus operator](https://github.com/coreos/prometheus-operator).
 
 Prometheus Operator relies on `ServiceMonitor` kind which describes the set of targets to be monitored.
@@ -494,17 +501,17 @@ Full list of metrics configuration parameters and defaults is available in KUDO 
       ```
     - Install the SparkApplication:
       ```
-      kubectl apply -f <path_to_the_application_yaml>   
+      kubectl apply -f <path_to_the_application_yaml>
       ```
    Full application configuration example is available in [spark-application-with-metrics.yaml](resources/monitoring/spark-application-with-metrics.yaml)
-1) Now, go to the prometheus dashboard (e.g. `<kubernetes_endpoint_url>/ops/portal/prometheus/graph`) and search for metrics
-   starting with 'spark'. The Prometheus URI might be different depending on how you configured and installed the `prometheus-operator`.
+
+1) Now, go to the prometheus dashboard (e.g. `<kubernetes_endpoint_url>/ops/portal/prometheus/graph`) and search for metrics starting with 'spark'. The Prometheus URI might be different depending on how you configured and installed the `prometheus-operator`.
 
 #### Dashboards
 * [Spark Applications Dashboard](https://github.com/mesosphere/kudo-spark-operator/blob/master/kudo-spark-operator/docs/latest/resources/dashboards/grafana_spark_applications.json)
 * [Spark Operator Dashboard](https://github.com/mesosphere/kudo-spark-operator/blob/master/kudo-spark-operator/docs/latest/resources/dashboards/grafana_spark_operator.json)
 
-Dashboard installation :
+Dashboard installation:
 1) Open the Grafana site (e.g. `<kubernetes_endpoint_url>/ops/portal/grafana`).
 1) Press + button and pick `Import` item from the menu.
 1) Copy content of the dashboard json file and paste it to the textarea on importing form.
