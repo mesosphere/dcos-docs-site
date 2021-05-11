@@ -577,17 +577,6 @@ run_result = client.create_run_from_pipeline_func(
 )
 ```
 
-    [I 200512 09:16:17 _client:267] Creating experiment End-to-End MNIST Pipeline.
-
-
-
-Experiment link <a href="/pipeline/#/experiments/details/" target="_blank" >here</a>
-
-
-
-Run link <a href="/pipeline/#/runs/details/" target="_blank" >here</a>
-
-
 The pipeline is now running. Wait for it to complete successfully. In the meantime you can use the links above to see the pipelines UI.
 
 
