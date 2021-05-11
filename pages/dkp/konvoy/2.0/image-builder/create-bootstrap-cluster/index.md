@@ -13,5 +13,3 @@ menuWeight: 60
 ```sh
 konvoy2 create bootstrap --kind-cluster-image mesosphere/konvoy2-bootstrap:v0.3.0-alpha
 ```
-
-

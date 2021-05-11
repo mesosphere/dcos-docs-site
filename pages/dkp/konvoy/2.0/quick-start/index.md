@@ -5,7 +5,7 @@ title: Quick Start
 excerpt: Get started by installing a cluster with default configuration settings
 beta: true
 enterprise: false
-menuWeight: 10
+menuWeight: 5
 ---
 
 This Quick Start guide provides simplified instructions to get your Kubernetes cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) or Azure public cloud instances using Konvoy.
@@ -14,19 +14,19 @@ This Quick Start guide provides simplified instructions to get your Kubernetes c
 
 Before starting the Konvoy installation, you should verify the following:
 
--  You have a Linux or MacOS machine with a supported version of the operating system.
--  You have the `konvoy2` binary on this machine.
--  You have [Docker][install_docker] version 18.09.2 or later.
--  You have [clusterawsadm][install_clusterawsadm] to generate base64 encoded AWS credentials.
--  You have [kubectl][install_kubectl] for interacting with the running cluster.
--  Required for AWS clusters:
+-   You have a Linux or MacOS machine with a supported version of the operating system.
+-   You have the `konvoy2` binary on this machine.
+-   You have [Docker][install_docker] version 18.09.2 or later.
+-   You have [clusterawsadm][install_clusterawsadm] to generate base64 encoded AWS credentials.
+-   You have [kubectl][install_kubectl] for interacting with the running cluster.
+-   Required for AWS clusters:
     - You have a valid AWS account with [credentials configured][aws_credentials].
--  Required for Azure clusters:
+-   Required for Azure clusters:
     - You have a valid Azure account with [credentials configured][azure_credentials].
 
 ## Configure AWS prerequisites (required only if creating an AWS cluster)
 
-1.  Follow the steps in [IAM Policy Configuration](../iam-policies).
+1.  Follow the steps in [IAM Policy Configuration](../iam-policie).
 
 1.  Export the AWS region where to deploy the cluster:
 
