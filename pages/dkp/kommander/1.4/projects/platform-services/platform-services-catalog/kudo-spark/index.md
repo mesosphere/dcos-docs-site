@@ -160,7 +160,7 @@ Perform these steps prior to upgrading or installing Konvoy to prevent or mitiga
 
 1. Wait for the KUDO Spark Operator jobs to finish, or terminate the running jobs.
 1. [Uninstall the KUDO Spark Operator](#uninstalling-the-spark-operator).
-1. [Install the new KUDO Spark version](#Installation).
+1. [Install the new KUDO Spark version](#installation).
 1. [Upgrade](../../../../../../konvoy/latest/upgrade) or [install](../../../../../../konvoy/latest/install) Konvoy.
 
 ### Submitting Spark Applications
