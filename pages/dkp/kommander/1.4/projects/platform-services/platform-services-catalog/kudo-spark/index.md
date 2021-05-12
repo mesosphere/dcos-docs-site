@@ -169,7 +169,7 @@ To submit Spark Application you should have KUDO Spark Operator installed.
 
 In order to deploy a Spark Application to Kubernetes using the KUDO Spark Operator, it should be described as a Kubernetes object. To do that, create a specification in `yaml` format with all the necessary configuration required for the application.
 
-Let's take a simple `SparkPi` application as an example. The `yaml` specification could be found here: [spark-pi.yaml](resources/spark-pi.yaml). This example assumes that you installed KUDO spark to the `spark` namespace.
+Let's take a simple `SparkPi` application as an example. The `yaml` specification could be found here: [spark-pi.yaml](https://raw.githubusercontent.com/kudobuilder/operators/master/repository/spark/docs/3.0.0-1.1.0/resources/spark-pi.yaml). This example assumes that you installed KUDO spark to the `spark` namespace.
 
 ```yaml
 apiVersion: "sparkoperator.k8s.io/v1beta2"
@@ -335,7 +335,7 @@ Forwarding from 127.0.0.1:4040 -> 4041
 Forwarding from [::1]:4040 -> 4041
 
 ```
-After that the Spark UI should be available via URL: [localhost:4040](localhost:4040):
+After that the Spark UI should be available via URL:  `localhost:4040`
 
 #### Using a Service
 
@@ -438,7 +438,7 @@ Wait for the deployment plan to `COMPLETE`.
 When upgrading, you should understand the mapping between Spark versions and operator versions.
 Wait and monitor the deployment plan to become `COMPLETE`.
 
-<p class="message--note"><strong>NOTE: </strong>Spark Operator version doesn't necessarily have to match the Apache Spark version to run Spark Applications built with that version. For instance, it is possible to submit Spark 2.4.5 Application using the operator version 3.0.0-1.1.0.</p>
+<p class="message--note"><strong>NOTE: </strong>Spark Operator version doesn't have to match the Apache Spark version to run Spark Applications built with that version. For instance, it is possible to submit Spark 2.4.5 Application using the operator version 3.0.0-1.1.0.</p>
 
 ### Monitoring
 
@@ -488,7 +488,7 @@ Full list of metrics configuration parameters and defaults is available in KUDO 
       kubectl kudo install spark -p appMetricsPort=<desired_port>
       ```
         - change the `port` value in the `SparkApplication` yaml definition (`spec.monitoring.prometheus.port`)
-    - Mark `driver` and/or `executor` with the label `metrics-exposed: "true"` -
+    - Mark `driver` and/or `executor` with the label `metrics-exposed: "true"`
       ```yaml
       spec:
         driver:
@@ -502,7 +502,7 @@ Full list of metrics configuration parameters and defaults is available in KUDO 
       ```
       kubectl apply -f <path_to_the_application_yaml>
       ```
-   Full application configuration example is available in [spark-application-with-metrics.yaml](resources/monitoring/spark-application-with-metrics.yaml)
+   Full application configuration example is available in [spark-application-with-metrics.yaml](https://raw.githubusercontent.com/kudobuilder/operators/master/repository/spark/docs/3.0.0-1.1.0/resources/monitoring/spark-application-with-metrics.yaml)
 
 1) Now, go to the prometheus dashboard (e.g. `<kubernetes_endpoint_url>/ops/portal/prometheus/graph`) and search for metrics starting with 'spark'. The Prometheus URI might be different depending on how you configured and installed the `prometheus-operator`.
 
