@@ -3,7 +3,7 @@ layout: layout.pug
 beta: false
 navigationTitle: Release Notes Kommander 1.2.2
 title: Release Notes Kommander 1.2.2
-menuWeight: 0
+menuWeight: 30
 excerpt: View release-specific information for Kommander 1.2.2
 enterprise: false
 ---
