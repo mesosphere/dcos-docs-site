@@ -7,7 +7,7 @@ menuWeight: 1000
 beta: false
 ---
 
-The following information describes mitigated or fixed CVEs found in Konvoy 1.7.0.
+The following information describes mitigated or fixed CVEs found in Konvoy.
 
 <div class="cve-table-container">Loading...</div>
 <script src="/js/cve.js"></script>
