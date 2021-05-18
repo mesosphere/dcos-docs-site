@@ -1,8 +1,68 @@
 # D2iQ Documentation
 
+# Detailed Environment Setup Guide
+
+## Ensure Github Access
+## Ensure personal account access
+## Ensure IT has added you to the docs team
+
+## Ensure SSH keypair on file
+First,check to see if there are [existing SSH keys](https://docs.github.com/en/enterprise-server@3.1/github/authenticating-to-github/checking-for-existing-ssh-keys). 
+If you do not have an SSH key, [generate a new one](https://docs.github.com/en/enterprise-server@3.1/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key).
+If you do have a public and private pair, [add your key to the ssh-agent](https://docs.github.com/en/enterprise-server@3.1/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent) 
+Then [add your SSH key to your GitHub account](https://docs.github.com/en/enterprise-server@3.1/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
+# Setup MacOS Dev Environment
+
+1. [Install node.js >=8.x](https://nodejs.org/en/download/package-manager/#macos)
+
+1. [Download and Install VSCode](https://code.visualstudio.com/) 
+
+## (Optional) Install VSCode extensions
+Extensions can make it easier to work within the editor. Open the extensions browser by clicking the Settings Icon in the very lower left of VSCode and choosing `Extensions`, or, as you can see, it has a shortcut.
+
+ ![Settings, Extensions](https://i.imgur.com/0XkNShr.png)
+
+One extension that is often useful is `Gitlens`
+
+# Clone the Repo You Need
+## Ensure working directory
+As the products grow, so do the places where documentation lives. Tech writers will end up with more than a few repos that you will work in and contribute to as part of your work. 
+1. From home level in the terminal, type `mkdir d2iq`
+
+## CD into your working directory
+1. Change directory into the new one you just made, or the one you already had:
+`cd d2iq`
+
+## Clone the repo you need
+We will be using the docs site repo for all examples, but this might also be another product repo within D2iQ.
+`git clone dcos-docs-site`
+
+Note: On first time setup, you may need to follow the instructions to install xcode tools to get git functionality
+
+## `cd` into the Repo you just cloned
+`cd dcos-docs-site`
+
+## Open the repo in your code editor
+If you installed the shell extension, you can now open the folder your terminal is in with the command:
+`code .`
+
+# Initialize the Repo (Docs Repo Only)
+Content that is kept on other team repos would follow their init, if applicable.
+
+## Install node modules
+This must be only done on first time or if a rare site tooling change occurs. Other repos may have other needs, see their Contributing Guide or similar resource for assistance if you will need to build their code.
+`npm install`
+
+## Build the API page sets
+This is necessary anytime a set is changed, or when a new DC/OS version (and there for a new set) is created
+`make build-api`
+
+This takes about 8 mins. It builds the folders `build-ngindox` and `biuld-swagger`.
+
 # Setting up a dev/preview environment
 
-You can "live edit" the docs: updated content is automatically re-rendered and refreshed in the browser.
+You can "live edit" the docs: updated content is automatically re-rendered and refreshed in the browser. Additionally, you can view a live preview of any PR you create by going the preview site as described [on the wiki](https://github.com/mesosphere/dcos-docs-site). 
 
 ## Via Docker
 
