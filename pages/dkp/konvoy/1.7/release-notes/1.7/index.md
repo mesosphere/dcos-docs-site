@@ -47,7 +47,7 @@ Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them
 
 #### Support for VMWare vSphere
 
-- Konvoy now supports `vsphere` as a provisioner to create clusters in your [VMware vSphere](https://www.vmware.com/products/vsphere.html) environment. For more information, see the [Konvoy vSphere topic][konvoy-vsphere].
+- Konvoy now supports `vsphere` as a provisioner to create clusters in your [VMware vSphere][vsphere] environment. For more information, see the [Konvoy vSphere topic][konvoy-vsphere].
 
 #### GPU Support
 
@@ -173,3 +173,4 @@ For information about working with native Kubernetes, see the [Kubernetes docume
 [konvoy-doc]: ../../introduction
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [konvoy-vsphere]: ../../install/install-vsphere
+[vsphere]: https://www.vmware.com/products/vsphere.html
