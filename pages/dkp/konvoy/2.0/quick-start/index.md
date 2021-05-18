@@ -17,7 +17,6 @@ Before starting the Konvoy installation, you should verify the following:
 -   You have a Linux or MacOS machine with a supported version of the operating system.
 -   You have the `konvoy2` binary on this machine.
 -   You have [Docker][install_docker] version 18.09.2 or later.
--   You have [clusterawsadm][install_clusterawsadm] to generate base64 encoded AWS credentials.
 -   You have [kubectl][install_kubectl] for interacting with the running cluster.
 -   Required for AWS clusters:
     - You have a valid AWS account with [credentials configured][aws_credentials].
@@ -40,16 +39,26 @@ Before starting the Konvoy installation, you should verify the following:
     export AWS_PROFILE=<profile>
     ```
 
-1.  Set the required environment variables:
-
-    ```sh
-    export AWS_B64ENCODED_CREDENTIALS=$(clusterawsadm bootstrap credentials encode-as-profile)
-    ```
-
 1.  If at any time you need to refresh the credentials used by the AWS provider, run the following:
 
     ```sh
-    export AWS_B64ENCODED_CREDENTIALS=$(clusterawsadm bootstrap credentials encode-as-profile)
+    konvoy2 update bootstrap credentials aws
+    ```
+
+    *NOTE* This command will restart the CAPA controllers automatically.
+
+    `konvoy2 update bootstrap credentials aws` encodes an AWS profile and stores it in the `capa-manager-bootstrap-credentials` secret in the `capa-system` namespace. It is equivalent to the following:
+
+    ```sh
+    export AWS_B64ENCODED_CREDENTIALS=$(base64 << EOF
+    [default]
+    aws_access_key_id = $AWS_ACCESS_KEY_ID
+    aws_secret_access_key = $AWS_SECRET_ACCESS_KEY
+    region = $AWS_REGION
+    aws_session_token = $AWS_SESSION_TOKEN
+    EOF
+    )
+
     kubectl -n capa-system patch secret capa-manager-bootstrap-credentials -p "{\"data\": {\"credentials\": \"${AWS_B64ENCODED_CREDENTIALS}\"}}"
     kubectl -n capa-system rollout restart deployment capa-controller-manager
     ```
@@ -238,7 +247,6 @@ Before starting the Konvoy installation, you should verify the following:
     ```
 
 [install_docker]: https://docs.docker.com/get-docker/
-[install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [azure_credentials]: https://github.com/kubernetes-sigs/cluster-api-provider-azure/blob/master/docs/book/src/topics/getting-started.md#prerequisites
