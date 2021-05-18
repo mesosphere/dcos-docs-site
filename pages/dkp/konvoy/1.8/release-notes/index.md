@@ -79,15 +79,14 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 
 ### KUDO Spark Operator Upgrade Prior to Konvoy Upgrade or Install
 
-Custom Resource Definitions of KUDO Spark Operator versions prior to 3.0.0-1.1.0 do not specify default values for `x-kubernetes-list-map-keys` properties and will fail validation on Kubernetes versions 1.18.x and later.
+Custom Resource Definitions (CRD) of KUDO Spark Operator versions prior to 3.0.0-1.1.0 do not specify default values for `x-kubernetes-list-map-keys` properties and will fail validation on Kubernetes versions 1.18.x and later.
 
-Perform these steps prior to upgrading or installing Konvoy to prevent or mitigate disruption of currently-running Spark jobs and invalidating Spark CRDs:
+Perform these steps before upgrading or installing Konvoy to prevent or mitigate disruption of currently-running Spark jobs and invalidating Spark CRDs:
 
 1. Wait for the KUDO Spark Operator jobs to finish, or terminate the running jobs.
-1. [Uninstall the KUDO Spark Operator](../../../../kommander/latest/projects/platform-services/platform-services-catalog/kudo-spark/#uninstalling-the-spark-operator).
-1. [Install the new KUDO Spark version](../../../../kommander/latest/projects/platform-services/platform-services-catalog/kudo-spark/#installation).
-1. [Upgrade](../../upgrade) or [install](../../install) Konvoy.
-
+1. [Uninstall the KUDO Spark Operator](/dkp/kommander/latest/projects/platform-services/platform-services-catalog/kudo-spark/#uninstalling-the-spark-operator).
+1. [Install the new KUDO Spark version](/dkp/kommander/latest/projects/platform-services/platform-services-catalog/kudo-spark/#installation).
+1. [Upgrade](../upgrade) or [install](../install) Konvoy.
 
 ### Component versions
 
@@ -103,7 +102,7 @@ Perform these steps prior to upgrading or installing Konvoy to prevent or mitiga
 - Helm v3.5.2
 - Istio 1.9.1
 - Kibana 7.9.3
-- kubeaddons-dispatch stable-1.19-1.4.5
+- kubeaddons-dispatch stable-1.20-1.4.5
 - kubeaddons-kommander stable-1.20-1.4.0
 - kubernetes-base-addons stable-1.20-4.0.0
 - Kubernetes v1.20.6
@@ -122,11 +121,8 @@ Perform these steps prior to upgrading or installing Konvoy to prevent or mitiga
 
 <!-- Add links to external documentation as needed -->
 
-For information about installing and using Konvoy, see the [Konvoy documentation][konvoy-doc].
-
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
-[konvoy-doc]: ../introduction
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [konvoy-vsphere]: ../install/install-vsphere
 [konvoy-ccontrol-plane-certificates]: ../networking/control-plane-certificates/

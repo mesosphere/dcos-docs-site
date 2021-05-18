@@ -293,6 +293,18 @@ For example on `Ubuntu 18.04`, you must replace the following Deb packages and t
     - libnspr4_2%3a4.18-1ubuntu1_amd64.deb
     - libnss3_2%3a3.35-2ubuntu2.12_amd64.deb
 
+### Enterprise Linux 8 Airgapped Packages
+
+The airgapped bundle contains package archives for both EL7 and EL8. The installer, however, is configured to copy only one set of packages, and it defaults to the EL7 packages. If you are using EL8 (centos 8 or rhel 8), copy the EL8 package archive to the default location:
+
+```shell
+# backup the centos 7 archive (optional)
+cp konvoy_<konvoy-version>_x86_64_rpms.tar.gz konvoy_<konvoy-version>_el7_x86_64_rpms.tar.gz
+
+# move the el8 packages to the default package location
+mv konvoy_<konvoy-version>_el8_x86_64_rpms.tar.gz konvoy_<konvoy-version>_x86_64_rpms.tar.gz
+```
+
 ## Configure the image registry
 
 In an air-gapped environment your cluster nodes will not have access to any public Docker registries, therefore you are required to provide your own that is accessible on the local network.

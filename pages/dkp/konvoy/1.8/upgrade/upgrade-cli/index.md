@@ -53,13 +53,13 @@ After the upgrade command completes, you can start using the new Konvoy version.
 
 <p class="message--note"><strong>NOTE: </strong>You must modify your <code>cluster.yaml</code> file with these changes when upgrading from a previous Konvoy version:</p>
 
-- Upgrade to the newest supported version of Kubernetes. Set `spec.kubernetes.version: 1.20.6` for `kind: ClusterConfiguration`.
+-   Upgrade to the newest supported version of Kubernetes. Set `spec.kubernetes.version: 1.20.6` for `kind: ClusterConfiguration`.
 
-- If you are using Kubernetes Base Addons, the version has changed. You must set your `configRepository` to `https://github.com/mesosphere/kubernetes-base-addons` and `configVersion` to `spec.addons.configVersion: stable-1.20-4.0.0` for `kind: ClusterConfiguration`.
+-   If you are using Kubernetes Base Addons, the version has changed. You must set your `configRepository` to `https://github.com/mesosphere/kubernetes-base-addons` and `configVersion` to `spec.addons.configVersion: stable-1.20-4.0.0` for `kind: ClusterConfiguration`.
 
-- If you use Kommander, you must set the `configVersion` to `spec.addons.configVersion: stable-1.20-1.4.0` and your `configRepository` to `https://github.com/mesosphere/kubeaddons-kommander` for `kind: ClusterConfiguration`.
+-   If you use Kommander, you must set the `configVersion` to `spec.addons.configVersion: stable-1.20-1.4.0` and your `configRepository` to `https://github.com/mesosphere/kubeaddons-kommander` for `kind: ClusterConfiguration`.
 
-- If you have Dispatch enabled, you must set the `configVersion` to `configVersion: stable-1.20-1.4.5` and your `configRepository` to `https://github.com/mesosphere/kubeaddons-dispatch` for `kind: ClusterConfiguration`.
+-   If you have Dispatch enabled, you must set the `configVersion` to `configVersion: stable-1.20-1.4.5` and your `configRepository` to `https://github.com/mesosphere/kubeaddons-dispatch` for `kind: ClusterConfiguration`.
 
 The version of Konvoy is now `v1.8.0`, set `spec.version: v1.8.0`.
 
