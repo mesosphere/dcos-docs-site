@@ -62,7 +62,7 @@ This takes about 8 mins. It builds the folders `build-ngindox` and `biuld-swagge
 
 # Setting up a dev/preview environment
 
-You can "live edit" the docs: updated content is automatically re-rendered and refreshed in the browser. Additionally, you can view a live preview of any PR you create by going the preview site as described [on the wiki](https://github.com/mesosphere/dcos-docs-site). 
+You can "live edit" the docs: updated content is automatically re-rendered and refreshed in the browser. Additionally, you can view a live preview of any PR you create by going the preview site as described [on the wiki](https://wiki.d2iq.com/display/ENG/Automatic+Docs+Preview+Builds). 
 
 ## Via Docker
 
