@@ -51,15 +51,15 @@ After the upgrade command completes, you can start using the new Konvoy version.
 
 ### Upgrading Konvoy from v1.7.x to v1.8.0
 
-<p class="message--note"><strong>NOTE: </strong>You must modify your <code>cluster.yaml</code> file with these changes when upgrading from a previous Konvoy version:</p>
+**You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
--   Upgrade to the newest supported version of Kubernetes. Set `spec.kubernetes.version: 1.20.6` for `kind: ClusterConfiguration`.
+It is recommended to upgrade to the newest supported version of Kubernetes. Set `spec.kubernetes.version: 1.20.6` for of kind: ClusterConfiguration.
 
--   If you are using Kubernetes Base Addons, the version has changed. You must set your `configRepository` to `https://github.com/mesosphere/kubernetes-base-addons` and `configVersion` to `spec.addons.configVersion: stable-1.20-4.0.0` for `kind: ClusterConfiguration`.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.20-4.0.0` for of kind: ClusterConfiguration.
 
--   If you use Kommander, you must set the `configVersion` to `spec.addons.configVersion: stable-1.20-1.4.0` and your `configRepository` to `https://github.com/mesosphere/kubeaddons-kommander` for `kind: ClusterConfiguration`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.20-1.4.0` for of kind: ClusterConfiguration.
 
--   If you have Dispatch enabled, you must set the `configVersion` to `configVersion: stable-1.20-1.4.5` and your `configRepository` to `https://github.com/mesosphere/kubeaddons-dispatch` for `kind: ClusterConfiguration`.
+If you have Dispatch enabled, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-dispatch` to be `configVersion: stable-1.20-1.4.5` for of kind: ClusterConfiguration
 
 The version of Konvoy is now `v1.8.0`, set `spec.version: v1.8.0`.
 
@@ -90,7 +90,7 @@ spec:
         - name: kommander
           enabled: true
   ...
-  version: v1.8.0
+  version: v1.7.0
 ```
 
 ## Upgrades and Running Workloads
@@ -105,7 +105,7 @@ Konvoy preserves the availability of applications in the cluster by detecting:
 
 To force the node to upgrade, you can run `konvoy up --upgrade --force-upgrade`, which upgrades all the nodes and ignores the safety checks. This can result in temporary interruptions to application availability.
 
-<p class="message--important"><strong>IMPORTANT: </strong>During the <code>node drain</code> stage, Konvoy may exhibit a time-out error while waiting for workloads to reschedule. Users can bypass this process during upgrade by using <code>konvoy up --upgrade --force-upgrade --without-draining</code>. This usage can result in undefined behavior, interruptions to application availability and service downtime.</p>
+During the `node drain` stage, Konvoy may exhibit a time-out error, while waiting for workloads to reschedule. Users can bypass this process during upgrade by using `konvoy up --upgrade --force-upgrade --without-draining`. This usage can result in undefined behavior,  interruptions to application availability and service downtime.
 
 Konvoy avoids interrupting applications by default, and displays these warnings while deferring upgrade operations.
 

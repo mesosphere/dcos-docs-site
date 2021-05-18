@@ -102,7 +102,7 @@ Perform these steps before upgrading or installing Konvoy to prevent or mitigate
 - Helm v3.5.2
 - Istio 1.9.1
 - Kibana 7.9.3
-- kubeaddons-dispatch stable-1.20-1.4.5
+- kubeaddons-dispatch stable-1.19-1.4.5
 - kubeaddons-kommander stable-1.20-1.4.0
 - kubernetes-base-addons stable-1.20-4.0.0
 - Kubernetes v1.20.6
@@ -121,8 +121,11 @@ Perform these steps before upgrading or installing Konvoy to prevent or mitigate
 
 <!-- Add links to external documentation as needed -->
 
+For information about installing and using Konvoy, see the [Konvoy documentation][konvoy-doc].
+
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
+[konvoy-doc]: ../introduction
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [konvoy-vsphere]: ../install/install-vsphere
 [konvoy-ccontrol-plane-certificates]: ../networking/control-plane-certificates/
