@@ -26,6 +26,10 @@ Kommander provides a command center for all your cloud native management needs i
 | **Maximum**        | 1.19.x  |
 | **Default**        | 1.18.10  |
 
+# Known issues
+
+Kubecost cost-analyzer by default requests a PVC of size 0.2Gi. This may cause issues with certain provisioners that require a minimum storage size of 1Gi. To resolve this issue, upgrade to 1.3.3 following the [upgrade instructions in the 1.3.3 release notes](../1.3.3/).
+
 # Breaking changes
 
 In Kommander 1.3, all new projects were created with a default NetworkPolicy that only allowed traffic originating within your Projects namespace. This policy was also created in all existing projects that did not already have a NetworkPolicy when upgrading to Kommander 1.3.
@@ -33,6 +37,7 @@ In Kommander 1.3, all new projects were created with a default NetworkPolicy tha
 The result of this default policy was that Pods could not talk to Pods outside of that namespace. In some cases this was not a desired default state. As of Kommander 1.3.1, no default NetworkPolicy is created in new (or existing projects) and thus no traffic blocking is done by default.
 
 If you are upgrading from Kommander 1.3 and already made the necessary changes to address this issue (for example, by adding a NetworkPolicy with the desired traffic rules), then upgrading to Kommander 1.3.1 will not impact those existing policies.
+
 # New features
 
 - Add license delete mutation.
