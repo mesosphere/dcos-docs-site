@@ -19,6 +19,10 @@ To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [ins
 # Release Summary
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated cost management across multiple clusters, whether they are a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
 
+# Known issues
+
+Kubecost cost-analyzer by default requests a PVC of size 0.2Gi. This may cause issues with certain provisioners that require a minimum storage size of 1Gi. To resolve this issue, upgrade to 1.3.3 following the [upgrade instructions in the 1.3.3 release notes](../1.3.3/).
+
 # Bug fixes
 
 - Updated UI to handle new KUDO param types.

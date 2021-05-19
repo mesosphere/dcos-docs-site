@@ -26,7 +26,9 @@ Kommander provides a command center for all your cloud native management needs i
 | **Maximum**        | 1.19.x  |
 | **Default**        | 1.19.7  |
 
-# Known issue
+# Known issues
+
+In Kommander 1.3.2 and below, Kubecost cost-analyzer by default requests a PVC of size 0.2Gi. This may cause issues with certain provisioners that requiire a minimum storage size of 1Gi. To resolve this issue, upgrade to 1.3.3 following the [upgrade instructions in the 1.3.3 release notes](../1.3.3/).
 
 In Kommander 1.3, unless a default NetworkPolicy existed prior to upgrading to 1.3, a default NetworkPolicy is created that allows traffic originating only within your Projects namespace. Pods can not talk to Pods outside of that namespace. In some cases this can have an unpredictable and unwanted impact on your system.
 
@@ -55,7 +57,7 @@ cat <<EOF | kubectl apply -f -
 
 # Breaking changes
 
-## Docker hub rate limiting 
+## Docker hub rate limiting
 Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
 
 Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
@@ -63,7 +65,7 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 For more information on addressing this limit, see [Docker hub rate limits](../../operations/manage-docker-hub-rate-limits).
 
 # New Features
-<!-- ## KUDO Spark compatibility 
+<!-- ## KUDO Spark compatibility
 
 Kommander 1.3 requires KUDO Spark 3.0 because Spark 2.4 does not support Kubernetes 1.18.
 To continue using KUDO Spark Kommander 1.3 and above, upgrade to Spark 3.0.
@@ -73,6 +75,7 @@ For details on how to migrate workloads to Spark 3.0, consult the official [migr
 Customers now have the ability to control and configure which platform services get installed into an attached cluster by workspace. In Kommander specific platform services can be federated to attached non-Konvoy clusters. In each workspace customers can specify which platform services are federated to the attached non-Konvoy clusters.
 
 For more information, see [Workspace Platform Services](../../workspaces/workspace-platform-services/).
+
 ## Managed cluster multi-tenancy
 Kommander now supports managing network policies across project clusters. Projects are created with a secure-by-default network policy and users needing more flexibility can edit or add more policies to tailor to their unique security needs.
 
@@ -82,6 +85,7 @@ For more information, see [Network Policies](../../projects/project-network-poli
 Kommander now supports continuous deployments as part of projects. Teams can leverage GitOps best practices to deploy configurations from source repositories to managed clusters using Dispatch and FluxCD. You can also configure source repositories to be deployed across all managed clusters using GitOps best practices. Kommander uses Dispatch and FluxCD to enable continuous deployments as a standard feature of projects.
 
 For more information, see [Continuous Deployments](../../projects/project-deployments/).
+
 ## Component versions
 - Addon: 1.3.0-6
 - Chart: 0.13.7
@@ -96,6 +100,7 @@ For more information, see [Continuous Deployments](../../projects/project-deploy
 - karma: 0.70
 - thanos: 0.10.1
 - cost-analyzer: 1.70.1
+
 ## Fixed and Improved Issues
 - Added Kubecost Prometheus health dashboards to Grafana.
 - Added the ability to edit network policies.
