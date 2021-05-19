@@ -25,7 +25,7 @@ Before starting the Konvoy installation, you should verify the following:
 
 ## Configure AWS prerequisites (required only if creating an AWS cluster)
 
-1.  Follow the steps in [IAM Policy Configuration](../iam-policie).
+1.  Follow the steps in [IAM Policy Configuration](../iam-policies).
 
 1.  Export the AWS region where to deploy the cluster:
 
