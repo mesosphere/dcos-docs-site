@@ -232,6 +232,48 @@ Before starting the Konvoy installation, you should verify the following:
     EOF
     ```
 
+## (Optional) Move controllers to the newly created cluster
+
+1.  Deploy CAPI controllers on the worker cluster:
+
+    ```sh
+    konvoy2 create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
+    ```
+
+1.  Issue the move command:
+
+    ```sh
+    konvoy2 move --to-kubeconfig ${CLUSTER_NAME}.conf
+    ```
+
+    Note: Please remember to specify flag `--kubeconfig` flag pointing to file `${CLUSTER_NAME}.conf` or make sure that the access credentials from this file become the default ones after the move operation is complete.
+    Note: Konvoy move operation has the following limitations:
+    - only one workload cluster is supported. This also implies that konvoy does not support moving more than one bootstrap cluster onto the same worker cluster
+    - konvoy version used for creating the worker cluster must much konvoy version used for deleting worker cluster
+    - konvoy version used for deploying bootstrap cluster must match konvoy version used for deploying worker cluster
+    - we only support moving of all clusters, no individual namespaces migration even though CAPI supports it.
+    - it is responsibility of the user to make sure that the permissions available to the CAPI controllers running on worker cluster are sufficient.
+
+1.  The bootstrap cluster can be now removed, as the worker cluster is now self-managing.
+
+    ```sh
+    konvoy2 delete bootstrap
+    ```
+
+## (Optional) Moving controllers back to the temporary bootstrap cluster
+
+1.  Create a bootstrap cluster:
+
+    ```sh
+    konvoy2 create bootstrap
+    ```
+
+1.  Issue the move command:
+
+    ```sh
+    konvoy2 move --from-kubeconfig ${CLUSTER_NAME}.conf --to-kubeconfig <path to default kubeconfig file>
+    ```
+
 ## Delete the Kubernetes cluster and cleanup your environment
 
 1.  Delete the provisioned Kubernetes cluster and wait a few minutes:
