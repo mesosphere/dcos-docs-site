@@ -273,6 +273,38 @@ The DEB packages installed by Konvoy:
 - xfsprogs (only on AWS)
 - nvidia-container-runtime (for GPU enabled machines)
 
+The RPM and Deb packages artifacts provided in Konvoy's air-gapped bundle may not be sufficient for your version of the OS.
+In that case, you may either configure a local OS package repository on the Kubernetes nodes where the missing Linux dependencies can be downloaded from,
+or replace the provided `rpms.tar.gz` or `debs.tar.gz` with a set of updated tar artifacts.
+
+For example on `Ubuntu 18.04`, you must replace the following Deb packages and their dependencies:
+
+-   nfs-common
+    - keyutils_1.5.9-9.2ubuntu2_amd64.deb
+    - libevent-2.1-6_2.1.8-stable-4build1_amd64.deb
+    - libnfsidmap2_0.25-5.1_amd64.deb
+    - libtirpc1_0.2.5-1.2ubuntu0.1_amd64.deb
+    - nfs-common_1%3a1.3.4-2.1ubuntu5.3_amd64.deb
+    - rpcbind_0.2.3-0.6ubuntu0.18.04.1_amd64.deb
+-   libseccomp2
+    - libseccomp2_2.5.1-1ubuntu1~18.04.1_amd64.deb
+-   chrony
+    - chrony_3.2-4ubuntu4.5_amd64.deb
+    - libnspr4_2%3a4.18-1ubuntu1_amd64.deb
+    - libnss3_2%3a3.35-2ubuntu2.12_amd64.deb
+
+### Enterprise Linux 8 Airgapped Packages
+
+The airgapped bundle contains package archives for both EL7 and EL8. The installer, however, is configured to copy only one set of packages, and it defaults to the EL7 packages. If you are using EL8 (centos 8 or rhel 8), copy the EL8 package archive to the default location:
+
+```shell
+# backup the centos 7 archive (optional)
+cp konvoy_<konvoy-version>_x86_64_rpms.tar.gz konvoy_<konvoy-version>_el7_x86_64_rpms.tar.gz
+
+# move the el8 packages to the default package location
+mv konvoy_<konvoy-version>_el8_x86_64_rpms.tar.gz konvoy_<konvoy-version>_x86_64_rpms.tar.gz
+```
+
 ## Configure the image registry
 
 In an air-gapped environment your cluster nodes will not have access to any public Docker registries, therefore you are required to provide your own that is accessible on the local network.
