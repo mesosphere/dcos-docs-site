@@ -28,7 +28,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 # Known issues
 
-In Kommander 1.3.2 and below, Kubecost cost-analyzer by default requests a PVC of size 0.2Gi. This may cause issues with certain provisioners that requiire a minimum storage size of 1Gi. To resolve this issue, upgrade to 1.3.3 following the [upgrade instructions in the 1.3.3 release notes](../1.3.3/).
+In Kommander 1.3.2 and earlier versions, Kubecost cost-analyzer requests a PVC of size 0.2Gi by default. This can cause issues with provisioners requiring a minimum storage size of 1Gi. Upgrade to version 1.3.3 to resolve this issue. Refer [here](https://github.com/kubecost/docs/blob/master/storage.md) for more information. 
 
 In Kommander 1.3, unless a default NetworkPolicy existed prior to upgrading to 1.3, a default NetworkPolicy is created that allows traffic originating only within your Projects namespace. Pods can not talk to Pods outside of that namespace. In some cases this can have an unpredictable and unwanted impact on your system.
 

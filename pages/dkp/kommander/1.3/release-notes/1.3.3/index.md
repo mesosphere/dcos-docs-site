@@ -21,19 +21,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 # Known issues
 
-In versions prior to 1.3.3, Kubecost cost-analyzer by default requests a PVC of size 0.2Gi. This may cause issues with certain provisioners that require a minimum storage size of 1Gi. To resolve this issue, upgrade to 1.3.3 following the upgrade instructions below.
-
-## Upgrading
-The default cost-analyzer persistent volume size has been increased to 32Gi. Upgrades may require manual intervention if your provisioner does not support volume expansion. Here are some recommendations from the [Kubecost storage documentation](https://github.com/kubecost/docs/blob/master/storage.md):
-
-**If you are upgrading an existing version of Kommander**
-  - If your provisioner does supports volume expansion, we will automatically resize you to a 32GB disk in an upgrade.
-  - If your provisioner does not support volume expansion:
-    - If you have not added or modified Kubecost configuration from the settings page on the Kubecost frontend, you can safely delete the PV and upgrade.
-      - We suggest you delete the old PV, then upgrade Kommander.
-    - If you cannot safely delete the PV storing your configs and configure them on a new PV:
-      - If you are not on a regional cluster, we recommend that you provision a second PV by setting `kubecost.cost-analyzer.persistentVolume.dbPVEnabled=true` in your cluster.yaml under Kommander values.
-      - If you are on a regional cluster,  we recommend that you provision a second PV using a topology-aware storage class ([more info](https://kubernetes.io/blog/2018/10/11/topology-aware-volume-provisioning-in-kubernetes/#getting-started)). You can set this disk’s storage class by setting `kubecost.cost-analyzer.persistentVolume.dbStorageClass=<your-topology-aware-storage-class-name>`.
+In Kommander 1.3.2 and earlier versions, Kubecost cost-analyzer requests a PVC of size 0.2Gi by default. This can cause issues with provisioners requiring a minimum storage size of 1Gi. Upgrade to version 1.3.3 to resolve this issue. Refer [here](https://github.com/kubecost/docs/blob/master/storage.md) for more information. 
 
 # Bug fixes
 
