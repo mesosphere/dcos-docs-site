@@ -50,7 +50,7 @@ metadata:
   namespace: baz
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: view
 subjects:
 - apiGroup: rbac.authorization.k8s.io
