@@ -61,9 +61,9 @@ html(lang='en')
     include partials/head.pug
   body.landing.landing--services
     .layout
+      - var sectionTitle = 'Konvoy Documentation'
+      include partials/header/header.pug
       div.layout__content(role='main')
-        - var sectionTitle = 'Konvoy Documentation'
-        include partials/header/header.pug
         .landing__hero
           h1.landing__title Konvoy Partner Solutions
         .landing__container
