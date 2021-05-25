@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Attach a cluster with no networking restrictions
 title: Attach a cluster with no networking restrictions
-menuWeight: 5
+menuWeight: 10
 excerpt: How to attach an existing cluster that has no additional networking restrictions
 beta: true
 ---

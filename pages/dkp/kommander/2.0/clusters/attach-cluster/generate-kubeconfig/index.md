@@ -3,7 +3,7 @@ layout: layout.pug
 beta: true
 navigationTitle: Generate a kubeconfig File
 title: Generate a kubeconfig File
-menuWeight: 1
+menuWeight: 5
 excerpt: How to create a service account and generate a kubeconfig file for attaching an existing cluster
 ---
 
