@@ -116,18 +116,6 @@ konvoy-image build --region us-east-1 --overrides override-source-ami.yaml --ove
 
 When the command is complete the `ami` id is printed and written to `./manifest.json`.
 
-<!- ## Konvoy2 Usage
-
-Link to Konvoy2 main documentation for installation.
-
-## Creating a bootstrap cluster
-
-```sh
-konvoy2 create bootstrap --kind-cluster-image mesosphere/konvoy2-bootstrap:v0.3.0-alpha
-```
-
--->
-
 ## Launch a Konvoy2 cluster with a custom AMI
 
 To use the built `ami` with Konvoy2, specify it with the `--ami` flag when calling cluster create.
