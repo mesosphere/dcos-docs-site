@@ -136,6 +136,14 @@ To use the built `ami` with Konvoy2, specify it with the `--ami` flag when calli
 konvoy2 create cluster aws --cluster-name=$(whoami)-aws-cluster --ami ami-0123456789
 ```
 
+## Launch a Konvoy2 cluster with custom AMI lookup
+
+By default `konvoy-image` will name the AMI in such a way that `konvoy2` can discover the latest AMI for a base os and kubernetes version. To create a cluster that will use the latest AMI, specify the `--ami-format`, `--ami-base-os` and `--ami-owner` flags:
+
+```sh
+konvoy2 create cluster aws --cluster-name=$(whoami)-aws-cluster --ami-format "konvoy-ami-{{.BaseOS}}-?{{.K8sVersion}}-*" --ami-base-os centos-7 --ami-owner 123456789012
+```
+
 ## Air Gapped
 
 TBD (for air gapped a larger set of `extra_images` are required.)
