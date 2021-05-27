@@ -10,19 +10,21 @@ enterprise: false
 
 ## Explore the new Kubernetes cluster
 
-1.  Fetch the kubeconfig file:
+1.  Fetch the kubeconfig file with the command:
 
     ```sh
     konvoy2 get kubeconfig > ${CLUSTER_NAME}.conf
     ```
 
-1.  List Nodes (it may take a couple of minutes for the Status to be `Ready` while `calico-node` pods are being deployed):
+1.  List the Nodes with the command:
 
     ```sh
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
-1.  List Pods:
+    Note that (it may take a couple of minutes for the Status to move to `Ready` while `calico-node` pods are being deployed.
+
+1.  List the Pods with the command:
 
     ```sh
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A

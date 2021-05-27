@@ -10,31 +10,31 @@ enterprise: false
 
 ## Prerequisites
 
-Before starting an air-gapped Konvoy installation, verify the following:
+Before starting an air-gapped Konvoy installation, verify that you have:
 
-- You have a Linux machine (bastion) that has access to the existing VPC.
-- You have the `konvoy2` binary on the bastion.
-- You have [Docker][install_docker] version 18.09.2 or later installed on the bastion.
-- You have [kubectl][install_kubectl] for interacting with the running cluster on the bastion.
-- You have a valid AWS account with [credentials configured][aws_credentials].
+- A Linux machine (bastion) that has access to the existing VPC.
+- The `konvoy2` binary on the bastion.
+- [Docker][install_docker] version 18.09.2 or later installed on the bastion.
+- [kubectl][install_kubectl] for interacting with the running cluster on the bastion.
+- A valid AWS account with [credentials configured][aws_credentials].
 
 ### Configure AWS prerequisites
 
 1.  Follow the steps in [IAM Policy Configuration](../../../iam-policies).
 
-1.  Export the AWS region where to deploy the cluster:
+1.  Export the AWS region where you want to deploy the cluster:
 
    ```sh
    export AWS_REGION=us-west-2
    ```
 
-1.  Export the AWS profile with the credentials that will be used to create the Kubernetes cluster:
+1.  Export the AWS profile with the credentials you want to use to create the Kubernetes cluster:
 
     ```sh
     export AWS_PROFILE=<profile>
     ```
 
-1.  If, at any time, you need to refresh the credentials used by the AWS provider, run the following:
+1.  Refresh the credentials used by the AWS provider at any time, using the command:
 
     ```sh
     konvoy2 update bootstrap credentials aws
