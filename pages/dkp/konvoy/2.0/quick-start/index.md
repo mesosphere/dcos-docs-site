@@ -8,44 +8,44 @@ enterprise: false
 menuWeight: 5
 ---
 
-This Quick Start guide provides simplified instructions to get your Kubernetes cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) or Azure public cloud instances using Konvoy.
+This Quick Start guide provides simplified instructions for using Konvoy to get your Kubernetes cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) or Azure public cloud instances.
 
 ## Prerequisites
 
-Before starting the Konvoy installation, you should verify the following:
+Before starting the Konvoy installation, verify that you have:
 
--   You have a Linux or MacOS machine with a supported version of the operating system.
--   You have the `konvoy2` binary on this machine.
--   You have [Docker][install_docker] version 18.09.2 or later.
--   You have [kubectl][install_kubectl] for interacting with the running cluster.
+-   A Linux or MacOS machine with a supported version of the operating system.
+-   The `konvoy2` binary on this machine.
+-   [Docker][install_docker] version 18.09.2 or later.
+-   [kubectl][install_kubectl] for interacting with the running cluster.
 -   Required for AWS clusters:
-    - You have a valid AWS account with [credentials configured][aws_credentials].
+    - A valid AWS account with [credentials configured][aws_credentials].
 -   Required for Azure clusters:
-    - You have a valid Azure account with [credentials configured][azure_credentials].
+    - A valid Azure account with [credentials configured][azure_credentials].
 
 ## Configure AWS prerequisites (required only if creating an AWS cluster)
 
 1.  Follow the steps in [IAM Policy Configuration](../iam-policies).
 
-1.  Export the AWS region where to deploy the cluster:
+1.  Export the AWS region where you want to deploy the cluster:
 
     ```sh
     export AWS_REGION=us-west-2
     ```
 
-1.  Export the AWS Profile with the credentials that will be used to create the Kubernetes cluster:
+1.  Export the AWS Profile with the credentials that you want to use to create the Kubernetes cluster:
 
     ```sh
     export AWS_PROFILE=<profile>
     ```
 
-1.  If at any time you need to refresh the credentials used by the AWS provider, run the following:
+1.  Refresh the credentials used by the AWS provider at any time, by running the command:
 
     ```sh
     konvoy2 update bootstrap credentials aws
     ```
 
-    *NOTE* This command will restart the CAPA controllers automatically.
+    <p class="message--note"><strong>NOTE: </strong>This command will restart the CAPA controllers automatically.</p>
 
     `konvoy2 update bootstrap credentials aws` encodes an AWS profile and stores it in the `capa-manager-bootstrap-credentials` secret in the `capa-system` namespace. It is equivalent to the following:
 
@@ -65,7 +65,7 @@ Before starting the Konvoy installation, you should verify the following:
 
 ## Configure Azure prerequisites (required only when creating an Azure cluster)
 
-1.  Login to Azure:
+1.  Log in to Azure:
 
     ```sh
     $ az login
@@ -87,8 +87,9 @@ Before starting the Konvoy installation, you should verify the following:
     ]
     ```
 
-1.  Create an Azure Service Principal (SP) by running the following command.
-    If an SP with the name exists, this command will rotate the password.
+1.  Create an Azure Service Principal (SP) by running the following command:
+
+    <p class="message--note"><strong>NOTE: </strong>If an SP with the name exists, this command will rotate the password.</p>
 
     ```sh
     $ az ad sp create-for-rbac --role contributor --name "$(whoami)-konvoy2"
@@ -110,7 +111,7 @@ Before starting the Konvoy installation, you should verify the following:
     export AZURE_CLIENT_SECRET='<password>' # Z79yVstq_E.R0R7RUUck718vEHSuyhAB0C
     ```
 
-1.  Base64 the same environment variables:
+1.  Base64 encode the same environment variables:
 
     ```sh
     export AZURE_SUBSCRIPTION_ID_B64="$(echo -n "${AZURE_SUBSCRIPTION_ID}" | base64 | tr -d '\n')"
@@ -129,13 +130,13 @@ Before starting the Konvoy installation, you should verify the following:
 
 ## Create a new AWS Kubernetes cluster
 
-1.  Name your cluster anything you like:
+1.  Give your cluster a name suitable for your environment:
 
     ```sh
     export CLUSTER_NAME=$(whoami)-aws-cluster
     ```
 
-1.  To have SSH access to the machines, specify an authorized key file.
+1.  Specify an authorized key file to have SSH access to the machines.
 
     The file must contain exactly one entry, as described in this [manual](https://man7.org/linux/man-pages/man8/sshd.8.html#AUTHORIZED_KEYS_FILE_FORMAT).
 
@@ -163,7 +164,7 @@ Before starting the Konvoy installation, you should verify the following:
     kubectl get clusters,awsclusters,machinepools,awsmachinepools
     ```
 
-1.  Wait for the cluster control plane to be ready:
+1.  Wait for the cluster control-plane to be ready:
 
     ```sh
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m
@@ -171,7 +172,7 @@ Before starting the Konvoy installation, you should verify the following:
 
 ## Create a new Azure Kubernetes cluster
 
-1.  Name your cluster anything you like:
+1.  Give your cluster a name suitable for your environment:
 
     ```sh
     export CLUSTER_NAME=$(whoami)-azure-cluster
@@ -188,7 +189,7 @@ Before starting the Konvoy installation, you should verify the following:
     kubectl get clusters,azureclusters,machinepools,azuremachinepools
     ```
 
-1.  Wait for the cluster control plane to be ready:
+1.  Wait for the cluster control-plane to be ready:
 
     ```sh
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m
@@ -202,13 +203,15 @@ Before starting the Konvoy installation, you should verify the following:
     konvoy2 get kubeconfig > ${CLUSTER_NAME}.conf
     ```
 
-1.  List Nodes (it may take a couple of minutes for the Status to be `Ready` while `calico-node` pods are being deployed):
+1.  List the Nodes with the command:
 
     ```sh
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
-1.  List Pods:
+    <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to `Ready` while `calico-node` pods are being deployed.</p>
+
+1.  List the Pods with the command:
 
     ```sh
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
@@ -216,7 +219,7 @@ Before starting the Konvoy installation, you should verify the following:
 
 ### Configure the AWS EBS CSI driver
 
-1.  Create a `StorageClass` for EBS CSI driver:
+1.  Create a `StorageClass` for the EBS CSI driver:
 
     ```sh
     cat <<EOF | kubectl --kubeconfig=${CLUSTER_NAME}.conf apply -f -
@@ -232,7 +235,7 @@ Before starting the Konvoy installation, you should verify the following:
     EOF
     ```
 
-## (Optional) Move controllers to the newly created cluster
+## (Optional) Move controllers to the newly-created cluster
 
 1.  Deploy CAPI controllers on the worker cluster:
 
@@ -246,15 +249,16 @@ Before starting the Konvoy installation, you should verify the following:
     konvoy2 move --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
-    Note: Please remember to specify flag `--kubeconfig` flag pointing to file `${CLUSTER_NAME}.conf` or make sure that the access credentials from this file become the default ones after the move operation is complete.
-    Note: Konvoy move operation has the following limitations:
-    - only one workload cluster is supported. This also implies that konvoy does not support moving more than one bootstrap cluster onto the same worker cluster
-    - konvoy version used for creating the worker cluster must much konvoy version used for deleting worker cluster
-    - konvoy version used for deploying bootstrap cluster must match konvoy version used for deploying worker cluster
-    - we only support moving of all clusters, no individual namespaces migration even though CAPI supports it.
-    - it is responsibility of the user to make sure that the permissions available to the CAPI controllers running on worker cluster are sufficient.
+    <p class="message--note"><strong>NOTE: </strong>Remember to specify flag `--kubeconfig` flag pointing to file `${CLUSTER_NAME}.conf` or make sure that the access credentials from this file become the default credentials after the move operation is complete.</p>
 
-1.  The bootstrap cluster can be now removed, as the worker cluster is now self-managing.
+    Note that the Konvoy `move` operation has the following limitations:
+    - Only one workload cluster is supported. This also implies that Konvoy does not support moving more than one bootstrap cluster onto the same worker cluster
+    - The Konvoy version used for creating the worker cluster must match the Konvoy version used for deleting the worker cluster.
+    - The Konvoy version used for deploying a bootstrap cluster must match the Konvoy version used for deploying a worker cluster.
+    - Konvoy only supports moving all namespaces in the cluster; Konvoy does not support migration of individual namespaces.
+    - You must ensure that the permissions available to the CAPI controllers running on the worker cluster are sufficient.
+
+1.  Remove the bootstrap cluster, as the worker cluster is now self-managing:
 
     ```sh
     konvoy2 delete bootstrap
