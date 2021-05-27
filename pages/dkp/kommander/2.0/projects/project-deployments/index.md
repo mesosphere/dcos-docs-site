@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Project Deployments
 title: Project Deployments
 menuWeight: 1
-excerpt: Project Deployments can be used to manage GitOps based Continuous Deployments which can automatically be created on all the Kubernetes clusters associated with the Project, in the corresponding namespace.
+excerpt: Use Project Deployments to manage GitOps based Continuous Deployments.
 ---
 
 Kommander Projects can be configured with GitOps based Continuous Deployments for federation of your Applications to associated clusters of the project. This is backed by Dispatch which enables software and applications to be continuously deployed (CD) using GitOps processes. GitOps enables the application to be deployed as per a manifest that is stored in a Git repository. This ensures that the application deployment can be automated, audited and declaratively deployed to the infrastructure.
