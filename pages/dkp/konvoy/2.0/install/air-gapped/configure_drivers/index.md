@@ -10,7 +10,7 @@ enterprise: false
 
 ## Configure the AWS EBS CSI driver
 
-1.  Create a `StorageClass` for EBS CSI driver:
+1.  Create a `StorageClass` for the EBS CSI driver:
 
     ```sh
     cat <<EOF | kubectl --kubeconfig=${CLUSTER_NAME}.conf apply -f -
