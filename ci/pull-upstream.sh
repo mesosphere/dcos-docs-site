@@ -31,7 +31,7 @@ git fetch
 git checkout "$REPO_BRANCH"
 
 echo "Diffing repo $REPO_SUBFOLDER against docs $DOCS_SUBFOLDER"
-rsync -a "$TMP_DIR/$REPO_NAME/$REPO_SUBFOLDER/" "$PROJECT_ROOT/$DOCS_SUBFOLDER/"
+rsync -a --delete "$TMP_DIR/$REPO_NAME/$REPO_SUBFOLDER/" "$PROJECT_ROOT/$DOCS_SUBFOLDER/"
 cd "$PROJECT_ROOT/$DOCS_SUBFOLDER/"
 
 if [ -z "$(git status --porcelain)" ]; then
