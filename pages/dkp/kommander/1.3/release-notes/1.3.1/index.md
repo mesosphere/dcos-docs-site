@@ -28,7 +28,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 # Known issues
 
-In Kommander 1.3.2 and earlier versions, Kubecost cost-analyzer requests a PVC of size 0.2Gi by default. This can cause issues with provisioners requiring a minimum storage size of 1Gi. Upgrade to version 1.3.3 to resolve this issue. Refer [here](https://github.com/kubecost/docs/blob/master/storage.md) for more information. 
+In Kommander 1.3.2 and earlier versions, the Kubecost cost-analyzer requests a PVC of size 0.2Gi by default. This can cause issues with provisioners requiring a minimum storage size of 1Gi. To resolve this issue upgrade to Kommander version 1.3.3. Refer [here](https://github.com/kubecost/docs/blob/master/storage.md) for more information. 
 
 # Breaking changes
 
