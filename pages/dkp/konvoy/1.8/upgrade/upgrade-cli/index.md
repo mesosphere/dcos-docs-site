@@ -90,7 +90,7 @@ spec:
         - name: kommander
           enabled: true
   ...
-  version: v1.8.0
+  version: v1.7.0
 ```
 
 ## Upgrades and Running Workloads
