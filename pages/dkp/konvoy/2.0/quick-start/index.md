@@ -200,7 +200,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Fetch the kubeconfig file:
 
     ```sh
-    konvoy2 get kubeconfig > ${CLUSTER_NAME}.conf
+    konvoy2 get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
 1.  List the Nodes with the command:
