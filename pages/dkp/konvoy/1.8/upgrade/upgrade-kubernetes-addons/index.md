@@ -10,7 +10,7 @@ enterprise: false
 
 Before upgrading, keep in mind there is inherent risk in upgrading any Kubernetes cluster. Any failure or error can result in unexpected downtime or loss of data.
 Take necessary precautions before starting the upgrade process.
-For example, back up the cluster state and all cluster-related files using [Velero](../../backup) before you upgrade.
+For example, back up the cluster state and all cluster-related files using [Velero][velero] before you upgrade.
 
 Also keep in mind that cluster addons require a specific minimum version of Kubernetes to be installed.
 You can verify your installed version before upgrading by running the following command:
@@ -30,9 +30,10 @@ Upgrading Kubernetes is supported when upgrading to a newer release in the curre
 Upgrading to a newer minor release of Kubernetes, requires a new Konvoy minor release.
 Upgrades that skip one or more minor versions are not supported.
 Downgrades are not supported.
+Kubernetes and Konvoy follow semantic versioning that follows the logic `MAJOR.MINOR.PATCH`.
 
-For example, Konvoy supports upgrading Kubernetes v1.17.x directly to a newer v1.17.x (Konvoy v1.5.x) or v1.18.x (Konvoy v1.6.x).
-Upgrading a v1.16 release directly to a v1.18 release is unsupported, but v1.16 may be upgraded to v1.17 and again to v1.18.
+For example, Konvoy supports upgrading Kubernetes v1.19.x directly to a newer v1.19.x (Konvoy v1.7.x) or Kubernetes v1.20.x (Konvoy v1.8.x).
+Upgrading a Kubernetes v1.18 release directly to a v1.20 release is unsupported, but Kubernetes v1.18 can be upgraded to v1.19 and then to v1.20.
 
 This support policy applies to every node in the cluster.
 When upgrading a cluster running a mix of Kubernetes versions, each node upgrade must be supported for the cluster upgrade to be supported.
@@ -42,7 +43,9 @@ To force an unsupported upgrade, use the `--force-upgrade` flag.
 
 ## Before you begin
 
-Before upgrading your Kubernetes cluster, or any of the addons, you must download the specific version of Konvoy by following the steps outlined in the [download](../../download) page.
+Before upgrading your Kubernetes cluster, or any of the addons, you must download the specific version of Konvoy.
+Follow the steps outlined on the [download][download] page.
+You should also confirm the version of [Konvoy is compatible][version-support-policy] with the version of Kubernetes you are upgrading to.
 
 You must also have access to the `cluster.yaml` file and the SSH keys that were generated during the initial install.
 If you are using one of the public cloud provisioners you must also have access to the `state/` directory that was generated during the initial install.
@@ -61,7 +64,7 @@ spec:
     version: 1.18.14
 ```
 
-If you want to upgrade to a newer minor version of `1.18.x`, change the version string like the following:
+If you want to upgrade to a newer minor version of Kubernetes v1.xx.x, change the version string like the following:
 
 ```yaml
 kind: ClusterConfiguration
@@ -78,7 +81,7 @@ Konvoy platform service addons are managed by a library that pulls default confi
 Versioning for the platform service addons is managed by [git tags][git_tags] and [github releases][git_releases] within the [kubernetes-base-addons][addons_repo] repository.
 
 Addons are deployed to the cluster as part of the `konvoy up`, `konvoy deploy` or `konvoy deploy addons` commands.
-These commands use the version of `kubernetes-base-addons` declared in the `cluster.yaml` configuration file using the `spec.addons.version` setting.
+These commands use the version of `kubernetes-base-addons` declared in the `cluster.yaml` configuration file using the `spec.addons.configVersion` setting.
 
 For example, assume the cluster was launched with the following `ClusterConfiguration` section:
 
@@ -111,8 +114,11 @@ spec:
 <p class="message--note"><strong>NOTE: </strong>Depending on the addon version you are upgrading to, you may need to include additional addons. For the full list of addons refer to the <a href="../../reference/cluster-configuration">reference document</a>.</p>
 
 During the addons upgrade process, Konvoy upgrades the platform service addons or installs any additional addons specified in the `cluster.yaml` file.
+Also confirm the version of addons you are upgrading to is [compatible with your version of Konvoy][kba-version-support-policy].
 
 ## Upgrade the cluster
+
+After you have modified the `cluster.yaml` file, you can start the upgrade process. You can upgrade all nodes, or choose to upgrade specific node pools.
 
 During the Kubernetes upgrade process, Konvoy:
 
@@ -124,18 +130,16 @@ During the Kubernetes upgrade process, Konvoy:
     - Otherwise you can resolve the safety issues after the initial upgrade and rerun the upgrade process to let Konvoy perform the upgrade on the remaining nodes.
 -   Upgrades all the control-plane nodes serially.
 -   Upgrades the remaining nodes sequentially, upgrading all of the nodes in a node pool before continuing onto a different node pool.
-    -   By default, konvoy upgrades every node pool. To upgrade a subset of node pools, specify a comma-separated list of node pool names, with the `--target-node-pools` flag.
+    -   By default, Konvoy upgrades every node pool. To upgrade a subset of node pools, specify a comma-separated list of node pool names, with the `--target-node-pools` flag.
     -   By default, `15%` of all nodes in each node pool (except those in the control-plane) are upgraded in parallel.
         To change this behavior, pass the flag `--max-parallel-nodes` when running `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes`.
         The value can be an integer, representing the number of nodes, or a percentage of nodes in the node pool (e.g. `--max-parallel-nodes 20%`).
         Passing a value of `1` upgrades the nodes serially.
         If some nodes in a batch fail to upgrade, Konvoy continues to upgrade the other nodes in the batch, but exits with an error. Fix the error manually and retry the process.
     -   The workloads are moved to a different node with `kubectl drain`. This process takes a few minutes before all workloads are scheduled onto different nodes. You can disable this behavior by passing the flag `--without-draining` when running `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes`. When `--without-draining` is specified, because no workloads are rescheduled, all nodes are upgraded, even when there are workloads that are "unsafe" to upgrade.
-    -   <p class="message--warning"><strong>WARNING: </strong> Using the <code>--without-draining</code> flag is volatile and can result in undefined behavior, downtime, and outages for your services during an upgrade. For production systems, notify your end users of cluster maintenance prior to upgrading with this flag.</p>
+          <p class="message--warning"><strong>WARNING: </strong> Using the <code>--without-draining</code> flag is volatile and can result in undefined behavior, downtime, and outages for your services during an upgrade. For production systems, notify your end users of cluster maintenance prior to upgrading with this flag.</p>
     -   The Kubernetes and Containerd OS packages are upgraded.
     -   The node is uncordoned allowing for workloads to be scheduled on it again.
-
-After you have modified the `cluster.yaml` file, you can start the upgrade process. You can upgrade all nodes, or choose to upgrade specific node pools.
 
 ### Upgrade all nodes
 
@@ -194,6 +198,13 @@ You can upgrade all remaining nodes by running the following Konvoy command:
 konvoy up --upgrade -y
 ```
 
+<p class="message--note"><strong>NOTE: </strong>If you change your <code>cluster.yaml</code> file to also include an upgraded version of Konvoy, using the command <code>konvoy up --upgrade</code> will upgrade the Kubernetes version and the CLI version of Konvoy.
+If you wish to upgrade both the Konvoy CLI version and Kubernetes version, follow the steps detailed in the <a href="../upgrade-cli/">upgrade CLI instructions</a>.</p>
+
 [addons_repo]: https://github.com/mesosphere/kubernetes-base-addons
-[git_releases]: https://help.github.com/en/github/administering-a-repository/managing-releases-in-a-repository
+[download]: ../../download
+[git_releases]: https://docs.github.com/en/github/administering-a-repository/releasing-projects-on-github/managing-releases-in-a-repository
 [git_tags]: https://git-scm.com/book/en/v2/Git-Basics-Tagging
+[kba-version-support-policy]: ../../version-policy#supported-kubernetes-base-addons-kba-versions
+[velero]: ../../backup
+[version-support-policy]: ../../version-policy/
