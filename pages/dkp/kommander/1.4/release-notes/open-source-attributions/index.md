@@ -9,12 +9,12 @@ render: mustache
 
 The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Kommander&trade;.
 
-## Software Sources
+**Software Sources**
 
 The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
 Software that are utilized by D2IQ Komander.
 
-## Project dependencies
+**Project dependencies**
 
 | Vendor | Name | Version | License Id |
 | -------|------|---------|------------|
@@ -2732,16 +2732,16 @@ Software that are utilized by D2IQ Komander.
 |  | regenerate | 1.4.2 | [MIT](https://opensource.org/licenses/MIT) |
 |  | terser | 4.8.0 | [BSD-2-Clause](https://opensource.org/licenses/BSD-2-Clause) |
 
-## Kubetunnel
+**Kubetunnel**
 
 The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Kubetunnel&trade;.
 
-## Software Sources
+**Software Sources**
 
 The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
 Software that are utilized by D2IQ&reg; Kubetunnel&trade;.
 
-## Project dependencies
+**Project dependencies**
 
 | Vendor | Name | Version | License Id |
 | -------|------|---------|------------|
@@ -2777,16 +2777,16 @@ Software that are utilized by D2IQ&reg; Kubetunnel&trade;.
 | k8s.io | code-generator | v0.18.8 | [Apache-2.0](https://pkg.go.dev/k8s.io/code-generator?tab=licenses) |
 | sigs.k8s.io | controller-tools | v0.3.0 | [Apache-2.0](https://pkg.go.dev/sigs.k8s.io/controller-tools?tab=licenses) |
 
-## Yakcl
+**Yakcl**
 
 The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Yakcl&trade;.
 
-## Software Sources
+**Software Sources**
 
 The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
 Software that are utilized by D2IQ&reg; Yakcl&trade;.
 
-## Project dependencies
+**Project dependencies**
 
 | Vendor | Name | Version | License Id |
 | -------|------|---------|------------|
