@@ -1,9 +1,17 @@
 #!/usr/bin/env groovy
 
 boolean main = env.BRANCH_NAME == "main"
-def bucket   = main ? "production"    : "pr-${env.CHANGE_ID}"
-def creds    = main ? 's3-production' : 's3-development'
-def hostname = main ? 'docs.d2iq.com' : "docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"
+boolean beta = env.BRANCH_NAME == "beta"
+def bucket   = main ? "production"
+             : beta ? "staging"
+             : "pr-${env.CHANGE_ID}"
+def creds    = main ? "s3-production"
+             : beta ? "s3-staging"
+             : "s3-development"
+def hostname = main ? "docs.d2iq.com"
+             : beta ? "beta-docs.d2iq.com"
+             : "docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"
+
 
 pipeline {
   agent { label "mesos" }
