@@ -11,7 +11,7 @@ render: mustache
 
 The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Konvoy&trade;.
 
-**Project dependencies**
+## Project dependencies
 
 | Vendor | Name | Version | License Id |
 | -------|------|---------|------------|
@@ -1530,7 +1530,7 @@ The table below lists the third party open source software which is provided by 
 | k8s.io | apimachinery | v0.19.6 | [Apache-2.0](https://pkg.go.dev/k8s.io/apimachinery?tab=licenses) |
 | k8s.io | client-go | v0.19.6 | [Apache-2.0](https://pkg.go.dev/k8s.io/client-go?tab=licenses) |
 
-**Software Sources**
+## Software Sources
 
 The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
 Software that are utilized by D2iQ Konvoy.
