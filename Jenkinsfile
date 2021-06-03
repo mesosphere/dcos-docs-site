@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 boolean main = env.BRANCH_NAME == "main"
-boolean beta = env.BRANCH_NAME == "beta"
+boolean beta = env.BRANCH_NAME == "private-beta"
 def bucket   = main ? "production"
              : beta ? "staging"
              : "pr-${env.CHANGE_ID}"
