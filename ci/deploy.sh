@@ -15,4 +15,4 @@ aws s3api put-public-access-block --bucket $BUCKET --public-access-block-configu
 aws s3api put-bucket-policy       --bucket $BUCKET --policy file:///src/.policy
 aws s3api put-bucket-website      --bucket $BUCKET --website-configuration file:///src/.s3config.json
 
-aws s3 sync --quiet --acl bucket-owner-full-control ./build s3://$BUCKET
+aws s3 sync --delete --quiet --acl bucket-owner-full-control ./build s3://$BUCKET
