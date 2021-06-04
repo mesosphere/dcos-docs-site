@@ -38,7 +38,7 @@ In Kommander 1.3.2 and earlier versions, the Kubecost cost-analyzer requests a P
 - kommander-karma: 0.3.12
 - kubeaddons-catalog: 0.1.15
 - kommander-thanos: 0.1.16
-- kubecost: 0.11.0
+- kubecost: 0.13.0
 - grafana: 6.6.0
 - karma: 0.70
 - thanos: 0.10.1
