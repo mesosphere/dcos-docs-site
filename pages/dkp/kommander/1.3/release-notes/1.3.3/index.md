@@ -30,11 +30,11 @@ In Kommander 1.3.2 and earlier versions, the Kubecost cost-analyzer requests a P
 
 ## Component versions
 
-- Addon: 1.3.3-4
-- Chart: 0.15.12
-- kommander-federation (yakcl): 0.8.11
-- kommander-licensing (yakcl): 0.8.11
-- UI: 6.91.3
+- Addon: 1.3.3-5
+- Chart: 0.15.13
+- kommander-federation (yakcl): 0.8.12
+- kommander-licensing (yakcl): 0.8.12
+- UI: 6.91.8
 - kommander-karma: 0.3.12
 - kubeaddons-catalog: 0.1.15
 - kommander-thanos: 0.1.16
