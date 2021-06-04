@@ -42,4 +42,4 @@ In Kommander 1.3.2 and earlier versions, the Kubecost cost-analyzer requests a P
 - grafana: 6.6.0
 - karma: 0.70
 - thanos: 0.10.1
-- cost-analyzer: 1.79.1
+- cost-analyzer: 1.81.1
