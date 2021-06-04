@@ -28,7 +28,6 @@ In Kommander 1.3.2 and earlier versions, the Kubecost cost-analyzer requests a P
 - UI: Resolved Kubecost performance issue. (COPS-6895)
 - Increased the default Kubecost cost-analyzer PVC storage size from 0.2Gi to 32Gi to resolve deployment issues that occurred with provisioners that require a minimum size of 1Gi. See [Known issues](#known-issues) above if upgrading from a previous version. (COPS-6937)
 
-
 ## Component versions
 
 - Addon: 1.3.3-4
