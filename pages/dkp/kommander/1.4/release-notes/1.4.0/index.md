@@ -23,7 +23,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 # Known issues
 
-In Kommander 1.3.2 and earlier versions, the Kubecost cost analyzer requests a PVC of size 0.2Gi by default. This can cause issues with provisioners requiring a minimum storage size of 1Gi. Upgrade to version 1.4.1 to resolve this issue. Refer [here](https://github.com/kubecost/docs/blob/master/storage.md) for more information. 
+In Kommander 1.3.2 and earlier versions, the Kubecost cost analyzer requests a PVC of size 0.2Gi by default, which can cause issues with provisioners requiring a minimum storage size of 1Gi. Upgrade to version 1.4.1 to resolve this issue. Refer [here](https://github.com/kubecost/docs/blob/master/storage.md) for more information. 
 
 ## New features
 
@@ -31,7 +31,7 @@ In Kommander 1.3.2 and earlier versions, the Kubecost cost analyzer requests a P
 
 In previous Kommander versions, Workspace roles were not automatically propagated to Project roles. A user with edit permissions for the Workspace did not automatically receive edit permissions to a Project inside the Workspace. Beginning with Kommander version 1.4, roles are propagated from Workspace to Project, and a user with edit permissions on the Workspace will also have edit permissions on the Project.
 
-<p class=“message--important”><strong>IMPORTANT: </strong>This change will propagate to all Projects, including existing Projects.</p>
+<p class=“message--important”><strong>IMPORTANT: </strong>This change propagates to all Projects, including existing Projects.</p>
 
 Refer to the instructions in [Access Control][access_control] to disable this propagation.
 
@@ -41,17 +41,17 @@ Prior to release 1.4, Kommander required bi-directional connectivity between the
 
 - Kommander did not have direct access to the managed cluster, for example, when the cluster was on a laptop or behind a NAT gateway.
 
-- The managed cluster did not have direct access to Kommander, for example, Kommander was on-premise and the managed cluster was in a public cloud provider environment.
+- The managed cluster did not have direct access to Kommander, for example, when Kommander was on-premise and the managed cluster was in a public cloud provider environment.
 
 - The managed cluster was behind a firewall, a proxy, or resident in a DMZ.
 
-A new component, `kubetunnel`, provides communication between Kommander and the managed cluster through a tunneling protocol resolving these blocked use cases. The TLS-encrypted tunnel enables you to access the cluster using SSO and to receive alerts, metrics, and kubecost data.
+A new component, kubetunnel, provides communication between Kommander and the managed cluster through a tunneling protocol resolving these blocked use cases. The TLS-encrypted tunnel enables you to access the cluster using SSO and to receive alerts, metrics, and kubecost data.
 
 For more information on this capability, see [Attach an Existing Kubernetes Cluster](../clusters/attach-cluster)
 
 ## Catalog Workload Certification
 
-D2iQ now certifies workloads for use with Kommander. All workloads that have been tested and certified for successful configuration and provisioning on Konvoy are flagged in Kommander with a certification icon. For more information, see [Project Platform Services](../projects/platform-services/).
+D2iQ now certifies workloads for use with Kommander. All workloads that are tested and certified for successful configuration and provisioning on Konvoy are flagged in Kommander with a certification icon. For more information, see [Project Platform Services](../projects/platform-services/).
 
 ## Helm charts
 The Projects tab now shows all of the current Helm Release charts, their chart version, and the names of the clusters. For more information, see [Project Deployments](../projects/project-deployments/).
