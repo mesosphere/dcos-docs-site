@@ -3,7 +3,7 @@ layout: layout.pug
 beta: false
 navigationTitle: Release Notes Kommander 1.4.1
 title: Release Notes Kommander 1.4.1
-menuWeight: 0
+menuWeight: 20
 excerpt: View release-specific information for Kommander 1.4.1
 enterprise: false
 ---
@@ -23,7 +23,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 # Known issues
 
-In Kommander 1.3.2 and earlier versions, the Kubecost cost analyzer requests a PVC of size 0.2Gi by default. This can cause issues with provisioners requiring a minimum storage size of 1Gi. Upgrade to version 1.4.1 to resolve this issue. Refer [here](https://github.com/kubecost/docs/blob/master/storage.md) for more information. 
+In Kommander version 1.3.2 and earlier, and Kommander version 1.4.0, the Kubecost cost analyzer requests a PVC of size 0.2Gi by default. This can cause issues with provisioners requiring a minimum storage size of 1Gi. This issue is fixed in Kommander version 1.3.3 and 1.4.1. Upgrading to these versions resolves this issue. Refer [here](https://github.com/kubecost/docs/blob/master/storage.md) for more information. 
 
 # Breaking changes
 
@@ -54,5 +54,5 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 
 - Update federated Kubecost to v0.13.0. This includes an upgrade of Prometheus to v2.24.0.
 - Update federated kubeaddons to v0.27.0.
-- Increase Kubecost default cost-analyzer persistent volume size to 32Gi. Upgrades may require manual intervention if your provisioner does not support volume expansion.
+- Increase the default Kubecost cost-analyzer PVC storage size from 0.2Gi to 32Gi to resolve deployment issues that occurred with provisioners that require a minimum size of 1Gi. See [Known issues](#known-issues) above if upgrading from a previous version. (COPS-6937)
 
