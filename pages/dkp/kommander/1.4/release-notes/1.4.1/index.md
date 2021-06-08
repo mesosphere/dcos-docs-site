@@ -32,7 +32,7 @@ Docker Hub announced an update to their image pull policies in August, 2020. The
 
 Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
 
-For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
+For more information on addressing this limit, see [Docker hub rate limits](../../operations/manage-docker-hub-rate-limits).
 
 #### Component Versions
 - Addon: 1.4.1-4
@@ -55,4 +55,3 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - Update federated Kubecost to v0.13.0. This includes an upgrade of Prometheus to v2.24.0.
 - Update federated kubeaddons to v0.27.0.
 - Increase the default Kubecost cost-analyzer PVC storage size from 0.2Gi to 32Gi to resolve deployment issues that occurred with provisioners that require a minimum size of 1Gi. See [Known issues](#known-issues) above if upgrading from a previous version. (COPS-6937)
-

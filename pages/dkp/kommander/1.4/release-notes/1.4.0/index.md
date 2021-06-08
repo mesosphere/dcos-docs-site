@@ -47,14 +47,14 @@ Prior to release 1.4, Kommander required bi-directional connectivity between the
 
 A new component, kubetunnel, provides communication between Kommander and the managed cluster through a tunneling protocol resolving these blocked use cases. The TLS-encrypted tunnel enables you to access the cluster using SSO and to receive alerts, metrics, and kubecost data.
 
-For more information on this capability, see [Attach an Existing Kubernetes Cluster](../clusters/attach-cluster)
+For more information on this capability, see [Attach an Existing Kubernetes Cluster](../../clusters/attach-cluster)
 
 ## Catalog Workload Certification
 
-D2iQ now certifies workloads for use with Kommander. All workloads that are tested and certified for successful configuration and provisioning on Konvoy are flagged in Kommander with a certification icon. For more information, see [Project Platform Services](../projects/platform-services/).
+D2iQ now certifies workloads for use with Kommander. All workloads that are tested and certified for successful configuration and provisioning on Konvoy are flagged in Kommander with a certification icon. For more information, see [Project Platform Services](../../projects/platform-services/).
 
 ## Helm charts
-The Projects tab now shows all of the current Helm Release charts, their chart version, and the names of the clusters. For more information, see [Project Deployments](../projects/project-deployments/).
+The Projects tab now shows all of the current Helm Release charts, their chart version, and the names of the clusters. For more information, see [Project Deployments](../../projects/project-deployments/).
 
 # Breaking changes
 
@@ -63,7 +63,7 @@ Docker Hub announced an update to their image pull policies in August, 2020. The
 
 Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
 
-For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
+For more information on addressing this limit, see [Docker hub rate limits](../../operations/manage-docker-hub-rate-limits).
 
 ## Component versions
 - Addon: 1.4.0-22
@@ -85,7 +85,7 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - UI: Show status of Helm Releases in Project CD.
 - Do not deploy the mtls-proxy load balancers if the connection-type is of type unidirectional.
 - Add kubetunnel integration.
-- UI: Add support for Catalog platform service badges to identify certified, air-gapped and d2iq supported platform services
+- UI: Add support for Catalog platform service badges to identify certified, air-gapped and D2iQ supported platform services
 - Upgrade federated Prometheus to v12.11.10, which includes a change to use the kube-prometheus-stack upstream chart following the deprecation of helm/charts.
 - Duplicate namespaces no longer created per workspace.
 - UI: Update to handle new KUDO param types.
@@ -97,4 +97,5 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - UI: Handle license loading state, show loading instead of invalid when license is missing a status. (COPS-6912)
 - UI: Resolve kubecost performance issue.
 
+[access_control]: /dkp/kommander/1.4/operations/access-control/
 [attach_existing_kubernetes_cluster]: /dkp/kommander/1.4/clusters/attach-cluster

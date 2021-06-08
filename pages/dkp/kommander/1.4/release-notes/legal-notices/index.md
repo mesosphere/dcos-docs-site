@@ -3,7 +3,7 @@ layout: layout.pug
 beta: false
 title: Legal Notices
 menuWeight: 105
-excerpt: List of Third-party trademarks mentioned in the Kommander documentation
+excerpt: List of third party trademarks mentioned in the Kommander documentation
 render: mustache
 ---
 
