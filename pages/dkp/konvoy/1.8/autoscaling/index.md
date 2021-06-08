@@ -76,7 +76,11 @@ When deploying the cluster for the first time using `konvoy up`, **you must ensu
 After the cluster specification is configured, run `konvoy up -y` to apply the required
 changes to the cluster and to start autoscaling the worker pool on
 demand. When the command completes successfully, certain configuration files of the cluster
-are stored in Kubernetes.
+are stored in Kubernetes. 
+Please make sure the kubeconfig has correct login information
+```shell
+export KUBECONFIG=admin.conf
+```
 This keeps the cluster state up-to-date for any change triggered by the autoscaler and prevents the system from having multiple or out-dated cluster specifications.
 
 The following files are stored in Kubernetes when using the autoscaling feature:
@@ -357,12 +361,12 @@ in our respective `KonvoyCluster` resource in Kubernetes. These are the two even
 scaling up and down decisions, as shown below:
 
 ```shell
-Events:
-  Type    Reason                  Age    From                Message
-  ----    ------                  ----   ----                -------
-  Normal  ClusterScaleUpSuccess   13m    cluster-autoscaler  2 machine(s) added to nodepool "worker" by autoscaler (provider: konvoy)
-  ...
-  Normal  ClusterScaleDownSuccess 3m     cluster-autoscaler  1 machine removed from nodepool "worker" by autoscaler (provider: konvoy)
+kubectl get events | grep autoscaler
+Type    Reason                  Age    From                Message
+----    ------                  ----   ----                -------
+Normal  ClusterScaleUpSuccess   13m    cluster-autoscaler  2 machine(s) added to nodepool "worker" by autoscaler (provider: konvoy)
+...
+Normal  ClusterScaleDownSuccess 3m     cluster-autoscaler  1 machine removed from nodepool "worker" by autoscaler (provider: konvoy)
 ```
 
 [autoscaler]: https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler
