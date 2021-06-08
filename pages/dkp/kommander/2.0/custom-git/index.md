@@ -4,6 +4,7 @@ navigationTitle: Custom git repositories
 title: Custom git repositories
 menuWeight: 9
 excerpt: How to deploy a new GitRepository to drive custom GitOps
+beta: true
 ---
 
 Use the Kommander components to deploy custom third-party applications from Git repositories. While Kommander is still in beta most of the steps outlined here make use of the underlying components. In future versions you will be able to use the Kommander API to better manage this goal.
