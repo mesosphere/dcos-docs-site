@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Access a managed cluster
 title: Access a managed cluster
 menuWeight: 50
-excerpt: How to access an attached (managed) cluster with Kommander credentials
+excerpt: Access an attached (managed) cluster with Kommander credentials
 beta: false
 ---
 
