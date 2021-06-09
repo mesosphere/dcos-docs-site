@@ -130,7 +130,7 @@ spec:
       nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.20-4.0.0
+    configVersion: testing-1.20-4.1.0-rc.2
     addonsList:
     - name: nvidia
       enabled: true
@@ -180,7 +180,7 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.20-4.0.0
+    configVersion: testing-1.20-4.1.0-rc.2
     addonsList:
 ......
     - name: nvidia

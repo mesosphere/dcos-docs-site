@@ -43,30 +43,30 @@ If you are using a [private Docker registry][docker_registry] for your clusters,
 After you have the available Konvoy versions, you can upgrade your CLI by running the following command:
 
 ```bash
-konvoy image upgrade --version=v1.8.0
-Wrote Konvoy CLI version 'v1.8.0' to '.konvoy/cli_version'
+konvoy image upgrade --version=v1.8.1
+Wrote Konvoy CLI version 'v1.8.1' to '.konvoy/cli_version'
 ```
 
 After the upgrade command completes, you can start using the new Konvoy version.
 
-### Upgrading Konvoy from v1.7.x to v1.8.0
+### Upgrading Konvoy from v1.7.x to v1.8.1
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
 It is recommended to upgrade to the newest supported version of Kubernetes. Set `spec.kubernetes.version: 1.20.6` for of kind: ClusterConfiguration.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.20-4.0.0` for of kind: ClusterConfiguration.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.20-4.1.0-rc.2` for of kind: ClusterConfiguration.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.20-1.4.0` for of kind: ClusterConfiguration.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.20-1.4.1` for of kind: ClusterConfiguration.
 
 If you have Dispatch enabled, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-dispatch` to be `configVersion: stable-1.20-1.4.5` for of kind: ClusterConfiguration
 
-The version of Konvoy is now `v1.8.0`, set `spec.version: v1.8.0`.
+The version of Konvoy is now `v1.8.1`, set `spec.version: v1.8.1`.
 
 ```yaml
 kind: ClusterProvisioner
 ...
-  version: v1.8.0
+  version: v1.8.1
 ...
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
@@ -76,7 +76,7 @@ spec:
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: stable-1.20-4.0.0
+      configVersion: testing-1.20-4.1.0-rc.2
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
       configVersion: stable-1.20-1.4.5
@@ -85,7 +85,7 @@ spec:
           enabled: true
 ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: stable-1.20-1.4.0
+      configVersion: stable-1.20-1.4.1
       addonsList:
         - name: kommander
           enabled: true
