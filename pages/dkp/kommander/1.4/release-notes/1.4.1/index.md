@@ -28,7 +28,7 @@ In Kommander version 1.3.2 and earlier, and Kommander version 1.4.0, the Kubecos
 # Breaking changes
 
 ## Docker hub rate limiting
-Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
+Docker Hub announced an update to image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
 
 Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
 
