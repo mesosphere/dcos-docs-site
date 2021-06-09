@@ -38,22 +38,23 @@ An alternative is to create an `allow-all` NetworkPolicy for each project in eac
 
 1. Enter the following command:
 
-``` shell
-cat <<EOF | kubectl apply -f -
-  apiVersion: networking.k8s.io/v1
-  kind: NetworkPolicy
-  metadata:
-    name: allow-all
-    namespace: <namespace corresponding to the project>
- spec:
-   ingress:
-   - {}
-   podSelector: {}
-   policyTypes:
-   - Ingress
- EOF
-```
-1. Repeat steps 1 & 2 for each project namespace and managed cluster
+   ``` shell
+   cat <<EOF | kubectl apply -f -
+     apiVersion: networking.k8s.io/v1
+     kind: NetworkPolicy
+     metadata:
+       name: allow-all
+       namespace: <namespace corresponding to the project>
+    spec:
+      ingress:
+      - {}
+      podSelector: {}
+      policyTypes:
+      - Ingress
+    EOF
+   ```
+
+1. Repeat steps 1 & 2 for each project namespace and managed cluster.
 
 # Breaking changes
 
