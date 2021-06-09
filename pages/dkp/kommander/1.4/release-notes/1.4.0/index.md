@@ -19,7 +19,7 @@ To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [ins
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 
 # Release Summary
-Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Kommander enables teams to unlock federated cost management across multiple clusters, whether they are a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
+Kommander provides a command center for all your cloud native management needs in public IaaS, on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Kommander unlocks federated cost management across multiple clusters, whether in a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
 
 # Known issues
 
@@ -29,7 +29,7 @@ In Kommander 1.3.2 and earlier versions, the Kubecost cost analyzer requests a P
 
 ## Workspace Permissions Updates
 
-In previous Kommander versions, Workspace roles were not automatically propagated to Project roles. A user with edit permissions for the Workspace did not automatically receive edit permissions to a Project inside the Workspace. Beginning with Kommander version 1.4, roles are propagated from Workspace to Project, and a user with edit permissions on the Workspace will also have edit permissions on the Project.
+In previous Kommander versions, Workspace roles were not automatically propagated to Project roles. A user with edit permissions for the Workspace did not automatically receive edit permissions to a Project inside the Workspace. Beginning with Kommander version 1.4, roles are propagated from Workspace to Project, and a user with edit permissions on the Workspace automatically had edit permissions on the Project.
 
 <p class=“message--important”><strong>IMPORTANT: </strong>This change propagates to all Projects, including existing Projects.</p>
 
@@ -37,11 +37,11 @@ Refer to the instructions in [Access Control][access_control] to disable this pr
 
 ## Network Tunneling
 
-Prior to release 1.4, Kommander required bi-directional connectivity between the Kommander management cluster and clusters that are under management. This effectively blocked several use cases:
+Prior to release 1.4, Kommander required bi-directional connectivity between the Kommander management cluster and clusters that are under management. This effectively blocked several use cases, for example:
 
 - Kommander did not have direct access to the managed cluster, for example, when the cluster was on a laptop or behind a NAT gateway.
 
-- The managed cluster did not have direct access to Kommander, for example, when Kommander was on-premise and the managed cluster was in a public cloud provider environment.
+- The managed cluster did not have direct access to Kommander when Kommander was on-premise and the managed cluster was in a public cloud provider environment.
 
 - The managed cluster was behind a firewall, a proxy, or resident in a DMZ.
 
@@ -59,9 +59,9 @@ The Projects tab now shows all of the current Helm Release charts, their chart v
 # Breaking changes
 
 ## Docker hub rate limiting
-Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
+Docker Hub announced an update to image pull policies in August, 2020. This results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
 
-Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
+Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence if your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
 
 For more information on addressing this limit, see [Docker hub rate limits](../../operations/manage-docker-hub-rate-limits).
 
