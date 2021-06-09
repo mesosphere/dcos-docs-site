@@ -15,6 +15,7 @@ helm repo add kommander https://mesosphere.github.io/kommander/charts
 helm repo up
 ```
 
+<!--
 ## Install on kind
 
 Prior to installing Kommander, you must know:
@@ -29,8 +30,9 @@ docker network inspect kind -f '{{with index .IPAM.Config 0}}{{.Subnet}}{{end}}'
 The subnet is usually 172.18.0.0/16. With that subnet, you run the following command to install Kommander:
 
 ```sh
-helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --devel --version=v2.0.0-beta.0 --set metallb.enabled=true,metallb.addresses=172.18.255.200-172.18.255.250,metallb.existingConfigMap=metallb-dev-config
+helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --devel --version=v2.0.0-beta.0 --set services.metallb.enabled=true,services.metallb.addresses=172.18.255.200-172.18.255.250,services.metallb.existingConfigMap=metallb-dev-config
 ```
+-->
 
 ## Install on Konvoy 2
 
