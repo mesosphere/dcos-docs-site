@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Kubernetes Base Addons
 title: Kubernetes Base Addons
-menuWeight: 40
+menuWeight: 100
 excerpt: View release-specific information for Kubernetes base addons
 beta: false
 enterprise: false
