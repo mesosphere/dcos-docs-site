@@ -57,7 +57,7 @@ This release provides new features and enhancements to improve the user experien
 - Kibana 7.9.3
 - kubeaddons-dispatch stable-1.19-1.4.5
 - kubeaddons-kommander stable-1.20-1.4.1
-- kubernetes-base-addons testing-1.20-4.1.0-rc.2
+- kubernetes-base-addons stable-1.20-4.1.0
 - Kubernetes v1.20.6
 - Kubeaddons v0.26.0
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718

@@ -55,7 +55,7 @@ After the upgrade command completes, you can start using the new Konvoy version.
 
 It is recommended to upgrade to the newest supported version of Kubernetes. Set `spec.kubernetes.version: 1.20.6` for of kind: ClusterConfiguration.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.20-4.1.0-rc.2` for of kind: ClusterConfiguration.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.20-4.1.0` for of kind: ClusterConfiguration.
 
 If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.20-1.4.1` for of kind: ClusterConfiguration.
 
@@ -76,7 +76,7 @@ spec:
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: testing-1.20-4.1.0-rc.2
+      configVersion: stable-1.20-4.1.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
       configVersion: stable-1.20-1.4.5
