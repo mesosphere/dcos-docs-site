@@ -3,9 +3,6 @@ layout: layout.pug
 navigationTitle: Update Cluster
 title: Update Cluster
 excerpt: Update a Kubernetes cluster to upgrade Kubernetes, or change machine hardware properties
-subtree:
-  beta: true
-  draft: true
 menuWeight: 35
 ---
 

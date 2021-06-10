@@ -4,7 +4,6 @@ navigationTitle: Prerequisites
 title: Prerequisites
 menuWeight: 10
 excerpt: Prepare your machine and environment to run Konvoy
-beta: true
 enterprise: false
 ---
 

@@ -4,7 +4,6 @@ navigationTitle: Create a New Cluster
 title: Create a New Cluster
 menuWeight: 20
 excerpt: Use Konvoy to create a new Kubernetes cluster
-beta: true
 enterprise: false
 ---
 

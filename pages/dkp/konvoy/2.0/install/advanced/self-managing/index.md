@@ -4,7 +4,6 @@ navigationTitle: Make New Cluster Self-Managing
 title: Make the New Cluster Self-Managing
 menuWeight: 25
 excerpt: Make the new Kubernetes cluster manage itself
-beta: true
 enterprise: false
 ---
 
