@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes Konvoy 1.7.3
 title: Release Notes Konvoy 1.7.3
-menuWeight: 30
+menuWeight: 40
 excerpt: View release-specific information for Konvoy 1.7.3
 beta: false
 enterprise: false
@@ -54,7 +54,7 @@ This release provides new features and enhancements to improve the user experien
 - Helm v3.3.5
 - kubeaddons-dispatch stable-1.19-1.4.1
 - kubeaddons-kommander stable-1.19-1.3.3
-- kubernetes-base-addons testing-1.19-3.5.0-rc.2
+- kubernetes-base-addons stable-1.19-3.5.0
 - Kubernetes v1.19.9
 - Kubeaddons v0.24.1
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
@@ -70,5 +70,5 @@ For information about installing and using Konvoy, see the [Konvoy documentation
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
-[konvoy-doc]: ../../index.md
+[konvoy-doc]: ../../
 [kubernetes-doc]: https://kubernetes.io/docs/home/

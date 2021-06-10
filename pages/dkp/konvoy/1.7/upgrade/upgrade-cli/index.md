@@ -81,7 +81,7 @@ It is recommended to upgrade to the newest supported version of Kubernetes, set 
 
 It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.9`.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.19-3.5.0-rc.2`.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.19-3.5.0`.
 
 If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.19-1.3.3`.
 
@@ -104,7 +104,7 @@ spec:
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: testing-1.19-3.5.0-rc.2
+      configVersion: stable-1.19-3.5.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
       configVersion: stable-1.19-1.3.3
@@ -161,4 +161,4 @@ To avoid these warnings, and reduce risks to application availability:
 [docker_v2_auth_token]: https://docs.docker.com/registry/spec/auth/token/
 [harbor]: https://github.com/goharbor/harbor
 [istio-upgrade]: upgrade-cli-istio
-[upgrade-to-17]: #upgrading-konvoy-from-v16x-to-v172
+[upgrade-to-17]: #upgrading-konvoy-from-v16x-to-v173

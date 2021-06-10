@@ -90,5 +90,5 @@ For information about installing and using Konvoy, see the [Konvoy documentation
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
-[konvoy-doc]: ../../index.md
+[konvoy-doc]: ../../
 [kubernetes-doc]: https://kubernetes.io/docs/home/

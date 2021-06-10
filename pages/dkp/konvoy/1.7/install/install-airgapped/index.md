@@ -452,7 +452,7 @@ spec:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionMap:
-          1.19.9: testing-1.19-3.5.0-rc.2
+          1.19.9: stable-1.19-3.5.0
         versionStrategy: mapped-kubernetes-version
 ```
 
