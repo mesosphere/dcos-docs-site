@@ -47,7 +47,7 @@ helm install -n kommander --create-namespace kommander-bootstrap kommander/komma
 A Konvoy 2 cluster already has a load balancer installed, you don't need to enable MetalLB:
 
 ```sh
-helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --devel --version=v2.0.0-beta.0
+helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --devel --version=v2.0.0-beta.1
 ```
 
 ## Verify installation
