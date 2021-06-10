@@ -15,6 +15,14 @@ helm repo add kommander https://mesosphere.github.io/kommander/charts
 helm repo up
 ```
 
+To ensure the Git repository shipped with Kommander deploys successfully, the cluster you install Kommander on must have a default `StorageClass` configured. The output should look similar to this (note the `(default)` after the name):
+
+```sh
+$ k get sc
+NAME               PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+ebs-sc (default)   ebs.csi.aws.com   Delete          WaitForFirstConsumer   false                  41s
+```
+
 <!--
 ## Install on kind
 
@@ -44,7 +52,7 @@ helm install -n kommander --create-namespace kommander-bootstrap kommander/komma
 
 ## Verify installation
 
-After Helm successfully installed the chart, you need to wait for all HelmReleases to become ready. The output must look similar to this:
+After Helm successfully installs the chart, wait for all HelmReleases to deploy. Kommander installation is a two-step process: Flux and cert-manager install first, then Git repository spins up and permits Flux to consume further HelmReleases from that repository. After running `helm install`, the cert-manager HelmRelease is ready and, after additional time,  HelmReleases appear on the cluster. The final output must look similar to this example:
 
 ```sh
 $ k get helmreleases -A
