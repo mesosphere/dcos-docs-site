@@ -4,7 +4,6 @@ navigationTitle: Configure Drivers
 title: Configure Drivers
 menuWeight: 30
 excerpt: Configure drivers that integrate the Kubernetes cluster with its infrastructure
-beta: true
 enterprise: false
 ---
 

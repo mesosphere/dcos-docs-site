@@ -5,7 +5,6 @@ title: Advanced Configuration
 excerpt: Create a Kubernetes cluster with advanced configuration
 subtree:
   beta: true
-  draft: true
 menuWeight: 0
 ---
 

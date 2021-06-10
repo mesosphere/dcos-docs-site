@@ -4,7 +4,6 @@ navigationTitle: Bootstrap
 title: Bootstrap
 menuWeight: 15
 excerpt: Prepare Konvoy to deploy Kubernetes clusters
-beta: true
 enterprise: false
 ---
 

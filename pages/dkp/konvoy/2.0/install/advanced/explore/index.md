@@ -4,7 +4,6 @@ navigationTitle: Explore New Cluster
 title: Explore New Cluster
 menuWeight: 25
 excerpt: Learn to interact with your Kubernetes cluster
-beta: true
 enterprise: false
 ---
 

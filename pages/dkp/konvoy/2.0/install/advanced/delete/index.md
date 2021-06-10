@@ -4,7 +4,6 @@ navigationTitle: Delete Cluster
 title: Delete Cluster
 menuWeight: 40
 excerpt: Delete the Kubernetes cluster and clean up your environment
-beta: true
 enterprise: false
 ---
 
