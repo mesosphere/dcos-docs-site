@@ -14,6 +14,63 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
+June 9, 2021
+
+[stable-1.19-3.5.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.19-3.5.0)
+
+-   Dex:
+    - Defer AuthRequest creation until after initial login page to avoid too many objects.
+
+-   Dex-k8s-authenticator:
+    - Security: use a service account rather than adding extra permissions to the default namespace account
+
+-   Fluentbit:
+    - Update to the latest minor version just to keep up with upstream. The bugfixes listed should have no effect on our default configurations.
+    - https://fluentbit.io/announcements/v1.6.9/
+    - https://fluentbit.io/announcements/v1.6.10/
+
+-   Opsportal
+    - Fix: update UI dependencies to mitigate CVE-2021-23337
+    - Fixes bug in OpsPortal & Kommander UI where LDAP Root CA is malformed when saved
+    - Updated UI to only ship with needed dependencies
+
+-   Prometheus
+    -   Fix: In upgrades, use existing PVC from previous installation.
+    -   Upgrades to the latest version of the kube-prometheus-stack chart. This includes upgrades for multiple applications. The changes listed should not be disruptive to the default addon configuration.
+        - prometheus 2.26.0:
+        - https://github.com/prometheus/prometheus/releases/tag/v2.22.2
+        - https://github.com/prometheus/prometheus/releases/tag/v2.23.0
+        - https://github.com/prometheus/prometheus/releases/tag/v2.24.0
+        - https://github.com/prometheus/prometheus/releases/tag/v2.24.1
+        - https://github.com/prometheus/prometheus/releases/tag/v2.25.0
+        - https://github.com/prometheus/prometheus/releases/tag/v2.25.1
+        - https://github.com/prometheus/prometheus/releases/tag/v2.25.2
+        - https://github.com/prometheus/prometheus/releases/tag/v2.26.0
+        - grafana 7.5.3:
+        - https://github.com/grafana/grafana/releases/tag/v7.3.6
+        - https://github.com/grafana/grafana/releases/tag/v7.3.7
+        - https://github.com/grafana/grafana/releases/tag/v7.3.10
+        - https://github.com/grafana/grafana/releases/tag/v7.4.0
+        - https://github.com/grafana/grafana/releases/tag/v7.4.1
+        - https://github.com/grafana/grafana/releases/tag/v7.4.2
+        - https://github.com/grafana/grafana/releases/tag/v7.4.3
+        - https://github.com/grafana/grafana/releases/tag/v7.4.5
+        - https://github.com/grafana/grafana/releases/tag/v7.5.0
+        - https://github.com/grafana/grafana/releases/tag/v7.5.1
+        - https://github.com/grafana/grafana/releases/tag/v7.5.2
+        - https://github.com/grafana/grafana/releases/tag/v7.5.3
+        - prometheus-operator 0.47.0:
+        - https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.44.1
+        - https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.45.0
+        - https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.46.0
+        - https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.47.0
+
+-   Traefik
+    - A bug causing configuration updates to fail when a user adds an invalid tls secret has been fixed
+
+-   Vsphere-csi-driver
+    - Update vpshere-csi-driver to v2.2.0 to pull in the fix for duplicate operations failure when attaching PVs (https://github.com/kubernetes-sigs/vsphere-csi-driver/issues/580) (COPS-6906)
+
 April 8, 2021
 
 [stable-1.19-3.4.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.19-3.4.1)

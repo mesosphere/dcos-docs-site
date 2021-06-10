@@ -53,8 +53,8 @@ This release provides new features and enhancements to improve the user experien
 - Go 1.15.8
 - Helm v3.3.5
 - kubeaddons-dispatch stable-1.19-1.4.1
-- kubeaddons-kommander stable-1.19-1.3.2
-- kubernetes-base-addons stable-1.19-3.4.1
+- kubeaddons-kommander stable-1.19-1.3.3
+- kubernetes-base-addons stable-1.19-3.5.0
 - Kubernetes v1.19.9
 - Kubeaddons v0.24.1
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
