@@ -4,8 +4,6 @@ navigationTitle: Project ConfigMaps
 title: Project ConfigMaps
 menuWeight: 5
 excerpt: Use ConfigMaps to automate ConfigMaps aretion on your clusters
-beta: true
-draft: true
 ---
 
 Project ConfigMaps can be created to make sure Kubernetes ConfigMaps are automatically created on all Kubernetes clusters associated with the Project, in the corresponding namespace.

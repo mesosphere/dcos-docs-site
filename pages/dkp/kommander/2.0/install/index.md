@@ -5,7 +5,6 @@ title: Install
 menuWeight: 3
 excerpt: Getting started with Kommander
 beta: true
-draft: true
 ---
 
 ## Prerequisites

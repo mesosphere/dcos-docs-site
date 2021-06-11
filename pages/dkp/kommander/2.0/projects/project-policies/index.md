@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Project Role Bindings
 title: Project Role Bindings
 menuWeight: 4
-beta: true
-draft: true
 excerpt: Project Role Bindings grant access to a specified Project Role for a specified group of people.
 ---
 

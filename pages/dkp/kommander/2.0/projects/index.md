@@ -5,7 +5,6 @@ title: Projects
 menuWeight: 8
 excerpt: Multi-cluster Configuration Management
 beta: true
-draft: true
 ---
 
 ## Projects overview

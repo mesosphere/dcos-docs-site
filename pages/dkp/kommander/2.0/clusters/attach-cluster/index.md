@@ -1,7 +1,5 @@
 ---
 layout: layout.pug
-beta: true
-draft: true
 navigationTitle: Attach an Existing Kubernetes Cluster
 title: Attach an Existing Kubernetes Cluster
 menuWeight: 10
