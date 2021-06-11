@@ -37,12 +37,6 @@ Before using Konvoy to create a Kubernetes cluster in AWS:
     export AWS_PROFILE=<profile>
     ```
 
-1.  Refresh the credentials used by the AWS provider at any time, using this command:
-
-    ```sh
-    konvoy2 update bootstrap credentials aws
-    ```
-
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
