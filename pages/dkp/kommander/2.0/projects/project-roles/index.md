@@ -4,16 +4,20 @@ navigationTitle: Project Roles
 title: Project Roles
 menuWeight: 3
 excerpt: Project Roles are used to define permissions at the namespace level.
+beta: true
 ---
 
 Project Roles are used to define permissions at the namespace level.
 
-![Project Role Form](../../img/project-create-role.png)
-Project Role Form
+## Configure Project Role - UI Method
 
-In the example above, a Project Role is created with a single Rule. This Project Role corresponds to a namespace admin role.
+In the example below, a Project Role is created with a single Rule. This Project Role corresponds to a admin role.
+
+![Project Role Form](../../img/project-create-role.png)
 
 You can create a Project Role with several Rules.
+
+## Configure Project Role - CLI Method
 
 The same Project Role can also be created using kubectl:
 
@@ -37,13 +41,11 @@ spec:
 EOF
 ```
 
-You ensure the project and projectns variables are set before executing the command.
+Set Ensure the `projectns` variable using the following is set before executing the command.
 
-You can set them using the following commands (for a Kommander Project called project1, and after setting the workspacens as explained in the previous section):
+You can set it using the following command (for a Kommander Project called project1, and after setting the workspacens as explained in the previous section):
 
 ```bash
-project=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="project1-")].metadata.name}')
-
 projectns=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="project1-")].status.namespaceRef.name}')
 ```
 
@@ -94,7 +96,7 @@ status:
   observedGeneration: 1
 ```
 
-Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes Role object in the corresponding namespace:
+Then, if you run the following command on a Kubernetes cluster associated with the Project, you see a Kubernetes Role object in the corresponding namespace:
 
 ```bash
 $ kubectl -n ${projectns} get role admin-dbfpj-l6s9g -o yaml

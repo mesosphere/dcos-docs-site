@@ -1,6 +1,7 @@
 ---
 layout: layout.pug
 beta: true
+draft: true
 navigationTitle: Managing Clusters
 title: Managing Clusters
 menuWeight: 7
@@ -67,49 +68,19 @@ Figure 1. Cluster detail page
 
 Review the [workspace platform service resource requirements](/dkp/kommander/2.0/workspaces/platform-service-requirements/) to ensure that the attached clusters have sufficient resources. For more information on platform services and how to customize them, see [workspace platform services](/dkp/kommander/2.0/workspaces/workspace-platform-services/).
 
-### Custom service cards
+## Edit a cluster
 
-Custom service cards can be added to the cluster detail page's Platform Services section by creating a `ConfigMap` on the cluster. The `ConfigMap` must have a `d2iq.io/addon` label and must contain both `name` and `dashboardLink` data keys to be displayed. Upon creation of the `ConfigMap`, the Kommander UI will display a card corresponding to the data provided in the `ConfigMap`. Custom service cards have a Kubernetes icon and can link to a service running in the cluster, or use an absolute URL to link to any accessible URL.
+<TBD Need some info for this.>
 
-#### ConfigMap example
+![Edit a Cluster Action](/dkp/kommander/2.0/img/edit-cluster-action.png)
 
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-name: "my-service"
-namespace: "kommander"
-labels:
-"d2iq.io/addon": "my-service"
-data:
-name: "My Service"
-dashboardLink: "/path/to/service"
-```
+### Edit an attached cluster
 
-| Key                                 | Description                                                                                                                                                                                                                    | Required |
-| :---------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------: |
-| metadata . labels . "d2iq.io/addon" | The platform service name (ID).                                                                                                                                                                                                |    X     |
-| data . name                         | The display name used to describe the service and that will display on the custom service card in the user interface.                                                                                                          |    X     |
-| data . dashboardLink                | The link to the service. This can be an absolute link, `https://www.d2iq.com` or a relative link, "/ops/portal." If a relative link is used, the link is built using the cluster's path as the base of the URL to the service. |    X     |
-| data . docsLink                     | Link to documentation about the service. This is displayed on the service card, but omitted if not present.                                                                                                                    |          |
-| data . category                     | Category with which to group the custom service. If not provided, the service is grouped under the category, "None."                                                                                                           |          |
-| data . version                      | A version string for the service. If not provided, "N/A" is displayed on the service card in the user interface.                                                                                                               |          |
+<TBD Need some info for this.>
 
-Use a command similar to this one to create a new custom service `ConfigMap`:
+![Edit a Cluster Action](/dkp/kommander/2.0/img/edit-cluster-action.png)
+For an attached cluster, you can only edit labels assigned to that cluster.
 
-```bash
-$ cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: ConfigMap
-metadata:
-name: "my-service"
-namespace: "kommander"
-labels:
-"d2iq.io/addon": "my-service"
-data:
-name: "My Service"
-dashboardLink: "/path/to/service"
-EOF
-```
+![Edit an Attached Cluster](/dkp/kommander/2.0/img/edit-cluster-attached-1-1-0.png)
 
 [k8s_docs]: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/

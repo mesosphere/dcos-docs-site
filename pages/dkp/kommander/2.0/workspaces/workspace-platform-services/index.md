@@ -2,8 +2,10 @@
 layout: layout.pug
 navigationTitle: Workspace Platform Services
 title: Workspace Platform Services
-menuWeight: 5
+menuWeight: 30
 excerpt: How workspace platform services work
+beta: true
+draft: true
 ---
 
 
@@ -19,7 +21,7 @@ The following tables describe the list of platform services that are federated o
 
 Currently, the monitoring stack is federated by default and the logging stack is not.
 
-Review the [workspace platform service resource requirements](../platform-service-requirements/) to ensure that the attached clusters have sufficient resources.
+Review the [workspace platform service resource requirements](./platform-service-requirements/) to ensure that the attached clusters have sufficient resources.
 
 ### Customize a workspace's platform services
 

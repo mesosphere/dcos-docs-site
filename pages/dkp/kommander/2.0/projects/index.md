@@ -4,6 +4,8 @@ navigationTitle: Projects
 title: Projects
 menuWeight: 8
 excerpt: Multi-cluster Configuration Management
+beta: true
+draft: true
 ---
 
 ## Projects overview
@@ -36,7 +38,7 @@ Here is an example of what it looks like to create a project using the Kommander
 
 ![Create Project](../img/create-project-form.png)
 
-### Create a Project - Declarative YAML Object Method
+### Create a Project - CLI Method
 
 The following sample is a YAML Kubernetes object for creating a Kommander Project. This example does not work verbatim because it depends on a workspace name that has been previously created and does not exist by default in your cluster.  Use this as an example format and fill in the workspace name and namespace name appropriately along with the proper labels.
 
@@ -59,8 +61,6 @@ spec:
 The following procedures are supported for projects:
 
 - [Manage Project ConfigMaps](./project-configmaps)
-- [Manage Project Continuous Deployments](./project-deployments)
-- [Deploy Platform Services](./platform-services)
 - [Manage Project Policies](./project-policies)
 - [Manage Project Quotas](./project-quotas-limit-range)
 - [Manage Project Roles](./project-roles)

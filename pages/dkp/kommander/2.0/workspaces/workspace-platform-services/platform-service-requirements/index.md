@@ -2,9 +2,11 @@
 layout: layout.pug
 navigationTitle: Workspace Platform Service Configuration Requirements
 title: Workspace Platform Service Configuration Requirements
-menuWeight: 7
+menuWeight: 40
 excerpt: Workspace Platform Service Descriptions and Resource Requirements
 enterprise: false
+beta: true
+draft: true
 ---
 
 ## Workspace Platform Service Requirements

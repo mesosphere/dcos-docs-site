@@ -2,8 +2,10 @@
 layout: layout.pug
 navigationTitle: Workspace Platform Service Dependencies
 title: Workspace Platform Service Dependencies
-menuWeight: 8
+menuWeight: 50
 excerpt: Dependencies between workspace platform services
+beta: true
+draft: true
 ---
 
 There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that they are deployed properly to the clusters. For more information on how to customize workspace platform services, please see [Workspace Platform Services](../workspace-platform-services/).
@@ -86,14 +88,3 @@ These platform services provide monitoring capabilities by collecting metrics, i
 | kubecost | traefik |
 | prometheus | traefik |
 | prometheusadapter | prometheus |
-
-<!-- These pages have not yet been migrated for kommander 2.0 & konvoy 2.0
-## Related information
-
-- [Kommander security architecture](/dkp/kommander/1.4/security/)
-- [Centralized cost monitoring](/dkp/kommander/1.4/centralized-cost-monitoring/)
-- [Centralized monitoring](/dkp/kommander/1.4/centralized-monitoring/)
-- [Traefik ingress controller](/dkp/konvoy/1.7/networking/ingress/)
-- [Monitoring and alerts](/dkp/konvoy/1.7/monitoring/)
-- [Logging and audits](/dkp/konvoy/1.7/logging/)
--->
