@@ -4,7 +4,11 @@ navigationTitle: Project Quotas & Limit Ranges
 title: Project Quotas & Limit Ranges
 menuWeight: 7
 excerpt: Project Quotas and Limit Ranges can be set up to limit the number of resources the Project team uses.
+beta: true
+draft: true
 ---
+
+## Creating Project Quotas & Limit Ranges- UI Method
 
 Project Quotas and Limit Ranges can be set up to limit the number of resources the Project team uses. Quotas and Limit Ranges are applied to all project clusters.
 
@@ -14,6 +18,8 @@ Project Quotas and Limit Ranges
 Kommander provides a set of default resources for which you can set Quotas, or you can define Quotas for custom resources. We recommended that you set Quotas for CPU and Memory. Using Limit Ranges, you can restrict the resource consumption of individual Pods, Containers, and Persistent Volume Claims in the project namespace. You can also constrain memory and CPU resources consumed by Pods and Containers, and you can constrain storage resources consumed by Persistent Volume Claims.
 
 ![Adding a custom Quota](../../img/project-quotas-add-custom.png)
+
+## Creating Project Quotas & Limit Ranges - CLI Method
 
 All the Project Quotas are defined using a Kubernetes FederatedResourceQuota called `kommander` which you can also create/update using kubectl:
 
@@ -36,6 +42,10 @@ EOF
 ```
 
 Ensure the projectns variable is set before executing the command.
+
+```bash
+projectns=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="project1-")].status.namespaceRef.name}')
+```
 
 Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes Secret Object in the corresponding namespace:
 

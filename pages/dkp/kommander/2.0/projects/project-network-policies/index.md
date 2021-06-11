@@ -4,6 +4,8 @@ navigationTitle: Project Network Policies
 title: Project Network Policies
 menuWeight: 8
 excerpt: Projects are created with a secure-by-default network policy and users needing more flexibility can edit or add more policies to tailor to their unique security needs.
+beta: true
+draft: true
 ---
 
 Cluster networking is a critical and central part of Kubernetes that can also be quite challenging. All network communication within and between clusters depends on the presence of a Container Network Interface (CNI) plugin.

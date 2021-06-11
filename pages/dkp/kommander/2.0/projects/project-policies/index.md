@@ -3,17 +3,22 @@ layout: layout.pug
 navigationTitle: Project Role Bindings
 title: Project Role Bindings
 menuWeight: 4
+beta: true
+draft: true
 excerpt: Project Role Bindings grant access to a specified Project Role for a specified group of people.
 ---
 
 Project Role Bindings grant access to a specified Project Role for a specified group of people.
 
-Before you can create a Project Role Binding, ensure you have created a Group. A Kommander Group can contain one or several Identity Provider users and/or groups.
+## Configure Project Role Bindings - UI Method
 
-Then, you can assign a role to this Kommander Group:
+Before you can create a Project Role Binding, ensure you have created a Group. A Kommander Group can contain one or several Identity Provider users and or groups.
+
+You can assign a role to this Kommander Group:
 
 ![Project Policy Form](../../img/project-edit-policy.png)
-Project Policy Form
+
+## Configure Project Role Bindings - CLI Method
 
 A Project Policy can also be created using kubectl:
 
@@ -38,6 +43,8 @@ You can set them using the following commands (for a Kommander Group called user
 
 ```bash
 virtualgroup=$(kubectl -n kommander get virtualgroup.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="user1-")].metadata.name}')
+
+projectns=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="project1-")].status.namespaceRef.name}')
 
 projectrole=$(kubectl -n ${projectns} get projectroles.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="admin-")].metadata.name}')
 ```

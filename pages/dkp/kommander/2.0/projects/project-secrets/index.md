@@ -4,14 +4,19 @@ navigationTitle: Project Secrets
 title: Project Secrets
 menuWeight: 6
 excerpt: Project Secrets can be created to make sure a Kubernetes Secrets are automatically created on all the Kubernetes clusters associated with the Project, in the corresponding namespace.
+beta: true
+draft: true
 ---
 
 Project Secrets can be created to make sure a Kubernetes Secrets are automatically created on all the Kubernetes clusters associated with the Project, in the corresponding namespace.
 
-A Project Secret can be created using the Kommander UI:
+## Configuring  Project Secrets - UI Method
 
 ![Project Secret Form](../../img/project-create-secret.png)
-Project Secret Form
+
+![Project Secret Form](../../img/project-create-secret.png)
+
+## Configuring  Project Secrets - CLI Method
 
 A Project Secret is simply a Kubernetes FederatedConfigSecret and can also be created using kubectl:
 
@@ -33,9 +38,13 @@ EOF
 
 Ensure the projectns variable is set before executing the command.
 
-**Note**: The value of the key is base64 encoded.
+```bash
+projectns=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="project1-")].status.namespaceRef.name}')
+```
 
-Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes Secret Object, in the corresponding namespace:
+<p class="message--note"><strong>NOTE: </strong>The value of the key is base64 encoded.</p>
+
+If you run the following command on a Kubernetes cluster associated with the Project, you see a Kubernetes Secret Object, in the corresponding namespace:
 
 ```bash
 $ kubectl -n ${projectns} get secret secret1-r9vk2 -o yaml

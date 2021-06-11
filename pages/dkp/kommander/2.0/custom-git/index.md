@@ -1,10 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Custom git repositories
-title: Custom git repositories
+navigationTitle: Deploy applications using GitOps
+title: Deploy applications using GitOps
 menuWeight: 9
 excerpt: How to deploy a new GitRepository to drive custom GitOps
 beta: true
+draft: true
 ---
 
 Kommander uses Flux to manage services deployed from an internal Git repository, however you can use that Flux instance to deploy custom third-party applications from other Git repositories. When a cluster is attached to Kommander, Kommander installs [Flux][flux_website] onto that attached cluster's `kommander-flux` namespace. While Kommander 2.0 is still in beta most of the steps outlined here use underlying components. In future versions, you will be able to use the Kommander API to better manage this goal.
@@ -24,7 +25,7 @@ SECRET=$(kubectl get komm -n "${NS}" "cluster1" -o jsonpath='{.spec.kubeconfigRe
 kubectl -n "${NS}" get secret "${SECRET}" -o go-template='{{.data.kubeconfig | base64decode}}' > cluster1-kubeconfig
 ```
 
-## Consume public git repositories on a cluster
+## Consume public Git repositories on a cluster
 
 To connect Flux to a Git repository for GitOps, create a GitRepository and a Kustomization object on a cluster, then adapt the URL to your needs:
 

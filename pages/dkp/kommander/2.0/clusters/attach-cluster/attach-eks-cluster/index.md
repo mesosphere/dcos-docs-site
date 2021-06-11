@@ -5,6 +5,7 @@ title: Attach Amazon EKS Cluster to Kommander
 menuWeight: 45
 excerpt: Attach an existing EKS cluster to Kommander
 beta: true
+draft: true
 ---
 
 You can attach existing Kubernetes clusters to Kommander. After attaching the cluster, you can use Kommander to [examine and manage](/dkp/kommander/2.0/clusters/) this cluster. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander.
@@ -21,99 +22,101 @@ This procedure requires the following items and configurations:
 
 ## Attach Amazon EKS Clusters to Kommander
 
-1. Ensure you are connected to your EKS clusters. Enter the following commands for each of your clusters:
+1.  Ensure you are connected to your EKS clusters. Enter the following commands for each of your clusters:
 
-```bash
-kubectl config get-contexts
-kubectl config use-context <context for first eks cluster>
-```
+    ```bash
+    kubectl config get-contexts
+    kubectl config use-context <context for first eks cluster>
+    ```
 
-1. Confirm `kubectl` can access the EKS cluster.
+1.  Confirm `kubectl` can access the EKS cluster.
 
-```bash
-kubectl get nodes
-```
+    ```bash
+    kubectl get nodes
+    ```
 
-1. Create a service account for Kommander on your EKS cluster.
+1.  Create a service account for Kommander on your EKS cluster.
 
-```bash
-kubectl -n kube-system create serviceaccount kommander-cluster-admin
-```
+    ```bash
+    kubectl -n kube-system create serviceaccount kommander-cluster-admin
+    ```
 
-1. Configure your `kommander-cluster-admin` service account to have `cluster-admin` permissions. Enter the following command:
+1.  Configure your `kommander-cluster-admin` service account to have `cluster-admin` permissions. Enter the following command:
 
-```yaml
-cat << EOF | kubectl apply -f -
-apiVersion: rbac.authorization.k8s.io/v1beta1
-kind: ClusterRoleBinding
-metadata:
-  name: kommander-cluster-admin
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: kommander-cluster-admin
-  namespace: kube-system
-EOF
-```
+    ```yaml
+    cat << EOF | kubectl apply -f -
+    apiVersion: rbac.authorization.k8s.io/v1beta1
+    kind: ClusterRoleBinding
+    metadata:
+      name: kommander-cluster-admin
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: cluster-admin
+    subjects:
+    - kind: ServiceAccount
+      name: kommander-cluster-admin
+      namespace: kube-system
+    EOF
+    ```
 
-1. You must create a kubeconfig file that is compatible with the Kommander UI. Enter these commands to set the following environment variables:
+1.  You must create a kubeconfig file that is compatible with the Kommander UI. Enter these commands to set the following environment variables:
 
-```bash
-export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')
-export USER_TOKEN_VALUE=$(kubectl -n kube-system get secret/${USER_TOKEN_NAME} -o=go-template='{{.data.token}}' | base64 --decode)
-export CURRENT_CONTEXT=$(kubectl config current-context)
-export CURRENT_CLUSTER=$(kubectl config view --raw -o=go-template='{{range .contexts}}{{if eq .name "'''${CURRENT_CONTEXT}'''"}}{{ index .context "cluster" }}{{end}}{{end}}')
-export CLUSTER_CA=$(kubectl config view --raw -o=go-template='{{range .clusters}}{{if eq .name "'''${CURRENT_CLUSTER}'''"}}{{ index .cluster "certificate-authority-data" }}{{end}}{{ end }}')
-export CLUSTER_SERVER=$(kubectl config view --raw -o=go-template='{{range .clusters}}{{if eq .name "'''${CURRENT_CLUSTER}'''"}}{{ .cluster.server }}{{end}}{{ end }}')
-```
+    ```bash
+    export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')
+    export USER_TOKEN_VALUE=$(kubectl -n kube-system get secret/${USER_TOKEN_NAME} -o=go-template='{{.data.token}}' | base64 --decode)
+    export CURRENT_CONTEXT=$(kubectl config current-context)
+    export CURRENT_CLUSTER=$(kubectl config view --raw -o=go-template='{{range .contexts}}{{if eq .name "'''${CURRENT_CONTEXT}'''"}}{{ index .context "cluster" }}{{end}}{{end}}')
+    export CLUSTER_CA=$(kubectl config view --raw -o=go-template='{{range .clusters}}{{if eq .name "'''${CURRENT_CLUSTER}'''"}}{{ index .cluster "certificate-authority-data" }}{{end}}{{ end }}')
+    export CLUSTER_SERVER=$(kubectl config view --raw -o=go-template='{{range .clusters}}{{if eq .name "'''${CURRENT_CLUSTER}'''"}}{{ .cluster.server }}{{end}}{{ end }}')
+    ```
 
-1. Confirm these variables have been set correctly:
+1.  Confirm these variables have been set correctly:
 
-```bash
-env | grep CLUSTER
-```
+    ```bash
+    env | grep CLUSTER
+    ```
 
-1. Create your kubeconfig file to use in the Kommander UI. Enter the following commands:
+1.  Create your kubeconfig file to use in the Kommander UI. Enter the following commands:
 
-```bash
-cat << EOF > kommander-cluster-admin-config
-apiVersion: v1
-kind: Config
-current-context: ${CURRENT_CONTEXT}
-contexts:
-- name: ${CURRENT_CONTEXT}
-  context:
-    cluster: ${CURRENT_CONTEXT}
-    user: kommander-cluster-admin
-    namespace: kube-system
-clusters:
-- name: ${CURRENT_CONTEXT}
-  cluster:
-    certificate-authority-data: ${CLUSTER_CA}
-    server: ${CLUSTER_SERVER}
-users:
-- name: kommander-cluster-admin
-  user:
-    token: ${USER_TOKEN_VALUE}
-EOF
-```
+    ```bash
+    cat << EOF > kommander-cluster-admin-config
+    apiVersion: v1
+    kind: Config
+    current-context: ${CURRENT_CONTEXT}
+    contexts:
+    - name: ${CURRENT_CONTEXT}
+      context:
+        cluster: ${CURRENT_CONTEXT}
+        user: kommander-cluster-admin
+        namespace: kube-system
+    clusters:
+    - name: ${CURRENT_CONTEXT}
+      cluster:
+        certificate-authority-data: ${CLUSTER_CA}
+        server: ${CLUSTER_SERVER}
+    users:
+    - name: kommander-cluster-admin
+      user:
+        token: ${USER_TOKEN_VALUE}
+    EOF
+    ```
 
-1. Verify the kubeconfig file can access the EKS cluster.
+1.  Verify the kubeconfig file can access the EKS cluster.
 
-```bash
-kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespaces
-```
+    ```bash
+    kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespaces
+    ```
 
-1. Copy `kommander-cluster-admin-config` file contents to your clipboard.
+1.  Copy `kommander-cluster-admin-config` file contents to your clipboard.
 
-```bash
-cat kommander-cluster-admin-config | pbcopy
-```
+    ```bash
+    cat kommander-cluster-admin-config | pbcopy
+    ```
 
    <p class="message--note"><strong>NOTE: </strong>If you are not using the Mac OS X operating system, this command will not work. If you are using the Linux operating system, enter the following command: <br/><code>cat kommander-cluster-admin-config | xclip -selection clipboard</code></p>
+
+Now that you have kubeconfig, go to the Kommander UI and follow these steps below:
 
 1.  Select the **Add Cluster** button in your Kommander window.
 

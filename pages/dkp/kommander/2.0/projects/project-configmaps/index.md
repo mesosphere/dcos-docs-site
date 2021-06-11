@@ -3,14 +3,16 @@ layout: layout.pug
 navigationTitle: Project ConfigMaps
 title: Project ConfigMaps
 menuWeight: 5
-excerpt: Project ConfigMaps can be created to make sure Kubernetes ConfigMaps are automatically created on all Kubernetes clusters associated with the Project, in the corresponding namespace.
+excerpt: Use ConfigMaps to automate ConfigMaps aretion on your clusters
+beta: true
+draft: true
 ---
 
 Project ConfigMaps can be created to make sure Kubernetes ConfigMaps are automatically created on all Kubernetes clusters associated with the Project, in the corresponding namespace.
 
 As reference, a ConfigMap is a key-value pair to store some type of non-confidential data like "name=bob" or "state=CA". For a full reference to the concept, please consult the Kubernetes documentation on the topic of ConfigMaps [here](https://kubernetes.io/docs/concepts/configuration/configmap/)
 
-A Project ConfigMap can be created using the Kommander UI:
+## Configuring Project ConfigMaps - UI Method
 
 The below Project ConfigMap form can be navigated to by:
 
@@ -21,7 +23,7 @@ The below Project ConfigMap form can be navigated to by:
 
 ![Project ConfigMap Form](../../img/project-create-configmap.png)
 
-To declaritively create a Project ConfigMap for automation purposes, the below FederatedConfigMap YAML object can be used as an example.
+## Configuring Project ConfigMaps - CLI Method
 
 A Project ConfigMap is simply a Kubernetes FederatedConfigMap and can be created using kubectl with YAML:
 
@@ -41,7 +43,11 @@ spec:
 EOF
 ```
 
-Ensure the projectns variable is set before executing the command. This variable is the project namespace (i.e. Kubernetes Namespace associated with the project) that was defined/created when the project itself was initially created.
+Ensure the projectns variable is set before executing the command. This variable is the project namespace (the Kubernetes Namespace associated with the project) that was defined/created when the project itself was initially created.
+
+```bash
+projectns=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="project1-")].status.namespaceRef.name}')
+```
 
 Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes ConfigMap Object, in the corresponding namespace:
 
