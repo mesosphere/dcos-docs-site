@@ -4,7 +4,6 @@ navigationTitle: Project Roles
 title: Project Roles
 menuWeight: 3
 excerpt: Project Roles are used to define permissions at the namespace level.
-beta: true
 ---
 
 Project Roles are used to define permissions at the namespace level.

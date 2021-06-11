@@ -4,8 +4,6 @@ navigationTitle: Workspace Platform Services
 title: Workspace Platform Services
 menuWeight: 30
 excerpt: How workspace platform services work
-beta: true
-draft: true
 ---
 
 

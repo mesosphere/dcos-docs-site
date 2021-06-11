@@ -4,8 +4,6 @@ navigationTitle: Project Quotas & Limit Ranges
 title: Project Quotas & Limit Ranges
 menuWeight: 7
 excerpt: Project Quotas and Limit Ranges can be set up to limit the number of resources the Project team uses.
-beta: true
-draft: true
 ---
 
 ## Creating Project Quotas & Limit Ranges- UI Method

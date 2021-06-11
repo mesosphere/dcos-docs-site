@@ -5,7 +5,6 @@ title: Workspaces
 menuWeight: 8
 excerpt: Allow teams to manage their own clusters using workspaces
 beta: true
-draft: true
 ---
 
 ## Introducing Workspaces

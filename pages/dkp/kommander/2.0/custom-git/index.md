@@ -5,7 +5,6 @@ title: Deploy applications using GitOps
 menuWeight: 9
 excerpt: How to deploy a new GitRepository to drive custom GitOps
 beta: true
-draft: true
 ---
 
 Kommander uses Flux to manage services deployed from an internal Git repository, however you can use that Flux instance to deploy custom third-party applications from other Git repositories. When a cluster is attached to Kommander, Kommander installs [Flux][flux_website] onto that attached cluster's `kommander-flux` namespace. While Kommander 2.0 is still in beta most of the steps outlined here use underlying components. In future versions, you will be able to use the Kommander API to better manage this goal.
@@ -30,7 +29,7 @@ kubectl -n "${NS}" get secret "${SECRET}" -o go-template='{{.data.kubeconfig | b
 To connect Flux to a Git repository for GitOps, create a GitRepository and a Kustomization object on a cluster, then adapt the URL to your needs:
 
 ```sh
-k apply -f - <<EOF
+kubectl apply -f - <<EOF
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
@@ -47,7 +46,7 @@ EOF
 For more information on the GitRepository resource fields and how to make Flux aware of credentials required to access a private Git repository, see the [Flux documentation][flux_gitrepo]. Now that Flux is aware of the Git repository, use it to create resources from a specified path in the Git repository:
 
 ```sh
-k apply -f - <<EOF
+kubectl apply -f - <<EOF
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
@@ -55,16 +54,22 @@ metadata:
 spec:
   interval: 1m0s
   path: ./clusters/c1
+  prune: true
   sourceRef:
     kind: GitRepository
     name: example-repo
 EOF
 ```
 
-Flux then picks up all resources from /clusters/c1/ directory in the Git repository and creates them on the cluster. For more information on Flux Kustomization, see the [Flux documentation][flux_kustomization]. When this finishes, the status of both the GitRepository and the Kustomization signal a ready state. The repository's commit will also display ready state:
+Flux then picks up all resources from /clusters/c1/ directory in the Git repository and creates them on the cluster. For more information on Flux Kustomization, see the [Flux documentation][flux_kustomization]. 
 
 ```sh
-$ kubectl get gitrepository example-repo
+kubectl get gitrepository example-repo
+```
+
+When this finishes, the status of both the GitRepository and the Kustomization signal a ready state. The repository's commit also displays the ready state:
+
+```sh
 NAME         URL                                                        READY   STATUS                                                              AGE
 example-repo https://github.com/example-org/example-repo                True    Fetched revision: master/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   11m
 ```
@@ -72,7 +77,12 @@ example-repo https://github.com/example-org/example-repo                True    
 The same goes for the Kustomization object:
 
 ```sh
-$ kubectl get kustomization c1
+kubectl get kustomization c1
+```
+
+The command generates the following output:
+
+```sh
 NAME   READY   STATUS                                                            AGE
 c1     True    Applied revision: main/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   8s
 ```
