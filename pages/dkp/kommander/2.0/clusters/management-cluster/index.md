@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt:
 ---
 
-When Kommander is installed, the host cluster is attached in the Default Workspace as the Management Cluster. This allows the Management Cluster to be included in [Projects](/dkp/kommander/2.0/projects/) and enables the management of its [Platform Services](/dkp/kommander/2.0/workspaces/workspace-platform-services/) from the Default Workspace.
+When Kommander is installed, the host cluster is attached in the Default Workspace as the Management Cluster. This allows the Management Cluster to be included in [Projects](/dkp/kommander/2.0/projects/)<!-- and enables the management of its [Platform Services](/dkp/kommander/2.0/workspaces/workspace-platform-services/) from the Default Workspace-->.
 
 ## Editing
 

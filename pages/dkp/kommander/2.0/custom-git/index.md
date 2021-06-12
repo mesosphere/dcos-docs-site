@@ -61,13 +61,13 @@ spec:
 EOF
 ```
 
-Flux then picks up all resources from /clusters/c1/ directory in the Git repository and creates them on the cluster. For more information on Flux Kustomization, see the [Flux documentation][flux_kustomization]. 
+Flux then picks up all resources from /clusters/c1/ directory in the Git repository and creates them on the cluster. For more information on Flux Kustomization, see the [Flux documentation][flux_kustomization].
 
 ```sh
 kubectl get gitrepository example-repo
 ```
 
-When this finishes, the status of both the GitRepository and the Kustomization signal a ready state. The repository's commit also displays the ready state:
+When this finishes, the status of both the GitRepository and the Kustomization signals a ready state. The repository's commit also displays the ready state:
 
 ```sh
 NAME         URL                                                        READY   STATUS                                                              AGE
@@ -109,3 +109,4 @@ $ kubectl -n kommander-flux logs -l app=helm-controller
 [flux_kustomization]: https://fluxcd.io/docs/components/kustomize/kustomization/
 [flux_docs]: https://fluxcd.io/docs
 [flux_get_started]: https://fluxcd.io/docs/get-started/
+[podinfo_app_deployment]: https://github.com/fluxcd/flux-get-started/blob/master/workloads/podinfo-dep.yaml

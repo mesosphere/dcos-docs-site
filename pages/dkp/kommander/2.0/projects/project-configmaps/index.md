@@ -41,7 +41,7 @@ spec:
 EOF
 ```
 
-Ensure the projectns variable is set before executing the command. This variable is the project namespace (the Kubernetes Namespace associated with the project) that was defined/created when the project itself was initially created.
+Ensure the `projectns` variable is set before executing the command. This variable is the project namespace (the Kubernetes Namespace associated with the project) that was defined/created when the project itself was initially created.
 
 ```bash
 projectns=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="project1-")].status.namespaceRef.name}')
@@ -50,7 +50,7 @@ projectns=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphe
 Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes ConfigMap Object, in the corresponding namespace:
 
 ```bash
-$ kubectl -n ${projectns} get configmap cm1-8469c -o yaml
+kubectl -n ${projectns} get configmap cm1-8469c -o yaml
 apiVersion: v1
 data:
   key: value

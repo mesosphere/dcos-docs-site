@@ -48,7 +48,7 @@ projectns=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphe
 Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes Secret Object in the corresponding namespace:
 
 ```bash
-$ kubectl -n ${projectns} get resourcequota kommander -o yaml
+kubectl -n ${projectns} get resourcequota kommander -o yaml
 apiVersion: v1
 kind: ResourceQuota
 metadata:
