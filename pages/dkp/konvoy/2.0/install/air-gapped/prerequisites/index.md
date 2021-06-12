@@ -13,7 +13,7 @@ enterprise: false
 Before starting an air-gapped Konvoy installation, verify that you have:
 
 - A Linux machine (bastion) that has access to the existing VPC.
-- The `konvoy2` binary on the bastion.
+- The `konvoy` binary on the bastion.
 - [Docker][install_docker] version 18.09.2 or later installed on the bastion.
 - [kubectl][install_kubectl] for interacting with the running cluster on the bastion.
 - A valid AWS account with [credentials configured][aws_credentials].
@@ -37,7 +37,7 @@ Before starting an air-gapped Konvoy installation, verify that you have:
 1.  Refresh the credentials used by the AWS provider at any time, using the command:
 
     ```sh
-    konvoy2 update bootstrap credentials aws
+    konvoy update bootstrap credentials aws
     ```
 
 [install_docker]: https://docs.docker.com/get-docker/

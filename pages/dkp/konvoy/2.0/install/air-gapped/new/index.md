@@ -55,7 +55,7 @@ enterprise: false
 1.  Create a Kubernetes cluster:
 
     ```sh
-    konvoy2 create cluster aws --cluster-name=${CLUSTER_NAME} \
+    konvoy create cluster aws --cluster-name=${CLUSTER_NAME} \
     --vpc-id=${AWS_VPC_ID} \
     --ami=${AWS_AMI_ID} \
     --subnet-ids=${AWS_SUBNET_IDS} \
@@ -68,7 +68,7 @@ enterprise: false
 1.  Inspect the created cluster resources:
 
     ```sh
-    kubectl get clusters,awsclusters,machinepools,awsmachinepools
+    kubectl get clusters,kubeadmcontrolplanes,machinedeployments
     ```
 
 1.  Wait for the cluster control-plane to be ready:

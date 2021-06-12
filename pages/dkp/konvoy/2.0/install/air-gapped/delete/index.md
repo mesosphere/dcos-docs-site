@@ -13,11 +13,11 @@ enterprise: false
 1.  Delete the provisioned Kubernetes cluster and wait a few minutes:
 
     ```sh
-    konvoy2 delete cluster --cluster-name=${CLUSTER_NAME}
+    konvoy delete cluster --cluster-name=${CLUSTER_NAME}
     ```
 
 1.  Delete the `kind` Kubernetes cluster:
 
     ```sh
-    konvoy2 delete bootstrap
+    konvoy delete bootstrap
     ```

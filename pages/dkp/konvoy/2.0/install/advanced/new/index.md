@@ -20,13 +20,13 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
 
     ```sh
-    konvoy2 update bootstrap credentials aws
+    konvoy update bootstrap credentials aws
     ```
 
 1.  Generate the Kubernetes cluster objects:
 
     ```sh
-    konvoy2 create cluster aws --cluster-name=${CLUSTER_NAME} \
+    konvoy create cluster aws --cluster-name=${CLUSTER_NAME} \
     --dry-run \
     --output=yaml \
     > ${CLUSTER_NAME}.yaml
@@ -52,7 +52,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
         A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (e.g., kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and an _AWSMachineTemplate_ object, which describes the instance type, the type of disk used, the size of the disk, among other properties.
 
-    For in-depth documentation about the objects, please read [Concepts][capi_concepts] in the Cluster API Book.
+    For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
 1.  Create the cluster from the objects.
 
@@ -65,23 +65,25 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     awscluster.infrastructure.cluster.x-k8s.io/aws-example created
     kubeadmcontrolplane.controlplane.cluster.x-k8s.io/aws-example-control-plane created
     awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-control-plane created
-    machinepool.exp.cluster.x-k8s.io/aws-example-mp-0 created
-    awsmachinepool.infrastructure.cluster.x-k8s.io/aws-example-mp-0 created
-    kubeadmconfig.bootstrap.cluster.x-k8s.io/aws-example-mp-0 created
+    machinedeployment.cluster.x-k8s.io/aws-example-mp-0 created
+    awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-mp-0 created
+    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-mp-0 created
     ```
 
     Once the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
 
     ```sh
-    konvoy2 describe cluster -c ${CLUSTER_NAME}
+    konvoy describe cluster -c ${CLUSTER_NAME}
     ```
 
     ```sh
     NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
     /aws-example                                                    True                     35s
     ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
-    └─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     36s
-    └─Machine/aws-example-control-plane-2wb9q                       True                     4m20s
+    ├─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     36s
+    │   └─3 Machine...                                              True                     4m20s
+    └─Workers
+        └─MachineDeployment/aws-example-md-0
     ```
 
     As they progress, the controllers also create Events. List the Events using this command:

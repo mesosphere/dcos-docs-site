@@ -9,14 +9,14 @@ enterprise: false
 
 To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) controllers. These controllers run on a Kubernetes cluster. To get started, you need a _bootstrap_ cluster. By default, Konvoy creates a bootstrap cluster for you in a Docker container using the Kubernetes-in-Docker ([KIND][kind]) tool.
 
-Before you begin, make sure you have completed the steps in [Prerequisites][prereqs].
+Before you begin, complete the steps in [Prerequisites][prereqs].
 
 ## Bootstrap Cluster Lifecycle Services
 
 1.  Create a bootstrap cluster:
 
     ```sh
-    konvoy2 create bootstrap
+    konvoy create bootstrap
     ```
 
     ```sh
@@ -33,6 +33,8 @@ Before you begin, make sure you have completed the steps in [Prerequisites][prer
     INFO[2021-06-04T15:53:08-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:112"
     INFO[2021-06-04T15:53:08-07:00] Initializing Azure Disk CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:114"
     INFO[2021-06-04T15:53:09-07:00] Created Azure Disk CustomResourceSet          src="bootstrap/clusterresourceset.go:119"
+    INFO[2021-06-04T15:53:09-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:180"
+    INFO[2021-06-04T15:53:09-07:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:185"
     ```
 
     Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
@@ -71,11 +73,12 @@ Before you begin, make sure you have completed the steps in [Prerequisites][prer
 
     ```sh
     NAME                        AGE
-    aws-ebs-csi                 14m
-    azure-disk-csi              14m
-    calico-installation-aws     14m
-    calico-installation-azure   14m
-    tigera-operator             14m
+    aws-ebs-csi                 3m49s
+    azure-disk-csi              3m49s
+    calico-installation-aws     3m49s
+    calico-installation-azure   3m49s
+    cluster-autoscaler          3m49s
+    tigera-operator             3m49s
     ```
 
     A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.
@@ -107,9 +110,9 @@ Before you begin, make sure you have completed the steps in [Prerequisites][prer
 [kind]: https://github.com/kubernetes-sigs/kind
 [capi_book]: https://cluster-api.sigs.k8s.io/
 [calico]: https://docs.projectcalico.org/
-[capi]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.17/
+[capi]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/
 [capz]: https://github.com/kubernetes-sigs/cluster-api-provider-azure/tree/v0.4.14/
-[kcp]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.17/controlplane/kubeadm
-[cabpk]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.17/bootstrap/kubeadm
+[kcp]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/controlplane/kubeadm
+[cabpk]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/bootstrap/kubeadm
 [clusterresourceset_caep]: https://github.com/kubernetes-sigs/cluster-api/blob/master/docs/proposals/20200220-cluster-resource-set.md
 [prereqs]: ../prerequisites
