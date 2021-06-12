@@ -57,7 +57,7 @@ The Resources graphs on a cluster card show you a cluster's resource requests, l
 | Disk Limits     | The portion of the allocatable ephemeral storage resource to which the cluster is limited, measured in bytes, such as 64 GiB.                              |
 
 For more detailed information, see the [Kubernetes documentation][k8s_docs] about resources.
-
+<!--
 ## Platform services
 
 Platform services, formerly called Addons, are services that the management cluster installs. You can visit a cluster's detail page to see which platform services are enabled under the "Platform Services" section.
@@ -65,8 +65,8 @@ Platform services, formerly called Addons, are services that the management clus
 ![Cluster Detail Page](/dkp/kommander/2.0/img/cluster-detail-page.png)
 Figure 1. Cluster detail page
 
-Review the [workspace platform service resource requirements](/dkp/kommander/2.0/workspaces/platform-service-requirements/) to ensure that the attached clusters have sufficient resources. For more information on platform services and how to customize them, see [workspace platform services](/dkp/kommander/2.0/workspaces/workspace-platform-services/).
-
+Review the [workspace platform service resource requirements][platform_service_req] to ensure that the attached clusters have sufficient resources. For more information on platform services and how to customize them, see [workspace platform services][workspace_platform_services].
+-->
 ## Edit a cluster
 
 <TBD Need some info for this.>
@@ -77,9 +77,10 @@ Review the [workspace platform service resource requirements](/dkp/kommander/2.0
 
 <TBD Need some info for this.>
 
-![Edit a Cluster Action](/dkp/kommander/2.0/img/edit-cluster-action.png)
 For an attached cluster, you can only edit labels assigned to that cluster.
 
 ![Edit an Attached Cluster](/dkp/kommander/2.0/img/edit-cluster-attached-1-1-0.png)
 
 [k8s_docs]: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+<!--[workspace_platform_services]: /dkp/kommander/2.0/workspaces/workspace-platform-services/
+[platform_service_req]: /dkp/kommander/2.0/workspaces/workspace-platform-services/platform-service-requirements/-->

@@ -25,27 +25,27 @@ When working with clusters that have networking restrictions, you will need to a
 ### Projects and Workspaces
 
 Before you attach clusters, you need to create one or more Workspaces, and recommend that you also create Projects within your Workspaces. [Workspaces][workspaces] give you a logical way to represent your teams and specific configurations. [Projects][projects] let you define one or more clusters as a group to which Kommander pushes a common configuration. Grouping your existing clusters in Kommander projects and workspaces makes managing their platform services and resources easier and supports monitoring and logging.
-
+<!--
 ### Platform service requirements
 
 In addition to the basic cluster requirements, the platform services you want Kommander to manage on those clusters will have an impact on the total cluster requirements. The specific combinations of platform services will make a difference in the requirements for the cluster nodes and their resources (CPU, memory, and storage).
 
 The default platform services that Kommander provides include Prometheus, Kubecost, Traefik, and cert-manager.
-
+-->
 ## Attaching existing AWS and EKS clusters
 
 Attaching an existing, Amazon-provisioned cluster requires that the cluster be fully configured and running. The suggested default cluster configuration includes a control plane pool containing three (3) m5.xlarge nodes and a worker pool containing four (4) m5.2xlarge nodes.
-
+<!--
 Consider the additional resource requirements for running the platform services you want Kommander to manage, and ensure that your existing clusters comply.
-
+-->
 To attach an existing EKS cluster, refer to the specific information in [Attach Amazon EKS Cluster to Kommander][attach_eks_cluster].
 
 ## Attaching existing Azure clusters
 
 Attaching an existing Azure-provisioned cluster requires that the cluster be fully-configured and running. The suggested default cluster configuration includes a control plane pool containing three (3) Standard_DS3_v2 nodes and a worker pool containing four (4) Standard_DS3_v2 nodes.
-
+<!--
 Consider the additional resource requirements for running the platform services you want Kommander to manage, and ensure that your existing clusters comply.
-
+-->
 [attach_eks_cluster]: ../attach-eks-cluster/
 [attach_with_network_restrictions]: ../cluster-with-network-restrictions
 [existing-clusters]: ../generate-kubeconfig/

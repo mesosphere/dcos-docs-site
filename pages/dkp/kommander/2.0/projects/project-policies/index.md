@@ -35,9 +35,9 @@ spec:
 EOF
 ```
 
-Ensure the projectns, projectrole and the virtualgroup variables are set before executing the command.
+Ensure the `projectns`, `projectrole` and the `virtualgroup` variables are set before executing the command.
 
-You can set them using the following commands (for a Kommander Group called user1 and a Project Role called admin, and after setting the projectns as explained in the previous section):
+You can set them using the following commands (for a Kommander Group called `user1` and a Project Role called `admin`, and after setting the `projectns` as explained in the previous section):
 
 ```bash
 virtualgroup=$(kubectl -n kommander get virtualgroup.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="user1-")].metadata.name}')
@@ -47,10 +47,10 @@ projectns=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphe
 projectrole=$(kubectl -n ${projectns} get projectroles.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="admin-")].metadata.name}')
 ```
 
-When a Project Role Binding is created, Kommander creates a Kubernetes FederatedRoleBinding on the Kubernetes cluster where Kommander is running:
+When a Project Role Binding is created, Kommander creates a Kubernetes `FederatedRoleBinding` on the Kubernetes cluster where Kommander is running:
 
 ```bash
-$ kubectl -n ${projectns} get federatedrolebindings.types.kubefed.io projectpolicy-gtct4-rdkwq -o yaml
+kubectl -n ${projectns} get federatedrolebindings.types.kubefed.io projectpolicy-gtct4-rdkwq -o yaml
 apiVersion: types.kubefed.io/v1beta1
 kind: FederatedRoleBinding
 metadata:
@@ -91,8 +91,12 @@ status:
     status: "True"
     type: Propagation
   observedGeneration: 1
+```
+
 Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes RoleBinding Object, in the corresponding namespace:
-$ kubectl -n ${projectns} get rolebinding projectpolicy-gtct4-rdkwq -o yaml
+
+```bash
+kubectl -n ${projectns} get rolebinding projectpolicy-gtct4-rdkwq -o yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:

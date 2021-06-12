@@ -40,18 +40,18 @@ spec:
 EOF
 ```
 
-Set Ensure the `projectns` variable using the following is set before executing the command.
+Ensure the `projectns` variable is set before executing the command.
 
-You can set it using the following command (for a Kommander Project called project1, and after setting the workspacens as explained in the previous section):
+You can set it using the following command (for a Kommander Project called `project1`, and after setting the `workspacens` as explained in the previous section):
 
 ```bash
 projectns=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="project1-")].status.namespaceRef.name}')
 ```
 
-When a Project Role is created, Kommander creates a Kubernetes FederatedRole on the Kubernetes cluster where Kommander is running:
+When a Project Role is created, Kommander creates a Kubernetes `FederatedRole` on the Kubernetes cluster where Kommander is running:
 
 ```bash
-$ kubectl -n ${projectns} get federatedroles.types.kubefed.io admin-dbfpj-l6s9g -o yaml
+kubectl -n ${projectns} get federatedroles.types.kubefed.io admin-dbfpj-l6s9g -o yaml
 apiVersion: types.kubefed.io/v1beta1
 kind: FederatedRole
 metadata:
@@ -98,7 +98,7 @@ status:
 Then, if you run the following command on a Kubernetes cluster associated with the Project, you see a Kubernetes Role object in the corresponding namespace:
 
 ```bash
-$ kubectl -n ${projectns} get role admin-dbfpj-l6s9g -o yaml
+kubectl -n ${projectns} get role admin-dbfpj-l6s9g -o yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:

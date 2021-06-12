@@ -4,9 +4,10 @@ navigationTitle: Workspace Platform Service Dependencies
 title: Workspace Platform Service Dependencies
 menuWeight: 50
 excerpt: Dependencies between workspace platform services
+draft: true
 ---
 
-There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that they are deployed properly to the clusters. For more information on how to customize workspace platform services, please see [Workspace Platform Services](../workspace-platform-services/).
+There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that they are deployed properly to the clusters. For more information on how to customize workspace platform services, please see [Workspace Platform Services](../).
 
 ## Platform Service Dependencies
 
