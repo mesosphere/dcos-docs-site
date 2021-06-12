@@ -1,14 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: Quick Start
-title: Quick Start
-excerpt: Get started by installing a cluster with default configuration settings
+navigationTitle: Quick Start Azure
+title: Quick Start Azure
+excerpt: Get started by installing a cluster with default configuration settings on Azure
+draft: true
 beta: true
 enterprise: false
-menuWeight: 5
+menuWeight: 0
 ---
 
-This Quick Start guide provides simplified instructions for using Konvoy to get your Kubernetes cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) or Azure public cloud instances.
+This Quick Start guide provides simplified instructions for using Konvoy to get your Kubernetes cluster up and running with minimal configuration requirements on an Azure public cloud instances.
 
 ## Prerequisites
 
@@ -18,50 +19,8 @@ Before starting the Konvoy installation, verify that you have:
 -   The `konvoy2` binary on this machine.
 -   [Docker][install_docker] version 18.09.2 or later.
 -   [kubectl][install_kubectl] for interacting with the running cluster.
--   Required for AWS clusters:
-    - A valid AWS account with [credentials configured][aws_credentials].
 -   Required for Azure clusters:
     - A valid Azure account with [credentials configured][azure_credentials].
-
-## Configure AWS prerequisites (required only if creating an AWS cluster)
-
-1.  Follow the steps in [IAM Policy Configuration](../iam-policies).
-
-1.  Export the AWS region where you want to deploy the cluster:
-
-    ```sh
-    export AWS_REGION=us-west-2
-    ```
-
-1.  Export the AWS Profile with the credentials that you want to use to create the Kubernetes cluster:
-
-    ```sh
-    export AWS_PROFILE=<profile>
-    ```
-
-1.  Refresh the credentials used by the AWS provider at any time, by running the command:
-
-    ```sh
-    konvoy2 update bootstrap credentials aws
-    ```
-
-    <p class="message--note"><strong>NOTE: </strong>This command will restart the CAPA controllers automatically.</p>
-
-    `konvoy2 update bootstrap credentials aws` encodes an AWS profile and stores it in the `capa-manager-bootstrap-credentials` secret in the `capa-system` namespace. It is equivalent to the following:
-
-    ```sh
-    export AWS_B64ENCODED_CREDENTIALS=$(base64 << EOF
-    [default]
-    aws_access_key_id = $AWS_ACCESS_KEY_ID
-    aws_secret_access_key = $AWS_SECRET_ACCESS_KEY
-    region = $AWS_REGION
-    aws_session_token = $AWS_SESSION_TOKEN
-    EOF
-    )
-
-    kubectl -n capa-system patch secret capa-manager-bootstrap-credentials -p "{\"data\": {\"credentials\": \"${AWS_B64ENCODED_CREDENTIALS}\"}}"
-    kubectl -n capa-system rollout restart deployment capa-controller-manager
-    ```
 
 ## Configure Azure prerequisites (required only when creating an Azure cluster)
 
@@ -128,48 +87,6 @@ Before starting the Konvoy installation, verify that you have:
     konvoy2 create bootstrap
     ```
 
-## Create a new AWS Kubernetes cluster
-
-1.  Give your cluster a name suitable for your environment:
-
-    ```sh
-    export CLUSTER_NAME=$(whoami)-aws-cluster
-    ```
-
-1.  Specify an authorized key file to have SSH access to the machines.
-
-    The file must contain exactly one entry, as described in this [manual](https://man7.org/linux/man-pages/man8/sshd.8.html#AUTHORIZED_KEYS_FILE_FORMAT).
-
-    You can use the `.pub` file that complements your private ssh key. For example, use the public key that complements your RSA private key:
-
-    ```sh
-    --ssh-public-key-file=${HOME}/.ssh/id_rsa.pub
-    ```
-
-    The default username for SSH access is `konvoy`. For example, use your own username:
-
-    ```sh
-    --ssh-username=$(whoami)
-    ```
-
-1.  Create a Kubernetes cluster:
-
-    ```sh
-    konvoy2 create cluster aws --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
-    ```
-
-1.  Inspect the cluster resources that are created:
-
-    ```sh
-    kubectl get clusters,awsclusters,machinepools,awsmachinepools
-    ```
-
-1.  Wait for the cluster control-plane to be ready:
-
-    ```sh
-    kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m
-    ```
-
 ## Create a new Azure Kubernetes cluster
 
 1.  Give your cluster a name suitable for your environment:
@@ -215,24 +132,6 @@ Before starting the Konvoy installation, verify that you have:
 
     ```sh
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
-    ```
-
-### Configure the AWS EBS CSI driver
-
-1.  Create a `StorageClass` for the EBS CSI driver:
-
-    ```sh
-    cat <<EOF | kubectl --kubeconfig=${CLUSTER_NAME}.conf apply -f -
-    kind: StorageClass
-    apiVersion: storage.k8s.io/v1
-    metadata:
-      name: ebs-sc
-    provisioner: ebs.csi.aws.com
-    volumeBindingMode: WaitForFirstConsumer
-    parameters:
-      csi.storage.k8s.io/fstype: ext4
-      type: gp3
-    EOF
     ```
 
 ## (Optional) Move controllers to the newly-created cluster
@@ -294,5 +193,4 @@ Before starting the Konvoy installation, verify that you have:
 
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [azure_credentials]: https://github.com/kubernetes-sigs/cluster-api-provider-azure/blob/master/docs/book/src/topics/getting-started.md#prerequisites
