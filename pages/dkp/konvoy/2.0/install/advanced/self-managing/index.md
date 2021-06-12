@@ -16,11 +16,11 @@ Before you start, make sure you have created a workload cluster, as described in
 1.  Deploy cluster lifecycle services on the workload cluster:
 
     ```sh
-    konvoy2 create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
+    konvoy create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     ```sh
-    konvoy2 create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
+    konvoy create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
     INFO[2021-06-07T14:10:08-07:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:88"
     INFO[2021-06-07T14:11:34-07:00] Created bootstrap controllers                 src="bootstrap/controllers.go:93"
     INFO[2021-06-07T14:11:34-07:00] Waiting for bootstrap controllers to be ready  src="bootstrap/controllers.go:96"
@@ -33,6 +33,8 @@ Before you start, make sure you have created a workload cluster, as described in
     INFO[2021-06-07T14:11:42-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:112"
     INFO[2021-06-07T14:11:42-07:00] Initializing Azure Disk CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:114"
     INFO[2021-06-07T14:11:42-07:00] Created Azure Disk CustomResourceSet          src="bootstrap/clusterresourceset.go:119"
+    INFO[2021-06-07T14:11:42-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:180"
+    INFO[2021-06-07T14:11:42-07:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:185"
     ```
 
 1.  Move the Cluster API objects from the bootstrap to the workload cluster:
@@ -40,13 +42,13 @@ Before you start, make sure you have created a workload cluster, as described in
     The cluster lifecycle services on the workload cluster are ready, but the workload cluster configuration is on the bootstrap cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the bootstrap to the workload cluster. This process is also called a [Pivot][pivot].
 
     ```sh
-    konvoy2 move --to-kubeconfig ${CLUSTER_NAME}.conf
+    konvoy move --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     ```sh
     INFO[2021-06-07T14:32:26-07:00] Running pivot command                         fromClusterKubeconfig= fromClusterKubeconfigContext= src="move/move.go:87" toClusterKubeconfig=aws-example.conf toClusterKubeconfigContext=
     Pivot operation complete.
-    Use may use the new cluster context by running 'export KUBECONFIG=aws-example.conf'
+    You may use the new cluster context by running 'export KUBECONFIG=aws-example.conf'
     ```
 
     <p class="message--note"><strong>NOTE: </strong>To make sure only one set of cluster lifecycle services manages the workload cluster, Konvoy first pauses reconciliation of the objects on the bootstrap cluster. Konvoy then creates the objects on the workload cluster. As Konvoy copies the objects, the cluster lifecycle services on the workload cluster reconcile them. The workload cluster becomes self-managing after Konvoy creates all the objects. The <code>move</code> command can be safely retried, if it fails.</p>
@@ -56,15 +58,17 @@ Before you start, make sure you have created a workload cluster, as described in
     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use Konvoy with the workload cluster kubeconfig.</p>
 
     ```sh
-    konvoy2 describe cluster --kubeconfig ${CLUSTER_NAME}.conf -c ${CLUSTER_NAME}
+    konvoy describe cluster --kubeconfig ${CLUSTER_NAME}.conf -c ${CLUSTER_NAME}
     ```
 
     ```sh
     NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
-    /aws-example                                                    True                     7m50s
-    ├─ClusterInfrastructure - AWSCluster/aws-example                True                     7m54s
-    └─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     7m50s
-    └─Machine/aws-example-control-plane-bjrrp                       True                     7m53s
+    /aws-example                                                    True                     35s
+    ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
+    ├─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     36s
+    │   └─3 Machine...                                              True                     4m20s
+    └─Workers
+        └─MachineDeployment/aws-example-md-0
     ```
 
 1.  Wait for the cluster control-plane to be ready:
@@ -80,7 +84,7 @@ Before you start, make sure you have created a workload cluster, as described in
 1.  Remove the bootstrap cluster, as the workload cluster is now self-managing:
 
     ```sh
-    konvoy2 delete bootstrap
+    konvoy delete bootstrap
     ```
 
     ```sh

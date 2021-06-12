@@ -6,18 +6,18 @@ excerpt: Update a Kubernetes cluster to upgrade Kubernetes, or change machine ha
 menuWeight: 35
 ---
 
-Before you begin, make sure you have created a workload cluster, as described in [Create a New Cluster][createnewcluster].
+Before you begin, create a workload cluster, as described in [Create a New Cluster][createnewcluster].
 
 <!-- TODO: Remove warning. -->
-<p class="message--warning"><strong>NOTE: </strong> This feature is under development, and not yet available.</p>
+<p class="message--warning"><strong>NOTE: </strong>This feature is under development.</p>
 
 ## Update a workload cluster
 
-There are many reasons to update a workload cluster. The most common reasons are:
+There are many reasons to update the workload cluster. Some of the most common:
 
-- To upgrade the Kubernetes version
-- To update the machine image of control plane, or node pool machines
-- To update the hardware properties of control plane, or node pool machines
+1. To upgrade the Kubernetes version
+1. To update the machine image (AMI)
+1. To update the machine hardware (instance type)
 
 <!--
 ## Known Limitations

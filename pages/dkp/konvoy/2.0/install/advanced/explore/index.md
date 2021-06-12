@@ -20,7 +20,7 @@ Before you start, make sure you have created a workload cluster, as described in
     Get the kubeconfig from the _Secret_, and write it to a file, using this command:
 
     ```sh
-    konvoy2 get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
+    konvoy get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
 1.  List the Nodes using this command:
@@ -31,8 +31,8 @@ Before you start, make sure you have created a workload cluster, as described in
 
     ```sh
     NAME                                         STATUS   ROLES                  AGE    VERSION
-    ip-10-0-126-209.us-west-2.compute.internal   Ready    control-plane,master   124m   v1.20.6
-    ip-10-0-204-168.us-west-2.compute.internal   Ready    <none>                 118m   v1.20.6
+    ip-10-0-126-209.us-west-2.compute.internal   Ready    control-plane,master   124m   v1.20.8
+    ip-10-0-204-168.us-west-2.compute.internal   Ready    <none>                 118m   v1.20.8
     ```
 
     <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Nodes' Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>

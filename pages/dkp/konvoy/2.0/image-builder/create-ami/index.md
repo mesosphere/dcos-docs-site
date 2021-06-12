@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Create AMI
 title: Create a custom AMI
-excerpt: Learn how to build a custom AMI for use with Konvoy2
+excerpt: Learn how to build a custom AMI for use with Konvoy
 beta: true
 enterprise: false
 menuWeight: 60
@@ -68,7 +68,7 @@ packer:
 
 The ansible playbooks pull a minimal set of [container images](https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/defaults/main.yaml) for use. Additional images can be added or deleted by specifying an `override` file for the `extra_images` variable.
 
-Konvoy2 requires several additional images be present in the image. Create a new override file and specify the following `extra_images`:
+Konvoy requires several additional images be present in the image. Create a new override file and specify the following `extra_images`:
 
 ```yaml
 # Example override-images.yaml
@@ -98,7 +98,7 @@ extra_images:
   - calico/typha:v3.18.0
 ```
 
-<p class="message--note"><strong>NOTE: </strong>These are the current versions from the Konvoy2 repo. The Azure images are not required for AWS AMI's but are included here as examples.
+<p class="message--note"><strong>NOTE: </strong>These are the current versions from the Konvoy repo. The Azure images are not required for AWS AMIs but are included here as examples.
 
 ## Build the image
 
@@ -116,20 +116,20 @@ konvoy-image build --region us-east-1 --overrides override-source-ami.yaml --ove
 
 When the command is complete the `ami` id is printed and written to `./manifest.json`.
 
-## Launch a Konvoy2 cluster with a custom AMI
+## Launch a Konvoy cluster with a custom AMI
 
-To use the built `ami` with Konvoy2, specify it with the `--ami` flag when calling cluster create.
+To use the built `ami` with Konvoy, specify it with the `--ami` flag when calling cluster create.
 
 ```sh
-konvoy2 create cluster aws --cluster-name=$(whoami)-aws-cluster --ami ami-0123456789
+konvoy create cluster aws --cluster-name=$(whoami)-aws-cluster --ami ami-0123456789
 ```
 
-## Launch a Konvoy2 cluster with custom AMI lookup
+## Launch a Konvoy cluster with custom AMI lookup
 
-By default `konvoy-image` will name the AMI in such a way that `konvoy2` can discover the latest AMI for a base os and kubernetes version. To create a cluster that will use the latest AMI, specify the `--ami-format`, `--ami-base-os` and `--ami-owner` flags:
+By default `konvoy-image` will name the AMI in such a way that `konvoy` can discover the latest AMI for a base OS and Kubernetes version. To create a cluster that will use the latest AMI, specify the `--ami-format`, `--ami-base-os` and `--ami-owner` flags:
 
 ```sh
-konvoy2 create cluster aws --cluster-name=$(whoami)-aws-cluster --ami-format "konvoy-ami-{{.BaseOS}}-?{{.K8sVersion}}-*" --ami-base-os centos-7 --ami-owner 123456789012
+konvoy create cluster aws --cluster-name=$(whoami)-aws-cluster --ami-format "konvoy-ami-{{.BaseOS}}-?{{.K8sVersion}}-*" --ami-base-os centos-7 --ami-owner 123456789012
 ```
 
 ## Air Gapped
