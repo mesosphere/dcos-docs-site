@@ -6,6 +6,7 @@ const markdown = require("metalsmith-markdownit");
 const layouts = require("metalsmith-layouts");
 const assets = require("metalsmith-assets");
 const dataLoader = require("metalsmith-data-loader");
+const ignore = require("metalsmith-ignore");
 const watch = require("metalsmith-watch");
 const serve = require("metalsmith-serve");
 const anchor = require("markdown-it-anchor");
@@ -27,7 +28,6 @@ const Utils = require("./core/utils");
 // Configs
 const configData = fs.readFileSync("config.json");
 const config = JSON.parse(configData);
-const shortcodesConfig = require("./shortcodes");
 
 // Environment Variables
 const GIT_BRANCH = process.env.GIT_BRANCH;
@@ -87,6 +87,9 @@ if (process.env.NODE_ENV === "development") {
     done();
   });
 }
+
+MS.use(ignore(METALSMITH_SKIP_SECTIONS));
+MS.use(timer("Ignore"));
 
 MS.use(assets({ source: "assets", destination: "assets" }));
 MS.use(timer("Assets"));
