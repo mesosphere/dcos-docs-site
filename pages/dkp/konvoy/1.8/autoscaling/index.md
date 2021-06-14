@@ -77,7 +77,14 @@ After the cluster specification is configured, run `konvoy up -y` to apply the r
 changes to the cluster and to start autoscaling the worker pool on
 demand. When the command completes successfully, certain configuration files of the cluster
 are stored in Kubernetes.
-This keeps the cluster state up-to-date for any change triggered by the autoscaler and prevents the system from having multiple or out-dated cluster specifications.
+
+Ensure `kubectl` has the correct login information by authorizing it to use kubeconfig for the cluster:
+
+```shell
+export KUBECONFIG=admin.conf
+```
+
+This keeps the cluster state up-to-date for any change triggered by the autoscaler, and prevents the system from having multiple or outdated cluster specifications.
 
 The following files are stored in Kubernetes when using the autoscaling feature:
 
@@ -90,7 +97,7 @@ NAMESPACE                    NAME           DISPLAY NAME   STATUS        PROVIDE
 konvoy                       mycluster      New Cluster    Provisioned   aws        6d2h
 ```
 
-<p class="message--note"><strong>NOTE: </strong> The `cluster.yaml` specification is no longer located in the working directory.</p>
+<p class="message--note"><strong>NOTE: </strong> The <code>cluster.yaml</code> specification is no longer located in the working directory.</p>
 
 A `KonvoyCluster` custom Kubernetes resource has the following structure:
 
@@ -357,6 +364,8 @@ in our respective `KonvoyCluster` resource in Kubernetes. These are the two even
 scaling up and down decisions, as shown below:
 
 ```shell
+kubectl get events | grep autoscaler
+
 Events:
   Type    Reason                  Age    From                Message
   ----    ------                  ----   ----                -------
