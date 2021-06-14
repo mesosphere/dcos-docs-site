@@ -1,4 +1,5 @@
 // Packages
+const fs = require("fs");
 const minimatch = require("minimatch");
 const Metalsmith = require("metalsmith");
 const markdown = require("metalsmith-markdownit");
@@ -22,6 +23,15 @@ const includeContent = require("./plugins/metalsmith-include-content-dcos");
 const shortcodes = require("./plugins/metalsmith-shortcodes");
 const webpack = require("./plugins/metalsmith-webpack");
 const Utils = require("./core/utils");
+
+// Configs
+const configData = fs.readFileSync("config.json");
+const config = JSON.parse(configData);
+const shortcodesConfig = require("./shortcodes");
+
+// Environment Variables
+const GIT_BRANCH = process.env.GIT_BRANCH;
+const METALSMITH_SKIP_SECTIONS = (config[GIT_BRANCH] || {}).DO_NOT_BUILD || [];
 
 //
 // Metalsmith
