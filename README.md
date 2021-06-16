@@ -133,8 +133,6 @@ If you want to commit work, but
 
 You can set that section to not be built.
 
-Reasons you may want this would be for ongoing work for upcoming versions where we are still working out complications in the documentation, the feature or the documentation are incomplete but you want to commit work so you can continue to collaborate on this or other projects, features that are built for a certain slice of customers but not for all and not yet released, early beta work where things may still change, more time to review, etc.
-
 Regardless of the reasoning, you will need to modify this repo's `config.json` file to add whatever page or section to not be built when your PR merges.
 
 You need to include the branch that it's being built from (`main` in our case here), and the URL.
