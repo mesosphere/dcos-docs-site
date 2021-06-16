@@ -133,7 +133,7 @@ If you want to commit work, but
 
 You can set that section to not be built.
 
-Regardless of the reasoning, you will need to modify this repo's `config.json` file to add whatever page or section to not be built when your PR merges.
+Modify this repo's `config.json` file to add whatever page or section to not be built when your PR merges.
 
 You need to include the branch that it's being built from (`main` in our case here), and the URL.
 
