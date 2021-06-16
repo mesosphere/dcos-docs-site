@@ -125,6 +125,34 @@ Our markdown comes with metadata - also called "frontmatter". Here are the speci
 * **beta: true** - When this value is **true** a beta label is added to the page title.
 * **experimental: true** - When this value is **true** an experimental label is added to the page title.
 
+## DO NOT BUILD sections
+
+If you want to commit work, but
+- you do not want that work to be live on the public documentation site,
+- and also do not want to have it be in a **draft** status:
+
+You can set that section to not be built.
+
+Reasons you may want this would be for ongoing work for upcoming versions where we are still working out complications in the documentation, the feature or the documentation are incomplete but you want to commit work so you can continue to collaborate on this or other projects, features that are built for a certain slice of customers but not for all and not yet released, early beta work where things may still change, more time to review, etc.
+
+Regardless of the reasoning, you will need to modify this repo's `config.json` file to add whatever page or section to not be built when your PR merges.
+
+You need to include the branch that it's being built from (`main` in our case here), and the URL.
+
+For example, if you wanted to add Konvoy 42.0 to the Do Not Build section, you would need to modify the `config.json` to look like this:
+
+```json
+{
+  "main": {
+    "DO_NOT_BUILD": [
+      "dkp/konvoy/42.0/**"
+    ]
+  }
+}
+```
+
+This tells Metalsmith to not build the Konvoy 42.0 section and it's child pages.
+
 ## URL-structure
 
 The directory-tree in `/pages` resembles the URL-structure of the final build. A pages' content **MUST** be in an `index.md`file in the respective directory.
