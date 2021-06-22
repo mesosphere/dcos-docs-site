@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle: Workspace Platform Service Dependencies
 title: Workspace Platform Service Dependencies
-menuWeight: 50
+menuWeight: 8
 excerpt: Dependencies between workspace platform services
-draft: true
 ---
 
 There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that they are deployed properly to the clusters. For more information on how to customize workspace platform services, please see [Workspace Platform Services](../).
@@ -15,8 +14,7 @@ When deploying or troubleshooting platform services, it helps to understand how 
 
 If a platform service’s dependency does not successfully deploy, the platform service requiring that dependency does not successfully deploy. The table below lists workspace platform services and their dependencies.
 
-<p class="message--important"><strong>IMPORTANT: </strong>All platform services are dependent on the Kubeaddons controller, which manages the installation of platform services.</p>
-
+<!-- TODO: These do not match the new set of platforms
 | **Platform Service** | **Dependencies** |
 | --- | --- |
 | cert-manager |  |
@@ -32,6 +30,7 @@ If a platform service’s dependency does not successfully deploy, the platform 
 | reloader |  |
 | traefik | cert-manager, reloader |
 | traefik-forward-auth | traefik |
+-->
 
 Please see the following sections for more information about the workspace platform services.
 
@@ -39,7 +38,7 @@ Please see the following sections for more information about the workspace platf
 
 The foundational components are essential and provide the foundation for all platform service capabilities and deployments on managed clusters. You must enable these components to be able to enable any other platform services.
 
-The foundational components are comprised of the Kubeaddons controller and the following platform services: cert-manager, kube-oidc-proxy, reloader, traefik, and traefik-forward-auth.
+The foundational components are comprised of the <!-- TODO: document these --> following platform services: cert-manager, kube-oidc-proxy, reloader, traefik, and traefik-forward-auth.
 
 - Kubeaddons controller: Manages the installation of platform services
 - [cert-manager](https://cert-manager.io/docs): Certificate management controller that automates TLS certificate management and issuance
@@ -60,6 +59,7 @@ The foundational components are comprised of the Kubeaddons controller and the f
 
 These platform services provide the functionality to collect logs over time from Kubernetes, platform services, and applications deployed on managed clusters. They also provide the ability to visualize and query the aggregated logs.
 
+<!-- TODO: These do not match the new set of platforms
 - [elasticsearch](https://www.elastic.co/elasticsearch): A distributed, RESTful search and analytics engine
 - [elasticsearch-curator](https://www.elastic.co/guide/en/elasticsearch/client/curator/current/about.html): Helps you curate, or manage, your Elasticsearch indices and snapshots
 - [elasticsearchexporter](https://github.com/justwatchcom/elasticsearch_exporter): A Prometheus exporter for various metrics about Elasticsearch
@@ -73,6 +73,7 @@ These platform services provide the functionality to collect logs over time from
 | elasticsearchexporter | elasticsearch |
 | fluentbit | elasticsearch |
 | kibana | elasticsearch, traefik |
+-->
 
 ### Monitoring
 
@@ -87,3 +88,14 @@ These platform services provide monitoring capabilities by collecting metrics, i
 | kubecost | traefik |
 | prometheus | traefik |
 | prometheusadapter | prometheus |
+
+<!-- These pages have not yet been migrated for kommander 2.0 & konvoy 2.0
+## Related information
+
+- [Kommander security architecture](/dkp/kommander/1.4/security/)
+- [Centralized cost monitoring](/dkp/kommander/1.4/centralized-cost-monitoring/)
+- [Centralized monitoring](/dkp/kommander/1.4/centralized-monitoring/)
+- [Traefik Ingress controller](../networking/ingress/)
+- [Monitoring and alerts](/dkp/konvoy/1.7/monitoring/)
+- [Logging and audits](/dkp/konvoy/1.7/logging/)
+-->
