@@ -7,7 +7,7 @@ excerpt: How to deploy a new GitRepository to drive custom GitOps
 beta: true
 ---
 
-Kommander uses Flux to manage services deployed from an internal Git repository, however you can use that Flux instance to deploy custom third-party applications from other Git repositories. When a cluster is attached to Kommander, Kommander installs [Flux][flux_website] onto that attached cluster's `kommander-flux` namespace. While Kommander 2.0 is still in beta most of the steps outlined here use underlying components. In future versions, you will be able to use the Kommander API to better manage this goal.
+Kommander uses Flux to manage services deployed from an internal Git repository. You can also use that Flux instance to deploy custom third-party applications from other Git repositories. When a cluster is attached to Kommander, Kommander installs [Flux][flux_website] onto that attached cluster's workspace-specific namespace. While Kommander 2.0 is still in beta most of the steps outlined here use underlying components. In future versions, you will be able to use the Kommander API to better manage this goal.
 
 ## Access attached clusters
 
@@ -15,13 +15,13 @@ To access a cluster attached to Kommander using kubectl, save the cluster's kube
 
 ```sh
 # get the workspace's namespace
-NS=$(kubectl get workspace "example-workspace" -o jsonpath='{.status.namespaceRef.name})
+WORKSPACE_NAMESPACE=$(kubectl get workspace "example-workspace" -o jsonpath='{.status.namespaceRef.name})
 
 # using the namespace fetch the target cluster's secret holding the kubeconfig
-SECRET=$(kubectl get komm -n "${NS}" "cluster1" -o jsonpath='{.spec.kubeconfigRef.name}')
+SECRET=$(kubectl get komm -n "${WORKSPACE_NAMESPACE}" "cluster1" -o jsonpath='{.spec.kubeconfigRef.name}')
 
 # now save the kubeconfig
-kubectl -n "${NS}" get secret "${SECRET}" -o go-template='{{.data.kubeconfig | base64decode}}' > cluster1-kubeconfig
+kubectl -n "${WORKSPACE_NAMESPACE}" get secret "${SECRET}" -o go-template='{{.data.kubeconfig | base64decode}}' > cluster1-kubeconfig
 ```
 
 ## Consume public Git repositories on a cluster
@@ -96,11 +96,11 @@ For more information on how to get started with Flux, see [getting started guide
 If you run into any issues using a 3rd-party repository, there are mainly 3 Flux pods to review logs:
 
 ```sh
-$ kubectl -n kommander-flux logs -l app=source-controller
+$ kubectl -n ${WORKSPACE_NAMESPACE} logs -l app=source-controller
 [...]
-$ kubectl -n kommander-flux logs -l app=kustomize-controller
+$ kubectl -n ${WORKSPACE_NAMESPACE} logs -l app=kustomize-controller
 [...]
-$ kubectl -n kommander-flux logs -l app=helm-controller
+$ kubectl -n ${WORKSPACE_NAMESPACE} logs -l app=helm-controller
 [...]
 ```
 
