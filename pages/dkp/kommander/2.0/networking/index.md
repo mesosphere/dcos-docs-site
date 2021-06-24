@@ -51,12 +51,11 @@ A Service is not a Platform Service
 ## Service Topology
 
 [Service Topology][servicetopology] is a mechanism in Kubernetes to route traffic based upon the Node topology of the cluster.
-For example, you can configure a Service can be configured to route the traffic to endpoints on specific nodes, or even based on the region or availability zone of the nodes location.
+For example, you can configure a Service to route the traffic to endpoints on specific nodes, or even based on the region or availability zone of the node's location.
 
-To enable this new feature in your Kubernetes use the feature gates `--feature-gates="ServiceTopology=true,EndpointSlice=true"` flag. After enabling, you can control Service traffic routing by defining the `topologyKeys` field in the Service API object.```
+To enable this new feature in your Kubernetes cluster, use the feature gates `--feature-gates="ServiceTopology=true,EndpointSlice=true"` flag. After enabling, you can control Service traffic routing by defining the `topologyKeys` field in the Service API object.
 
-In the following example, a Service defines `topologyKeys` to be routed to endpoints only in the same
-zone:
+In the following example, a Service defines `topologyKeys` to be routed to endpoints only in the same zone:
 
 ```yaml
 apiVersion: v1

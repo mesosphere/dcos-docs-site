@@ -4,6 +4,7 @@ navigationTitle: Workspace Platform Service Dependencies
 title: Workspace Platform Service Dependencies
 menuWeight: 8
 excerpt: Dependencies between workspace platform services
+draft: true
 ---
 
 There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that they are deployed properly to the clusters. For more information on how to customize workspace platform services, please see [Workspace Platform Services](../).
@@ -40,7 +41,6 @@ The foundational components are essential and provide the foundation for all pla
 
 The foundational components are comprised of the <!-- TODO: document these --> following platform services: cert-manager, kube-oidc-proxy, reloader, traefik, and traefik-forward-auth.
 
-- Kubeaddons controller: Manages the installation of platform services
 - [cert-manager](https://cert-manager.io/docs): Certificate management controller that automates TLS certificate management and issuance
 - [kube-oidc-proxy](https://github.com/jetstack/kube-oidc-proxy): A reverse proxy server that authenticates users using OIDC to Kubernetes API servers where OIDC authentication is not available
 - [reloader](https://github.com/stakater/Reloader): A controller that watches changes on ConfigMaps and Secrets, and automatically triggers updates on the dependent applications
