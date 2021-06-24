@@ -56,10 +56,6 @@ Before installing, verify that your environment meets the following basic requir
 
 #include /dkp/konvoy/1.7/include/os-svc-nodes.tmpl
 
-The following requirement is specific to air-gapped environments:
-
-- Python is installed and the `python` executable can be found in the standard `PATH`.
-
 # Initialize Konvoy configuration files
 
 To start the Konvoy installation, you first need an [Ansible][ansible] [inventory file][ansible_inventory] in your current working directory to describe the hosts where you want to install Konvoy.
