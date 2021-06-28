@@ -24,7 +24,7 @@ The following components provide Nvidia GPU support on Konvoy:
 
 * [libnvidia-container][libnvidia_container] and [nvidia-container-runtime][nvidia_container_runtime]: Konvoy uses containerd as kubernetes container runtime by default. [libnvidia-container][libnvidia_container] and [nvidia-container-runtime][nvidia_container_runtime] shim between containerd and runc, which simplifies the container runtime integration with GPU support. Another benefit is this avoids using [nvidia-docker2][nvidia_docker].
 * [Nvidia Device Plugin][nvidia_k8s_device_plugin]: Konvoy makes use of Nvidia GPUs via this Kubernetes device plugin. It enables running GPU enabled containers on Kubernetes, tracks the number of available GPUs on each node and their health.
-* [Nvidia GPU Metrics Exporter][nvidia_gpu_metrics_exporter] and [NVIDIA Data Center GPU Manager][nvidia_dcgm]: This is a Prometheus exporter that provides Nvidia GPU metrics.
+* [NVIDIA Data Center GPU Manager][nvidia_dcgm]: Contains a Prometheus exporter that provides Nvidia GPU metrics.
 
 ## Requirements
 
@@ -33,7 +33,7 @@ The following components provide Nvidia GPU support on Konvoy:
 
 1.  NVIDIA GPU with Fermie architecture version 2.1 or greater.
 
-1.  Nvidia driver must be running on each GPU host node. The Nvidia driver version needs to be < 460.x, because the [Nvidia DCGM exporter][nvidia_dcgm] does not support the latest Nvidia driver yet. Nvidia driver version `450.51.06-1` is recommended. Follow the official [Nvidia Driver Installation Guide][nvidia_driver_installation_guide] to setup the driver on the host. For example,
+1.  Nvidia driver must be running on each GPU host node. Nvidia driver version `460.73.01` is recommended. Follow the official [Nvidia Driver Installation Guide][nvidia_driver_installation_guide] to setup the driver on the host. For example,
 
 * Centos 7
 
@@ -53,7 +53,7 @@ ARCH=$( /bin/arch )
 sudo yum-config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/$distribution/${ARCH}/cuda-$distribution.repo
 sudo yum install -y kernel-devel-$(uname -r) kernel-headers-$(uname -r)
 sudo yum clean expire-cache
-sudo yum install -y nvidia-driver-latest-dkms-3:450.51.06-1.el7.x86_64
+sudo yum install -y nvidia-driver-latest-dkms-3:460.73.01-1.el7.x86_64
 ```
 
 * Ubuntu 16.04/18.04 LTS
@@ -69,16 +69,16 @@ sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda
 
 echo "deb http://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64 /" | sudo tee /etc/apt/sources.list.d/cuda.list
 sudo apt-get update
-sudo apt-get -y install cuda-drivers-450
+sudo apt-get -y install cuda-drivers-460
 ```
 
 * Verify the Nvidia driver is running on the host
 
 ```bash
 [centos@ip-10-0-130-28 ~]$ nvidia-smi
-Fri Jan 15 01:36:34 2021
+Fri Jun 11 09:05:31 2021
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 450.51.06    Driver Version: 450.51.06    CUDA Version: 11.0     |
+| NVIDIA-SMI 460.73.01    Driver Version: 460.73.01    CUDA Version: 11.2     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
@@ -203,7 +203,7 @@ spec:
 
 ## Nvidia GPU Monitoring
 
-Konvoy uses [Nvidia GPU Metrics Exporter][nvidia_gpu_metrics_exporter] and [NVIDIA Data Center GPU Manager][nvidia_dcgm] to display Nvidia GPU metrics. By default, Konvoy has a Grafana dashboard called `GPUs/Nvidia` to monitor GPU metrics. This GPU dashboard is shown in Konvoy's Grafana UI.
+Konvoy uses the [NVIDIA Data Center GPU Manager][nvidia_dcgm] to export GPU metrics towards Prometheus. By default, Konvoy has a Grafana dashboard called `NVIDIA DCGM Exporter Dashboard` to monitor GPU metrics. This GPU dashboard is shown in Konvoy's Grafana UI.
 
 ## Upgrade
 
@@ -273,5 +273,4 @@ Konvoy is capable of automatically upgrading the Nvidia GPU addon. However, GPU 
 [nvidia_public_hub_repository]: https://hub.docker.com/r/nvidia/driver
 [nvidia_k8s_device_plugin]: https://github.com/NVIDIA/k8s-device-plugin
 [nvidia_dcgm]: https://developer.nvidia.com/dcgm
-[nvidia_gpu_metrics_exporter]: https://github.com/NVIDIA/gpu-monitoring-tools
 [k8s_taints_and_tolerations]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/

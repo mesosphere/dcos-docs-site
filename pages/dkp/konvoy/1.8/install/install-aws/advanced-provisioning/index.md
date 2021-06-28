@@ -83,15 +83,12 @@ spec:
     count: 4
     machine:
       rootVolumeSize: 80
-#                                      (2)
       rootVolumeType: gp2
       imagefsVolumeEnabled: true
       imagefsVolumeType: gp2
       imagefsVolumeSize: 160
       imagefsVolumeDevice: xvdb
-#                                      (1)
       type: m5.2xlarge
-#                                      (3)
       imageID: ami-12345
   - name: control-plane
     controlPlane: true
@@ -101,13 +98,10 @@ spec:
       rootVolumeType: io1
       rootVolumeIOPS: 1000
       imagefsVolumeEnabled: true
-#                                      (2)
       imagefsVolumeType: gp2
       imagefsVolumeSize: 160
       imagefsVolumeDevice: xvdb
-#                                      (1)
       type: m5.xlarge
-#                                      (3)
       imageID: ami-12345
 ```
 
@@ -407,6 +401,18 @@ The tags should be as following, where `__CLUSTER_NAME__` corresponds to the `cl
 ```text
 kubernetes.io/cluster = __CLUSTER_NAME__
 kubernetes.io/cluster/__CLUSTER_NAME__ = owned
+```
+
+If the subnet will be used for external and/or internal ELBs, ensure that the following tag is added to the subnet:
+
+```text
+kubernetes.io/role/elb = 1
+```
+
+Alternatively, if the subnet will only be used for internal ELBs, ensure that the following tag is added to the subnet:
+
+```text
+kubernetes.io/role/internal-elb = 1
 ```
 
 ## Security Groups
