@@ -74,6 +74,16 @@ Secondary support covers support for the base technology of platform service, wh
 |Bug Fixes|* Bug fixes for service integration with DKP.<br>  * Upstream bug fixes to identified issues in the base technology. (Cassandra, Kafka, Spark) on a best effort basis.<br> * No guarantee that changes to upstream will be accepted.<br> * No commitment to maintaining forks of upstream.|Supported with Severity 3 & 4 support terms|
 |Documentation Errors|* Documentation fixes for life cycle management of services and integration with DKP.<br> * Issue or PR submitted to correct any incorrect upstream documentation in base technology. (Cassandra, Kafka, Spark) on a best effort basis.<br> * No guarantee that changes will be accepted.|Supported with Severity 4 support terms|
 
-## Standard Level & Severity Definitions 
- 
-To view our severity level and support terms refer - https://d2iq.com/legal/support-terms
+## Support for Addons in DKP
+### Support Definition - Secondary Support
+All addons that D2iQ ships with DKP products are covered under secondary support.
+
+| Type | Scope Example | Support Offered |
+| ---- | ------------- | --------------- |
+| Configuration | * Guidance for base technology and DKP interoperability configuration questions and troubleshooting for different components of the DKP platform.<br/> * No support for base technology’s configuration that is unrelated to its integration with DKP.<br/> * No support for performance issues with the base technology that is unrelated to its integration with DKP.. | Supported with severity 3 & 4 support terms |
+| Failure Assistance | * Assistance with installation, and upgrade failures of the service as captured in the supported DKP product upgrade pathway.<br/> * Assistance with service failures due to platform issues. For example: Konvoy, Kommander, KUDO.<br/> * Support is limited to troubleshooting for root cause up to DKP product limit. Root causes that are identified to be beyond this limit will need to be pursued by the company who creates the addon base technology.  Please note, if the RCA for the failure is due to a non-standard configuration or non-DKP use of the addon, we will be unable to provide assistance beyond basic identification.<br/> * No assistance for base technology’s failures that is unrelated to its integration with DKP. | Supported with all severities |
+| Bug Fixes | * Bug fixes for service integration with DKP.<br/> * Upstream bug fixes to identified issues in the base technology of the addon on a best effort basis.<br/> * No guarantees that our changes to upstream will be accepted.<br/> * No commitment to maintaining forks upstream. | RCA supported with all severities, Fix supported with severity 3 & 4 support terms |
+| Documentation errors | * Documentation fixes for life cycle management of services and integration with DKP.<br/>* Upstream documentation fixes to reported and identified issues in base technology of the addon via a best effort basis.<br/>* No guarantees that our changes will be accepted. | Supported with severity 4 support terms |
+
+### Standard Level & Severity Definitions
+To view our severity level and support terms refer - <https://d2iq.com/legal/support-terms>
