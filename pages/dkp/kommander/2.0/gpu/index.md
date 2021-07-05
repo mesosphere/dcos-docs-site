@@ -31,7 +31,7 @@ The following components provide Nvidia GPU support on Kommander:
 
 1.  Nvidia GPU with Fermie architecture version 2.1 or greater.
 
-1.  Nvidia driver must be running on each GPU host node. Nvidia driver version `460.73.01` is recommended. FIXME(tillt):<LINK TO AMI IMAGE BUILDER> <LINK TO ON-PREM INSTALLATION>
+1.  Nvidia driver must be running on each GPU host node. Nvidia driver version `460.73.01` is recommended. FIXME(tillt):<LINK TO KONVOY-IMAGE-BUILDER DOCUMENTATION: nvidia> <LINK TO ON-PREM INSTALLATION: overview>
 
 * Verify the Nvidia driver is running on the host
 
