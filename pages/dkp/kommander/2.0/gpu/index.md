@@ -61,6 +61,32 @@ Fri Jun 11 09:05:31 2021
 
 ## Configuration
 
+FIXME(tillt): <LINK TO KONVOY2 CLUSTER.YAML DOCUMENTATION>
+FIXME(tillt): The following is misplaced here - it is Konvoy 2.0 documentation.
+
+### Enable Nvidia GPU on Konvoy
+
+For provisioning a GPU node via Konvoy 2 on AWS, edit the generated cluster configuration YAML. Update the `instanceType` of the worker nodepool towards something that has Nvidia GPUs - i.e.: `p2.xlarge`. Then reference your konvoy-image-builder generated AMI in that configuration as well. In this simplified example, we use AMI ID `ami-0d931a15fdf46f14f` resolving to an AMI named `konvoy-ami-centos-7-nvidia-1.20.6-1624884981` on AWS region `us-west-2`.
+
+```yaml
+[...]
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
+kind: AWSMachineTemplate
+metadata:
+  [...]
+  name: till-aws-cluster-md-0
+  [...]
+spec:
+  template:
+    spec:
+      [...]
+      instanceType: p2.xlarge
+      [...]
+      ami:
+        id: ami-0d931a15fdf46f14f
+```
+
 ### Enable Nvidia GPU on Kommander
 
 To enable Nvidia GPU support on Kommander the first thing to do is adding the label `konvoy.mesosphere.com/gpu-provider=NVIDIA` to each GPU node with installed Nvidia host components.
