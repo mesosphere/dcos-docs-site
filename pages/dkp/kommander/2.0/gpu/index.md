@@ -95,6 +95,8 @@ To enable Nvidia GPU support on Kommander the first thing to do is adding the la
 kubectl label nodes <NODE> konvoy.mesosphere.com/gpu-provider=NVIDIA
 ```
 
+NOTE: The placement labels will get automatically applied in later revisions.
+
 Then when installing Kommander, enable the `nvidia` services. 
 
 ```bash
