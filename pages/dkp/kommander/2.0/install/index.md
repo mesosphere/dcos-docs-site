@@ -53,8 +53,8 @@ If you are installing Kommander on kind, you must know the following:
 
 There are two different scenarios for installing Kommander on Konvoy:
 
-1. Installation on a self-managing cluster (see [the Konvoy documentation for further details][konvoy_self_managing])
-2. Installation on a cluster managed by a different bootstrap cluster
+1. Installation on a [self-managing cluster][konvoy_self_managing]).
+2. Installation on a cluster managed by a [different bootstrap cluster][bootstrap_cluster].
 
 In the first scenario you install Kommander like this:
 
@@ -114,3 +114,5 @@ kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.dat
 ```
 
 [konvoy_self_managing]: ../../../konvoy/2.0/install/advanced/self-managing/
+
+[bootstrap_cluster]: ../../../konvoy/2.0/install/advanced/bootstrap/
