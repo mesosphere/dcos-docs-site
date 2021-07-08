@@ -9,13 +9,13 @@ beta: true
 
 ## Projects overview
 
-Projects enable teams to deploy their configurations and services to clusters in a consistent way. Projects enable central IT or a business unit to share their Kubernetes clusters among several teams. Using Projects, Kommander leverages Kubernetes Cluster Federation (KubeFed) to coordinate the configuration of multiple Kubernetes clusters.
+Projects support the management of configMaps, continuous deployments, secrets, services, quotas, and role-based access control and multi-tenant logging by leveraging federated resources. When a Project is created, Kommander creates a federated namespace that is propagated to the Kubernetes clusters associated with this Project.
 
 Federation in this context means that a common configuration is pushed out from a central location (Kommander) to all Kubernetes clusters, or a pre-defined subset group, under Kommander management. That pre-defined subset group of Kubernetes clusters is called a Project.
 
-When a Project is created, Kommander creates a federated namespace that is propagated to the Kubernetes clusters associated with this Project.
-Kommander allows a user to manually or dynamically, using labels, select the Kubernetes clusters associated with a Project.
-Projects support the management of configmaps, continuous deployments, secrets, services, quotas, and role-based access control by leveraging federated resources.
+Projects enable teams to deploy their configurations and services to clusters in a consistent way. Projects enable central IT or a business unit to share their Kubernetes clusters among several teams. Using Projects, Kommander leverages Kubernetes Cluster Federation (KubeFed) to coordinate the configuration of multiple Kubernetes clusters.
+
+Kommander allows a user to use labels to select, manually or dynamically, the Kubernetes clusters associated with a Project.
 
 ### Project Namespace
 
