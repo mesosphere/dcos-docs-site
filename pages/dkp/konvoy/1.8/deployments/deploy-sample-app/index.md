@@ -15,7 +15,7 @@ This task is **optional** and is only intended to demonstrate the basic steps fo
 If you are configuring the Konvoy cluster for a production deployment, you can use this section to learn the deployment process.
 However, deploying applications on a production cluster typically involves more planning and custom configuration than covered in this example.
 
-This tutorial demonstrates how you can deploy a simple application that connects to the `mongo` service.
+This tutorial shows how to deploy a simple application that connects to the `redis` service.
 The sample application used in this tutorial is a condensed form of the Kubernetes sample [guestbook][guestbook] application.
 
 # Before you begin
@@ -24,11 +24,18 @@ You must have a [Konvoy cluster running][quick-start].
 
 # To deploy the sample application
 
-1. Deploy the MongoDB pods and service by running the following commands:
+1. Deploy the Redis pods and service by running the following commands:
 
    ```bash
-   kubectl apply -f https://k8s.io/examples/application/guestbook/mongo-deployment.yaml
-   kubectl apply -f https://k8s.io/examples/application/guestbook/mongo-service.yaml
+   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-leader-deployment.yaml
+   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-leader-service.yaml
+   ```
+
+1. Deploy Redis followers. The leader deployment created above is a single pod. Adding followers (or replicas) makes it highly available to meet greater traffic demands. You must then setup the guestbook application to communicate with the Redis followers to read the data. To do this, set up another service (the `redis-follower-service.yaml` below). Do this by running the following commands:
+
+   ```bash
+   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-follower-deployment.yaml
+   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-follower-service.yaml
    ```
 
 1. Deploy the web app frontend by running the following command:
@@ -40,7 +47,7 @@ You must have a [Konvoy cluster running][quick-start].
 1. Confirm that there are three frontend replicas running:
 
    ```bash
-   kubectl get pods -l app.kubernetes.io/name=guestbook -l app.kubernetes.io/component=frontend
+   kubectl get pods -l app=guestbook -l tier=frontend
    ```
 
 1. Apply the frontend Service:
@@ -58,15 +65,15 @@ You must have a [Konvoy cluster running][quick-start].
    metadata:
      name: frontend
      labels:
-       app.kubernetes.io/name: guestbook
-       app.kubernetes.io/component: frontend
+       app: guestbook
+       tier: frontend
    spec:
      type: LoadBalancer
      ports:
      - port: 80
      selector:
-       app.kubernetes.io/name: guestbook
-       app.kubernetes.io/component: frontend
+       app: guestbook
+       tier: frontend
    EOF
    ```
 
@@ -85,10 +92,10 @@ You must have a [Konvoy cluster running][quick-start].
 1. Remove the sample application by running the following commands:
 
    ```bash
-   kubectl delete deployment -l app.kubernetes.io/name=mongo
-   kubectl delete service -l app.kubernetes.io/name=mongo
-   kubectl delete deployment -l app.kubernetes.io/name=guestbook
-   kubectl delete service -l app.kubernetes.io/name=guestbook
+   kubectl delete deployment -l app=redis
+   kubectl delete service -l app=redis
+   kubectl delete deployment frontend
+   kubectl delete service frontend
    ```
 
    <p class="message--warning"><strong>WARNING: </strong>
@@ -106,7 +113,7 @@ You must have a [Konvoy cluster running][quick-start].
 
 ## Related Information
 
-- [Example: Deploying PHP Guestbook application with MongoDB][guestbook]
+- [Example: Deploying PHP Guestbook application with Redis][guestbook]
 
 [guestbook]: https://kubernetes.io/docs/tutorials/stateless-application/guestbook/
 [quick-start]: ../../quick-start
