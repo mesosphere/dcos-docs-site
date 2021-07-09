@@ -17,7 +17,6 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
-    "cheerio": "^1.0.0-rc.2",
     "css-loader": "^0.28.4",
     "debug": "^3.1.0",
     "extract-text-webpack-plugin": "^2.1.2",
