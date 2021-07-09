@@ -84,6 +84,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```sh
     kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes \
         -o=jsonpath="{.items[?(@.metadata.annotations.cluster\.x-k8s\.io/machine==\"$NAME_NEW_MACHINE\")].metadata.name}"
+    ```
 
     ```text
     ip-10-0-85-101.us-west-2.compute.internal
