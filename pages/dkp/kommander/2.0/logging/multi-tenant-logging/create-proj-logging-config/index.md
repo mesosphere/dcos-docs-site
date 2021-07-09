@@ -11,13 +11,14 @@ beta: true
 
 Create these resources to direct pod logs to the Project namespace’s Loki server. To create the logging configuration for the Project, follow these steps on each of the attached clusters in the Project:
 
-1.  Set the environment variable needed for this procedure with the command:
+1. Set the environment variables needed for this procedure with the command:
 
    ``` bash
-   export PROJECT_NAMESPACE=<type_your_project_namespace>
+   export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.status.namespaceRef.name}')
+   export PROJECT_NAMESPACE=$(kubectl get project -n ${WORKSPACE_NAMESPACE} <type_your_project_name> -o jsonpath='{.status.namespaceRef.name}')
    ```
 
-1.  Copy this command and execute it from a command line:
+1. Copy this command and execute it from a command line:
 
    ``` bash
    cat <<EOF | kubectl apply -f -
@@ -43,3 +44,7 @@ Create these resources to direct pod logs to the Project namespace’s Loki serv
        configure_kubernetes_labels: true
    EOF
    ```
+
+Then, you can [configure RBAC values for multi-tenant logging][configure-rbac].
+
+[configure-rbac]: ../config-rbac-for-mt-logging

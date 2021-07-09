@@ -23,23 +23,18 @@ To create the RBAC objects needed for Project-level logging, follow these steps 
 
 1. Set the environment variables needed for this procedure.
 
-   If you are following the [previously-created configMap](..//create-configmap) for configuring a Project Grafana instance, you can set PROJECT_GRAFANA_URL to `/dkp/kommander/dashboard/workspace/${WORKSPACE_NAMESPACE}/projects/${PROJECT_NAMESPACE}/logging/grafana`, being sure that the WORKSPACE_NAMESPACE and PROJECT_NAMESPACE environment variables are set.
+   If you are following the [previously-created configMap](../create-configmap) for configuring a Project Grafana instance, you can set `${PROJECT_GRAFANA_PATH}` to `/dkp/workspace/${WORKSPACE_NAMESPACE}/project/${PROJECT_NAMESPACE}/logging/grafana`.
 
    ``` bash
-   export WORKSPACE_NAMESPACE=<type_your_workspace_namespace>
-   export PROJECT_NAMESPACE=<type_your_project_namespace>
-   export PROJECT_GRAFANA_URL=/dkp/kommander/dashboard/workspace/${WORKSPACE_NAMESPACE}/projects/${PROJECT_NAMESPACE}/logging/grafana
+   export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.status.namespaceRef.name}')
+   export PROJECT_NAMESPACE=$(kubectl get project -n ${WORKSPACE_NAMESPACE} <type_your_project_name> -o jsonpath='{.status.namespaceRef.name}')
+   export PROJECT_GRAFANA_PATH=/dkp/workspace/${WORKSPACE_NAMESPACE}/project/${PROJECT_NAMESPACE}/logging/grafana
    ```
 
-1.  Create a file to contain the RBAC objects using this command:
+1. Execute the following command to create the three WorkspaceRoles:
 
    ``` bash
-    cat >logging_rbac.yaml
-  ```
-
-1.  Copy the following code block and add it to the file created in step 1, replacing the variables with values from your environment. Press Ctrl-D to save the file when you have completed your edits.
-
-   ``` bash
+   cat <<EOF | kubectl apply -f -
    apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
    kind: WorkspaceRole
    metadata:
@@ -51,8 +46,8 @@ To create the RBAC objects needed for Project-level logging, follow these steps 
    spec:
      rules:
      - nonResourceURLs:
-       - ${PROJECT_GRAFANA_URL}
-       - ${PROJECT_GRAFANA_URL}/*
+       - ${PROJECT_GRAFANA_PATH}
+       - ${PROJECT_GRAFANA_PATH}/*
        verbs:
        - '*'
    ---
@@ -68,8 +63,8 @@ To create the RBAC objects needed for Project-level logging, follow these steps 
    spec:
      rules:
        - nonResourceURLs:
-           - ${PROJECT_GRAFANA_URL}
-           - ${PROJECT_GRAFANA_URL}/*
+           - ${PROJECT_GRAFANA_PATH}
+           - ${PROJECT_GRAFANA_PATH}/*
          verbs:
            - get
            - head
@@ -88,14 +83,17 @@ To create the RBAC objects needed for Project-level logging, follow these steps 
    spec:
      rules:
        - nonResourceURLs:
-           - ${PROJECT_GRAFANA_URL}
-           - ${PROJECT_GRAFANA_URL}/*
+           - ${PROJECT_GRAFANA_PATH}
+           - ${PROJECT_GRAFANA_PATH}/*
          verbs:
            - get
            - head
+   EOF
    ```
 
-1.  In the Project namespace on the managed cluster(s), copy the command in the code block that follows and execute it from a command line. The command creates a RoleBinding to reflect the usage for the role above..
+1. In the Project namespace on the **attached cluster**, copy the command in the code block that follows and execute it from a command line. The command creates a RoleBinding to reflect the usage for the role above.
+
+   <p class="message--note"><strong>NOTE: </strong>You will want to change the <code>name</code>of the user from `jane` in the following snippet to an actual user for which you want to give access to the Project's Grafana dashboard.</p>
 
    ``` bash
    cat <<EOF | kubectl apply -f -
@@ -117,3 +115,7 @@ To create the RBAC objects needed for Project-level logging, follow these steps 
    ```
 
 In subsequent releases of Kommander, this entire process should be automated so that a user can configure the RoleBindings with ease.
+
+Then, you can [verify the project logging stack installation for multi-tenant logging][verify-project-logstack].
+
+[verify-project-logstack]: ../verify-proj-logstack-install
