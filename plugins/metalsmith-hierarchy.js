@@ -11,8 +11,10 @@ const findLongestExisting = (path, fallback) => {
   return paths[path] ? path : findLongestExisting(stripLast(path));
 };
 
+// We added the `.default` because CI broke after a node docker image update
+// We are not sure what the actual reason is 100%, but it fixes the red CI
 const firstParagraph = (file) =>
-  $("p", md.render(file.contents.toString("utf-8"))).first();
+  $.default("p", md.render(file.contents.toString("utf-8"))).first();
 
 /**
  * This plugin puts all files into a tree structure and adds some other variables:
