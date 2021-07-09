@@ -1,5 +1,3 @@
-const $ = require("cheerio");
-const md = require("markdown-it")({ typographer: true, html: true });
 const { sortPages } = require("../core/utils");
 
 const withMenus = [];
@@ -11,10 +9,14 @@ const findLongestExisting = (path, fallback) => {
   return paths[path] ? path : findLongestExisting(stripLast(path));
 };
 
-// We added the `.default` because CI broke after a node docker image update
-// We are not sure what the actual reason is 100%, but it fixes the red CI
-const firstParagraph = (file) =>
-  $.default("p", md.render(file.contents.toString("utf-8"))).first();
+const firstParagraph = (file) => {
+  const contents = file.contents
+    .toString("utf-8")
+    .split(/\r?\n/g)
+    .filter((n) => n);
+
+  return contents[0] || "";
+};
 
 /**
  * This plugin puts all files into a tree structure and adds some other variables:
@@ -34,7 +36,7 @@ module.exports = (files, metalsmith, done) => {
       children: [],
       id: filePath.split("/").slice(-2)[0],
       path: "/" + filePath.replace(/index.md$/, "").replace(/\/$/, ""),
-      shortDesc: file.excerpt || firstParagraph(file).text(),
+      shortDesc: file.excerpt || firstParagraph(file),
     });
 
     file.parent = files[filePath.replace(/[^/]+\/index.md$/, "index.md")];
