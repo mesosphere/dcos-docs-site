@@ -41,6 +41,5 @@ Before starting an air-gapped Konvoy installation, verify that you have:
     ```
 
 [install_docker]: https://docs.docker.com/get-docker/
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
-[capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws

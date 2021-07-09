@@ -6,13 +6,13 @@ menuWeight: 28
 excerpt: Configure autoscaler options
 enterprise: false
 ---
-## Cluster-Autoscaler
+## Cluster Autoscaler
 
 [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/clusterapi) provides the ability to automatically scale-up or scale-down the number of worker nodes in a cluster, based on the number of pending pods to be scheduled. Running the Cluster Autoscaler is optional.
 
 Unlike [Horizontal-Pod Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-fast-is-hpa-when-combined-with-ca), Cluster Autoscaler does not depend on any Metrics server and does not need Prometheus or any other metrics source.
 
-The Cluster Autoscaler looks at the following annotations to determine its scale-up and scale-down ranges:
+The Cluster Autoscaler looks at the following annotations on a MachineDeployment to determine its scale-up and scale-down ranges:
 
 ```sh
 cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size
@@ -30,9 +30,9 @@ For more information about how Cluster Autoscaler works, see these documents:
 
 Complete the following items before continuing with the Cluster Autoscaler:
 
-- [Bootstrap Cluster Lifecycle](bootstraplifecycle)
-- [Create a new Kubernetes Cluster](createnewcluster)
-- [Self Managing Clusters](selfmanagingclusters)
+- [Bootstrap Cluster Lifecycle][bootstraplifecycle]
+- [Create a new Kubernetes Cluster][createnewcluster]
+- [Self Managing Clusters][selfmanagingclusters]
 
 ### Run Cluster Autoscaler
 
@@ -43,7 +43,7 @@ kubectl annotate machinedeployment ${CLUSTER_NAME}-md-0 cluster.x-k8s.io/cluster
 kubectl annotate machinedeployment ${CLUSTER_NAME}-md-0 cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size=6
 ```
 
-The Cluster Autoscaler controller runs on the workload cluster. Upon creation of the workload cluster, this controller does not have all the objects required to function correctly until after a `konvoy move` is issued from the management cluster.
+The Cluster Autoscaler controller runs on the workload cluster. Upon creation of the workload cluster, this controller does not have all the objects required to function correctly until after a `konvoy move` is issued from the bootstrap cluster.
 
 Run the following steps to enable Cluster Autoscaler:
 
