@@ -6,8 +6,8 @@ menuWeight: 10
 excerpt: An overview of multi-tenant logging in Kommander
 beta: true
 ---
+
 <!-- markdownlint-disable MD030 -->
-<p class="message--important"><strong>IMPORTANT: </strong>You must perform the <a href="../enable-logging/>workspace-level logging procedures</a> as a prerequisite to enable multi-tenant logging at the Project level as well.</p>
 
 Multi-tenant logging in Kommander is built on the DKP Logging architecture. Multi-tenant logging uses the same components as the base logging architecture:
 
@@ -16,6 +16,8 @@ Multi-tenant logging in Kommander is built on the DKP Logging architecture. Mult
 -  Grafana Loki
 
 -  Grafana
+
+<p class="message--important"><strong>IMPORTANT: </strong>You must perform the <a href="../enable-logging">Workspace-level logging procedures</a> as a prerequisite to enable multi-tenant logging at the Project level as well.</p>
 
 Access to log data is done at the namespace level, through the use of Projects within Kommander as shown in the diagram:
 

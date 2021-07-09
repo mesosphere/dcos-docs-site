@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Create AppDeployment for a Workspace
 title: Create AppDeployments to Enable Workspace Logging
-menuWeight: 5
+menuWeight: 10
 excerpt: How to create AppDeployments to enable Workspace-level logging
 beta: true
 ---
@@ -13,13 +13,13 @@ Workspace logging AppDeployments enable and deploy the logging stack to all atta
 
 To enable logging in DKP, follow these steps on the management cluster:
 
-1.  Set the environment variable needed for this procedure with the command:
+1. Set the `WORKSPACE_NAMESPACE` environment variable needed for this procedure using the command to get the name of the workspace's namespace:
 
    ``` bash
-   export WORKSPACE_NAMESPACE=<type_your_workspace_namespace>
+   export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.status.namespaceRef.name}')
    ```
 
-1.  Copy this command to create a cert-manager AppDeployment, and execute it from a command line:
+1. Copy this command to create a cert-manager AppDeployment, and execute it from a command line:
 
    <p class="message--note"><strong>NOTE: </strong>Creating the cert-manager AppDeployment on a self-managed Konvoy cluster is unnecessary and will not work. If you are working with a self-managed Konvoy cluster, skip this step.</p>
 
@@ -36,7 +36,7 @@ To enable logging in DKP, follow these steps on the management cluster:
    EOF
    ```
 
-1.  Copy this command to create the Traefik and traefik-forward-auth AppDeployments, and execute it from a command line:
+1. Copy this command to create the Traefik AppDeployment, and execute it from a command line:
 
    ``` bash
    cat <<EOF | kubectl apply -f -
@@ -48,19 +48,10 @@ To enable logging in DKP, follow these steps on the management cluster:
    spec:
      appRef:
        name: traefik-9.19.1
-   ---
-   apiVersion: apps.kommander.d2iq.io/v1alpha1
-   kind: AppDeployment
-   metadata:
-     name: traefik-forward-auth
-     namespace: ${WORKSPACE_NAMESPACE}
-   spec:
-     appRef:
-       name: traefik-forward-auth-0.2.14
    EOF
    ```
 
-1.  Copy this command to create the Logging-operator, Loki-distributed, and Grafana-logging AppDeployments, and execute it from a command line:
+1. Copy this command to create the Logging-operator, Loki-distributed, and Grafana-logging AppDeployments, and execute it from a command line:
 
    ``` bash
    cat <<EOF | kubectl apply -f -
@@ -94,3 +85,7 @@ To enable logging in DKP, follow these steps on the management cluster:
        name: workspace-grafana-overrides-cm
    EOF
    ```
+
+Then, you can [verify the cluster logging stack installation][verify-logging-install].
+
+[verify-logging-install]: ../verify-cluster-logstack

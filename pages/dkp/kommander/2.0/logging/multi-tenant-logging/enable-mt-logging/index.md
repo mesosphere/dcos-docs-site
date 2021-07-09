@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Enable Multi-tenant Logging
 title: Enable Multi-tenant Logging
-menuWeight: 10
+menuWeight: 1
 excerpt: How to enable Multi-tenant Logging for use with Kommander
 beta: true
 ---
@@ -25,3 +25,7 @@ The steps required to enable multi-tenant logging include:
 1. Configure RBAC access to Grafana URL
 1. Verify Project logging stack installation
 1. View a Project's log data
+
+Start, by [creating a project][create-project-logging].
+
+[create-project-logging]: ../create-project-for-logging
