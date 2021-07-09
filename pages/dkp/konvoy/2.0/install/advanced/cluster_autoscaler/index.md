@@ -68,27 +68,27 @@ Run the following steps to enable Cluster Autoscaler:
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-    name: busybox-deployment
-    labels:
+      name: busybox-deployment
+      labels:
         app: busybox
     spec:
-    replicas: 600
-    selector:
+      replicas: 600
+      selector:
         matchLabels:
-        app: busybox
-    template:
+          app: busybox
+      template:
         metadata:
-        labels:
+          labels:
             app: busybox
         spec:
-        containers:
-        - name: busybox
+          containers:
+          - name: busybox
             image: busybox:latest
             command:
             - sleep
             - "3600"
             imagePullPolicy: IfNotPresent
-        restartPolicy: Always
+          restartPolicy: Always
     EOF
     ```
 
@@ -96,7 +96,7 @@ Run the following steps to enable Cluster Autoscaler:
 1.  Scale down the number of replicas for `busybox-deployment`.
 
     ```sh
-    kubectl scale --replicas=30 deployment/busybox-deployment
+    kubectl --kubeconfig ${CLUSTER_NAME}.conf scale --replicas=30 deployment/busybox-deployment
     ```
 
 1.  Cluster Autoscaler starts to scale down the number of Worker Nodes after the default timeout of 10 minutes.

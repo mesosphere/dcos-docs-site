@@ -138,6 +138,6 @@ By default `konvoy-image` will name the AMI in such a way that `konvoy` can disc
 konvoy create cluster aws --cluster-name=$(whoami)-aws-cluster --ami-format "konvoy-ami-{{.BaseOS}}-?{{.K8sVersion}}-*" --ami-base-os centos-7 --ami-owner 123456789012
 ```
 
-## Air Gapped
+<!--- ## Air Gapped
 
-TBD (for air gapped a larger set of `extra_images` are required.)
+TBD (for air gapped a larger set of `extra_images` are required.) -->

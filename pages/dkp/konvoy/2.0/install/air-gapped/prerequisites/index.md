@@ -24,21 +24,21 @@ Before starting an air-gapped Konvoy installation, verify that you have:
 
 1.  Export the AWS region where you want to deploy the cluster:
 
-   ```sh
-   export AWS_REGION=us-west-2
-   ```
+    ```sh
+    export AWS_REGION=us-west-2
+    ```
 
 1.  Export the AWS profile with the credentials you want to use to create the Kubernetes cluster:
 
-    ```sh
-    export AWS_PROFILE=<profile>
-    ```
+     ```sh
+     export AWS_PROFILE=<profile>
+     ```
 
 1.  Refresh the credentials used by the AWS provider at any time, using the command:
 
-    ```sh
-    konvoy update bootstrap credentials aws
-    ```
+     ```sh
+     konvoy update bootstrap credentials aws
+     ```
 
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl

@@ -11,6 +11,13 @@ To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) contr
 
 Before you begin, complete the steps in [Prerequisites][prereqs].
 
+You can run Konvoy CLI commands in the working directory where the `konvoy` binary and related files are by using `./konvoy`.
+For example, instead of using `konvoy create bootstrap` in the below instructions, use `./konvoy` for all the CLI commands, like:
+
+   ```sh
+   ./konvoy create bootstrap
+   ```
+
 ## Bootstrap Cluster Lifecycle Services
 
 1.  Create a bootstrap cluster:
@@ -83,21 +90,21 @@ Before you begin, complete the steps in [Prerequisites][prereqs].
 
     A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.
 
-    For example, this is the `aws-ebs-csi` ClusterResourceSet:
+    For example, this is the `aws-ebs-csi` ClusterResourceSet, which is now deployed by Konvoy from the above actions:
 
     ```yaml
     kind: ClusterResourceSet
     metadata:
-        name: aws-ebs-csi
+      name: aws-ebs-csi
     spec:
-        clusterSelector:
-          matchLabels:
-            konvoy.d2iq.io/csi: aws-ebs
-            konvoy.d2iq.io/provider: aws
-        resources:
-        - kind: ConfigMap
-          name: aws-ebs-csi
-        strategy: ApplyOnce
+      clusterSelector:
+        matchLabels:
+          konvoy.d2iq.io/csi: aws-ebs
+          konvoy.d2iq.io/provider: aws
+      resources:
+      - kind: ConfigMap
+        name: aws-ebs-csi
+      strategy: ApplyOnce
     ```
 
     Konvoy defines the selectors, and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_caep].
