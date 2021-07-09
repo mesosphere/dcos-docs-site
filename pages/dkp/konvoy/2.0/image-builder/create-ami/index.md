@@ -14,14 +14,20 @@ This procedure describes how to use the Konvoy Image Builder to create [Cluster 
 
 You need certain software configurations and settings before you start this procedure. This procedure requires the following items and configurations:
 
-- The latest bundle release of [Konvoy Image Bulder](https://github.com/mesosphere/konvoy-image-builder/releases).
+- The latest [Konvoy Image Builder](https://github.com/mesosphere/konvoy-image-builder/releases) bundle (prefixed with `konvoy-image-bundle`) for your OS. Do not use the release prefixed with `konvoy-image-builder`.
 - A working `docker` setup
 
 Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS` folder. The bundled version of `konvoy-image` contains an embedded `docker` image that contains all the requirements for building.
 
 <p class="message--note"><strong>NOTE: </strong> Along with the `konvoy-image` binary, all supporting folders are also extracted. When run, `konvoy-image` will bind mount the current working directory (`${PWD}`) into the container to be used.</p>
 
-- Proper [AWS access](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html) for your environment.
+-   Set environment variables for [AWS access](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html). The following variables must be set using your credentials:
+
+    ```bash
+    export AWS_ACCESS_KEY_ID
+    export AWS_SECRET_ACCESS_KEY
+    export AWS_DEFAULT_REGION
+    ```
 
 ## Override files
 
