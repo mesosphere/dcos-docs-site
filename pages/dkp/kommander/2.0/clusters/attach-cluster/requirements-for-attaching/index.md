@@ -8,23 +8,27 @@ excerpt: Requirements for attaching an existing cluster to Kommander
 
 ## Basic requirements
 
-To attach an existing cluster to Kommander, the Kommander management cluster must be able to reach the services and the api-server of the target cluster.
+To attach an existing cluster to Kommander, the Kommander management cluster must be able to reach the services and the `api-server` of the target cluster.
 
-You can attach existing clusters with or without networking restrictions to Kommander. These networking restrictions refer to clusters that are located in a DMZ, behind a proxy server or a firewall, or that have additional requirements for access.
+<!--- You can attach existing clusters with or without networking restrictions to Kommander. These networking restrictions refer to clusters that are located in a DMZ, behind a proxy server or a firewall, or that have additional requirements for access. -->
 
 <p class="message--note"><strong>NOTE: </strong>Kommander does not support attachment of K3s clusters.</p>
 
-For attaching existing clusters without networking restrictions the requirements depend on which Kommander version you are using. Each version of Kommander supports a specific range of Kubernetes versions. You must ensure that the target cluster is running a compatible version.
+For attaching existing clusters without networking restrictions, the requirements depend on which Kommander version you are using. Each version of Kommander supports a specific range of Kubernetes versions. You must ensure that the target cluster is running a compatible version.
 
-For example, Kommander 1.4 supports Kubernetes versions between 1.18.0 and 1.20.x. Any cluster you want to attach using Kommander 1.4 must be running a Kubernetes version in that range.
+For example, Kommander 2.0 supports Kubernetes versions between 1.19.0 and 1.21.x. Any cluster you want to attach using Kommander 2.0 must be running a Kubernetes version in that range.
 
-For attaching clusters with networking restrictions the Kubernetes version of the cluster you want to attach must be greater than or equal to version 1.19.x. For these types of clusters, the Kommander cluster uses a tunnel to access the clusters you plan to attach. Any managed service you want to expose in the Kommander cluster requires the creation of a reverse proxy, or the use of HTTPS_PROXY environment variables that point to the Kommander tunnel proxy server.
+<!--- For attaching clusters with networking restrictions the Kubernetes version of the cluster you want to attach must be greater than or equal to version 1.19.x. For these types of clusters, the Kommander cluster uses a tunnel to access the clusters you plan to attach. Any managed service you want to expose in the Kommander cluster requires the creation of a reverse proxy, or the use of HTTPS_PROXY environment variables that point to the Kommander tunnel proxy server.
 
-When working with clusters that have networking restrictions, you will need to apply some YAML manifests on the existing cluster, so that Kommander can collect a resulting `kubeconfig` file used to establish the tunnel. When you use the Kommander UI, this is handled for you. If you choose to use the manual [CLI attachment process][manual_cli_attachment], you will apply those manifests as part of the procedure.
+When working with clusters that have networking restrictions, you will need to apply some YAML manifests on the existing cluster, so that Kommander can collect a resulting `kubeconfig` file used to establish the tunnel. When you use the Kommander UI, this is handled for you. If you choose to use the manual [CLI attachment process][manual_cli_attachment], you will apply those manifests as part of the procedure. -->
 
 ### Projects and Workspaces
 
 Before you attach clusters, you need to create one or more Workspaces, and recommend that you also create Projects within your Workspaces. [Workspaces][workspaces] give you a logical way to represent your teams and specific configurations. [Projects][projects] let you define one or more clusters as a group to which Kommander pushes a common configuration. Grouping your existing clusters in Kommander projects and workspaces makes managing their platform services and resources easier and supports monitoring and logging.
+
+<p class="message--important"><strong>IMPORTANT: </strong>The Default Workspace is currently reserved for the host management cluster.
+All other clusters must be attached to a different workspace.</p>
+
 <!--
 ### Platform service requirements
 

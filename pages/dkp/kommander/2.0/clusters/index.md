@@ -16,7 +16,7 @@ There are several types of clusters that display in the Clusters tab. The cluste
 The type values include:
 
 - **Attached**: An Attached cluster is one that was not created with Kommander. You cannot manage an Attached cluster's lifecycle, but you can monitor it.
-- **Managed**: A Managed cluster is a Konvoy cluster that was created with Kommander. You can use Kommander to manage a Managed cluster's lifecycle.
+<!--- - **Managed**: A Managed cluster is a Konvoy cluster that was created with Kommander. You can use Kommander to manage a Managed cluster's lifecycle. **Note:** This is not yet available in Kommander v2.0. -->
 - **Management**: This is the Konvoy cluster that hosts Kommander.
 
 ## Statuses

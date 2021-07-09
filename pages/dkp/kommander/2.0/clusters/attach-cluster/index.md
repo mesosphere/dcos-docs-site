@@ -9,9 +9,11 @@ excerpt: A guide for attaching an existing Kubernetes cluster using kubeconfig
 ## Attach Kubernetes Cluster
 
 You can attach an existing cluster directly to Kommander. At the time of attachment, certain namespaces are created on the cluster, and workspace platform services are deployed automatically into the newly-created namespaces.
-<!--
+
+<!---
 Review the [workspace platform service resource requirements][platform_service_req] to ensure the attached cluster has sufficient resources. For more information on platform services and customizing them, see [workspace platform services][workspace_platform_services].
 -->
+
 If the cluster you want to attach was created using Amazon EKS, Azure AKS, or Google GKE, create a service account as described below. If you are attaching an Amazon EKS cluster to Kommander, [detailed instructions are available][attach_eks_cluster].
 
 ### Before you begin (optional)
@@ -95,15 +97,23 @@ kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespa
 
 Using the **Add Cluster** option, you can attach an existing Kubernetes or Konvoy cluster directly to Kommander. This enables you to access the multi-cluster management and monitoring benefits that Kommander provides, while keeping your existing cluster on its current provider and infrastructure.
 
-1.  Select the **Attach Cluster** option to display the **Connection Information** dialog box. This dialog box accepts a kubeconfig file that you can paste, or upload, into the field.
+1.  From the Clusters page, select **Add Cluster**.
 
-1.  Select the intended context, or change the display name provided with the config in the **Context** select list. You can also add labels to classify your cluster<!-- and select the platform services to install-->.
+1.  Select the **Attach Cluster** option.
 
-<!--
+1.  Select the **No additional networking restrictions** card to display the **Cluster Configuration** dialog box. This dialog box accepts a kubeconfig file that you can paste, or upload, into the field.
+
+1.  Select the **Workspace** you want to contain the cluster, and select the intended context, or change the display name provided with the config in the **Context** select list. You can also add labels to classify your cluster.
+
+1.  Select **Submit** to attach your cluster.
+
+<!---
 Platform services extend the functionality of Kubernetes and allow you to deploy ready-to-use logging and monitoring stacks by federating platform services when attaching a cluster to Kommander. For more information, refer to [workspace platform services][workspace_platform_services].
 -->
+
 ![Add Cluster Connect](/dkp/kommander/2.0/img/add-cluster-connect.png)
 
+<!---
 ## Accessing your managed clusters using your Kommander administrator credentials
 
 After the cluster has attached successfully, and you can access the UI, you can retrieve a custom kubeconfig.
@@ -113,9 +123,10 @@ After the cluster has attached successfully, and you can access the UI, you can 
 1.  Select the attached cluster name, and follow the instructions to assemble a kubeconfig file for accessing its Kubernetes API.
 
 You can also retrieve a custom kubeconfig by visiting the `/token` endpoint on the Kommander cluster domain. Selecting the attached cluster name displays the instructions to assemble a kubeconfig for accessing its Kubernetes API.
+-->
 
-[clusteradmin]: https://kubernetes.io/docs/concepts/cluster-administration/cluster-administration-overview/
-[kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[clusteradmin]: https://kubernetes.io/docs/concepts/cluster-administration/
+[kubectl]: https://kubernetes.io/docs/tasks/tools/
 <!--[workspace_platform_services]: /dkp/kommander/2.0/workspaces/workspace-platform-services/
 [platform_service_req]: /dkp/kommander/2.0/workspaces/workspace-platform-services/platform-service-requirements/-->
 [attach_eks_cluster]: /dkp/kommander/2.0/clusters/attach-cluster/attach-eks-cluster/

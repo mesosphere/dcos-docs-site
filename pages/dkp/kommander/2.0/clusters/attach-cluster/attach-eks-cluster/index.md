@@ -118,9 +118,11 @@ Now that you have kubeconfig, go to the Kommander UI and follow these steps belo
 
 1.  Select the **Add Cluster** button in your Kommander window.
 
-1.  Select the **Attach Cluster** button. The **Connection Information** window displays.
+1.  Select the **Attach Cluster** button.
 
-1.  Paste the contents of your clipboard into the **Connection Information** Kubeconfig File text box.
+1.  Select the **No additional networking restrictions** card to display the **Cluster Configuration** dialog box. This dialog box accepts a kubeconfig file that you can paste, or upload, into the field.
+
+1.  Paste the contents of your clipboard (or upload the file you created) into the Kubeconfig File text box.
 
 1.  Assign a name and add any desired labels for the cluster.
 
