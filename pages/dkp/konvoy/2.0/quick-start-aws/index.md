@@ -14,7 +14,7 @@ This guide provides instructions for getting started with Konvoy to get your Kub
 
 Before starting the Konvoy installation, verify that you have:
 
--   A Linux or MacOS machine with a supported version of the operating system.
+-   An AMD64 based Linux or MacOS machine with a supported version of the operating system.
 -   The `konvoy` binary on this machine.
 -   [Docker][install_docker] version 18.09.2 or later.
 -   [kubectl][install_kubectl] for interacting with the running cluster.

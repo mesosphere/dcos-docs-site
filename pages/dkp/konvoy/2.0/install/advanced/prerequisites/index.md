@@ -11,7 +11,7 @@ enterprise: false
 
 Before using Konvoy, verify that you have:
 
-- A Linux or MacOS machine.
+- An AMD64 based Linux or MacOS machine.
 - The `konvoy` binary for Linux, or MacOS.
 - [Docker][install_docker] version 18.09.2 or later installed.
 - [kubectl][install_kubectl] for interacting with the running cluster.
