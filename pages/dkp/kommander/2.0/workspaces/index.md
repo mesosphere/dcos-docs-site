@@ -23,7 +23,9 @@ The UI is designed to be accessible for different roles at different levels:
 
 ### Default Workspace
 
-To get started immediately, you can use the default workspace deployed in Kommander. Your workspace delegation can be done at a later time.
+<!--To get started immediately, you can use the default workspace deployed in Kommander. Your workspace delegation can be done at a later time.-->
+
+The Default Workspace is currently reserved for the host management cluster. All other clusters must be attached to a different workspace.
 
 ### Create a Workspace
 
