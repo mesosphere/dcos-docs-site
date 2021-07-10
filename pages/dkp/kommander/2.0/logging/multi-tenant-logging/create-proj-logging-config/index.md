@@ -45,6 +45,6 @@ Create these resources to direct pod logs to the Project namespace’s Loki serv
    EOF
    ```
 
-Then, you can [configure RBAC values for multi-tenant logging][configure-rbac].
+Then, you can [verify the project logging stack installation for multi-tenant logging][verify-project-logstack].
 
-[configure-rbac]: ../config-rbac-for-mt-logging
+[verify-project-logstack]: ../verify-proj-logstack-install
