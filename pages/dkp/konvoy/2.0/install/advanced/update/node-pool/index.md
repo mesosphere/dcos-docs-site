@@ -92,7 +92,7 @@ If you do not want to update the Kubernetes version, go to the [next section](#p
     spec:
       template:
         spec:
-          version: v${KUBERNETES_VERSION}
+          version: ${KUBERNETES_VERSION}
     EOF
     ```
 

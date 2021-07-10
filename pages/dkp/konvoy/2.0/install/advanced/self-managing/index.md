@@ -46,7 +46,7 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    INFO[2021-06-07T14:32:26-07:00] Running pivot command                         fromClusterKubeconfig= fromClusterKubeconfigContext= src="move/move.go:87" toClusterKubeconfig=aws-example.conf toClusterKubeconfigContext=
+    INFO[2021-06-07T14:32:26-07:00] Running pivot command                         fromClusterKubeconfig= fromClusterContext= src="move/move.go:87" toClusterKubeconfig=aws-example.conf toClusterContext=
     Pivot operation complete.
     You may use the new cluster context by running 'export KUBECONFIG=aws-example.conf'
     ```

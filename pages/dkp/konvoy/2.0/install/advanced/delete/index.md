@@ -47,13 +47,13 @@ If you did not make your workload cluster self-managing, as described in [Make N
     ```sh
     konvoy move \
         --from-kubeconfig ${CLUSTER_NAME}.conf \
-        --from-kubeconfig-context konvoy-${CLUSTER_NAME}-admin@konvoy-${CLUSTER_NAME} \
+        --from-context konvoy-${CLUSTER_NAME}-admin@konvoy-${CLUSTER_NAME} \
         --to-kubeconfig $HOME/.kube/config \
-        --to-kubeconfig-context kind-konvoy-capi-bootstrapper
+        --to-context kind-konvoy-capi-bootstrapper
     ```
 
     ```sh
-    INFO[2021-06-09T11:47:11-07:00] Running pivot command                         fromClusterKubeconfig=aws-example.conf fromClusterKubeconfigContext= src="move/move.go:83" toClusterKubeconfig=/home/clusteradmin/.kube/config toClusterKubeconfigContext=
+    INFO[2021-06-09T11:47:11-07:00] Running pivot command                         fromClusterKubeconfig=aws-example.conf fromClusterContext= src="move/move.go:83" toClusterKubeconfig=/home/clusteradmin/.kube/config toClusterContext=
     INFO[2021-06-09T11:47:36-07:00] Pivot operation complete.                     src="move/move.go:108"
     INFO[2021-06-09T11:47:36-07:00] You may use the new cluster context by running 'export KUBECONFIG=/home/clusteradmin/.kube/config'  src="move/move.go:109"
     ```
