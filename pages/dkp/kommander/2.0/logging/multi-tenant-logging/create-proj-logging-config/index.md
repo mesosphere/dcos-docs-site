@@ -9,7 +9,9 @@ beta: true
 
 <!-- markdownlint-disable MD030 -->
 
-Create these resources to direct pod logs to the Project namespace’s Loki server. To create the logging configuration for the Project, follow these steps on each of the attached clusters in the Project:
+Create these resources to direct pod logs to the Project namespace’s Loki server. To create the logging configuration for the Project, follow these steps **on each of the attached clusters in the Project**:
+
+1. Ensure to switch to the correct [context or Kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) of the attached cluster for the following kubectl commands.
 
 1. Set the environment variables needed for this procedure with the command:
 

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Logging
 title: Logging Overview
-menuWeight: 5
+menuWeight: 60
 excerpt: An overview of the DKP logging architecture in Kommander
 beta: true
 ---

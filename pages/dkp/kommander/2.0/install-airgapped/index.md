@@ -2,10 +2,11 @@
 layout: layout.pug
 navigationTitle: Install Kommander air gapped
 title: Install Kommander air gapped
-menuWeight: 35
+menuWeight: 5
 excerpt: Install Kommander in an air gapped environment
 beta: true
 enterprise: false
+draft: true
 ---
 
 <!-- markdownlint-disable MD018 MD025 MD007 MD030 MD032-->

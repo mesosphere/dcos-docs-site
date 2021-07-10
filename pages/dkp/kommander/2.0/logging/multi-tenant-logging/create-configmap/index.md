@@ -11,7 +11,7 @@ beta: true
 
 Grafana and Loki both have their own configMaps for configuration. To enable logging properly, we need to override those configMaps to override the Grafana URL, so that it points instead to `/dkp/workspace/${WORKSPACE_NAMESPACE}/project/${PROJECT_NAMESPACE}/logging/grafana`.
 
-We also want to override the default configuration so that the Logging facility sends logs to a specific Project namespace. To create the necessary configMaps for Project-level logging, follow these steps on the management cluster:
+We also want to override the default configuration so that the Logging facility sends logs to a specific Project namespace. To create the necessary configMaps for Project-level logging, follow these steps **on the management cluster**:
 
 1. Set the environment variables needed for this procedure with the command:
 

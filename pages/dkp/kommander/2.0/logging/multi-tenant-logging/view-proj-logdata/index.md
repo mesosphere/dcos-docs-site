@@ -11,7 +11,9 @@ beta: true
 
 You can only view the log data for a Project to which you have been granted access.
 
-Run the following commands on the attached cluster to access the Project's Grafana UI:
+Run the following commands **on the attached cluster** to access the Project's Grafana UI:
+
+1. Ensure to switch to the correct [context or Kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) of the attached cluster for the following kubectl commands.
 
 1. Set the environment variables needed for the following procedure with the command:
 
