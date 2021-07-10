@@ -22,6 +22,28 @@ For example, Kommander 2.0 supports Kubernetes versions between 1.19.0 and 1.21.
 
 When working with clusters that have networking restrictions, you will need to apply some YAML manifests on the existing cluster, so that Kommander can collect a resulting `kubeconfig` file used to establish the tunnel. When you use the Kommander UI, this is handled for you. If you choose to use the manual [CLI attachment process][manual_cli_attachment], you will apply those manifests as part of the procedure. -->
 
+### Default StorageClass
+
+To deploy many of the services on the attached cluster, there must be a default `StorageClass` configured. Run the following command on the attached cluster:
+
+```sh
+kubectl get sc
+```
+
+The output should look similar to this. Note the `(default)` after the name:
+
+```sh
+NAME               PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+ebs-sc (default)   ebs.csi.aws.com   Delete          WaitForFirstConsumer   false                  41s
+```
+
+If the `StorageClass` is not set as default, add the following annotation to the `StorageClass` manifest:
+
+```sh
+annotations:
+  storageclass.kubernetes.io/is-default-class: "true"
+```
+
 ### Projects and Workspaces
 
 Before you attach clusters, you need to create one or more Workspaces, and recommend that you also create Projects within your Workspaces. [Workspaces][workspaces] give you a logical way to represent your teams and specific configurations. [Projects][projects] let you define one or more clusters as a group to which Kommander pushes a common configuration. Grouping your existing clusters in Kommander projects and workspaces makes managing their platform services and resources easier and supports monitoring and logging.

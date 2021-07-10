@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Deploy applications using GitOps
 title: Deploy applications using GitOps
-menuWeight: 9
+menuWeight: 50
 excerpt: How to deploy a new GitRepository to drive custom GitOps
 beta: true
 ---

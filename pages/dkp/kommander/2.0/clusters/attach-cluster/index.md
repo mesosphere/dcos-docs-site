@@ -97,6 +97,9 @@ kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespa
 
 Using the **Add Cluster** option, you can attach an existing Kubernetes or Konvoy cluster directly to Kommander. This enables you to access the multi-cluster management and monitoring benefits that Kommander provides, while keeping your existing cluster on its current provider and infrastructure.
 
+<p class="message--important"><strong>IMPORTANT: </strong>The Default Workspace is currently reserved for the host management cluster.
+All other clusters must be attached to a different workspace.</p>
+
 1.  From the Clusters page, select **Add Cluster**.
 
 1.  Select the **Attach Cluster** option.

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Workspaces
 title: Workspaces
-menuWeight: 8
+menuWeight: 20
 excerpt: Allow teams to manage their own clusters using workspaces
 beta: true
 ---

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Projects
 title: Projects
-menuWeight: 8
+menuWeight: 30
 excerpt: Multi-cluster Configuration Management
 beta: true
 ---

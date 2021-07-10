@@ -9,7 +9,9 @@ beta: true
 
 <!-- markdownlint-disable MD030 -->
 
-You must wait for the Project's logging stack `HelmReleases` to deploy before attempting to configure or use the Project-level logging features, including multi-tenancy. You can check the deployment status using this command on the attached clusters:
+You must wait for the Project's logging stack `HelmReleases` to deploy before attempting to configure or use the Project-level logging features, including multi-tenancy. You can check the deployment status using this command **on the attached clusters**:
+
+1. Ensure to switch to the correct [context or Kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) of the attached cluster for the following kubectl commands.
 
 1. Set the environment variables needed for this procedure with the command:
 

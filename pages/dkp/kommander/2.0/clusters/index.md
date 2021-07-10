@@ -3,7 +3,7 @@ layout: layout.pug
 beta: true
 navigationTitle: Managing Clusters
 title: Managing Clusters
-menuWeight: 7
+menuWeight: 40
 excerpt: View clusters created with Kommander or any connected Kubernetes cluster
 ---
 

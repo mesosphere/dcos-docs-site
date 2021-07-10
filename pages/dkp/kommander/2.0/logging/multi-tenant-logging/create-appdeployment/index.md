@@ -11,7 +11,7 @@ beta: true
 
 You must create AppDeployments in the Project namespace to enable and deploy the logging stack to all clusters within a Project.
 
-To create the AppDeployment needed for Project-level logging, follow these steps on the management cluster:
+To create the AppDeployment needed for Project-level logging, follow these steps **on the management cluster**:
 
 1. Set the environment variables needed for this procedure with the command:
 

@@ -17,7 +17,7 @@ Logging is disabled by default. You will need to enable logging features explici
 
 -  You must be a cluster administrator with permissions to configure cluster-level platform services.
 
--  Each federated cluster requires a default storage class for successful Loki deployment
+-  Each attached cluster requires a [default storage class](../../clusters/attach-cluster/requirements-for-attaching/#default-storageclass) for successful Loki deployment.
 
 ## Enable Workspace-level logging
 
@@ -31,4 +31,4 @@ The steps required to enable multi-tenant logging include:
 
 1.  View a cluster's log data
 
-You can also configure Kommander to enable [multi-tenant logging](../../logging/multi-tenant-logging).
+You can also configure Kommander to enable [multi-tenant logging](../multi-tenant-logging).

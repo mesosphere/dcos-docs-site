@@ -94,10 +94,12 @@ The following services and service components have been upgraded to the listed v
 
 ### Known Issues
 
-- The Traefik dashboard is currently not exposed. To access the dashboard, port-forward the service, replacing `<type_workspace_name>` with the name of the workspace that Traefik is deployed to:
+- The Traefik dashboard is currently not exposed. To access the dashboard, port-forward the service with the following command.
+
+  On the management cluster, replace `<type_your_workspace_name>` with `kommander`, otherwise for attached clusters replace it with the name of the workspace that Traefik is deployed to:
 
   ```bash
-  export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_workspace_name> -o jsonpath='{.spec.status.namespaceRef.name}')
+  export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.spec.status.namespaceRef.name}')
   kubectl port-forward -n ${WORKSPACE_NAMESPACE} svc/kommander-traefik-dashboard 9000:80
   ```
 
