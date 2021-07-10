@@ -36,13 +36,6 @@ Complete the following items before continuing with the Cluster Autoscaler:
 
 ### Run Cluster Autoscaler
 
-Apply these annotations to the MachineDeployment to enable the Cluster Autoscaler.
-
-```sh
-kubectl annotate machinedeployment ${CLUSTER_NAME}-md-0 cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size=2
-kubectl annotate machinedeployment ${CLUSTER_NAME}-md-0 cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size=6
-```
-
 The Cluster Autoscaler controller runs on the workload cluster. Upon creation of the workload cluster, this controller does not have all the objects required to function correctly until after a `konvoy move` is issued from the bootstrap cluster.
 
 Run the following steps to enable Cluster Autoscaler:
@@ -85,8 +78,8 @@ Run the following steps to enable Cluster Autoscaler:
           - name: busybox
             image: busybox:latest
             command:
-            - sleep
-            - "3600"
+              - sleep
+              - "3600"
             imagePullPolicy: IfNotPresent
           restartPolicy: Always
     EOF
