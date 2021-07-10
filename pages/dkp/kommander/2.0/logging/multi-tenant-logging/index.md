@@ -23,7 +23,7 @@ Access to log data is done at the namespace level, through the use of Projects w
 
 ![DKP Multi-tenant Logging Architecture](../../img/dkp2.0-mt-logging-arch.png)
 
-Each Project namespace has a logging-operator "Flow" that sends its pod logs to its own Loki server. A custom controller deploys corresponding Loki and Grafana servers in each namespace, and defines a logging-operator Flow in each namespace that forwards its pod logs to its respective Loki server. There is a corresponding Grafana server for visualizations for each namespace. Multi-tenancy is enforced by applying RBAC rules to the URL for each Project's separate Grafana server.
+Each Project namespace has a logging-operator "Flow" that sends its pod logs to its own Loki server. A custom controller deploys corresponding Loki and Grafana servers in each namespace, and defines a logging-operator Flow in each namespace that forwards its pod logs to its respective Loki server. There is a corresponding Grafana server for visualizations for each namespace.
 
 For the convenience of cluster Administrators, a cluster-scoped Loki/Grafana instance pair is deployed with a corresponding Logging-operator `ClusterFlow` that directs pod logs from all namespaces to the pair. A cluster Administrator can grant access either to none of the logs, or to all logs collected from all pods in a given namespace. Assigning teams to specific namespaces enables the team members to see only the logs for the namespaces they own.
 

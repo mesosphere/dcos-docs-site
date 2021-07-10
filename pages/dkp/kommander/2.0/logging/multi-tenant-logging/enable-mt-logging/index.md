@@ -22,7 +22,6 @@ The steps required to enable multi-tenant logging include:
 1. Create configMaps for Grafana and Loki configuration
 1. Create Project-level AppDeployments
 1. Create Project logging configuration
-1. Configure RBAC access to Grafana URL
 1. Verify Project logging stack installation
 1. View a Project's log data
 
