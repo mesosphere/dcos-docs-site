@@ -12,13 +12,13 @@ enterprise: false
 
 This topic describes the following procedures for managing your Nvidia platform services:
 
-- [Enable Nvidia platform services](#enable_nvidia_platform_services)
+- [Enable Nvidia platform services](#enable-nvidia-platform-service-on-kommander)
 
-- [Disable Nvidia platform services](#disable_nvidia_platform_services)
+- [Disable Nvidia platform services](#disable-nvidia-platform-service-on-kommander)
 
-- [Upgrade Nvidia platform services](#upgrade_nvidia_platform_services)
+- [Upgrade Nvidia platform services](#upgrade-nvidia-platform-service-on-kommander)
 
-- [Nvidia GPU Monitoring](#nvidia_gpu_monitoring)
+- [Nvidia GPU Monitoring](#nvidia-gpu-monitoring)
 
 - [Troubleshooting](#troubleshooting)
 

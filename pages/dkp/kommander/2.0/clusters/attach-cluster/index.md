@@ -129,7 +129,7 @@ You can also retrieve a custom kubeconfig by visiting the `/token` endpoint on t
 -->
 
 [clusteradmin]: https://kubernetes.io/docs/concepts/cluster-administration/
-[kubectl]: https://kubernetes.io/docs/tasks/tools/
+[kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 <!--[workspace_platform_services]: /dkp/kommander/2.0/workspaces/workspace-platform-services/
 [platform_service_req]: /dkp/kommander/2.0/workspaces/workspace-platform-services/platform-service-requirements/-->
 [attach_eks_cluster]: /dkp/kommander/2.0/clusters/attach-cluster/attach-eks-cluster/

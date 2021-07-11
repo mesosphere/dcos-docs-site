@@ -43,3 +43,7 @@ Worker nodes must meet the minimal requirements outlined in [air gapped Konvoy i
 ## Operating system and services for all nodes
 
 All nodes must meet the same minimal requirements outlined in [air gapped Konvoy installation][air-gap-os-system].
+
+[air-gap-before-you-begin]: /dkp/konvoy/2.0/install/air-gapped/prerequisites/
+[air-gap-control-plane]: /dkp/konvoy/2.0/install/air-gapped/new/
+[air-gap-os-system]: /dkp/konvoy/2.0/install/air-gapped/prerequisites/

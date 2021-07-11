@@ -14,7 +14,7 @@ These instructions show how to prepare a node so Kommander can launch GPU servic
 
 You can prepare a node in the following ways:
 
-- [Use Konvoy 2 on AWS](#use_konvoy_2_on_aws)
+- [Use Konvoy 2 on AWS](#use-konvoy-2-on-aws)
 
 - [Manual Deployment](#manual-deployment)
 

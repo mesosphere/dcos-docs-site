@@ -48,3 +48,7 @@ To create the AppDeployment needed for Project-level logging, follow these steps
        name: project-grafana-overrides-cm
    EOF
    ```
+
+Then, you can [create Project-level logging configurations for use in multi-tenant logging][create-proj-logging-config].
+
+[create-proj-logging-config]: ../create-proj-logging-config

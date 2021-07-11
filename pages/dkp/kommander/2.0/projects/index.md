@@ -60,7 +60,7 @@ spec:
 The following procedures are supported for projects:
 
 - [Manage Project ConfigMaps](./project-configmaps)
-- [Manage Project Policies](./project-policies)
+- [Manage Project Role Bindings](./project-policies)
 - [Manage Project Quotas](./project-quotas-limit-range)
 - [Manage Project Roles](./project-roles)
 - [Manage Project Secrets](./project-secrets)
