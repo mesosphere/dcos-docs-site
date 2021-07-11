@@ -66,9 +66,11 @@ In Kommander you can delete existing Workspaces. The following steps describe th
 1.  From the left rail menu, select on **Workspaces**.
 
 1.  Select the three-button action menu to the right of the workspace you want to delete and then select **Delete**:
+
     ![Workspace menu delete](../img/workspaces-menu-delete.png)
 
 1.  Confirm deleting the Workspace in the **Delete Workspace** dialog box.
+
     ![Workspace menu delete](../img/workspace-confirm-delete.png)
 
 <!--

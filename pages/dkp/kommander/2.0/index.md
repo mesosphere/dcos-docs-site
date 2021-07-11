@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Kommander 2.0
-title: Kommander 2.0
+navigationTitle: Kommander 2.0 beta
+title: Kommander 2.0 beta
 version: 2.0
 menuWeight: 0
 subtree:

@@ -20,16 +20,16 @@ The following chart identifies which version of Konvoy supports which version of
 
 | Konvoy Version | Kommander Version |
 | -------------- | ----------------- |
+| 2.0.x | 2.0.x |
 | 1.8.x | 1.4.x |
 | 1.7.x | 1.3.x |
-| 1.6.x | 1.2.x |
 
 Konvoy and Kommander release `MAJOR.MINOR` versions together and are compatible with each other for that version set. This means, Kommander 1.3, and all of its patch versions (e.g. 1.3.0, 1.3.1), can deploy successfully on any version of Konvoy 1.7. Mixing minor versions is prohibited and the following is not supported:
 
 - You cannot deploy Kommander 1.2.x on Konvoy 1.7.x
 - You cannot deploy Kommander 1.1.x on Konvoy 1.6.x
 
-## Supported operating systems
+<!--- ## Supported operating systems
 
 Details for supported operating systems on Kommander can be found in [Supported Operating Systems](../install/supported-operating-systems).
 
@@ -43,7 +43,7 @@ For example, Base Platform Service version `stable-1.19-3.2.0` is made up of:
 <release_channel>-<kubernetes_version>-<bps_version>
 ```
 
-This means this set of platform services can deploy on any 1.19 Kubernetes cluster, regardless of the distribution. The support policy for BPS on Konvoy follows the same support policy for [Kubernetes versions](#supported-kubernetes-versions).
+This means this set of platform services can deploy on any 1.19 Kubernetes cluster, regardless of the distribution. The support policy for BPS on Konvoy follows the same support policy for [Kubernetes versions](#supported-kubernetes-versions). -->
 
 ### Features in patches
 
