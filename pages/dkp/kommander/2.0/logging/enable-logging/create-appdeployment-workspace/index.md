@@ -62,7 +62,7 @@ To enable logging in DKP, follow these steps on the management cluster:
      namespace: ${WORKSPACE_NAMESPACE}
    spec:
      appRef:
-       name: logging-operator-3.10.0
+       name: logging-operator-3.12.0
    ---
    apiVersion: apps.kommander.d2iq.io/v1alpha1
    kind: AppDeployment
