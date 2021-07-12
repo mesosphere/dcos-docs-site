@@ -156,6 +156,6 @@ Once this finishes, access the ops portal landing page at `https://mycluster.com
 You will notice that the certificate is trusted by your browser and is issued by Let's Encrypt.
 
 [letsencrypt]: https://letsencrypt.org/
-[acme]: https://tools.ietf.org/html/rfc8555
+[acme]: https://datatracker.ietf.org/doc/html/rfc8555
 [dnscname]: https://en.wikipedia.org/wiki/CNAME_record
 [dnsarecord]: https://en.wikipedia.org/wiki/List_of_DNS_record_types

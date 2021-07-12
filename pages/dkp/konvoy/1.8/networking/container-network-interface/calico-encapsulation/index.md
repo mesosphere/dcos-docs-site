@@ -63,5 +63,5 @@ spec:
 For more information, see:
 
 - [Calico Overlay Networking](https://docs.projectcalico.org/networking/vxlan-ipip)
-- [IP-in-IP RFC 2003](https://tools.ietf.org/html/rfc2003)
-- [VXLAN RFC 7348](https://tools.ietf.org/html/rfc7348)
+- [IP-in-IP RFC 2003](https://datatracker.ietf.org/doc/html/rfc2003)
+- [VXLAN RFC 7348](https://datatracker.ietf.org/doc/html/rfc7348)
