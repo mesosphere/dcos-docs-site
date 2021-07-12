@@ -19,7 +19,7 @@ You need certain software configurations and settings before you start this proc
 
 Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS` folder. The bundled version of `konvoy-image` contains an embedded `docker` image that contains all the requirements for building.
 
-<p class="message--note"><strong>NOTE: </strong> Along with the `konvoy-image` binary, all supporting folders are also extracted. When run, `konvoy-image` will bind mount the current working directory (`${PWD}`) into the container to be used.</p>
+<p class="message--note"><strong>NOTE: </strong> The <code>konvoy-image</code> binary and all supporting folders are also extracted. When run, <code>konvoy-image</code> bind mounts the current working directory (<code>${PWD}</code>) into the container to be used.</p>
 
 -   Set environment variables for [AWS access](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html). The following variables must be set using your credentials:
 
@@ -58,8 +58,8 @@ packer_builder_type: "amazon"
 python_path: ""
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can specify an exact base image to build on, using the `--source-ami` command line flag:<br>
-`konvoy-image build --source-ami=ami-12345abcdef <path/to/image.yaml>`</p>
+<p class="message--note"><strong>NOTE: </strong>You can specify a base image to build on, using the <code>--source-ami</code> command line flag:<br />
+<code>konvoy-image build --source-ami=ami-12345abcdef &lt;path/to/image.yaml&gt;</code></p>
 
 To override the above base image with another base image, you can create an `override` file. Create a new file and set the `source_ami` under the `packer` key. This overrides the image search and forces the use of the specified `source_ami`.
 
