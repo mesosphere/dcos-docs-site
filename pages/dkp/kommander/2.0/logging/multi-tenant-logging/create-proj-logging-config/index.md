@@ -44,6 +44,14 @@ Create these resources to direct pod logs to the Project namespace’s Loki serv
        url: http://loki-distributed-gateway.${PROJECT_NAMESPACE}.svc.cluster.local:80
        extract_kubernetes_labels: true
        configure_kubernetes_labels: true
+       buffer:
+         # Limit retries to prevent getting stuck on delivering logs out-of-order to Loki.
+         # See https://github.com/banzaicloud/logging-operator/issues/674 and
+         # https://github.com/fluent/fluent-bit/issues/2748.
+         # fluentd uses exponential backoff when retrying logs. The retry limit should balance tolerance for
+         # temporary loki unavailability with dropping out-of-order logs that can't be delivered.
+         retry_forever: false
+         retry_max_times: 5
    EOF
    ```
 
