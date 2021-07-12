@@ -101,7 +101,7 @@ Before starting the Konvoy installation, verify that you have:
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to `Ready` while `calico-node` pods are being deployed.</p>
+    <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to <code>Ready</code> while <code>calico-node</code> pods are being deployed.</p>
 1.  List the Pods with the command:
 
     ```sh

@@ -6,7 +6,7 @@ excerpt: Get started by installing a cluster with default configuration settings
 draft: true
 beta: true
 enterprise: false
-menuWeight: 0
+menuWeight: 6
 ---
 
 This Quick Start guide provides simplified instructions for using Konvoy to get your Kubernetes cluster up and running with minimal configuration requirements on an Azure public cloud instances.
@@ -126,7 +126,7 @@ Before starting the Konvoy installation, verify that you have:
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to `Ready` while `calico-node` pods are being deployed.</p>
+    <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to <code>Ready</code> while <code>calico-node</code> pods are being deployed.</p>
 
 1.  List the Pods with the command:
 
@@ -192,5 +192,5 @@ Before starting the Konvoy installation, verify that you have:
     ```
 
 [install_docker]: https://docs.docker.com/get-docker/
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [azure_credentials]: https://github.com/kubernetes-sigs/cluster-api-provider-azure/blob/master/docs/book/src/topics/getting-started.md#prerequisites
