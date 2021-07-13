@@ -14,6 +14,17 @@ Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes clu
 
 # Key Features
 
+1. This is the start. 
+
+```
+hey here's some text. 
+```
+
+1. This is the middle. 
+![This is an airgapped environment](Airgap_AWS_Detailed%20(1).png "Air Gapped AWS")
+1. This is the end. 
+
+
 **Flexible Pipeline Configuration.** With Dispatch you can use languages such as CUE and Starlark to declaratively define a build and test [pipeline](overview_concepts/dispatch-ci/). You can reduce pipeline complexity by defining functions, schema validation and other well-known programming constructs.
 
 **Choice of Build Locations.** You can execute your pipeline on your laptop, on-prem cluster, or in the public cloud. Dispatch can run the same pipeline in any environment.
