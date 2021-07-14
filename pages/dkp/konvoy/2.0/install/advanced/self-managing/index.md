@@ -20,7 +20,6 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    konvoy create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
     INFO[2021-06-07T14:10:08-07:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:88"
     INFO[2021-06-07T14:11:34-07:00] Created bootstrap controllers                 src="bootstrap/controllers.go:93"
     INFO[2021-06-07T14:11:34-07:00] Waiting for bootstrap controllers to be ready  src="bootstrap/controllers.go:96"
