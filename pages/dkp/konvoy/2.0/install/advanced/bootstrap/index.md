@@ -72,7 +72,7 @@ For example, instead of using `konvoy create bootstrap` in the below instruction
     capz-system                         capz-controller-manager                         1/1     1            1           69s
     ```
 
-    Finally, Konvoy creates additional resources for Cluster API to apply to every new cluster. The resources, called 'ClusterResourceSets', contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
+    Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
 
     ```sh
     kubectl get clusterresourceset

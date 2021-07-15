@@ -37,11 +37,15 @@ storageclass.storage.k8s.io/ebs-sc created
 
 <p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of Konvoy.</p>
 
--   Konvoy does not create a default StorageClass. In order to make a `StorageClass` as default, add [the following annotation][defaultstorageclass] to the StorageClass manifest:
+-   Konvoy does not create a default `StorageClass`. In order to make a `StorageClass` as default, add [the following annotation][defaultstorageclass] to the `StorageClass` manifest under metadata:
 
      ```yaml
-     annotations:
-       storageclass.kubernetes.io/is-default-class: "true"
+     ...
+     metadata:
+     ...
+       annotations:
+         storageclass.kubernetes.io/is-default-class: "true"
+     ...
      ```
 
 [aws_ebs_csi]: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
