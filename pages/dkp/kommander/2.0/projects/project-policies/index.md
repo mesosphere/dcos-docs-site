@@ -14,7 +14,11 @@ Before you can create a Project Role Binding, ensure you have created a Group. A
 
 You can assign a role to this Kommander Group:
 
-![Project Policy Form](../../img/project-edit-policy.png)
+1.  From the Projects page, select the project you are insterested in.
+
+1.  Select the Role Bindings tab, then sleect Add Roles next to the group you want.
+
+1.  Select the Role, or Roles, you want from the drop-down menu, and then select Save.
 
 ## Configure Project Role Bindings - CLI Method
 

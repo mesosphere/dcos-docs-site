@@ -19,18 +19,18 @@ This document uses the following terms:
 - Attached cluster - Konvoy or non-Konvoy cluster attached to the management cluster
 - Docker registry - a registry containing all Docker images that clusters access and download during installation
 
-## Before you begin
+## Prerequisites
 
-Before installing, ensure your environment has the following basic requirements:
+Before you begin, you must:
 
-- A Docker registry containing all the necessary Docker installation images, which also includes the Kommander images. The `konvoy_air_gapped.tar.bz2` tarball has the required artifacts.
+- Have a Docker registry containing all the necessary Docker installation images, which also includes the Kommander images. The `konvoy_air_gapped.tar.bz2` tarball has the required artifacts.
 
-- Connectivity with clusters attaching to the management cluster:
+- Have connectivity with clusters attaching to the management cluster:
   - Both management and attached clusters must connect to the Docker registry.
   - Management cluster must connect to the attached cluster's API server.
   - Management cluster must connect to load balancers created by some platform services. For example, Thanos, part of the Prometheus platform service, connects to those load balancers.
 
-- All the prerequisites covered in [air gapped Konvoy installation][air-gap-before-you-begin], in case of Konvoy clusters.
+- Have completed all the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin], in case of Konvoy clusters.
 
 ## Control plane nodes
 
