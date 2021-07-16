@@ -13,11 +13,12 @@ Logging is disabled by default. You will need to enable logging features explici
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must perform these procedures to enable multi-tenant logging at the Project level as well.</p>
 
-## Before you begin
+## Prerequisites
 
--  You must be a cluster administrator with permissions to configure cluster-level platform services.
+Before you begin, you must:
 
--  Each attached cluster requires a [default storage class](../../clusters/attach-cluster/requirements-for-attaching/#default-storageclass) for successful Loki deployment.
+-  Be a cluster administrator with permissions to configure cluster-level platform services.
+- Set a [default storage class](../../clusters/attach-cluster/requirements-for-attaching/#default-storageclass) on each attached cluster for successful Loki deployment.
 
 ## Enable Workspace-level logging
 
