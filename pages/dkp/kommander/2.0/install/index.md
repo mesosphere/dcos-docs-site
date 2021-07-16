@@ -9,9 +9,10 @@ beta: true
 
 ## Prerequisites
 
-Prior to installing Kommander, you must know the version you'd like to install, which is provided by D2iQ.
+Before you begin, you must:
 
-Set the `VERSION` environment variable to the version of Kommander you would like to install, for example:
+- Know the version you'd like to install, which is provided by D2iQ.
+- Set the `VERSION` environment variable to the version of Kommander you would like to install:
 
 ```sh
 export VERSION=v2.0.0-beta.5
@@ -130,6 +131,6 @@ Use the following command to access the Username and Password stored on the clus
 kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
 ```
 
-[konvoy_driver_limitations]: ../../../konvoy/2.0/install/advanced/configure_drivers/#known-limitations
-[konvoy_self_managing]: ../../../konvoy/2.0/install/advanced/self-managing/
-[bootstrap_cluster]: ../../../konvoy/2.0/install/advanced/bootstrap/
+[konvoy_driver_limitations]: /dkp/konvoy/2.0/install/advanced/configure_drivers/#known-limitations
+[konvoy_self_managing]: /dkp/konvoy/2.0/install/advanced/self-managing/
+[bootstrap_cluster]: /dkp/konvoy/2.0/install/advanced/bootstrap/
