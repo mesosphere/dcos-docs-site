@@ -18,13 +18,12 @@ The Ingress receives inbound requests and routes them according to the rules you
 
 This tutorial demonstrates how to expose an application running on the Konvoy cluster by configuring an Ingress for load balancing (layer-7).
 
-## Before you begin
+## Prerequisites
 
-Before starting this tutorial, you should verify the following:
+Before you begin, you must:
 
-- You must have access to a Linux, macOS, or Windows computer with a supported operating system version.
-
-- You must have a properly deployed and running cluster.
+- Have access to a Linux, macOS, or Windows computer with a supported operating system version.
+- Have a properly deployed and running cluster.
 
 ## Expose a pod using an Ingress (L7)
 

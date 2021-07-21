@@ -13,9 +13,9 @@ This topic describes how to federate a service to an attached cluster.
 
 Currently, the `reloader` service is automatically federated to attached clusters. To federate other services, follow the steps below.
 
-## Before you begin
+## Prerequisites
 
-You must have the following before you begin:
+Before you begin, you must have:
 
 - A running cluster with [Kommander installed](../../install/).
 - An [existing Kubernetes cluster attached to Kommander](../../clusters/attach-cluster/).

@@ -16,7 +16,7 @@ Review the [workspace platform service resource requirements][platform_service_r
 
 If the cluster you want to attach was created using Amazon EKS, Azure AKS, or Google GKE, create a service account as described below. If you are attaching an Amazon EKS cluster to Kommander, [detailed instructions are available][attach_eks_cluster].
 
-### Before you begin (optional)
+### Prerequisites
 
 This step is optional, if you already have a kubeconfig file. You can go directly to [Attaching a cluster](#attaching-a-cluster).
 

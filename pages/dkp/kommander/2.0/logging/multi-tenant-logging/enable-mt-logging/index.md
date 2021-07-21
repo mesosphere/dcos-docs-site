@@ -9,10 +9,12 @@ beta: true
 
 <!-- markdownlint-disable MD030 -->
 
-## Before you begin
+## Prerequisites
 
--  Logging has to be [enabled at the Workspace level](../../enable-logging) before you can configure multi-tenant logging.
--  You must be a cluster administrator with permissions to configure cluster level platform services.
+Before you begin, you must:
+
+-  Have logging [enabled at the Workspace level](../../enable-logging) before you can configure multi-tenant logging.
+-  Be a cluster administrator with permissions to configure cluster level platform services.
 
 ## Multi-tenant logging enablement process
 
