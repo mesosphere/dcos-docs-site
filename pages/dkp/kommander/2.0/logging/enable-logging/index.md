@@ -24,12 +24,12 @@ Before you begin, you must:
 
 The steps required to enable multi-tenant logging include:
 
-1.  Create configMap for Grafana configuration
+1.  [Create the configMap for the Grafana configuration.](../../logging/enable-logging/create-configmap)
 
-1.  Create AppDeployments to enable logging
+1.  [Create the AppDeployments to enable logging.](../../logging/enable-logging/create-appdeployment-workspace)
 
-1.  Verify cluster's logging stack installed
+1.  [Verify that the cluster's logging stack is installed.](../../logging/enable-logging/verify-cluster-logstack)
 
-1.  View a cluster's log data
+1.  [View a cluster's log data.](../../logging/enable-logging/view-cluster-logdata)
 
-You can also configure Kommander to enable [multi-tenant logging](../multi-tenant-logging).
+To get started with logging, start with the first step to create the configMap for the Grafana. When Workspace-level logging is fully-configured and operational, then you can configure Kommander to enable [multi-tenant logging](../multi-tenant-logging), if needed.
