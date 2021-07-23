@@ -15,8 +15,10 @@ Before you start, make sure you have created a workload cluster, as described in
 
 1.  Deploy cluster lifecycle services on the workload cluster:
 
+    By default, `create bootstrap controllers` configures the Cluster API controllers to use the AWS credentials from your environment. We recommend you use the `--with-aws-bootstrap-credentials=false` flag to configure the Cluster API controllers of your self-managing AWS cluster to use AWS IAM Instance Profiles, instead of the AWS credentials from your environment.
+
     ```sh
-    konvoy create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
+    konvoy create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     ```sh

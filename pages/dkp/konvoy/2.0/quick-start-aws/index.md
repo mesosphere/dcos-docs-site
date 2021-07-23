@@ -131,7 +131,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Deploy CAPI controllers on the worker cluster:
 
     ```sh
-    konvoy create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
+    konvoy create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
 1.  Issue the move command:
