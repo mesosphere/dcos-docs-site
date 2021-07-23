@@ -9,7 +9,11 @@ enterprise: false
 
 To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) controllers. These controllers run on a Kubernetes cluster. To get started, you need a _bootstrap_ cluster. By default, Konvoy creates a bootstrap cluster for you in a Docker container using the Kubernetes-in-Docker ([KIND][kind]) tool.
 
-Before you begin, complete the steps in [Prerequisites][prereqs].
+## Prerequisites
+
+Before you begin, you must:
+
+- Complete the steps in [Prerequisites][prereqs].
 
 You can run Konvoy CLI commands in the working directory where the `konvoy` binary and related files are by using `./konvoy`.
 For example, instead of using `konvoy create bootstrap` in the below instructions, use `./konvoy` for all the CLI commands, like:

@@ -28,11 +28,11 @@ For more information about how Cluster Autoscaler works, see these documents:
 
 ### Cluster Autoscaler Prerequisites
 
-Complete the following items before continuing with the Cluster Autoscaler:
+Before you begin, you must have:
 
-- [Bootstrap Cluster Lifecycle][bootstraplifecycle]
-- [Create a new Kubernetes Cluster][createnewcluster]
-- [Self Managing Clusters][selfmanagingclusters]
+- A [Bootstrap Cluster Lifecycle][bootstraplifecycle].
+- [Created a new Kubernetes Cluster][createnewcluster].
+- A [Self Managing Cluster][selfmanagingclusters].
 
 ### Run Cluster Autoscaler
 

@@ -7,11 +7,11 @@ excerpt: Prepare your machine and environment to run Konvoy
 enterprise: false
 ---
 
-## Configure Konvoy prerequisites
+## Konvoy prerequisites
 
-Before using Konvoy, verify that you have:
+Before you begin using Konvoy, you must have:
 
-- An AMD64 based Linux or MacOS machine.
+- An AMD64-based Linux or MacOS machine.
 - The `konvoy` binary for Linux, or MacOS.
 - [Docker][install_docker] version 18.09.2 or later installed.
 - [kubectl][install_kubectl] for interacting with the running cluster.
@@ -19,19 +19,19 @@ Before using Konvoy, verify that you have:
 
 <p class="message--note"><strong>NOTE: </strong>On MacOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
 
-## Configure AWS prerequisites
+## AWS prerequisites
 
-Before using Konvoy to create a Kubernetes cluster in AWS:
+Before you begin using Konvoy with AWS, you must:
 
-1.  Follow the steps in [IAM Policy Configuration][iampolicies].
+-   Create an [IAM policy configuration][iampolicies].
 
-1.  Export the AWS region where you want to deploy the cluster:
+-   Export the AWS region where you want to deploy the cluster:
 
     ```sh
     export AWS_REGION=us-west-2
     ```
 
-1.  Export the AWS profile with the credentials you want to use to create the Kubernetes cluster:
+-   Export the AWS profile with the credentials you want to use to create the Kubernetes cluster:
 
     ```sh
     export AWS_PROFILE=<profile>

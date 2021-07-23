@@ -6,13 +6,19 @@ excerpt: Update the worker node pool to upgrade Kubernetes and/or change machine
 menuWeight: 10
 ---
 
+## Prerequisites
+
+Before you begin, you must:
+
+- [Create a workload cluster][createnewcluster].
+
+## Overview
+
 There are many reasons to update the worker node pool. This topic covers three of the most common:
 
-1. To upgrade the Kubernetes version
-1. To update the machine image (AMI)
-1. To update the machine hardware (instance type)
-
-Before you begin, make sure you have created a workload cluster, as described in [Create a New Cluster][createnewcluster].
+1. To upgrade the Kubernetes version.
+1. To update the machine image (AMI).
+1. To update the machine hardware (instance type).
 
 The worker node pool is described by a MachineDeployment resource, which references immutable AWSMachineTemplate and KubeadmConfigTemplate resources. This topic explains how to create a new AWSMachineTemplate and patch the MachineDeployment in order to update the node pool.
 

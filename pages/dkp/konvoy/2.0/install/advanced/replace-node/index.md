@@ -7,7 +7,12 @@ beta: true
 menuWeight: 33
 ---
 
-Before you begin, [create a workload cluster][createnewcluster] and [make that new cluster self-managing][selfmanaging].
+## Prerequisites
+
+Before you begin, you must:
+
+- [Create a workload cluster][createnewcluster].
+- [Make the new cluster self-managing][selfmanaging].
 
 ## Replace a worker node
 
