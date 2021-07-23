@@ -13,7 +13,7 @@ enterprise: false
 1.  Fetch the kubeconfig file with the command:
 
     ```sh
-    konvoy get kubeconfig -c ${CLUSTER_NAME} --to-kubeconfig ${CLUSTER_NAME}.conf
+    konvoy get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
 1.  List the Nodes with the command:

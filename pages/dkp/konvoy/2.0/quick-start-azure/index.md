@@ -15,7 +15,7 @@ This Quick Start guide provides simplified instructions for using Konvoy to get 
 
 Before starting the Konvoy installation, verify that you have:
 
--   An AMD64 based Linux or MacOS machine with a supported version of the operating system.
+-   An AMD64-based Linux or MacOS machine with a supported version of the operating system.
 -   The `konvoy` binary on this machine.
 -   [Docker][install_docker] version 18.09.2 or later.
 -   [kubectl][install_kubectl] for interacting with the running cluster.
@@ -117,7 +117,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Fetch the kubeconfig file:
 
     ```sh
-    konvoy get kubeconfig -c ${CLUSTER_NAME} --to-kubeconfig ${CLUSTER_NAME}.conf
+    konvoy get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
 1.  List the Nodes with the command:

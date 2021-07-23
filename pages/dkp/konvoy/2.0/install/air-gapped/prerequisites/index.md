@@ -10,13 +10,13 @@ enterprise: false
 
 ## Prerequisites
 
-Before starting an air-gapped Konvoy installation, verify that you have:
+Before you begin, you must have:
 
-- A Linux machine (bastion) that has access to the existing VPC.
+- Linux machine (bastion) that has access to the existing VPC.
 - The `konvoy` binary on the bastion.
 - [Docker][install_docker] version 18.09.2 or later installed on the bastion.
 - [kubectl][install_kubectl] for interacting with the running cluster on the bastion.
-- A valid AWS account with [credentials configured][aws_credentials].
+- Valid AWS account with [credentials configured][aws_credentials].
 
 ### Configure AWS prerequisites
 

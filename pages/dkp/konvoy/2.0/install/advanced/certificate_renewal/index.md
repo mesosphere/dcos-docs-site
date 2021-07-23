@@ -17,11 +17,11 @@ Kubernetes provides a facility to renew all certificates automatically during co
 
 This feature requires Python 3.5 or greater to be installed on all control plane hosts.
 
-### Certificate Renewal Prerequisites
+## Prerequisites
 
-Complete the following items before continuing with the Certificate Renewal:
+Before you begin, you must:
 
-- [Bootstrap Cluster Lifecycle](bootstraplifecycle)
+- Complete the [bootstrap Cluster Lifecycle](bootstraplifecycle) topic.
 
 ### Create a cluster with automated certificate renewal
 
