@@ -8,14 +8,14 @@ enterprise: false
 menuWeight: 60
 ---
 
-This procedure describes how to use the Konvoy Image Builder to create [Cluster API](https://cluster-api.sigs.k8s.io/) compliant Amazon Machine Image (AMI) images. AMI images contain configuration information and software to create a specific, preconfigured, operating environment. For example, you can create an AMI image of your current computer system settings and software. The AMI image can then be replicated and distributed, creating your computer system for other users. The Konvoy Image Builder uses variable `overrides` to specify base image and container images to use in your new AMI.
+This procedure describes how to use the Konvoy Image Builder to create [Cluster API](https://cluster-api.sigs.k8s.io/) a compliant Amazon Machine Image (AMI). AMI images contain configuration information and software to create a specific, pre-configured, operating environment. For example, you can create an AMI image of your current computer system settings and software. The AMI image can then be replicated and distributed, creating your computer system for other users. The Konvoy Image Builder uses variable `overrides` to specify base image and container images to use in your new AMI.
 
-## Before you begin
+## Prerequisites
 
-You need certain software configurations and settings before you start this procedure. This procedure requires the following items and configurations:
+Before you begin, you must:
 
-- The latest [Konvoy Image Builder](https://github.com/mesosphere/konvoy-image-builder/releases) bundle (prefixed with `konvoy-image-bundle`) for your OS. Do not use the release prefixed with `konvoy-image-builder`.
-- A working `docker` setup
+- Download the latest [Konvoy Image Builder](https://github.com/mesosphere/konvoy-image-builder/releases) bundle (prefixed with `konvoy-image-bundle`) for your OS. Do not use the release prefixed with `konvoy-image-builder`.
+- Create a working `Docker` setup:
 
 Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS` folder. The bundled version of `konvoy-image` contains an embedded `docker` image that contains all the requirements for building.
 

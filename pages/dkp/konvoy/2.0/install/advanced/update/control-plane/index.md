@@ -6,13 +6,19 @@ excerpt: Update the control plane to upgrade Kubernetes and/or change machine pr
 menuWeight: 0
 ---
 
+## Prerequisites
+
+Before you begin, you must:
+
+- [Create a workload cluster][createnewcluster].
+
+## Overview
+
 There are many reasons to update the control plane. This topic covers three of the most common:
 
-1. To upgrade the Kubernetes version
-1. To update the machine image (AMI)
-1. To update the machine hardware (instance type)
-
-Before you begin, make sure you have created a workload cluster, as described in [Create a New Cluster][createnewcluster].
+1. To upgrade the Kubernetes version.
+1. To update the machine image (AMI).
+1. To update the machine hardware (instance type).
 
 The control plane is described by a KubeadmControlPlane resource. This references an immutable AWSMachineTemplate resource. This topic explains how to create a new AWSMachineTemplate and patch the KubeadmControlPlane in order to update the control plane.
 
