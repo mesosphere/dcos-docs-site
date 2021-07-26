@@ -99,21 +99,19 @@ The final output must look similar to this example:
 
 ```sh
 NAMESPACE   NAME                    READY   STATUS                             AGE
-kommander   cert-manager            True    Release reconciliation succeeded   9m41s
-kommander   dex                     True    Release reconciliation succeeded   7m3s
-kommander   dex-k8s-authenticator   True    Release reconciliation succeeded   7m3s
-kommander   kommander               True    Release reconciliation succeeded   7m3s
-kommander   kommander-ui            True    Release reconciliation succeeded   7m3s
-kommander   kube-oidc-proxy         True    Release reconciliation succeeded   7m3s
-kommander   kube-prometheus-stack   True    Release reconciliation succeeded   7m3s
-kommander   kubecost                True    Release reconciliation succeeded   7m3s
-kommander   kubefed                 True    Release reconciliation succeeded   7m3s
-kommander   kubernetes-dashboard    True    Release reconciliation succeeded   7m3s
-kommander   metallb                 True    Release reconciliation succeeded   7m3s
-kommander   prometheus-adapter      True    Release reconciliation succeeded   7m3s
-kommander   reloader                True    Release reconciliation succeeded   7m3s
-kommander   traefik                 True    Release reconciliation succeeded   7m3s
-kommander   traefik-forward-auth    True    Release reconciliation succeeded   7m3s
+kommander   dex                        True    Release reconciliation succeeded   8m25s
+kommander   dex-k8s-authenticator      True    Release reconciliation succeeded   8m25s
+kommander   kommander                  True    Release reconciliation succeeded   8m25s
+kommander   kube-oidc-proxy            True    Release reconciliation succeeded   8m25s
+kommander   kube-prometheus-stack      True    Release reconciliation succeeded   8m25s
+kommander   kubecost                   True    Release reconciliation succeeded   8m25s
+kommander   kubefed                    True    Release reconciliation succeeded   8m25s
+kommander   kubernetes-dashboard       True    Release reconciliation succeeded   8m25s
+kommander   prometheus-adapter         True    Release reconciliation succeeded   8m25s
+kommander   reloader                   True    Release reconciliation succeeded   8m25s
+kommander   traefik                    True    Release reconciliation succeeded   8m25s
+kommander   traefik-forward-auth       True    Release reconciliation succeeded   8m25s
+kommander   velero                     True    Release reconciliation succeeded   8m25s
 ```
 
 ## Access Kommander Web UI
