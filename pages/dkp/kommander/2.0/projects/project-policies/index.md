@@ -39,7 +39,36 @@ spec:
 EOF
 ```
 
-Ensure the `projectns`, `projectrole` and the `virtualgroup` variables are set before executing the command.
+### Configure Project Role Bindings to Bind to WorkspaceRoles - CLI Method
+
+You can also create a Project Policy to bind to a WorkspaceRole in certain instances. For example, if you are deploying Grafana to your Project, to apply RBAC to the Grafana URL, there are certain WorkspaceRoles that you can bind to a project policy.
+
+To list the WorkspaceRoles that you can bind to a Project, run the following command:
+
+```bash
+kubectl get workspaceroles -n ${workspacens} -o=jsonpath='{.items[?(@.metadata.annotations.workspace\.kommander\.d2iq\.io\/project-default-workspace-role-for=="${projectns}")].metadata.name}'
+```
+
+You can bind to any of the above WorkspaceRoles by setting `spec.workspaceRoleRef` in the project policy:
+
+```bash
+cat << EOF | kubectl create -f -
+apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
+kind: VirtualGroupProjectRoleBinding
+metadata:
+  generateName: projectpolicy-
+  namespace: ${projectns}
+spec:
+  workspaceRoleRef:
+    name: ${workspacerole}
+  virtualGroupRef:
+    name: ${virtualgroup}
+EOF
+```
+
+Note that you must specify either workspaceRoleRef or projectRoleRef to be validated by the admission webhook. Specifying both values is not valid and will cause an error.
+
+Ensure the `projectns`, `workspacens`, `projectrole` (or `workspacerole`) and the `virtualgroup` variables are set before executing the command.
 
 You can set them using the following commands (for a Kommander Group called `user1` and a Project Role called `admin`, and after setting the `projectns` as explained in the previous section):
 
