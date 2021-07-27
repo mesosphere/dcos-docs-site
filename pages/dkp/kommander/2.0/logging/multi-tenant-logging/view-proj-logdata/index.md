@@ -52,3 +52,7 @@ See the [Grafana Loki documentation](https://grafana.com/docs/grafana/v7.5/datas
 ![View Grafana Loki Logs](/dkp/kommander/2.0/img/lokiGrafanaLogs.gif)
 
 <p class="message--important"><strong>IMPORTANT BETA NOTE: </strong>You must deploy Cert-manager and Traefik in the attached cluster to be able to access the Grafana UI. These are deployed for you when the <a href="../../enable-logging/create-appdeployment-workspace/">Workspace AppDeployments</a> are created.</p>
+
+You can [configure project policy][configure-project-ws-policy] to restrict access to the Project logging Grafana UI.
+
+[configure-project-ws-policy]:/dkp/kommander/2.0/projects/project-policies/#configure-project-role-bindings-to-bind-to-workspaceroles-cli-method
