@@ -65,13 +65,13 @@ konvoy image list --docker-registry-url=https://localhost:6443 --docker-registry
 After you have the available Konvoy versions, you can upgrade your CLI by running the following command:
 
 ```bash
-konvoy image upgrade --version=v1.7.3
-Wrote Konvoy CLI version 'v1.7.3' to '.konvoy/cli_version'
+konvoy image upgrade --version=v1.7.4
+Wrote Konvoy CLI version 'v1.7.4' to '.konvoy/cli_version'
 ```
 
 After the upgrade command completes, you can start using the new Konvoy version.
 
-### Upgrading Konvoy from v1.6.x to v1.7.3
+### Upgrading Konvoy from v1.6.x to v1.7.4
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
@@ -85,7 +85,7 @@ The version of Kubernetes Base Addons changed if you use KBA, so you need to cha
 
 If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.19-1.3.3`.
 
-The version of Konvoy is now `v1.7.3`, set `spec.version: v1.7.3`.
+The version of Konvoy is now `v1.7.4`, set `spec.version: v1.7.4`.
 
 ```yaml
 kind: ClusterConfiguration
@@ -112,14 +112,14 @@ spec:
         - name: kommander
           enabled: true
   ...
-  version: v1.7.3
+  version: v1.7.4
 ```
 
-### [experimental]Upgrading the Istio addon while upgrading Konvoy from v1.6.x to v1.7.3[/experimental]
+### [experimental]Upgrading the Istio addon while upgrading Konvoy from v1.6.x to v1.7.4[/experimental]
 
 If the Istio addon is enabled while running Konvoy 1.6.x and you want to upgrade, you have to make [further changes][istio-upgrade] before running `konvoy up --upgrade`.
 
-### Upgrading Konvoy from v1.5.x to v1.7.3
+### Upgrading Konvoy from v1.5.x to v1.7.4
 
 <p class="message--note"><strong>NOTE: </strong>You have to upgrade from Konvoy version 1.5.x to version 1.6.x before attempting an upgrade to Konvoy 1.7.</p>
 
@@ -161,4 +161,4 @@ To avoid these warnings, and reduce risks to application availability:
 [docker_v2_auth_token]: https://docs.docker.com/registry/spec/auth/token/
 [harbor]: https://github.com/goharbor/harbor
 [istio-upgrade]: upgrade-cli-istio
-[upgrade-to-17]: #upgrading-konvoy-from-v16x-to-v173
+[upgrade-to-17]: #upgrading-konvoy-from-v16x-to-v174
