@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes
+navigationTitle: Release Notes 1.8.2
 title: Release Notes Konvoy 1.8.2
-menuWeight: 0
+menuWeight: 30
 excerpt: View release-specific information for Konvoy 1.8.2
 beta: false
 enterprise: false
@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.2 was released on 29, July 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.8.2 was released on 28, July 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
