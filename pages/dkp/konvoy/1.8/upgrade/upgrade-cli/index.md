@@ -43,13 +43,13 @@ If you are using a [private Docker registry][docker_registry] for your clusters,
 After you have the available Konvoy versions, you can upgrade your CLI by running the following command:
 
 ```bash
-konvoy image upgrade --version=v1.8.1
-Wrote Konvoy CLI version 'v1.8.1' to '.konvoy/cli_version'
+konvoy image upgrade --version=v1.8.2
+Wrote Konvoy CLI version 'v1.8.2' to '.konvoy/cli_version'
 ```
 
 After the upgrade command completes, you can start using the new Konvoy version.
 
-### Upgrading Konvoy from v1.7.x to v1.8.1
+### Upgrading Konvoy from v1.7.x to v1.8.2
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
@@ -61,12 +61,12 @@ If you use Kommander, you need to change the `configVersion` for your `configRep
 
 If you have Dispatch enabled, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-dispatch` to be `configVersion: stable-1.20-1.4.5` for of kind: ClusterConfiguration
 
-The version of Konvoy is now `v1.8.1`, set `spec.version: v1.8.1`.
+The version of Konvoy is now `v1.8.2`, set `spec.version: v1.8.2`.
 
 ```yaml
 kind: ClusterProvisioner
 ...
-  version: v1.8.1
+  version: v1.8.2
 ...
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
@@ -90,7 +90,7 @@ spec:
         - name: kommander
           enabled: true
   ...
-  version: v1.8.1
+  version: v1.8.2
 ```
 
 ## Upgrades and Running Workloads
