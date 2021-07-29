@@ -2,10 +2,11 @@
 layout: layout.pug
 navigationTitle: Cluster Autoscaler
 title: Cluster Autoscaler
-menuWeight: 28
-excerpt: Configure autoscaler options
+menuWeight: 100
+excerpt: Configure autoscaler for node pools
 enterprise: false
 ---
+
 ## Cluster Autoscaler
 
 [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/clusterapi) provides the ability to automatically scale-up or scale-down the number of worker nodes in a cluster, based on the number of pending pods to be scheduled. Running the Cluster Autoscaler is optional.
@@ -94,6 +95,6 @@ Run the following steps to enable Cluster Autoscaler:
 
 1.  Cluster Autoscaler starts to scale down the number of Worker Nodes after the default timeout of 10 minutes.
 
-[bootstraplifecycle]: ../bootstrap
-[createnewcluster]: ../new
-[selfmanagingclusters]: ../self-managing
+[bootstraplifecycle]: ../../install/advanced/bootstrap
+[createnewcluster]: ../../install/advanced/new
+[selfmanagingclusters]: ../../install/advanced/self-managing

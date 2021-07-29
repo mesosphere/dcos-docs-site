@@ -19,9 +19,9 @@ This feature requires Python 3.5 or greater to be installed on all control plane
 
 ## Prerequisites
 
-Before you begin, you must:
+Prerequisite:
 
-- Complete the [bootstrap Cluster Lifecycle](bootstraplifecycle) topic.
+- Complete the [bootstrap Cluster Lifecycle][bootstraplifecycle] topic.
 
 ### Create a cluster with automated certificate renewal
 
