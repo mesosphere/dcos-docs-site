@@ -86,11 +86,9 @@ extra_images:
   - quay.io/jetstack/cert-manager-cainjector:v1.1.0
   - quay.io/jetstack/cert-manager-controller:v1.1.0
   - quay.io/jetstack/cert-manager-webhook:v1.1.0
-  - us.gcr.io/k8s-artifacts-prod/cluster-api-azure/cluster-api-azure-controller:v0.4.12
   - us.gcr.io/k8s-artifacts-prod/cluster-api/cluster-api-controller:v0.3.15
   - us.gcr.io/k8s-artifacts-prod/cluster-api/kubeadm-bootstrap-controller:v0.3.15
   - us.gcr.io/k8s-artifacts-prod/cluster-api/kubeadm-control-plane-controller:v0.3.15
-  - mcr.microsoft.com/oss/azure/aad-pod-identity/nmi:v1.6.3
   - k8s.gcr.io/provider-aws/aws-ebs-csi-driver:v0.9.1
   - k8s.gcr.io/sig-storage/csi-attacher:v3.0.0
   - k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.0.1
@@ -103,8 +101,6 @@ extra_images:
   - calico/pod2daemon-flexvol:v3.18.0
   - calico/typha:v3.18.0
 ```
-
-<p class="message--note"><strong>NOTE: </strong>These are the current versions from the Konvoy repo. The Azure images are not required for AWS AMIs but are included here as examples.
 
 ## Build the image
 
