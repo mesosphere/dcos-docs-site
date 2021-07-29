@@ -38,7 +38,7 @@ Konvoy can now use pre-baked AMIs. AMI images contain configuration information 
 
 #### Improved cluster autoscaling
 
-Cluster Autoscaler automatically scales up your cluster as soon as you need it, and scales it back down to save you money when you don't. In this release, we've improved the performance of Cluster Autoscaler. For more information, see [Cluster Autoscaler](../install/advanced/cluster_autoscaler/)
+Cluster Autoscaler automatically scales up your cluster as soon as you need it, and scales it back down to save you money when you don't. In this release, we've improved the performance of Cluster Autoscaler. For more information, see [Cluster Autoscaler](../nodepools/cluster_autoscaler/)
 
 ### Component updates
 
