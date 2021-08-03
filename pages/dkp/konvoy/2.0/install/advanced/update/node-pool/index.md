@@ -46,7 +46,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
     ```sh
     NAME                             INITIALIZED   API SERVER AVAILABLE   VERSION   REPLICAS   READY   UPDATED   UNAVAILABLE
-    aws-example-control-plane        true          true                   v1.20.8   1          1       1
+    aws-example-control-plane        true          true                   v1.21.3   1          1       1
     ```
 
 1.  Define the names of the resources.
@@ -86,7 +86,7 @@ If you do not want to update the Kubernetes version, go to the [next section](#p
 1.  Define the Kubernetes version. Use the letter `v` followed by `major.minor.patch` version.
 
     ```sh
-    export KUBERNETES_VERSION=v1.20.8
+    export KUBERNETES_VERSION=v1.21.3
     ```
 
 1.  Create a patch file.

@@ -26,9 +26,9 @@ This release provides new features and enhancements to improve the user experien
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.20.8 |
-|**Maximum** | 1.20.x |
-|**Default** | 1.20.8 |
+|**Minimum** | 1.21.3 |
+|**Maximum** | 1.21.x |
+|**Default** | 1.21.3 |
 
 ### New features and capabilities
 
@@ -44,10 +44,10 @@ Cluster Autoscaler automatically scales up your cluster as soon as you need it, 
 
 The following components have been upgraded to the listed version:
 
-- Kubernetes 1.20.8
+- Kubernetes 1.21.3
 - Calico 3.19
 - AWS EBS CSI 1.1.0
-- Cluster Autoscaler 1.20.0
+- Cluster Autoscaler 1.21.0
 
 <!--
 ## Fixes and improvements
