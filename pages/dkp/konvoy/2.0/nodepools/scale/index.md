@@ -2,12 +2,14 @@
 layout: layout.pug
 Delete: Scale Node Pools
 title: Scale Node Pools
-menuWeight: 20
+menuWeight: 30
 excerpt: Scale node pools in a cluster
 enterprise: false
 ---
 
 ## Scaling Node Pools
+
+While you can run [Cluster Autoscaler](../cluster_autoscaler), you can also manually scale your node pools up or down when you need more finite control over your environment. For example, if you require 10 machines to run a process, you can manually set the scaling to run those 10 machines only. However, if also using the Cluster Autoscaler, you must stay within your miniumum and maximum bounds.
 
 ### Scaling Up Node Pools
 
@@ -17,7 +19,7 @@ To scale up a node pool in a cluster, run:
 konvoy scale nodepools demo-cluster-md-0 --replicas=3 --cluster-name=${CLUSTER_NAME}
 ```
 
-The expected output is similar to the following example, indicating the scaling is in progress:
+Your output should be similar to this example, indicating the scaling is in progress:
 
 ```sh
 INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:82"
@@ -30,7 +32,7 @@ After a few minutes you can list the node pools to:
 konvoy get nodepool -c $CLUSTER_NAME
 ```
 
-The expected outcome is similar to the following example, with the number of DESIRED and READY replicas increased to 3:
+Your output should be similar to this example, with the number of DESIRED and READY replicas increased to 3:
 
 ```sh
 NODEPOOL                        DESIRED               READY               KUBERNETES VERSION
@@ -39,7 +41,7 @@ demo-cluster-md-0               3                     3                   v1.21.
 
 ### Scaling Down Node Pools
 
-Similarly to the scaling up operations in the previous section, you can also scale down a node pool:
+To scale down a node pool, run:
 
 ```sh
 konvoy scale nodepools demo-cluster-md-0 --replicas=2 --cluster-name=${CLUSTER_NAME}
@@ -50,9 +52,9 @@ INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                cl
 INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 2 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
 ```
 
-In a default cluster, the nodes to delete are selected at random. This behavior is controller by [CAPI's delete policy][capi_delete_policy]. However, when using the Konvoy CLI to scale down a node pool it is also possible to explicitly select the Kubernetes Nodes to delete.
+In a default cluster, the nodes to delete are selected at random. This behavior is controller by [CAPI's delete policy][capi_delete_policy]. However, when using the Konvoy CLI to scale down a node pool it is also possible to specifiy the Kubernetes Nodes you want to delete.
 
-Set the flag `--nodes-to-delete` with a list of nodes as below.
+To do this, set the flag `--nodes-to-delete` with a list of nodes as below.
 This adds an annotation `cluster.x-k8s.io/delete-machine=yes` to the matching Machine object that contain `status.NodeRef` with the node names from `--nodes-to-delete`.
 
 ```sh
@@ -66,7 +68,7 @@ INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 1 replicas 
 
 ### Scaling Node Pools When Using Cluster Autoscaler
 
-If you have [configured the cluster autoscaler](../cluster_autoscaler) for the `demo-cluster-md-0` node pool, the value of `--replicas` must be within the min and max bounds.
+If you [configured the cluster autoscaler](../cluster_autoscaler) for the `demo-cluster-md-0` node pool, the value of `--replicas` must be within the minimum and maximum bounds.
 
 For example, assuming you have the these annotations:
 
@@ -88,6 +90,6 @@ INFO[2021-07-26T09:46:37-07:00] Running scale nodepool command                cl
 Error: failed to scale nodepool: scaling MachineDeployment is forbidden: desired replicas 7 is greater than the configured max size annotation cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size: 6
 ```
 
-Similarly, scaling down to a number of replicas less than the configured `min-size` would also return an error.
+Similarly, scaling down to a number of replicas less than the configured `min-size` also returns an error.
 
 [capi_delete_policy]: https://github.com/kubernetes-sigs/cluster-api/blob/v0.4.0/api/v1alpha3/machineset_types.go#L85-L105
