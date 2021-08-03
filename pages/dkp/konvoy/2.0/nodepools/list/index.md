@@ -9,10 +9,12 @@ enterprise: false
 
 ## Listing Node Pools
 
+Use this command to list the node pools of a given cluster. This returns specific properties of each node pool so that you can see the name of the machinedeployments.
+
 To list all node pools for a managed cluster, run:
 
 ```sh
-konvoy get nodepools --cluseter-name=${CLUSTER_NAME}
+konvoy get nodepools --cluster-name=${CLUSTER_NAME}
 ```
 
 The expected output is similar to the following example, indicating the desired size of the node pool, the number of replicas ready in the node pool, and the Kubernetes version those nodes are running:

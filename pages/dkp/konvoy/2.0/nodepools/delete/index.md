@@ -2,12 +2,14 @@
 layout: layout.pug
 Delete: Delete Node Pools
 title: Delete Node Pools
-menuWeight: 20
+menuWeight: 40
 excerpt: Delete node pools in a cluster
 enterprise: false
 ---
 
 ## Delete Node Pools
+
+Deleting a node pool deletes the Kubernetes nodes and the underlying infrastructure. All nodes will be drained prior to deletion and the pods running on those nodes will be rescheduled.
 
 To delete a node pool from a managed cluster, run:
 
