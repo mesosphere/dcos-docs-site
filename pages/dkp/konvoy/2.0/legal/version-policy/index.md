@@ -20,9 +20,9 @@ Each Konvoy release supports a range of Kubernetes versions. Konvoy 2.0 supports
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.20.8 |
-|**Maximum** | 1.20.x |
-|**Default** | 1.20.8 |
+|**Minimum** | 1.21.3 |
+|**Maximum** | 1.21.x |
+|**Default** | 1.21.3 |
 
 ## Supported operating systems
 

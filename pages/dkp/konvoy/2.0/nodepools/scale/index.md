@@ -34,7 +34,7 @@ The expected outcome is similar to the following example, with the number of DES
 
 ```sh
 NODEPOOL                        DESIRED               READY               KUBERNETES VERSION
-demo-cluster-md-0               3                     3                   v1.20.8
+demo-cluster-md-0               3                     3                   v1.21.3
 ```
 
 ### Scaling Down Node Pools
