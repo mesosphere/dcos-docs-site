@@ -68,25 +68,12 @@ If you are installing Kommander on kind, you must know the following:
 
 ## Install on Konvoy
 
-There are two different scenarios for installing networked Kommander on Konvoy:
+Before running the commands below make sure that your `kubectl` configuration is pointing to the cluster you want to install Kommander on by setting the `KUBECONFIG` environment variable to the respective kubeconfig file's location.
 
-1. Install on a [self-managing cluster][konvoy_self_managing].
-2. Install on a cluster managed by a [different bootstrap cluster][bootstrap_cluster].
-
-To install Kommander with http proxy setting enabled, you need to create the `kommander` namespace manually with the right set of labels and create `gatekeeper-overrides` configmap as outlined in the [enable gatekeeper](../http-proxy#enable-gatekeeper) section before proceeding further.
-
-To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`.
-
-To install Kommander on a self-managing cluster:
+To install Kommander with http proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper](../http-proxy#enable-gatekeeper) section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`
 
 ```sh
-helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --devel --version=${VERSION} --set certManager=false
-```
-
-To install Kommander on a cluster managed by a different bootstrap cluster:
-
-```sh
-helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --devel --version=${VERSION}
+helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --devel --version=${VERSION} --set certManager=$(kubectl get ns cert-manager > /dev/null 2>&1 && echo "false" || echo "true")
 ```
 
 ## Verify installation
