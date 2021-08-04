@@ -1,17 +1,19 @@
 ---
 layout: layout.pug
-navigationTitle: Service Federation
-title: Federation of Services
+navigationTitle: Application Deployment
+title: Deployment of Applications
 menuWeight: 30
 beta: true
-excerpt: How to federate services on to attached clusters
+excerpt: How to deploy applications to attached clusters
 ---
 <!-- markdownlint-disable MD004 MD040 -->
 
-This topic describes how to federate a service to an attached cluster.
-<p class="message--warning"><strong>WARNING: </strong>Single-Sign-On (SSO) stack is not currently supported. Services configured to use SSO might not function properly or completely.</p>
+This topic describes how to deploy an application to attached clusters within a workspace.
 
-Currently, the `reloader` service is automatically federated to attached clusters. To federate other services, follow the steps below.
+Currently, the `cert-manager`, `kube-prometheus-stack`, `kubecost`, `kubernetes-dashboard`, `prometheus-adapter`, `traefik`, `traefik-forward-auth`, and `reloader` applications are automatically deployed to attached clusters.
+
+You can use the UI to deploy applications.
+To deploy applications using the CLI, follow the steps below.
 
 ## Prerequisites
 
@@ -26,24 +28,24 @@ Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace'
 export WORKSPACE_NAMESPACE=<workspace_namespace>
 ```
 
-## Deploy the service
+## Deploy the application
 
-The list of available platform services that can be federated on the attached cluster are:
+The list of available applications that can be deployed on the attached cluster are:
 
 ```
 NAME                           APP ID
 cert-manager-0.2.7             cert-manager
 external-dns-2.20.5            external-dns
 gatekeeper-0.6.8               gatekeeper
-grafana-logging-6.9.1          grafana-logging
+grafana-logging-6.13.9         grafana-logging
 istio-1.9.1                    istio
 jaeger-2.21.0                  jaeger
 kiali-1.29.0                   kiali
 kube-oidc-proxy-0.2.5          kube-oidc-proxy
-kube-prometheus-stack-15.4.6   kube-prometheus-stack
-kubecost-0.13.0                kubecost
+kube-prometheus-stack-16.13.1  kube-prometheus-stack
+kubecost-0.15.0                kubecost
 kubernetes-dashboard-4.0.3     kubernetes-dashboard
-logging-operator-3.10.0        logging-operator
+logging-operator-3.13.0        logging-operator
 loki-distributed-0.33.1        loki-distributed
 metallb-0.12.2                 metallb
 nvidia-0.4.0                   nvidia
@@ -54,15 +56,13 @@ traefik-forward-auth-0.2.14    traefik-forward-auth
 velero-3.1.1                   velero
 ```
 
-<p class="message--note"><strong>NOTE: </strong><code>dex</code>, <code>kubefed</code>, <code>kommander</code> and <code>dex-k8s-authenticator</code> are excluded from the list because they cannot be federated on an attached clusters.</p>
-
-<p class="message--note"><strong>NOTE: </strong>Currently, Kommander only supports a single deployment of <code>cert-manager</code> per cluster. Because of this <code>cert-manager</code> can not be installed on <code>konvoy</code> managed <code>AWS</code> clusters.</p>
+<p class="message--note"><strong>NOTE: </strong>Currently, Kommander only supports a single deployment of <code>cert-manager</code> per cluster. Because of this, <code>cert-manager</code> cannot be installed on <code>Konvoy</code> managed <code>AWS</code> clusters.</p>
 
 <p class="message--note"><strong>NOTE: </strong>Only a single deployment of <code>traefik</code> per cluster is supported.</p>
 
-1.  Deploy one of the supported services to [your existing attached cluster](../../clusters/attach-cluster/) with an `AppDeployment` resource.
+1.  Deploy one of the supported applications to [your existing attached cluster](../../clusters/attach-cluster/) with an `AppDeployment` resource.
 
-1.  Within the `AppDeployment`, define the `appRef` to specify which `App` will be federated:
+1.  Within the `AppDeployment`, define the `appRef` to specify which `App` will be deployed:
 
     ```yaml
     cat <<EOF | kubectl apply -f -
@@ -77,13 +77,13 @@ velero-3.1.1                   velero
     EOF
     ```
 
-1.  Create the resource in the workspace you just created, which instructs Kommander to federate the `AppDeployment` to the `KommanderCluster`s in the same workspace.
+1.  Create the resource in the workspace you just created, which instructs Kommander to deploy the `AppDeployment` to the `KommanderCluster`s in the same workspace.
 
-<p class="message--note"><strong>NOTE: </strong>The <code>appRef.name</code> must match the app <code>name</code> from the list of available services.</p>
+<p class="message--note"><strong>NOTE: </strong>The <code>appRef.name</code> must match the app <code>name</code> from the list of available applications.</p>
 
-## Deploy a service with a custom configuration
+## Deploy an application with a custom configuration
 
-1.  Locate the default service configuration in the `ConfigMap`:
+1.  Locate and view the default application configuration in the `ConfigMap`:
 
     ```bash
     kubectl get configmap -n ${WORKSPACE_NAMESPACE} metallb-d2iq-defaults -oyaml
@@ -106,7 +106,7 @@ velero-3.1.1                   velero
     EOF
     ```
 
-1.  The `AppDeployment` waits for the `ConfigMap` named `metallb-overrides-attached` to be present before federating it to the attached clusters:
+1.  Create the `ConfigMap` with the name provided in the step above, with the custom configuration:
 
     ```yaml
     cat <<EOF | kubectl apply -f -
@@ -126,9 +126,11 @@ velero-3.1.1                   velero
     EOF
     ```
 
-## Verify services
+Kommander waits for the `ConfigMap` to be present before deploying the `AppDeployment` to the attached clusters.
 
-The services are now federated. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
+## Verify applications
+
+The applications are now deployed. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
@@ -136,13 +138,4 @@ NAMESPACE               NAME        READY   STATUS                             A
 workspace-test-vjsfq    metallb     True    Release reconciliation succeeded   7m3s
 ```
 
-**Note** Some of the supported services have dependencies on other services:
-
-* `istio` **depends on** `kube-prometheus-stack`.
-* `kiali` **depends on** `istio` and `kube-prometheus-stack`.
-* `kube-prometheus-stack` **depends on** `traefik`.
-* `kubecost` **depends on** `traefik` and `traefik-foward-auth`.
-* `traefik-foward-auth` **depends on** `traefik`.
-* `prometheus-adapter` **depends on** `kube-prometheus-stack`.
-* `velero` **depends on** `traefik`.
-* `kubernetes-dashboard` **depends on** `traefik`.
+<p class="message--note"><strong>NOTE: </strong>Some of the supported applications have dependencies on other applications. See <a href="../workspace-platform-services/platform-service-dependencies/">Workspace Platform Application Dependencies</a> for that table.</p>
