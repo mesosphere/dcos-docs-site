@@ -73,6 +73,10 @@ There are two different scenarios for installing networked Kommander on Konvoy:
 1. Install on a [self-managing cluster][konvoy_self_managing].
 2. Install on a cluster managed by a [different bootstrap cluster][bootstrap_cluster].
 
+To install Kommander with http proxy setting enabled, you need to create the `kommander` namespace manually with the right set of labels and create `gatekeeper-overrides` configmap as outlined in the [enable gatekeeper](../http-proxy#enable-gatekeeper) section before proceeding further.
+
+To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`.
+
 To install Kommander on a self-managing cluster:
 
 ```sh
