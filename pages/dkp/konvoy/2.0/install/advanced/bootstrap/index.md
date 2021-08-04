@@ -24,6 +24,8 @@ For example, instead of using `konvoy create bootstrap` in the below instruction
 
 ## Bootstrap Cluster Lifecycle Services
 
+1.  If an HTTP proxy is required for the bootstrap cluster, set the local `http_proxy`, `https_proxy`, and `no_proxy` environment variables. They are copied into the bootstrap cluster.
+
 1.  Create a bootstrap cluster:
 
     ```sh
