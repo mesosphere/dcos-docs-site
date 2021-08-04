@@ -2,18 +2,16 @@
 layout: layout.pug
 navigationTitle: Application Deployment
 title: Deployment of Applications
-menuWeight: 30
+menuWeight: 5
 beta: true
-excerpt: How to deploy applications to attached clusters
+excerpt: Deploy applications to attached clusters using the CLI
 ---
 <!-- markdownlint-disable MD004 MD040 -->
 
-This topic describes how to deploy an application to attached clusters within a workspace.
+This topic describes how to use the CLI to deploy an application to attached clusters within a workspace.
+To use the Kommander UI to deploy applications, see [Customize a workspace's platform services](../#customize-a-workspaces-platform-services).
 
-Currently, the `cert-manager`, `kube-prometheus-stack`, `kubecost`, `kubernetes-dashboard`, `prometheus-adapter`, `traefik`, `traefik-forward-auth`, and `reloader` applications are automatically deployed to attached clusters.
-
-You can use the UI to deploy applications.
-To deploy applications using the CLI, follow the steps below.
+See [Workspace Platform Services](../#workspace-platform-services) for a list of all applications and those that are enabled by default.
 
 ## Prerequisites
 
@@ -30,35 +28,7 @@ export WORKSPACE_NAMESPACE=<workspace_namespace>
 
 ## Deploy the application
 
-The list of available applications that can be deployed on the attached cluster are:
-
-```
-NAME                           APP ID
-cert-manager-0.2.7             cert-manager
-external-dns-2.20.5            external-dns
-gatekeeper-0.6.8               gatekeeper
-grafana-logging-6.13.9         grafana-logging
-istio-1.9.1                    istio
-jaeger-2.21.0                  jaeger
-kiali-1.29.0                   kiali
-kube-oidc-proxy-0.2.5          kube-oidc-proxy
-kube-prometheus-stack-16.13.1  kube-prometheus-stack
-kubecost-0.15.0                kubecost
-kubernetes-dashboard-4.0.3     kubernetes-dashboard
-logging-operator-3.13.0        logging-operator
-loki-distributed-0.33.1        loki-distributed
-metallb-0.12.2                 metallb
-nvidia-0.4.0                   nvidia
-prometheus-adapter-2.11.1      prometheus-adapter
-reloader-0.0.85                reloader
-traefik-9.19.1                 traefik
-traefik-forward-auth-0.2.14    traefik-forward-auth
-velero-3.1.1                   velero
-```
-
-<p class="message--note"><strong>NOTE: </strong>Currently, Kommander only supports a single deployment of <code>cert-manager</code> per cluster. Because of this, <code>cert-manager</code> cannot be installed on <code>Konvoy</code> managed <code>AWS</code> clusters.</p>
-
-<p class="message--note"><strong>NOTE: </strong>Only a single deployment of <code>traefik</code> per cluster is supported.</p>
+The list of available applications that can be deployed on the attached cluster can be found [here](../#workspace-platform-services).
 
 1.  Deploy one of the supported applications to [your existing attached cluster](../../clusters/attach-cluster/) with an `AppDeployment` resource.
 
@@ -138,4 +108,4 @@ NAMESPACE               NAME        READY   STATUS                             A
 workspace-test-vjsfq    metallb     True    Release reconciliation succeeded   7m3s
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Some of the supported applications have dependencies on other applications. See <a href="../workspace-platform-services/platform-service-dependencies/">Workspace Platform Application Dependencies</a> for that table.</p>
+<p class="message--note"><strong>NOTE: </strong>Some of the supported applications have dependencies on other applications. See <a href="../platform-service-dependencies">Workspace Platform Application Dependencies</a> for that table.</p>
