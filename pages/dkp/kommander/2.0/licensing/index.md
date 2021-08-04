@@ -1,9 +1,8 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Licensing
 title: License
-excerpt:
+excerpt: Work with, obtain, and manage licenses for Kommander clusters
 menuWeight: 6
 beta: true
 ---
@@ -35,6 +34,7 @@ You can add a license directly using `kubectl`.
 
     ```bash
     kubectl create secret generic my-license-secret --from-literal=jwt=MY_LICENSE -n kommander
+    kubectl label secret my-license-secret kommanderType=license -n kommander
     ```
 
 1.  Create a license object:
