@@ -41,7 +41,7 @@ Create these resources to direct pod logs to the Project namespace’s Loki serv
      namespace: ${PROJECT_NAMESPACE}
    spec:
      loki:
-       url: http://loki-distributed-gateway.${PROJECT_NAMESPACE}.svc.cluster.local:80
+       url: http://grafana-loki-loki-distributed-gateway.${PROJECT_NAMESPACE}.svc.cluster.local:80
        extract_kubernetes_labels: true
        configure_kubernetes_labels: true
        buffer:
