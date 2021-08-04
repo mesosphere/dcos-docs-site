@@ -76,17 +76,16 @@ wget "https://mesosphere.github.io/kommander/charts/kommander-bootstrap-${VERSIO
 
 1. Create the following `values.yaml` file that can be used for installing Kommander in your air-gapped environment:
 
-1. If you are **not** installing Kommander in a [self-managing cluster][konvoy_self_managing], set `certManager` to `true`.
-
 ```bash
 export GOARCH=amd64
+export CERT_MANAGER=$(kubectl get ns cert-manager > /dev/null 2>&1 && echo "false" || echo "true")
 cat <<EOF > values-airgapped.yaml
 airgapped:
   enabled: true
   helmMirror:
     image:
       tag: ${VERSION}-${GOARCH}
-certManager: false
+certManager: ${CERT_MANAGER}
 authorizedlister:
   image:
     tag: ${VERSION}-${GOARCH}
