@@ -3,10 +3,10 @@ layout: layout.pug
 navigationTitle: Workspace Platform Application Dependencies
 title: Workspace Platform Application Dependencies
 menuWeight: 8
-excerpt: Dependencies between workspace applications and services
-draft: true
+excerpt: Dependencies between workspace applications
 ---
-There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that your services and applications are properly deployed to the clusters. For more information on how to customize workspace platform services, see [Workspace Platform Services](../).
+
+There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that your services are properly deployed to the clusters. For more information on how to customize workspace platform services, see [Workspace Platform Services](../#customize-a-workspaces-platform-services).
 
 ## Platform Service Dependencies
 
@@ -24,7 +24,7 @@ The foundational components are comprised of the following platform services:
 
 - [cert-manager](https://cert-manager.io/docs): Automates TLS certificate management and issuance.
 - [reloader](https://github.com/stakater/Reloader): A controller that watches changes on ConfigMaps and Secrets, and automatically triggers updates on the dependent applications.
-- [traefik](https://traefik.io/): Provides an HTTP reverse proxy and load balancer. Requires Cert-Manager and Reloader.
+- [traefik](https://traefik.io/): Provides an HTTP reverse proxy and load balancer. Requires cert-manager and reloader.
 
 | **Platform Service** | **Dependencies** |
 | -------------------------- | ---------------------- |
@@ -39,11 +39,11 @@ Collects logs over time from Kubernetes and applications deployed on managed clu
 - [grafana-loki](https://grafana.com/oss/loki/): A horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus.
 - [grafana-logging](https://grafana.com/oss/grafana/): Logging dashboard used to view logs aggregated to Grafana Loki.
 - [logging-operator](https://banzaicloud.com/docs/one-eye/logging-operator/): Automates the deployment and configuration of a Kubernetes logging pipeline.
-- [MinIO Operator](https://github.com/minio/operator/blob/master/README.md): A Kubernetes-native high performance object store with an S3-compatible API that supports deploying MinIO Tenants onto private and public cloud infrastructures.
+- [minio-operator](https://github.com/minio/operator/blob/master/README.md): A Kubernetes-native high performance object store with an S3-compatible API that supports deploying MinIO Tenants onto private and public cloud infrastructures.
 
 | **Platform Service** | **Dependencies** |
 | -------------------------- | ---------------------- |
-| grafana-loki               | grafana-logging        |
+| grafana-loki               |                        |
 | grafana-logging            | grafana-loki           |
 | logging-operator           |                        |
 | minio-operator             |                        |
@@ -53,7 +53,7 @@ Collects logs over time from Kubernetes and applications deployed on managed clu
 Provides monitoring capabilities by collecting metrics, including cost metrics, for Kubernetes and applications deployed on managed clusters. Also provides visualization of metrics and evaluates rule expressions to trigger alerts when specific conditions are observed.
 
 -   [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack): A stack of applications that collect metrics and provide visualization and alerting capabilities.
-    **Note:** [Prometheus](https://prometheus.io), [Prometheus Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager) and [Grafana](https://grafana.com) are included in the bundled installation.
+    <p class="message--note"><strong>NOTE: </strong><a href="https://prometheus.io">Prometheus</a>, <a href="https://prometheus.io/docs/alerting/latest/alertmanager">Prometheus Alertmanager</a> and <a href="https://grafana.com">Grafana</a> are included in the bundled installation.</p>
 -   [prometheus-adapter](https://github.com/DirectXMan12/k8s-prometheus-adapter): Provides cluster metrics from Prometheus.
 -   [kubecost](https://kubecost.com): provides real-time cost visibility and insights for teams using Kubernetes, helping you continuously reduce your cloud costs.
 -   [kubernetes-dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/): A general purpose, web-based UI for Kubernetes clusters. It allows users to manage applications running in the cluster and troubleshoot them, as well as manage the cluster itself.
@@ -65,7 +65,7 @@ Provides monitoring capabilities by collecting metrics, including cost metrics, 
 | prometheus-adapter         | kube-prometheus-stack |
 | kubecost                   | traefik               |
 | kubernetes-dashboard       | traefik               |
-| nvidia       |                       |
+| nvidia                     |                       |
 
 ### Security
 
@@ -87,8 +87,8 @@ Allows deploying service mesh on clusters, enabling the management of microservi
 
 | Platform Services  | Dependencies                         |
 | ------------------ | ------------------------------------ |
-| istio | kube-prometheus-stack                |
-| kiali              | istio, jaeger |
+| istio              | kube-prometheus-stack                |
+| kiali              | istio, jaeger                        |
 | jaeger             |                                      |
 
 ### Single Sign On (SSO)
@@ -113,12 +113,13 @@ This platform application assists you with backing up and restoring your environ
 | ----------------- | ------------ |
 | velero            |              |
 
-<!-- These pages have not yet been migrated for kommander 2.0 & konvoy 2.0
 ## Related information
 
-- [Kommander security architecture](/dkp/kommander/1.4/security/)
+- [Kommander security architecture](../../../security/)
+- [Traefik Ingress controller](../../../networking/ingress/)
+- [Logging and audits](../../../logging/)
+
+<!-- These pages have not yet been migrated for kommander 2.0 & konvoy 2.0
 - [Centralized cost monitoring](/dkp/kommander/1.4/centralized-cost-monitoring/)
 - [Centralized monitoring](/dkp/kommander/1.4/centralized-monitoring/)
-- [Traefik Ingress controller](../networking/ingress/)
-- [Monitoring and alerts](/dkp/konvoy/1.7/monitoring/)
-- [Logging and audits](/dkp/konvoy/1.7/logging/) -->
+- [Monitoring and alerts](/dkp/konvoy/1.7/monitoring/) -->
