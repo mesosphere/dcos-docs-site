@@ -36,6 +36,7 @@ The Konvoy Image Builder uses yaml `override` files to configure specific attrib
 
 - **Base image:** The specific AMI image used as the base for your new AMI image.
 - **Container images:** The container images that will be used in your AMI image.
+- **HTTP proxy:**  Proxy configurations to use when creating your AMI image.
 
 ### Base image override files
 
@@ -101,6 +102,21 @@ extra_images:
   - calico/pod2daemon-flexvol:v3.18.0
   - calico/typha:v3.18.0
 ```
+
+### HTTP proxy override files
+
+The ansible playbooks create `systemd` drop-in files for `containerd` and `kubelet` to configure the `http_proxy`, `http_proxy`, and `no_proxy` environment variables for the service from the file `/etc/konvoy_http_proxy.conf`. To configure a proxy to be used during image creation, create a new override file and specify the following:
+
+```yaml
+# Example override-proxy.yaml
+---
+export http_proxy: http://example.org:8080
+export https_proxy: http://example.org:8081
+export no_proxy: example.org,example.com,example.net
+
+```
+
+These values are only used for the image creation. After the image is created, the ansible playbooks remove the `/etc/konvoy_http_proxy.conf` file. The `konvoy` command can be used to configure the `KubeadmConfigTemplate` object to create this file on bootup of the image with values supplied during the `konvoy` invocation. This enables using different proxy settings for image creation and runtime.
 
 ## Build the image
 
