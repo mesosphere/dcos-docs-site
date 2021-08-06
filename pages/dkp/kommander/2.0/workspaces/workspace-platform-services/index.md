@@ -50,7 +50,7 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 | reloader-0.0.85               | reloader              | True                |
 | traefik-9.19.1                | traefik               | True                |
 | traefik-forward-auth-0.2.14   | traefik-forward-auth  | True                |
-| velero-3.1.1                  | velero                | False               |
+| velero-3.1.3                  | velero                | False               |
 
 <p class="message--note"><strong>NOTE: </strong>Currently, Kommander only supports a single deployment of <code>cert-manager</code> per cluster. Because of this, <code>cert-manager</code> cannot be installed on <code>Konvoy</code> managed <code>AWS</code> clusters.</p>
 
