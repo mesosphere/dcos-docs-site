@@ -28,6 +28,24 @@ html(lang='en')
       include partials/bubbles.html
       .landing__container
         include partials/filters.html
+        .blurb__item(data-sphere="ksphere")
+          a.blurb__left(href="/dkp/kommander")
+            img.landing__tile-image(src='/assets/Kommander_Docs.png')
+          .blurb__right
+            a(href='/dkp/kommander')
+              h3.blurb__header Kommander
+            a.blurb__desc(href='/dkp/kommander')
+              p.color__grey Deliver federated management and governance across disparate clusters for any on-premise or cloud Kubernetes distribution.
+            +links(`/dkp/kommander/${kommanderDocsLatest}`)
+        .blurb__item(data-sphere="ksphere")
+          a.blurb__left(href="/dkp/konvoy")
+            img.landing__tile-image(src='/assets/Konvoy_Docs.png')
+          .blurb__right
+            a(href='/dkp/konvoy')
+              h3.blurb__header Konvoy
+            a.blurb__desc(href='/dkp/konvoy')
+              p.color__grey A packaged set of integrated operational services for Kubernetes so you can get up and running quickly and easily.
+            +links(`/dkp/konvoy/${konvoyDocsLatest}`)
         .blurb__item(data-sphere="mesosphere")
           a.blurb__left(href="/mesosphere/dcos")
             img.landing__tile-image(src='/assets/DCOS_Docs.png')
