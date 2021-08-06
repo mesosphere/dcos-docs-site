@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes
+navigationTitle: Release Notes Konvoy 1.7.4
 title: Release Notes Konvoy 1.7.4
-menuWeight: 0
+menuWeight: 50
 excerpt: View release-specific information for Konvoy 1.7.4
 beta: false
 enterprise: false
@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.7.4 was released on 29, July 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.7.4 was released on 28, July 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
