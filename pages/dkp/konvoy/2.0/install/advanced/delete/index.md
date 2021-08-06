@@ -111,12 +111,12 @@ If you did not make your workload cluster self-managing, as described in [Make N
     INFO[2021-06-09T12:14:03-07:00] Deleted default/aws-example cluster  src="cluster/delete.go:129"
     ```
 
-    With the cluster deleted, you can delete the bootstrap cluster.
+    After the workload cluster is deleted, delete the bootstrap cluster.
 
 ## Delete the bootstrap cluster
 
 ```sh
-konvoy delete bootstrap
+konvoy delete bootstrap --kubeconfig $HOME/.kube/config
 ```
 
 ```sh
