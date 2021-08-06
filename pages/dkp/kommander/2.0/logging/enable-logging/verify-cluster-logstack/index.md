@@ -32,7 +32,7 @@ NAMESPACE                NAME                         READY    STATUS           
 ${WORKSPACE_NAMESPACE}    grafana-logging              True    Release reconciliation succeeded   15m
 ${WORKSPACE_NAMESPACE}    logging-operator             True    Release reconciliation succeeded   15m
 ${WORKSPACE_NAMESPACE}    logging-operator-logging     True    Release reconciliation succeeded   15m
-${WORKSPACE_NAMESPACE}    loki-distributed             True    Release reconciliation succeeded   15m
+${WORKSPACE_NAMESPACE}    grafana-loki                 True    Release reconciliation succeeded   15m
 ```
 
 Then, you [can view cluster log data][view-data].

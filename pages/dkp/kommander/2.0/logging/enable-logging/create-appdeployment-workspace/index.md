@@ -10,8 +10,9 @@ beta: true
 <!-- markdownlint-disable MD030 -->
 
 Workspace logging AppDeployments enable and deploy the logging stack to all attached clusters within the workspace.
+Use the Kommander UI to enable the logging applications, or, alternately, use the CLI to create the AppDeployments.
 
-To enable logging in DKP, follow these steps on the management cluster:
+To enable logging in DKP using the CLI, follow these steps on the management cluster:
 
 1. Set the `WORKSPACE_NAMESPACE` environment variable needed for this procedure using the command to get the name of the workspace's namespace:
 
@@ -19,39 +20,9 @@ To enable logging in DKP, follow these steps on the management cluster:
    export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.status.namespaceRef.name}')
    ```
 
-1. Copy this command to create a cert-manager AppDeployment, and execute it from a command line:
+1. Ensure that Cert-Manager and Traefik are enabled in the workspace.
 
-   <p class="message--note"><strong>NOTE: </strong>Creating the cert-manager AppDeployment on a self-managed Konvoy cluster is unnecessary and will not work. If you are working with a self-managed Konvoy cluster, skip this step.</p>
-
-   ``` bash
-   cat <<EOF | kubectl apply -f -
-   apiVersion: apps.kommander.d2iq.io/v1alpha1
-   kind: AppDeployment
-   metadata:
-     name: cert-manager
-     namespace: ${WORKSPACE_NAMESPACE}
-   spec:
-     appRef:
-       name: cert-manager-0.2.7
-   EOF
-   ```
-
-1. Copy this command to create the Traefik AppDeployment, and execute it from a command line:
-
-   ``` bash
-   cat <<EOF | kubectl apply -f -
-   apiVersion: apps.kommander.d2iq.io/v1alpha1
-   kind: AppDeployment
-   metadata:
-     name: traefik
-     namespace: ${WORKSPACE_NAMESPACE}
-   spec:
-     appRef:
-       name: traefik-9.19.1
-   EOF
-   ```
-
-1. Copy this command to create the Logging-operator, Loki-distributed, and Grafana-logging AppDeployments, and execute it from a command line:
+1. Copy this command and execute it from a command line to create the Logging-operator, Grafana-loki, and Grafana-logging AppDeployments:
 
    ``` bash
    cat <<EOF | kubectl apply -f -
@@ -62,16 +33,16 @@ To enable logging in DKP, follow these steps on the management cluster:
      namespace: ${WORKSPACE_NAMESPACE}
    spec:
      appRef:
-       name: logging-operator-3.12.0
+       name: logging-operator-3.13.0
    ---
    apiVersion: apps.kommander.d2iq.io/v1alpha1
    kind: AppDeployment
    metadata:
-     name: loki-distributed
+     name: grafana-loki
      namespace: ${WORKSPACE_NAMESPACE}
    spec:
      appRef:
-       name: loki-distributed-0.33.1
+       name: grafana-loki-0.33.1
    ---
    apiVersion: apps.kommander.d2iq.io/v1alpha1
    kind: AppDeployment

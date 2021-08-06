@@ -22,7 +22,7 @@ For example, Kommander 2.0 supports Kubernetes versions between 1.19.0 and 1.21.
 
 When working with clusters that have networking restrictions, you will need to apply some YAML manifests on the existing cluster, so that Kommander can collect a resulting `kubeconfig` file used to establish the tunnel. When you use the Kommander UI, this is handled for you. If you choose to use the manual [CLI attachment process][manual_cli_attachment], you will apply those manifests as part of the procedure. -->
 
-### Default StorageClass
+### Creating a default StorageClass
 
 To deploy many of the services on the attached cluster, there must be a default `StorageClass` configured. Run the following command on the attached cluster:
 
@@ -44,9 +44,9 @@ annotations:
   storageclass.kubernetes.io/is-default-class: "true"
 ```
 
-### Projects and Workspaces
+### Creating Projects and Workspaces
 
-Before you attach clusters, you need to create one or more Workspaces, and recommend that you also create Projects within your Workspaces. [Workspaces][workspaces] give you a logical way to represent your teams and specific configurations. [Projects][projects] let you define one or more clusters as a group to which Kommander pushes a common configuration. Grouping your existing clusters in Kommander projects and workspaces makes managing their platform services and resources easier and supports monitoring and logging.
+Before you attach clusters, you need to create one or more Workspaces, and we recommend that you also create Projects within your Workspaces. [Workspaces][workspaces] give you a logical way to represent your teams and specific configurations. [Projects][projects] let you define one or more clusters as a group to which Kommander pushes a common configuration. Grouping your existing clusters in Kommander projects and workspaces makes managing their platform services and resources easier and supports monitoring and logging.
 
 <p class="message--important"><strong>IMPORTANT: </strong>The Default Workspace is currently reserved for the host management cluster.
 All other clusters must be attached to a different workspace.</p>
@@ -67,9 +67,10 @@ Consider the additional resource requirements for running the platform services 
 -->
 To attach an existing EKS cluster, refer to the specific information in [Attach Amazon EKS Cluster to Kommander][attach_eks_cluster].
 
-## Attaching existing Azure clusters
+<!--## Attaching existing Azure clusters-->
 
-Attaching an existing Azure-provisioned cluster requires that the cluster be fully-configured and running. The suggested default cluster configuration includes a control plane pool containing three (3) Standard_DS3_v2 nodes and a worker pool containing four (4) Standard_DS3_v2 nodes.
+<!--Attaching an existing Azure-provisioned cluster requires that the cluster be fully-configured and running. The suggested default cluster configuration includes a control plane pool containing three (3) Standard_DS3_v2 nodes and a worker pool containing four (4) Standard_DS3_v2 nodes.
+-->
 <!--
 Consider the additional resource requirements for running the platform services you want Kommander to manage, and ensure that your existing clusters comply.
 -->
