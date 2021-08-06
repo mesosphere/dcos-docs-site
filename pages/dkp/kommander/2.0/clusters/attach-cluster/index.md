@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Attach an Existing Kubernetes Cluster
 title: Attach an Existing Kubernetes Cluster
-menuWeight: 10
+menuWeight: 20
 excerpt: A guide for attaching an existing Kubernetes cluster using kubeconfig
 ---
 
@@ -12,15 +12,15 @@ You can attach an existing cluster directly to Kommander. At the time of attachm
 
 <!---
 Review the [workspace platform service resource requirements][platform_service_req] to ensure the attached cluster has sufficient resources. For more information on platform services and customizing them, see [workspace platform services][workspace_platform_services].
--->
+--->
 
-If the cluster you want to attach was created using Amazon EKS, Azure AKS, or Google GKE, create a service account as described below. If you are attaching an Amazon EKS cluster to Kommander, [detailed instructions are available][attach_eks_cluster].
+If the cluster you want to attach was created using Amazon EKS<!--, Azure AKS,--> or Google GKE, create a service account as described below. If you are attaching an Amazon EKS cluster to Kommander, [detailed instructions are available][attach_eks_cluster].
 
 ### Prerequisites
 
 This step is optional, if you already have a kubeconfig file. You can go directly to [Attaching a cluster](#attaching-a-cluster).
 
-You must create a separate service account when attaching existing Amazon EKS, Azure AKS, or Google GKE Kubernetes clusters. This is necessary because the kubeconfig files generated from those clusters are not usable out-of-the-box by Kommander. The kubeconfig files call CLI commands, such as `aws` or `gcloud`, and use locally-obtained authentication tokens. Having a separate service account also allows you to keep access to the cluster specific and isolated to Kommander.
+You must create a separate service account when attaching existing Amazon EKS<!--, Azure AKS,--> or Google GKE Kubernetes clusters. This is necessary because the kubeconfig files generated from those clusters are not usable out-of-the-box by Kommander. The kubeconfig files call CLI commands, such as `aws` or `gcloud`, and use locally-obtained authentication tokens. Having a separate service account also allows you to keep access to the cluster specific and isolated to Kommander.
 
 To get started, ensure you have [kubectl][kubectl] set up and configured with [ClusterAdmin][clusteradmin] for the cluster you want to connect to Kommander.
 
@@ -112,7 +112,7 @@ All other clusters must be attached to a different workspace.</p>
 
 <!---
 Platform services extend the functionality of Kubernetes and allow you to deploy ready-to-use logging and monitoring stacks by federating platform services when attaching a cluster to Kommander. For more information, refer to [workspace platform services][workspace_platform_services].
--->
+--->
 
 ![Add Cluster Connect](/dkp/kommander/2.0/img/add-cluster-connect.png)
 
@@ -126,7 +126,7 @@ After the cluster has attached successfully, and you can access the UI, you can 
 1.  Select the attached cluster name, and follow the instructions to assemble a kubeconfig file for accessing its Kubernetes API.
 
 You can also retrieve a custom kubeconfig by visiting the `/token` endpoint on the Kommander cluster domain. Selecting the attached cluster name displays the instructions to assemble a kubeconfig for accessing its Kubernetes API.
--->
+--->
 
 [clusteradmin]: https://kubernetes.io/docs/concepts/cluster-administration/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
