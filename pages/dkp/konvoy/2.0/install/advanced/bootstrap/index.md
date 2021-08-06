@@ -14,13 +14,7 @@ To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) contr
 Before you begin, you must:
 
 - Complete the steps in [Prerequisites][prereqs].
-
-You can run Konvoy CLI commands in the working directory where the `konvoy` binary and related files are by using `./konvoy`.
-For example, instead of using `konvoy create bootstrap` in the below instructions, use `./konvoy` for all the CLI commands, like:
-
-   ```sh
-   ./konvoy create bootstrap
-   ```
+- Ensure the `konvoy` binary can be found in your $PATH.
 
 ## Bootstrap Cluster Lifecycle Services
 
@@ -29,7 +23,7 @@ For example, instead of using `konvoy create bootstrap` in the below instruction
 1.  Create a bootstrap cluster:
 
     ```sh
-    konvoy create bootstrap
+    konvoy create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
     ```sh
@@ -108,7 +102,7 @@ For example, instead of using `konvoy create bootstrap` in the below instruction
       strategy: ApplyOnce
     ```
 
-    Konvoy defines the selectors, and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_caep].
+    Konvoy defines the selectors and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_caep].
 
 [install_docker]: https://docs.docker.com/get-docker/
 [install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
