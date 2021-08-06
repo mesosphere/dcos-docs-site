@@ -7,7 +7,12 @@ beta: true
 menuWeight: 33
 ---
 
-Before you begin, [create a workload cluster][createnewcluster] and [make that new cluster self-managing][selfmanaging].
+## Prerequisites
+
+Before you begin, you must:
+
+- [Create a workload cluster][createnewcluster].
+- [Make the new cluster self-managing][selfmanaging].
 
 ## Replace a worker node
 
@@ -25,11 +30,11 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     ```text
     NAME                                         STATUS   ROLES                  AGE   VERSION
-    ip-10-0-102-60.us-west-2.compute.internal    Ready    control-plane,master   36m   v1.20.8
-    ip-10-0-118-168.us-west-2.compute.internal   Ready    <none>                 42m   v1.20.8
-    ip-10-0-175-114.us-west-2.compute.internal   Ready    control-plane,master   44m   v1.20.8
-    ip-10-0-214-26.us-west-2.compute.internal    Ready    control-plane,master   40m   v1.20.8
-    ip-10-0-84-17.us-west-2.compute.internal     Ready    <none>                 42m   v1.20.8
+    ip-10-0-102-60.us-west-2.compute.internal    Ready    control-plane,master   36m   v1.21.3
+    ip-10-0-118-168.us-west-2.compute.internal   Ready    <none>                 42m   v1.21.3
+    ip-10-0-175-114.us-west-2.compute.internal   Ready    control-plane,master   44m   v1.21.3
+    ip-10-0-214-26.us-west-2.compute.internal    Ready    control-plane,master   40m   v1.21.3
+    ip-10-0-84-17.us-west-2.compute.internal     Ready    <none>                 42m   v1.21.3
     ```
 
 1.  Export a variable with the node name to use in the next steps:

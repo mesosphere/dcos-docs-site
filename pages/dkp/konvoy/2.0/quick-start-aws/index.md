@@ -14,7 +14,7 @@ This guide provides instructions for getting started with Konvoy to get your Kub
 
 Before starting the Konvoy installation, verify that you have:
 
--   An AMD64 based Linux or MacOS machine with a supported version of the operating system.
+-   An AMD64-based Linux or MacOS machine with a supported version of the operating system.
 -   The `konvoy` binary on this machine.
 -   [Docker][install_docker] version 18.09.2 or later.
 -   [kubectl][install_kubectl] for interacting with the running cluster.
@@ -101,29 +101,11 @@ Before starting the Konvoy installation, verify that you have:
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to `Ready` while `calico-node` pods are being deployed.</p>
+    <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to <code>Ready</code> while <code>calico-node</code> pods are being deployed.</p>
 1.  List the Pods with the command:
 
     ```sh
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
-    ```
-
-### Configure the AWS EBS CSI driver
-
-1.  Create a `StorageClass` for the EBS CSI driver:
-
-    ```sh
-    cat <<EOF | kubectl --kubeconfig=${CLUSTER_NAME}.conf apply -f -
-    kind: StorageClass
-    apiVersion: storage.k8s.io/v1
-    metadata:
-      name: ebs-sc
-    provisioner: ebs.csi.aws.com
-    volumeBindingMode: WaitForFirstConsumer
-    parameters:
-      csi.storage.k8s.io/fstype: ext4
-      type: gp3
-    EOF
     ```
 
 ## (Optional) Move controllers to the newly-created cluster
@@ -131,7 +113,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Deploy CAPI controllers on the worker cluster:
 
     ```sh
-    konvoy create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
+    konvoy create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
 1.  Issue the move command:

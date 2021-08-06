@@ -9,7 +9,11 @@ enterprise: false
 
 To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) controllers. These controllers run on a Kubernetes cluster. To get started, you need a _bootstrap_ cluster. By default, Konvoy creates a bootstrap cluster for you in a Docker container using the Kubernetes-in-Docker ([KIND][kind]) tool.
 
-Before you begin, complete the steps in [Prerequisites][prereqs].
+## Prerequisites
+
+Before you begin, you must:
+
+- Complete the steps in [Prerequisites][prereqs].
 
 You can run Konvoy CLI commands in the working directory where the `konvoy` binary and related files are by using `./konvoy`.
 For example, instead of using `konvoy create bootstrap` in the below instructions, use `./konvoy` for all the CLI commands, like:
@@ -19,6 +23,8 @@ For example, instead of using `konvoy create bootstrap` in the below instruction
    ```
 
 ## Bootstrap Cluster Lifecycle Services
+
+1.  If an HTTP proxy is required for the bootstrap cluster, set the local `http_proxy`, `https_proxy`, and `no_proxy` environment variables. They are copied into the bootstrap cluster.
 
 1.  Create a bootstrap cluster:
 
@@ -38,8 +44,6 @@ For example, instead of using `konvoy create bootstrap` in the below instruction
     INFO[2021-06-04T15:53:06-07:00] Created Calico Installation                   src="bootstrap/clusterresourceset.go:47"
     INFO[2021-06-04T15:53:06-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:107"
     INFO[2021-06-04T15:53:08-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:112"
-    INFO[2021-06-04T15:53:08-07:00] Initializing Azure Disk CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:114"
-    INFO[2021-06-04T15:53:09-07:00] Created Azure Disk CustomResourceSet          src="bootstrap/clusterresourceset.go:119"
     INFO[2021-06-04T15:53:09-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:180"
     INFO[2021-06-04T15:53:09-07:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:185"
     ```
@@ -48,7 +52,6 @@ For example, instead of using `konvoy create bootstrap` in the below instruction
 
     - [Core Provider][capi]
     - [AWS Infrastructure Provider][capa]
-    - [Azure Infrastructure Provider][capz]
     - [Kubeadm Bootstrap Provider][cabpk]
     - [Kubeadm ControlPlane Provider][kcp]
 
@@ -72,7 +75,7 @@ For example, instead of using `konvoy create bootstrap` in the below instruction
     capz-system                         capz-controller-manager                         1/1     1            1           69s
     ```
 
-    Finally, Konvoy creates additional resources for Cluster API to apply to every new cluster. The resources, called 'ClusterResourceSets', contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
+    Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
 
     ```sh
     kubectl get clusterresourceset
@@ -81,9 +84,7 @@ For example, instead of using `konvoy create bootstrap` in the below instruction
     ```sh
     NAME                        AGE
     aws-ebs-csi                 3m49s
-    azure-disk-csi              3m49s
     calico-installation-aws     3m49s
-    calico-installation-azure   3m49s
     cluster-autoscaler          3m49s
     tigera-operator             3m49s
     ```
@@ -118,7 +119,6 @@ For example, instead of using `konvoy create bootstrap` in the below instruction
 [capi_book]: https://cluster-api.sigs.k8s.io/
 [calico]: https://docs.projectcalico.org/
 [capi]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/
-[capz]: https://github.com/kubernetes-sigs/cluster-api-provider-azure/tree/v0.4.14/
 [kcp]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/controlplane/kubeadm
 [cabpk]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/bootstrap/kubeadm
 [clusterresourceset_caep]: https://github.com/kubernetes-sigs/cluster-api/blob/master/docs/proposals/20200220-cluster-resource-set.md

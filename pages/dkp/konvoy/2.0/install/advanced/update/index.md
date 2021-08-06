@@ -6,9 +6,13 @@ excerpt: Update a Kubernetes cluster to upgrade Kubernetes, or change machine ha
 menuWeight: 35
 ---
 
-Before you begin, create a workload cluster, as described in [Create a New Cluster][createnewcluster].
+## Prerequisites
 
-<!-- TODO: Remove warning. -->
+Before you begin, you must:
+
+- [Create a workload cluster][createnewcluster].
+
+<!-- TODO: Remove warning after beta. -->
 <p class="message--warning"><strong>NOTE: </strong>This feature is under development.</p>
 
 ## Update a workload cluster

@@ -23,6 +23,8 @@ enterprise: false
     docker load -i <path to mesosphere/konvoy-bootstrap image>
     ```
 
+1.  If an HTTP proxy is required for the bootstrap cluster, set the local `http_proxy`, `https_proxy`, and `no_proxy` environment variables. They are copied into the bootstrap cluster.
+
 1.  Create a bootstrap cluster:
 
     ```sh

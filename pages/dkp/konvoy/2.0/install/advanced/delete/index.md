@@ -35,8 +35,6 @@ If you did not make your workload cluster self-managing, as described in [Make N
     INFO[2021-06-04T15:53:06-07:00] Created Calico Installation                   src="bootstrap/clusterresourceset.go:47"
     INFO[2021-06-04T15:53:06-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:107"
     INFO[2021-06-04T15:53:08-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:112"
-    INFO[2021-06-04T15:53:08-07:00] Initializing Azure Disk CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:114"
-    INFO[2021-06-04T15:53:09-07:00] Created Azure Disk CustomResourceSet          src="bootstrap/clusterresourceset.go:119"
     INFO[2021-06-04T15:53:09-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:180"
     INFO[2021-06-04T15:53:09-07:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:185"
     ```
@@ -90,26 +88,6 @@ If you did not make your workload cluster self-managing, as described in [Make N
 
 ## Delete the workload cluster
 
-1.  Delete all LoadBalancer-type Services from the workload cluster.
-
-    Each LoadBalancer-type Service is backed by an AWS Elastic Load Balancer (ELB). All of these ELBs must be deleted to allow the cluster resources to be completely deleted.
-
-    Generate a list of `kubectl` commands to delete each LoadBalancer-type Service in the cluster:
-
-    ```sh
-    kubectl --kubeconfig=${CLUSTER_NAME}.conf --context=konvoy-${CLUSTER_NAME}-admin@konvoy-${CLUSTER_NAME} get -A svc --output=jsonpath='{range .items[?(@.spec.type=="LoadBalancer")]}{"kubectl --kubeconfig=${CLUSTER_NAME}.conf --context=konvoy-${CLUSTER_NAME}-admin@konvoy-${CLUSTER_NAME} --namespace="}{.metadata.namespace}{" delete service "}{.metadata.name}{"\n"}{end}'
-    ```
-
-    Copy and paste the output to run the commands:
-
-    ```sh
-    kubectl --kubeconfig=${CLUSTER_NAME}.conf --context=konvoy-${CLUSTER_NAME}-admin@konvoy-${CLUSTER_NAME} --namespace=default delete service example-service
-    ```
-
-    ```sh
-    service "example-service" deleted
-    ```
-
 1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
 
     ```sh
@@ -117,6 +95,11 @@ If you did not make your workload cluster self-managing, as described in [Make N
     ```
 
 1.  Delete the Kubernetes cluster and wait a few minutes:
+
+    Before deleting the cluster, Konvoy deletes all Services of type LoadBalancer on the cluster. Each Service is backed by an AWS Classic ELB. Deleting the Service deletes the ELB that backs it.
+    To skip this step, use the flag `--delete-kubernetes-resources=false`.
+
+    <p class="message--note"><strong>NOTE: </strong>Do not skip this step if the VPC is managed by Konvoy. When Konvoy deletes cluster, it deletes the VPC. If the VPC has any AWS Classic ELBs, AWS does not allow the VPC to be deleted, and Konvoy cannot delete the cluster.</p>
 
     ```sh
     konvoy delete cluster --cluster-name=${CLUSTER_NAME} --kubeconfig $HOME/.kube/config
@@ -128,7 +111,7 @@ If you did not make your workload cluster self-managing, as described in [Make N
     INFO[2021-06-09T12:14:03-07:00] Deleted default/aws-example cluster  src="cluster/delete.go:129"
     ```
 
-    With the bootstrap cluster deleted, you can delete the bootstrap cluster.
+    With the cluster deleted, you can delete the bootstrap cluster.
 
 ## Delete the bootstrap cluster
 

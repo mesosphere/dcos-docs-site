@@ -15,12 +15,13 @@ Before you start, make sure you have created a workload cluster, as described in
 
 1.  Deploy cluster lifecycle services on the workload cluster:
 
+    By default, `create bootstrap controllers` configures the Cluster API controllers to use the AWS credentials from your environment. We recommend you use the `--with-aws-bootstrap-credentials=false` flag to configure the Cluster API controllers of your self-managing AWS cluster to use AWS IAM Instance Profiles, instead of the AWS credentials from your environment.
+
     ```sh
-    konvoy create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
+    konvoy create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     ```sh
-    konvoy create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
     INFO[2021-06-07T14:10:08-07:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:88"
     INFO[2021-06-07T14:11:34-07:00] Created bootstrap controllers                 src="bootstrap/controllers.go:93"
     INFO[2021-06-07T14:11:34-07:00] Waiting for bootstrap controllers to be ready  src="bootstrap/controllers.go:96"
@@ -31,8 +32,6 @@ Before you start, make sure you have created a workload cluster, as described in
     INFO[2021-06-07T14:11:42-07:00] Created Calico Installation                   src="bootstrap/clusterresourceset.go:47"
     INFO[2021-06-07T14:11:42-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:107"
     INFO[2021-06-07T14:11:42-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:112"
-    INFO[2021-06-07T14:11:42-07:00] Initializing Azure Disk CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:114"
-    INFO[2021-06-07T14:11:42-07:00] Created Azure Disk CustomResourceSet          src="bootstrap/clusterresourceset.go:119"
     INFO[2021-06-07T14:11:42-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:180"
     INFO[2021-06-07T14:11:42-07:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:185"
     ```

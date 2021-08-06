@@ -52,6 +52,27 @@ enterprise: false
     - `DOCKER_REGISTRY_ADDRESS`: the address of an existing Docker registry accessible in the VPC that the new cluster nodes will be configured to use a mirror registry when pulling images.
     - `DOCKER_REGISTRY_CA`: (optional) the path on the bastion machine to the Docker registry CA. Konvoy will configure the cluster nodes to trust this CA. This value is only needed if the registry is using a self-signed certificate and the AMIs are not already configured to trust this CA.
 
+1.  The Control Plane and Worker nodes can be configured to use an HTTP proxy:
+
+    ```sh
+    export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
+    export CONTROL_PLANE_HTTPS_PROXY=http://example.org:8081
+    export CONTROL_PLANE_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.elb.amazonaws.com"
+
+    export WORKER_HTTP_PROXY=http://example.org:9080
+    export WORKER_HTTPS_PROXY=http://example.org:9081
+    export WORKER_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.elb.amazonaws.com"
+    ```
+
+    - Replace `example.org,example.com,example.net` with you internal addresses
+    - `localhost` and `127.0.0.1` addesses should not use the proxy
+    - `10.96.0.0/12` is the default Kubernetes service subnet
+    - `192.168.0.0/16` is the default Kubernetes pod subnet
+    - `kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local` is the internal Kubernetes kube-apiserver service
+    - `.svc,.svc.cluster,.svc.cluster.local` is the internal Kubernetes services
+    - `169.254.169.254` is the AWS metadata server
+    - `.elb.amazonaws.com` is for the worker nodes to allow them to communicate directly to the kube-apiserver ELB
+
 1.  Create a Kubernetes cluster:
 
     ```sh
@@ -62,7 +83,13 @@ enterprise: false
     --internal-load-balancer=true \
     --additional-security-group-ids=${AWS_ADDITIONAL_SECURITY_GROUPS} \
     --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
-    --registry-mirror-cacert=${DOCKER_REGISTRY_CA}
+    --registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
+    --control-plane-http-proxy="${CONTROL_PLANE_HTTP_PROXY}" \
+    --control-plane-https-proxy="${CONTROL_PLANE_HTTPS_PROXY}" \
+    --control-plane-no-proxy="${CONTROL_PLANE_NO_PROXY}" \
+    --worker-http-proxy="${WORKER_HTTP_PROXY}" \
+    --worker-https-proxy="${WORKER_HTTPS_PROXY}" \
+    --worker-no-proxy="${WORKER_NO_PROXY}"
     ```
 
 1.  Inspect the created cluster resources:

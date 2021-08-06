@@ -8,18 +8,18 @@ enterprise: false
 menuWeight: 60
 ---
 
-This procedure describes how to use the Konvoy Image Builder to create [Cluster API](https://cluster-api.sigs.k8s.io/) compliant Amazon Machine Image (AMI) images. AMI images contain configuration information and software to create a specific, preconfigured, operating environment. For example, you can create an AMI image of your current computer system settings and software. The AMI image can then be replicated and distributed, creating your computer system for other users. The Konvoy Image Builder uses variable `overrides` to specify base image and container images to use in your new AMI.
+This procedure describes how to use the Konvoy Image Builder to create [Cluster API](https://cluster-api.sigs.k8s.io/) a compliant Amazon Machine Image (AMI). AMI images contain configuration information and software to create a specific, pre-configured, operating environment. For example, you can create an AMI image of your current computer system settings and software. The AMI image can then be replicated and distributed, creating your computer system for other users. The Konvoy Image Builder uses variable `overrides` to specify base image and container images to use in your new AMI.
 
-## Before you begin
+## Prerequisites
 
-You need certain software configurations and settings before you start this procedure. This procedure requires the following items and configurations:
+Before you begin, you must:
 
-- The latest [Konvoy Image Builder](https://github.com/mesosphere/konvoy-image-builder/releases) bundle (prefixed with `konvoy-image-bundle`) for your OS. Do not use the release prefixed with `konvoy-image-builder`.
-- A working `docker` setup
+- Download the latest [Konvoy Image Builder](https://github.com/mesosphere/konvoy-image-builder/releases) bundle (prefixed with `konvoy-image-bundle`) for your OS. Do not use the release prefixed with `konvoy-image-builder`.
+- Create a working `Docker` setup:
 
 Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS` folder. The bundled version of `konvoy-image` contains an embedded `docker` image that contains all the requirements for building.
 
-<p class="message--note"><strong>NOTE: </strong> Along with the `konvoy-image` binary, all supporting folders are also extracted. When run, `konvoy-image` will bind mount the current working directory (`${PWD}`) into the container to be used.</p>
+<p class="message--note"><strong>NOTE: </strong> The <code>konvoy-image</code> binary and all supporting folders are also extracted. When run, <code>konvoy-image</code> bind mounts the current working directory (<code>${PWD}</code>) into the container to be used.</p>
 
 -   Set environment variables for [AWS access](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html). The following variables must be set using your credentials:
 
@@ -36,6 +36,7 @@ The Konvoy Image Builder uses yaml `override` files to configure specific attrib
 
 - **Base image:** The specific AMI image used as the base for your new AMI image.
 - **Container images:** The container images that will be used in your AMI image.
+- **HTTP proxy:**  Proxy configurations to use when creating your AMI image.
 
 ### Base image override files
 
@@ -58,8 +59,8 @@ packer_builder_type: "amazon"
 python_path: ""
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can specify an exact base image to build on, using the `--source-ami` command line flag:<br>
-`konvoy-image build --source-ami=ami-12345abcdef <path/to/image.yaml>`</p>
+<p class="message--note"><strong>NOTE: </strong>You can specify a base image to build on, using the <code>--source-ami</code> command line flag:<br />
+<code>konvoy-image build --source-ami=ami-12345abcdef &lt;path/to/image.yaml&gt;</code></p>
 
 To override the above base image with another base image, you can create an `override` file. Create a new file and set the `source_ami` under the `packer` key. This overrides the image search and forces the use of the specified `source_ami`.
 
@@ -86,11 +87,9 @@ extra_images:
   - quay.io/jetstack/cert-manager-cainjector:v1.1.0
   - quay.io/jetstack/cert-manager-controller:v1.1.0
   - quay.io/jetstack/cert-manager-webhook:v1.1.0
-  - us.gcr.io/k8s-artifacts-prod/cluster-api-azure/cluster-api-azure-controller:v0.4.12
   - us.gcr.io/k8s-artifacts-prod/cluster-api/cluster-api-controller:v0.3.15
   - us.gcr.io/k8s-artifacts-prod/cluster-api/kubeadm-bootstrap-controller:v0.3.15
   - us.gcr.io/k8s-artifacts-prod/cluster-api/kubeadm-control-plane-controller:v0.3.15
-  - mcr.microsoft.com/oss/azure/aad-pod-identity/nmi:v1.6.3
   - k8s.gcr.io/provider-aws/aws-ebs-csi-driver:v0.9.1
   - k8s.gcr.io/sig-storage/csi-attacher:v3.0.0
   - k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.0.1
@@ -104,7 +103,20 @@ extra_images:
   - calico/typha:v3.18.0
 ```
 
-<p class="message--note"><strong>NOTE: </strong>These are the current versions from the Konvoy repo. The Azure images are not required for AWS AMIs but are included here as examples.
+### HTTP proxy override files
+
+The ansible playbooks create `systemd` drop-in files for `containerd` and `kubelet` to configure the `http_proxy`, `http_proxy`, and `no_proxy` environment variables for the service from the file `/etc/konvoy_http_proxy.conf`. To configure a proxy to be used during image creation, create a new override file and specify the following:
+
+```yaml
+# Example override-proxy.yaml
+---
+export http_proxy: http://example.org:8080
+export https_proxy: http://example.org:8081
+export no_proxy: example.org,example.com,example.net
+
+```
+
+These values are only used for the image creation. After the image is created, the ansible playbooks remove the `/etc/konvoy_http_proxy.conf` file. The `konvoy` command can be used to configure the `KubeadmConfigTemplate` object to create this file on bootup of the image with values supplied during the `konvoy` invocation. This enables using different proxy settings for image creation and runtime.
 
 ## Build the image
 
