@@ -25,7 +25,7 @@ Run the following commands **on the attached cluster** to access the Project's G
 1. Get the Grafana URL:
 
    ```bash
-   kubectl get ingress -n ${PROJECT_NAMESPACE} grafana-logging -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}{{with index .spec.rules 0}}{{with index .http.paths 0}}{{.path }}{{end}}{{end}}{{"\n"}}'
+   kubectl get ingress -n ${PROJECT_NAMESPACE} project-grafana-logging -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}{{with index .spec.rules 0}}{{with index .http.paths 0}}{{.path }}{{end}}{{end}}{{"\n"}}'
    ```
 
 To view logs in Grafana:
@@ -33,7 +33,7 @@ To view logs in Grafana:
 1. Go to the Explore tab:
 
    ```bash
-   kubectl get ingress -n ${PROJECT_NAMESPACE} grafana-logging -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}{{with index .spec.rules 0}}{{with index .http.paths 0}}{{.path }}{{end}}{{end}}/explore{{"\n"}}'
+   kubectl get ingress -n ${PROJECT_NAMESPACE} project-grafana-logging -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}{{with index .spec.rules 0}}{{with index .http.paths 0}}{{.path }}{{end}}{{end}}/explore{{"\n"}}'
    ```
 
 1.  You may be prompted to log in using the SSO flow. See [Kommander Security](../../../security/distributed-authnz/) for more information.
