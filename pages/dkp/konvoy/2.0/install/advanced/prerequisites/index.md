@@ -11,13 +11,13 @@ enterprise: false
 
 Before you begin using Konvoy, you must have:
 
-- An AMD64-based Linux or MacOS machine.
-- The `konvoy` binary for Linux, or MacOS.
+- An x86_64-based Linux or macOS machine.
+- The `konvoy` binary for Linux, or macOS.
 - [Docker][install_docker] version 18.09.2 or later installed.
 - [kubectl][install_kubectl] for interacting with the running cluster.
 - A valid AWS account with [credentials configured][aws_credentials].
 
-<p class="message--note"><strong>NOTE: </strong>On MacOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
+<p class="message--note"><strong>NOTE: </strong>On macOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
 
 ## AWS prerequisites
 

@@ -113,6 +113,8 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
         └─MachineDeployment/aws-example-md-0
     ```
 
+    If you see errors in the output, complete step 6 to clear them.
+
     As they progress, the controllers also create Events. List the Events using this command:
 
     ```sh
