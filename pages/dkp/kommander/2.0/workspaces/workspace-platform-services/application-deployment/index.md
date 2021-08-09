@@ -87,12 +87,12 @@ The list of available applications that can be deployed on the attached cluster 
       name: metallb-overrides-attached
     data:
       values.yaml: |
-        configInLine:
+        configInline:
            address-pools:
             - name: default
-               protocol: layer2
-               addresses:
-               - 172.17.255.150-172.17.255.199
+              protocol: layer2
+              addresses:
+              - 172.17.255.150-172.17.255.199
     EOF
     ```
 
