@@ -36,7 +36,7 @@ Create a new AWS node pool with 3 replicas using this command:
 ```sh
 konvoy create nodepool aws ${NODEPOOL_NAME} \
     --cluster-name=${CLUSTER_NAME} \
-    --replicas=3 \
+    --replicas=3
 ```
 
 ```sh
@@ -50,3 +50,5 @@ INFO[2021-08-02T12:16:26-07:00] Created default/example nodepool          src="n
 This example uses default values for brevity. Use flags to define custom instance types, AMIs, and other properties.
 
 Advanced users can use a combination of the `--dry-run` and `--output=yaml` flags to get a complete set of node pool objects to modify locally, and/or store in version control.
+
+[makeselfmanaging]: ../../install/advanced/self-managing
