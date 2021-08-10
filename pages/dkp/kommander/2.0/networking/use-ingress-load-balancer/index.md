@@ -45,7 +45,7 @@ Before you begin, you must:
 
     ```bash
     cat <<EOF | kubectl create -f -
-    apiVersion: extensions/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
       name: echo
@@ -55,25 +55,31 @@ Before you begin, you must:
         http:
           paths:
           - backend:
-              serviceName: http-echo-1
-              servicePort: 80
+              service:
+                name: http-echo-1
+                port:
+                  number: 80
+            pathType: ImplementationSpecific
       - host: "http-echo-2.com"
         http:
           paths:
           - backend:
-              serviceName: http-echo-2
-              servicePort: 80
+              service:
+                name: http-echo-2
+                port:
+                  number: 80
+            pathType: ImplementationSpecific
     EOF
     ```
 
     The configuration settings in this example illustrates:
     - setting the `kind` to `Ingress`.
-    - setting the `serviceName` to be exposed as each `backend`.
+    - setting the `service.name` to be exposed as each `backend`.
 
 1. Run the following command to get the URL of the load balancer created on AWS for the Traefik service:
 
     ```bash
-    kubectl get svc traefik-kubeaddons -n kubeaddons
+    kubectl get svc kommander-traefik -n kommander
     ```
 
     This command displays the internal and external IP addresses for the exposed service.
@@ -81,13 +87,13 @@ Before you begin, you must:
 
     ```bash
     NAME                 TYPE           CLUSTER-IP    EXTERNAL-IP                                                             PORT(S)                                     AGE
-    traefik-kubeaddons   LoadBalancer   10.0.24.215   abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com   80:31169/TCP,443:32297/TCP,8080:31923/TCP   4h22m
+    kommander-traefik    LoadBalancer   10.0.24.215   abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com   80:31169/TCP,443:32297/TCP,8080:31923/TCP   4h22m
     ```
 
 1. Validate that you can access the web application Pods by running the following commands:
   (Note that IP addresses and host names are for illustrative purposes. Always use the information from your own cluster)
 
     ```bash
-    curl -k -H "Host: http-echo-1.com" https://abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com
-    curl -k -H "Host: http-echo-2.com" https://abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com
+    curl -k -H "Host: http-echo-1.com" http://abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com
+    curl -k -H "Host: http-echo-2.com" http://abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com
     ```
