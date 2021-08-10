@@ -46,7 +46,7 @@ annotations:
   storageclass.kubernetes.io/is-default-class: "true"
 ```
 
-More information on the step can be found [here][konvoy_driver_limitations].
+More information on setting a StorageClass as default can be found at [Changing the default storage class in k8s docs](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)
 
 <!--
 ## Install on kind
@@ -119,6 +119,5 @@ Use the following command to access the Username and Password stored on the clus
 kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
 ```
 
-[konvoy_driver_limitations]: /dkp/konvoy/2.0/install/advanced/configure_drivers/#known-limitations
 [konvoy_self_managing]: /dkp/konvoy/2.0/install/advanced/self-managing/
 [bootstrap_cluster]: /dkp/konvoy/2.0/install/advanced/bootstrap/
