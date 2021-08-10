@@ -20,27 +20,32 @@ hostname=$(kubectl get service -n kommander kommander-traefik -o jsonpath="{.sta
 b64ca_cert=$(kubectl get secret -n kommander kommander-bootstrap-root-ca -o=go-template='{{index .data "tls.crt"}}')
 ```
 
-### Create a namespace
+### Create a workspace
 
-Create a namespace on the management cluster for the tunnel gateway:
+Create a workspace on the management cluster for the tunnel gateway:
 
 ```shell
-namespace=sample
+workspace=sample
+namespace=${workspace}
 
-cat > namespace.yaml <<EOF
-apiVersion: v1
-kind: Namespace
+cat > workspace.yaml <<EOF
+apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
+kind: Workspace
 metadata:
-  name: ${namespace}
+  annotations:
+    kommander.mesosphere.io/display-name: ${workspace}
+  name: ${workspace}
+spec:
+  namespaceName: ${namespace}
 EOF
 
-kubectl apply -f namespace.yaml
+kubectl apply -f workspace.yaml
 ```
 
-You can verify the namespace exists using:
+You can verify the workspace exists using:
 
 ```shell
-kubectl get namespace ${namespace}
+kubectl get workspace ${workspace}
 ```
 
 ### Create a tunnel gateway
