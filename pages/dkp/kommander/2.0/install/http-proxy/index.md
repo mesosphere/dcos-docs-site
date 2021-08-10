@@ -111,7 +111,7 @@ data:
       enable: true
       enablePodProxy: true
       podProxySettings:
-        noProxy: "127.0.0.1,192.168.0.0/16,10.0.0.0/16,10.96.0.0/12,localhost,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,kubecost-prometheus-server.kommander,velero-minio,kube-prometheus-stack-prometheus,logging-operator-logging-fluentd.kommander.svc,elb.amazonaws.com"
+        noProxy: "127.0.0.1,192.168.0.0/16,10.0.0.0/16,10.96.0.0/12,localhost,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,kubecost-prometheus-server.kommander,logging-operator-logging-fluentd.kommander.svc,elb.amazonaws.com"
         httpProxy: "http://proxy.company.com:3128"
         httpsProxy: "http://proxy.company.com:3128"
       excludeNamespacesFromProxy: []

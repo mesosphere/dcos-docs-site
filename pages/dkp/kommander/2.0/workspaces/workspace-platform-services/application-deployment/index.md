@@ -17,8 +17,8 @@ See [Workspace Platform Services](../#workspace-platform-services) for a list of
 
 Before you begin, you must have:
 
-- A running cluster with [Kommander installed](../../install/).
-- An [existing Kubernetes cluster attached to Kommander](../../clusters/attach-cluster/).
+- A running cluster with [Kommander installed](../../../install/).
+- An [existing Kubernetes cluster attached to Kommander](../../../clusters/attach-cluster/).
 
 Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace's namespace where the cluster is attached:
 
@@ -30,7 +30,7 @@ export WORKSPACE_NAMESPACE=<workspace_namespace>
 
 The list of available applications that can be deployed on the attached cluster can be found [here](../#workspace-platform-services).
 
-1.  Deploy one of the supported applications to [your existing attached cluster](../../clusters/attach-cluster/) with an `AppDeployment` resource.
+1.  Deploy one of the supported applications to [your existing attached cluster](../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 
 1.  Within the `AppDeployment`, define the `appRef` to specify which `App` will be deployed:
 
