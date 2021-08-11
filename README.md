@@ -437,3 +437,33 @@ Figure 1 - Folder Structure Example
 - **excerpt**: presented below the title at the top of the content page, sometimes used in topic cards
 - **menuWeight**: this determines ordering within the nav structure, all numerical values except -1 accepted and sorted
 - **beta: true** - use this to add a beta label to a page
+
+# Guide: Archive old documentation
+
+We have a branch called [`archive`](https://github.com/mesosphere/dcos-docs-site/tree/archive). That is the place where the archived documentation lives.
+Whenever we push something there, a jenkins job will run that builds a docker image and pushes it
+with the tag `:latest` to [docker hub](https://hub.docker.com/r/mesosphere/archived_docs/tags?page=1&ordering=last_updated).
+
+In case you want to archive existing documentation move the folder that contains the target documentation from the `main`-branch to the same path on the `archive`-branch.
+For example, if you want to archive the documentation for kommander 1.2 move the folder `pages/dkp/kommander/1.2.` from the main branch to the same
+location into the `archive`-branch.
+
+Be careful, as the `main`-branch can constantly change and is probably, by all means, more up to date than the archive branch, it may be needed to adjust some
+navigation items or something else.
+
+You may want to build and push that docker image for your changes manually and let someone else look over it. You could use the `:next`-tag for it.
+
+In the branch you are working on (hopefully not directly on the `archive`-branch ;)):
+
+```sh
+$ docker build -t mesosphere/archived_docs:next .
+$ docker push mesosphere/archived_docs:next
+```
+
+Then anyone could run that pushed image and have a look if everything is alright:
+
+```sh
+docker run -p 5000:5000 -it mesosphere/archived_docs:next
+```
+
+If you merge your branch to the `archive`-branch, jenkins will take care of building and pushing the image.
