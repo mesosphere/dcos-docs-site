@@ -53,7 +53,7 @@ If you did not make your workload cluster self-managing, as described in [Make N
     ```sh
     INFO[2021-06-09T11:47:11-07:00] Running pivot command                         fromClusterKubeconfig=aws-example.conf fromClusterContext= src="move/move.go:83" toClusterKubeconfig=/home/clusteradmin/.kube/config toClusterContext=
     INFO[2021-06-09T11:47:36-07:00] Pivot operation complete.                     src="move/move.go:108"
-    INFO[2021-06-09T11:47:36-07:00] You may use the new cluster context by running 'export KUBECONFIG=/home/clusteradmin/.kube/config'  src="move/move.go:109"
+    INFO[2021-06-09T11:47:36-07:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/clusteradmin/.kube/config get nodes  src="move/move.go:155"
     ```
 
 1.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:

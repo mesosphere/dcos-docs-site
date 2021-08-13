@@ -45,9 +45,8 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    INFO[2021-06-07T14:32:26-07:00] Running pivot command                         fromClusterKubeconfig= fromClusterContext= src="move/move.go:87" toClusterKubeconfig=aws-example.conf toClusterContext=
-    Pivot operation complete.
-    You may use the new cluster context by running 'export KUBECONFIG=aws-example.conf'
+    INFO[2021-08-11T12:09:36-07:00] Pivot operation complete.                     src="move/move.go:154"
+    INFO[2021-08-11T12:09:36-07:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/clusteradmin/.kube/config get nodes  src="move/move.go:155"
     ```
 
     <p class="message--note"><strong>NOTE: </strong>To make sure only one set of cluster lifecycle services manages the workload cluster, Konvoy first pauses reconciliation of the objects on the bootstrap cluster. Konvoy then creates the objects on the workload cluster. As Konvoy copies the objects, the cluster lifecycle services on the workload cluster reconcile them. The workload cluster becomes self-managing after Konvoy creates all the objects. The <code>move</code> command can be safely retried, if it fails.</p>
