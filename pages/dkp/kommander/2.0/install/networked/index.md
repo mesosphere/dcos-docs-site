@@ -21,7 +21,7 @@ Kommander ships in a Helm chart, so prior to installing Kommander, make Helm awa
 
 ```sh
 helm repo add kommander https://mesosphere.github.io/kommander/charts
-helm repo up
+helm repo update
 ```
 
 ### Default StorageClass
@@ -78,31 +78,42 @@ helm install -n kommander --create-namespace kommander-bootstrap kommander/komma
 
 ## Verify installation
 
-After Helm successfully installs the chart, you must wait for all `HelmReleases` to deploy. The Kommander installation is a two-step process: Flux and cert-manager install first, then the Git repository spins up and permits Flux to consume further `HelmReleases` from that repository.
+After Helm successfully installs the chart, you must wait for all `HelmReleases` to deploy.
+
+The Kommander installation is a two-step process: Flux and cert-manager install first, then the Git repository spins up and permits Flux to consume further `HelmReleases` from that repository.
 
 After running `helm install`, the cert-manager `HelmRelease` is ready and, after additional time,  `HelmReleases` appear on the cluster.
 
 ```sh
-kubectl get helmreleases -A
+kubectl -n kommander wait --for condition=Released helmreleases --timeout 15m
 ```
 
-The final output must look similar to this example:
+This will wait for each of the helm charts to reach their `Released` condition, eventually resulting in:
 
-```sh
-NAMESPACE   NAME                    READY   STATUS                             AGE
-kommander   dex                        True    Release reconciliation succeeded   8m25s
-kommander   dex-k8s-authenticator      True    Release reconciliation succeeded   8m25s
-kommander   kommander                  True    Release reconciliation succeeded   8m25s
-kommander   kube-oidc-proxy            True    Release reconciliation succeeded   8m25s
-kommander   kube-prometheus-stack      True    Release reconciliation succeeded   8m25s
-kommander   kubecost                   True    Release reconciliation succeeded   8m25s
-kommander   kubefed                    True    Release reconciliation succeeded   8m25s
-kommander   kubernetes-dashboard       True    Release reconciliation succeeded   8m25s
-kommander   prometheus-adapter         True    Release reconciliation succeeded   8m25s
-kommander   reloader                   True    Release reconciliation succeeded   8m25s
-kommander   traefik                    True    Release reconciliation succeeded   8m25s
-kommander   traefik-forward-auth       True    Release reconciliation succeeded   8m25s
-kommander   velero                     True    Release reconciliation succeeded   8m25s
+```text
+helmrelease.helm.toolkit.fluxcd.io/centralized-grafana condition met
+helmrelease.helm.toolkit.fluxcd.io/dex condition met
+helmrelease.helm.toolkit.fluxcd.io/dex-k8s-authenticator condition met
+helmrelease.helm.toolkit.fluxcd.io/fluent-bit condition met
+helmrelease.helm.toolkit.fluxcd.io/grafana-logging condition met
+helmrelease.helm.toolkit.fluxcd.io/grafana-loki condition met
+helmrelease.helm.toolkit.fluxcd.io/karma condition met
+helmrelease.helm.toolkit.fluxcd.io/kommander condition met
+helmrelease.helm.toolkit.fluxcd.io/kube-oidc-proxy condition met
+helmrelease.helm.toolkit.fluxcd.io/kube-prometheus-stack condition met
+helmrelease.helm.toolkit.fluxcd.io/kubecost condition met
+helmrelease.helm.toolkit.fluxcd.io/kubefed condition met
+helmrelease.helm.toolkit.fluxcd.io/kubernetes-dashboard condition met
+helmrelease.helm.toolkit.fluxcd.io/kubetunnel condition met
+helmrelease.helm.toolkit.fluxcd.io/logging-operator condition met
+helmrelease.helm.toolkit.fluxcd.io/logging-operator-logging condition met
+helmrelease.helm.toolkit.fluxcd.io/minio-operator condition met
+helmrelease.helm.toolkit.fluxcd.io/prometheus-adapter condition met
+helmrelease.helm.toolkit.fluxcd.io/reloader condition met
+helmrelease.helm.toolkit.fluxcd.io/thanos condition met
+helmrelease.helm.toolkit.fluxcd.io/traefik condition met
+helmrelease.helm.toolkit.fluxcd.io/traefik-forward-auth condition met
+helmrelease.helm.toolkit.fluxcd.io/velero condition met
 ```
 
 ## Access Kommander Web UI
