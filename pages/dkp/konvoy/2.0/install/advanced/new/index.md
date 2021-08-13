@@ -113,13 +113,25 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
         └─MachineDeployment/aws-example-md-0
     ```
 
-    If you see errors in the output, complete step 6 to clear them.
+1.  Wait for the cluster control-plane to be ready:
+
+    ```sh
+    kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m
+    ```
+
+    ```sh
+    cluster.cluster.x-k8s.io/aws-example condition met
+    ```
+
+    The `READY` status will become `True` after the cluster control-plane becomes ready in one of the following steps.
 
     As they progress, the controllers also create Events. List the Events using this command:
 
     ```sh
     kubectl get events | grep ${CLUSTER_NAME}
     ```
+
+    For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AWSCluster"` and `kubectl get events --field-selector involvedObject.kind="AWSMachine"`.
 
     ```sh
     7m26s       Normal    SuccessfulSetNodeRef                            machine/aws-example-control-plane-2wb9q      ip-10-0-182-218.us-west-2.compute.internal
@@ -180,18 +192,6 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     13m         Normal    SuccessfulAuthorizeSecurityGroupIngressRules    awscluster/aws-example                       Authorized security group ingress rules [protocol=tcp/range=[6443-6443]/description=Kubernetes API] for SecurityGroup "sg-0a4e0635f68a2f57d"
     13m         Normal    SuccessfulAuthorizeSecurityGroupIngressRules    awscluster/aws-example                       Authorized security group ingress rules [protocol=tcp/range=[5473-5473]/description=typha (calico) protocol=tcp/range=[179-179]/description=bgp (calico) protocol=4/range=[-1-65535]/description=IP-in-IP (calico) protocol=tcp/range=[22-22]/description=SSH protocol=tcp/range=[6443-6443]/description=Kubernetes API protocol=tcp/range=[2379-2379]/description=etcd protocol=tcp/range=[2380-2380]/description=etcd peer] for SecurityGroup "sg-00db2e847c0b49d6e"
     13m         Normal    SuccessfulAuthorizeSecurityGroupIngressRules    awscluster/aws-example                       Authorized security group ingress rules [protocol=tcp/range=[5473-5473]/description=typha (calico) protocol=tcp/range=[179-179]/description=bgp (calico) protocol=4/range=[-1-65535]/description=IP-in-IP (calico) protocol=tcp/range=[22-22]/description=SSH protocol=tcp/range=[30000-32767]/description=Node Port Services protocol=tcp/range=[10250-10250]/description=Kubelet API] for SecurityGroup "sg-01fe3426404f94708"
-    ```
-
-    For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AWSCluster"` and `kubectl get events --field-selector involvedObject.kind="AWSMachine"`.
-
-1.  Wait for the cluster control-plane to be ready:
-
-    ```sh
-    kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m
-    ```
-
-    ```sh
-    cluster.cluster.x-k8s.io/aws-example condition met
     ```
 
 ## Known Limitations
