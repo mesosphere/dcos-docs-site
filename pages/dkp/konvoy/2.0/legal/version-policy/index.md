@@ -26,7 +26,7 @@ Each Konvoy release supports a range of Kubernetes versions. Konvoy 2.0 supports
 
 ## Supported operating systems
 
-Details for supported operating systems on Konvoy can be found in [Supported Operating Systems](../install/supported-operating-systems).
+Details for supported operating systems on Konvoy can be found in [Supported Operating Systems](../../supported-operating-systems).
 
 <!--
 ## Supported Kommander Versions

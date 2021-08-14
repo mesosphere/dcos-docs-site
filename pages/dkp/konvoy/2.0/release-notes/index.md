@@ -38,19 +38,19 @@ Konvoy can now use pre-baked AMIs. AMI images contain configuration information 
 
 #### Improved cluster autoscaling
 
-Cluster Autoscaler automatically scales up your cluster as soon as you need it, and scales it back down to save you money when you don't. In this release, we've improved the performance of Cluster Autoscaler. For more information, see [Cluster Autoscaler](../nodepools/cluster_autoscaler/)
+Cluster Autoscaler automatically scales up your cluster as soon as you need it, and scales it back down to save you money when you don't. In this release, we've improved the performance of Cluster Autoscaler. For more information, see [Cluster Autoscaler](../choose_infrastructure/aws/nodepools/cluster_autoscaler)
 
 #### Pre-provisioned providers
 
-You can now create on-premises Konvoy clusters using a new `cluster-api-provider-preprovisioned` provider. For more information, see [pre-provisioning](../install/advanced/preprovisioned/).
+You can now create on-premises Konvoy clusters using a new `cluster-api-provider-preprovisioned` provider. For more information, see [pre-provisioning](../choose_infrastructure/pre-provisioned).
 
 #### Support for Flatcar Container Linux
 
-Konvoy now supports Flatcar Container Linux version 2905.2.1 and higher with the pre-provisioned provider. For more information, see [supported operating systems](../install/supported-operating-systems/).
+Konvoy now supports Flatcar Container Linux version 2905.2.1 and higher with the pre-provisioned provider. For more information, see [supported operating systems](../supported-operating-systems).
 
 #### Node pool management
 
-New CLI commands to create, scale and delete node pools. For more information, see [node pools](../nodepools).
+New CLI commands to create, scale and delete node pools. For more information, see [node pools](../choose_infrastructure/aws/nodepools).
 
 #### Kubernetes node feature discovery
 
@@ -58,7 +58,7 @@ All Konvoy clusters are now automatically deployed with Kubernetes [Node Feature
 
 #### Automatic Kubernetes certificate renewal
 
-You can now configure Konvoy to automatically renew Kubernetes cluster certificates. For more information, see [certificate renewal](../install/advanced/certificate_renewal).
+You can now configure Konvoy to automatically renew Kubernetes cluster certificates. For more information, see [certificate renewal](../choose_infrastructure/aws/advanced/certificate_renewal).
 
 ### Component updates
 
