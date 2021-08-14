@@ -16,6 +16,8 @@ This document describes the new features, caveats, and resolved issues in D2iQ K
 ### New features
 * New Kaptain Dashboard for ML workload monitoring
 * Automatic installation of Grafana dashboards for Kaptain monitoring
+* Added Tensorboard Controller for easy deployment of Tensorboards
+* Added Volume Manager to simplify volumes creation and deletion from the UI
 * New Kaptain SDK 0.3.0:
   * New `Resources` API for fine-grained resource specification
   * Explicit feedback in case a workload is unschedulable because of insufficient resources
