@@ -39,7 +39,7 @@ For cloud installations, scaling out can be limited by resource quotas.
 * Ensure the following Kubernetes base addons that are needed by Kaptain are enabled:
     ```yaml
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: stable-1.20-4.0.0
+      configVersion: stable-1.20-4.1.0
       addonsList:
         - name: istio
           enabled: true

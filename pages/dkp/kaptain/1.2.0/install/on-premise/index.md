@@ -21,7 +21,7 @@ The steps to install Kaptain on an on-premises cluster are as follows:
 * Ensure the following base addons that are needed by Kaptain are enabled:
     ```yaml
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: stable-1.20-4.0.0
+      configVersion: stable-1.20-4.1.0
       addonsList:
         - name: istio
           enabled: true
