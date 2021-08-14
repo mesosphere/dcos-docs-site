@@ -31,9 +31,9 @@ The installation steps for Kaptain on an air-gapped cluster are as follows:
  image which includes Kaptain specific addons:
 	```yaml
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kaptain
-      configVersion: stable-1.20-1.1.0
+      configVersion: stable-1.20-1.3.0
       addonRepository:
-        image: mesosphere/kubeflow:kaptain-addons-stable-1.20-1.1.0
+        image: mesosphere/kubeflow:kaptain-addons-stable-1.20-1.3.0
       addonsList:
         - name: knative
           enabled: true
