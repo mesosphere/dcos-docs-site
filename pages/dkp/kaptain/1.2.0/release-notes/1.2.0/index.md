@@ -42,11 +42,11 @@ This document describes the new features, caveats, and resolved issues in D2iQ K
 ### Limitations
 * When running on Konvoy 1.8.2 with GPU, the default base addons version `stable-1.20-4.1.0` doesn't report GPU
 metrics to Prometheus, and Kaptain Dashboard is unable to display them. Consider using a newer version of the base
-addons or a previous `stable-1.20-4.1.0` in `cluster.yaml`:
+addons or a previous `stable-1.20-4.0.0` in `cluster.yaml`:
   ```
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: stable-1.20-4.1.0
+      configVersion: stable-1.20-4.0.0
   ```
 
 ### Breaking changes
