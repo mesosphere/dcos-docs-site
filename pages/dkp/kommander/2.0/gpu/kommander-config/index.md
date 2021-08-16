@@ -22,17 +22,17 @@ This topic describes the following procedures for managing your Nvidia platform 
 
 - [Troubleshooting](#troubleshooting)
 
-## Before you begin
+## Prerequisites
 
-This procedure requires the following items and configurations before you begin:
+Before you begin, you must:
 
-- Nodes must provide an Nvidia GPU. <!-- with Fermi architecture version 2.1 or greater. FIXME: `nvidia-smi` command below shows Tesla K80, which suggests that this is not true -->
+- Ensure nodes provide an Nvidia GPU. <!-- with Fermi architecture version 2.1 or greater. FIXME: `nvidia-smi` command below shows Tesla K80, which suggests that this is not true -->
 
-- For AWS select a GPU instance type from the Accelerated Computing section of the [AWS instance types][aws_instance_types].
+- For AWS, select a GPU instance type from the Accelerated Computing section of the [AWS instance types][aws_instance_types].
 
-- Nodes must run CentOS 7.
+- Run nodes on CentOS 7.
 
-- You must perform the [Node Deployment](../node-deployment) procedure.
+- Perform the [Node Deployment](../node-deployment) procedure.
 
 ## Enable Nvidia Platform Service on Kommander
 

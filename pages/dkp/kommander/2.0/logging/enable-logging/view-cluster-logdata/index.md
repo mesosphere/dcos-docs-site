@@ -25,15 +25,6 @@ Run the following commands on the attached cluster to access the Grafama UI:
    kubectl get ingress -n ${WORKSPACE_NAMESPACE} grafana-logging -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}{{with index .spec.rules 0}}{{with index .http.paths 0}}{{.path }}{{end}}{{end}}{{"\n"}}'
    ```
 
-1. Get the login username and password for Grafana:
-
-   ```bash
-   echo username: $(kubectl get secrets -n ${WORKSPACE_NAMESPACE} grafana-logging -o template='{{index .data "admin-user" | base64decode }}{{"\n"}}')
-   echo password: $(kubectl get secrets -n ${WORKSPACE_NAMESPACE} grafana-logging -o template='{{index .data "admin-password" | base64decode }}{{"\n"}}')
-   ```
-
-   Use these values to log in to the Grafana UI.
-
 To view logs in Grafana:
 
 1. Go to the Explore tab:
@@ -42,10 +33,12 @@ To view logs in Grafana:
    kubectl get ingress -n ${WORKSPACE_NAMESPACE} grafana-logging -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}{{with index .spec.rules 0}}{{with index .http.paths 0}}{{.path }}{{end}}{{end}}/explore{{"\n"}}'
    ```
 
+1.  You may be prompted to log in using the SSO flow. See [Kommander Security](../../../security/distributed-authnz/) for more information.
+
 1.  At the top of the page, change the datasource to `Loki`.
 
 See the [Grafana Loki documentation](https://grafana.com/docs/grafana/v7.5/datasources/loki/) for more on how to use the interface to view and query logs.
 
 ![View Grafana Loki Logs](/dkp/kommander/2.0/img/lokiGrafanaLogs.gif)
 
-<p class="message--important"><strong>IMPORTANT BETA NOTE: </strong>You must deploy Cert-manager and Traefik in the attached cluster to be able to access the Grafana UI. These are deployed during <a href="../create-appdeployment-workspace">AppDeployment creation</a>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Cert-Manager and Traefik must be deployed in the attached cluster to be able to access the Grafana UI. These are deployed by default on the workspace.</p>
