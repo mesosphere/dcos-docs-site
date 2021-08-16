@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Prerequisites
 title: Prerequisites
 menuWeight: 10
-excerpt: Prepare your machine and environment to run Konvoy
+excerpt: Prepare your machine and environment to run DKP
 enterprise: false
 ---
 
@@ -12,7 +12,7 @@ enterprise: false
 Before you begin using Konvoy, you must have:
 
 - An x86_64-based Linux or macOS machine.
-- The `konvoy` binary for Linux, or macOS.
+- The `dkp` binary for Linux, or macOS.
 - [Docker][install_docker] version 18.09.2 or later installed.
 - [kubectl][install_kubectl] for interacting with the running cluster.
 - A valid AWS account with [credentials configured][aws_credentials].

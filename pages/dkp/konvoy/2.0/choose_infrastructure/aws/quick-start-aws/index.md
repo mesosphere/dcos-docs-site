@@ -15,7 +15,7 @@ This guide provides instructions for getting started with Konvoy to get your Kub
 Before starting the Konvoy installation, verify that you have:
 
 -   An AMD64-based Linux or MacOS machine with a supported version of the operating system.
--   The `konvoy` binary on this machine.
+-   The `dkp` binary on this machine.
 -   [Docker][install_docker] version 18.09.2 or later.
 -   [kubectl][install_kubectl] for interacting with the running cluster.
 -   Required for AWS clusters:
@@ -42,7 +42,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Create a bootstrap cluster:
 
     ```sh
-    konvoy create bootstrap
+    dkp create bootstrap
     ```
 
 ## Create a new AWS Kubernetes cluster
@@ -72,7 +72,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Create a Kubernetes cluster:
 
     ```sh
-    konvoy create cluster aws --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
+    dkp create cluster aws --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
     ```
 
 1.  Inspect the created cluster resources:
@@ -92,7 +92,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Fetch the kubeconfig file:
 
     ```sh
-    konvoy get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
+    dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
 1.  List the Nodes with the command:
@@ -113,13 +113,13 @@ Before starting the Konvoy installation, verify that you have:
 1.  Deploy CAPI controllers on the worker cluster:
 
     ```sh
-    konvoy create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
+    dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
 1.  Issue the move command:
 
     ```sh
-    konvoy move --to-kubeconfig ${CLUSTER_NAME}.conf
+    dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     <p class="message--note"><strong>NOTE: </strong>Remember to specify flag <code>--kubeconfig</code> flag pointing to file <code>${CLUSTER_NAME}.conf</code> or make sure that the access credentials from this file become the default credentials after the move operation is complete.</p>
@@ -134,7 +134,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Remove the bootstrap cluster, as the worker cluster is now self-managing:
 
     ```sh
-    konvoy delete bootstrap
+    dkp delete bootstrap
     ```
 
 ## (Optional) Moving controllers back to the temporary bootstrap cluster
@@ -142,13 +142,13 @@ Before starting the Konvoy installation, verify that you have:
 1.  Create a bootstrap cluster:
 
     ```sh
-    konvoy create bootstrap
+    dkp create bootstrap
     ```
 
 1.  Issue the move command:
 
     ```sh
-    konvoy move --from-kubeconfig ${CLUSTER_NAME}.conf --to-kubeconfig <path to default kubeconfig file>
+    dkp move --from-kubeconfig ${CLUSTER_NAME}.conf --to-kubeconfig <path to default kubeconfig file>
     ```
 
 ## Delete the Kubernetes cluster and cleanup your environment
@@ -156,13 +156,13 @@ Before starting the Konvoy installation, verify that you have:
 1.  Delete the provisioned Kubernetes cluster and wait a few minutes:
 
     ```sh
-    konvoy delete cluster --cluster-name=${CLUSTER_NAME}
+    dkp delete cluster --cluster-name=${CLUSTER_NAME}
     ```
 
 1.  Delete the `kind` Kubernetes cluster:
 
     ```sh
-    konvoy delete bootstrap
+    dkp delete bootstrap
     ```
 
 [install_docker]: https://docs.docker.com/get-docker/

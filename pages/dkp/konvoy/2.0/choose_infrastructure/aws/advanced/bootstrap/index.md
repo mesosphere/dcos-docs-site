@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Bootstrap
 title: Bootstrap
 menuWeight: 15
-excerpt: Prepare Konvoy to deploy Kubernetes clusters
+excerpt: Prepare to deploy Kubernetes clusters
 enterprise: false
 ---
 
@@ -14,7 +14,7 @@ To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) contr
 Before you begin, you must:
 
 - Complete the steps in [Prerequisites][prereqs].
-- Ensure the `konvoy` binary can be found in your $PATH.
+- Ensure the `dkp` binary can be found in your $PATH.
 
 ## Bootstrap Cluster Lifecycle Services
 
@@ -23,7 +23,7 @@ Before you begin, you must:
 1.  Create a bootstrap cluster:
 
     ```sh
-    konvoy create bootstrap --kubeconfig $HOME/.kube/config
+    dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
     ```sh

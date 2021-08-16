@@ -20,7 +20,7 @@ Before you start, make sure you have created a workload cluster, as described in
     Get the kubeconfig from the _Secret_, and write it to a file, using this command:
 
     ```sh
-    konvoy get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
+    dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
 1.  List the Nodes using this command:

@@ -9,7 +9,7 @@ enterprise: false
 ---
 ## Bootstrap a kind cluster and CAPI controllers
 
-1.  Pull the bootstrap docker image and save it as tar.gz locally. The image version should correspond to the version of Konvoy as returned by `konvoy version`:
+1.  Pull the bootstrap docker image and save it as tar.gz locally. The image version should correspond to the version of Konvoy as returned by `dkp version`:
 
     ```sh
     docker pull mesosphere/konvoy-bootstrap:<version> && docker save mesosphere/konvoy-bootstrap:<version> -o mesosphere_konvoy-bootstrap:<version>.tar.gz
@@ -17,7 +17,7 @@ enterprise: false
 
 1.  `scp` or copy the image tar with your preferred method to the machine where the bootstrap cluster will run on.
 
-1.  Load the bootstrap Docker image. The image version should correspond to the version of Konvoy as returned by `konvoy version`:
+1.  Load the bootstrap Docker image. The image version should correspond to the version of Konvoy as returned by `dkp version`:
 
     ```sh
     docker load -i <path to mesosphere/konvoy-bootstrap image>
@@ -28,7 +28,7 @@ enterprise: false
 1.  Create a bootstrap cluster:
 
     ```sh
-    konvoy create bootstrap
+    dkp create bootstrap
     ```
 
 [install_docker]: https://docs.docker.com/get-docker/
