@@ -20,7 +20,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
 
     ```sh
-    konvoy update bootstrap credentials aws
+    dkp update bootstrap credentials aws
     ```
 
 1.  The Control Plane and Worker nodes can be configured to use an HTTP proxy:
@@ -47,7 +47,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 1.  Generate the Kubernetes cluster objects:
 
     ```sh
-    konvoy create cluster aws --cluster-name=${CLUSTER_NAME} \
+    dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
     --control-plane-http-proxy="${CONTROL_PLANE_HTTP_PROXY}" \
     --control-plane-https-proxy="${CONTROL_PLANE_HTTPS_PROXY}" \
     --control-plane-no-proxy="${CONTROL_PLANE_NO_PROXY}" \
@@ -100,7 +100,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     Once the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
 
     ```sh
-    konvoy describe cluster -c ${CLUSTER_NAME}
+    dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
     ```sh

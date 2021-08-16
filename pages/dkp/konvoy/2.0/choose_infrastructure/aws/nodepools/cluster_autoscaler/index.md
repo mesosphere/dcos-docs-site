@@ -37,7 +37,7 @@ Before you begin, you must have:
 
 ### Run Cluster Autoscaler
 
-The Cluster Autoscaler controller runs on the workload cluster. Upon creation of the workload cluster, this controller does not have all the objects required to function correctly until after a `konvoy move` is issued from the bootstrap cluster.
+The Cluster Autoscaler controller runs on the workload cluster. Upon creation of the workload cluster, this controller does not have all the objects required to function correctly until after a `dkp move` is issued from the bootstrap cluster.
 
 Run the following steps to enable Cluster Autoscaler:
 

@@ -11,7 +11,7 @@ enterprise: false
 
 During cluster creation, Kubernetes establishes a Public Key Infrastructure (PKI) for generating the TLS certificates needed for securing cluster communication for various components such as `etcd`, `kubernetes-apiserver` and `front-proxy`. The certificates created by these components have a default expiration of one year and are renewed when an administrator updates the cluster.
 
-Kubernetes provides a facility to renew all certificates automatically during control plane updates. For administrators who need long-running clusters or clusters that are not upgraded often, `konvoy` provides automated certificate renewal, without a cluster upgrade.
+Kubernetes provides a facility to renew all certificates automatically during control plane updates. For administrators who need long-running clusters or clusters that are not upgraded often, `dkp` provides automated certificate renewal, without a cluster upgrade.
 
 ### Requirements
 
@@ -25,10 +25,10 @@ Prerequisite:
 
 ### Create a cluster with automated certificate renewal
 
-To enable the automated certificate renewal, create a `konvoy` cluster using the `certificate-renew-interval` flag:
+To enable the automated certificate renewal, create a Konvoy cluster using the `certificate-renew-interval` flag:
 
 ```sh
-konvoy create cluster aws --certificate-renew-interval=60 --cluster-name=long-running
+dkp create cluster aws --certificate-renew-interval=60 --cluster-name=long-running
 ```
 
 The `certificate-renew-interval` is the number of days after which Kubernetes-managed PKI certificates will be renewed. For example, an `certificate-renew-interval` value of 30 means the certificates will be renewed every 30 days.

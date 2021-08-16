@@ -20,7 +20,7 @@ If you did not make your workload cluster self-managing, as described in [Make N
     <p class="message--note"><strong>NOTE: </strong>To avoid using the wrong kubeconfig, the following steps use explicit kubeconfig paths and contexts.</p>
 
     ```sh
-    konvoy create bootstrap --kubeconfig $HOME/.kube/config
+    dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
     ```sh
@@ -43,7 +43,7 @@ If you did not make your workload cluster self-managing, as described in [Make N
     The cluster lifecycle services on the bootstrap cluster are ready, but the workload cluster configuration is on the workload cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the workload to the bootstrap cluster. This process is also called a [Pivot][pivot].
 
     ```sh
-    konvoy move \
+    dkp move \
         --from-kubeconfig ${CLUSTER_NAME}.conf \
         --from-context konvoy-${CLUSTER_NAME}-admin@konvoy-${CLUSTER_NAME} \
         --to-kubeconfig $HOME/.kube/config \
@@ -59,7 +59,7 @@ If you did not make your workload cluster self-managing, as described in [Make N
 1.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:
 
     ```sh
-    konvoy describe cluster --kubeconfig $HOME/.kube/config -c ${CLUSTER_NAME}
+    dkp describe cluster --kubeconfig $HOME/.kube/config -c ${CLUSTER_NAME}
     ```
 
     ```sh
@@ -72,9 +72,9 @@ If you did not make your workload cluster self-managing, as described in [Make N
         └─MachineDeployment/aws-example-md-0
     ```
 
-     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use Konvoy with the workload cluster kubeconfig.</p>
+     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use dkp with the workload cluster kubeconfig.</p>
 
-    Use konvoy with the bootstrap cluster to delete the workload cluster.
+    Use dkp with the bootstrap cluster to delete the workload cluster.
 
 1.  Wait for the cluster control-plane to be ready:
 
@@ -91,18 +91,18 @@ If you did not make your workload cluster self-managing, as described in [Make N
 1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
 
     ```sh
-    konvoy update bootstrap credentials aws --kubeconfig $HOME/.kube/config
+    dkp update bootstrap credentials aws --kubeconfig $HOME/.kube/config
     ```
 
 1.  Delete the Kubernetes cluster and wait a few minutes:
 
-    Before deleting the cluster, Konvoy deletes all Services of type LoadBalancer on the cluster. Each Service is backed by an AWS Classic ELB. Deleting the Service deletes the ELB that backs it.
+    Before deleting the cluster, dkp deletes all Services of type LoadBalancer on the cluster. Each Service is backed by an AWS Classic ELB. Deleting the Service deletes the ELB that backs it.
     To skip this step, use the flag `--delete-kubernetes-resources=false`.
 
-    <p class="message--note"><strong>NOTE: </strong>Do not skip this step if the VPC is managed by Konvoy. When Konvoy deletes cluster, it deletes the VPC. If the VPC has any AWS Classic ELBs, AWS does not allow the VPC to be deleted, and Konvoy cannot delete the cluster.</p>
+    <p class="message--note"><strong>NOTE: </strong>Do not skip this step if the VPC is managed by dkp. When dkp deletes cluster, it deletes the VPC. If the VPC has any AWS Classic ELBs, AWS does not allow the VPC to be deleted, and dkp cannot delete the cluster.</p>
 
     ```sh
-    konvoy delete cluster --cluster-name=${CLUSTER_NAME} --kubeconfig $HOME/.kube/config
+    dkp delete cluster --cluster-name=${CLUSTER_NAME} --kubeconfig $HOME/.kube/config
     ```
 
     ```sh
@@ -116,7 +116,7 @@ If you did not make your workload cluster self-managing, as described in [Make N
 ## Delete the bootstrap cluster
 
 ```sh
-konvoy delete bootstrap --kubeconfig $HOME/.kube/config
+dkp delete bootstrap --kubeconfig $HOME/.kube/config
 ```
 
 ```sh

@@ -76,7 +76,7 @@ enterprise: false
 1.  Create a Kubernetes cluster:
 
     ```sh
-    konvoy create cluster aws --cluster-name=${CLUSTER_NAME} \
+    dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
     --vpc-id=${AWS_VPC_ID} \
     --ami=${AWS_AMI_ID} \
     --subnet-ids=${AWS_SUBNET_IDS} \

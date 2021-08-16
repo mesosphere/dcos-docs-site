@@ -34,7 +34,7 @@ Creating a node pool is useful when you need to run workloads that require machi
 Create a new AWS node pool with 3 replicas using this command:
 
 ```sh
-konvoy create nodepool aws ${NODEPOOL_NAME} \
+dkp create nodepool aws ${NODEPOOL_NAME} \
     --cluster-name=${CLUSTER_NAME} \
     --replicas=3
 ```
