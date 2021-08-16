@@ -43,6 +43,12 @@ Kommander supports environments where Internet access is restricted, and must be
 
 The following services and service components have been upgraded to the listed version:
 
+- centralized-kubecost: 0.16.1
+    - cost-analyzer: 1.84.1
+    - grafana: 7.5.6
+    - prometheus: 2.22.2
+    - prometheus alertmanager: 0.20.0
+    - thanos: 0.19.0
 - cert-manager: 0.2.7
     - cert-manager: 1.0.3
 - dex: 2.9.6
@@ -107,8 +113,8 @@ The following services and service components have been upgraded to the listed v
     - thanos: 0.17.1
 - traefik: 9.19.1
     - traefik: 2.4.8
-- traefik-forward-auth: 0.2.14
-    - traefik-forward-auth: 2.0.5
+- traefik-forward-auth: 0.3.1
+    - traefik-forward-auth: 3.0.1
 - velero: 3.1.3
     - velero: 1.5.2
 
