@@ -16,7 +16,7 @@ While you can run [Cluster Autoscaler](../cluster_autoscaler), you can also manu
 To scale up a node pool in a cluster, run:
 
 ```sh
-konvoy scale nodepools ${CLUSTER_NAME}-md-0 --replicas=3 --cluster-name=${CLUSTER_NAME}
+dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=3 --cluster-name=${CLUSTER_NAME}
 ```
 
 Your output should be similar to this example, indicating the scaling is in progress:
@@ -29,7 +29,7 @@ INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 3 replicas 
 After a few minutes you can list the node pools to:
 
 ```sh
-konvoy get nodepool -c ${CLUSTER_NAME}
+dkp get nodepool -c ${CLUSTER_NAME}
 ```
 
 Your output should be similar to this example, with the number of DESIRED and READY replicas increased to 3:
@@ -44,7 +44,7 @@ demo-cluster-md-0               3                     3                   v1.21.
 To scale down a node pool, run:
 
 ```sh
-konvoy scale nodepools ${CLUSTER_NAME}-md-0 --replicas=2 --cluster-name=${CLUSTER_NAME}
+dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=2 --cluster-name=${CLUSTER_NAME}
 ```
 
 ```sh
@@ -58,7 +58,7 @@ To do this, set the flag `--nodes-to-delete` with a list of nodes as below.
 This adds an annotation `cluster.x-k8s.io/delete-machine=yes` to the matching Machine object that contain `status.NodeRef` with the node names from `--nodes-to-delete`.
 
 ```sh
-konvoy scale nodepools ${CLUSTER_NAME}-md-0 --replicas=1 --nodes-to-delete=<> --cluster-name=${CLUSTER_NAME}
+dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=1 --nodes-to-delete=<> --cluster-name=${CLUSTER_NAME}
 ```
 
 ```sh
@@ -80,7 +80,7 @@ kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${CLUSTER_N
 Try to scale the node pool to 7 replicas with the command:
 
 ```sh
-konvoy scale nodepools ${CLUSTER_NAME}-md-0 --replicas=7 -c demo-cluster
+dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=7 -c demo-cluster
 ```
 
 Which results in an error similar to:

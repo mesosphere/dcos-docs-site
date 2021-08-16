@@ -35,11 +35,11 @@ Below is a CloudFormation Stack that creates IAM Policies, IAM Roles, and IAM In
 
 1.  `AWSIAMInstanceProfileControlPlane`, assigned to workload cluster control plane machines.
 
-    **NOTE:** If the name is changed from the default, used below, it must be passed to `konvoy create cluster` with the `--control-plane-iam-instance-profile` flag.
+    **NOTE:** If the name is changed from the default, used below, it must be passed to `dkp create cluster` with the `--control-plane-iam-instance-profile` flag.
 
 1.  `AWSIAMInstanceProfileNodes`, assigned to workload cluster worker machines.
 
-     **NOTE:** If the name is changed from the default, used below, it must be passed to `konvoy create cluster` with the `--worker-iam-instance-profile` flag.
+     **NOTE:** If the name is changed from the default, used below, it must be passed to `dkp create cluster` with the `--worker-iam-instance-profile` flag.
 
 ```yaml
 AWSTemplateFormatVersion: 2010-09-09

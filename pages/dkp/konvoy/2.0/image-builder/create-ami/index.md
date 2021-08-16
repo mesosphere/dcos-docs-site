@@ -116,7 +116,7 @@ export no_proxy: example.org,example.com,example.net
 
 ```
 
-These values are only used for the image creation. After the image is created, the ansible playbooks remove the `/etc/konvoy_http_proxy.conf` file. The `konvoy` command can be used to configure the `KubeadmConfigTemplate` object to create this file on bootup of the image with values supplied during the `konvoy` invocation. This enables using different proxy settings for image creation and runtime.
+These values are only used for the image creation. After the image is created, the ansible playbooks remove the `/etc/konvoy_http_proxy.conf` file. The `dkp` command can be used to configure the `KubeadmConfigTemplate` object to create this file on bootup of the image with values supplied during the `dkp` invocation. This enables using different proxy settings for image creation and runtime.
 
 ## Build the image
 
@@ -139,15 +139,15 @@ When the command is complete the `ami` id is printed and written to `./manifest.
 To use the built `ami` with Konvoy, specify it with the `--ami` flag when calling cluster create.
 
 ```sh
-konvoy create cluster aws --cluster-name=$(whoami)-aws-cluster --ami ami-0123456789
+dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --ami ami-0123456789
 ```
 
 ## Launch a Konvoy cluster with custom AMI lookup
 
-By default `konvoy-image` will name the AMI in such a way that `konvoy` can discover the latest AMI for a base OS and Kubernetes version. To create a cluster that will use the latest AMI, specify the `--ami-format`, `--ami-base-os` and `--ami-owner` flags:
+By default `konvoy-image` will name the AMI in such a way that `dkp` can discover the latest AMI for a base OS and Kubernetes version. To create a cluster that will use the latest AMI, specify the `--ami-format`, `--ami-base-os` and `--ami-owner` flags:
 
 ```sh
-konvoy create cluster aws --cluster-name=$(whoami)-aws-cluster --ami-format "konvoy-ami-{{.BaseOS}}-?{{.K8sVersion}}-*" --ami-base-os centos-7 --ami-owner 123456789012
+dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --ami-format "konvoy-ami-{{.BaseOS}}-?{{.K8sVersion}}-*" --ami-base-os centos-7 --ami-owner 123456789012
 ```
 
 <!--- ## Air Gapped
