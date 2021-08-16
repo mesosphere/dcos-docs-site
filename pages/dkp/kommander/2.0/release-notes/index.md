@@ -80,8 +80,8 @@ The following services and service components have been upgraded to the listed v
     - prometheus: 2.27.1
     - prometheus alertmanager: 0.22.2
     - thanos: 0.17.2
-- kubecost: 0.16.0
-    - cost-analyzer: 1.84.0
+- kubecost: 0.16.1
+    - cost-analyzer: 1.84.1
     - grafana: 7.5.6
     - prometheus: 2.22.2
     - prometheus alertmanager: 0.20.0
