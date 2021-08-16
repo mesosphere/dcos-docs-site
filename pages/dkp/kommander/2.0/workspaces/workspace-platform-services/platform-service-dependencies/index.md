@@ -1,101 +1,125 @@
 ---
 layout: layout.pug
-navigationTitle: Workspace Platform Service Dependencies
-title: Workspace Platform Service Dependencies
+navigationTitle: Workspace Platform Application Dependencies
+title: Workspace Platform Application Dependencies
 menuWeight: 8
-excerpt: Dependencies between workspace platform services
-draft: true
+excerpt: Dependencies between workspace applications
 ---
 
-There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that they are deployed properly to the clusters. For more information on how to customize workspace platform services, see [Workspace Platform Services](../).
+There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that your services are properly deployed to the clusters. For more information on how to customize workspace platform services, see [Workspace Platform Services](../#customize-a-workspaces-platform-services).
 
 ## Platform Service Dependencies
 
 When deploying or troubleshooting platform services, it helps to understand how platform services interact and may require other platform services as dependencies.
 
-If a platform service’s dependency does not successfully deploy, the platform service requiring that dependency does not successfully deploy. The table below lists workspace platform services and their dependencies.
+If a platform service’s dependency does not successfully deploy, the platform service requiring that dependency does not successfully deploy.
 
-<!-- TODO: These do not match the new set of platforms
-| **Platform Service** | **Dependencies** |
-| --- | --- |
-| cert-manager |  |
-| elasticsearch |  |
-| elasticsearch-curator | elasticsearch |
-| elasticsearchexporter | elasticsearch |
-| fluentbit | elasticsearch |
-| kibana |  elasticsearch, traefik |
-| kube-oidc-proxy | cert-manager, traefik |
-| kubecost | traefik |
-| prometheus | traefik |
-| prometheusadapter | prometheus |
-| reloader |  |
-| traefik | cert-manager, reloader |
-| traefik-forward-auth | traefik |
--->
-
-See the following sections for more information about the workspace platform services.
+The following sections detail information about the workspace platform services.
 
 ### Foundational Components
 
-The foundational components are essential and provide the foundation for all platform service capabilities and deployments on managed clusters. You must enable these components to be able to enable any other platform services.
+Provides the foundation for all platform application capabilities and deployments on managed clusters. These components must be enabled for any platform applications to work properly.
 
-The foundational components are comprised of the <!-- TODO: document these --> following platform services: cert-manager, kube-oidc-proxy, reloader, traefik, and traefik-forward-auth.
+The foundational components are comprised of the following platform services:
 
-- [cert-manager](https://cert-manager.io/docs): Certificate management controller that automates TLS certificate management and issuance
-- [kube-oidc-proxy](https://github.com/jetstack/kube-oidc-proxy): A reverse proxy server that authenticates users using OIDC to Kubernetes API servers where OIDC authentication is not available
-- [reloader](https://github.com/stakater/Reloader): A controller that watches changes on ConfigMaps and Secrets, and automatically triggers updates on the dependent applications
-- [traefik](https://traefik.io/): An HTTP reverse proxy and load balancer
-- [traefik-forward-auth](https://github.com/thomseddon/traefik-forward-auth): A minimal forward authentication service that provides OAuth/SSO login and authentication for traefik
+- [cert-manager](https://cert-manager.io/docs): Automates TLS certificate management and issuance.
+- [reloader](https://github.com/stakater/Reloader): A controller that watches changes on ConfigMaps and Secrets, and automatically triggers updates on the dependent applications.
+- [traefik](https://traefik.io/): Provides an HTTP reverse proxy and load balancer. Requires cert-manager and reloader.
 
 | **Platform Service** | **Dependencies** |
-| --- | --- |
-| cert-manager |  |
-| kube-oidc-proxy | cert-manager, traefik |
-| reloader |  |
-| traefik | cert-manager, reloader |
-| traefik-forward-auth | traefik |
+| -------------------------- | ---------------------- |
+| cert-manager               |                        |
+| reloader                   |                        |
+| traefik                    | cert-manager, reloader |
 
 ### Logging
 
-These platform services provide the functionality to collect logs over time from Kubernetes, platform services, and applications deployed on managed clusters. They also provide the ability to visualize and query the aggregated logs.
+Collects logs over time from Kubernetes and applications deployed on managed clusters. Also provides the ability to visualize and query the aggregated logs.
 
-<!-- TODO: These do not match the new set of platforms
-- [elasticsearch](https://www.elastic.co/elasticsearch): A distributed, RESTful search and analytics engine
-- [elasticsearch-curator](https://www.elastic.co/guide/en/elasticsearch/client/curator/current/about.html): Helps you curate, or manage, your Elasticsearch indices and snapshots
-- [elasticsearchexporter](https://github.com/justwatchcom/elasticsearch_exporter): A Prometheus exporter for various metrics about Elasticsearch
-- [fluentbit](https://fluentbit.io): A log processor and forwarder which allows you to collect any data like metrics and logs from different sources, enrich them with filters and send them to multiple destinations
-- [kibana](https://www.elastic.co/kibana): A user interface that provides search and data visualization capabilities for data indexed in Elasticsearch
+- [grafana-loki](https://grafana.com/oss/loki/): A horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus.
+- [grafana-logging](https://grafana.com/oss/grafana/): Logging dashboard used to view logs aggregated to Grafana Loki.
+- [logging-operator](https://banzaicloud.com/docs/one-eye/logging-operator/): Automates the deployment and configuration of a Kubernetes logging pipeline.
+- [minio-operator](https://github.com/minio/operator/blob/master/README.md): A Kubernetes-native high performance object store with an S3-compatible API that supports deploying MinIO Tenants onto private and public cloud infrastructures.
 
-|  **Platform Service** | **Dependencies** |
-| --- | --- |
-| elasticsearch |  |
-| elasticsearch-curator | elasticsearch |
-| elasticsearchexporter | elasticsearch |
-| fluentbit | elasticsearch |
-| kibana | elasticsearch, traefik |
--->
+| **Platform Service** | **Dependencies** |
+| -------------------------- | ---------------------- |
+| grafana-loki               |                        |
+| grafana-logging            | grafana-loki           |
+| logging-operator           |                        |
+| minio-operator             |                        |
 
 ### Monitoring
 
-These platform services provide monitoring capabilities by collecting metrics, including cost metrics, for Kubernetes, platform services, and applications deployed on managed clusters. They also provide the ability to visualize these metrics and evaluate rule expressions to trigger alerts.
+Provides monitoring capabilities by collecting metrics, including cost metrics, for Kubernetes and applications deployed on managed clusters. Also provides visualization of metrics and evaluates rule expressions to trigger alerts when specific conditions are observed.
 
-- [prometheus](https://prometheus.io): A systems and service monitoring system that collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed. Note: Prometheus Alertmanager and Grafana are included in the Prometheus bundled installation.
-- [prometheus-adapter](https://github.com/DirectXMan12/k8s-prometheus-adapter): Exposes custom application metrics from Prometheus
-- [kubecost](https://kubecost.com): A cost-monitoring tool that gives you visibility into your Kubernetes resources to reduce spend and prevent resource-based outages
+-   [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack): A stack of applications that collect metrics and provide visualization and alerting capabilities.
+    <p class="message--note"><strong>NOTE: </strong><a href="https://prometheus.io">Prometheus</a>, <a href="https://prometheus.io/docs/alerting/latest/alertmanager">Prometheus Alertmanager</a> and <a href="https://grafana.com">Grafana</a> are included in the bundled installation.</p>
+-   [prometheus-adapter](https://github.com/DirectXMan12/k8s-prometheus-adapter): Provides cluster metrics from Prometheus.
+-   [kubecost](https://kubecost.com): provides real-time cost visibility and insights for teams using Kubernetes, helping you continuously reduce your cloud costs.
+-   [kubernetes-dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/): A general purpose, web-based UI for Kubernetes clusters. It allows users to manage applications running in the cluster and troubleshoot them, as well as manage the cluster itself.
+-   [nvidia](https://ngc.nvidia.com/catalog/containers/nvidia:k8s:dcgm-exporter): A suite of tools for managing and monitoring NVIDIA datacenter GPUs in cluster environments. Includes active health monitoring, comprehensive diagnostics, system alerts, and governance policies including power and clock management.
 
-|  **Platform Service** | **Dependencies** |
-| --- | --- |
-| kubecost | traefik |
-| prometheus | traefik |
-| prometheusadapter | prometheus |
+| **Platform Service** | Dependencies          |
+| -------------------------- | --------------------- |
+| kube-prometheus-stack      | traefik               |
+| prometheus-adapter         | kube-prometheus-stack |
+| kubecost                   | traefik               |
+| kubernetes-dashboard       | traefik               |
+| nvidia                     |                       |
 
-<!-- These pages have not yet been migrated for kommander 2.0 & konvoy 2.0
+### Security
+
+Allows management of security constraints and capabilities for the clusters and users.
+
+- [gatekeeper](https://github.com/open-policy-agent/gatekeeper): A policy Controller for Kubernetes.
+
+| **Platform Service** | **Dependencies** |
+| -------------------------- | ---------------------- |
+| gatekeeper                 |                        |
+
+### Service Mesh
+
+Allows deploying service mesh on clusters, enabling the management of microservices in cloud-native applications. Service mesh can provide a number of benefits, such as providing observability into communications, providing secure connections, or automating retries and backoff for failed requests.
+
+- [istio](https://istio.io/latest/about/service-mesh/): Addresses the challenges developers and operators face with a distributed or microservices architecture.
+- [kiali](https://kiali.io/): A management console for an Istio-based service mesh. It provides dashboards, observability, and lets you operate your mesh with robust configuration and validation capabilities.
+- [jaeger](https://www.jaegertracing.io/): A distributed tracing system used for monitoring and troubleshooting microservices-based distributed systems.
+
+| Platform Services  | Dependencies                         |
+| ------------------ | ------------------------------------ |
+| istio              | kube-prometheus-stack                |
+| kiali              | istio, jaeger                        |
+| jaeger             |                                      |
+
+### Single Sign On (SSO)
+
+Group of platform applications that allow enabling SSO on attached clusters. SSO is a centralized system for connecting attached clusters to the centralized authority on the management cluster.
+
+- [kube-oidc-proxy](https://github.com/jetstack/kube-oidc-proxy): A reverse proxy server that authenticates users using OIDC to Kubernetes API servers where OIDC authentication is not available.
+- [traefik-forward-auth](https://github.com/thomseddon/traefik-forward-auth): Installs a forward authentication service providing Google OAuth based authentication for Traefik.
+
+| Platform Services    | Dependencies          |
+| -------------------- | --------------------- |
+| kube-oidc-proxy      | cert-manager, traefik |
+| traefik-forward-auth | traefik               |
+
+### Backup
+
+This platform application assists you with backing up and restoring your environment.
+
+- [velero](https://velero.io/): An open source tool for safely backing up and restoring resources in a Kubernetes cluster, performing disaster recovery, and migrating resources and persistent volumes to another Kubernetes cluster.
+
+| Platform Services | Dependencies |
+| ----------------- | ------------ |
+| velero            |              |
+
 ## Related information
 
-- [Kommander security architecture](/dkp/kommander/1.4/security/)
+- [Kommander security architecture](../../../security/)
+- [Traefik Ingress controller](../../../networking/ingress/)
+- [Logging and audits](../../../logging/)
+
+<!-- These pages have not yet been migrated for kommander 2.0 & konvoy 2.0
 - [Centralized cost monitoring](/dkp/kommander/1.4/centralized-cost-monitoring/)
 - [Centralized monitoring](/dkp/kommander/1.4/centralized-monitoring/)
-- [Traefik Ingress controller](../networking/ingress/)
-- [Monitoring and alerts](/dkp/konvoy/1.7/monitoring/)
-- [Logging and audits](/dkp/konvoy/1.7/logging/)
--->
+- [Monitoring and alerts](/dkp/konvoy/1.7/monitoring/) -->

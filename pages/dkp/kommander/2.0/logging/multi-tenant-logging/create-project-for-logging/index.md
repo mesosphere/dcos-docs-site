@@ -9,6 +9,6 @@ beta: true
 
 To enable multi-tenant logging, you must first [create a Project](../../../projects/#create-a-project) and its namespace. Users assigned to this namespace will be able to access log data for only that namespace and not others.
 
-Then, you can [create a configMap for multi-tenant logging][create-configmap].
+Then, you can [create project-level AppDeployments for use in multi-tenant logging][project-app-deployment].
 
-[create-configmap]: ../create-configmap
+[project-app-deployment]: ../create-appdeployment
