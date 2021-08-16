@@ -551,7 +551,7 @@ Software that are utilized by D2IQ Komander.
 |  | callsites | 3.1.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | camel-case | 4.1.1 | [MIT](https://opensource.org/licenses/MIT) |
 |  | camelcase | 5.3.1 | [MIT](https://opensource.org/licenses/MIT) |
-|  | caniuse-lite | 1.0.30001179 | [CC-BY-4.0](https://opensource.org/licenses/CC-BY-4.0) |
+|  | caniuse-lite | 1.0.30001179 | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode) |
 |  | capture-exit | 2.0.0 | [ISC](https://opensource.org/licenses/ISC) |
 |  | char-regex | 1.0.2 | [MIT](https://opensource.org/licenses/MIT) |
 |  | cheerio | 1.0.0-rc.5 | [MIT](https://opensource.org/licenses/MIT) |
@@ -1161,9 +1161,9 @@ Software that are utilized by D2IQ Komander.
 |  | source-map-url | 0.4.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | sourcemap-codec | 1.4.8 | [MIT](https://opensource.org/licenses/MIT) |
 |  | spdx-correct | 3.1.0 | [Apache-2.0](https://opensource.org/licenses/Apache-2.0) |
-|  | spdx-exceptions | 2.2.0 | [CC-BY-3.0](https://opensource.org/licenses/CC-BY-3.0) |
+|  | spdx-exceptions | 2.2.0 | [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/legalcode) |
 |  | spdx-expression-parse | 3.0.0 | [MIT](https://opensource.org/licenses/MIT) |
-|  | spdx-license-ids | 3.0.5 | [CC0-1.0](https://opensource.org/licenses/CC0-1.0) |
+|  | spdx-license-ids | 3.0.5 | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/legalcode) |
 |  | speed-measure-webpack-plugin | 1.4.2 | [MIT](https://opensource.org/licenses/MIT) |
 |  | split-string | 3.1.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | sse-z | 0.3.0 | [MIT](https://opensource.org/licenses/MIT) |
@@ -1173,7 +1173,7 @@ Software that are utilized by D2IQ Komander.
 |  | statuses | 1.5.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | stealthy-require | 1.1.1 | [ISC](https://opensource.org/licenses/ISC) |
 |  | streamsearch | 0.1.2 | none |
-|  | string-hash | 1.1.3 | [CC0-1.0](https://opensource.org/licenses/CC0-1.0) |
+|  | string-hash | 1.1.3 | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/legalcode) |
 |  | string-length | 4.0.1 | [MIT](https://opensource.org/licenses/MIT) |
 |  | string-template | 0.2.1 | [MIT](https://opensource.org/licenses/MIT) |
 |  | string-width | 3.1.0 | [MIT](https://opensource.org/licenses/MIT) |
@@ -1256,7 +1256,7 @@ Software that are utilized by D2IQ Komander.
 |  | url | 0.11.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | url-parse | 1.4.7 | [MIT](https://opensource.org/licenses/MIT) |
 |  | url-parse-lax | 3.0.0 | [MIT](https://opensource.org/licenses/MIT) |
-|  | url-value-parser | 2.0.1 | [WTFPL](https://opensource.org/licenses/WTFPL) |
+|  | url-value-parser | 2.0.1 | [WTFPL](https://choosealicense.com/licenses/wtfpl) |
 |  | use | 3.1.1 | [MIT](https://opensource.org/licenses/MIT) |
 |  | util.promisify | 1.0.1 | [MIT](https://opensource.org/licenses/MIT) |
 |  | utils-merge | 1.0.1 | [MIT](https://opensource.org/licenses/MIT) |
@@ -1516,7 +1516,7 @@ Software that are utilized by D2IQ Komander.
 |  | browserify-sign | 4.2.1 | [ISC](https://opensource.org/licenses/ISC) |
 |  | browserify-zlib | 0.2.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | browserslist | 4.14.5 | [MIT](https://opensource.org/licenses/MIT) |
-|  | caniuse-lite | 1.0.30001148 | [CC-BY-4.0](https://opensource.org/licenses/CC-BY-4.0) |
+|  | caniuse-lite | 1.0.30001148 | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode) |
 |  | electron-to-chromium | 1.3.582 | [ISC](https://opensource.org/licenses/ISC) |
 |  | node-releases | 1.1.63 | [MIT](https://opensource.org/licenses/MIT) |
 |  | buffer-alloc | 1.2.0 | [MIT](https://opensource.org/licenses/MIT) |
@@ -1572,7 +1572,7 @@ Software that are utilized by D2IQ Komander.
 |  | css.escape | 1.5.1 | [MIT](https://opensource.org/licenses/MIT) |
 |  | csso | 4.0.3 | [MIT](https://opensource.org/licenses/MIT) |
 |  | css-tree | 1.0.0-alpha.39 | [MIT](https://opensource.org/licenses/MIT) |
-|  | mdn-data | 2.0.6 | [CC0-1.0](https://opensource.org/licenses/CC0-1.0) |
+|  | mdn-data | 2.0.6 | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/legalcode) |
 |  | csstype | 2.6.10 | [MIT](https://opensource.org/licenses/MIT) |
 |  | csv-parse | 4.8.8 | [MIT](https://opensource.org/licenses/MIT) |
 |  | currently-unhandled | 0.4.1 | [MIT](https://opensource.org/licenses/MIT) |
@@ -1740,13 +1740,13 @@ Software that are utilized by D2IQ Komander.
 |  | loud-rejection | 1.6.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | lpad-align | 1.1.2 | [MIT](https://opensource.org/licenses/MIT) |
 |  | indent-string | 2.1.0 | [MIT](https://opensource.org/licenses/MIT) |
-|  | lz-string | 1.4.4 | [WTFPL](https://opensource.org/licenses/WTFPL) |
+|  | lz-string | 1.4.4 | [WTFPL](https://choosealicense.com/licenses/wtfpl) |
 |  | make-dir | 2.1.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | map-age-cleaner | 0.1.3 | [MIT](https://opensource.org/licenses/MIT) |
 |  | map-obj | 1.0.1 | [MIT](https://opensource.org/licenses/MIT) |
 |  | marked | 1.0.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | md5.js | 1.3.5 | [MIT](https://opensource.org/licenses/MIT) |
-|  | mdn-data | 2.0.4 | [CC0-1.0](https://opensource.org/licenses/CC0-1.0) |
+|  | mdn-data | 2.0.4 | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/legalcode) |
 |  | mem | 8.0.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | mimic-fn | 3.1.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | memoize-one | 4.0.2 | [MIT](https://opensource.org/licenses/MIT) |
@@ -2492,7 +2492,7 @@ Software that are utilized by D2IQ Komander.
 |  | readable-stream | 1.1.14 | [MIT](https://opensource.org/licenses/MIT) |
 |  | string_decoder | 0.10.31 | [MIT](https://opensource.org/licenses/MIT) |
 |  | spdx-correct | 3.0.0 | [Apache-2.0](https://opensource.org/licenses/Apache-2.0) |
-|  | spdx-exceptions | 2.1.0 | [CC-BY-3.0](https://opensource.org/licenses/CC-BY-3.0) |
+|  | spdx-exceptions | 2.1.0 | [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/legalcode) |
 |  | split-on-first | 1.1.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | sshpk | 1.14.2 | [MIT](https://opensource.org/licenses/MIT) |
 |  | stream-each | 1.2.2 | [MIT](https://opensource.org/licenses/MIT) |
@@ -2692,9 +2692,9 @@ Software that are utilized by D2IQ Komander.
 |  | fsevents | 2.1.2 | [MIT](https://opensource.org/licenses/MIT) |
 |  | gensync | 1.0.0-beta.2 | [MIT](https://opensource.org/licenses/MIT) |
 |  | spdx-correct | 3.1.1 | [Apache-2.0](https://opensource.org/licenses/Apache-2.0) |
-|  | spdx-exceptions | 2.3.0 | [CC-BY-3.0](https://opensource.org/licenses/CC-BY-3.0) |
+|  | spdx-exceptions | 2.3.0 | [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0/legalcode) |
 |  | spdx-expression-parse | 3.0.1 | [MIT](https://opensource.org/licenses/MIT) |
-|  | spdx-license-ids | 3.0.6 | [CC0-1.0](https://opensource.org/licenses/CC0-1.0) |
+|  | spdx-license-ids | 3.0.6 | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/legalcode) |
 |  | y18n | 4.0.1 | [ISC](https://opensource.org/licenses/ISC) |
 | apollo | react-common | 3.1.4 | [MIT](https://opensource.org/licenses/MIT) |
 | apollo | react-components | 3.1.5 | [MIT](https://opensource.org/licenses/MIT) |
@@ -2721,7 +2721,7 @@ Software that are utilized by D2IQ Komander.
 |  | find-cache-dir | 3.3.1 | [MIT](https://opensource.org/licenses/MIT) |
 |  | browserslist | 4.16.0 | [MIT](https://opensource.org/licenses/MIT) |
 |  | call-bind | 1.0.0 | [MIT](https://opensource.org/licenses/MIT) |
-|  | caniuse-lite | 1.0.30001170 | [CC-BY-4.0](https://opensource.org/licenses/CC-BY-4.0) |
+|  | caniuse-lite | 1.0.30001170 | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode) |
 |  | core-js-compat | 3.8.1 | [MIT](https://opensource.org/licenses/MIT) |
 |  | electron-to-chromium | 1.3.632 | [ISC](https://opensource.org/licenses/ISC) |
 |  | get-intrinsic | 1.0.2 | [MIT](https://opensource.org/licenses/MIT) |
@@ -2738,12 +2738,12 @@ Software that are utilized by D2IQ Komander.
 
 The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Kubetunnel&trade;.
 
-### Software Sources
+### Software Sources for Kubetunnel
 
 The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
 Software that are utilized by D2IQ&reg; Kubetunnel&trade;.
 
-### Project dependencies
+### Project dependencies for Kubetunnel
 
 | Vendor | Name | Version | License Id |
 | -------|------|---------|------------|
@@ -2783,12 +2783,12 @@ Software that are utilized by D2IQ&reg; Kubetunnel&trade;.
 
 The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Yakcl&trade;.
 
-### Software Sources
+### Software Sources for Yakcl
 
 The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
 Software that are utilized by D2IQ&reg; Yakcl&trade;.
 
-### Project dependencies
+### Project dependencies for Yakcl
 
 | Vendor | Name | Version | License Id |
 | -------|------|---------|------------|

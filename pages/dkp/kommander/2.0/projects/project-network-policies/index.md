@@ -79,7 +79,7 @@ You can limit the policy to just incoming traffic from select namespaces by addi
 
 ![Microservice network policy](../../img/network-policies-microservice-procedure.png)
 
-#### Configure the general information
+#### Configure the general information to access API service pods
 
 1. Select **Projects** from the left-hand navigation bar, then select the **Network Policy** tab.
 2. Type "microsvc-users-api-allow" in the **ID Name** field.
@@ -87,13 +87,13 @@ You can limit the policy to just incoming traffic from select namespaces by addi
 4. Select **Add** under **Pod Selector** and then select **Match Label**.
 5. Set the **Key** to service.corp/users-api-role and the **Value** to API.
 
-#### Create an Ingress rule
+#### Create an Ingress rule to access API service pods
 
 1. Leave **Policy Types** set to Default.
 2. Scroll down to **Ingress Rules** and select **+ Add an Ingress Rule**.
 3. Select **+ Add Port**, and set the **Port** to 8080 and the **Protocol** to TCP.
 
-#### Add Sources
+#### Add Sources to access API service pods
 
 1. Select **+ Add Sources** and mark the **Select All Namespaces** check box.
 2. Select **+ Add Pod Selector**.
@@ -112,7 +112,7 @@ You can limit the database pods to just the incoming traffic from the current na
 
 ![Database network policy](../../img/network-policies-database-procedure.png)
 
-#### Configure the general information
+#### Configure the general information to access a database
 
 1. Select **Project** from the left-hand navigation bar, then select the **Network Policy** tab.
 2. Type database-access-api-only in the **ID name** field.
@@ -120,14 +120,14 @@ You can limit the database pods to just the incoming traffic from the current na
 4. Select **Pod Selector** then select **Match Label**.
 5. Set the **Key** to tier and the **Value** to database.
 
-#### Create an Ingress rule
+#### Create an Ingress rule to access a database
 
 1. Select Default for the **Policy Types**.
 2. Scroll down to the **Ingress** section.
 3. Select **+ Add Ingress Rule**, then select **+ Add Port**.
 4. Set the **Port** to 3306 and leave the **Protocol** set to TCP.
 
-#### Add Sources
+#### Add Sources to access a database
 
 1. Select **+ Add Source**.
 2. Select **+ Add Pod Selector**.
@@ -158,7 +158,7 @@ Suppose that you need to deny all egress traffic from a group of restricted pods
 
 ![Deny all egress network policy](../../img/network-policies-restricted-egress-procedure.png)
 
-#### Configure the General Information
+#### Configure the General Information to deny Egress
 
 1. Select **Projects** from the left-hand navigation bar, then select the **Network Policy** tab and select **+ Add Network Policy**.
 2. Type deny-restricted-egress in the **ID name** field.
