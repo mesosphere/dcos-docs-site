@@ -95,7 +95,7 @@ pipeline {
                   ./ci/pull-upstream.sh mesosphere/konvoy2   docs/site main pages/dkp/konvoy/2.0
                   ./ci/pull-upstream.sh mesosphere/kommander docs/site main pages/dkp/kommander/2.0
 
-                  ls -la
+                  ls -la ./ci
                   pwd
 
                   ##### CREATE A COMBINED SYNC PR FOR KOMMANDER AND KONVOY
