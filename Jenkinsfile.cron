@@ -97,6 +97,8 @@ pipeline {
 
                   ls -la ./ci
                   pwd
+                  git status
+                  git log  | head
 
                   ##### CREATE A COMBINED SYNC PR FOR KOMMANDER AND KONVOY
                   ./ci/pull-upstreams.sh mesosphere/kommander docs/site main pages/dkp/kommander/2.0 mesosphere/konvoy2 docs/site main pages/dkp/konvoy/2.0
