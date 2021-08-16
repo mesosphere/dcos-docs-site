@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 2.0 beta 2 was released on 08, July 2021.**
+**D2iQ&reg; Konvoy&reg; version 2.0 beta 6 was released on 10, August 2021.**
 
 <!--
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
@@ -26,28 +26,48 @@ This release provides new features and enhancements to improve the user experien
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.20.8 |
-|**Maximum** | 1.20.x |
-|**Default** | 1.20.8 |
+|**Minimum** | 1.21.3 |
+|**Maximum** | 1.21.x |
+|**Default** | 1.21.3 |
 
 ### New features and capabilities
 
 #### Pre-baked AMI (Amazon Machine Image)
 
-Konvoy can now use pre-baked AMIs. AMI images contain configuration information and software to create a specific, preconfigured, operating environment.
+Konvoy can now use pre-baked AMIs. AMI images contain configuration information and software to create a specific, pre-configured, operating environment.
 
 #### Improved cluster autoscaling
 
-Cluster Autoscaler automatically scales up your cluster as soon as you need it, and scales it back down to save you money when you don't. In this release, we've improved the performance of Cluster Autoscaler. For more information, see [Cluster Autoscaler](../install/advanced/cluster_autoscaler/)
+Cluster Autoscaler automatically scales up your cluster as soon as you need it, and scales it back down to save you money when you don't. In this release, we've improved the performance of Cluster Autoscaler. For more information, see [Cluster Autoscaler](../choose_infrastructure/aws/nodepools/cluster_autoscaler)
+
+#### Pre-provisioned providers
+
+You can now create on-premises Konvoy clusters using a new `cluster-api-provider-preprovisioned` provider. For more information, see [pre-provisioning](../choose_infrastructure/pre-provisioned).
+
+#### Support for Flatcar Container Linux
+
+Konvoy now supports Flatcar Container Linux version 2905.2.1 and higher with the pre-provisioned provider. For more information, see [supported operating systems](../supported-operating-systems).
+
+#### Node pool management
+
+New CLI commands to create, scale and delete node pools. For more information, see [node pools](../choose_infrastructure/aws/nodepools).
+
+#### Kubernetes node feature discovery
+
+All Konvoy clusters are now automatically deployed with Kubernetes [Node Feature Discovery][nfd] and [NVIDIA GPU feature discovery][nfgfd]. Konvoy automatically discovers and labels Kubernetes nodes with host level information that can be used for application scheduling decisions.
+
+#### Automatic Kubernetes certificate renewal
+
+You can now configure Konvoy to automatically renew Kubernetes cluster certificates. For more information, see [certificate renewal](../choose_infrastructure/aws/advanced/certificate_renewal).
 
 ### Component updates
 
 The following components have been upgraded to the listed version:
 
-- Kubernetes 1.20.8
+- Kubernetes 1.21.3
 - Calico 3.19
 - AWS EBS CSI 1.1.0
-- Cluster Autoscaler 1.20.0
+- Cluster Autoscaler 1.21.0
 
 <!--
 ## Fixes and improvements
@@ -61,3 +81,5 @@ The following components have been upgraded to the listed version:
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
+[nfd]: https://kubernetes-sigs.github.io/node-feature-discovery/stable/get-started/index.html
+[nfgfd]: https://github.com/NVIDIA/gpu-feature-discovery
