@@ -105,5 +105,5 @@ if [ -n "$(git diff main)" ]; then
     -X POST \
     -H "Accept: application/vnd.github.v3+json" \
     https://$GITHUB_TOKEN@api.github.com/repos/mesosphere/dcos-docs-site/pulls \
-    -d '{"head":"'$BRANCH_NAME'","base":"main", "title": "$PR_NAME"}'
+    -d '{"head":"'$BRANCH_NAME'","base":"main", "title": "'$PR_NAME'"}'
 fi
