@@ -253,7 +253,7 @@ As mentioned in the [Preparing the Cluster Configurations][preparing_cluster_con
 [install_docker]: https://www.docker.com/products/docker-desktop
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
-[kommander_clusters]: https://docs.d2iq.com/dkp/kommander/1.1/clusters/attach-cluster/
+[kommander_clusters]: https://docs.d2iq.com/dkp/kommander/latest/clusters/attach-cluster/
 [konvoy_download]: ../../download
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [kubectl]: ../../access-authentication/access-konvoy#using-kubectl
