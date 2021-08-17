@@ -12,9 +12,6 @@ Before you begin, you must:
 
 - [Create a workload cluster][createnewcluster].
 
-<!-- TODO: Remove warning after beta. -->
-<p class="message--warning"><strong>NOTE: </strong>This feature is under development.</p>
-
 ## Update a workload cluster
 
 There are many reasons to update the workload cluster. Some of the most common:
