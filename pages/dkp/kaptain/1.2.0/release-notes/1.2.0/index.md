@@ -9,7 +9,7 @@ excerpt: View release-specific information for Kaptain
 
 # Release Notes
 
-## 1.2.0 - Released 20 August 2021
+## 1.2.0 - Released 16 August 2021
 
 This document describes the new features, caveats, and resolved issues in D2iQ Kaptain.
 
