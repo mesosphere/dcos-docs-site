@@ -33,23 +33,25 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 | ----------------------------- | --------------------- | ------------------- |
 | cert-manager-0.2.7            | cert-manager          | True                |
 | external-dns-2.20.5           | external-dns          | False               |
+| fluent-bit-0.16.2             | fluent-bit            | False               |
 | gatekeeper-0.6.8              | gatekeeper            | False               |
-| grafana-logging-6.9.1         | grafana-logging       | False               |
+| grafana-logging-6.13.9        | grafana-logging       | False               |
+| grafana-loki-0.33.1           | grafana-loki          | False               |
 | istio-1.9.1                   | istio                 | False               |
 | jaeger-2.21.0                 | jaeger                | False               |
 | kiali-1.29.0                  | kiali                 | False               |
 | kube-oidc-proxy-0.2.5         | kube-oidc-proxy       | False               |
-| kube-prometheus-stack-15.4.6  | kube-prometheus-stack | True                |
-| kubecost-0.13.0               | kubecost              | True                |
+| kube-prometheus-stack-16.13.1 | kube-prometheus-stack | True                |
+| kubecost-0.16.1               | kubecost              | True                |
 | kubernetes-dashboard-4.0.3    | kubernetes-dashboard  | True                |
-| logging-operator-3.10.0       | logging-operator      | False               |
-| loki-distributed-0.33.1       | loki-distributed      | False               |
+| logging-operator-3.13.0       | logging-operator      | False               |
 | metallb-0.12.2                | metallb               | False               |
+| miinio-operator-4.1.7         | miniio-operator       | False               |
 | nvidia-0.4.0                  | nvidia                | False               |
 | prometheus-adapter-2.11.1     | prometheus-adapter    | True                |
 | reloader-0.0.85               | reloader              | True                |
 | traefik-9.19.1                | traefik               | True                |
-| traefik-forward-auth-0.3.1   | traefik-forward-auth  | True                |
+| traefik-forward-auth-0.3.1    | traefik-forward-auth  | True                |
 | velero-3.1.3                  | velero                | False               |
 
 <p class="message--note"><strong>NOTE: </strong>Currently, Kommander only supports a single deployment of <code>cert-manager</code> per cluster. Because of this, <code>cert-manager</code> cannot be installed on <code>Konvoy</code> managed <code>AWS</code> clusters.</p>
