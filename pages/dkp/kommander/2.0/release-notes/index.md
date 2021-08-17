@@ -43,6 +43,8 @@ Kommander supports environments where Internet access is restricted, and must be
 
 The following services and service components have been upgraded to the listed version:
 
+- centralized-grafana: 17.2.1
+    - grafana: 8.0.5
 - centralized-kubecost: 0.16.1
     - cost-analyzer: 1.84.1
     - grafana: 7.5.6
@@ -75,9 +77,9 @@ The following services and service components have been upgraded to the listed v
     - kiali: 1.29.0
 - kube-oidc-proxy: 0.2.5
     - kube-oidc-proxy: 0.2.0
-- kube-prometheus-stack: 16.13.1
+- kube-prometheus-stack: 17.2.1
     - grafana: 8.0.5
-    - prometheus: 2.27.1
+    - prometheus: 2.28.1
     - prometheus alertmanager: 0.22.2
     - thanos: 0.17.2
 - kubecost: 0.16.1
