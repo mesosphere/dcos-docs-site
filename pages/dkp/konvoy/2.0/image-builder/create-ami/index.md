@@ -81,26 +81,31 @@ Konvoy requires several additional images be present in the image. Create a new 
 # Example override-images.yaml
 ---
 extra_images:
-  - gcr.io/k8s-staging-cluster-api-aws/cluster-api-aws-controller:v0.6.4
-  - gcr.io/kubebuilder/kube-rbac-proxy:v0.4.1
+  - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.1.0-alpha.3
   - gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
-  - quay.io/jetstack/cert-manager-cainjector:v1.1.0
-  - quay.io/jetstack/cert-manager-controller:v1.1.0
-  - quay.io/jetstack/cert-manager-webhook:v1.1.0
-  - us.gcr.io/k8s-artifacts-prod/cluster-api/cluster-api-controller:v0.3.15
-  - us.gcr.io/k8s-artifacts-prod/cluster-api/kubeadm-bootstrap-controller:v0.3.15
-  - us.gcr.io/k8s-artifacts-prod/cluster-api/kubeadm-control-plane-controller:v0.3.15
-  - k8s.gcr.io/provider-aws/aws-ebs-csi-driver:v0.9.1
-  - k8s.gcr.io/sig-storage/csi-attacher:v3.0.0
-  - k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.0.1
-  - k8s.gcr.io/sig-storage/csi-provisioner:v2.0.2
-  - k8s.gcr.io/sig-storage/livenessprobe:v2.1.0
-  - quay.io/tigera/operator:v1.15.0
-  - calico/cni:v3.18.0
-  - calico/kube-controllers:v3.18.0
-  - calico/node:v3.18.0
-  - calico/pod2daemon-flexvol:v3.18.0
-  - calico/typha:v3.18.0
+  - k8s.gcr.io/cluster-api-aws/cluster-api-aws-controller:v0.7.0-alpha.0
+  - k8s.gcr.io/cluster-api/cluster-api-controller:v0.4.0
+  - k8s.gcr.io/cluster-api/kubeadm-bootstrap-controller:v0.4.0
+  - k8s.gcr.io/cluster-api/kubeadm-control-plane-controller:v0.4.0
+  - k8s.gcr.io/provider-aws/aws-ebs-csi-driver:v1.1.0
+  - k8s.gcr.io/sig-storage/csi-attacher:v3.1.0
+  - k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.1.0
+  - k8s.gcr.io/sig-storage/csi-provisioner:v2.1.1
+  - k8s.gcr.io/sig-storage/csi-resizer:v1.0.0
+  - k8s.gcr.io/sig-storage/csi-snapshotter:v3.0.3
+  - k8s.gcr.io/sig-storage/livenessprobe:v2.2.0
+  - k8s.gcr.io/sig-storage/snapshot-controller:v3.0.3
+  - calico/cni:v3.19.1
+  - calico/kube-controllers:v3.19.1
+  - calico/node:v3.19.1
+  - calico/pod2daemon-flexvol:v3.19.1
+  - calico/typha:v3.19.1
+  - quay.io/tigera/operator:v1.17.4
+  - bitnami/kubectl:1.21.3
+  - us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.21.0
+  - k8s.gcr.io/nfd/node-feature-discovery:v0.8.2
+  - nvcr.io/nvidia/gpu-feature-discovery:v0.4.1
+  - busybox:1
 ```
 
 ### HTTP proxy override files
