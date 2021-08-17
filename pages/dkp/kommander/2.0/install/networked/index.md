@@ -85,7 +85,7 @@ The Kommander installation is a two-step process: Flux and cert-manager install 
 After running `helm install`, the cert-manager `HelmRelease` is ready and, after additional time,  `HelmReleases` appear on the cluster.
 
 ```sh
-kubectl -n kommander wait --for condition=Released helmreleases --timeout 15m
+kubectl -n kommander wait --for condition=Released helmreleases --all --timeout 15m
 ```
 
 This will wait for each of the helm charts to reach their `Released` condition, eventually resulting in:
