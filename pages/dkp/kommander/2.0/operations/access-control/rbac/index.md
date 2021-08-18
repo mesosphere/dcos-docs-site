@@ -87,7 +87,7 @@ One important distinction from adding users is that all external groups are pref
 
 ## Kommander Dashboard Authorization
 
-The Kommander Dashboard, and other HTTP applications protected by Kommander forward authentication, are also authorized by the Kubernetes RBAC API. In addition to kubernetes API resources, it is possible to define rules which map to HTTP URIs and HTTP verbs. Kubernetes RBAC calls these `nonResourceURLs`, Kommander forward authentication uses these rules to grant or deny access to HTTP endpoints.
+The Kommander Dashboard, and other HTTP applications protected by Kommander forward authentication, are also authorized by the Kubernetes RBAC API. In addition to Kubernetes API resources, it is possible to define rules which map to HTTP URIs and HTTP verbs. Kubernetes RBAC calls these `nonResourceURLs`, Kommander forward authentication uses these rules to grant or deny access to HTTP endpoints.
 
 ### Default Roles
 
@@ -135,11 +135,13 @@ Roles have been created for granting access to the dashboard and select applicat
 | thanos              | dkp-thanos-query-edit       | /dkp/kommander/monitoring/query/\*                      | read, write         |
 | thanos              | dkp-thanos-query-admin      | /dkp/kommander/monitoring/query/\*                      | read, write, delete |
 
-This section provides a few examples of binding subjects to the default roles defined for the operations portal endpoints.
+This section provides a few examples of binding subjects to the default roles defined for the Kommander dashboard endpoints.
 
 ### Examples
 
-To grant the user `mary@example.com` administrative access to all kommander resources, bind the user to the `dkp-admin` role:
+#### User
+
+To grant the user `mary@example.com` administrative access to all Kommander resources, bind the user to the `dkp-admin` role:
 
 ```shell
 cat << EOF | kubectl apply -f -
@@ -191,7 +193,7 @@ The user can now use the HTTP verbs HEAD, GET, DELETE, POST, and PUT when access
 
 <p class="message--note"><strong>NOTE: </strong>In order to allow users to access the Kommander UI, ensure they are granted the appropriate `dkp-kommander-` role in addition to the Kommander roles granted in the Kommander UI. For more information, see the [Access Control section of the Kommander documentation](/dkp/kommander/2.0/operations/access-control/).</p>
 
-## Groups
+#### Group
 
 In order to grant view access to the `/dkp/*` endpoints and edit access to the grafana logging endpoint to group `logging-ops`, create the following ClusterRoleBindings:
 
@@ -228,11 +230,11 @@ EOF
 
 **Note: external groups must be prefixed by `oidc:`**
 
-Members of `logging-ops` are now able to `view` all resources under `/dkp` and edit all resources under `/dkp/logging/grafana`
+Members of `logging-ops` are now able to `view` all resources under `/dkp` and edit all resources under `/dkp/logging/grafana`.
 
 ## Accessing the Kubernetes Dashboard
 
-The Kubernetes dashboard offloads authorization directly to the Kubernetes API server. Once authenticated, all users may access the dashboard at `/dkp/kubernetes` without needing a `dkp` role. However, access to the underlying kubernetes resources exposed by the dashboard are protected by the cluster RBAC policy.
+The Kubernetes dashboard offloads authorization directly to the Kubernetes API server. Once authenticated, all users may access the dashboard at `/dkp/kubernetes/` without needing a `dkp` role. However, access to the underlying kubernetes resources exposed by the dashboard are protected by the cluster RBAC policy.
 
 ## Further Reading
 
