@@ -81,12 +81,15 @@ Konvoy requires several additional images be present in the image. Create a new 
 # Example override-images.yaml
 ---
 extra_images:
-  - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.1.0-alpha.3
+  - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.1.0-alpha.4
   - gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
-  - k8s.gcr.io/cluster-api-aws/cluster-api-aws-controller:v0.7.0-alpha.0
+  - k8s.gcr.io/cluster-api-aws/cluster-api-aws-controller:v0.7.0
   - k8s.gcr.io/cluster-api/cluster-api-controller:v0.4.0
   - k8s.gcr.io/cluster-api/kubeadm-bootstrap-controller:v0.4.0
   - k8s.gcr.io/cluster-api/kubeadm-control-plane-controller:v0.4.0
+  - quay.io/jetstack/cert-manager-cainjector:v1.1.0
+  - quay.io/jetstack/cert-manager-controller:v1.1.0
+  - quay.io/jetstack/cert-manager-webhook:v1.1.0
   - k8s.gcr.io/provider-aws/aws-ebs-csi-driver:v1.1.0
   - k8s.gcr.io/sig-storage/csi-attacher:v3.1.0
   - k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.1.0
