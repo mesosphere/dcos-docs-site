@@ -16,14 +16,14 @@ While you can run [Cluster Autoscaler](../cluster_autoscaler), you can also manu
 To scale up a node pool in a cluster, run:
 
 ```sh
-dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=3 --cluster-name=${CLUSTER_NAME}
+dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=5 --cluster-name=${CLUSTER_NAME}
 ```
 
 Your output should be similar to this example, indicating the scaling is in progress:
 
 ```sh
 INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:82"
-INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 3 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
+INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 5 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
 ```
 
 After a few minutes you can list the node pools to:
@@ -36,7 +36,7 @@ Your output should be similar to this example, with the number of DESIRED and RE
 
 ```sh
 NODEPOOL                        DESIRED               READY               KUBERNETES VERSION
-demo-cluster-md-0               3                     3                   v1.21.3
+demo-cluster-md-0               5                     5                   v1.21.3
 ```
 
 ### Scaling Down Node Pools
@@ -44,12 +44,12 @@ demo-cluster-md-0               3                     3                   v1.21.
 To scale down a node pool, run:
 
 ```sh
-dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=2 --cluster-name=${CLUSTER_NAME}
+dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=4 --cluster-name=${CLUSTER_NAME}
 ```
 
 ```sh
 INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:82"
-INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 2 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
+INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 4 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
 ```
 
 In a default cluster, the nodes to delete are selected at random. This behavior is controller by [CAPI's delete policy][capi_delete_policy]. However, when using the Konvoy CLI to scale down a node pool it is also possible to specifiy the Kubernetes Nodes you want to delete.
@@ -58,12 +58,12 @@ To do this, set the flag `--nodes-to-delete` with a list of nodes as below.
 This adds an annotation `cluster.x-k8s.io/delete-machine=yes` to the matching Machine object that contain `status.NodeRef` with the node names from `--nodes-to-delete`.
 
 ```sh
-dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=1 --nodes-to-delete=<> --cluster-name=${CLUSTER_NAME}
+dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=3 --nodes-to-delete=<> --cluster-name=${CLUSTER_NAME}
 ```
 
 ```sh
 INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:82"
-INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 1 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
+INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 3 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
 ```
 
 ### Scaling Node Pools When Using Cluster Autoscaler
