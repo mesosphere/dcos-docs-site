@@ -150,9 +150,9 @@ export CONTROL_PLANE_2_ADDRESS="address_2"
 export CONTROL_PLANE_3_ADDRESS="address_3"
 export WORKER_1_ADDRESS="worker_address_1"
 export WORKER_2_ADDRESS="worker_address_2"
-export SSH_PRIVATE_KEY_FILE="<ssh-private-key-secret-name>"
+export SSH_PRIVATE_KEY_SECRET_NAME="<ssh-private-key-secret-name>"
 
-envsubst < preprovisioned_inventory.yaml | kubectl apply -f
+envsubst < preprovisioned_inventory.yaml | kubectl apply -f -
 ```
 
 ### Build the Cluster
