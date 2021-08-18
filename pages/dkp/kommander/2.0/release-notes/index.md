@@ -53,7 +53,7 @@ The following services and service components have been upgraded to the listed v
     - thanos: 0.19.0
 - cert-manager: 0.2.7
     - cert-manager: 1.0.3
-- dex: 2.9.8
+- dex: 2.9.9
     - dex: 2.27.0
 - dex-k8s-authenticator: 1.2.8
     - dex-k8s-authenticator: 1.2.2
