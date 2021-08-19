@@ -131,6 +131,8 @@ spec:
   hosts:
     - address: $WORKER_1_ADDRESS
     - address: $WORKER_2_ADDRESS
+    - address: $WORKER_3_ADDRESS
+    - address: $WORKER_4_ADDRESS
   sshConfig:
     port: 22
     user: core
@@ -150,6 +152,8 @@ export CONTROL_PLANE_2_ADDRESS="address_2"
 export CONTROL_PLANE_3_ADDRESS="address_3"
 export WORKER_1_ADDRESS="worker_address_1"
 export WORKER_2_ADDRESS="worker_address_2"
+export WORKER_3_ADDRESS="worker_address_3"
+export WORKER_4_ADDRESS="worker_address_4"
 export SSH_PRIVATE_KEY_SECRET_NAME="<ssh-private-key-secret-name>"
 
 envsubst < preprovisioned_inventory.yaml | kubectl apply -f -
