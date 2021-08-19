@@ -93,7 +93,7 @@ If you do not want to update the Kubernetes version, go to the [next section](#p
 
     ```sh
     cat <<EOF > node-pool-kubernetes-version-patch.yaml
-    apiVersion: cluster.x-k8s.io/v1alpha3
+    apiVersion: cluster.x-k8s.io/v1alpha4
     kind: MachineDeployment
     spec:
       template:
@@ -126,7 +126,7 @@ If you do not want to update the machine image, go to the [next section](#prepar
 
     ```sh
     cat <<EOF > node-pool-machine-image-patch.yaml
-    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha4
     kind: AWSMachineTemplate
     spec:
       template:
@@ -150,7 +150,7 @@ If you do not want to update the instance type, go to the [next section](#apply-
 
     ```sh
     cat <<EOF > node-pool-machine-type-patch.yaml
-    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha4
     kind: AWSMachineTemplate
     spec:
       template:
