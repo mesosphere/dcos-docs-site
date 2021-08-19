@@ -113,8 +113,8 @@ The following services and service components have been upgraded to the listed v
     - reloader: 0.0.85
 - thanos: 0.3.31
     - thanos: 0.17.1
-- traefik: 9.19.1
-    - traefik: 2.4.8
+- traefik: 10.3.0
+    - traefik: 2.5.0
 - traefik-forward-auth: 0.3.1
     - traefik-forward-auth: 3.0.1
 - velero: 3.1.3
