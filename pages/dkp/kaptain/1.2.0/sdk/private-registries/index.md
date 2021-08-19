@@ -3,40 +3,33 @@ layout: layout.pug
 navigationTitle: Accessing a Private Docker Registry with Self-Signed Certificates
 title: Configuring Access to a Private Docker Registry with Self-Signed Certificates
 beta: false
-menuWeight: 2
+menuWeight: 3
 ---
 
-This guide focuses on configuring access to private Docker registry with self-signed certificates and is based on
-`configuration-and-credentials` guide. It focuses on:
+This guide focuses on configuring access to a private Docker registry with self-signed certificates.
+If focuses on:
 
-* secure automatic mounting of a registry certificate to
-notebook containers, and
-* using the SDK API for configuring necessary
-properties required for accessing the private registry.
+* Secure automatic mounting of a registry certificate to notebook containers, and
+* Using the SDK API to configure the properties necessary to access a private registry.
 
-Using custom certificates with a private Docker registry requires the configuration of the Docker access credentials
+Using custom certificates with a private Docker registry requires the configuration of Docker access credentials
 using [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) and
-[PodDefaults](https://www.kubeflow.org/docs/notebooks/setup/) described in
-`configuration-and-credentials`{.interpreted-text role="ref"} guide in details.
+[PodDefaults](https://www.kubeflow.org/docs/notebooks/setup/) as described in the
+[Accessing Docker and Cloud Storage][credentials] guide.
 
 # Pre-requisites
 
-- A private Docker registry is installed and is reachable from the cluster over the network.
-- Nodes of the cluster where Kaptain is running should be configured to accept the self-signed certificates used by the
-  registry, otherwise worker nodes will not be able to pull and use the images published to it. More information is
-  available in [Konvoy air-gapped instalation
-  guide](https://docs.d2iq.com/dkp/konvoy/1.7/install/install-airgapped/#configure-the-image-registry).
+- A private Docker registry reachable from the cluster over the network.
+- Configuration of the Nodes of the cluster where Kaptain is running to accept the self-signed certificates used by the
+  registry. More information is available in the [Konvoy air-gapped installation guide][konvoy_airgapped_guide]
 
 # Creating Docker credentials and registry certificate secrets
 
-Access to a private Docker registry with self-signed certificate
-requires:
+Access to a private Docker registry with self-signed certificate requires:
 
-* Docker configuration file (known as Docker `config.json`)
-which contains the registry URL and authentication information (login
-and password encoded in base64 format), and
-* A CA certificate file for the
-private Docker registry to validate its authenticity.
+* A Docker configuration file (known as Docker `config.json`) which contains the registry URL
+and authentication information (login and password encoded in base64 format), and
+* A CA certificate file for the private Docker registry to validate its authenticity.
 
 Example Docker `config.json`:
 
@@ -65,7 +58,10 @@ uvoXCJ1qhxxkeTFwTGz78xkjZAGRxPzuOSPtnFFfidbE3i+WEbj6PTbz4AbPamjn
 To create a `Secret` from the credentials file `config.json` run the
 following command:
 
-    kubectl create secret generic docker-secret --from-file=config.json=config.json
+    kubectl create secret generic docker-secret -n <kaptain_namespace> --from-file=config.json=config.json
+
+Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks.  
+In this example, we used a namespace named 'user'    
 
 Verify the `Secret` is created:
 
@@ -88,13 +84,13 @@ To create a `Secret` from the certificate file `certificate.crt` run the
 following command:
 
 ```shell
-kubectl create secret generic docker-registry-certificate --from-file=certificate.crt=certificate.crt
+kubectl create secret generic docker-registry-certificate -n <kaptain_namespace> --from-file=certificate.crt=certificate.crt
 ```
 
 Verify the `Secret` is created:
 
 ```shell
-kubectl get secret docker-registry-certificate -o yaml
+kubectl get secret -n <kaptain_namespace> docker-registry-certificate -o yaml
 
 # the output should look like this:
 
@@ -110,19 +106,18 @@ type: Opaque
 
 <p class="message--note">
 <strong>NOTE: </strong>
-It is recommended to name files withing a <code>Secret</code> config.json for
-Docker credentials and <code>certificate.crt</code> for the registry CA certificate
-to allow SDK automatically use them from the default locations. It is
-also possible to use custom names for files in a secret but it will
-require custom configuration of the SDK <code>Config</code> object which allows
-various customizations of the default properties.
+It is recommended to name the files with the <code>Secret</code> config.json for
+Docker credentials and <code>certificate.crt</code> for the registry CA certificate,
+as this will allow the SDK to automatically use them from the default locations.
+It is also possible to use custom names for the files in a secret but it will
+require custom configuration of the SDK <code>Config</code> object.
 </p>
 
 # Create PodDefaults for mounting secrets to Jupyter Notebooks
 
-To make created `Secret`s available for selection in the Notebook
-creation dialogue, let\'s create a `PodDefault` referencing them. Create
-a file `pod-defaults.yaml` with the following contents:
+To make the Docker credentials `Secret` available for selection in the Notebook
+creation dialogue, create a `PodDefault` referencing them. Create
+a file named `pod-defaults.yaml` with the following contents:
 
 ```yaml
 apiVersion: "kubeflow.org/v1alpha1"
@@ -151,7 +146,7 @@ spec:
 
 <p class="message--warning">
 <strong>WARNING: </strong>
-Volume name and <code>mountPath</code> must be unique across all <code>PodDefault</code>s to avoid conflicts when
+Volume name and <code>mountPath</code> must be unique across all <code>PodDefault</code> objects to avoid conflicts when
 mounting <code>Secrets</code> to <code>Pods</code>.
 </p>
 
@@ -162,17 +157,16 @@ kubectl create -f pod-defaults.yaml
 ```
 
 After that, the Docker credentials and registry certificate secrets
-become available for selection in the Notebook Spawner UI and, if
+will be available for selection in the Notebook Spawner UI and, if
 selected, will be mounted as `/home/kubeflow/.docker/config.json` and
 `/home/kubeflow/.tls/certificate.crt` correspondingly:
 
 ![image](img/private_docker_registry.png)
 
-# Configure SDK to use the private Docker registry with self-signed certificates
+# Configure the SDK to use the private Docker registry with self-signed certificates
 
 In order for the Kaptain SDK to authenticate with a private Docker
-registry with self-signed certificates, it is required to provide a
-custom `Config` object:
+registry with self-signed certificates, a custom `Config` object is required:
 
 ```python
 from kaptain.config import Config
@@ -184,25 +178,25 @@ config.docker_registry_certificate_provider = DockerRegistryCertificateProvider.
 ```
 
 The code above creates a default `Config` object which automatically
-uses Docker credentials file (`config.json`) mounted to
-`/home/kubeflow/.docker/config.json`. This behavior is not unique for
-the self-hosted Docker registries and works in a similar way to provide
-authentication capabilities for public registries as well.
+uses a Docker credentials file (`config.json`) mounted to
+`/home/kubeflow/.docker/config.json`. This configuration works for both self-hosted Docker registries
+as well as public registries.
 
 In order to add a certificate verification option to the model training
 and tuning steps, it is required to provide two additional properties:
 `docker_registry_url` and `docker_registry_certificate_provider`.
+
 `DockerRegistryCertificateProvider.default()` is a utility method which
 reads the registry certificate from the default location
-`/home/kubeflow/.tls/certificate.crt`. In case the certificate was
-mounted or created ad-hoc in a different location
+`/home/kubeflow/.tls/certificate.crt`. If the certificate is
+mounted in the non-default location, use the
 `DockerRegistryCertificateProvider.from_file(<path/to/certificate.crt>)`
-can be used to load it.
+method to specify the location.
 
 Once the `Config` properties are set, it is sufficient to provide it to
 the `Model` constructor to override the defaults and to enable private
-registry support (note the `image_name` which uses private registry for
-pushing and pulling images with model trainer code and dependencies):
+registry support. Note in the example below that the `image_name` uses a private registry for
+pushing and pulling images with the model trainer code and dependencies:
 
 ```python
 model = Model(
@@ -218,3 +212,5 @@ model = Model(
     config=config,
 )
 ```
+[credentials]: ../credentials/
+[konvoy_airgapped_guide]: https://docs.d2iq.com/dkp/konvoy/latest/install/install-airgapped/#configure-the-image-registry

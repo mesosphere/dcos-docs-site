@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Notebook Servers Configuration
 title: Configuring Notebook Servers
 menuWeight: 70
-excerpt: Configure Notebook Servers pre-defined controls and settings
+excerpt: Configure Notebook Servers controls and settings
 beta: false
 enterprise: false
 ---
@@ -12,19 +12,19 @@ Configure Notebook Servers controls and settings.
 
 ## Prerequisites
 
--   A Konvoy cluster `v1.7.0` or above.
+-   A Provisioned Konvoy cluster running Konvoy `v1.7.0` or above.
 
 ## Creating custom Toleration Groups and Affinity Configurations
 
 You can pre-configure node toleration groups and affinity configurations in the Notebook Servers UI.
-These settings allow users to specify `tolerations` and `affinity` rules for the Notebook pods. 
+These settings allow users to specify `tolerations` and `affinity` rules for the Notebook pods.
 This allows notebook-specific workloads to run on specific nodes from a pool of available resources.
 
 For more information about the pod scheduling controls, please refer to the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/).
 
-Toleration groups and affinity configs can be configured via `notebookTolerationGroups` and `notebookAffinityConfig` parameters respectively.
+Toleration groups and affinity configs can be configured via the `notebookTolerationGroups` and `notebookAffinityConfig` parameters, respectively.
 
-First, create a `parameters.yaml` file in the following format:
+To configure these resources, create a file named `parameters.yaml` with the following contents:
 ```yaml
 notebookTolerationGroups:
   - groupKey: "notebooks"
@@ -36,7 +36,7 @@ notebookTolerationGroups:
         effect: "NoExecute"
 notebookAffinityConfig:
   - configKey: "notebook-affinity-config"
-    displayName: "Notebook Affinity Configuration" 
+    displayName: "Notebook Affinity Configuration"
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
@@ -57,12 +57,12 @@ notebookAffinityConfig:
               - another-node-label-value
 ```
 
-You should set any other desired operator parameters in this file as well, so that you have a single file with all the operator configurations.
-Please refer to the [Toleration v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#toleration-v1-core) 
-and [Affinity v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#affinity-v1-core) 
+You can set any other desired operator parameters in this file as well, so that you have a single file with all the operator configurations.
+Please refer to the [Toleration v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#toleration-v1-core)
+and [Affinity v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#affinity-v1-core)
 pages in the Kubernetes API documentation to see all the supported fields.
 
-Specify the parameters file as an argument to `kubectl kudo install` command during the installation:
+Specify the parameters file as an argument to the `kubectl kudo install` command during the installation:
 ```bash
 kubectl kudo install \
     --instance kaptain \

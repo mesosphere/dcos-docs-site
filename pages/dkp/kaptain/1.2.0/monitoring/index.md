@@ -13,25 +13,25 @@ having to piece together information from various sources.
 
 ## Kaptain Dashboard
 
-To access the dashboard application, click on a "Dashboard" link in the left sidebar. 
+To access the dashboard application, click on a "Dashboard" link in the Kubeflow left sidebar.
 The "Kaptain Dashboard" page consists of four sections. To select a time range for graphs, use the "Time Period" control
-on the top-left corner. 
+on the top-left corner.
 
 The top section contains an overview of the current health of Kaptain components.
 
 ![Components](img/components.png)
 
-The "Data" section provides the information about what is currently running in a user's namespace: graphs show the 
+The "Data" section provides the information about what is currently running in a user's namespace; graphs show the
 number of active notebooks, pipelines, ML experiments, and trials:
 
 ![Data](img/data.png)
 
-In the "Jobs" section, users can get the current state of machine learning jobs, e.g., how many `TFJob` of `PytorchJob` 
+In the "Jobs" section, users can get the current state of machine learning jobs, e.g., how many `TFJob` or `PytorchJob`
 resources were created, completed, or failed:
 
 ![Jobs](img/jobs.png)
 
-The "System Resources" section is all about resource consumption. The graphs show how many resources are being used 
+The "System Resources" section is all about resource consumption. The graphs show how many resources are being used
 by workloads in the user's namespace. There are three graphs for each type of resource:
 
 ![System Resources](img/system-resources.png)
@@ -41,17 +41,17 @@ by workloads in the user's namespace. There are three graphs for each type of re
 - "Memory":  how much memory is being used by training jobs and other pods
 - "GPU": how much GPU memory is being utilized
 
-If resource quotas are set for the user's namespace, the following graphs will be displayed depending on what quotas 
+If resource quotas are set for the user's namespace, the following graphs will be displayed depending on what quotas
 types are enabled:
 
 ![System Resources](img/quotas.png)
 
 ## Grafana Dashboards
 
-Kaptain installation includes two Grafana dashboards, which are automatically imported to Grafana and ready-to-use.
-To access the dashboard, follow [Access a Konvoy cluster](https://docs.d2iq.com/dkp/konvoy/latest/access-authentication/access-konvoy/)
-documentation page to access the operations portal, and then click on the "Dashboard" button on the Grafana tile on 
-the"Platform Services" tab.
+Kaptain installation also includes two Grafana dashboards, which are automatically imported to Grafana and ready-to-use.
+To access the dashboard, follow the [Access a Konvoy cluster][access_konvoy]
+documentation page to access the operations portal, and then click on the "Dashboard" button on the Grafana tile on
+the "Platform Services" tab.
 
 Kaptain provides the following dashboards:
 - Kaptain / Operator - contains components health, pods state, resource consumption, and ML operator metrics:
@@ -65,3 +65,5 @@ Kaptain provides the following dashboards:
 ![Kaptain Profiles Dashboard](img/kaptain-profiles-dashboard-1.png)
 
 ![Kaptain Profiles Dashboard](img/kaptain-profiles-dashboard-2.png)
+
+[access_konvoy]: https://docs.d2iq.com/dkp/konvoy/latest/access-authentication/access-konvoy/

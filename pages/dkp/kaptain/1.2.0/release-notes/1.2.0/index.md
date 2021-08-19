@@ -43,8 +43,8 @@ This document describes the new features, caveats, and resolved issues in D2iQ K
 
 ### Limitations
 * When running on Konvoy 1.8.2 with GPU, the default base addons version `stable-1.20-4.1.0` doesn't report GPU
-metrics to Prometheus, and Kaptain Dashboard is unable to display them. Consider using a newer version of the base
-addons or a previous `stable-1.20-4.0.0` in `cluster.yaml`:
+metrics to Prometheus, and thus the Kaptain Dashboard is unable to display them. Consider using a newer version of the base
+addons, or the previous version: `stable-1.20-4.0.0` in your Konvoy `cluster.yaml`:
   ```
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
@@ -53,6 +53,6 @@ addons or a previous `stable-1.20-4.0.0` in `cluster.yaml`:
 
 ### Breaking changes
 * Automatic Profile creation on the first login is disabled by default for security purposes.
-Consult documentation on [onboarding new users][onboarding-new-users] for details.
+Consult the documentation on [onboarding new users][onboarding-new-users] for details.
 
 [onboarding-new-users]: ../../user-management#onboarding-new-users

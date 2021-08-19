@@ -6,20 +6,20 @@ beta: false
 menuWeight: 0
 ---
 
-The SDK provides high-level API to support model development workflows and deals with Kubernetes specifics for the
-users' benefit. The main building blocks required for a model development are user-provided model definition and
-training source code and a configured instance of the `Model` class from the SDK.
+The Kaptain SDK provides a high-level API to support model development workflows and deals with Kubernetes specifics for the
+users' benefit. The main building blocks required for model development are a user-provided model definition,
+training source code, and a configured instance of the `Model` class from the SDK.
 
 The SDK automatically packs user-provided files into a Docker image which is then used in the model training and
-tuning. SDK also provides utilities to simplify the export of the trained models to the supported storage locations.
+tuning. The SDK also provides utilities to simplify the export of the trained models to the supported storage locations.
 
-# Using the SDK from Jupyter Notebook
+# Using the SDK from a Jupyter Notebook
 
 ## Configure Docker credentials
 
-In order to use the SDK from a Jupyter Notebook, it is required to configure credentials for accessing a Docker
-registry. It is recommended to distribute configuration and credentials using
-`configuration-and-credentials`{.interpreted-text role="ref"} guide.
+In order to use the SDK from a Jupyter Notebook, you must configure credentials for accessing a Docker
+registry. It is recommended to distribute registry configuration and credentials by following the
+[Accessing Docker and Cloud Storage][credentials] guide.
 
 However, to hit the ground running, it is also sufficient to create a valid Docker credentials file from a notebook
 running in Kaptain. The file has the following format and must be saved at `$HOME/.docker/config.json`:
@@ -33,19 +33,19 @@ running in Kaptain. The file has the following format and must be saved at `$HOM
     }
 
 The `auth` field is a base64-encoded string of the form `<username>:<password>` where `<username>` and `<password>` are
-the actual username and password used to login to Docker registry. To generate value for `auth` field, use the following
+the actual username and password used to login to Docker registry. To generate the value for the `auth` field, use the following
 command: `echo -n "<username>:<password>" | base64`.
 
 <p class="message--note">
 <strong>NOTE: </strong>You can also inject your docker credentials by creating a secret and
-mounting it at <code>/home/kaptain/.docker/config.json</code>. <a href="https://github.com/mesosphere/kudo-kubeflow/blob/master/sdk/docs/source/credentials.rst">See the credentials docs</a>.
+mounting it at <code>/home/kaptain/.docker/config.json</code>.  See the <a href="../credentials/">credentials documentation</a> for more details.
 </p>
 
 ## Prepare the model training
 
 ### Tensorflow
 
-Let's pick MNIST image classification as an example of the training code.
+What follows is an example of how to deploy a training model for MNIST image classification:
 
 1.  Create a file named `train.py` with the following contents:
 
@@ -126,7 +126,7 @@ Let's pick MNIST image classification as an example of the training code.
     )
     ```
 
-<p class="message--note">The Docker repository passed via the <code>image_name</code> argument, must exist or be created before using it.</p>
+<p class="message--note">The Docker repository passed via the <code>image_name</code> argument must exist or be created before using it.</p>
 
 3.  Execute model training in a distributed mode using 3 workers:
 
@@ -137,7 +137,7 @@ Let's pick MNIST image classification as an example of the training code.
     )
 ```
 
-4. Verify the model was exported to the default location. Launch Notebook terminal to connect to MinIO and list the
+4. Verify the model was exported to the default location, by launching a Notebook terminal to connect to MinIO and listing the
 uploaded trained model files:
 
 ```bash
@@ -168,25 +168,24 @@ dev-mnist            False
 dev-mnist            True       100                             http://dev-mnist.demo.example.com
 ```
 
-Follow the [Kaptain SDK](https://docs.d2iq.com/dkp/kaptain/1.2.0/tutorials/sdk/) tutorial for more detailed
-information.
+Follow the [Kaptain SDK][kaptain_sdk] tutorial for more detailed information.
 
 ## Environment Variables
 
-There are some environment variables that can be changed to modify some of the behavior of the SDK:
+Several environment variables can be specified to modify some of the behavior of the SDK:
 
 - **KAPTAIN_SDK_VERBOSE**: will set the output to show all of pod logs and any event related to Job, Pods, Secrets and
     Service Accounts.
-- **KAPTAIN_SDK_LOG_TIMEFORMAT**: a string to change the format of the log date time from the default "%Y-%m-%d
+- **KAPTAIN_SDK_LOG_TIMEFORMAT**: a string used to change the format of the log date time from the default "%Y-%m-%d
     %H:%M:%S,%f" following strftime format.
 - **KAPTAIN_SDK_DEBUG**: will set the logging level to DEBUG for Kaptain related logging.
 
-A `"true"` value is any of `"true"`, `"yes"`, `"y"` or `"1"`, anything else is interpreted as `"false"`. Changing environment
+A `"true"` value is any of `"true"`, `"yes"`, `"y"` or `"1"`, anything else is interpreted as `"false"`. Changing the environment
 variables `KAPTAIN_SDK_LOG_TIMEFORMAT` and `KAPTAIN_SDK_DEBUG` only take effect if used at the beginning of the script or
 Notebook.
 
-You can also change them from Python/Jupyter using the variables in `kaptain.envs`. Changing them this way
-will actually make the changes take effect immediately for all.
+You can also change these environment variables from Python/Jupyter using the variables in `kaptain.envs`. Changing them this way
+will make the changes take effect immediately for all.
 
 ```python
 import kaptain.envs as envs   # (showing default values)
@@ -195,3 +194,5 @@ envs.DEBUG = False
 envs.VERBOSE = False
 envs.LOG_TIMEFORMAT = "%Y/%m/%d %H:%M:%S,%f"
 ```
+[credentials]: ../credentials/
+[kaptain_sdk]: https://docs.d2iq.com/dkp/kaptain/1.2.0/tutorials/sdk/
