@@ -6,46 +6,45 @@ beta: false
 menuWeight: 2
 ---
 
-When the model is trained, all model files are packed into a Docker
-image which is then used for the training itself and hyperparameter
+When the model is trained, all the model files are packed into a Docker
+image, which is then used for the training itself, and for hyperparameter
 tuning later on. In order to build that image, the SDK must be provided
-with at least Docker credentials so it can publish the resulting images
+with Docker credentials, so that it can publish the resulting images
 to the registry specified in `Model.image` attribute.
 
 As the image building happens on the cluster, the model files are first
 uploaded to a blob storage such as S3, GCS, or MinIO and then used by
 the builder. By default, the SDK uses a cluster-local MinIO installation
-which doesn't require any configuration. However, in case users need to
-use a specific S3 location, then appropriate AWS credentials should be
-provided to use it.
+which doesn't require any additional configuration. If users wish to
+use a specific S3 location instead, then appropriate AWS credentials need
+to be provided.
 
 This guide focuses on two main aspects of credential distribution and
-configuration: \* secure automatic mounting of credential files and
-environment variables to notebook containers, and \* using the SDK API
-for creating and modifying access credentials and parameters.
+configuration:
+* Secure automatic mounting of credential files and environment variables to notebook containers
+* Using the SDK API for creating and modifying access credentials and parameters.
 
 # Secure mounting of credentials
 
-The standard way of secure sharing of the sensitive information in
-Kubernetes is by using `Secrets`. To find out more about `Secret` check
-the [official Kubernetes
+The standard way of secure sharing of sensitive information in
+Kubernetes is by using `Secret` objects. More information about `Secret` objects
+is available in the [official Kubernetes
 documentation](https://kubernetes.io/docs/concepts/configuration/secret/).
 A `Secret` can be created from a file and can be accessed only by the
-service account which created it and by users with administrative
-privileges. After a `Secret` is created it can be [mounted]{.title-ref}
-to a Notebook container as a file or used to populate environment
-variables. To simplify the process, it is sufficient to create all
-necessary secrets once and then reuse them across the notebooks. To make
-`Secrets` automatically available for mounting, we will need to create a
-`PodDefault` for them. For more information about `PodDefault` follow
-[Kubeflow Notebook Setup
-Guide](https://www.kubeflow.org/docs/notebooks/setup/) or check the
-[PodDefault
-manifest](https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/README.md).
+service account which created it, and by users with administrative
+privileges.
+
+After a `Secret` is created it can be mounted to a Notebook container as a file
+or used to populate environment variables. To simplify the process, you can create all
+the necessary secrets once and then reuse them across notebooks. To make
+`Secrets` automatically available for mounting, create a `PodDefault` for them.
+For more information about `PodDefault` follow the
+[Kubeflow Notebook Setup Guide][kubeflow_setup] or check the
+[PodDefault manifest][poddefault_ manifest].
 
 ## Docker credentials
 
-In order to make Docker credentials available as a `Secret` we need to
+In order to make Docker credentials available as a `Secret`,
 create a `config.json` file which has the following standard layout:
 
     {
@@ -58,28 +57,30 @@ create a `config.json` file which has the following standard layout:
 
 The `auth` field is a base64-encoded string of the form
 `<username>:<password>` where `<username>` and `<password>` are the
-actual username and password used to login to Docker registry. To
-generate value for `auth` field, use the following command:
+actual username and password used to login to the Docker registry. To
+generate the value for `auth` field, use the following command:
 `echo -n "<username>:<password>" | base64`.
 
 <p class="message--note">
 <strong>NOTE: </strong>
-It is important the file with Docker credentials is named <code>config.json</code>
-because it is the default name used and recognized by a variety of tools
-and components.
+It is important that the file with Docker credentials is named <code>config.json</code>
+because it is the default name used and recognized by a variety of tools and components.
 </p>
 
 
 To create a `Secret` from the credentials file `config.json` run the
 following command:
 
-    kubectl create secret generic docker-secret --from-file=config.json
+    kubectl create secret generic docker-secret -n <kaptain_namespace> --from-file=config.json
+
+  Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks.  
+  In this example, we used a namespace named 'user'
 
 Verify the `Secret` is created:
 
-    kubectl get secret docker-secret -o yaml
+    kubectl get secret docker-secret -n <kaptain_namespace> -o yaml
 
-    # the output should look like this:
+the output should look like this:
 
     apiVersion: v1
     data:
@@ -91,8 +92,7 @@ Verify the `Secret` is created:
     type: Opaque
 
 To make this `Secret` available for selection in the Notebook creation
-dialogue, let's create a `PodDefault` referencing it. Create a file
-`pod_default.yaml` with the following contents:
+dialogue, create a file named `pod_default.yaml` with the following contents:
 
     apiVersion: "kubeflow.org/v1alpha1"
     kind: PodDefault
@@ -114,15 +114,15 @@ dialogue, let's create a `PodDefault` referencing it. Create a file
 
 <p class="message--warning">
 <strong>WARNING: </strong>
-Volume name and <code>mountPath</code> must be unique across all <code>PodDefault</code>s to avoid conflicts when
-mounting <code>Secrets</code> to <code>Pods</code>.
+The volume name and <code>mountPath</code> must be unique across all <code>PodDefault</code>
+objects to avoid conflicts when mounting <code>Secrets</code> to <code>Pods</code>.
 </p>
 
-Create a `PodDefault` resource from file using the following command:
+Create the `PodDefault` resource from the file using the following command:
 
     kubectl create -f pod_default.yaml
 
-After that, the Docker credentials secret becomes available for
+After that, the Docker credentials secret will be available for
 selection in the Notebook Spawner UI and, if selected, will be mounted
 to `/home/kubeflow/.docker/`:
 
@@ -132,29 +132,27 @@ to `/home/kubeflow/.docker/`:
 
 ### File-based and environment variable based configuration
 
-There are two ways to make AWS credentials available in the notebook: \*
-as a file mounted to the `Pod` from a `Secret` \* as environment
-variables injected to the `Pod` from a `Secret`
+There are two ways to make AWS credentials available in a notebook:
+* As a configuration file mounted to the `Pod` from a `Secret`
+* As environment variables injected into the `Pod` from a `Secret`
 
 <p class="message--note">
 <strong>NOTE: </strong>
-How to choose which option is better for AWS configuration:
+Which method to use depends on what AWS settings you need to configure:
 <ul>
-<li>using configuration file is recommended when working with the default account settings, i.e. when only credentials
-    such as AWS Access Key ID, AWS Secret Access Key, and AWS Session Token are sufficient to access associated S3
+<li>The configuration file method is recommended when working with the default account settings, i.e. when only credentials
+    such as AWS Access Key ID, AWS Secret Access Key, and AWS Session Token are needed to access associated S3
     storage.</li>
-<li>using environment variables is recommended when additional configuration is required such as AWS Region, S3 Endpoint
-    URL, S3 Bucket Access style (url or path-style), Protocol Signature version.  Usually, this properties are required
+<li>The environment variables method is recommended when additional configuration is required, such as AWS Region, S3 Endpoint
+    URL, S3 Bucket Access style (url or path-style), and Protocol Signature version. These additional properties are often required
     when working with non-standard S3-compatible storage solutions such as MinIO.</li>
 </ul>
 </p>
 
 ### File-based AWS credentials
 
-Making an AWS credentials file available as a `Secret` follows the same
-steps as with Docker credentials.
-
-First let\'s create AWS `credentials` file with the standard layout:
+Making an AWS credentials file available as a `Secret` follows the same steps as with Docker credentials.
+First, create an AWS `credentials` file with the standard layout:
 
     [default]
     aws_access_key_id     = <your AWS Access Key ID>
@@ -164,20 +162,22 @@ First let\'s create AWS `credentials` file with the standard layout:
 
 <p class="message--note">
 <strong>NOTE: </strong>
-It is important the file with AWS credentials is named <code>credentials</code> because it is the default name used and
+It is important that the file with AWS credentials is named <code>credentials</code> because it is the default name used and
 recognized by AWS-related tools and components.
 </p>
 
 To create a `Secret` from the file `credentials` run the following
 command:
 
-    kubectl create secret generic aws-credentials --from-file=credentials
+    kubectl create secret generic aws-credentials -n <kaptain_namespace> --from-file=credentials
 
-Verify the `Secret` is created:
+Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks. In this example, we used a namespace named 'user'
+
+Verify that the `Secret` is created:
 
     kubectl get secret aws-credentials -o yaml
 
-    # the output should look like this:
+the output should look like this:
 
     apiVersion: v1
     data:
@@ -189,7 +189,7 @@ Verify the `Secret` is created:
     type: Opaque
 
 To make this `Secret` available for selection in the Notebook creation
-dialogue, let\'s create a `PodDefault` referencing it. Create a file
+dialogue, create a `PodDefault` referencing it. Create a file named
 `pod_default.yaml` with the following contents:
 
     apiVersion: "kubeflow.org/v1alpha1"
@@ -212,15 +212,15 @@ dialogue, let\'s create a `PodDefault` referencing it. Create a file
 
 <p class="message--warning">
 <strong>NOTE: </strong>
-Volume name and <code>mountPath</code> must be unique across all <code>PodDefault</code>s to avoid conflicts when
+Volume name and <code>mountPath</code> must be unique across all <code>PodDefault</code> objects to avoid conflicts when
 mounting <code>Secrets</code> to <code>Pods</code>.
 </p>
 
-Create a `PodDefault` resource from file using the following command:
+Create a `PodDefault` resource from the file using the following command:
 
     kubectl create -f pod_default.yaml
 
-After that, AWS credentials secret becomes available for selection in
+After creating this resource, the AWS credentials secret will be available for selection in
 the Notebook Spawner UI and, if selected, will be mounted to
 `/home/kubeflow/.aws/credentials`:
 
@@ -230,9 +230,7 @@ the Notebook Spawner UI and, if selected, will be mounted to
 
 Making AWS configuration and credentials available as environment
 variables requires creating a `Secret` from manifest.
-
-The following environment variables are supported and recognised by the
-SDK:
+The following environment variables are supported and recognized by the SDK:
 
 -   `AWS_ACCESS_KEY_ID` - The access key to authenticate with S3.
 -   `AWS_SECRET_ACCESS_KEY` - The secret key to authenticate with S3.
@@ -240,10 +238,10 @@ SDK:
 -   `AWS_REGION` - The name of AWS region.
 -   `S3_ENDPOINT` - The complete URL of S3 endpoint. This parameter is
     required when working with non-standard, S3-compatible storage
-    solutions such as MinIO. It should be set to a resolvable address of
+    solutions such as MinIO. It should be set to the resolvable address of
     the running server.
 -   `S3_SIGNATURE_VERSION` - The signature version when signing requests
--   `S3_FORCE_PATH_STYLE` - When enabled, the clients will use path
+-   `S3_FORCE_PATH_STYLE` - When enabled, clients will use path
     style instead of URL style for accessing buckets. Supported values:
     `true`\|`false`.
 
@@ -272,7 +270,10 @@ following command:
 To create a `Secret` from the YAML specification file (e.g.
 `secret.yaml`) run the following command:
 
-    kubectl create -f secret.yaml
+    kubectl create -f -n <kaptain_namespace> secret.yaml
+
+Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks.  
+In this example, we used a namespace named 'user'    
 
 Verify the `Secret` is created:
 
@@ -295,9 +296,7 @@ Verify the `Secret` is created:
       namespace: user
     type: Opaque
 
-To make this `Secret` available for selection in the Notebook creation
-dialogue, let\'s create a `PodDefault` referencing it. Create a file
-`pod_default.yaml` with the following contents:
+To make this `Secret` available for selection in the Notebook creation dialogue, create a `PodDefault` referencing it. Create the file `pod_default.yaml` with the following contents:
 
     apiVersion: "kubeflow.org/v1alpha1"
     kind: PodDefault
@@ -317,7 +316,7 @@ Create a `PodDefault` resource from file using the following command:
 
     kubectl create -f pod_default.yaml
 
-After that, the AWS configuration secret becomes available for selection in
+After that, the AWS configuration secret will be available for selection in
 the Notebook Spawner UI and, if selected, will make all the environment
 variables available in the Notebook:
 
@@ -329,14 +328,13 @@ The `Model` class serves as the main API for training, tuning, and
 deploying model to serving. It uses a Docker registry for publishing
 images with model files and also requires S3-compatible storage for
 storing trained models and transient data. For configuring access to
-Docker registry and storage, `Model` exposes a `config` argument which
-allows users to fine-tune their configurations. This section covers the
-available configuration providers and their defaults.
+the Docker registry and storage, `Model` exposes a `config` argument which
+allows users to fine-tune their configurations. This section covers the available configuration providers and their defaults.
 
 <p class="message--note">
 <strong>NOTE: </strong>
-If no <code>Config</code> is provided, the <code>Model</code> constructor will use Docker credentials from file
-<code>$HOME/.docker/config.json</code> and in-cluster MinIO server configuration for storage. Docker
+If no <code>Config</code> is provided, the <code>Model</code> constructor will use Docker credentials from the file
+<code>$HOME/.docker/config.json</code>, and the in-cluster MinIO server configuration for storage. A Docker
 <code>config.json</code> is mandatory for <code>Model</code> instantiation.
 </p>
 
@@ -369,14 +367,13 @@ S3-compatible storage configuration providers.
 ## Docker Configuration
 
 `DockerConfigurationProvider` supports Docker credentials reading from
-file only.
+a file only.
 
 `DockerConfigurationProvider.default()` loads a configuration from
-`/home/kubeflow/.docker/config.json` and errors out if the file is not
-present.
+`/home/kubeflow/.docker/config.json` and fails with an error if the file is not present.
 
 `DockerConfigurationProvider.from_file(<path/to/config.json>)` loads a
-configuration from the specified path and can be used when the config
+configuration from the specified path, and can be used when the config
 `Secret` is mounted to a non-default path or created by the user.
 
 Example:
@@ -403,11 +400,10 @@ Example:
 
 ## AWS Configuration
 
-`S3ConfigurationProvider` supports Docker credentials reading from file
-only.
+`S3ConfigurationProvider` supports reading Docker credentials only from a file.
 
 `S3ConfigurationProvider.default()` loads configuration from
-`/home/kubeflow/.aws/credentials` and errors out if the file is not
+`/home/kubeflow/.aws/credentials` and fails with an error if the file is not
 present.
 
 `S3ConfigurationProvider.from_file(<path/to/aws/credentials>)` loads
@@ -447,8 +443,9 @@ model = Model(
 ## MinIO Configuration
 
 `DefaultMinioConfigurationProvider` is a special configuration provider
-pre-configured for in-cluster MinIO.
-`DefaultMinioConfigurationProvider.default()` returns an configured
+pre-configured for an in-cluster MinIO instance.
+
+`DefaultMinioConfigurationProvider.default()` returns a configured
 instance ready to be used with it. It is used by default when no S3
 provider is specified. `DefaultMinioConfigurationProvider` extends
 `S3ConfigurationProvider` and supports all the same methods.
@@ -477,6 +474,9 @@ Example:
 
 <p class="message--note">
 <strong>NOTE: </strong>
-The above example is the default behavior of SDK for <code>Config</code>
+The above example is the default behavior of the SDK for <code>Config</code>
 instantiation when no config is provided to the <code>Model</code> constructor.
 </p>
+
+[kubeflow_setup]: https://www.kubeflow.org/docs/notebooks/setup/
+[poddefault_manifest]: https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/README.md

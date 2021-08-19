@@ -1,35 +1,35 @@
 ---
 layout: layout.pug
 navigationTitle: Configure Dex
-title: Configure external Dex to authenticate to Kaptain
+title: Configure Kaptain to authenticate with a Kommander Management Cluster
 menuWeight: 70
-excerpt: Configure external Dex to authenticate to Kaptain
+excerpt: Configure Kaptain to authenticate with a Kommander Management Cluster
 beta: false
 enterprise: false
 ---
 
-Configure an external Dex instance from a management cluster for authentication with Kaptain.
+Configure Kaptain to use a Kommander management cluster for authentication.
 
 ## Prerequisites
 - A Kommander management cluster.
 - A managed Konvoy cluster, into which Kaptain will be installed.
 - The managed (Konvoy) cluster is [attached][attached-cluster] to the management cluster (Kommander). (You will need to [create a cluster via Kommander][create-managed-cluster] to have a managed Konvoy cluster.)
 
-## Kaptain configuration parameters
-To configure an external Dex instance for authentication with Kaptain, please provide the following parameters:
-- Dex Client identifier of the managed cluster 
-- Dex Client secret corresponding to the client identifier
-- External OIDC provider endpoint that points to the external Dex instance to be used
+## Kaptain configuration requirements
+To use the Kommander Dex instance for authentication with Kaptain you will need to collect the following information:
+- Dex Client Identifier (ID) of the managed cluster
+- Dex Client secret corresponding to the Client ID
+- External OIDC provider endpoint from the management cluster
 - External OIDC provider CA bundle
 
-## Get Dex Client Id 
+## Get Dex Client Id
 To get the external Dex Client ID, run the following command on the managed cluster (Konvoy):
-    
+
 ```bash
 kubectl describe configmaps -n kommander-system traefik-forward-auth-kommander-kubeaddons-configmap | grep client-id | cut -d '-' -f4-
 ```
 
-## Get Dex Client Secret 
+## Get Dex Client Secret
 To get the Dex client secret, run the following command on the management cluster:
 ```bash
 kubectl get secrets -n kubeaddons \
@@ -45,14 +45,14 @@ To get the OIDC provider CA bundle, run the following command on the management 
 kubectl get secret traefik-kubeaddons-certificate -n kubeaddons -o jsonpath="{.data.ca\.crt}"
 ```
 ## Install Kaptain
-Create or update a configuration file `parameters.yaml` to include the following properties:
+Create or update a configuration file named `parameters.yaml` that includes the following properties:
 ```yaml
 externalDexClientId: dex-controller-<Dex Client ID>
 externalDexClientSecret: <Dex Client secret>
 oidcProviderEndpoint: <OIDC provider endpoint>
 oidcProviderBase64CaBundle: <OIDC provider CA bundle>
 ```
-The resulting configuration file looks similar to the following:
+The resulting configuration file should look similar to the following:
 ```yaml
 externalDexClientId: dex-controller-dextfa-client-managed-cluster-admin-managed-cluster-dkzzq
 externalDexClientSecret: kkyhCc0W94WDJezbzsN7Ykif3DrwNuT40p3TWOKlDtdgjfJm1ItrJaqzRqQD7pUn
@@ -60,7 +60,7 @@ oidcProviderEndpoint: https://<Management-cluster-URL>/dex
 oidcProviderBase64CaBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS9tLS0tCk1JSUMrVENDQWVHZ0F3SUJBZ0lSQUp1NlBOSFVsWVZHR0AzRW9vSGNPd1F3RFFZSktvWklodmNOQVFFTEJRQXcKRlRFVE1CRUdBMVVFQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TURFeU1EZ3dPVFEzTkBsYUZ3MHpNREV5TURZdwpPVFEzTkRsYU1CY3hGVEFUQmdOVkJBTVRER05sY25RdGJXRnVZV2RsY2pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCCkJRQURnZ0VQQURDQ0FRb0NnZ0VCQUwzQmlJR0RnVkpzRVhJUjEvc6hkdysvzzFLaG9PdkVwcVM5Mk1pS050cDkKaW1xVUtqZGFMSHVxYlBheWhuMjNwTmhUa2haL0NEOVgyb05xVFhOR0Q2SE44WGFrMWt4VE9xWnd4am9yNktydQpUWGZrREVmZGtHVG9nZUlSaEtpSUdxRUU1Vy9teWNkVkdDUThnNXEvcUprd3JIZHgyOTZMREVwSDEzMm9aQmk1CmVNMlZvNmpVYnUydkp4MHpyVnIzeVWuaUp0TlNpbnFoN1RVc2I2bTZoeFErRkVBZFY1djdraVBLVW4wdmZTVlYKQ1YwNXdmbUU0WEEyY2d5N3RpeEV3NkFCNmFOeGYwcGVSVXpXS0ZoL3FJdGpFWEg5RVJiWVJ5cDA1UGUyb2xCVwpHWXpiVDJsblVPeW5uL0I3YWZRSExWS0RPcTRsa3NmWlBoWTJQWmZwVW5NQ0F3RUFBYU5DTUVBd0RnWURWUjBQCkFRSC9CQVFEQWdLa01BOEdBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZHZmtITWxVTU1hSzRtRjgKNUNPeXhPMHAvWGNNTUEwR0NTcUdTSWIzRFFFQkN3VUFBNElCQVFERjh2d3lhWnpZUmRYRGo5ODJrN0RZRDY2cwpMVE44d3Q0ZkxKbEJKODREFzd0TGJmSVdmYkJ4VzFDd0UxdEhuaTFPd3pROGkzUytpUFhuQ0dCZFNSdm5FQkJsCnF1bkpqdWRBMm9odEs5SmViTUhPTEFpbXRnWVhZdVllTFZudGxpWCtQdmxRMWxoYzByeXFENkRkWUUwckJSdlcKRkgvSTY2b2ZONGZFVlJ2RjFiSG5uZ1BsZlFUcHNRRzZFZVNoa0RvclAwSDhxNnU5RXcyaG5Ba0hwRXVlWUJibQpkeXZvRStVWTM1ck9XK3pEQ3NXNUNPRTVGWjVWQ64lRmJMRmRSUU9tdW9BaXlCV2UyTHZHdjgzdXVSZTRsSWhxCnAxSEIrZlBPTGdJVGRaSHEwYkgvdEZZNEw0YmNkRGhGYnlJRldzN01NZ2FxeCtMZThoMDNIZE5ybG5USQotLS0tWARORCBDRVJUSUZJQ0FURS0tRS0tCg==
 ```
 
-To install Kaptain with the provided parameters, run the following command on the managed cluster:
+Install Kaptain with the provided parameters, by running the following command against the managed cluster:
 ```bash
 kubectl kudo install ./kubeflow-1.3.0_1.2.0.tgz \
 		--instance kaptain \
@@ -79,18 +79,18 @@ kubectl kudo plan status --instance kaptain -n kubeflow
 ```
 
 ## Add the redirect URL to Kaptain authentication service in the management cluster
-Once Kaptain is up, get the redirect URL from Kaptain's authservice by running the following command on the managed cluster: 
+Once Kaptain is up, get the redirect URL from Kaptain's authservice by running the following command on the managed cluster:
 ```bash
 kubectl exec -it -n kubeflow authservice-0 -- sh -c 'echo $REDIRECT_URL'
 ```
 
-On the management cluster add Redirect URL to the `redirectURIs` list of the Dex client resource:
+On the management cluster add the Redirect URL to the `redirectURIs` list of the Dex client resource:
 ```bash
 kubectl patch clients.dex.mesosphere.io -n kubeaddons <Dex Client ID> \
   --type "json" -p '[{"op":"add", "path" :"/spec/redirectURIs/-", "value": "<Redirect URL>"}]'
 ```
 
-# Log in to Kaptain using the management cluster's Dex  
+# Log in to Kaptain using the management cluster's Dex instance
 
 Discover the Kaptain endpoint:
 -  If you are running Kaptain _on-premises_:
@@ -102,7 +102,7 @@ Discover the Kaptain endpoint:
       kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
       ```
 
-When accessing Kaptain via `https://<Kaptain endpoint>`, you are redirected to login page of the management cluster's Dex instance.
+When accessing Kaptain via `https://<Kaptain endpoint>`, you will be redirected to the login page of the management cluster's Dex instance.
 
 [attached-cluster]: /dkp/kommander/latest/clusters/attach-cluster/
-[create-managed-cluster]: /dkp/kommander/1.4/clusters/create-connect-clusters/
+[create-managed-cluster]: /dkp/kommander/latest/clusters/create-connect-clusters/

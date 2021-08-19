@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Version Support Policy
 title: Version Support Policy
-menuWeight: 5
+menuWeight: 98
 excerpt: Kaptain's supported version policy
 beta: false
 enterprise: false
@@ -15,7 +15,7 @@ D2iQ recommends that you install the newest Kaptain version available to stay up
 
 ## Supported Konvoy Versions
 
-Kaptain 1.2.0 runs on Konvoy 1.8.
+Kaptain 1.2.0 runs on Konvoy 1.7 and 1.8.
 
 ## Supported Kommander Versions
 

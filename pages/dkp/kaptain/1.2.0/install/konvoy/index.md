@@ -27,7 +27,7 @@ Before proceeding, verify that your environment meets the following basic requir
   - min. 200 GiB free disk space per instance
   - min. 64 GiB RAM per instance
   - min. 12 GiB GPU RAM per instance
-  
+
 Please note that these numbers are for the bare minimum.
 Running any realistic machine learning workloads on Kaptain bumps these requirements for nodes, CPUs, RAM, GPUs, and persistent disk.
 In particular, the number of CPU and/or GPU workers, as well as RAM, must be increased considerably.
@@ -51,7 +51,8 @@ For cloud installations, scaling out can be limited by resource quotas.
           enabled: true
     ```
 
-* Add Kaptain addon repository in your Konvoy `cluster.yaml` to install Kaptain dependencies, then follow the [Konvoy documentation to deploy][konvoy-deploy-addons] the addons:
+* Add the Kaptain addon repository to your Konvoy `cluster.yaml` to install Kaptain dependencies,
+then follow the [Konvoy documentation][konvoy_deploy_addons] to deploy the addons:
   ```yaml
       - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
         configVersion: stable-1.20-1.3.0
@@ -60,15 +61,17 @@ For cloud installations, scaling out can be limited by resource quotas.
             enabled: true
   ```
 
-* Install the [kubectl-kudo CLI plugin](https://kudo.dev/#get-kudo)
+* Install the [kubectl-kudo CLI plugin][kudo_cli]
 
 * After the Konvoy cluster has been deployed (including Istio and Knative), install KUDO:
   ```bash
   kubectl kudo init --wait
   ```
 
-* [Download `kubeflow-1.3.0_1.2.0.tgz` tarball](../../download/).
+* Download [kubeflow-1.3.0_1.2.0.tgz][download] tarball.
 * Install Kaptain:
+<p class="message--note"><strong>NOTE: </strong>Starting with Kaptain 1.2.0, automatic profile creation on initial login is now disabled by default. See <a href="../../user-management">User Management</a> for more details.</p>
+
   ```bash
   kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace ./kubeflow-1.3.0_1.2.0.tgz
   ```
@@ -99,7 +102,7 @@ Once all components have been deployed, you can log in to Kaptain:
   ```
 
 ## Uninstall Kaptain
-  
+
 * Use the following commands to uninstall Kaptain.
   ```bash
   kubectl kudo uninstall --instance kaptain --namespace kubeflow --wait
@@ -107,4 +110,6 @@ Once all components have been deployed, you can log in to Kaptain:
   kubectl delete operators.kudo.dev kubeflow --namespace kubeflow
   ```
 
-[konvoy-deploy-addons]: /dkp/konvoy/latest/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
+[download]: ../../download/
+[kudo_cli]: https://kudo.dev/#get-kudo
+[konvoy_deploy_addons]: /dkp/konvoy/latest/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
