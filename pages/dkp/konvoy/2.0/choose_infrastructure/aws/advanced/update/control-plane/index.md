@@ -53,7 +53,7 @@ The control plane is described by a KubeadmControlPlane resource. This reference
 
     ```sh
     export KUBEADMCONTROLPLANE_NAME=$(kubectl get kubeadmcontrolplanes --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
-    export CURRENT_TEMPLATE_NAME=$(kubectl get kubeadmcontrolplanes ${KUBEADMCONTROLPLANE_NAME} -ojsonpath='{.spec.infrastructureTemplate.name}')
+    export CURRENT_TEMPLATE_NAME=$(kubectl get kubeadmcontrolplanes ${KUBEADMCONTROLPLANE_NAME} -ojsonpath='{.spec.machineTemplate.infrastructureRef.name}')
     export NEW_TEMPLATE_NAME=${KUBEADMCONTROLPLANE_NAME}-$(cat /proc/sys/kernel/random/uuid | head -c4)
     ```
 
@@ -91,7 +91,7 @@ If you do not want to update the Kubernetes version, go to the [next section](#p
 
     ```sh
     cat <<EOF > control-plane-kubernetes-version-patch.yaml
-    apiVersion: controlplane.cluster.x-k8s.io/v1alpha3
+    apiVersion: controlplane.cluster.x-k8s.io/v1alpha4
     kind: KubeadmControlPlane
     spec:
       version: ${KUBERNETES_VERSION}
@@ -122,7 +122,7 @@ If you do not want to update the machine image, go to the [next section](#prepar
 
     ```sh
     cat <<EOF > control-plane-machine-image-patch.yaml
-    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha4
     kind: AWSMachineTemplate
     spec:
       template:
@@ -146,7 +146,7 @@ If you do not want to update the instance type, go to the [next section](#apply-
 
     ```sh
     cat <<EOF > control-plane-machine-type-patch.yaml
-    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha4
     kind: AWSMachineTemplate
     spec:
       template:
@@ -183,7 +183,7 @@ If you do not want to update the instance type, go to the [next section](#apply-
 
     ```sh
     kubectl get kubeadmcontrolplane ${KUBEADMCONTROLPLANE_NAME} --output=yaml \
-      | kubectl patch --local=true -f- --patch="{\"spec\": {\"infrastructureTemplate\": {\"name\": \"$NEW_TEMPLATE_NAME\"} } }" --type=merge --output=yaml \
+      | kubectl patch --local=true -f- --patch="{\"spec\": {\"machineTemplate\": {\"infrastructureRef\": {\"name\": \"$NEW_TEMPLATE_NAME\"} } } }" --type=merge --output=yaml \
       | kubectl patch --local=true -f- --patch-file=control-plane-kubernetes-version-patch.yaml --type=merge --output=yaml \
       | kubectl apply -f-
     ```
