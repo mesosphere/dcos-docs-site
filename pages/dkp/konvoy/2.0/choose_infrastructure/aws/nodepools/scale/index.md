@@ -92,4 +92,4 @@ Error: failed to scale nodepool: scaling MachineDeployment is forbidden: desired
 
 Similarly, scaling down to a number of replicas less than the configured `min-size` also returns an error.
 
-[capi_delete_policy]: https://github.com/kubernetes-sigs/cluster-api/blob/v0.4.0/api/v1alpha3/machineset_types.go#L85-L105
+[capi_delete_policy]: https://github.com/kubernetes-sigs/cluster-api/blob/v0.4.0/api/v1alpha4/machineset_types.go#L85-L105
