@@ -50,7 +50,7 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 | nvidia-0.4.0                  | nvidia                | False               |
 | prometheus-adapter-2.11.1     | prometheus-adapter    | True                |
 | reloader-0.0.85               | reloader              | True                |
-| traefik-9.19.1                | traefik               | True                |
+| traefik-10.3.0                | traefik               | True                |
 | traefik-forward-auth-0.3.1    | traefik-forward-auth  | True                |
 | velero-3.1.3                  | velero                | False               |
 
