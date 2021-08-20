@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Control Plane Certificate
-title: Control Plane Certificate
+navigationTitle: Control plane Certificate
+title: Control plane Certificate
 menuWeight: 8
 excerpt: Configure Certificates for the Control Plane
 beta: false
