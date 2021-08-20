@@ -115,8 +115,8 @@ The following services and service components have been upgraded to the listed v
     - thanos: 0.17.1
 - traefik: 10.3.0
     - traefik: 2.5.0
-- traefik-forward-auth: 0.3.1
-    - traefik-forward-auth: 3.0.1
+- traefik-forward-auth: 0.3.2
+    - traefik-forward-auth: 3.0.2
 - velero: 3.1.3
     - velero: 1.5.2
 
