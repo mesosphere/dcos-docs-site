@@ -1,16 +1,18 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes Konvoy 1.8.2
-title: Release Notes Konvoy 1.8.2
-menuWeight: 30
-excerpt: View release-specific information for Konvoy 1.8.2
+navigationTitle: Release Notes Konvoy 1.8.1
+title: Release Notes Konvoy 1.8.1
+menuWeight: 20
+excerpt: View release-specific information for Konvoy 1.8.1
 beta: false
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.2 was released on 28, July 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.8.1 was released on 09, June 2021.**
+
+<p class="message--warning"><strong>WARNING:</strong> When upgrading to Konvoy 1.7.3 or Konvoy 1.8.1, containerd configuration files are not correctly copied over, leading to unexpected behavior.  New installations are not impacted. Because of this, we recommend you upgrade directly to 1.7.4 or 1.8.2, or review the <a href="https://support.d2iq.com/s/article/Customer-Advisory-Missing-containerd-configurations-when-upgrading-to-Konvoy-1-7-3-or-1-8-1-D2iQ-2021-0004"</a>Product Advisory</a> for a workaround.</p>
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -32,19 +34,21 @@ This release provides new features and enhancements to improve the user experien
 
 #### Ansible
 
-- Konvoy now updates the Containerd config when the `cluster.yaml` file is modified, ensuring changes to the image registry are propagated to the cluster.  (COPS-6910)
-- Update Containerd to v1.4.7, to resolve an issue where the `config.toml` file was missing from the Control Plane after updating Konvoy.  (COPS-6987)
+- Improve the automatic detection of the interface name for the keepalived configuration on on-prem Konvoy control-plane nodes. (COPS-6911)
+- Use Python3 instead of Python2 on SLES. (COPS-6952)
+- Update Containerd to v1.4.6 to address CVE-2021-30465. (COPS-6948)
 
-#### AWS
+#### CLI
 
-- Update AWS KMS ARN validation to be less strict for partition names.  (COPS-6979)
+- Provide a better error message when Docker daemon is not running. (COPS-6929)
+- The airgapped bundle now contains an additional set of packages used to deploy Konvoy onto airgapped Red Hat Enterprise Linux 8 hosts. (COPS-6904)
 
 ### Component versions
 
 - Ansible 2.9.16.0
 - Calico 3.17.3
 - Cluster-autoscaler v0.5.0
-- Containerd v1.4.7
+- Containerd v1.4.6
 - Docker v19.03.15
 - EBS CSI 0.7.x
 - Elastic Search 7.10.1
@@ -74,7 +78,7 @@ This release provides new features and enhancements to improve the user experien
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
+[konvoy-doc]: ../../introduction
 [kubernetes-doc]: https://kubernetes.io/docs/home/
-[konvoy-vsphere]: /../../install/install-vsphere
-[konvoy-ccontrol-plane-certificates]: /../../networking/control-plane-certificates/
-[security-groups-configuration]: /../../install/install-aws/advanced-provisioning#security-groups
+[konvoy-vsphere]: ../../install/install-vsphere
+[security-groups-configuration]: ../../install/install-aws/advanced-provisioning#security-groups

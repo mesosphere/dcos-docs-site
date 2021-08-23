@@ -14,9 +14,50 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
+June 9, 2021
+
+[stable-1.20-4.1.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.1.0)
+
+-   Prometheus
+    -   Fix: In upgrades, use existing PVC from previous installation.
+    -   Upgrades to the latest version of the kube-prometheus-stack chart. This includes upgrades for multiple applications. The changes listed should not be disruptive to the default addon configuration.
+        - prometheus 2.26.0:
+        - https://github.com/prometheus/prometheus/releases/tag/v2.22.2
+        - https://github.com/prometheus/prometheus/releases/tag/v2.23.0
+        - https://github.com/prometheus/prometheus/releases/tag/v2.24.0
+        - https://github.com/prometheus/prometheus/releases/tag/v2.24.1
+        - https://github.com/prometheus/prometheus/releases/tag/v2.25.0
+        - https://github.com/prometheus/prometheus/releases/tag/v2.25.1
+        - https://github.com/prometheus/prometheus/releases/tag/v2.25.2
+        - https://github.com/prometheus/prometheus/releases/tag/v2.26.0
+        - grafana 7.5.3:
+        - https://github.com/grafana/grafana/releases/tag/v7.3.6
+        - https://github.com/grafana/grafana/releases/tag/v7.3.7
+        - https://github.com/grafana/grafana/releases/tag/v7.3.10
+        - https://github.com/grafana/grafana/releases/tag/v7.4.0
+        - https://github.com/grafana/grafana/releases/tag/v7.4.1
+        - https://github.com/grafana/grafana/releases/tag/v7.4.2
+        - https://github.com/grafana/grafana/releases/tag/v7.4.3
+        - https://github.com/grafana/grafana/releases/tag/v7.4.5
+        - https://github.com/grafana/grafana/releases/tag/v7.5.0
+        - https://github.com/grafana/grafana/releases/tag/v7.5.1
+        - https://github.com/grafana/grafana/releases/tag/v7.5.2
+        - https://github.com/grafana/grafana/releases/tag/v7.5.3
+        - prometheus-operator 0.47.0:
+        - https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.44.1
+        - https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.45.0
+        - https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.46.0
+        - https://github.com/prometheus-operator/prometheus-operator/releases/tag/v0.47.0
+
+-   Traefik
+    - A bug causing configuration updates to fail when a user adds an invalid TLS secret has been fixed
+
+-   Vsphere-csi-driver
+    - Update vpshere-csi-driver to v2.2.0 to pull in the fix for duplicate operations failure when attaching PVs (https://github.com/kubernetes-sigs/vsphere-csi-driver/issues/580) (COPS-6906)
+
 May 5, 2021
 
-[stable-1.19-3.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.0.0)
+[stable-1.20-4.0.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.0.0)
 
 -   Ambassador
     - bump ambassador to 1.12
@@ -102,7 +143,7 @@ May 5, 2021
     - Add custom annotation support in service account
     - When upgrading from a release that used helm 2 to install, reloader cannot be cleanly upgraded due to selector changes. This adds a flag that causes reloader to be uninstalled before being upgraded. This should have no effect on running applications.
 
-February 10, 2020
+February 10, 2021
 
 [stable-1.19-3.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.19-3.2.0)
 
@@ -241,7 +282,7 @@ September 25, 2020
             - CVE-2020-12605: An attacker could cause Envoy to consume excessive amounts of memory when processing specially crafted HTTP/1.1 packets.
             - CVE-2020-8663: An attacker could cause Envoy to exhaust file descriptors when accepting too many connections.
             - CVE-2020-12604: An attacker could cause increased memory usage when processing specially crafted packets.
-            - CVE-2020-15104: When validating TLS certificates, Envoy incorrectly allows a wildcard DNS Subject Alternative Name to apply to multiple subdomains. For example, with a SAN of .example.com, Envoy incorrectly allows nested.subdomain.example.com, when it should only allow subdomain.example.com.
+            - CVE-2020-15104: When validating TLS certificates, Envoy incorrectly allows a wildcard DNS Subject Alternative Name to apply to multiple subdomains. For example, with a SAN of   .example.com, Envoy incorrectly allows nested.subdomain.example.com, when it should only allow subdomain.example.com.
             - CVE-2020-16844: Callers to TCP services that have a defined Authorization Policies with DENY actions using wildcard suffixes (e.g. *-some-suffix) for source principals or namespace fields will never be denied access.
         -   Other changes:
             - Fixed return the proper source name after Mixer does a lookup by IP if multiple pods have the same IP.
@@ -295,7 +336,7 @@ September 9, 2020
 
 -   Dex-k8s-authenticator:
     - Windows download support for the credentials plugin ([#377](https://github.com/mesosphere/kubernetes-base-addons/pull/377), [@jr0d](https://github.com/jr0d))
-    - Fixed bug causing `certificate-authority=` option to be added to token instructions on the windows tab when it should have been omitted. ([#436](https://github.com/mesosphere/kubernetes-base-addons/pull/436), [@jr0d](https://github.com/jr0d))
+    - Fixed bug causing `certificate-authority=`  option to be added to token instructions on the windows tab when it should have been omitted. ([#436](https://github.com/mesosphere/kubernetes-base-addons/pull/436), [@jr0d](https://github.com/jr0d))
 
 -   Elasticsearch-curator:
     - version 5.8.1 ([#374](https://github.com/mesosphere/kubernetes-base-addons/pull/374), [@sebbrandt87](https://github.com/sebbrandt87))
@@ -574,7 +615,7 @@ May 13, 2020
 <p class="message--warning"><strong>WARNING DO NOT USE:</strong> This release deletes the secret for the velero backups. The data remains but is not accessible without the secret.</p>
 
 -   Dex:
-    - Add SAML connector support in the dex controller. This allows users to add SAML IDP using the Kubernetes API.
+    - Add SAML connector support in the dex controller.  This allows users to add SAML IDP using the Kubernetes API.
 
 -   Velero:
     - Add switch to use minio helm chart, instead of operator, for backup storage. This allow users to install their own minio operator for general purpose object storage.

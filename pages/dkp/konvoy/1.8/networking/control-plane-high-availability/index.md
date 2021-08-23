@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Control plane High Availability
-title: Control plane High Availability
+navigationTitle: Control Plane High Availability
+title: Control Plane High Availability
 menuWeight: 8
 excerpt: Make Konvoy control plane nodes highly available
 beta: false
