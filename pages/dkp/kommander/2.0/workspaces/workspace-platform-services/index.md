@@ -46,7 +46,7 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 | kubernetes-dashboard-4.0.3    | kubernetes-dashboard  | True                |
 | logging-operator-3.13.0       | logging-operator      | False               |
 | metallb-0.12.2                | metallb               | False               |
-| miinio-operator-4.1.7         | miniio-operator       | False               |
+| minio-operator-4.1.7          | minio-operator        | False               |
 | nvidia-0.4.0                  | nvidia                | False               |
 | prometheus-adapter-2.11.1     | prometheus-adapter    | True                |
 | reloader-0.0.85               | reloader              | True                |
