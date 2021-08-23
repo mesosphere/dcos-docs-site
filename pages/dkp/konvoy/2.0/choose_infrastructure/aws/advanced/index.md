@@ -4,7 +4,7 @@ navigationTitle: Install AWS Advanced
 title: Install AWS Advanced
 excerpt: Install Konvoy with AWS with advanced configuration options.
 subtree:
-  beta: true
+  beta: false
 menuWeight: 10
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: Explore New Cluster
 title: Explore New Cluster
 menuWeight: 25
 excerpt: Explore the new Kubernetes cluster
-beta: true
+beta: false
 enterprise: false
 ---
 

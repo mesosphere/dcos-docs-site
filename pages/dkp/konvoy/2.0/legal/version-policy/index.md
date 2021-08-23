@@ -4,7 +4,7 @@ navigationTitle: Version Support Policy
 title: Version Support Policy
 menuWeight: 280
 excerpt: Supported version policy for Konvoy
-beta: true
+beta: false
 enterprise: false
 ---
 

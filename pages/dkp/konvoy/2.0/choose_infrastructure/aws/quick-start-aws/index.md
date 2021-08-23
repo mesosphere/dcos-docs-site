@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Get Started with AWS
 title: Get Started with AWS
 excerpt: Get started by installing a cluster with the default configuration settings on AWS.
-beta: true
+beta: false
 enterprise: false
 menuWeight: 5
 ---

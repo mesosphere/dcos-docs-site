@@ -4,7 +4,7 @@ navigationTitle: Prerequisites
 title: Prerequisites
 menuWeight: 10
 excerpt: Air-gapped installation prerequisites
-beta: true
+beta: false
 enterprise: false
 ---
 

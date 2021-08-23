@@ -4,7 +4,7 @@ navigationTitle: Release Notes
 title: Konvoy 2.0 Release Notes
 menuWeight: 0
 excerpt: View release-specific information for Konvoy 2.0
-beta: true
+beta: false
 enterprise: false
 ---
 
