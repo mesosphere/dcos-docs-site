@@ -4,7 +4,7 @@ navigationTitle: Bootstrap
 title: Bootstrap
 menuWeight: 15
 excerpt: bootstrap a kind cluster
-beta: true
+beta: false
 enterprise: false
 ---
 ## Bootstrap a kind cluster and CAPI controllers

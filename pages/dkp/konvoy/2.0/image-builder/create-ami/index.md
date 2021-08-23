@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Create AMI
 title: Create a custom AMI
 excerpt: Learn how to build a custom AMI for use with Konvoy
-beta: true
+beta: false
 enterprise: false
 menuWeight: 60
 ---

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Install AWS Air-Gapped
 title: Install AWS Air-Gapped
 excerpt: Create a Kubernetes cluster in a private subnet with no access to the Internet (air-gapped)
-beta: true
+beta: false
 enterprise: false
 menuWeight: 20
 ---

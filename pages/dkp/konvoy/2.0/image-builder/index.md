@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Konvoy Image Builder
 title: Konvoy Image Builder
 enterprise: false
-beta: true
+beta: false
 menuWeight: 100
 ---
 

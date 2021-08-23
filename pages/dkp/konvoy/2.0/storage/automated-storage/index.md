@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Default storage options
 title: Automated storage options in cloud providers
 excerpt: Default storage providers in Konvoy
-beta: true
+beta: false
 enterprise: false
 menuWeight: 20
 ---

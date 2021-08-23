@@ -4,7 +4,7 @@ navigationTitle: Choose Infrastructure
 title: Choose Infrastructure
 menuWeight: 10
 excerpt: When configuring Konvoy, the first step is to determine your infrastructure.
-beta: true
+beta: false
 enterprise: false
 ---
 

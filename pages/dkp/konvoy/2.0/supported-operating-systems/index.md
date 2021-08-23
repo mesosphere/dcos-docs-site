@@ -4,7 +4,7 @@ navigationTitle: Supported Operating Systems
 title: Supported Operating Systems
 menuWeight: 30
 excerpt: Supported operating systems for Konvoy
-beta: true
+beta: false
 enterprise: false
 ---
 
