@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 title: Troubleshooting
 menuWeight: 150
 excerpt: Troubleshooting

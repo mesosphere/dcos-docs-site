@@ -4,7 +4,7 @@ navigationTitle: Manage Node Pools
 title: Manage Node Pools
 menuWeight: 30
 excerpt: Manage Node Pools
-beta: true
+beta: false
 enterprise: false
 ---
 

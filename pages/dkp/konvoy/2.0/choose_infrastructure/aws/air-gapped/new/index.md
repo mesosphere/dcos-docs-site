@@ -4,7 +4,7 @@ navigationTitle: Create a New Cluster
 title: Create a New Cluster
 menuWeight: 20
 excerpt: Create a new AWS Kubernetes cluster
-beta: true
+beta: false
 enterprise: false
 ---
 

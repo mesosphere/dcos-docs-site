@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Configure IAM Policies
 title: Configure IAM Policies
 excerpt: Configure IAM Prerequisites before starting a cluster
-beta: true
+beta: false
 enterprise: false
 menuWeight: 0
 ---

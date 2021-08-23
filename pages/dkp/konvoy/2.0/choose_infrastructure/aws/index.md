@@ -4,7 +4,7 @@ navigationTitle: AWS
 title: AWS
 menuWeight: 10
 excerpt: AWS
-beta: true
+beta: false
 enterprise: false
 ---
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Replace a Node
 title: Replace a Node
 excerpt: Replace a worker node
-beta: true
+beta: false
 menuWeight: 33
 ---
 
