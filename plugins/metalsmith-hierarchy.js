@@ -19,6 +19,26 @@ const firstParagraph = (file) => {
 };
 
 /**
+ * Controls wether a file should be build based on environment variables and file annotations
+ */
+const shouldExcludeFile = (file) => {
+  if (
+    process.env.NODE_ENV === "production" &&
+    (file.beta || file.draft || file.archive)
+  ) {
+    return true;
+  }
+
+  if (process.env.NODE_ENV === "beta" && (file.draft || file.archive)) {
+    return true;
+  }
+
+  if (process.env.NODE_ENV === "archive" && (file.draft || file.beta)) {
+    return true;
+  }
+};
+
+/**
  * This plugin puts all files into a tree structure and adds some other variables:
  * * children
  * * id - used for sorting
@@ -46,18 +66,7 @@ module.exports = (files, metalsmith, done) => {
     file.subtree = Object.assign({}, file.parent.subtree, file.subtree);
     Object.assign(file, file.subtree);
 
-    if (
-      process.env.NODE_ENV === "production" &&
-      (file.beta || file.draft || file.archive)
-    ) {
-      return;
-    }
-
-    if (process.env.NODE_ENV === "beta" && (file.draft || file.archive)) {
-      return;
-    }
-
-    if (process.env.NODE_ENV === "archive" && (file.draft || file.beta)) {
+    if (shouldExcludeFile(file)) {
       return;
     }
 
@@ -68,18 +77,7 @@ module.exports = (files, metalsmith, done) => {
   });
 
   Object.entries(files).forEach(([filePath, file]) => {
-    if (
-      process.env.NODE_ENV === "production" &&
-      (file.beta || file.draft || file.archive)
-    ) {
-      delete files[filePath];
-    }
-
-    if (process.env.NODE_ENV === "beta" && (file.draft || file.archive)) {
-      delete files[filePath];
-    }
-
-    if (process.env.NODE_ENV === "archive" && (file.draft || file.beta)) {
+    if (shouldExcludeFile(file)) {
       delete files[filePath];
     }
   });
