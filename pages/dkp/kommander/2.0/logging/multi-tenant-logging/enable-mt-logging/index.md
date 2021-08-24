@@ -4,7 +4,7 @@ navigationTitle: Enable Multi-tenant Logging
 title: Enable Multi-tenant Logging
 menuWeight: 1
 excerpt: How to enable Multi-tenant Logging for use with Kommander
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD030 -->

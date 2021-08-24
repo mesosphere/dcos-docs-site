@@ -4,7 +4,7 @@ navigationTitle: Install Kommander networked
 title: Install Kommander in a networked environment
 menuWeight: 10
 excerpt: Install Kommander in a networked environment
-beta: true
+beta: false
 ---
 
 ## Prerequisites

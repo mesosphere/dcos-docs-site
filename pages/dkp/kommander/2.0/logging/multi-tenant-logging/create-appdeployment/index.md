@@ -4,7 +4,7 @@ navigationTitle: Create Project-level logging AppDeployments
 title: Create Project-level logging AppDeployments
 menuWeight: 15
 excerpt: How to create Project-level AppDeployments for use in multi-tenant logging
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD030 -->

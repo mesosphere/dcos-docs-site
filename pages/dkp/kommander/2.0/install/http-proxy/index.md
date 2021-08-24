@@ -4,7 +4,7 @@ navigationTitle: Configure HTTP Proxy
 title: Configure HTTP Proxy
 menuWeight: 30
 excerpt: Configure HTTP proxy for the Kommander cluster(s)
-beta: true
+beta: false
 enterprise: false
 ---
 

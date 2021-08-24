@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Kommander 2.0 Release Notes
 title: Kommander 2.0 Release Notes
 menuWeight: 0

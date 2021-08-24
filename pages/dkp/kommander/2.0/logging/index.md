@@ -4,7 +4,7 @@ navigationTitle: Logging
 title: Logging Overview
 menuWeight: 60
 excerpt: An overview of the DKP logging architecture in Kommander
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD030 -->

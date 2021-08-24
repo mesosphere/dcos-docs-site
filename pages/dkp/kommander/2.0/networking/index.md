@@ -4,7 +4,7 @@ navigationTitle: Networking
 title: Networking
 menuWeight: 80
 excerpt: Configure networking for Konvoy cluster
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -31,9 +31,9 @@ spec:
   selector:
     app: MyKonvoyApp
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9191
+  - protocol: TCP
+    port: 80
+    targetPort: 9191
 ```
 
 This specification creates a new `Service` object named `"my-konvoy-service"`, that targets TCP port `9191` on any pod with the `app=MyKonvoyApp` label.
@@ -67,11 +67,11 @@ spec:
   selector:
     app: MyKonvoyApp
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9191
+  - protocol: TCP
+    port: 80
+    targetPort: 9191
   topologyKeys:
-    - "topology.kubernetes.io/zone"
+  - "topology.kubernetes.io/zone"
 ```
 
 <p class="message--note"><strong>NOTE: </strong>
@@ -98,18 +98,18 @@ metadata:
     kubernetes.io/service-name: my-konvoy-service
 addressType: IPv4
 ports:
-  - name: http
-    protocol: TCP
-    port: 80
+- name: http
+  protocol: TCP
+  port: 80
 endpoints:
-  - addresses:
-      - "192.168.126.168"
-    conditions:
-      ready: true
-    hostname: ip-10-0-135-39.us-west-2.compute.internal
-    topology:
-      kubernetes.io/hostname: ip-10-0-135-39.us-west-2.compute.internal
-      topology.kubernetes.io/zone: us-west2-b
+- addresses:
+  - "192.168.126.168"
+  conditions:
+    ready: true
+  hostname: ip-10-0-135-39.us-west-2.compute.internal
+  topology:
+    kubernetes.io/hostname: ip-10-0-135-39.us-west-2.compute.internal
+    topology.kubernetes.io/zone: us-west2-b
 ```
 
 ## DNS for Services and Pods

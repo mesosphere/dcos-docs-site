@@ -19,7 +19,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a NAT
 
 1. Select the **Cluster has networking restrictions** card to display the configuration page.
 
-<!--- ![Add Cluster Networking Options](/dkp/kommander/1.4/img/cluster-has-networking-restrictions.png) --->
+    <!--- ![Add Cluster Networking Options](/dkp/kommander/1.4/img/cluster-has-networking-restrictions.png) --->
 
 1. Enter the **Cluster Name** of the cluster you're attaching and select a **Workspace** from the dropdown list (if entering the **Add Cluster** menu from the Global workspace).
 

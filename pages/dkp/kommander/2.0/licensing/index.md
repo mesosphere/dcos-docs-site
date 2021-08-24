@@ -4,7 +4,7 @@ navigationTitle: Licensing
 title: License
 excerpt: Work with, obtain, and manage licenses for Kommander clusters
 menuWeight: 6
-beta: true
+beta: false
 ---
 
 ## Purchase a License

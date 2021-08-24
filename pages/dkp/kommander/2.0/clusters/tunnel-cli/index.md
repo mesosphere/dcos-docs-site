@@ -339,8 +339,8 @@ spec:
     app: nginx-app
   type: ClusterIP
   ports:
-    - targetPort: 80
-      port: ${service_port}
+  - targetPort: 80
+    port: ${service_port}
 EOF
 
 kubectl apply -f nginx.yaml
@@ -573,8 +573,8 @@ spec:
     app: nginx-proxy-app
   type: ClusterIP
   ports:
-    - targetPort: 443
-      port: 8765
+  - targetPort: 443
+    port: 8765
 EOF
 
 kubectl apply -n ${namespace} -f nginx-proxy.yaml

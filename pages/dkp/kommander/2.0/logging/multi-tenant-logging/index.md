@@ -4,7 +4,7 @@ navigationTitle: Multi-Tenant Logging
 title: Multi-Tenant Logging Overview
 menuWeight: 10
 excerpt: An overview of multi-tenant logging in Kommander
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD030 -->
