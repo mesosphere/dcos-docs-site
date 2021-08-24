@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: Workspace Platform Services
-title: Workspace Platform Services
+navigationTitle: Workspace Platform Applications
+title: Workspace Platform Applications
 menuWeight: 30
-excerpt: How workspace platform services work
+excerpt: How workspace platform applications work
 ---
 
 
-When attaching a cluster, Kommander deploys certain platform services on the newly attached cluster. Operators can use the Kommander UI to customize which platform services to deploy to the attached clusters in a given workspace.
+When attaching a cluster, Kommander deploys certain platform applications on the newly attached cluster. Operators can use the Kommander UI to customize which platform applications to deploy to the attached clusters in a given workspace.
 
-The following table describes the list of platform services that are deployed on attachment.
+The following table describes the list of platform applications that are deployed on attachment.
 
 Currently, the monitoring stack is deployed by default. The logging stack is not.
 
@@ -17,17 +17,17 @@ Currently, the monitoring stack is deployed by default. The logging stack is not
 Review the [workspace platform service resource requirements](./platform-service-requirements/) to ensure that the attached clusters have sufficient resources.
 -->
 
-### Customize a workspace's platform services
+### Customize a workspace's applications
 
-If you have access to edit a workspace, you can customize the platform services that are deployed to a workspace's clusters using the Kommander UI. Access the settings page by going to the specific workspace's **Dashboard** page, locating the Workspace card, selecting the **Actions** drop-down button and selecting **Edit Workspace Platform Services**. You can also go to the Workspace Dashboard's **Actions** menu button to access the settings page.
+You can customize the applications that are deployed to a workspace's clusters using the Kommander UI. Access the applications page by going to the specific workspace, then opening the **Applications** page from the sidebar menu.
 
-This takes you to the settings page which displays a list of platform services you can enable or disable along with descriptions of the services.
+This takes you to the **Applications** page which displays all applications that can be deployed or uninstalled.
 
-To use the CLI to enable or disable applications, see [Application Deployment](./application-deployment)
+To use the CLI to deploy or uninstall applications, see [Application Deployment](./application-deployment)
 
-<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the platform services, which are listed <a href="./platform-service-dependencies/">here</a>. Review them carefully prior to customizing to ensure that the platform services are deployed successfully.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the applications, which are listed <a href="./platform-service-dependencies/">here</a>. Review them carefully prior to customizing to ensure that the applications are deployed successfully.</p>
 
-## Workspace platform services
+## Workspace platform applications
 
 | NAME                          | APP ID                | Deployed by default |
 | ----------------------------- | --------------------- | ------------------- |
@@ -57,3 +57,5 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 <p class="message--note"><strong>NOTE: </strong>Currently, Kommander only supports a single deployment of <code>cert-manager</code> per cluster. Because of this, <code>cert-manager</code> cannot be installed on <code>Konvoy</code> managed <code>AWS</code> clusters.</p>
 
 <p class="message--note"><strong>NOTE: </strong>Only a single deployment of <code>traefik</code> per cluster is supported.</p>
+
+<p class="message--note"><strong>NOTE: </strong>Kommander automatically manages the deployment of <code>traefik-forward-auth</code> when clusters are attached to the workspace. This application is not shown in the Kommander UI.</p>

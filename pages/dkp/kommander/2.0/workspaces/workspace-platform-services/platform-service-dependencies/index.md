@@ -6,31 +6,31 @@ menuWeight: 8
 excerpt: Dependencies between workspace applications
 ---
 
-There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that your services are properly deployed to the clusters. For more information on how to customize workspace platform services, see [Workspace Platform Services](../#customize-a-workspaces-platform-services).
+There are many dependencies between the platform applications that are deployed to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform applications to ensure that your applications are properly deployed to the clusters. For more information on how to customize workspace platform applications, see [Workspace Platform Applications](../#customize-a-workspaces-platform-services).
 
-## Platform Service Dependencies
+## Platform Application Dependencies
 
-When deploying or troubleshooting platform services, it helps to understand how platform services interact and may require other platform services as dependencies.
+When deploying or troubleshooting platform applications, it helps to understand how platform applications interact and may require other platform applications as dependencies.
 
-If a platform service’s dependency does not successfully deploy, the platform service requiring that dependency does not successfully deploy.
+If a platform application’s dependency does not successfully deploy, the platform application requiring that dependency does not successfully deploy.
 
-The following sections detail information about the workspace platform services.
+The following sections detail information about the workspace platform application.
 
-### Foundational Components
+### Foundational Applications
 
-Provides the foundation for all platform application capabilities and deployments on managed clusters. These components must be enabled for any platform applications to work properly.
+Provides the foundation for all platform application capabilities and deployments on managed clusters. These applications must be enabled for any platform applications to work properly.
 
-The foundational components are comprised of the following platform services:
+The foundational applications are comprised of the following platform application:
 
 - [cert-manager](https://cert-manager.io/docs): Automates TLS certificate management and issuance.
 - [reloader](https://github.com/stakater/Reloader): A controller that watches changes on ConfigMaps and Secrets, and automatically triggers updates on the dependent applications.
 - [traefik](https://traefik.io/): Provides an HTTP reverse proxy and load balancer. Requires cert-manager and reloader.
 
-| **Platform Service** | **Dependencies** |
-| -------------------------- | ---------------------- |
-| cert-manager               |                        |
-| reloader                   |                        |
-| traefik                    | cert-manager, reloader |
+| **Platform Application** | **Dependencies**       |
+| ------------------------ | ---------------------- |
+| cert-manager             |                        |
+| reloader                 |                        |
+| traefik                  | cert-manager, reloader |
 
 ### Logging
 
@@ -40,13 +40,15 @@ Collects logs over time from Kubernetes and applications deployed on managed clu
 - [grafana-logging](https://grafana.com/oss/grafana/): Logging dashboard used to view logs aggregated to Grafana Loki.
 - [logging-operator](https://banzaicloud.com/docs/one-eye/logging-operator/): Automates the deployment and configuration of a Kubernetes logging pipeline.
 - [minio-operator](https://github.com/minio/operator/blob/master/README.md): A Kubernetes-native high performance object store with an S3-compatible API that supports deploying MinIO Tenants onto private and public cloud infrastructures.
+- [fluent-bit](https://docs.fluentbit.io/manual/): Open source and multi-platform log processor tool which aims to be a generic Swiss knife for logs processing and distribution.
 
-| **Platform Service** | **Dependencies** |
-| -------------------------- | ---------------------- |
-| grafana-loki               |                        |
-| grafana-logging            | grafana-loki           |
-| logging-operator           |                        |
-| minio-operator             |                        |
+| **Platform Application** | **Dependencies** |
+| ------------------------ | ---------------- |
+| grafana-loki             | minio-operator   |
+| grafana-logging          | grafana-loki     |
+| logging-operator         |                  |
+| minio-operator           |                  |
+| fluent-bit               |                  |
 
 ### Monitoring
 
@@ -59,13 +61,13 @@ Provides monitoring capabilities by collecting metrics, including cost metrics, 
 -   [kubernetes-dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/): A general purpose, web-based UI for Kubernetes clusters. It allows users to manage applications running in the cluster and troubleshoot them, as well as manage the cluster itself.
 -   [nvidia](https://ngc.nvidia.com/catalog/containers/nvidia:k8s:dcgm-exporter): A suite of tools for managing and monitoring NVIDIA datacenter GPUs in cluster environments. Includes active health monitoring, comprehensive diagnostics, system alerts, and governance policies including power and clock management.
 
-| **Platform Service** | Dependencies          |
-| -------------------------- | --------------------- |
-| kube-prometheus-stack      | traefik               |
-| prometheus-adapter         | kube-prometheus-stack |
-| kubecost                   | traefik               |
-| kubernetes-dashboard       | traefik               |
-| nvidia                     |                       |
+| **Platform Application** | Dependencies          |
+| ------------------------ | --------------------- |
+| kube-prometheus-stack    | traefik               |
+| prometheus-adapter       | kube-prometheus-stack |
+| kubecost                 | traefik               |
+| kubernetes-dashboard     | traefik               |
+| nvidia                   |                       |
 
 ### Security
 
@@ -73,9 +75,31 @@ Allows management of security constraints and capabilities for the clusters and 
 
 - [gatekeeper](https://github.com/open-policy-agent/gatekeeper): A policy Controller for Kubernetes.
 
-| **Platform Service** | **Dependencies** |
-| -------------------------- | ---------------------- |
-| gatekeeper                 |                        |
+| **Platform Application** | **Dependencies** |
+| ------------------------ | ---------------- |
+| gatekeeper               |                  |
+
+### Single Sign On (SSO)
+
+Group of platform applications that allow enabling SSO on attached clusters. SSO is a centralized system for connecting attached clusters to the centralized authority on the management cluster.
+
+- [kube-oidc-proxy](https://github.com/jetstack/kube-oidc-proxy): A reverse proxy server that authenticates users using OIDC to Kubernetes API servers where OIDC authentication is not available.
+- [traefik-forward-auth](https://github.com/thomseddon/traefik-forward-auth): Installs a forward authentication application providing Google OAuth based authentication for Traefik.
+
+| **Platform Application** | **Dependencies**      |
+| ------------------------ | --------------------- |
+| kube-oidc-proxy          | cert-manager, traefik |
+| traefik-forward-auth     | traefik               |
+
+### Backup
+
+This platform application assists you with backing up and restoring your environment.
+
+- [velero](https://velero.io/): An open source tool for safely backing up and restoring resources in a Kubernetes cluster, performing disaster recovery, and migrating resources and persistent volumes to another Kubernetes cluster.
+
+| **Platform Application** | **Dependencies** |
+| ------------------------ | ---------------- |
+| velero                   |                  |
 
 ### Service Mesh
 
@@ -85,33 +109,11 @@ Allows deploying service mesh on clusters, enabling the management of microservi
 - [kiali](https://kiali.io/): A management console for an Istio-based service mesh. It provides dashboards, observability, and lets you operate your mesh with robust configuration and validation capabilities.
 - [jaeger](https://www.jaegertracing.io/): A distributed tracing system used for monitoring and troubleshooting microservices-based distributed systems.
 
-| Platform Services  | Dependencies                         |
-| ------------------ | ------------------------------------ |
-| istio              | kube-prometheus-stack                |
-| kiali              | istio, jaeger                        |
-| jaeger             |                                      |
-
-### Single Sign On (SSO)
-
-Group of platform applications that allow enabling SSO on attached clusters. SSO is a centralized system for connecting attached clusters to the centralized authority on the management cluster.
-
-- [kube-oidc-proxy](https://github.com/jetstack/kube-oidc-proxy): A reverse proxy server that authenticates users using OIDC to Kubernetes API servers where OIDC authentication is not available.
-- [traefik-forward-auth](https://github.com/thomseddon/traefik-forward-auth): Installs a forward authentication service providing Google OAuth based authentication for Traefik.
-
-| Platform Services    | Dependencies          |
-| -------------------- | --------------------- |
-| kube-oidc-proxy      | cert-manager, traefik |
-| traefik-forward-auth | traefik               |
-
-### Backup
-
-This platform application assists you with backing up and restoring your environment.
-
-- [velero](https://velero.io/): An open source tool for safely backing up and restoring resources in a Kubernetes cluster, performing disaster recovery, and migrating resources and persistent volumes to another Kubernetes cluster.
-
-| Platform Services | Dependencies |
-| ----------------- | ------------ |
-| velero            |              |
+| **Catalog Application** | **Dependencies**      |
+| ----------------------- | --------------------- |
+| istio                   | kube-prometheus-stack |
+| kiali                   | istio, jaeger         |
+| jaeger                  |                       |
 
 ## Related information
 
