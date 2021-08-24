@@ -116,9 +116,6 @@ This procedure requires the following items and configurations:
 
 Now that you have kubeconfig, go to the Kommander UI and follow these steps below:
 
-<p class="message--important"><strong>IMPORTANT: </strong>The Default Workspace is currently reserved for the host management cluster.
-All other clusters must be attached to a different workspace.</p>
-
 1.  Select the **Add Cluster** button in your Kommander window.
 
 1.  Select the **Attach Cluster** button.
