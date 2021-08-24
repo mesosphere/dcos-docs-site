@@ -97,13 +97,25 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-mp-0 created
     ```
 
-    Once the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
+1.  Wait for the cluster control-plane to be ready:
+
+    ```sh
+    kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
+    ```
+
+    ```text
+    cluster.cluster.x-k8s.io/aws-example condition met
+    ```
+
+    The `READY` status will become `True` after the cluster control-plane becomes ready in one of the following steps.
+
+1.  Once the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
 
     ```sh
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
-    ```sh
+    ```text
     NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
     /aws-example                                                    True                     35s
     ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
@@ -113,19 +125,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
         └─MachineDeployment/aws-example-md-0
     ```
 
-1.  Wait for the cluster control-plane to be ready:
-
-    ```sh
-    kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m
-    ```
-
-    ```sh
-    cluster.cluster.x-k8s.io/aws-example condition met
-    ```
-
-    The `READY` status will become `True` after the cluster control-plane becomes ready in one of the following steps.
-
-    As they progress, the controllers also create Events. List the Events using this command:
+1.  As they progress, the controllers also create Events. List the Events using this command:
 
     ```sh
     kubectl get events | grep ${CLUSTER_NAME}
@@ -133,7 +133,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
     For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AWSCluster"` and `kubectl get events --field-selector involvedObject.kind="AWSMachine"`.
 
-    ```sh
+    ```text
     7m26s       Normal    SuccessfulSetNodeRef                            machine/aws-example-control-plane-2wb9q      ip-10-0-182-218.us-west-2.compute.internal
     11m         Normal    SuccessfulCreate                                awsmachine/aws-example-control-plane-vcjkr   Created new control-plane instance with id "i-0dde024e80ae3de7a"
     11m         Normal    SuccessfulAttachControlPlaneELB                 awsmachine/aws-example-control-plane-vcjkr   Control plane instance "i-0dde024e80ae3de7a" is registered with load balancer
