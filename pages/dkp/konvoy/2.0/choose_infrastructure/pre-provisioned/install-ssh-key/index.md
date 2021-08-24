@@ -8,12 +8,11 @@ beta: true
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD030 MD034 -->
-
 Konvoy needs SSH access to your infrastructure with superuser privileges. You must provide an unencrypted SSH private key to Konvoy. Populate this key on your bootstrap cluster using the following command:
 
 ```shell
-kubectl create secret generic <ssh-private-key-secret-name> --from-file=ssh-privatekey=</path/to/private-key>
+export CLUSTER_NAME="$(whoami)-preprovisioned-cluster"
+kubectl create secret generic $CLUSTER_NAME-ssh-key --from-file=ssh-privatekey=<path-to-ssh-private-key>
 ```
 
 When this step is complete, [define the infrastructure nodes and partitions](../define-infrastructure).

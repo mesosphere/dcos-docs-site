@@ -8,7 +8,7 @@ enterprise: false
 beta: true
 ---
 
-<!-- markdownlint-disable MD030 MD034 -->
+<!-- markdownlint-disable MD034 -->
 
 Before Konvoy can run on your infrastructure, your cluster nodes must have the correct version of kubeadm, kubelet, and containerd installed with all necessary configurations in place. The easiest way to prepare your nodes is by using the `provision` feature of Konvoy Image Builder.
 
@@ -22,9 +22,9 @@ After Docker is installed, download and extract the bundle for your host operati
 
 | OS        |   URL        |
 ------------|--------------|
-| Linux     |  https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0-rc.1/konvoy-image-bundle-v1.0.0-rc.2_linux.tar.gz             |
-| OSX       | https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0-rc.1/konvoy-image-bundle-v1.0.0-rc.2_darwin.tar.gz             |
-| Windows   |    https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0-rc.1/konvoy-image-bundle-v1.0.0-rc.2_windows.tar.gz         |
+| Linux     | https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0-rc.3/konvoy-image-bundle-v1.0.0-rc.3_linux.tar.gz             |
+| OSX       | https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0-rc.3/konvoy-image-bundle-v1.0.0-rc.3_darwin.tar.gz             |
+| Windows   | https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0-rc.3/konvoy-image-bundle-v1.0.0-rc.3_windows.tar.gz         |
 |
 
 ## Create an Ansible inventory and run provision
@@ -38,13 +38,17 @@ An Ansible inventory describes the hosts in your environment and details for con
     ```yaml
     all:
       vars:
-        ansible_user: <username>
+        ansible_user: <ssh-user>
         ansible_ssh_key_name: <path-to-ssh-private-key>
       hosts:
-        node-host-address-1:
-        node-host-address-2:
-        node-host-address-3:
-        node-host-address-x:
+        control-plane-address-1:
+        control-plane-address-2:
+        control-plane-address-3:
+        worker-address-1:
+        worker-address-2:
+        worker-address-3:
+        worker-address-4:
+        ...
     ```
 
     For more information on creating Ansible inventories, refer to the [Ansible documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html).
@@ -55,12 +59,13 @@ An Ansible inventory describes the hosts in your environment and details for con
 
 ```shell
 cd <konvoy-image-bundle-dir>
-./konvoy-image provision --inventory-file preprovisioned-inventory.yaml images/generic/<flatcar|centos-7|centos-8>.yaml
+./konvoy-image provision --inventory-file preprovisioned-inventory.yaml images/generic/<centos-7|centos-8|flatcar|sles-15>.yaml
 ```
 
-## Configure an HTTP Proxy
+### Configure an HTTP Proxy
 
-It is possible to use an HTTP proxy during node base provisioning. To do this, create a YAML file named `http-proxy-override.yaml` specifying your desired proxy environment:
+If your hosts cannot connect directly to the Internet to install OS packages and pull Docker images, it is possible to use an HTTP proxy during node base provisioning.
+To do this, create a YAML file named `http-proxy-override.yaml` specifying your desired proxy environment:
 
 ```yaml
 proxy_env:
@@ -70,6 +75,13 @@ proxy_env:
   http_proxy: "http://proxy.com"
   NO_PROXY: "proxy.com,example.com"
   no_proxy: "proxy.com,example.com"
+```
+
+Then run the following command passing in `--overrides=http-proxy-override.yaml`:
+
+```shell
+cd <konvoy-image-bundle-dir>
+./konvoy-image provision --inventory-file preprovisioned-inventory.yaml images/generic/<centos-7|centos-8|flatcar|sles-15>.yaml --overrides http-proxy-override.yaml
 ```
 
 When these procedures are complete, [create the bootstrap cluster](../bootstrap).

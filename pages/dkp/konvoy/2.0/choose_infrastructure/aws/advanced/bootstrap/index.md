@@ -13,7 +13,7 @@ To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) contr
 
 Before you begin, you must:
 
-- Complete the steps in [Prerequisites][prereqs].
+- Complete the steps in [Prerequisites][prerequisites].
 - Ensure the `dkp` binary can be found in your $PATH.
 
 ## Bootstrap Cluster Lifecycle Services
@@ -116,4 +116,4 @@ Before you begin, you must:
 [kcp]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/controlplane/kubeadm
 [cabpk]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/bootstrap/kubeadm
 [clusterresourceset_caep]: https://github.com/kubernetes-sigs/cluster-api/blob/master/docs/proposals/20200220-cluster-resource-set.md
-[prereqs]: ../prerequisites
+[prerequisites]: ../prerequisites
