@@ -4,7 +4,7 @@ navigationTitle: Verify Cluster Logging Stack Installation
 title: Verify Cluster Logging Stack Installation
 menuWeight: 15
 excerpt: How to verify the cluster's logging stack installed successfully
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD030 -->

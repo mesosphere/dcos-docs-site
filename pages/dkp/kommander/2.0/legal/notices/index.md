@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 title: Legal Notices
 menuWeight: 10
 excerpt: List of third party trademarks mentioned in the Kommander documentation

@@ -4,7 +4,7 @@ navigationTitle: Verify Project Logging Stack Installation
 title: Verify Project Logging Stack Installation
 menuWeight: 30
 excerpt: How to verify the project logging stack installation for multi-tenant logging
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD030 -->

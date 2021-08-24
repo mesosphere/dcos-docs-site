@@ -4,7 +4,7 @@ navigationTitle: Projects
 title: Projects
 menuWeight: 30
 excerpt: Multi-cluster Configuration Management
-beta: true
+beta: false
 ---
 
 ## Projects overview

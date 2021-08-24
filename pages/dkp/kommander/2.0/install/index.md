@@ -4,7 +4,7 @@ navigationTitle: Install Kommander
 title: Install Kommander
 menuWeight: 3
 excerpt: Getting started with Kommander
-beta: true
+beta: false
 enterprise: false
 ---
 

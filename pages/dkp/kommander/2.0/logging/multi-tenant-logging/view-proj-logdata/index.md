@@ -4,7 +4,7 @@ navigationTitle: View Project Log Data
 title: View Project Log Data
 menuWeight: 30
 excerpt: How to view project log data within multi-tenant logging
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD030 -->
