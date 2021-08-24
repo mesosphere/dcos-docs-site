@@ -51,6 +51,16 @@ Before you start, make sure you have created a workload cluster, as described in
 
     <p class="message--note"><strong>NOTE: </strong>To make sure only one set of cluster lifecycle services manages the workload cluster, Konvoy first pauses reconciliation of the objects on the bootstrap cluster. Konvoy then creates the objects on the workload cluster. As Konvoy copies the objects, the cluster lifecycle services on the workload cluster reconcile them. The workload cluster becomes self-managing after Konvoy creates all the objects. The <code>move</code> command can be safely retried, if it fails.</p>
 
+1.  Wait for the cluster control-plane to be ready:
+
+    ```sh
+    kubectl --kubeconfig ${CLUSTER_NAME}.conf wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
+    ```
+
+    ```sh
+    cluster.cluster.x-k8s.io/aws-example condition met
+    ```
+
 1.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:
 
     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use Konvoy with the workload cluster kubeconfig.</p>
@@ -67,16 +77,6 @@ Before you start, make sure you have created a workload cluster, as described in
     │   └─3 Machine...                                              True                     4m20s
     └─Workers
         └─MachineDeployment/aws-example-md-0
-    ```
-
-1.  Wait for the cluster control-plane to be ready:
-
-    ```sh
-    kubectl --kubeconfig ${CLUSTER_NAME}.conf wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m
-    ```
-
-    ```sh
-    cluster.cluster.x-k8s.io/aws-example condition met
     ```
 
 1.  Remove the bootstrap cluster, as the workload cluster is now self-managing:
