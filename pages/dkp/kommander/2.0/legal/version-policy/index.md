@@ -4,7 +4,7 @@ navigationTitle: Version Support Policy
 title: Version Support Policy
 menuWeight: 5
 excerpt: Supported version policy for Kommander
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -73,10 +73,10 @@ Secondary support covers support for the base technology of platform service, wh
 
 |Type|Scope Example|Support Offered|
 |:---|:---|:---|
-|Configuration| - Guidance for base technology and DKP interoperability configuration questions and troubleshooting for different components of the DKP platform. <br> - No support for base technology’s configuration that is unrelated to its integration with DKP. <br>  - No support for performance issues with the base technology.|Supported with Severity 4 support terms|
-|Failure Assistance| - Assistance with installation, and upgrade, failures of the service. <br> - Assistance with service failures due to platform issues. For example: Konvoy, Kommander, KUDO. <br> - No assistance for base technology’s failures that is unrelated to its integration with DKP.|  Supported with Severity 3 & 4 support terms|
-|Bug Fixes| - Bug fixes for service integration with DKP.<br>  - Upstream bug fixes to identified issues in the base technology. (Cassandra, Kafka, Spark) on a best effort basis.<br> - No guarantee that changes to upstream will be accepted.<br> - No commitment to maintaining forks of upstream.|Supported with Severity 3 & 4 support terms|
-|Documentation Errors| - Documentation fixes for life cycle management of services and integration with DKP.<br> - Issue or PR submitted to correct any incorrect upstream documentation in base technology. (Cassandra, Kafka, Spark) on a best effort basis.<br> - No guarantee that changes will be accepted.|Supported with Severity 4 support terms|
+|Configuration|<ul><li>Guidance for base technology and DKP interoperability configuration questions and troubleshooting for different components of the DKP platform.</li><li>No support for base technology’s configuration that is unrelated to its integration with DKP.</li><li>No support for performance issues with the base technology.</li></ul>|Supported with Severity 4 support terms|
+|Failure Assistance|<ul><li>Assistance with installation, and upgrade, failures of the service.</li><li>Assistance with service failures due to platform issues. For example: Konvoy, Kommander, KUDO.</li><li>No assistance for base technology’s failures that is unrelated to its integration with DKP.</li></ul>|Supported with Severity 3 & 4 support terms|
+|Bug Fixes|<ul><li>Bug fixes for service integration with DKP.</li><li>Upstream bug fixes to identified issues in the base technology. (Cassandra, Kafka, Spark) on a best effort basis.</li><li>No guarantee that changes to upstream will be accepted.</li><li>No commitment to maintaining forks of upstream.</li></ul>|Supported with Severity 3 & 4 support terms|
+|Documentation Errors|<ul><li>Documentation fixes for life cycle management of services and integration with DKP.</li><li>Issue or PR submitted to correct any incorrect upstream documentation in base technology. (Cassandra, Kafka, Spark) on a best effort basis.</li><li>No guarantee that changes will be accepted.</li></ul>|Supported with Severity 4 support terms|
 
 ## Standard level & severity definitions
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Load Balancing
 title: Load Balancing
 menuWeight: 8
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -40,14 +40,14 @@ For an on-premises deployment, Konvoy ships with [MetalLB][metallb], which provi
 
 To use MetalLB:
 
-1. Identify and reserve a virtual IP (VIP) address range in your networking infrastructure.
+1.  Identify and reserve a virtual IP (VIP) address range in your networking infrastructure.
 
-NOTE: Make sure the MetalLB subnet does not overlap with `podSubnet` and `serviceSubnet`.
+1.  Configure your networking infrastructure so that the reserved IP addresses is reachable:
 
-1. Configure your networking infrastructure so that the reserved IP addresses is reachable:
+    - from all hosts specified in the inventory file.
+    - from the computer used to deploy Kubernetes.
 
-- from all hosts specified in the inventory file.
-- from the computer used to deploy Kubernetes.
+<p class="message--note"><strong>NOTE: </strong>Make sure the MetalLB subnet does not overlap with <code>podSubnet</code> and <code>serviceSubnet</code>.</p>
 
 Your configuration is complete If the reserved virtual IP addresses are in the same subnet as the rest of the cluster nodes.
 If it is in a different subnet you may need to configure appropriate routes to ensure connectivity with the virtual IP address.

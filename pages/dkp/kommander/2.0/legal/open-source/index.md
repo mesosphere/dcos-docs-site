@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Open Source Attribution
 menuWeight: 15
-beta: true
+beta: false
 excerpt: List of third party open source software provided by Kommander
 render: mustache
 ---

@@ -4,7 +4,7 @@ navigationTitle: Create AppDeployment for a Workspace
 title: Create AppDeployments to Enable Workspace Logging
 menuWeight: 10
 excerpt: How to create AppDeployments to enable Workspace-level logging
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD030 -->

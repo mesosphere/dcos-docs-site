@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Managing Clusters
 title: Managing Clusters
 menuWeight: 40
@@ -39,7 +39,7 @@ The status list includes these values:
 | Unjoined       | The cluster has been disconnected from the management cluster.                                                                                                            |
 | Unjoin Failed  | The Unjoin from kubefed failed or there is some other error with deleting or disconnecting.                                                                               |
 
-\* These statuses only appear on Managed clusters.
+<p class="message--note"><strong>NOTE: </strong>These statuses only appear on Managed clusters.</p>
 
 ## Resources
 

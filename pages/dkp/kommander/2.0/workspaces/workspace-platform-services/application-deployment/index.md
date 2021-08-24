@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Application Deployment
 title: Deployment of Applications
 menuWeight: 5
-beta: true
+beta: false
 excerpt: Deploy applications to attached clusters using the CLI
 ---
 <!-- markdownlint-disable MD004 MD040 -->
@@ -88,11 +88,11 @@ The list of available applications that can be deployed on the attached cluster 
     data:
       values.yaml: |
         configInline:
-           address-pools:
-            - name: default
-              protocol: layer2
-              addresses:
-              - 172.17.255.150-172.17.255.199
+          address-pools:
+          - name: default
+            protocol: layer2
+            addresses:
+            - 172.17.255.150-172.17.255.199
     EOF
     ```
 

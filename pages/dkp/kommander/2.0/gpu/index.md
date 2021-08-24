@@ -4,7 +4,7 @@ navigationTitle: GPUs
 title: GPUs
 menuWeight: 150
 excerpt: Configure GPU for Kommander cluster
-beta: true
+beta: false
 enterprise: false
 ---
 

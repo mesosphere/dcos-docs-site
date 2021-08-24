@@ -16,9 +16,9 @@ For a full reference to the concept, consult the Kubernetes documentation on the
 The below Project ConfigMap form can be navigated to by:
 
 1. Select **Workspace** > **Project**
-2. Select an Existing Project or Create a New Project
-3. Select **ConfigMaps** to browse the deployed ConfigMaps
-4. Select **+Create ConfigMap** button
+1. Select an Existing Project or Create a New Project
+1. Select **ConfigMaps** to browse the deployed ConfigMaps
+1. Select **+Create ConfigMap** button
 
 ![Project ConfigMap Form](../../img/project-create-configmap.png)
 

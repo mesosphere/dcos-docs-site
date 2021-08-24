@@ -4,7 +4,7 @@ navigationTitle: View Cluster Log Data
 title: View Cluster Log Data
 menuWeight: 20
 excerpt: How to view the cluster's log data after enabling logging
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD030 -->

@@ -4,7 +4,7 @@ navigationTitle: Override ConfigMap to Restrict Logging
 title: Override ConfigMap to Restrict Logging to Specific Namespaces
 menuWeight: 25
 excerpt: How to override the logging configMap to restrict logging to specific namespaces
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD030 -->
@@ -32,18 +32,18 @@ To create and use the override configMap entries, follow these steps:
       name: logging-operator-logging-overrides
       namespace: <your-workspace-namespace>
     data:
-     values.yaml: |
-       ---
-       clusterFlows:
-         - name: cluster-containers
-           spec:
-             globalOutputRefs:
-               - loki
-             match:
-               - exclude:
-                   namespaces:
-                     - <your-namespace>
-                     - <your-other-namespace>
+      values.yaml: |
+        ---
+        clusterFlows:
+        - name: cluster-containers
+          spec:
+            globalOutputRefs:
+            - loki
+            match:
+            - exclude:
+                namespaces:
+                - <your-namespace>
+                - <your-other-namespace>
     ```
 
 1.  Add the relevant namespace values for `metadata.namespace` and the `clusterFlows[0].spec.match[0].exclude.namespaces` values at the end of the file, and save the file.

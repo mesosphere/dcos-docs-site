@@ -4,7 +4,7 @@ navigationTitle: Enable Workspace-level Logging
 title: Enable Workspace-level Logging
 menuWeight: 5
 excerpt: How to enable Workspace-level Logging for use with Kommander
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD030 -->

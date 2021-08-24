@@ -4,10 +4,10 @@ navigationTitle: Deploy applications using GitOps
 title: Deploy applications using GitOps
 menuWeight: 50
 excerpt: How to deploy a new GitRepository to drive custom GitOps
-beta: true
+beta: false
 ---
 
-Kommander uses Flux to manage services deployed from an internal Git repository. You can also use that Flux instance to deploy custom third-party applications from other Git repositories. When a cluster is attached to Kommander, Kommander installs [Flux][flux_website] onto that attached cluster's `kommander-flux`. While Kommander 2.0 is still in beta most of the steps outlined here use underlying components. In future versions, you will be able to use the Kommander API to better manage this goal.
+Kommander uses Flux to manage services deployed from an internal Git repository. You can also use that Flux instance to deploy custom third-party applications from other Git repositories. When a cluster is attached to Kommander, Kommander installs [Flux][flux_website] onto the attached cluster in the `kommander-flux` namespace. The steps outlined here use these installed Flux components directly.
 
 ## Access attached clusters
 

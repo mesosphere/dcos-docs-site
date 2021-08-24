@@ -4,7 +4,7 @@ navigationTitle: Node deployment
 title: Node deployment
 menuWeight: 10
 excerpt: Prepare your node to use GPU platform setrvices.
-beta: true
+beta: false
 enterprise: false
 ---
 
