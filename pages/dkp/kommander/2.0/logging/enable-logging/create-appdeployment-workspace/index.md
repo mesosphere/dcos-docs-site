@@ -38,6 +38,24 @@ To enable logging in DKP using the CLI, follow these steps on the management clu
    apiVersion: apps.kommander.d2iq.io/v1alpha1
    kind: AppDeployment
    metadata:
+     name: fluent-bit
+     namespace: ${WORKSPACE_NAMESPACE}
+   spec:
+     appRef:
+       name: fluent-bit-0.16.2
+   ---
+   apiVersion: apps.kommander.d2iq.io/v1alpha1
+   kind: AppDeployment
+   metadata:
+     name: minio-operator
+     namespace: ${WORKSPACE_NAMESPACE}
+   spec:
+     appRef:
+       name: minio-operator-4.1.7
+   ---
+   apiVersion: apps.kommander.d2iq.io/v1alpha1
+   kind: AppDeployment
+   metadata:
      name: grafana-loki
      namespace: ${WORKSPACE_NAMESPACE}
    spec:
