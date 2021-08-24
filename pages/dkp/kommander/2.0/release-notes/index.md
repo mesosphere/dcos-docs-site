@@ -45,15 +45,15 @@ The following services and service components have been upgraded to the listed v
 
 - centralized-grafana: 17.2.1
     - grafana: 8.0.5
-- centralized-kubecost: 0.16.1
-    - cost-analyzer: 1.84.1
+- centralized-kubecost: 0.17.0
+    - cost-analyzer: 1.85.0
     - grafana: 7.5.6
     - prometheus: 2.22.2
     - prometheus alertmanager: 0.20.0
-    - thanos: 0.19.0
+    - thanos: 0.22.0
 - cert-manager: 0.2.7
     - cert-manager: 1.0.3
-- dex: 2.9.9
+- dex: 2.9.10
     - dex: 2.27.0
 - dex-k8s-authenticator: 1.2.8
     - dex-k8s-authenticator: 1.2.2
@@ -82,12 +82,12 @@ The following services and service components have been upgraded to the listed v
     - prometheus: 2.28.1
     - prometheus alertmanager: 0.22.2
     - thanos: 0.17.2
-- kubecost: 0.16.1
-    - cost-analyzer: 1.84.1
+- kubecost: 0.17.0
+    - cost-analyzer: 1.85.0
     - grafana: 7.5.6
     - prometheus: 2.22.2
     - prometheus alertmanager: 0.20.0
-    - thanos: 0.19.0
+    - thanos: 0.22.0
 - kubefed: 0.8.1
     - kubefed: 0.8.1
 - kubernetes-dashboard: 4.0.3
