@@ -28,11 +28,13 @@ You must wait for the cluster’s logging stack `HelmReleases` to deploy before 
 When the logging stack is successfully deployed, you will see output that includes the following `HelmReleases`:
 
 ``` bash
-NAMESPACE                NAME                         READY    STATUS                             AGE
-${WORKSPACE_NAMESPACE}    grafana-logging              True    Release reconciliation succeeded   15m
-${WORKSPACE_NAMESPACE}    logging-operator             True    Release reconciliation succeeded   15m
-${WORKSPACE_NAMESPACE}    logging-operator-logging     True    Release reconciliation succeeded   15m
-${WORKSPACE_NAMESPACE}    grafana-loki                 True    Release reconciliation succeeded   15m
+NAME                         READY   STATUS                             AGE
+fluent-bit                   True    Release reconciliation succeeded   15m
+grafana-logging              True    Release reconciliation succeeded   15m
+logging-operator             True    Release reconciliation succeeded   15m
+logging-operator-logging     True    Release reconciliation succeeded   15m
+minio-operator               True    Release reconciliation succeeded   15m
+grafana-loki                 True    Release reconciliation succeeded   15m
 ```
 
 Then, you [can view cluster log data][view-data].
