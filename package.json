@@ -5,8 +5,11 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
-    "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia node index.js",
-    "webpack": "webpack --progress --colors"
+    "build": "DEBUG=metalsmith-timer,metalsmith-algolia node index.js",
+    "webpack": "webpack --progress --colors",
+    "build:production": "NODE_ENV=production npm run build # no drafts and no beta",
+    "build:preview": "NODE_ENV=preview npm run build # includes drafts and beta",
+    "build:beta": "NODE_ENV=beta npm run build # includes beta, no drafts"
   },
   "author": "D2iQ",
   "devDependencies": {

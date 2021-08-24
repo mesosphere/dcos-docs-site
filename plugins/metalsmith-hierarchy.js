@@ -46,7 +46,13 @@ module.exports = (files, metalsmith, done) => {
     file.subtree = Object.assign({}, file.parent.subtree, file.subtree);
     Object.assign(file, file.subtree);
 
-    if (file.draft && process.env.NODE_ENV == "production") return;
+    if (process.env.NODE_ENV === "production" && (file.beta || file.draft)) {
+      return;
+    }
+
+    if (process.env.NODE_ENV === "beta" && file.draft) {
+      return;
+    }
 
     paths[file.path] = file;
     if (file.menus) withMenus.push(file);
@@ -55,8 +61,13 @@ module.exports = (files, metalsmith, done) => {
   });
 
   Object.entries(files).forEach(([filePath, file]) => {
-    if (file.draft && process.env.NODE_ENV == "production")
+    if (process.env.NODE_ENV === "production" && (file.beta || file.draft)) {
       delete files[filePath];
+    }
+
+    if (process.env.NODE_ENV === "beta" && file.draft) {
+      delete files[filePath];
+    }
   });
 
   metalsmith.metadata().hierarchy = {
