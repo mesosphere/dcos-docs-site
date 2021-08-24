@@ -21,6 +21,7 @@ pipeline {
     REDIR_HOSTNAME = "${hostname}"
   }
   stages {
+    // This stage needs to be adjusted to build/push the build archive page too
     stage("Build image") {
       steps {
         sh '''
@@ -42,6 +43,7 @@ pipeline {
       }
     }
 
+    // We would need to replicate this stage four times for each environment (prod, preview, beta, archive)
     stage("Build & Deploy Docs") {
       environment {
         ALGOLIA_UPDATE = "${main ? 'true' : ''}"
