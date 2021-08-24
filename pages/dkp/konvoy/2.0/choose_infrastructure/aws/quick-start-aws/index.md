@@ -14,12 +14,11 @@ This guide provides instructions for getting started with Konvoy to get your Kub
 
 Before starting the Konvoy installation, verify that you have:
 
--   An AMD64-based Linux or MacOS machine with a supported version of the operating system.
--   The `dkp` binary on this machine.
--   [Docker][install_docker] version 18.09.2 or later.
--   [kubectl][install_kubectl] for interacting with the running cluster.
--   Required for AWS clusters:
-    - A valid AWS account with [credentials configured][aws_credentials].
+- An x86_64-based Linux or macOS machine with a supported version of the operating system.
+- The `dkp` binary for Linux, or macOS.
+- [Docker][install_docker] version 18.09.2 or later.
+- [kubectl][install_kubectl] for interacting with the running cluster.
+- A valid AWS account with [credentials configured][aws_credentials].
 
 ## Configure AWS prerequisites (required only if creating an AWS cluster)
 
@@ -42,7 +41,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Create a bootstrap cluster:
 
     ```sh
-    dkp create bootstrap
+    dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
 ## Create a new AWS Kubernetes cluster
@@ -53,7 +52,19 @@ Before starting the Konvoy installation, verify that you have:
     export CLUSTER_NAME=$(whoami)-aws-cluster
     ```
 
-1.  Specify an authorized key file to have SSH access to the machines.
+1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
+
+    ```sh
+    dkp update bootstrap credentials aws
+    ```
+
+1.  Create a Kubernetes cluster:
+
+    ```sh
+    dkp create cluster aws --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
+    ```
+
+1.  (Optional) Specify an authorized key file to have SSH access to the machines.
 
     The file must contain exactly one entry, as described in this [manual](https://man7.org/linux/man-pages/man8/sshd.8.html#AUTHORIZED_KEYS_FILE_FORMAT).
 
@@ -69,22 +80,10 @@ Before starting the Konvoy installation, verify that you have:
     --ssh-username=$(whoami)
     ```
 
-1.  Create a Kubernetes cluster:
-
-    ```sh
-    dkp create cluster aws --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
-    ```
-
-1.  Inspect the created cluster resources:
-
-    ```sh
-    kubectl get clusters,kubeadmcontrolplanes,machinedeployments
-    ```
-
 1.  Wait for the cluster control-plane to be ready:
 
     ```sh
-    kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m
+    kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
 ## Explore the new Kubernetes cluster
@@ -101,7 +100,8 @@ Before starting the Konvoy installation, verify that you have:
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to <code>Ready</code> while <code>calico-node</code> pods are being deployed.</p>
+   <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to <code>Ready</code> while <code>calico-node</code> pods are being deployed.</p>
+
 1.  List the Pods with the command:
 
     ```sh
@@ -134,7 +134,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Remove the bootstrap cluster, as the worker cluster is now self-managing:
 
     ```sh
-    dkp delete bootstrap
+    dkp delete bootstrap --kubeconfig $HOME/.kube/config
     ```
 
 ## (Optional) Moving controllers back to the temporary bootstrap cluster
@@ -142,13 +142,13 @@ Before starting the Konvoy installation, verify that you have:
 1.  Create a bootstrap cluster:
 
     ```sh
-    dkp create bootstrap
+    dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
 1.  Issue the move command:
 
     ```sh
-    dkp move --from-kubeconfig ${CLUSTER_NAME}.conf --to-kubeconfig <path to default kubeconfig file>
+    dkp move --from-kubeconfig ${CLUSTER_NAME}.conf --to-kubeconfig $HOME/.kube/config
     ```
 
 ## Delete the Kubernetes cluster and cleanup your environment
@@ -162,7 +162,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Delete the `kind` Kubernetes cluster:
 
     ```sh
-    dkp delete bootstrap
+    dkp delete bootstrap --kubeconfig $HOME/.kube/config
     ```
 
 [install_docker]: https://docs.docker.com/get-docker/
