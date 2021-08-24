@@ -7,9 +7,10 @@
     "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
     "build": "DEBUG=metalsmith-timer,metalsmith-algolia node index.js",
     "webpack": "webpack --progress --colors",
-    "build:production": "NODE_ENV=production npm run build # no drafts and no beta",
-    "build:preview": "NODE_ENV=preview npm run build # includes drafts and beta",
-    "build:beta": "NODE_ENV=beta npm run build # includes beta, no drafts"
+    "build:production": "NODE_ENV=production npm run build # no drafts, no beta, no archive",
+    "build:preview": "NODE_ENV=preview npm run build # includes drafts, beta and archive",
+    "build:beta": "NODE_ENV=beta npm run build # includes beta, no drafts, no archive",
+    "build:archive": "NODE_ENV=archive npm run build # all production and archive"
   },
   "author": "D2iQ",
   "devDependencies": {

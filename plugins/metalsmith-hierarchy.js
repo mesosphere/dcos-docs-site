@@ -46,11 +46,18 @@ module.exports = (files, metalsmith, done) => {
     file.subtree = Object.assign({}, file.parent.subtree, file.subtree);
     Object.assign(file, file.subtree);
 
-    if (process.env.NODE_ENV === "production" && (file.beta || file.draft)) {
+    if (
+      process.env.NODE_ENV === "production" &&
+      (file.beta || file.draft || file.archive)
+    ) {
       return;
     }
 
-    if (process.env.NODE_ENV === "beta" && file.draft) {
+    if (process.env.NODE_ENV === "beta" && (file.draft || file.archive)) {
+      return;
+    }
+
+    if (process.env.NODE_ENV === "archive" && (file.draft || file.beta)) {
       return;
     }
 
@@ -61,11 +68,18 @@ module.exports = (files, metalsmith, done) => {
   });
 
   Object.entries(files).forEach(([filePath, file]) => {
-    if (process.env.NODE_ENV === "production" && (file.beta || file.draft)) {
+    if (
+      process.env.NODE_ENV === "production" &&
+      (file.beta || file.draft || file.archive)
+    ) {
       delete files[filePath];
     }
 
-    if (process.env.NODE_ENV === "beta" && file.draft) {
+    if (process.env.NODE_ENV === "beta" && (file.draft || file.archive)) {
+      delete files[filePath];
+    }
+
+    if (process.env.NODE_ENV === "archive" && (file.draft || file.beta)) {
       delete files[filePath];
     }
   });
