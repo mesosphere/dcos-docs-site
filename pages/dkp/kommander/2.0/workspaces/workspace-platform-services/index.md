@@ -42,7 +42,7 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 | kiali-1.29.0                  | kiali                 | False               |
 | kube-oidc-proxy-0.2.5         | kube-oidc-proxy       | False               |
 | kube-prometheus-stack-16.13.1 | kube-prometheus-stack | True                |
-| kubecost-0.16.1               | kubecost              | True                |
+| kubecost-0.17.0               | kubecost              | True                |
 | kubernetes-dashboard-4.0.3    | kubernetes-dashboard  | True                |
 | logging-operator-3.13.0       | logging-operator      | False               |
 | metallb-0.12.2                | metallb               | False               |
