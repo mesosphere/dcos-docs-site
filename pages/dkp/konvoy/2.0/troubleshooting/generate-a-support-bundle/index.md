@@ -22,13 +22,16 @@ Before generating a support bundle, verify that you have:
 
 1.  To download and extract the `troubleshoot.sh` binary for [MacOS][troubleshoot-darwin] or [Linux][[troubleshoot-linux]
 
-    ```sh
-    export OS=linux
-    #export OS=darwin
-    ```
+    For Linux:
 
     ```sh
-    mkdir support-bundle && curl -sL https://github.com/replicatedhq/troubleshoot/releases/download/v0.13.7/support-bundle_${OS}_amd64.tar.gz | tar -xz -C ./support-bundle/
+    mkdir support-bundle && curl -sL https://github.com/replicatedhq/troubleshoot/releases/download/v0.13.7/support-bundle_linux_amd64.tar.gz | tar -xz -C ./support-bundle/
+    ```
+
+    For MacOS:
+
+    ```sh
+    mkdir support-bundle && curl -sL https://github.com/replicatedhq/troubleshoot/releases/download/v0.13.7/support-bundle_darwin_amd64.tar.gz | tar -xz -C ./support-bundle/
     ```
 
 1.  Add the binary to your PATH:
@@ -183,7 +186,7 @@ spec:
     - logs:
         selector: []
         namespace: ""
-        name: logs
+        name: pod-logs
         limits:
           maxAge: 48h
           maxLines: 100000
@@ -334,13 +337,16 @@ To generate the support bundle:
 
 ## Collect information about custom resources
 
-`Troubleshoot.sh` does not support collection of custom resources. To collect these, run the following command:
+`troubleshoot.sh` does not support collection of custom resources. To collect these, run the following command
+(depending on the cluster size and the running workloads, this operation may take up to 30 minutes):
 
 ```sh
-#!/usr/bin/env bash
+echo $(#!/usr/bin/env bash
 set -euo pipefail
 
 OUTDIR="CRDs"
+
+mkdir ${OUTDIR}
 
 kubectl get customresourcedefinitions -o=jsonpath='{range .items[?(@.spec.scope=="Cluster")]}{.metadata.name}{"\n"}{end}' |
   xargs -I{} -- bash -ec "kubectl get {} -ojson > ${OUTDIR}/{}.json"
@@ -352,6 +358,7 @@ for ns in $(kubectl get namespaces -ogo-template='{{ range .items }}{{printf "%s
     kubectl get "${resource}" -ojson -n "${ns}" >"${NS_DIR}/${resource}.json"
   done
 done
+)
 ```
 
 [troubleshoot-darwin]: https://github.com/replicatedhq/troubleshoot/releases/download/v0.13.7/support-bundle_darwin_amd64.tar.gz

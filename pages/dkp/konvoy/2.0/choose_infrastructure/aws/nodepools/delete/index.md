@@ -14,7 +14,7 @@ Deleting a node pool deletes the Kubernetes nodes and the underlying infrastruct
 To delete a node pool from a managed cluster, run:
 
 ```sh
-dkp delete nodepool ${CLUSTER_NAME}-md-0 --cluster-name=${CLUSTER_NAME}
+dkp delete nodepool ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME}
 ```
 
 Here `demo-cluster-md-0` is the node pool to be deleted.

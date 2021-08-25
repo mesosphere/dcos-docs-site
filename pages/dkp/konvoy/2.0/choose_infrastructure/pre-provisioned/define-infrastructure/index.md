@@ -70,4 +70,4 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
     envsubst < preprovisioned_inventory.yaml | kubectl apply -f
     ```
 
-After defining the infrastructure, [define the API server endpoints](../define-apiserver-endpoints).
+After defining the infrastructure, [define the control plane endpoint](../define-control-plane-endpoint).
