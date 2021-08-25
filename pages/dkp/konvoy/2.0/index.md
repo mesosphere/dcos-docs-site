@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Konvoy 2.0 beta
-title: Welcome to Konvoy 2.0 beta
+navigationTitle: Konvoy 2.0
+title: Welcome to Konvoy 2.0
 menuWeight: 0
 ---
 
