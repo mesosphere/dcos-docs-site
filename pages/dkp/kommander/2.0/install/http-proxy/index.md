@@ -71,7 +71,31 @@ kubectl create namespace kommander
 kubectl label namespace kommander gatekeeper.d2iq.com/mutate=pod-proxy
 ```
 
-Create the `gatekeeper-overrides` configmap in the `kommander` namespace as described in [this](#create-gatekeeper-configmap-in-workspace-or-project-namespace) section before proceeding to [installing kommander](../networked#install-on-konvoy).
+Create the `gatekeeper-overrides` configmap in the `kommander` namespace as described in [this](#create-gatekeeper-configmap-in-workspace-namespace) section before proceeding to [installing kommander](../networked#install-on-konvoy).
+
+## Enable gatekeeper for attached clusters
+
+To enable gatekeeper installation in attached clusters, create the following overrides configmap on the host cluster:
+
+```yaml
+cat << EOF | kubectl apply -f -
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+  name: kommander-0.1.0-overrides
+  namespace: kommander
+data:
+  values.yaml: |
+    ---
+    attached:
+      prerequisites:
+        gatekeeper:
+          enabled: true
+EOF
+```
+
+This ensures that gatekeeper is deployed in attached clusters.
 
 # Configure Workspace (or Project) in which you want to use proxy
 
@@ -85,8 +109,20 @@ labels:
 This can be done when creating the Workspace (or Project) from the UI OR by running the following command from the CLI once the namespace is created:
 
 ```bash
-kubectl label namespace <Workspace-or-Project-namespace> "gatekeeper.d2iq.com/mutate=pod-proxy"
+kubectl label namespace <WORKSPACE_NAMESPACE> "gatekeeper.d2iq.com/mutate=pod-proxy"
 ```
+
+## Configure attached clusters with proxy configuration
+
+In order to ensure that gatekeeper is deployed before everything else in the attached clusters, you must manually create the exact namespace of the workspace in which the cluster is going to be attached, before attaching the cluster:
+
+Execute the following command in the attached cluster before attaching it to the host cluster:
+
+```bash
+kubectl create namespace <WORKSPACE_NAMESPACE>
+```
+
+Then, to configure the pods in this namespace to use proxy configuration, create the `gatekeeper-overrides` configmap described in the next section before attaching the cluster to the host cluster. You must label the workspace with `gatekeeper.d2iq.com/mutate=pod-proxy` when creating it so that gatekeeper deploys a `validatingwebhook` to mutate the pods with proxy configuration.
 
 ## Create gatekeeper configmap in Workspace namespace
 
