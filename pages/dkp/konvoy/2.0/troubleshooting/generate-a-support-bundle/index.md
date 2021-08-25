@@ -8,19 +8,19 @@ enterprise: false
 menuWeight: 10
 ---
 
-Follow the instructions below to generate a support bundle with data collected for the last 48 hours of the life of the cluster.
+Follow thse instructions to generate a support bundle with data collected for the last 48 hours of the life of the cluster.
 
 ## Prerequisites
 
-Before Generate a Support Bundle, verify that you have:
+Before generating a support bundle, verify that you have:
 
 - An AMD64-based Linux or MacOS machine with a supported version of the operating system.
 - A running Kubernetes cluster.
-- troubleshoot.sh for [MacOS][troubleshoot-darwin] or [Linux][[troubleshoot-linux] for collecting the support bundle.
+- `troubleshoot.sh` for [MacOS][troubleshoot-darwin] or [Linux][[troubleshoot-linux] for collecting the support bundle.
 
 ## Download troubleshoot.sh
 
-1.  To download and extract the troubleshoot.sh binary for [MacOS][troubleshoot-darwin] or [Linux][[troubleshoot-linux]
+1.  To download and extract the `troubleshoot.sh` binary for [MacOS][troubleshoot-darwin] or [Linux][[troubleshoot-linux]
 
     ```sh
     export OS=linux
@@ -45,10 +45,10 @@ Before Generate a Support Bundle, verify that you have:
 
 ## Create a SupportBundle manifest
 
-Troubleshoot.sh supports [multiple support bundle collectors][troubleshoot-collectors] and
+`Troubleshoot.sh` supports [multiple support bundle collectors][troubleshoot-collectors] and
 can be configured as a `SupportBundle` Kubernetes resource in a yaml file.
 
-The following list is the minimum set of resources that is required to debug a cluster, but may be further customized.
+The following list is the minimum set of resources that is required to debug a cluster, but can be further customized.
 
 The bundle uses the following collectors:
 
@@ -62,7 +62,7 @@ The bundle uses the following collectors:
 ### Collect information from a bootstrap cluster
 
 If you have not yet created a Kubernetes cluster and are trying to collect information from the bootstrap cluster,
-run the below command to generate `bundle.yaml` that defines the resources to collect.
+run the following command to generate `bundle.yaml` that defines the resources to collect.
 
 ```sh
 cat > bundle.yaml <<EOF
@@ -162,7 +162,7 @@ EOF
 ### Collect information from a workload cluster
 
 If you have created a Kubernetes cluster and have access to its Kuberntes API Server,
-run the below command to generate `bundle.yaml` that defines the resources to collect.
+run the following command to generate `bundle.yaml` that defines the resources to collect.
 
 ```sh
 cat > bundle.yaml <<EOF
@@ -176,113 +176,14 @@ spec:
     - clusterResources: {}
     #====================CONFIGMAPS====================#
     - configMap:
-        namespace: default
-        selector: [""]
-        includeAllData: true
-    - configMap:
-        namespace: kube-system
-        selector: [""]
-        includeAllData: true
-    - configMap:
-        namespace: calico-system
-        selector: [""]
-        includeAllData: true
-    - configMap:
-        namespace: tigera-operator
-        selector: [""]
-        includeAllData: true
-    - configMap:
-        namespace: node-feature-discovery
-        selector: [""]
-        includeAllData: true
-    - configMap:
-        namespace: capi-system
-        selector: [""]
-        includeAllData: true
-    - configMap:
-        namespace: capi-kubeadm-bootstrap-system
-        selector: [""]
-        includeAllData: true
-    - configMap:
-        namespace: capi-kubeadm-control-plane-system
-        selector: [""]
-        includeAllData: true
-    - configMap:
-        namespace: capa-system
-        selector: [""]
-        includeAllData: true
-    - configMap:
-        namespace: cappp-system
-        selector: [""]
-        includeAllData: true
-    - configMap:
-        namespace: cert-manager
+        namespace: ""
         selector: [""]
         includeAllData: true
     #====================PODS LOGS====================#
     - logs:
-        namespace: default
-        name: pod-logs/default
-        limits:
-          maxAge: 48h
-          maxLines: 100000
-    - logs:
-        namespace: kube-system
-        name: pod-logs/kube-system
-        limits:
-          maxAge: 48h
-          maxLines: 100000
-    - logs:
-        namespace: calico-system
-        name: pod-logs/calico
-        limits:
-          maxAge: 48h
-          maxLines: 100000
-    - logs:
-        namespace: tigera-operator
-        name: pod-logs/calico
-        limits:
-          maxAge: 48h
-          maxLines: 100000
-    - logs:
-        namespace: node-feature-discovery
-        name: pod-logs/node-feature-discovery
-        limits:
-          maxAge: 48h
-          maxLines: 100000
-    - logs:
-        namespace: capi-system
-        name: pod-logs/cap*
-        limits:
-          maxAge: 48h
-          maxLines: 100000
-    - logs:
-        namespace: capi-kubeadm-bootstrap-system
-        name: pod-logs/cap*
-        limits:
-          maxAge: 48h
-          maxLines: 100000
-    - logs:
-        namespace: capi-kubeadm-control-plane-system
-        name: pod-logs/cap*
-        limits:
-          maxAge: 48h
-          maxLines: 100000
-    - logs:
-        namespace: capa-system
-        name: pod-logs/cap*
-        limits:
-          maxAge: 48h
-          maxLines: 100000
-    - logs:
-        namespace: cappp-system
-        name: pod-logs/cap*
-        limits:
-          maxAge: 48h
-          maxLines: 100000
-    - logs:
-        namespace: cert-manager
-        name: pod-logs/cert-manager
+        selector: []
+        namespace: ""
+        name: logs
         limits:
           maxAge: 48h
           maxLines: 100000
@@ -403,7 +304,7 @@ EOF
 
 To generate the support bundle:
 
-1.  Run `support-bundle` command with the `SupportBundle` spec file from the previous step.
+1.  Run the `support-bundle` command with the `SupportBundle` spec file from the previous step.
 
     ```sh
     support-bundle bundle.yaml
@@ -430,6 +331,28 @@ To generate the support bundle:
     ```txt
     cluster-info      cluster-resources configmaps        etcd              host-files        pod-logs          version.yaml
     ```
+
+## Collect information about custom resources
+
+`Troubleshoot.sh` does not support collection of custom resources. To collect these, run the following command:
+
+```sh
+#!/usr/bin/env bash
+set -euo pipefail
+
+OUTDIR="CRDs"
+
+kubectl get customresourcedefinitions -o=jsonpath='{range .items[?(@.spec.scope=="Cluster")]}{.metadata.name}{"\n"}{end}' |
+  xargs -I{} -- bash -ec "kubectl get {} -ojson > ${OUTDIR}/{}.json"
+
+for ns in $(kubectl get namespaces -ogo-template='{{ range .items }}{{printf "%s\n" .metadata.name}}{{end}}'); do
+  NS_DIR="${OUTDIR}/${ns}"
+  mkdir -p "${NS_DIR}"
+  for resource in $(kubectl get customresourcedefinitions -o=jsonpath='{range .items[?(@.spec.scope=="Namespaced")]}{.metadata.name}{"\n"}{end}') secrets; do
+    kubectl get "${resource}" -ojson -n "${ns}" >"${NS_DIR}/${resource}.json"
+  done
+done
+```
 
 [troubleshoot-darwin]: https://github.com/replicatedhq/troubleshoot/releases/download/v0.13.7/support-bundle_darwin_amd64.tar.gz
 [troubleshoot-linux]: https://github.com/replicatedhq/troubleshoot/releases/download/v0.13.7/support-bundle_linux_amd64.tar.gz
