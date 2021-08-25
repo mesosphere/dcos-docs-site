@@ -27,19 +27,26 @@ Before you begin, you must:
     ```
 
     ```sh
-    INFO[2021-06-04T15:49:15-07:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:143"
-    INFO[2021-06-04T15:50:40-07:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:88"
-    INFO[2021-06-04T15:52:41-07:00] Created bootstrap controllers                 src="bootstrap/controllers.go:93"
-    INFO[2021-06-04T15:52:41-07:00] Waiting for bootstrap controllers to be ready  src="bootstrap/controllers.go:96"
-    INFO[2021-06-04T15:53:00-07:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:101"
-    INFO[2021-06-04T15:53:00-07:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:35"
-    INFO[2021-06-04T15:53:02-07:00] Created Tigera operator                       src="bootstrap/clusterresourceset.go:40"
-    INFO[2021-06-04T15:53:02-07:00] Initializing Calico installation              src="bootstrap/clusterresourceset.go:42"
-    INFO[2021-06-04T15:53:06-07:00] Created Calico Installation                   src="bootstrap/clusterresourceset.go:47"
-    INFO[2021-06-04T15:53:06-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:107"
-    INFO[2021-06-04T15:53:08-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:112"
-    INFO[2021-06-04T15:53:09-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:180"
-    INFO[2021-06-04T15:53:09-07:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:185"
+    INFO[2021-08-25T13:43:50-32:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:143"
+    INFO[2021-08-25T13:43:52-07:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:96"
+    INFO[2021-08-25T13:44:29-07:00] Created bootstrap controllers                 src="bootstrap/controllers.go:101"
+    INFO[2021-08-25T13:44:29-07:00] Waiting for bootstrap controllers to be ready  src="bootstrap/controllers.go:104"
+    INFO[2021-08-25T13:44:39-07:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:109"
+    INFO[2021-08-25T13:44:39-07:00] Patching ClusterRoleBinding for CAPPP         src="bootstrap/controllers.go:112"
+    INFO[2021-08-25T13:44:39-07:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
+    INFO[2021-08-25T13:44:39-07:00] Created Tigera operator                       src="bootstrap/clusterresourceset.go:42"
+    INFO[2021-08-25T13:44:39-07:00] Initializing Calico installation              src="bootstrap/clusterresourceset.go:44"
+    INFO[2021-08-25T13:44:40-07:00] Created Calico Installation                   src="bootstrap/clusterresourceset.go:49"
+    INFO[2021-08-25T13:44:40-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:109"
+    INFO[2021-08-25T13:44:40-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:114"
+    INFO[2021-08-25T13:44:40-07:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:116"
+    INFO[2021-08-25T13:44:40-07:00] Created Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:121"
+    INFO[2021-08-25T13:44:40-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:181"
+    INFO[2021-08-25T13:44:40-07:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:186"
+    INFO[2021-08-25T13:44:40-07:00] Initializing Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:239"
+    INFO[2021-08-25T13:44:40-07:00] Created Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:244"
+    INFO[2021-08-25T13:44:40-07:00] Initializing NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:297"
+    INFO[2021-08-25T13:44:40-07:00] Created NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:302"
     ```
 
     Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
@@ -57,16 +64,14 @@ Before you begin, you must:
 
     ```sh
     NAMESPACE                           NAME                                            READY   UP-TO-DATE   AVAILABLE   AGE
-    capa-system                         capa-controller-manager                         1/1     1            1           87s
-    capi-kubeadm-bootstrap-system       capi-kubeadm-bootstrap-controller-manager       1/1     1            1           118s
-    capi-kubeadm-control-plane-system   capi-kubeadm-control-plane-controller-manager   1/1     1            1           105s
-    capi-system                         capi-controller-manager                         1/1     1            1           2m6s
-    capi-webhook-system                 capa-controller-manager                         1/1     1            1           94s
-    capi-webhook-system                 capi-controller-manager                         1/1     1            1           2m9s
-    capi-webhook-system                 capi-kubeadm-bootstrap-controller-manager       1/1     1            1           2m4s
-    capi-webhook-system                 capi-kubeadm-control-plane-controller-manager   1/1     1            1           111s
-    capi-webhook-system                 capz-controller-manager                         1/1     1            1           78s
-    capz-system                         capz-controller-manager                         1/1     1            1           69s
+    capa-system                         capa-controller-manager                         1/1     1            1           2m22s
+    capi-kubeadm-bootstrap-system       capi-kubeadm-bootstrap-controller-manager       1/1     1            1           2m26s
+    capi-kubeadm-control-plane-system   capi-kubeadm-control-plane-controller-manager   1/1     1            1           2m25s
+    capi-system                         capi-controller-manager                         1/1     1            1           2m26s
+    cappp-system                        cappp-controller-manager                        1/1     1            1           2m21s
+    cert-manager                        cert-manager                                    1/1     1            1           3m24s
+    cert-manager                        cert-manager-cainjector                         1/1     1            1           3m24s
+    cert-manager                        cert-manager-webhook                            1/1     1            1           3m24s
     ```
 
     Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
@@ -76,11 +81,17 @@ Before you begin, you must:
     ```
 
     ```sh
-    NAME                        AGE
-    aws-ebs-csi                 3m49s
-    calico-installation-aws     3m49s
-    cluster-autoscaler          3m49s
-    tigera-operator             3m49s
+    NAME                                            AGE
+    aws-ebs-csi                                     5m41s
+    calico-installation-aws                         5m41s
+    calico-installation-azure                       5m41s
+    calico-installation-preprovisioned              5m41s
+    calico-installation-preprovisioned-flatcar      5m41s
+    cluster-autoscaler                              5m41s
+    local-volume-provisioner                        5m41s
+    node-feature-discovery                          5m41s
+    nvidia-feature-discovery                        5m41s
+    tigera-operator                                 5m41s
     ```
 
     A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.

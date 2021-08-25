@@ -52,3 +52,4 @@ This example uses default values for brevity. Use flags to define custom instanc
 Advanced users can use a combination of the `--dry-run` and `--output=yaml` flags to get a complete set of node pool objects to modify locally, and/or store in version control.
 
 [makeselfmanaging]: ../../advanced/self-managing
+[createnewcluster]: ../../advanced/new

@@ -22,9 +22,9 @@ After Docker is installed, download and extract the bundle for your host operati
 
 | OS        |   URL        |
 ------------|--------------|
-| Linux     | https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0-rc.3/konvoy-image-bundle-v1.0.0-rc.3_linux.tar.gz             |
-| OSX       | https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0-rc.3/konvoy-image-bundle-v1.0.0-rc.3_darwin.tar.gz             |
-| Windows   | https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0-rc.3/konvoy-image-bundle-v1.0.0-rc.3_windows.tar.gz         |
+| Linux     | https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0/konvoy-image-bundle-v1.0.0_linux.tar.gz             |
+| OSX       | https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0/konvoy-image-bundle-v1.0.0_darwin.tar.gz             |
+| Windows   | https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.0.0/konvoy-image-bundle-v1.0.0_windows.tar.gz         |
 |
 
 ## Create an Ansible inventory and run provision

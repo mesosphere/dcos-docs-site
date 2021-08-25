@@ -81,7 +81,7 @@ Konvoy requires several additional images be present in the image. Create a new 
 # Example override-images.yaml
 ---
 extra_images:
-  - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.1.0-alpha.4
+  - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.1.0
   - gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
   - k8s.gcr.io/cluster-api-aws/cluster-api-aws-controller:v0.7.0
   - k8s.gcr.io/cluster-api/cluster-api-controller:v0.4.0
@@ -98,6 +98,7 @@ extra_images:
   - k8s.gcr.io/sig-storage/csi-snapshotter:v3.0.3
   - k8s.gcr.io/sig-storage/livenessprobe:v2.2.0
   - k8s.gcr.io/sig-storage/snapshot-controller:v3.0.3
+  - quay.io/external_storage/local-volume-provisioner:v2.4.0
   - calico/cni:v3.19.1
   - calico/kube-controllers:v3.19.1
   - calico/node:v3.19.1
