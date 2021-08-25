@@ -42,5 +42,3 @@ DKP also creates a Fluentbit instance to collect admin-level log information whi
 This approach helps to isolate the more sensitive logs from Logging-operator, eliminating the possibility that users might gain inadvertent access to that data.
 
 Loki then indexes the log data by label and stores it for querying. Loki maintains log order integrity but does not index the log messages themselves, which improves its efficiency and lowers its footprint.
-
-<p class="message--important"><strong>IMPORTANT BETA NOTE: </strong>You can query and visualize in Grafana only the log data that Loki has cached in memory. When Loki flushes log data to disk, the log data will seemingly disappear, though it is stored in an internal database. You may, as a result, see only the last 30-60 minutes of log data. This limited review is not the intended production functionality for the logging stack, but it will present some log data for testing and evaluation.</p>

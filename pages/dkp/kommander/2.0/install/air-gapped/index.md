@@ -26,8 +26,6 @@ Before installing, ensure you have:
 
 ### Determine the installation version
 
-Prior to installing a Kommander beta version, you must know the D2iQ provided version number to install.
-
 Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
 
 ```sh
