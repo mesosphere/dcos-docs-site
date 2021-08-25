@@ -34,12 +34,6 @@ Before you begin, you must have:
      export AWS_PROFILE=<profile>
      ```
 
-1.  Refresh the credentials used by the AWS provider at any time, using the command:
-
-     ```sh
-     dkp update bootstrap credentials aws
-     ```
-
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
