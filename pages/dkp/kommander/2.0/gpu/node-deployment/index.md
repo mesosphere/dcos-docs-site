@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Node deployment
 title: Node deployment
 menuWeight: 10
-excerpt: Prepare your node to use GPU platform setrvices.
+excerpt: Prepare your node to use GPU platform services.
 beta: false
 enterprise: false
 ---
