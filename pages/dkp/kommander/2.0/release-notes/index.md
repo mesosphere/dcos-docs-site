@@ -100,7 +100,7 @@ The following services and service components have been upgraded to the listed v
     - metallb: 0.9.3
 - minio-operator: 4.1.7
     - minio-operator: 4.1.3
-- nvidia: 0.4.1
+- nvidia: 0.4.2
     - nvidia driver version: 460.73.01
 - project-grafana-logging: 6.13.9
     - grafana: 8.0.5
