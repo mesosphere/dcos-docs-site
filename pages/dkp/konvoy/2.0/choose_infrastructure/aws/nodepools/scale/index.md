@@ -16,7 +16,7 @@ While you can run [Cluster Autoscaler](../cluster_autoscaler), you can also manu
 To scale up a node pool in a cluster, run:
 
 ```sh
-dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=5 --cluster-name=${CLUSTER_NAME}
+dkp scale nodepools ${NODEPOOL_NAME} --replicas=5 --cluster-name=${CLUSTER_NAME}
 ```
 
 Your output should be similar to this example, indicating the scaling is in progress:
@@ -44,7 +44,7 @@ demo-cluster-md-0               5                     5                   v1.21.
 To scale down a node pool, run:
 
 ```sh
-dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=4 --cluster-name=${CLUSTER_NAME}
+dkp scale nodepools ${NODEPOOL_NAME} --replicas=4 --cluster-name=${CLUSTER_NAME}
 ```
 
 ```sh
@@ -58,7 +58,7 @@ To do this, set the flag `--nodes-to-delete` with a list of nodes as below.
 This adds an annotation `cluster.x-k8s.io/delete-machine=yes` to the matching Machine object that contain `status.NodeRef` with the node names from `--nodes-to-delete`.
 
 ```sh
-dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=3 --nodes-to-delete=<> --cluster-name=${CLUSTER_NAME}
+dkp scale nodepools ${NODEPOOL_NAME} --replicas=3 --nodes-to-delete=<> --cluster-name=${CLUSTER_NAME}
 ```
 
 ```sh
@@ -73,14 +73,14 @@ If you [configured the cluster autoscaler](../cluster_autoscaler) for the `demo-
 For example, assuming you have the these annotations:
 
 ```sh
-kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${CLUSTER_NAME}-md-0 cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size=2
-kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${CLUSTER_NAME}-md-0 cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size=6
+kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${NODEPOOL_NAME} cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size=2
+kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${NODEPOOL_NAME} cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size=6
 ```
 
 Try to scale the node pool to 7 replicas with the command:
 
 ```sh
-dkp scale nodepools ${CLUSTER_NAME}-md-0 --replicas=7 -c demo-cluster
+dkp scale nodepools ${NODEPOOL_NAME} --replicas=7 -c demo-cluster
 ```
 
 Which results in an error similar to:

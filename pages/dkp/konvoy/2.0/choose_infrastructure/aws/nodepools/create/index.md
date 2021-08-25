@@ -2,7 +2,7 @@
 layout: layout.pug
 Delete: Create Node Pools
 title: Create Node Pools
-menuWeight: 20
+menuWeight: 10
 excerpt: Create a new node pool in a managed cluster
 enterprise: false
 ---

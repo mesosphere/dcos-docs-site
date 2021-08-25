@@ -50,8 +50,8 @@ Run the following steps to enable Cluster Autoscaler:
 1.  Enable Cluster Autoscaler by setting the min & max ranges
 
     ```sh
-    kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${CLUSTER_NAME}-md-0 cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size=2
-    kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${CLUSTER_NAME}-md-0 cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size=6
+    kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${NODEPOOL_NAME} cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size=2
+    kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${NODEPOOL_NAME} cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size=6
     ```
 
 1.  The Cluster Autoscaler logs will show that the worker nodes are associated with node-groups and that pending pods are being watched.
