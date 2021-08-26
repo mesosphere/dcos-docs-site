@@ -124,6 +124,11 @@ The following services and service components have been upgraded to the listed v
 
 - Bug fixes with COPS numbers only.-->
 
+### Known Issues
+
+The Karma dashboard at `/dkp/kommander/monitoring/karma` does not include alerts for the Kommander host cluster.
+To see alerts for the Kommander host cluster, browse to the Alertmanager dashboard at `/dkp/alertmanager`.
+
 ### Additional resources
 
 <!-- Add links to external documentation as needed -->
