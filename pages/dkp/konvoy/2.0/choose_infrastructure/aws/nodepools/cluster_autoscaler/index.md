@@ -24,7 +24,9 @@ The full list of command line arguments to the Cluster Autoscaler controller is 
 
 For more information about how Cluster Autoscaler works, see these documents:
 
-- [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md)
+- [What is Cluster Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-is-cluster-autoscaler)
+- [How does scale-up work](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-up-work)
+- [How does scale-down work](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-down-work)
 - [CAPI Provider for Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/clusterapi)
 
 ### Cluster Autoscaler Prerequisites
