@@ -33,7 +33,7 @@ You can use Konvoy Image Builder's CLI konvoy-image to install components requir
 
 An Ansible inventory describes the hosts in your environment and details for connecting those hosts, such as SSH usernames and key file locations.
 
-1.  Create an inventory file. The following is an example of a basic inventory file:
+1.  Create an inventory file, named `inventory.yaml`. The following is an example of a basic inventory file:
 
     ```yaml
     all:
@@ -81,7 +81,7 @@ Then run the following command passing in `--overrides=http-proxy-override.yaml`
 
 ```shell
 cd <konvoy-image-bundle-dir>
-./konvoy-image provision --inventory-file preprovisioned-inventory.yaml images/generic/<centos-7|centos-8|flatcar|sles-15>.yaml --overrides http-proxy-override.yaml
+./konvoy-image provision --inventory-file inventory.yaml images/generic/<centos-7|centos-8|flatcar|sles-15>.yaml --overrides http-proxy-override.yaml
 ```
 
 When these procedures are complete, [create the bootstrap cluster](../bootstrap).
