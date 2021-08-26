@@ -23,15 +23,24 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     dkp update bootstrap credentials aws
     ```
 
-1.  The Control Plane and Worker nodes can be configured to use an HTTP proxy:
+1.  Generate the Kubernetes cluster objects:
+
+    ```sh
+    dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
+    --dry-run \
+    --output=yaml \
+    > ${CLUSTER_NAME}.yaml
+    ```
+
+1.  (Optional) The Control Plane and Worker nodes can be configured to use an HTTP proxy:
 
     ```sh
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
-    export CONTROL_PLANE_HTTPS_PROXY=http://example.org:8081
+    export CONTROL_PLANE_HTTPS_PROXY=http://example.org:8080
     export CONTROL_PLANE_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.elb.amazonaws.com"
 
-    export WORKER_HTTP_PROXY=http://example.org:9080
-    export WORKER_HTTPS_PROXY=http://example.org:9081
+    export WORKER_HTTP_PROXY=http://example.org:8080
+    export WORKER_HTTPS_PROXY=http://example.org:8080
     export WORKER_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.elb.amazonaws.com"
     ```
 
@@ -44,7 +53,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     - `169.254.169.254` is the AWS metadata server
     - `.elb.amazonaws.com` is for the worker nodes to allow them to communicate directly to the kube-apiserver ELB
 
-1.  Generate the Kubernetes cluster objects:
+1.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
 
     ```sh
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
