@@ -19,7 +19,8 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
     kind: PreprovisionedInventory
     metadata:
       name: $CLUSTER_NAME-control-plane
-      labels: cluster.x-k8s.io/cluster-name=$CLUSTER_NAME
+      labels:
+        cluster.x-k8s.io/cluster-name: $CLUSTER_NAME
     spec:
       hosts:
         # Create as many of these as needed to match your infrastructure
