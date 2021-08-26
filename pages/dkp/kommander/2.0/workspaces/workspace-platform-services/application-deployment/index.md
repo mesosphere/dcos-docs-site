@@ -6,12 +6,13 @@ menuWeight: 5
 beta: false
 excerpt: Deploy applications to attached clusters using the CLI
 ---
+
 <!-- markdownlint-disable MD004 MD040 -->
 
 This topic describes how to use the CLI to deploy an application to attached clusters within a workspace.
-To use the Kommander UI to deploy applications, see [Customize a workspace's platform services](../#customize-a-workspaces-platform-services).
+To use the Kommander UI to deploy applications, see [Customize a workspace's platform applications](../#customize-a-workspaces-platform-services).
 
-See [Workspace Platform Services](../#workspace-platform-services) for a list of all applications and those that are enabled by default.
+See [Workspace Platform Applications](../#workspace-platform-services) for a list of all applications and those that are enabled by default.
 
 ## Prerequisites
 
@@ -52,12 +53,6 @@ The list of available applications that can be deployed on the attached cluster 
 <p class="message--note"><strong>NOTE: </strong>The <code>appRef.name</code> must match the app <code>name</code> from the list of available applications.</p>
 
 ## Deploy an application with a custom configuration
-
-1.  Locate and view the default application configuration in the `ConfigMap`:
-
-    ```bash
-    kubectl get configmap -n ${WORKSPACE_NAMESPACE} metallb-d2iq-defaults -oyaml
-    ```
 
 1.  Provide the name of a `ConfigMap` in the `AppDeployment`, which provides custom configuration on top of the default configuration:
 
