@@ -11,7 +11,7 @@ enterprise: false
 <!-- markdownlint-disable MD034 -->
 <!-- markdownlint-disable MD030 -->
 
-**D2iQ&reg; Kommander&reg; version 2.0 beta 6 was released on 09, August 2021.**
+**D2iQ&reg; Kommander&reg; version 2.0 was released on 26, August 2021.**
 
 <!--
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
@@ -27,17 +27,25 @@ This release provides new features and enhancements to improve the user experien
 
 ### New features and capabilities
 
-<!--#### Kommander UI for use with Konvoy-->
+#### Platform applications
+
+Platform applications, previously referred to as Addons, have moved to Kommander.
+
+#### Kommander UI for use with Konvoy
+
+Managing applications and infrastructure in single to multi-cluster environment has become even easier. Kommander provides a single pane of glass for all the observability, metrics, monitoring, and logging of all clusters in your deployments.
 
 #### Multi-Tenant Logging Architecture
 
-DKP 2.0 Beta Logging is disabled by default. This Beta release contains a new logging architecture implementation and the documentation for manually enabling logging at both the Workspace and Project levels. Logging at the Project-level offers the initial functionality needed for multi-tenant logging. Access the [Logging](../logging) Beta doc pages to review the new architecture and to get started with multi-tenant logging.
+In DKP 2.0, Logging is disabled by default. This release contains a new [logging](../logging) architecture implementation as well as documentation that describes how to manually enable logging at both the Workspace and Project levels. Logging at the Project-level also supports multi-tenant logging. Access the Logging doc pages to review the new architecture and to get started with multi-tenant logging.
 
 #### Unidirectional Network Functionality
 
+Unidirectional Network Functionality has changed to [Network Tunneling](../clusters/attach-cluster).
+
 #### HTTP Proxy Support
 
-Kommander supports environments where Internet access is restricted, and must be made through an HTTP/HTTPS proxy. In these environments, you can configure Kommander to use the HTTP/HTTPS proxy. In turn, Kommander then configures all platform services to use the HTTP/HTTPS proxy. Refer to this [topic](../install/http-proxy) for more info.
+Kommander supports environments where Internet access is restricted, and must be made through an [HTTP/HTTPS proxy.](../install/http-proxy) In these environments, you can configure Kommander to use the HTTP/HTTPS proxy. In turn, Kommander then configures all platform services to use the HTTP/HTTPS proxy. Managed clusters in restricted network conditions such as behind DMZs, firewalls, and proxies with no inbound connectivity can now be managed by Kommander. Kommander can create a TLS encrypted tunnel to enable all the observability functionality provided by Kommander. You can even use SSO to authenticate to a managed cluster.
 
 ### Component updates
 
@@ -124,15 +132,10 @@ The following services and service components have been upgraded to the listed v
 
 - Bug fixes with COPS numbers only.-->
 
-### Known Issues
-
-The Karma dashboard at `/dkp/kommander/monitoring/karma` does not include alerts for the Kommander host cluster.
-To see alerts for the Kommander host cluster, browse to the Alertmanager dashboard at `/dkp/alertmanager`.
-
 ### Additional resources
 
 <!-- Add links to external documentation as needed -->
 
-For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
+For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
