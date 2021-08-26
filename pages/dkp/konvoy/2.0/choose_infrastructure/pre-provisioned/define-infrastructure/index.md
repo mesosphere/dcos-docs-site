@@ -10,7 +10,22 @@ enterprise: false
 
 Konvoy needs to know how to access your cluster hosts. This is done using inventory resources. For initial cluster creation, you must define a control-plane and at least one worker pool.
 
-1.  Use the following template to help you define your infrastructure:
+1.  Export these environment variables:
+
+    ```shell
+    export CLUSTER_NAME="$(whoami)-preprovisioned-cluster"
+    export CONTROL_PLANE_1_ADDRESS="control-plane-address-1"
+    export CONTROL_PLANE_2_ADDRESS="control-plane-address-2"
+    export CONTROL_PLANE_3_ADDRESS="control-plane-address-3"
+    export WORKER_1_ADDRESS="worker-address-1"
+    export WORKER_2_ADDRESS="worker-address-2"
+    export WORKER_3_ADDRESS="worker-address-3"
+    export WORKER_4_ADDRESS="worker-address-4"
+    export SSH_USER="<ssh-user>"
+    export SSH_PRIVATE_KEY_SECRET_NAME="$CLUSTER_NAME-ssh-key"
+    ```
+
+1.  Use the following template to help you define your infrastructure. The environment variables that you set in the previous step automatically replace the variable names when the file is created.
 
     ```yaml
     cat <<EOF > preprovisioned_inventory.yaml
@@ -57,21 +72,10 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
     EOF
     ```
 
-1.  Set the environment variables, and use the `envsubst` command to populate the template and apply the results to the bootstrap cluster:
+1.  Apply the new infrastructure file with the command:
 
     ```shell
-    export CLUSTER_NAME="$(whoami)-preprovisioned-cluster"
-    export CONTROL_PLANE_1_ADDRESS="control-plane-address-1"
-    export CONTROL_PLANE_2_ADDRESS="control-plane-address-2"
-    export CONTROL_PLANE_3_ADDRESS="control-plane-address-3"
-    export WORKER_1_ADDRESS="worker-address-1"
-    export WORKER_2_ADDRESS="worker-address-2"
-    export WORKER_3_ADDRESS="worker-address-3"
-    export WORKER_4_ADDRESS="worker-address-4"
-    export SSH_USER="<ssh-user>"
-    export SSH_PRIVATE_KEY_SECRET_NAME="$CLUSTER_NAME-ssh-key"
-
-    envsubst < preprovisioned_inventory.yaml | kubectl apply -f -
+    kubectl apply -f preprovisioned_inventory.yaml
     ```
 
 After defining the infrastructure, [define the control plane endpoint](../define-control-plane-endpoint).
