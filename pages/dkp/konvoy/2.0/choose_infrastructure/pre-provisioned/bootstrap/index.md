@@ -16,8 +16,8 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which depl
 
 Use the following command to create a bootstrap cluster:
 
-    ```sh
-    dkp create bootstrap
-    ```
+```shell
+dkp create bootstrap
+```
 
 When the bootstrap cluster is up, [install an SSH key](../install-ssh-key).
