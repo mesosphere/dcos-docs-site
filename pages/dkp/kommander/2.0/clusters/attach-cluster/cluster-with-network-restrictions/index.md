@@ -27,7 +27,9 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a NAT
 
 1. Select the **Load Balancer Hostname** which is the Ingress for the cluster from the dropdown menu. You will want the hostname to match the Kommander Host cluster that you are attaching your existing cluster with network restrictions to.
 
-1. Specify the **URL Path Prefix** for your Load Balancer Hostname. This URL path will serve as the prefix for the specific tunnel services you want to expose on the Kommander management cluster. If no value is specified, the value defaults to `/`.
+1. Specify the **URL Path Prefix** for your Load Balancer Hostname. This URL path will serve as the prefix for the specific tunnel services you want to expose on the Kommander management cluster. If no value is specified, the value defaults to `/dkp/tunnel`.
+
+   <p class="message--note"><strong>NOTE: </strong>Kommander uses Traefik 2 ingress, which requires explicit definition of strip prefix middleware as a Kubernetes API object, opposed to a simple annotation. Kommander provides default middleware that supports creating tunnels only on the <code>/dkp/tunnel URL</code> prefix. This is indicated by using the extra annotation, <code>traefik.ingress.kubernetes.io/router.middlewares: kommander-stripprefixes-kubetunnel@kubernetescrd</code> as shown in the code sample that follows. If you want to expose a tunnel on a different URL prefix, you must manage your own middleware configuration.</p>
 
 1. (Optional) Enter a value for the **Hostname** field.
 
