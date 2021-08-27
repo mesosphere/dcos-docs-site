@@ -23,20 +23,21 @@ Your output should be similar to this example, indicating the scaling is in prog
 
 ```sh
 INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:82"
-INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 5 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
+INFO[2021-07-26T08:54:35-07:00] Nodepool example scaled to 5 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
 ```
 
 After a few minutes you can list the node pools to:
 
 ```sh
-dkp get nodepool -c ${CLUSTER_NAME}
+dkp get nodepools --cluster-name=${CLUSTER_NAME} --kubeconfig=${CLUSTER_NAME}.conf
 ```
 
-Your output should be similar to this example, with the number of DESIRED and READY replicas increased to 3:
+Your output should be similar to this example, with the number of DESIRED and READY replicas increased to 5:
 
 ```sh
 NODEPOOL                        DESIRED               READY               KUBERNETES VERSION
-demo-cluster-md-0               5                     5                   v1.21.3
+example                         5                     5                   v1.21.3
+demo-cluster-md-0               4                     4                   v1.21.3
 ```
 
 ### Scaling Down Node Pools
@@ -49,7 +50,7 @@ dkp scale nodepools ${NODEPOOL_NAME} --replicas=4 --cluster-name=${CLUSTER_NAME}
 
 ```sh
 INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:82"
-INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 4 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
+INFO[2021-07-26T08:54:35-07:00] Nodepool example scaled to 4 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
 ```
 
 In a default cluster, the nodes to delete are selected at random. This behavior is controller by [CAPI's delete policy][capi_delete_policy]. However, when using the Konvoy CLI to scale down a node pool it is also possible to specifiy the Kubernetes Nodes you want to delete.
@@ -63,7 +64,7 @@ dkp scale nodepools ${NODEPOOL_NAME} --replicas=3 --nodes-to-delete=<> --cluster
 
 ```sh
 INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:82"
-INFO[2021-07-26T08:54:35-07:00] Nodepool demo-cluster-md-0 scaled to 3 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
+INFO[2021-07-26T08:54:35-07:00] Nodepool example scaled to 3 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
 ```
 
 ### Scaling Node Pools When Using Cluster Autoscaler
