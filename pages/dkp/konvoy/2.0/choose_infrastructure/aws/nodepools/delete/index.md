@@ -17,12 +17,12 @@ To delete a node pool from a managed cluster, run:
 dkp delete nodepool ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME}
 ```
 
-Here `demo-cluster-md-0` is the node pool to be deleted.
+Here `example` is the node pool to be deleted.
 
 The expected output will be similar to the following example, indicating the node pool is being deleted:
 
 ```sh
-INFO[2021-07-28T17:14:26-07:00] Running nodepool delete command               Nodepool=demo-cluster-md-0 clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/delete.go:80"
+INFO[2021-07-28T17:14:26-07:00] Running nodepool delete command               Nodepool=example clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/delete.go:80"
 ```
 
 Deleting an invalid node pool results in output similar to this example:
