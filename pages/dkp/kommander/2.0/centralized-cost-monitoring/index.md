@@ -30,7 +30,7 @@ The monitoring ID corresponds to the kube-system namespace UID of the cluster.
 To find the cluster's monitoring ID, select the **Clusters** tab on the Kommander UI in the relevant workspace, or go to the **Clusters** page in the **Global** workspace:
 
 ```bash
-https://<CLUSTER_URL>/dkp/kommander/ui/clusters
+https://<CLUSTER_URL>/dkp/kommander/dashboard/clusters
 ```
 
 Select **View Details** on the attached cluster card. Select the **Configuration** tab, and find the monitoring ID under **Monitoring ID (clusterId)**.
@@ -49,7 +49,7 @@ Kubecost integrates directly with the Kubernetes API and cloud billing APIs to g
 By monitoring your Kubernetes spend across clusters, you can avoid overspend caused by uncaught bugs or oversights.
 With a cost monitoring solution in place you can realize the full potential and cost of these resources and avoid over-provisioning resources.
 
-To customize pricing and out of cluster costs for AWS <!-- and GCP -->, you must apply these settings using the Kubecost UI running on each attached cluster.
+To customize pricing and out of cluster costs for AWS<!-- and GCP -->, you must apply these settings using the Kubecost UI running on each attached cluster.
 You can access the attached cluster's Kubecost Settings page at:
 
 ```bash

@@ -29,7 +29,7 @@ Before installing, ensure you have:
 Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
 
 ```sh
-export VERSION=v2.0.0-beta.5
+export VERSION=v2.0.0
 ```
 
 ### Load the Docker images into your Docker registry

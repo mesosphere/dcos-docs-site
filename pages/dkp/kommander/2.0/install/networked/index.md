@@ -14,7 +14,7 @@ Prior to installing Kommander, you must know the version you'd like to install, 
 Set the `VERSION` environment variable to the version of Kommander you would like to install, for example:
 
 ```sh
-export VERSION=v2.0.0-beta.5
+export VERSION=v2.0.0
 ```
 
 Kommander ships in a Helm chart, so prior to installing Kommander, make Helm aware of the Helm repository providing the Kommander chart:
