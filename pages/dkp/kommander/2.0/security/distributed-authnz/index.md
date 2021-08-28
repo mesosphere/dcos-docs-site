@@ -34,13 +34,15 @@ There is no centralized authorization component in Kommander. Each component and
 <!--- Kommander provides an [interface to federate authorization RBAC rules][access_control] across multiple clusters.
 
 - The Kubernetes API server is using [RBAC Authorization][rbac_authz].
-- `traefik-forward-auth` applies [RBAC rules to authorize][portal_auth] access based on an HTTP request. The [default Kommander workspace][workspaces] comes with preconfigured Roles for accessing different portal services with View, Edit, or Admin permissions. -->
+- `traefik-forward-auth` applies [RBAC rules to authorize][portal_auth] access based on an HTTP request. The [default Kommander workspace][workspaces] comes with preconfigured Roles for accessing different portal services with View, Edit, or Admin permissions.
+[portal_auth]: ../access-authentication/rbac/#portal-authorization
+
+-->
 
 [access_control]: ../../operations/access-control/
 [dex_service]: https://github.com/dexidp/dex
 [kube_oidc_proxy]: https://github.com/jetstack/kube-oidc-proxy
 [oidc_id_token]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken
-[portal_auth]: ../../access-authentication/rbac/#portal-authorization
 [rbac_authz]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [traefik_forward_auth]: https://github.com/mesosphere/traefik-forward-auth
 [traefik_ingress]: https://docs.traefik.io/v2.4/providers/kubernetes-ingress/
