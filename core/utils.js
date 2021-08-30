@@ -6,7 +6,6 @@ const semver = require("semver");
 // Names are usually infered via _.startCase: E.g: "kafka-zookeeper" => "Kafka Zookeeper". We respect the mapping specified in `products` though.
 const toProductName = (slug) => products[slug] || _.startCase(slug);
 const products = {
-  conductor: "Conductor",
   dcos: "DC/OS",
   dispatch: "Dispatch",
   kaptain: "Kaptain",
