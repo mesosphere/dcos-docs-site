@@ -338,25 +338,30 @@ To generate the support bundle:
 ## Collect information about custom resources
 
 `troubleshoot.sh` does not support collection of custom resources. To collect these, run the following command
-(depending on the cluster size and the running workloads, this operation may take up to 30 minutes):
+(depending on the cluster size and the running workloads, this operation may take up to 5 minutes):
 
 ```sh
 echo $(#!/usr/bin/env bash
 set -euo pipefail
 
 OUTDIR="CRDs"
+mkdir -p "${OUTDIR}"
 
-mkdir ${OUTDIR}
+clusterkinds=($(kubectl get customresourcedefinitions -o=jsonpath='{range .items[?(@.spec.scope=="Cluster")]}{.spec.names.kind}{"."}{.spec.group}{" "}{end}'))
+namespacedkinds=($(kubectl get customresourcedefinitions -o=jsonpath='{range .items[?(@.spec.scope=="Namespaced")]}{.spec.names.kind}{"."}{.spec.group}{" "}{end}'))
 
-kubectl get customresourcedefinitions -o=jsonpath='{range .items[?(@.spec.scope=="Cluster")]}{.metadata.name}{"\n"}{end}' |
-  xargs -I{} -- bash -ec "kubectl get {} -ojson > ${OUTDIR}/{}.json"
+IFS=','
+echo "Saving ${#clusterkinds[@]} kinds of cluster resources"
+kubectl get "${clusterkinds[*]}" --output=jsonpath='{range .items[*]}{.kind}{"\t"}{@}{"\n"}{end}' | while read -r i; do
+  kind=$(cut -f1 <<< "$i")
+  > "${OUTDIR}/${kind}.json" cut -f2 <<< "$i"
+done
 
-for ns in $(kubectl get namespaces -ogo-template='{{ range .items }}{{printf "%s\n" .metadata.name}}{{end}}'); do
-  NS_DIR="${OUTDIR}/${ns}"
-  mkdir -p "${NS_DIR}"
-  for resource in $(kubectl get customresourcedefinitions -o=jsonpath='{range .items[?(@.spec.scope=="Namespaced")]}{.metadata.name}{"\n"}{end}') secrets; do
-    kubectl get "${resource}" -ojson -n "${ns}" >"${NS_DIR}/${resource}.json"
-  done
+echo "Saving ${#namespacedkinds[@]} kinds of namespaced resources"
+kubectl get "${namespacedkinds[*]}" --all-namespaces --output=jsonpath='{range .items[*]}{.metadata.namespace}{"/"}{.kind}{"\t"}{@}{"\n"}{end}' | while read -r i; do
+  nskind=$(cut -f1 <<< "$i")
+  mkdir -p "${OUTDIR}/${nskind%/*}"
+  > "${OUTDIR}/${nskind}.json" cut -f2 <<< "$i"
 done
 )
 ```
