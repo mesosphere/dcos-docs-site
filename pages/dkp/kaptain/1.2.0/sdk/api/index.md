@@ -104,17 +104,12 @@ work with a configuration-based API when it comes to fine-tuning the workloads.
 
 **Arguments**:
 
-Currently, only S3 and MinIO are supported.
-certificates.
-certificate.
-Defaults to current working directory.
-Defaults to 's3://kaptain/models'
 - `docker_config_provider`: the configuration provider for Docker registry.
-- `storage_config_provider`: the configuration provider for blob storage access.
-- `docker_registry_url`: private custom Docker registry URL to use with provided TLS
-- `docker_registry_certificate_provider`: the configuration provider for Docker registry
-- `base_dir`: base directory to use for referencing relative file paths of model files.
-- `base_model_storage_uri`: name of a bucket in the remote storage (MinIO or S3) to store the model.
+- `storage_config_provider`: the configuration provider for blob storage access. Currently, only S3 and MinIO are supported.
+- `docker_registry_url`: private custom Docker registry URL to use with provided TLS certificates.
+- `docker_registry_certificate_provider`: the configuration provider for Docker registry certificate.
+- `base_dir`: base directory to use for referencing relative file paths of model files. Defaults to current working directory.
+- `base_model_storage_uri`: name of a bucket in the remote storage (MinIO or S3) to store the model. Defaults to 's3://kaptain/models'
 
 <a name="kaptain.envs"></a>
 # kaptain.envs
@@ -347,28 +342,19 @@ in the model tracking database.
 
 **Arguments**:
 
-stage of the model (e.g. dev/prod) in the name to make it easier to filter models under
-active development and in production.
-tracking database.
-This description is visible in the model tracking database.
-"trainer.py".
-Can also contain image tag, e.g. "kaptain/mnist:0.0.1-tensorflow-2.2.0".
-"tensorflow".
-e.g. "2.3.2"
-and blob storage.
-- `id`: Unique identifier of model, e.g. "dev/mnist". It is recommended to include the
-- `name`: Short name of the model, e.g. "MNIST". This name is visible in the model
-- `description`: Description of the model, e.g. "Digit recognition for MNIST data set".
+- `id`: Unique identifier of model, e.g. "dev/mnist". It is recommended to include the stage of the model (e.g. dev/prod) in the name to make it easier to filter models under active development and in production.
+- `name`: Short name of the model, e.g. "MNIST". This name is visible in the model tracking database.
+- `description`: Description of the model, e.g. "Digit recognition for MNIST data set". This description is visible in the model tracking database.
 - `version`: Model version, e.g. "4.5"
-- `main_file`: Main (Python) file that contains the executable model code, e.g.
-- `image_name`: Name of the repository to push the resulting image, e.g. 'kaptain/mnist'
+- `main_file`: Main (Python) file that contains the executable model code, e.g. "trainer.py".
+- `image_name`: Name of the repository to push the resulting image, e.g. 'kaptain/mnist' Can also contain image tag, e.g. "kaptain/mnist:0.0.1-tensorflow-2.2.0".
 - `extra_files`: Auxiliary files, e.g. ["utils.py", "data_loader.py"].
 - `requirements`: Additional pip requirements, e.g. ["numpy", "nltk==3.5"]
-- `framework`: Machine learning library or framework used for the model, e.g.
-- `framework_version`: Machine learning library or framework version used by model,
+- `framework`: Machine learning library or framework used for the model, e.g. "tensorflow".
+- `framework_version`: Machine learning library or framework version used by model, e.g. "2.3.2"
 - `base_image`: Base container image, e.g. "tensorflow-2.3.2"
 - `labels`: Custom labels for deployment-related metadata, e.g. "dev/mnist-tensorflow"
-- `config`: Configuration object used for configuring access to Docker registries
+- `config`: Configuration object used for configuring access to Docker registries and blob storage.
 
 <a name="kaptain.model.models.Model.hyperparameters"></a>
 #### hyperparameters
@@ -412,19 +398,18 @@ Train a model in a distributed manner.
 
 Resources may be specified via the 'simple' resource parameters::
 
-    model.train(workers=1, cpu=1, memory="1g", gpus=0)
+    model.train(workers=1, cpu=1, memory="2G", gpus=0)
 
 ... the model training process will have both the request and limit set for all resource parameters.
 
 More fine-grained resource specification is possible via the 'resources' parameter::
 
-    model.train(workers=workers, resources=Resources(cpu_request=1, memory_limit="1g", gpus_limit=gpus))
+    model.train(workers=workers, resources=Resources(cpu_request=1, memory_limit="2G", gpu_limit=gpus))
 
 It is illegal to specify both the 'resources' parameter or any 'simple' resource parameters (gpus, memory, cpu).
 
 **Arguments**:
 
-memory and cpu. (optional).
 
 - `args`: Arguments to be passed to the training function.
 - `hyperparameters`: Dictionary of hyperparameter values.
@@ -432,7 +417,7 @@ memory and cpu. (optional).
 - `gpus`: Number of GPUs to use (default: 0).
 - `memory`: Amount of memory for each worker (optional),
 - `cpu`: Number of CPUs to use for each worker (optional).
-- `resources`: Advanced API for resource specification. Do not use in tandem with the parameters gpus,
+- `resources`: Advanced API for resource specification. Do not use in tandem with the parameters gpus, memory and cpu (optional).
 - `verbose`: Enable verbose output (can also be set via environment variable KAPTAIN_SDK_VERBOSE).
 - `kwargs`: Keyword arguments to be passed to the training function.
 
@@ -453,7 +438,7 @@ Tunes a model with parallel trials and possibly distributed trials.
 
 Resources may be specified via the 'simple' resource parameters::
 
-    model.tune(hyperparameters=params, objectives=objectives, cpu=1, memory="1g", gpus=0)
+    model.tune(hyperparameters=params, objectives=objectives, cpu=1, memory="2G", gpus=0)
 
 ... the deployed tuning process will have both the request and limit set for all resource parameters.
 
@@ -462,35 +447,28 @@ More fine-grained resource specification is possible via the 'resources' paramet
     model.tune(
       hyperparameters=params,
       objectives=objectives,
-      resources=Resources(cpu_request=1, memory_limit="1g", gpus_limit=gpus))
+      resources=Resources(cpu_request=1, memory_limit="2G", gpu_limit=gpus))
 
 It is illegal to specify both the 'resources' parameter or any 'simple' resource parameters (gpus, memory, cpu).
 
 **Arguments**:
 
-is used in conjunction with the objective goal and type.
-The main objective is the first element in `objectives`.
-If None, the tuning will continue until the maximum number of `trials` has been reached.
-(default: maximize).
-                  memory and cpu. (optional).
-(default: 4).
-https://www.kubeflow.org/docs/components/hyperparameter-tuning/experiment/ for details.
 
 - `args`: Arguments to be passed to the training/tuning function.
 - `hyperparameters`: Dictionary of hyperparameters and their specified domains.
-- `objectives`: List of metrics to track in order of importance. The first one listed
-- `objective_goal`: Main objective's goal, which when reached causes the tuning to stop.
-- `objective_type`: Whether to "maximize" or "minimize" the main objective's value
+- `objectives`: List of metrics to track in order of importance. The first one listed is used in conjunction with the objective goal and type.
+- `objective_goal`: Main objective's goal, which when reached causes the tuning to stop. The main objective is the first element in `objectives`. If None, the tuning will continue until the maximum number of `trials` has been reached.
+- `objective_type`: Whether to "maximize" or "minimize" the main objective's value (default: maximize).
 - `workers`: Number of parallel workers to use for each trial (default: 2).
 - `gpus`: Number of GPUs to use (default: 0).
 - `memory`: Amount of memory for each worker (optional),
 - `cpu`: Number of CPUs to use for each worker (optional).
-- `resources`: Advanced API for resource specification. Do not use in tandem with the parameters gpus,
+- `resources`: Advanced API for resource specification. Do not use in tandem with the parameters gpus, memory and cpu (optional).
 - `trials`: Maximum number of trials (default: 16).
 - `parallel_trials`: Maximum number of trials to run in parallel (default: 2).
-- `failed_trials`: Maximum number of failed trials before hyperparameter tuning stops
+- `failed_trials`: Maximum number of failed trials before hyperparameter tuning stops (default: 4).
 - `algorithm`: Algorithm to use for hyperparameter search (default: random).
-- `algorithm_setting`: Algorithm settings. Please see
+- `algorithm_setting`: Algorithm settings. Please see https://www.kubeflow.org/docs/components/hyperparameter-tuning/experiment/ for details.
 - `verbose`: Enable verbose output (can also be set via environment variable KAPTAIN_SDK_VERBOSE).
 - `kwargs`: Keyword arguments to be passed to the training/tuning function.
 
@@ -511,30 +489,26 @@ Deploys a model.
 
 Resources may be specified via the 'simple' resource parameters::
 
-model.deploy(model_uri=uri, cpu=1, memory="1g", gpus=0)
+model.deploy(model_uri=uri, cpu=1, memory="2G", gpus=0)
 
 ... the deployed model process will have both the request and limit set for all resource parameters.
 
 More fine-grained resource specification is possible via the 'resources' parameter::
 
-model.deploy(model_uri=uri, resources=Resources(cpu_request=1, memory_limit="1g", gpus_limit=gpus))
+model.deploy(model_uri=uri, resources=Resources(cpu_request=1, memory_limit="2G", gpu_limit=gpus))
 
 It is illegal to specify both the 'resources' parameter or any 'simple' resource parameters (gpus, memory, cpu).
 
 **Arguments**:
 
-managed by Kaptain is chosen based on the most recent state of the model.
-                  memory and cpu. (optional).
-If True, the previously deployed model will be replaced. If False, an error will
-be logged in case the model had been previously deployed.
 
-- `model_uri`: URI of the saved model to be loaded. If None, the default location
+- `model_uri`: URI of the saved model to be loaded. If None, the default location managed by Kaptain is chosen based on the most recent state of the model.
 - `autoscale`: Target concurrency (default: 2).
 - `gpus`: Number of GPUs to use (default: 0).
 - `memory`: Amount of memory for each worker (optional),
 - `cpu`: Number of CPUs to use for each worker (optional).
-- `resources`: Advanced API for resource specification. Do not use in tandem with the parameters gpus,
-- `replace`: Safety flag to avoid accidental redeployment of the model.
+- `resources`: Advanced API for resource specification. Do not use in tandem with the parameters gpus, memory and cpu (optional).
+- `replace`: Safety flag to avoid accidental redeployment of the model. If True, the previously deployed model will be replaced. If False, an error will be logged in case the model had been previously deployed.
 - `kwargs`: Keyword arguments for the deployment.
 
 **Returns**:
@@ -575,10 +549,8 @@ model.deploy_canary(canary_traffic_percentage=50, model_uri=uri)
 
 **Arguments**:
 
-
-managed by Kaptain is chosen based on the most recent state of the model.
 - `canary_traffic_percentage`: the percentage of traffic to route to the canary model.
-- `model_uri`: URI of the saved model to be loaded. If None, the default location
+- `model_uri`: URI of the saved model to be loaded. If None, the default location managed by Kaptain is chosen based on the most recent state of the model.
 
 <a name="kaptain.model.models.Model.rollback_canary"></a>
 #### rollback\_canary
@@ -642,10 +614,8 @@ Logs model evaluation metrics to a model execution.
 
 **Arguments**:
 
-{"accuracy", 0.95, "auc": 0.975}.
-or production (for deployed models).
-- `metrics`: A dictionary of metrics names and their values, e.g.
-- `metrics_type`: Evaluation type of the metric: training, testing, validation,
+- `metrics`: A dictionary of metrics names and their values, e.g. {"accuracy", 0.95, "auc": 0.975}.
+- `metrics_type`: Evaluation type of the metric: training, testing, validation, or production (for deployed models).
 - `uri`: Optional URI to the metrics (e.g. log directory).
 
 <a name="kaptain.model.frameworks"></a>
@@ -937,16 +907,13 @@ sufficient for `kaptain`.
 
 **Arguments**:
 
-when working with non-standard, S3-compatible storage solutions such as MinIO. It should
-be set to a resolvable address of the running server.
-URL style for accessing buckets
 - `aws_access_key_id`: The access key to authenticate with S3.
 - `aws_secret_access_key`: The secret key to authenticate with S3.
 - `aws_session_token`: The session token to authenticate with S3.
 - `region_name`: The name of AWS region.
-- `s3_endpoint`: The complete URL of S3 endpoint. This parameter is required
+- `s3_endpoint`: The complete URL of S3 endpoint. This parameter is required when working with non-standard, S3-compatible storage solutions such as MinIO. It should be set to a resolvable address of the running server.
 - `s3_signature_version`: The signature version when signing requests
-- `s3_force_path_style`: When enabled, the clients will use path style instead of
+- `s3_force_path_style`: When enabled, the clients will use path style instead of URL style for accessing buckets
 
 <a name="kaptain.platform.config.s3.S3ConfigurationProvider.get_secret_body"></a>
 #### get\_secret\_body

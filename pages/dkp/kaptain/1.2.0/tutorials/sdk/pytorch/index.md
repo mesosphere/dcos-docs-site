@@ -542,7 +542,7 @@ The Kaptain SDK allows individual trials to be run in parallel as well as traine
 <p class="message--warning"><strong>BEWARE! </strong>With a large number of parallel trials <i>and</i> a fair number of workers per trial, it is easy to max out on the available resources.
     If the worker quota for the namespace is <i>Q</i>, the number of parallel trials is <i>P</i>, and the number of workers per trial is <i>W</i>, please ensure that <i>P</i> &times; <i>W</i> &leq; <i>Q</i></p>
 
-### Run canary rollut
+### Run canary rollout
 To run a canary rollout launch:
 
 
