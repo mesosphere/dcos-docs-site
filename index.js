@@ -47,7 +47,6 @@ MS.metadata({
     "pages to get started.",
   copyright: `&copy; ${new Date().getFullYear()} D2iQ, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
-  conductorDocsLatest: "1.1",
   dcosCNDocsLatest: "2.1",
   dcosDocsLatest: "2.2",
   dispatchDocsLatest: "1.4",

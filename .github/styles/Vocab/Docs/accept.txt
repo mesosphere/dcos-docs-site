@@ -12,7 +12,6 @@ CNN(|s)
 CNTK
 component
 Conda
-Conductor
 containerd
 contravariant
 COPS
