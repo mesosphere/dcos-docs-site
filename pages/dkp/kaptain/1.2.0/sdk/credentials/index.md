@@ -73,7 +73,7 @@ following command:
 
     kubectl create secret generic docker-secret -n <kaptain_namespace> --from-file=config.json
 
-  Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks.  
+  Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks.
   In this example, we used a namespace named 'user'
 
 Verify the `Secret` is created:
@@ -272,8 +272,8 @@ To create a `Secret` from the YAML specification file (e.g.
 
     kubectl create -f -n <kaptain_namespace> secret.yaml
 
-Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks.  
-In this example, we used a namespace named 'user'    
+Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks.
+In this example, we used a namespace named 'user'.
 
 Verify the `Secret` is created:
 
