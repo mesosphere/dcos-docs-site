@@ -76,14 +76,6 @@ pipeline {
 
 
 
-                  ##### UPDATE PRIVATE BETA
-
-                  git checkout -t origin/private-beta
-                  git rebase main
-                  git push origin private-beta --force-with-lease
-
-
-
                   ##### CREATE SYNC PRS
 
                   apk add curl curl-dev rsync --no-cache
