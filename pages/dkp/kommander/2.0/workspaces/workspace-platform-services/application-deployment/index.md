@@ -12,7 +12,6 @@ excerpt: Deploy applications to attached clusters using the CLI
 This topic describes how to use the CLI to deploy an application to attached clusters within a workspace.
 To use the Kommander UI to deploy applications, see [Customize a workspace's platform applications](../#customize-a-workspaces-platform-application).
 
-<<<<<<< HEAD
 See [Workspace Platform Applications](../#workspace-platform-applications) for a list of all applications and those that are enabled by default.
 
 ## Prerequisites
