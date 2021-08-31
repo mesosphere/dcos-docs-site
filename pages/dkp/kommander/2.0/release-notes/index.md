@@ -117,8 +117,8 @@ The following services and service components have been upgraded to the listed v
 - project-logging: 1.0.0
 - prometheus-adapter: 2.11.1
     - prometheus-adapter: 0.8.3
-- reloader: 0.0.85
-    - reloader: 0.0.85
+- reloader: 0.0.99
+    - reloader: 0.0.99
 - thanos: 0.3.31
     - thanos: 0.17.1
 - traefik: 10.3.0
