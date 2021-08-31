@@ -49,7 +49,7 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 | minio-operator-4.1.7          | minio-operator        | False               |
 | nvidia-0.4.2                  | nvidia                | False               |
 | prometheus-adapter-2.11.1     | prometheus-adapter    | True                |
-| reloader-0.0.85               | reloader              | True                |
+| reloader-0.0.99               | reloader              | True                |
 | traefik-10.3.0                | traefik               | True                |
 | traefik-forward-auth-0.3.2    | traefik-forward-auth  | True                |
 | velero-3.1.3                  | velero                | False               |
