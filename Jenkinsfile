@@ -1,17 +1,21 @@
 #!/usr/bin/env groovy
 
-boolean main = env.BRANCH_NAME == "main"
-boolean beta = env.BRANCH_NAME == "private-beta"
-def bucket   = main ? "production"
-             : beta ? "staging"
-             : "pr-${env.CHANGE_ID}"
-def creds    = main ? "s3-production"
-             : beta ? "s3-staging"
-             : "s3-development"
-def hostname = main ? "docs.d2iq.com"
-             : beta ? "beta-docs.d2iq.com"
-             : "docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"
+boolean isProduction = env.BRANCH_NAME == "production"
+boolean isBeta = env.BRANCH_NAME == "beta"
+boolean isPreview = env.BRANCH_NAME == "main"
 
+def bucket   = isProduction ? "production"
+             : isBeta ? "staging"
+             : isPreview ? "preview" // TODO: Create this bucket
+             : "pr-${env.CHANGE_ID}"
+
+def creds    = isProduction ? "s3-production"
+             : isBeta ? "s3-staging"
+             : "s3-development" // TODO: Can we use these credentials for develop branch and PRs?
+def hostname = isProduction ? "docs.d2iq.com"
+             : isBeta ? "beta-docs.d2iq.com"
+             : isPreview ? "dev-docs.d2iq.com" // TODO: Where to get this url from?
+             : "docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"
 
 pipeline {
   agent { label "mesos" }
@@ -33,7 +37,7 @@ pipeline {
     }
 
     stage("Push image") {
-      when { branch "main" }
+      when { branch "production" }
       steps {
         sh '''
           docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
@@ -44,10 +48,11 @@ pipeline {
 
     stage("Build & Deploy Docs") {
       environment {
-        ALGOLIA_UPDATE = "${main ? 'true' : ''}"
+        ALGOLIA_UPDATE = "${isProduction ? 'true' : ''}"
         AWS_DEFAULT_REGION = "us-west-2"
         BUCKET = "docs-d2iq-com-${bucket}"
-        PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-${main ? 'Production' : 'Development'}"
+        // TODO: What does that mean?
+        PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-${isProduction ? 'Production' : 'Development'}"
         REDIR_HOSTNAME = "${hostname}"
       }
       steps {
