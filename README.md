@@ -467,3 +467,27 @@ docker run -p 5000:5000 -it mesosphere/archived_docs:next
 ```
 
 If you merge your branch to the `archive`-branch, jenkins will take care of building and pushing the image.
+
+## Branching Workflow
+
+We use a branching workflow to decide what should be shown on which environment.
+That means we have specific branches that contains different content and are deployed to different environments.
+
+We have three branches which are deployed:
+
+- `main` is our preview environment and our main development branch, it will be deployed to dev-docs.d2iq.com.
+- `production` is our production branch and will get deployed to the production environment available at docs.d2iq.com.
+- `beta` is our beta branch and will be deployed to `beta-docs.d2iq.com`.
+
+Every change should be made to the `main` branch and from there be merged into the respective branches which should reflect that content.
+
+```
+o = commit
+
+main        ----o----o---o---------
+                 \        \
+                  \        \
+beta        -------o--------\------
+                             \
+production  ------------------o----
+```
