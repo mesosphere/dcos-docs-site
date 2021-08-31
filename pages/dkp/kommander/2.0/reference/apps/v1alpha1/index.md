@@ -13,12 +13,12 @@ excerpt: Review detailed Kommander API reference information
 ## Table of Contents
 
 - [App](#app)
-- [AppList](#applist)
-- [AppSpec](#appspec)
-- [CrossNamespaceGitRepositoryReference](#crossnamespacegitrepositoryreference)
 - [AppDeployment](#appdeployment)
 - [AppDeploymentList](#appdeploymentlist)
 - [AppDeploymentSpec](#appdeploymentspec)
+- [AppList](#applist)
+- [AppSpec](#appspec)
+- [CrossNamespaceGitRepositoryReference](#crossnamespacegitrepositoryreference)
 
 ## App
 
@@ -29,46 +29,6 @@ App is the Schema for a Service or Application in Kommander.
 | metadata |  | [metav1.ObjectMeta](https://v1-21.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#objectmeta-v1-meta) | false |
 | spec |  | [AppSpec](#appspec) | false |
 | status |  | [AppStatus](#appstatus) | false |
-
-[Back to TOC](#table-of-contents)
-
-## AppList
-
-AppList contains a list of Apps.
-
-| Field | Description | Scheme | Required |
-| ----- | ----------- | ------ | -------- |
-| metadata |  | [metav1.ListMeta](https://v1-21.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#listmeta-v1-meta) | false |
-| items |  | [][App](#app) | true |
-
-[Back to TOC](#table-of-contents)
-
-## AppSpec
-
-AppSpec defines the actual Application.
-
-| Field | Description | Scheme | Required |
-| ----- | ----------- | ------ | -------- |
-| appId | AppID specifies the name of the application/workload | string | true |
-| version | Version depicts the version of the service in the semantic versioning format. | string | true |
-| gitRepositoryRef | GitRepository is reference to the Flux's GitRepository, which in turn describes Git repository where the service resides | [CrossNamespaceGitRepositoryReference](#crossnamespacegitrepositoryreference) | true |
-
-[Back to TOC](#table-of-contents)
-
-## AppStatus
-
-AppStatus defines the current state of an App.
-
-## CrossNamespaceGitRepositoryReference
-
-CrossNamespaceGitRepositoryReference contains enough information to let you locate the typed referenced object at cluster level.
-
-| Field | Description | Scheme | Required |
-| ----- | ----------- | ------ | -------- |
-| apiVersion | API version of the referent | string | false |
-| kind | Kind of the referent | string | true |
-| name | Name of the referent | string | true |
-| namespace | Namespace of the referent, defaults to the Kustomization namespace | string | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -90,8 +50,8 @@ AppDeploymentList contains a list of AppDeployments.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| metadata |  | [metav1.ListMeta](https://v1-21.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#listmeta-v1-meta) | false |
 | items |  | [][AppDeployment](#appdeployment) | true |
+| metadata |  | [metav1.ListMeta](https://v1-21.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#listmeta-v1-meta) | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -109,3 +69,43 @@ AppDeploymentSpec defines an instance of an Application.
 ## AppDeploymentStatus
 
 AppDeploymentStatus defines the current state of the AppDeployment.
+
+## AppList
+
+AppList contains a list of Apps.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| items |  | [][App](#app) | true |
+| metadata |  | [metav1.ListMeta](https://v1-21.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#listmeta-v1-meta) | false |
+
+[Back to TOC](#table-of-contents)
+
+## AppSpec
+
+AppSpec defines the actual Application.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| appId | AppID specifies the name of the application/workload | string | true |
+| gitRepositoryRef | GitRepository is reference to the Flux's GitRepository, which in turn describes Git repository where the service resides | [CrossNamespaceGitRepositoryReference](#crossnamespacegitrepositoryreference) | true |
+| version | Version depicts the version of the service in the semantic versioning format. | string | true |
+
+[Back to TOC](#table-of-contents)
+
+## AppStatus
+
+AppStatus defines the current state of an App.
+
+## CrossNamespaceGitRepositoryReference
+
+CrossNamespaceGitRepositoryReference contains enough information to let you locate the typed referenced object at cluster level.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| apiVersion | API version of the referent | string | false |
+| kind | Kind of the referent | string | true |
+| name | Name of the referent | string | true |
+| namespace | Namespace of the referent, defaults to the Kustomization namespace | string | false |
+
+[Back to TOC](#table-of-contents)
