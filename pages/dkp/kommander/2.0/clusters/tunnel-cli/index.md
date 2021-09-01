@@ -52,7 +52,7 @@ kubectl get workspace ${workspace}
 
 Create a [tunnel gateway](api-reference#tunnelgateway) on the management cluster to listen for tunnel agents on remote clusters:
 
-<p class="message--note"><strong>NOTE: </strong>Kommander uses Traefik 2 ingress, which requires explicit definition of strip prefix middleware as a Kubernetes API object, opposed to a simple annotation. Kommander provides default middleware that supports creating tunnels only on the <code>/dkp/tunnel URL</code> prefix. This is indicated by using the extra annotation, <code>traefik.ingress.kubernetes.io/router.middlewares: kommander-stripprefixes-kubetunnel@kubernetescrd</code> as shown in the code sample that follows. If you want to expose a tunnel on a different URL prefix, you must manage your own middleware configuration.</p>
+<p class="message--note"><strong>NOTE: </strong>This release of Kommander uses Traefik 2 ingress, which requires explicit definition of strip prefix middleware as a Kubernetes API object, instead of just a simple annotation. Kommander provides default middleware that supports creating tunnels only on the <code>/dkp/tunnel URL</code> prefix. That is indicated by using the extra annotation, <code>traefik.ingress.kubernetes.io/router.middlewares: kommander-stripprefixes-kubetunnel@kubernetescrd</code> as shown in the code sample that follows. If you want to expose tunnel on a different URL prefix, you must manage your own middleware configuration.</p>
 
 ```shell
 cacert_secret=kubetunnel-ca

@@ -51,7 +51,7 @@ To provision GPU nodes using Konvoy 2 on AWS:
    kind: AWSMachineTemplate
    metadata:
      [...]
-     name: <CLUSTER_NAME>-md-0
+     name: till-aws-cluster-md-0
      [...]
    spec:
      template:
@@ -75,7 +75,7 @@ For clusters not covered in the previous procedure, run the following commands o
 sudo yum update -y
 sudo yum -y group install "Development Tools"
 sudo yum -y install kernel-devel epel-release
-sudo yum -y install dkms
+sudo yum -y dkms
 sudo sed -i '/^GRUB_CMDLINE_LINUX=/s/"$/ module_name.blacklist=1 rd.driver.blacklist=nouveau modprobe.blacklist=nouveau"/' /etc/default/grub
 sudo dracut --omit-drivers nouveau -f
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -124,7 +124,6 @@ Fri Jun 11 09:05:31 2021
 +-----------------------------------------------------------------------------+
 ```
 
-[aws_instance_types]: https://aws.amazon.com/ec2/instance-types/
 [konvoy_image_builder]: /dkp/konvoy/2.0/image-builder/
 [konvoy_image_builder_nvidia]: https://github.com/mesosphere/konvoy-image-builder/blob/main/docs/nvidia-gpu.md
 [konvoy-installation]: /dkp/konvoy/2.0/install/advanced/new/

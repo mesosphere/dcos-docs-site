@@ -34,13 +34,9 @@ For example, in AWS, the service controller communicates with the AWS API to pro
 
 ### On-premises
 
-For an on-premises deployment, Kommander ships with [MetalLB][metallb], which provides load-balancing services.
+For an on-premises deployment, Konvoy ships with [MetalLB][metallb], which provides load-balancing services.
 
-<p class="message--note"><strong>NOTE: </strong>Making a configuration change in the <code>ConfigMap</code> for the <code>metallb</code> application might not result in the config change applying. This is <a href="https://github.com/danderson/metallb/issues/348#issuecomment-442218138" target="_blank">intentional behavior</a>. MetalLB refuses to adopt changes to the ConfigMap that breaks existing Services. You can force MetalLB to load those changes by deleting the metallb controller pod:</p>
-
-```bash
-kubectl -n kommander delete pod -l app=metallb,component=controller
-```
+<p class="message--note"><strong>NOTE: </strong>Making a configuration change in <code>cluster.yaml</code> for the <code>metallb</code> addon running <code>konvoy deploy addons</code> may not result in the config change applying. This is <a href="https://github.com/danderson/metallb/issues/348#issuecomment-442218138" target="_blank">intentional behavior</a>. MetalLB refuses to adopt changes to the ConfigMap that breaks existing Services. You can force MetalLB to load those changes by deleting the metallb controller pod.</p>
 
 To use MetalLB:
 
@@ -53,69 +49,66 @@ To use MetalLB:
 
 <p class="message--note"><strong>NOTE: </strong>Make sure the MetalLB subnet does not overlap with <code>podSubnet</code> and <code>serviceSubnet</code>.</p>
 
-Your configuration is complete if the reserved virtual IP addresses are in the same subnet as the rest of the cluster nodes.
+Your configuration is complete If the reserved virtual IP addresses are in the same subnet as the rest of the cluster nodes.
 If it is in a different subnet you may need to configure appropriate routes to ensure connectivity with the virtual IP address.
 If the virtual IP addresses share an interface with the primary IP address of the interface, you must disable any IP or MAC spoofing from the infrastructure firewall.
 
 MetalLB can be configured in two modes: Layer2 and BGP.
 
-The following example illustrates how to enable MetalLB and configure it with the Layer2 mode:
+The following example illustrates the Layer2 configuration in the `cluster.yaml` configuration file:
 
 ```yaml
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: metallb-overrides
-data:
-  values.yaml: |
-    configInline:
-      address-pools:
-      - name: default
-        protocol: layer2
-        addresses:
-        - 10.0.50.25-10.0.50.50
----
-apiVersion: apps.kommander.d2iq.io/v1alpha1
-kind: AppDeployment
-metadata:
-  name: metallb
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
-  appRef:
-    name: metallb-0.12.2
-  configOverrides:
-    name: metallb-overrides
+  addons:
+    addonsList:
+    - name: metallb
+      enabled: true
+      values: |-
+        configInline:
+          address-pools:
+          - name: default
+            protocol: layer2
+            addresses:
+            - 10.0.50.25-10.0.50.50
 ```
 
 The number of virtual IP addresses in the reserved range determines the maximum number of `LoadBalancer` service types you can create in the cluster.
 
 MetalLB in `bgp` mode implements only a subset of the BGP protocol. In particular, it only advertises the virtual IP to peer BGP agent.
 
-The following example illustrates the BGP configuration in the overrides `ConfigMap`:
+The following example illustrates the BGP configuration in the `cluster.yaml` configuration file:
 
 ```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: metallb-overrides
-data:
-  values.yaml: |
-    configInline:
-      peers:
-      - my-asn: 64500
-        peer-asn: 64500
-        peer-address: 172.17.0.4
-      address-pools:
-      - name: my-ip-space
-        protocol: bgp
-        addresses:
-        - 172.40.100.0/24
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta2
+spec:
+  addons:
+    addonsList:
+    - name: metallb
+      enabled: true
+      values: |-
+        configInline:
+          peers:
+          - my-asn: 64500
+            peer-asn: 64500
+            peer-address: 172.17.0.4
+          address-pools:
+          - name: my-ip-space
+            protocol: bgp
+            addresses:
+            - 172.40.100.0/24
 ```
 
 In the above configuration, `peers` defines the configuration of the BGP peer, such as peer ip address and `autonomous system number` (`asn`).
 The `address-pools` section is similar to `layer2`, except for the protocol.
 
 MetalLB also supports advanced BGP configuration, which can be found [here][metallb_config].
+
+```bash
+kubectl -n kubeaddons delete pod -l app=metallb,component=controller
+```
 
 [dnat]: https://www.linuxtopia.org/Linux_Firewall_iptables/x4013.html
 [ipvs]: https://en.wikipedia.org/wiki/IP_Virtual_Server

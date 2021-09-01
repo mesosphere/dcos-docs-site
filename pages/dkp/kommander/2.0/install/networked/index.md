@@ -14,7 +14,7 @@ Prior to installing Kommander, you must know the version you'd like to install, 
 Set the `VERSION` environment variable to the version of Kommander you would like to install, for example:
 
 ```sh
-export VERSION=v2.0.0
+export VERSION=v2.0.0-beta.5
 ```
 
 Kommander ships in a Helm chart, so prior to installing Kommander, make Helm aware of the Helm repository providing the Kommander chart:
@@ -73,7 +73,7 @@ Before running the commands below make sure that your `kubectl` configuration is
 To install Kommander with http proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper](../http-proxy#enable-gatekeeper) section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`
 
 ```sh
-helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --version=${VERSION} --set certManager=$(kubectl get ns cert-manager > /dev/null 2>&1 && echo "false" || echo "true")
+helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --devel --version=${VERSION} --set certManager=$(kubectl get ns cert-manager > /dev/null 2>&1 && echo "false" || echo "true")
 ```
 
 ## Verify installation

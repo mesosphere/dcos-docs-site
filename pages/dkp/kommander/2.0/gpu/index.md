@@ -29,7 +29,7 @@ The following procedures are described:
 
 - [Node deployment](./node-deployment)
 
-- [Kommander configuration](./kommander-config)
+- [Kommander configuration](./node-deployment)
 
 [libnvidia_container]: https://github.com/NVIDIA/libnvidia-container
 [nvidia_container_runtime]: https://github.com/NVIDIA/nvidia-container-runtime

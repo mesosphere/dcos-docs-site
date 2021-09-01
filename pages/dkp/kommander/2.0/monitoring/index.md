@@ -35,7 +35,7 @@ The `kube-prometheus-stack`is deployed by default on the management cluster and 
 - service monitors: collects internal Kubernetes components.
 
 A detailed description of the exposed metrics can be found [here][kube_state_exposed_metrics].
-The `service-monitors` collect internal Kubernetes components but can also be extended to monitor customer apps as explained [here](#monitor-applications).
+The `service-monitors` collect internal Kubernetes components but can also be extended to monitor customer apps as explained [here](#monitoring-applications).
 
 ## Grafana Dashboards
 
