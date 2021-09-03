@@ -6,6 +6,10 @@ beta: false
 menuWeight: 1
 excerpt: Dispatch provides a declarative CI/CD platform for rapidly deploying Cloud Native applications and enabling enterprises to rapidly build, test and manage applications' lifecycle using GitOps processes.
 ---
+
+<p class="message--warning"><strong>WARNING: </strong>D2iQ Dispatch has been deprecated in favor of Flux. </p>
+For more information on this deprecation, see the [D2iQ Blog Post](link).
+
 Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes cluster management and application delivery; it works by using Git as a single source of truth for declarative infrastructure and applications. Dispatch  enables you to:
 
 * Define and execute build, test, and deployment workflows.
