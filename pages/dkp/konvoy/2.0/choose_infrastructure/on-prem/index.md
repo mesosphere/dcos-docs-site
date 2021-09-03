@@ -5,7 +5,7 @@ title: On Premises
 menuWeight: 15
 excerpt: Configure a cluster for On Premises operation
 enterprise: false
-beta: true
+beta: false
 ---
 
 To create a cluster on your on premises infrastructure, follow the procedure that describes creating a Konvoy cluster on a [pre-provisioned infrastructure](../pre-provisioned) using SSH access.

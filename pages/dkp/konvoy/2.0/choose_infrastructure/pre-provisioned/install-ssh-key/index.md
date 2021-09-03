@@ -4,7 +4,7 @@ navigationTitle: Install SSH Key
 title: Install an SSH Key
 menuWeight: 40
 excerpt: Create a Secret for your SSH key for use with a pre-provisioned provider
-beta: true
+beta: false
 enterprise: false
 ---
 

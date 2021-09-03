@@ -4,7 +4,7 @@ navigationTitle: Define Infrastructure
 title: Define Infrastructure
 menuWeight: 50
 excerpt: Define the cluster hosts and infrastructure
-beta: true
+beta: false
 enterprise: false
 ---
 
