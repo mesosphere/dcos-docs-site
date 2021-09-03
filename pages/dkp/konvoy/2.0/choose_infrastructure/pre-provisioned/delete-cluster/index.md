@@ -4,7 +4,7 @@ navigationTitle: Delete the Cluster
 title: Delete the Cluster
 menuWeight: 80
 excerpt: Delete the Kubernetes cluster and/or the bootstrap cluster
-beta: true
+beta: false
 enterprise: false
 ---
 

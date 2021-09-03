@@ -4,7 +4,7 @@ navigationTitle: Define the Control Plane Endpoint
 title: Define Control Plane Endpoint
 menuWeight: 60
 excerpt: Define the Control Plane Endpoint for your cluster
-beta: true
+beta: false
 enterprise: false
 ---
 
