@@ -74,6 +74,17 @@ pipeline {
         }
       }
     }
+
+    stage("Restart dev deployment") {
+      agent { label 'docs-site-kubectl' }
+      when { branch "main" }
+      steps {
+        sh '''
+          kubectl -n docs-site rollout restart deployment docs-site-dev
+        '''
+      }
+    }
+
     stage("Deployment URL") {
       steps { echo "http://${hostname}" }
     }
