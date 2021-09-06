@@ -2,7 +2,7 @@
 
 set -ex
 
-npm run build
+GIT_HASH=$(git rev-parse HEAD) npm run build
 echo "google-site-verification: google48ddb4a5390a503f.html" > ./build/google48ddb4a5390a503f.html
 
 apk add --update-cache gettext

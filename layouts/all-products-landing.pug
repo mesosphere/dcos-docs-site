@@ -12,6 +12,8 @@ html(lang='en')
   body.landing.landing--dcos
     .layout
       header.header(style='position: fixed;')
+        if gitHash
+          .draft__banner #{gitHash}
         a.header__drawer
           i.header__icon(data-feather='menu')
         a.header__logo(href='/')

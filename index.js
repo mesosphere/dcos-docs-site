@@ -33,6 +33,8 @@ const config = JSON.parse(configData);
 const GIT_BRANCH = process.env.GIT_BRANCH;
 const METALSMITH_SKIP_SECTIONS = (config[GIT_BRANCH] || {}).DO_NOT_BUILD || [];
 
+const SHOW_GIT_HASH = process.env.BRANCH_NAME === "main";
+
 //
 // Metalsmith
 //
@@ -54,6 +56,7 @@ MS.metadata({
   konvoyDocsLatest: "2.0",
   kaptainDocsLatest: "1.2.0",
   Utils,
+  ...(SHOW_GIT_HASH && { gitHash: process.env.GIT_HASH }),
 });
 MS.use(timer("Init"));
 

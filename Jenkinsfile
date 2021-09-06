@@ -69,6 +69,7 @@ pipeline {
             -e BUCKET \
             -e PRINCIPAL \
             -e REDIR_HOSTNAME \
+            -e BRANCH_NAME \
             mesosphere/docs /src/ci/deploy.sh
           '''
         }
