@@ -82,6 +82,7 @@ pipeline {
       steps {
         sh '''
           kubectl -n docs-site rollout restart deployment docs-site-dev
+          kubectl -n docs-site rollout status deploy/docs-site-dev -w --timeout=10m
         '''
       }
     }
