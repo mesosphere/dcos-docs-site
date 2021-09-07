@@ -4,7 +4,7 @@ navigationTitle: Bootstrap
 title: Bootstrap
 menuWeight: 30
 excerpt: Bootstrap a kind cluster
-beta: true
+beta: false
 enterprise: false
 ---
 

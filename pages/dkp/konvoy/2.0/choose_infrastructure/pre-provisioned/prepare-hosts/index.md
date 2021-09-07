@@ -5,7 +5,7 @@ title: Prepare Hosts
 menuWeight: 20
 excerpt: How to prepare hosts for use with a pre-provisioned provider
 enterprise: false
-beta: true
+beta: false
 ---
 
 <!-- markdownlint-disable MD034 -->

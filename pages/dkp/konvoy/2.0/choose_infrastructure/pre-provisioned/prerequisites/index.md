@@ -5,7 +5,7 @@ title: Prerequisites
 menuWeight: 10
 excerpt: Fulfill the prerequisites for using a pre-provisioned infrastructure
 enterprise: false
-beta: true
+beta: false
 ---
 
 Before you begin using Konvoy, you must have:

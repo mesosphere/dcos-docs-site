@@ -4,7 +4,7 @@ navigationTitle: Create the Cluster
 title: Create the Cluster
 menuWeight: 70
 excerpt: Create a Kubernetes cluster using the infrastructure definition
-beta: true
+beta: false
 enterprise: false
 ---
 
