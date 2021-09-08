@@ -75,6 +75,8 @@ pipeline {
                   git checkout -t origin/main || git checkout main || echo "on main"
 
 
+                  ##### REABSE MAIN ON PORODUCTION
+                  ./ci/rebase.sh main production
 
                   ##### CREATE SYNC PRS
 
