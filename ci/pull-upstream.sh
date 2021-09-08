@@ -11,12 +11,11 @@ REPO_NAME="$1"                           # e.g. mesosphere/konvoy
 REPO_SUBFOLDER="$2"                      # e.g. docs/site
 REPO_BRANCH="$3"                         # e.g. release-1.7
 DOCS_SUBFOLDER="$4"                      # e.g. pages/dkp/konvoy/1.7
-BASE_BRANCH="$5"                         # e.g. main or production
-echo "BASE_BRANCH: " "$BASE_BRANCH"
+BASEBRANCH ${5:-production}              # e.g. main or production
 REPO_URL="git@github.com:$REPO_NAME.git"
 BRANCH="autosync/$REPO_NAME/$REPO_BRANCH"
 
-git checkout -t origin/"$BASE_BRANCH" || git checkout "$BASE_BRANCH" || echo "on $BASE_BRANCH"
+git checkout -t "origin/$BASEBRANCH" || git checkout "$BASEBRANCH" || echo "on $BASEBRANCH"
 git checkout -t "origin/$BRANCH" || git checkout -b "$BRANCH"
 
 echo "Cloning $REPO_URL on branch $REPO_BRANCH"
@@ -47,6 +46,6 @@ else
     curl \
       -X POST \
       -H "Accept: application/vnd.github.v3+json" \
-      https://"$GITHUB_TOKEN"@api.github.com/repos/mesosphere/dcos-docs-site/pulls \
-      -d '{"head":"'"$BRANCH"'","base":"'"$BASE_BRANCH"'", "title": "Sync '"$REPO_NAME:$REPO_BRANCH"'"}'
+      https://$GITHUB_TOKEN@api.github.com/repos/mesosphere/dcos-docs-site/pulls \
+      -d '{"head":"'$BRANCH'","base":"'$BASEBRANCH'", "title": "Sync '$REPO_NAME:$REPO_BRANCH'"}'
 fi
