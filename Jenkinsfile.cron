@@ -83,13 +83,18 @@ pipeline {
                   apk add curl curl-dev rsync --no-cache
 
                   ##### Konvoy
-                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.0 pages/dkp/konvoy/2.0
-                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.8 pages/dkp/konvoy/1.8
-                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.7 pages/dkp/konvoy/1.7
-                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.6 pages/dkp/konvoy/1.6
+                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.0 pages/dkp/konvoy/2.0 production
+                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.8 pages/dkp/konvoy/1.8 production
+                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.7 pages/dkp/konvoy/1.7 production
+                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.6 pages/dkp/konvoy/1.6 production
+
 
                   ##### Kommander
-                  ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.0 pages/dkp/kommander/2.0
+                  ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.0 pages/dkp/kommander/2.0 production
+
+                  ##### Next
+                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site main pages/dkp/konvoy2/2.1 main
+                  ./ci/pull-upstream.sh mesosphere/kommander docs/site main pages/dkp/kommander/2.1 main
                 '''
               }
             }
