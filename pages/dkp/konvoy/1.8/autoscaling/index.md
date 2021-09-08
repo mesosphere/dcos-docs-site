@@ -23,6 +23,8 @@ Konvoy uses the [cluster-autoscaler][autoscaler] community tool for autoscaling.
 <p class="message--note"><strong>IMPORTANT: </strong> When using this feature, you <strong>must</strong> use cloud provider credentials with a longer expiration than the cluster's life or static credentials. The autoscaler makes usage of these credentials
 to trigger scaling actions, so they need to be valid at any time.</p>
 
+<p class="message--note"><strong>NOTE: </strong>Because the autoscaler feature needs to manipulate and store the Terraform state, it is not compatible with using a Terraform backend for storage of the Terraform state. The Konvoy deployment will fail with an error if you attempt to use a Terraform backend and Autoscaling together.</p>
+
 ## Add autoscaling capabilities to the "worker" pool
 
 Enabling autoscaling on a cluster consists of the following steps:
