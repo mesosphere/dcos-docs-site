@@ -59,7 +59,7 @@ An Ansible inventory describes the hosts in your environment and details for con
 
 ```shell
 cd <konvoy-image-bundle-dir>
-./konvoy-image provision --inventory-file preprovisioned-inventory.yaml images/generic/<centos-7|centos-8|flatcar|sles-15>.yaml
+./konvoy-image provision --inventory-file inventory.yaml images/generic/<centos-7|centos-8|flatcar|sles-15>.yaml
 ```
 
 ### Configure an HTTP Proxy
