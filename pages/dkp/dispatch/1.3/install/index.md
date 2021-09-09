@@ -6,11 +6,14 @@ menuWeight: 40
 beta: false
 excerpt: Install and Configure Dispatch
 ---
+
+<p class="message--warning"><strong>WARNING: </strong>D2iQ Dispatch has been deprecated in favor of Flux. See the <a href="https://d2iq.com/blog/goodbye-dispatch-hello-fluxcd">D2iQ blog post</a> for more information.</p>
+
 # Prerequisites
 
 Before you install Dispatch, be sure you have completed the [Prerequisites](../install/prerequisites/).
 
-[button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Dispatch [/button]
+[button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"] [/button]
 
 # Installing Dispatch into a D2iQ Konvoy Cluster
 
