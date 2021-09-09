@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Delete the Cluster
 title: Delete the Cluster
-menuWeight: 80
+menuWeight: 90
 excerpt: Delete the Kubernetes cluster and/or the bootstrap cluster
 beta: false
 enterprise: false
