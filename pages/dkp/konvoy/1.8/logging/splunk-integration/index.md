@@ -13,7 +13,7 @@ Many organizations have standardized on Splunk for logging operations. This proc
 
 Before your begin, you need the following information specific to your Splunk configuration:
 
-- IP address or DNS name of your Splunk Enterprise installation reachable from your Konvoy cluster. For this demo, we assume you have installed a standalone instance using the Splunk Operator, and the service is named `splunk-s1-standalone-headless`
+- IP address of your Splunk Enterprise installation reachable from your Konvoy cluster
 
 ## Create an index for the Konvoy Cluster
 
@@ -72,16 +72,18 @@ In your `cluster.yaml` file, for each Konvoy cluster, edit the Fluentbit section
 - name: fluentbit
   enabled: true
   values: |
-    # Configure output to use Splunk instead of Elastic
-    outputs: |
-       [OUTPUT]
-           Name          splunk
-           Match         *
-           Host          splunk-s1-standalone-headless.default.svc.cluster.local
-           Port          8088
-           TLS           Off
-           TLS.Verify    Off
-           Splunk_token  fc13d8bd-a511-48f9-831a-3820bb1c34cc
+    # add value for splunk
+    backend:
+      splunk:
+        host: 192.168.10.6
+        port: 8088
+        token: "fc13d8bd-a511-48f9-831a-3820bb1c34cc"
+        send_raw: "off"
+        tls: "off"
+        tls_verify: "off"
+        tls_debug: 1
+        message_key: "kubernetes"
+      type: splunk
 ```
 
 Start your Konvoy cluster. Konvoy starts and uses your updated configuration.
@@ -106,13 +108,19 @@ fluentbit-kubeaddons-fluent-bit-z8fbp                             1/1     Runnin
 ```shell
 kubectl logs -n kubeaddons fluentbit-kubeaddons-fluent-bit-fqffj
 
-Fluent Bit v1.6.10
-* Copyright (C) 2019-2020 The Fluent Bit Authors
-* Copyright (C) 2015-2018 Treasure Data
-* Fluent Bit is a CNCF sub-project under the umbrella of Fluentd
-* https://fluentbit.io
-...
+Fluent Bit v1.3.2
+Copyright (C) Treasure Data
 
+[2020/02/28 00:35:58] [ info] [storage] initializing...
+[2020/02/28 00:35:58] [ info] [storage] in-memory
+[2020/02/28 00:35:58] [ info] [storage] normal synchronization mode, checksum disabled, max_chunks_up=128
+[2020/02/28 00:35:58] [ info] [engine] started (pid=1)
+[2020/02/28 00:35:58] [ info] [filter_kube] https=1 host=kubernetes.default.svc port=443
+[2020/02/28 00:35:58] [ info] [filter_kube] local POD info OK
+[2020/02/28 00:35:58] [ info] [filter_kube] testing connectivity with API server...
+[2020/02/28 00:35:58] [ info] [filter_kube] API server connectivity OK
+[2020/02/28 00:35:58] [ info] [http_server] listen iface=0.0.0.0 tcp_port=2020
+[2020/02/28 00:35:58] [ info] [sp] stream processor started
 ```
 
 ## Access your Konvoy logs from Splunk
@@ -133,4 +141,4 @@ Splunk Operator Github:
 [https://splunk.github.io/splunk-operator/](https://splunk.github.io/splunk-operator/)
 
 Fluentbit Docs:
-[https://docs.fluentbit.io/manual/v/1.6/pipeline/outputs/splunk](https://docs.fluentbit.io/manual/v/1.6/pipeline/outputs/splunk)
+[https://fluentbit.io/documentation/0.13/output/splunk.html](https://fluentbit.io/documentation/0.13/output/splunk.html)

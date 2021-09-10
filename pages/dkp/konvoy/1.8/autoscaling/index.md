@@ -23,8 +23,6 @@ Konvoy uses the [cluster-autoscaler][autoscaler] community tool for autoscaling.
 <p class="message--note"><strong>IMPORTANT: </strong> When using this feature, you <strong>must</strong> use cloud provider credentials with a longer expiration than the cluster's life or static credentials. The autoscaler makes usage of these credentials
 to trigger scaling actions, so they need to be valid at any time.</p>
 
-<p class="message--note"><strong>NOTE: </strong>Because the autoscaler feature needs to manipulate and store the Terraform state, it is not compatible with using a Terraform backend for storage of the Terraform state. The Konvoy deployment will fail with an error if you attempt to use a Terraform backend and Autoscaling together.</p>
-
 ## Add autoscaling capabilities to the "worker" pool
 
 Enabling autoscaling on a cluster consists of the following steps:
@@ -61,19 +59,13 @@ spec:
     count: 3
     machine:
       type: m5.xlarge
-  version: v1.8.0
+  version: v1.8.2
 ```
 
 The worker pool scales up to a maximum of 4 machines and scales down
 to a minimum of 2 machines.
 The scaling decisions are based on the usage of the resources
 and requested resources, as detailed below.
-
-Ensure, before the next step, that you define the `AWS_PROFILE` environment variable, according to your ~/.aws/credentials. For example:
-
-```shell
-export AWS_PROFILE=default
-```
 
 When deploying the cluster for the first time using `konvoy up`, **you must ensure the initial cluster size satisfies the resource requirements of your addons**. The autoscaler will not scale up the cluster if `konvoy up` did not succeed. For instance, this can happen when you create an underprovisioned cluster where the addons won't fit in the cluster, and thereby the installation will fail. A possible workaround could be to firstly run `konvoy deploy kubernetes` to deploy the autoscaler, and then run `konvoy deploy addons`. Following this approach would allow the cluster to autoscale in order to satisfy the requirements of the selected addons.
 
@@ -85,7 +77,14 @@ After the cluster specification is configured, run `konvoy up -y` to apply the r
 changes to the cluster and to start autoscaling the worker pool on
 demand. When the command completes successfully, certain configuration files of the cluster
 are stored in Kubernetes.
-This keeps the cluster state up-to-date for any change triggered by the autoscaler and prevents the system from having multiple or out-dated cluster specifications.
+
+Ensure `kubectl` has the correct login information by authorizing it to use kubeconfig for the cluster:
+
+```shell
+export KUBECONFIG=admin.conf
+```
+
+This keeps the cluster state up-to-date for any change triggered by the autoscaler, and prevents the system from having multiple or outdated cluster specifications.
 
 The following files are stored in Kubernetes when using the autoscaling feature:
 
@@ -98,7 +97,7 @@ NAMESPACE                    NAME           DISPLAY NAME   STATUS        PROVIDE
 konvoy                       mycluster      New Cluster    Provisioned   aws        6d2h
 ```
 
-<p class="message--note"><strong>NOTE: </strong> The `cluster.yaml` specification is no longer located in the working directory.</p>
+<p class="message--note"><strong>NOTE: </strong> The <code>cluster.yaml</code> specification is no longer located in the working directory.</p>
 
 A `KonvoyCluster` custom Kubernetes resource has the following structure:
 
@@ -292,9 +291,7 @@ If you choose to specify a different AWS account than the one **used during the 
                 "iam:GetInstanceProfile",
                 "iam:GetRole",
                 "iam:GetRolePolicy",
-                "iam:ListAttachedRolePolicies",
                 "iam:ListInstanceProfilesForRole",
-                "iam:ListRolePolicies",
                 "iam:PassRole",
                 "iam:PutRolePolicy",
                 "sts:GetCallerIdentity",
@@ -367,6 +364,8 @@ in our respective `KonvoyCluster` resource in Kubernetes. These are the two even
 scaling up and down decisions, as shown below:
 
 ```shell
+kubectl get events | grep autoscaler
+
 Events:
   Type    Reason                  Age    From                Message
   ----    ------                  ----   ----                -------

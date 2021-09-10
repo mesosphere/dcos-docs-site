@@ -49,17 +49,17 @@ This version of the installation creates a minimal cluster with 2 worker nodes a
        - name: worker
          count: 2
          machine:
-           imageName: mesosphere/konvoy-base-centos7:v1.8.0
+           imageName: mesosphere/konvoy-base-centos7:v1.7.0
        - name: control-plane
          controlPlane: true
          count: 1
          machine:
-           imageName: mesosphere/konvoy-base-centos7:v1.8.0
+           imageName: mesosphere/konvoy-base-centos7:v1.7.0
      sshCredentials:
        user: root
        publicKeyFile: konvoy-lite-konvoy-ssh.pub
        privateKeyFile: konvoy-lite-konvoy-ssh.pem
-     version: v1.8.0
+     version: v1.7.0
    ---
    kind: ClusterConfiguration
    apiVersion: konvoy.mesosphere.io/v1beta2
@@ -74,7 +74,7 @@ This version of the installation creates a minimal cluster with 2 worker nodes a
      autoProvisioning:
        disabled: true
      kubernetes:
-       version: 1.20.6
+       version: 1.20.10
        controlPlane:
          controlPlaneEndpointOverride: 172.17.1.251:6443
          keepalived: {}
@@ -99,7 +99,7 @@ This version of the installation creates a minimal cluster with 2 worker nodes a
          cgroupRoot: /kubelet
      containerNetworking:
        calico:
-         version: v3.17.3
+         version: v3.17.1
          encapsulation: ipip
          mtu: 1480
      containerRuntime:
@@ -111,7 +111,7 @@ This version of the installation creates a minimal cluster with 2 worker nodes a
        - name: worker
      addons:
        - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-         configVersion: stable-1.20-4.0.0
+         configVersion: stable-1.19-3.2.0
          addonsList:
            - name: ambassador # is currently in Experimental status. More information: https://docs.d2iq.com/dkp/konvoy/latest/version-policy/#experimental-status
              enabled: false
@@ -378,7 +378,7 @@ This version of the installation creates a minimal cluster with 2 worker nodes a
                    requests:
                      cpu: 20m
                      memory: 60Mi
-     version: v1.8.0
+     version: v1.7.0
    ```
 
 1. Create your cluster using the following command:
@@ -412,17 +412,17 @@ This cluster configuration deploys a default cluster in Docker (2 worker nodes a
        - name: worker
          count: 2
          machine:
-           imageName: mesosphere/konvoy-base-centos7:v1.8.0
+           imageName: mesosphere/konvoy-base-centos7:v1.7.0
        - name: control-plane
          controlPlane: true
          count: 1
          machine:
-           imageName: mesosphere/konvoy-base-centos7:v1.8.0
+           imageName: mesosphere/konvoy-base-centos7:v1.7.0
      sshCredentials:
        user: root
        publicKeyFile: konvoy-docker-kommander-ssh.pub
        privateKeyFile: konvoy-docker-kommander-ssh.pem
-     version: v1.8.0
+     version: v1.7.0
    ---
    kind: ClusterConfiguration
    apiVersion: konvoy.mesosphere.io/v1beta2
@@ -434,10 +434,8 @@ This cluster configuration deploys a default cluster in Docker (2 worker nodes a
        - server: "https://registry-1.docker.io"
          username: "your-dockerhub-username"
          password: "xxx-yourpassword-xxx"
-     autoProvisioning:
-       disabled: true
      kubernetes:
-       version: 1.20.6
+       version: 1.20.10
        controlPlane:
          controlPlaneEndpointOverride: 172.17.1.251:6443
          keepalived: {}
@@ -462,7 +460,7 @@ This cluster configuration deploys a default cluster in Docker (2 worker nodes a
          cgroupRoot: /kubelet
      containerNetworking:
        calico:
-         version: v3.17.3
+         version: v3.17.1
          encapsulation: ipip
          mtu: 1480
      containerRuntime:
@@ -474,7 +472,7 @@ This cluster configuration deploys a default cluster in Docker (2 worker nodes a
        - name: worker
      addons:
        - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-         configVersion: stable-1.20-4.0.0
+         configVersion: stable-1.19-3.2.0
          addonsList:
            - name: ambassador # is currently in Experimental status. More information: https://docs.d2iq.com/dkp/konvoy/latest/version-policy/#experimental-status
              enabled: false
@@ -540,12 +538,12 @@ This cluster configuration deploys a default cluster in Docker (2 worker nodes a
            - name: traefik-forward-auth
              enabled: true
        - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-         configVersion: stable-1.20-1.4.5
+         configVersion: stable-1.19-1.4.0
          addonsList:
            - name: dispatch
              enabled: false
        - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-         configVersion: stable-1.20-1.4.0
+         configVersion: stable-1.19-1.3.0
          addonsList:
            - name: kommander
              enabled: true
@@ -556,7 +554,7 @@ This cluster configuration deploys a default cluster in Docker (2 worker nodes a
                      docker-registry-url: "https://registry-1.docker.io"
                      docker-registry-username: your-dockerhub-username
                      docker-registry-password: xxx-yourpassword-xxx
-     version: v1.8.0
+     version: v1.7.0
    ```
 
 1. Create your cluster using the following command:

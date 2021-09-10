@@ -19,11 +19,11 @@ This Quick Start guide provides simplified instructions to get your Konvoy clust
 
 # Before you begin
 
-Before installing Konvoy, ensure you have the [following][prerequisites] items.
+Before installing Konvoy, ensure you have the [following](../prerequisites) items.
 
 # Installing Konvoy
 
-1.  Install required packages. In most cases, you can install the required software using your preferred package manager. The below packages may already be installed if you followed the instructions on the [prerequisites][prerequisites] page. For example, on a macOS computer, you can use [Homebrew][brew] to install `kubectl` and the `aws` command-line utility by running the following command:
+1.  Install required packages. In most cases, you can install the required software using your preferred package manager. For example, on a macOS computer, you can use [Homebrew][brew] to install `kubectl` and the `aws` command-line utility by running the following command:
 
     ```bash
     brew install kubernetes-cli awscli
@@ -35,9 +35,9 @@ Before installing Konvoy, ensure you have the [following][prerequisites] items.
     kubectl version --short=true
     ```
 
-1.  To download Konvoy, see the [Download Konvoy](../download) topic for information. You will need to download the tarball.
+1.  To download Konvoy, see the [Download Konvoy](../download) topic for information. You will need to download and extract the Konvoy package tarball.
 
-1.  Extract the Konvoy package tarball to see the Konvoy application folder.
+1.  Install with default settings.
 
 1.  Verify you have valid **AWS security credentials** to deploy the cluster on AWS. This step is not required if you are installing Konvoy on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../install/install-onprem).
 
@@ -48,30 +48,14 @@ Before installing Konvoy, ensure you have the [following][prerequisites] items.
     cd konvoy-quickstart
     ```
 
-    <p class="message--warning"><strong>WARNING: </strong>This directory for state information is required for performing future operations on your cluster.
-    The state files stored in this directory are required to tear down a cluster.
-    If the state information or this directory is deleted, you must perform a manual cleanup to destroy this cluster.</p>
-
-1.  Move the Konvoy files extracted from the tarball into this `konvoy-quickstart` directory.
-
-    <p class="message--note"><strong>NOTE: </strong>You can use the <code>konvoy_v1.8.1</code> directory that was created when extracting the tarball.
-    It is important to use the working directory that contains the <code>konvoy</code> application files.</p>
-
-1.  Authorize your AWS security credentials so you can deploy to your AWS cloud account.
+    This directory for state information is required for performing future operations on your cluster.
+    For example, state files stored in this directory are required to tear down a cluster.
+    If you were to delete the state information or this directory, destroying the cluster would require you to manually perform clean-up tasks.
 
 1.  Deploy with all of the default settings and addons by running the following command:
 
     ```bash
     konvoy up
-    ```
-
-    <p class="message--note"><strong>NOTE: </strong>In order to use <code>konvoy</code> as a command, you have to add the <code>konvoy</code> file to your $PATH and run <code>chmod +x /usr/local/bin/konvoy</code>.</p>
-
-    If you do not add `konvoy` to your path, you can run Konvoy CLI commands by adding `./` in front of any Konvoy command.
-    The above command would be this:
-
-    ```bash
-    ./konvoy up
     ```
 
     The `konvoy up` command performs the following tasks:
@@ -151,12 +135,6 @@ To merge the access configuration, use the following command:
 konvoy apply kubeconfig
 ```
 
-Or, you can use this command if you haven't added `konvoy` to your $PATH:
-
-```bash
-./konvoy apply kubeconfig
-```
-
 1.  Specify the kubeconfig location.
 
     By default, the `konvoy apply kubeconfig` command uses the value of the `KUBECONFIG` environment variable to declare the path to the correct configuration file.
@@ -189,13 +167,13 @@ Or, you can use this command if you haven't added `konvoy` to your $PATH:
 
     ```text
     NAME                                         STATUS   ROLES    AGE   VERSION
-    ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.20.6
-    ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.20.6
-    ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.20.6
-    ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.20.6
-    ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.20.6
-    ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.20.6
-    ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.20.6
+    ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.20.10
+    ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.20.10
+    ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.20.10
+    ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.20.10
+    ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.20.10
+    ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.20.10
+    ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.20.10
     ```
 
 # Next steps
@@ -210,28 +188,27 @@ For more details, see the following topics:
 - [Check component integrity](../install/tips-tricks/check-components/)
 - [Troubleshooting](../troubleshooting/)
 
-[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
-[aws_ebs_csi]: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
-[brew]: https://brew.sh/
-[calico]: https://www.projectcalico.org/
 [cncf]: https://www.cncf.io
-[coredns]: https://coredns.io/
-[dex]: https://github.com/dexidp/dex
-[dex_k8s_authenticator]: https://github.com/mesosphere/dex-k8s-authenticator
-[elasticsearch]: https://www.elastic.co/products/elastic-stack
-[elasticsearch_exporter]: https://www.elastic.co/guide/en/elasticsearch/reference/7.2/es-monitoring-exporters.html
-[fluentbit]: https://fluentbit.io/
-[grafana]: https://grafana.com/
-[helm]: https://helm.sh/
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [install_aws]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
+[calico]: https://www.projectcalico.org/
+[coredns]: https://coredns.io/
+[aws_ebs_csi]: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
+[elasticsearch]: https://www.elastic.co/products/elastic-stack
+[elasticsearch_exporter]: https://www.elastic.co/guide/en/elasticsearch/reference/7.2/es-monitoring-exporters.html
+[helm]: https://helm.sh/
 [kibana]: https://www.elastic.co/products/kibana
-[kubernetes_dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
-[osi]: https://en.wikipedia.org/wiki/OSI_model
-[prerequisites]: ../prerequisites
-[prometheus_adapter]: https://github.com/DirectXMan12/k8s-prometheus-adapter
+[fluentbit]: https://fluentbit.io/
 [prometheus_operator]: https://prometheus.io/
+[grafana]: https://grafana.com/
+[prometheus_adapter]: https://github.com/DirectXMan12/k8s-prometheus-adapter
 [traefik]: https://traefik.io/
-[traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
+[osi]: https://en.wikipedia.org/wiki/OSI_model
+[kubernetes_dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [velero]: https://velero.io/
+[dex]: https://github.com/dexidp/dex
+[dex_k8s_authenticator]: https://github.com/mesosphere/dex-k8s-authenticator
+[traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
+[brew]: https://brew.sh/
