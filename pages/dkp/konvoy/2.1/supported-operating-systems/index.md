@@ -69,4 +69,4 @@ Konvoy supports the following base Operating Systems.
 [debian_9]: https://www.debian.org/releases/stretch/releasenotes
 [debian_10]: https://www.debian.org/releases/buster/releasenotes
 [suse_15]: https://documentation.suse.com/en-us/sles/15-SP1/
-[flatcar]: https://kinvolk.io/flatcar-container-linux/releases/#stable-release
+[flatcar]: https://www.flatcar-linux.org/releases/#stable-release
