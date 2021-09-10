@@ -7,11 +7,9 @@ beta: false
 excerpt: View release-specific information for Dispatch 1.4.0 
 ---
 
+<p class="message--warning"><strong>WARNING: </strong>D2iQ Dispatch has been deprecated in favor of Flux. See the <a href="https://d2iq.com/blog/goodbye-dispatch-hello-fluxcd">D2iQ blog post</a> for more information.</p>
+
 # Release Notes for Dispatch 1.4.0
-
-[button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Dispatch [/button]
-
-<p class="message--note"><strong>NOTE: </strong>You must be a registered user and signed on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Dispatch.</p>
 
 ## v1.4.0 - Released Feb 3, 2021
 Document Modified Date: Released Feb 3, 2021
