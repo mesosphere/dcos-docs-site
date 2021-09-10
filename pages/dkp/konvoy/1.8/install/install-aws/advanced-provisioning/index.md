@@ -164,6 +164,8 @@ To add custom resource files for provisioning:
 
 <p class="message--note"><strong>NOTE: </strong>During the provisioning process Konvoy merges the files in the <tt>extras/provisioner</tt> directory with the default <tt>*.tf</tt> resource files. If a file in the <tt>extras/provisioner</tt> directory already exists in the default <tt>*.tf</tt> resource files, this custom file overrides the contents of the default <tt>*.tf</tt> resource file.</p>
 
+<p class="message--note"><strong>NOTE: </strong>Configuring the Terraform backend to store the Terraform state in S3 is not compatible with the <a href="../../../autoscaling">Autoscaling</a> feature. If you use the Terraform backend, then Autoscaling cannot be used and will result in errors if you attempt to use it. Because autoscaling stores the Terraform state in the cluster, you can instead use the <tt>konvoy pull</tt> command to access it after the cluster is deployed.</p>
+
 1. Run the `konvoy up` command.
 
    As the command runs, Terraform merges the resource files and produces output similar to the following:
@@ -309,7 +311,7 @@ spec:
 
 ## Subnets
 
-An existing VPC may already contain `subnets` for use. You may define them in the following way:
+An existing VPC may already contain `subnets` for use. Define them as follows:
 
 ```yaml
 ...
@@ -403,13 +405,13 @@ kubernetes.io/cluster = __CLUSTER_NAME__
 kubernetes.io/cluster/__CLUSTER_NAME__ = owned
 ```
 
-If the subnet will be used for external and/or internal ELBs, ensure that the following tag is added to the subnet:
+If the subnet will be used for external and/or internal ELBs, add the following tag to the subnet:
 
 ```text
 kubernetes.io/role/elb = 1
 ```
 
-Alternatively, if the subnet will only be used for internal ELBs, ensure that the following tag is added to the subnet:
+Alternatively, if the subnet will only be used for internal ELBs, add the following tag to the subnet:
 
 ```text
 kubernetes.io/role/internal-elb = 1
@@ -417,7 +419,7 @@ kubernetes.io/role/internal-elb = 1
 
 ## Security Groups
 
-An existing VPC may already contain `security-groups` for use. You may define them in the following way:
+An existing VPC may already contain `security-groups` for use. Define them as follows:
 
 ```yaml
 ...
@@ -576,8 +578,8 @@ ids from `konvoy_private` and `konvoy_egress` added to their list.
 If not using a bastion, worker `nodePool`s should have the security
 group ids from `konvoy_private`, `konvoy_ssh`, and `konvoy_egress`
 
-## IAM Instance Profiles
-An existing IAM instance profile can be used, provided that the right policies must be set:
+## IAM instance profiles
+You can use an existing IAM instance profile, provided that you set the right policies:
 
 ```yaml
 ...
@@ -657,7 +659,7 @@ spec:
 
 You can read more about EBS encryption in the official [AWS documentation][ebs_encryption].
 
-# Deploying Additional Kubernetes Resources
+# Deploying additional Kubernetes resources
 
 You can also provide additional Kubernetes resources that are deployed after the base cluster is provisioned, but before any of the addons are deployed.
 
