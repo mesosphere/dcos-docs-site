@@ -81,8 +81,8 @@ The following services and service components have been upgraded to the listed v
     - jaeger: 1.21.2
 - karma: 2.0.0
     - karma: 0.88
-- kiali: 1.29.0
-    - kiali: 1.29.0
+- kiali: 1.29.1
+    - kiali: 1.29.1
 - kube-oidc-proxy: 0.2.5
     - kube-oidc-proxy: 0.2.0
 - kube-prometheus-stack: 17.2.1
