@@ -14,17 +14,33 @@ This section describes how to prepare your environment and install Konvoy on VMW
 
 ## Before you Begin
 
-Installing Konvoy with vSphere requires the following prerequisites and backgrounds:
+Before installing, verify that your environment meets the following basic requirements:
 
-* [govc][install_govc]
-* [Docker Desktop][install_docker] _version 18.09.2 or higher_
-* [kubectl][install_kubectl] _v1.17.11 or newer_ (for interacting with the running cluster)
+* vCenter version v6.7.x
+
+  vCenter provides the vSphere APIs that Konvoy uses to create the cluster VMs. The API endpoint
+  must be reachable from where the Konvoy command line interface (CLI) runs.
+
 * vSphere account with [credentials configured][credentials_configured]
-* Latest Konvoy [download][konvoy_download]
+
+  Konvoy uses the account to access vCenter APIs. This account must have administrator privileges.
+
+* [govc][install_govc] command-line utility
+
+   This guide shows how to use the govc CLI to create vSphere roles that are used by the Kubernetes cluster components.
+
+- [Docker][install_docker] version 18.09.2 or later
+
+  You must have Docker installed on the host where the Konvoy CLI runs. For example, if you are
+  installing Konvoy on your laptop, ensure the laptop has a supported version of Docker.
+
+- [kubectl][install_kubectl] v1.20.6 or later
+
+  To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) runs.
 
 ## Install Konvoy on vSphere
 
-To install Konvoy on vSphere, you will perform the following tasks:
+To install Konvoy on vSphere, perform the following tasks:
 
 * Set the vSphere environment variables
 * Create roles using govc
@@ -188,7 +204,7 @@ Konvoy then copies this file to the remote machines and configures the necessary
 
 You can also configure Konvoy to use the files already present on the Kubernetes machines. On the remote machines, create `/root/kubernetes/cloud.conf`, `/root/kubernetes/cloud-csi.conf` and `/root/kubernetes/cpi-global-secret.yaml` files and Konvoy will configure the necessarily Kubernetes components to use this configuration file.
 
-In the case when files in `extras/cloud-provider` and `root/kubernetes` are specified, the remote `/root/kubernetes/` presented files will be used.
+When files in `extras/cloud-provider` and `root/kubernetes` are specified, the remote `/root/kubernetes/` presented files are used.
 
 ## View installation operations
 
@@ -217,7 +233,7 @@ For example, you should see information similar to this:
 
 ## Check the files installed
 
-When the `konvoy up --provisioner vsphere` completes its setup operations, the following files are generated:
+When the `konvoy up --provisioner vsphere` completes setup operations, the following files are generated:
 
 * `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize your [cluster configuration][cluster_configuration].
 * `admin.conf` - is a [kubeconfig file][kubeconfig], which contains credentials to [connect to the kube-apiserver of your cluster through kubectl][kubectl].
