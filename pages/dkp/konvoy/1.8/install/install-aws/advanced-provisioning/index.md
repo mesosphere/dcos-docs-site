@@ -164,6 +164,8 @@ To add custom resource files for provisioning:
 
 <p class="message--note"><strong>NOTE: </strong>During the provisioning process Konvoy merges the files in the <tt>extras/provisioner</tt> directory with the default <tt>*.tf</tt> resource files. If a file in the <tt>extras/provisioner</tt> directory already exists in the default <tt>*.tf</tt> resource files, this custom file overrides the contents of the default <tt>*.tf</tt> resource file.</p>
 
+<p class="message--note"><strong>NOTE: </strong>Configuring the Terraform backend to store the Terraform state in S3 is not compatible with the <a href="../../../autoscaling">Autoscaling</a> feature. If you use the Terraform backend, then Autoscaling cannot be used and will result in errors if you attempt to use it. Because autoscaling stores the Terraform state in the cluster, you can instead use the <tt>konvoy pull</tt> command to access it after the cluster is deployed.</p>
+
 1. Run the `konvoy up` command.
 
    As the command runs, Terraform merges the resource files and produces output similar to the following:
