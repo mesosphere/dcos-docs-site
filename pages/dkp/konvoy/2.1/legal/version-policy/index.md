@@ -28,31 +28,19 @@ Each Konvoy release supports a range of Kubernetes versions. Konvoy 2.0 supports
 
 Details for supported operating systems on Konvoy can be found in [Supported Operating Systems](../../supported-operating-systems).
 
-<!--
-## Supported Kommander Versions
-
-The following chart identifies which version of Konvoy supports which version of Kommander.
-
-| Konvoy Version | Kommander Version |
-| -------------- | ----------------- |
-| 1.8.x | 1.4.x |
-| 1.7.x | 1.3.x |
-| 1.6.x | 1.2.x |
-
-Konvoy and Kommander release `MAJOR.MINOR` versions together and are compatible with each other for that version set. This means, Kommander 1.4, and all of its patch versions (e.g. 1.4.0, 1.4.1), can deploy successfully on any version of Konvoy 1.8. Mixing minor versions is prohibited and the following is not supported:
-
-- You cannot deploy Kommander 1.3.x on Konvoy 1.8.x
-- You cannot deploy Kommander 1.2.x on Konvoy 1.7.x-->
-
 ## Support for KUDO - Cassandra, Kafka & Spark
 
-### Support Definition - Secondary Support
+### Support definition - secondary support
 
 Secondary support covers support for the base technology of platform service, which is Cassandra, Kafka, and Spark, and additionally support for the KUDO-based operator of the mentioned platform services.
 
 **Note:** Base Technology refers to Cassandra, Kafka, and Spark.
 
-### Experimental Status
+## Features in patches
+
+Occasionally, to make new features available at a faster rate, D2iQ releases features as part of a patch release. If the Release Notes indicate a feature you need and do not yet have, consider upgrading to the latest version to take full advantage of new features and functions.
+
+## Experimental status
 
 "Experimental" means software, features, functionality, sample configurations, or other speculative content that is still under exploration, development, or testing by D2iQ. Experimental components carry no guarantee of eventual release as GA and therefore must not be used in Production Environments. Experimental components qualify for limited, Severity 4 support only and may be discontinued at any time, with or without notice.
 
