@@ -39,7 +39,7 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 | grafana-loki-0.33.1           | grafana-loki          | False               |
 | istio-1.9.1                   | istio                 | False               |
 | jaeger-2.21.0                 | jaeger                | False               |
-| kiali-1.29.0                  | kiali                 | False               |
+| kiali-1.29.1                  | kiali                 | False               |
 | kube-oidc-proxy-0.2.5         | kube-oidc-proxy       | False               |
 | kube-prometheus-stack-16.13.1 | kube-prometheus-stack | True                |
 | kubecost-0.17.2               | kubecost              | True                |
