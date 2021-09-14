@@ -11,11 +11,13 @@ Creating a node pool is useful when you need to run workloads that require machi
 
 ## Prepare the environment
 
-1.  Define your cluster name. This example uses the cluster name defined in [Create a New Cluster][createnewcluster].
+1.  Set the environment variable to the name you assigned this cluster.
 
     ```sh
-    export CLUSTER_NAME=$(whoami)-aws-cluster
+    CLUSTER_NAME=my-aws-cluster
     ```
+
+    See [Get Started with AWS](../../quick-start-aws#name-your-cluster) for information on naming your cluster.
 
 1.  If your workload cluster is self-managing, as described in [Make the New Cluster Self-Managing][makeselfmanaging], configure `kubectl` to use the kubeconfig for the cluster.
 
