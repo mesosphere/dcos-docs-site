@@ -44,13 +44,45 @@ Before starting the Konvoy installation, verify that you have:
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
-## Create a new AWS Kubernetes cluster
+## Name your cluster
 
-1.  Give your cluster a name suitable for your environment:
+Give your cluster a unique name suitable for your environment.
+In AWS it is critical that the name is unique as no two clusters in the same AWS account can have the same name.
+
+Set the environment variable to be used throughout this documentation:
+
+```sh
+CLUSTER_NAME=my-aws-cluster
+```
+
+Tips:
+
+1.  To get a list of names in use in your AWS account, you could use the `aws` cli tool. For example:
 
     ```sh
-    export CLUSTER_NAME=$(whoami)-aws-cluster
+    aws ec2 describe-vpcs --filter "Name=tag-key,Values=kubernetes.io/cluster" --query "Vpcs[*].Tags[?Key=='kubernetes.io/cluster'].Value | sort(@[*][0])"
     ```
+
+    ```json
+    [
+        "alex-aws-cluster-afe98",
+        "sam-aws-cluster-8if9q"
+    ]
+    ```
+
+1.  If you want to create a cluster name that matches the example above, use this command.
+    This will create a unique name every time you run it so use it with forethought.
+
+    ```sh
+    CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+    echo $CLUSTER_NAME
+    ```
+
+    ```text
+    hunter-aws-cluster-pf4a3
+    ```
+
+## Create a new AWS Kubernetes cluster
 
 1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
 
