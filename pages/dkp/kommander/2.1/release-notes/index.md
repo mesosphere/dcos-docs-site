@@ -1,17 +1,17 @@
 ---
 layout: layout.pug
 beta: false
-navigationTitle: Kommander 2.0 Release Notes
-title: Kommander 2.0 Release Notes
+navigationTitle: Kommander 2.1 Release Notes
+title: Kommander 2.1 Release Notes
 menuWeight: 0
-excerpt: View release-specific information for Kommander 2.0
+excerpt: View release-specific information for Kommander 2.1
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->
 <!-- markdownlint-disable MD030 -->
 
-**D2iQ&reg; Kommander&reg; version 2.0 was released on 26, August 2021.**
+**D2iQ&reg; Kommander&reg; version 2.1 was released on 26, August 2021.**
 
 <!--
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
@@ -37,7 +37,7 @@ Managing applications and infrastructure in single to multi-cluster environment 
 
 #### Multi-Tenant Logging Architecture
 
-In DKP 2.0, Logging is disabled by default. This release contains a new [logging](../logging) architecture implementation as well as documentation that describes how to manually enable logging at both the Workspace and Project levels. Logging at the Project-level also supports multi-tenant logging. Access the Logging doc pages to review the new architecture and to get started with multi-tenant logging.
+In DKP 2.1, Logging is disabled by default. This release contains a new [logging](../logging) architecture implementation as well as documentation that describes how to manually enable logging at both the Workspace and Project levels. Logging at the Project-level also supports multi-tenant logging. Access the Logging doc pages to review the new architecture and to get started with multi-tenant logging.
 
 #### Unidirectional Network Functionality
 
