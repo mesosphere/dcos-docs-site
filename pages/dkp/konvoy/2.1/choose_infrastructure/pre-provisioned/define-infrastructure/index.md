@@ -10,10 +10,31 @@ enterprise: false
 
 Konvoy needs to know how to access your cluster hosts. This is done using inventory resources. For initial cluster creation, you must define a control-plane and at least one worker pool.
 
+## Name your cluster
+
+1.  Give your cluster a unique name suitable for your environment.
+
+    Set the environment variable to be used throughout this documentation:
+
+    ```sh
+    CLUSTER_NAME=my-preprovisioned-cluster
+    ```
+
+    Note: If you want to create a unique cluster name, use this command.
+    This will create a unique name every time you run it so use it with forethought.
+
+    ```sh
+    CLUSTER_NAME=$(whoami)-preprovisioned-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+    echo $CLUSTER_NAME
+    ```
+
+    ```text
+    hunter-aws-cluster-pf4a3
+    ```
+
 1.  Export these environment variables:
 
     ```shell
-    export CLUSTER_NAME="$(whoami)-preprovisioned-cluster"
     export CONTROL_PLANE_1_ADDRESS="control-plane-address-1"
     export CONTROL_PLANE_2_ADDRESS="control-plane-address-2"
     export CONTROL_PLANE_3_ADDRESS="control-plane-address-3"
