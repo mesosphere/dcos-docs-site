@@ -10,8 +10,15 @@ enterprise: false
 
 Konvoy needs SSH access to your infrastructure with superuser privileges. You must provide an unencrypted SSH private key to Konvoy. Populate this key on your bootstrap cluster using the following command:
 
+Set the environment variable to the name you assigned this cluster.
+
+```sh
+CLUSTER_NAME=my-preprovisioned-cluster
+```
+
+See [define infrastructure](../define-infrastructure#name-your-cluster) about naming your cluster.
+
 ```shell
-export CLUSTER_NAME="$(whoami)-preprovisioned-cluster"
 kubectl create secret generic $CLUSTER_NAME-ssh-key --from-file=ssh-privatekey=<path-to-ssh-private-key>
 ```
 
