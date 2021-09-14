@@ -117,6 +117,7 @@ Below is the minimal IAM policy required:
                 "iam:AddRoleToInstanceProfile",
                 "iam:CreateInstanceProfile",
                 "iam:CreateRole",
+                "iam:CreateServiceLinkedRole",
                 "iam:DeleteInstanceProfile",
                 "iam:DeleteRole",
                 "iam:DeleteRolePolicy",
