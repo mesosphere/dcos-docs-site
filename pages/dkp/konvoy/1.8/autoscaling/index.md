@@ -69,6 +69,12 @@ to a minimum of 2 machines.
 The scaling decisions are based on the usage of the resources
 and requested resources, as detailed below.
 
+Ensure, before the next step, that you define the `AWS_PROFILE` environment variable, according to your ~/.aws/credentials. For example:
+
+```shell
+export AWS_PROFILE=default
+```
+
 When deploying the cluster for the first time using `konvoy up`, **you must ensure the initial cluster size satisfies the resource requirements of your addons**. The autoscaler will not scale up the cluster if `konvoy up` did not succeed. For instance, this can happen when you create an underprovisioned cluster where the addons won't fit in the cluster, and thereby the installation will fail. A possible workaround could be to firstly run `konvoy deploy kubernetes` to deploy the autoscaler, and then run `konvoy deploy addons`. Following this approach would allow the cluster to autoscale in order to satisfy the requirements of the selected addons.
 
 <p class="message--note"><strong>NOTE: </strong> Autoscaling is not enabled for control-plane and bastion node pools.</p>
@@ -293,7 +299,9 @@ If you choose to specify a different AWS account than the one **used during the 
                 "iam:GetInstanceProfile",
                 "iam:GetRole",
                 "iam:GetRolePolicy",
+                "iam:ListAttachedRolePolicies",
                 "iam:ListInstanceProfilesForRole",
+                "iam:ListRolePolicies",
                 "iam:PassRole",
                 "iam:PutRolePolicy",
                 "sts:GetCallerIdentity",
