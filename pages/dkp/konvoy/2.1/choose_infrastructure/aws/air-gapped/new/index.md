@@ -10,11 +10,13 @@ enterprise: false
 
 ## Create a new AWS Kubernetes cluster in the existing infrastructure
 
-1.  Give your cluster a name suitable for your environment:
+1.  Set the environment variable to the name you assigned this cluster.
 
     ```sh
-    export CLUSTER_NAME=$(whoami)-aws-air-gapped-cluster
+    CLUSTER_NAME=my-aws-cluster
     ```
+
+    See [Get Started with AWS](../../quick-start-aws#name-your-cluster) for information on naming your cluster.
 
 1.  Export variables for the existing infrastructure details:
 
