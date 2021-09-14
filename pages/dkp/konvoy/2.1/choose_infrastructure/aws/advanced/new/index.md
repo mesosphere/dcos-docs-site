@@ -11,11 +11,13 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 ## Create a new AWS Kubernetes cluster
 
-1.  Give your cluster a name suitable for your environment:
+1.  Set the environment variable to the name you assigned this cluster.
 
     ```sh
-    export CLUSTER_NAME=$(whoami)-aws-cluster
+    CLUSTER_NAME=my-aws-cluster
     ```
+
+    See [Get Started with AWS](../../quick-start-aws#name-your-cluster) for information on naming your cluster.
 
 1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
 
