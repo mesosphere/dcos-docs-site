@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Kommander 2.0
-title: Kommander 2.0
-version: 2.0
+navigationTitle: Kommander 2.1
+title: Kommander 2.1
+version: 2.1
 menuWeight: 0
 subtree:
-  beta: false
+  beta: true
   draft: false
 ---
 
