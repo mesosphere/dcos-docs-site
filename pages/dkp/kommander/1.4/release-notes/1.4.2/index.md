@@ -25,9 +25,9 @@ Kommander provides a command center for all your cloud native management needs i
 
 ### Bug fixes
 
-- Fixed an issue where addon links were disabled when the `konvoyconfig-kubeaddons` `ConfigMap` did not exist. Resolves (COPS-6997).
+- Fixed an issue where addon links were disabled when the `konvoyconfig-kubeaddons` `ConfigMap` did not exist. (COPS-6997).
 
-- Because it could not be determined if Grafana was deployed in Federated Clusters, the federated Grafana dashboard ConfigMap was removed. (COPS-6999)
+- Because Grafana could not be enabled for Federated Clusters, the federated Grafana dashboard ConfigMap was removed. (COPS-6999)
 
 - The `prometheus-adapter` no longer tries to install `v1beta1.metrics.k8s.io` on clusters with metrics service, like GKE. (COPS-6982)
 
