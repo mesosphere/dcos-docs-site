@@ -25,7 +25,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 ### Bug fixes
 
-- Because Grafana cannot be enabled for Federated Clusters, the federated Grafana dashboard ConfigMap was removed. (COPS-6999)
+- Because Grafana is not enabled on attached Clusters, the Grafana dashboard card was removed from the UI. (COPS-6999)
 
 - Advance federated `traefik-forward-auth` to version 3.01 to address security issues.
 
