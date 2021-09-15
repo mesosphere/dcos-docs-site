@@ -33,12 +33,14 @@ Kommander provides a command center for all your cloud native management needs i
 
 - Fixed the issue where clusters were not attaching successfully and were getting stuck in **Loading Data** phase. (COPS-6978)
 
+- Advance federated `traefik-forward-auth` to version 3.01 to address security issues.
+
 ### Component Versions
 
-- Addon: 1.4.2-2
-- Chart: 0.37.0
-- kommander-federation (yakcl): 0.19.0
-- kommander-licensing (yakcl): 0.19.0
+- Addon: 1.4.2-3
+- Chart: 0.38.0
+- kommander-federation (yakcl): 0.20.0
+- kommander-licensing (yakcl): 0.20.0
 - UI: 6.99.5
 - kommander-karma: 0.3.19
 - kubeaddons-catalog: 0.1.16
