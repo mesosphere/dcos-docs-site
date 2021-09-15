@@ -25,7 +25,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 ### Bug fixes
 
-- Because it could not be determined if Grafana was deployed in Federated Clusters, the federated Grafana dashboard ConfigMap was removed. (COPS-6999)
+- Because Grafana cannot be enabled for Federated Clusters, the federated Grafana dashboard ConfigMap was removed. (COPS-6999)
 
 ### Component Versions
 
