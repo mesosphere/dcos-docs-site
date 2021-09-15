@@ -16,6 +16,7 @@ This section describes ports used by the different Kubernetes components in your
 | ----------- | ----------------------- | ---------------- |
 | 22          | Ansible                 | ssh              |
 | 179         | calico-node             | BGP              |
+| 1338        | Containerd              | metrics          |
 | 2379        | etcd                    | client           |
 | 2380        | etcd                    | peer             |
 | 6443        | kube-apiserver          |                  |
@@ -36,6 +37,7 @@ This section describes ports used by the different Kubernetes components in your
 | ----------- | -------------------- | ---------------- |
 | 22          | Ansible              | ssh              |
 | 179         | calico-node          | BGP              |
+| 1338        | Containerd           | metrics          |
 | 5473        | calico-typha         | syncserver       |
 | 9091        | calico-node          | felix metrics    |
 | 9092        | calico-node          | bird metrics     |
