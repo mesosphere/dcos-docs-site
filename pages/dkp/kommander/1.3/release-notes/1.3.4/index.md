@@ -27,21 +27,21 @@ Kommander provides a command center for all your cloud native management needs i
 
 - Because Grafana cannot be enabled for Federated Clusters, the federated Grafana dashboard ConfigMap was removed. (COPS-6999)
 
+- Advance federated `traefik-forward-auth` to version 3.01 to address security issues.
+
 ### Component Versions
 
-- Addon: 1.4.2-2
-- Chart: 0.37.0
-- kommander-federation (yakcl): 0.19.0
-- kommander-licensing (yakcl): 0.19.0
-- UI: 6.99.5
-- kommander-karma: 0.3.19
-- kubeaddons-catalog: 0.1.16
-- kommander-thanos: 0.1.22
+- Addon: 1.3.4-1
+- Chart: 0.15.14
+- kommander-federation (yakcl): 0.8.13
+- kommander-licensing (yakcl): 0.8.13
+- UI: 6.91.8
+- kommander-karma: 0.3.12
+- kubeaddons-catalog: 0.1.15
+- kommander-thanos: 0.1.16
 - kubecost: 0.13.0
-- kubefed: 0.7.0
 - grafana: 6.6.0
 - karma: 0.70
-- thanos: 0.17.1
+- thanos: 0.10.1
 - cost-analyzer: 1.81.0
-
 
