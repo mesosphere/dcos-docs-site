@@ -16,7 +16,7 @@ For Konvoy users there are certain issues and caveats you should know when prepa
 
 - [Creating GPU enabled on-premises configurations](#install-gpu-support-on-supported-distributions-on-premise)
 
-Kommander can also access [GPU](http://docs.d2iq.com.dkp/kommander/2.0/gpu/) resources.
+Kommander can also access [GPU](https://docs.d2iq.com/dkp/kommander/2.0/gpu/) resources.
 
 ## How to use Konvoy automatic GPU node labels
 
