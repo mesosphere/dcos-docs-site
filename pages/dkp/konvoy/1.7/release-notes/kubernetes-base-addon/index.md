@@ -14,6 +14,22 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
+September 15, 2021
+
+[stable-1.19-3.6.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.19-3.6.0)
+
+-   Dashboard:
+    - Starting from version 4.0.0 of this chart, it will only support Helm 3 and remove the support for Helm 2.
+
+-   Nvidia
+    - Updated Nvidia addon to support driver v460
+
+-   Prometheus
+    - fix: Bump Prometheus to v2.29.2 which fixes head GC and pending readers race condition that caused issues with rule evaluations.
+
+-   Traefik-forward-auth
+    - Shorten hook names to be within 63 character length.
+
 June 9, 2021
 
 [stable-1.19-3.5.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.19-3.5.0)
