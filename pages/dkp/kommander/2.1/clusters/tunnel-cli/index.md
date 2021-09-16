@@ -82,7 +82,7 @@ spec:
       hostname: ${hostname}
     urlPathPrefix: /dkp/tunnel
     extraAnnotations:
-      kubernetes.io/ingress.class: traefik
+      kubernetes.io/ingress.class: kommander-traefik
       traefik.ingress.kubernetes.io/router.tls: "true"
       traefik.ingress.kubernetes.io/router.middlewares: kommander-stripprefixes-kubetunnel@kubernetescrd
 EOF
