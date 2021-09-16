@@ -14,6 +14,104 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
+September 15, 2021
+
+[stable-1.20-4.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.2.0)
+
+-   Ambassador
+    - Bump Ambassador to 1.13
+    - Bugfix: Fixed a regression when specifying a comma separated string for `cors.origins` on the `Mapping` resource. ([#3609])
+    - Change: Envoy-configuration snapshots get saved (as `ambex-#.json`) in `/ambassador/snapshots`.
+    - The number of snapshots is controlled by the `AMBASSADOR_AMBEX_SNAPSHOT_COUNT` environment variable; set it to 0 to disable. The default is 30.
+    - Change: Set `AMBASSADOR_AMBEX_NO_RATELIMIT` to `true` to completely disable ratelimiting Envoy reconfiguration under memory pressure. This can help performance with the endpoint or Consul resolvers, but could make OOMkills more likely with large configurations. The default is `false`, meaning that the rate limiter is active.
+    - Bugfix: The `Mapping` resource can now specify `docs.timeout_ms` to set the timeout when the
+    - Dev Portal is fetching API specifications.
+    - Bugfix: The Dev Portal will now strip HTML tags when displaying search results, showing just the actual content of the search result.
+    - Change: Consul certificate-rotation logging now includes the fingerprints and validity timestamps of certificates being rotated.
+    - Bugfix: Ambassador Agent now accurately reports up-to-date Endpoint information to Ambassador Cloud
+    - Feature: Ambassador Agent reports ConfigMaps and Deployments to Ambassador Cloud to provide a better Argo Rollouts experience. See [Argo+Ambassador documentation](https://www.getambassador.io/docs/argo) for more info.
+    - Feature: Add AMBASSADOR_JSON_LOGGING to enable JSON for most of the Ambassador control plane. Some (but few) logs from gunicorn and the Kubernetes client-go package still log text.
+    - Bugfix: Fixed a bug where the Consul resolver would not actually use Consul endpoints with TCPMappings.
+    - Change: Ambassador now calculates its own memory usage in a way that is more similar to how the kernel OOMKiller tracks memory.
+    - Bugfix: Fixed a regression where Ambassador snapshot data was logged at the INFO label when using AMBASSADOR_LEGACY_MODE=true
+    - Bugfix: Fix a regression from 1.8.0 that prevented Ambassador module config keys `proper_case` and `preserve_external_request_id` from working correctly.
+    - Bugfix: Fixed a regression in detecting the Ambassador Kubernetes service that could cause the wrong IP or hostname to be used in Ingress statuses (thanks, [Noah Fontes](https://github.com/impl)!
+    - Bugfix: Incorporate the Envoy 1.15.5 security update by adding the `reject_requests_with_escaped_slashes` option to the Ambassador module.
+
+-   Azuredisk-csi-driver
+    -   Features
+        - support force detach
+        - support incremental snapshot
+        - support tags in snapshot
+        - create snapshot on external resource group
+        - add dangling error support
+        - support Azure disk batch attach/detach (#650)
+        - Windows beta support (switch to csi-proxy v0.2.2 API)
+        - support multi OS versions for Windows images
+        - Azure stack support
+        - ListVolumes support
+        - add LogicalSectorSize support for UltraSSD
+        - remove unmanaged disk support
+        - add full Azure Stack support
+        - add more controller metrics
+        - support disable AzureStack
+        - disable AzureStack by DisableAzureStackCloud config
+    -   Bug Fixes
+        - fix disk API 10s latency issue
+        - fix initial delay(1s) when mount azure disk
+        - fix incorrect max azure disk max count
+        - fix resize error in migration scenario
+        - fix azure disk resize error if source does not exist
+        - fix: not schedule driver pod on virtual node
+        - fix: cache data loss issue on Windows when unmount disk
+        - fix: resize filesystem if cloned volume capacity is larger than source volume
+        - fix: volume expansion failure on node
+        - fix: helm chart installation issue
+
+-   Dashboard
+    - Hide pagination controls if there is only a single page of items to display (#5827)
+    - Use .log extension instead of .txt for downloaded log files
+    - Extend pod view with more information including: related Service Account (#5815) liveness/readiness probe (#6145)
+    - Major refactoring and improvements of the log viewer (#5868)
+    - Change resource status icons to colored dots (#5867)
+    - Add hover effects for clickable elements (#5930)
+    - Add deployment rollout restart option (#5917)
+    - Improve env variable display for containers and fix ingress view (#5975)
+    - Add labels to workload status charts (#5994)
+    - Restore serialized reference component (#6090)
+    - Reorganize resource list columns and add more columns, i.e. images (#6014)
+    - Replace all overview redirects with workloads (#6092)
+    - Improve chart metrics calculation to support wider time windows (#6126)
+    - Use stable networking.k8s.io/v1 API for Ingress resource
+
+-   Elasticsearchexporter
+    - Feature: Added elasticsearch_clustersettings_stats_max_shards_per_node metric. #277
+    - Feature: Added elasticsearch_indices_shards_store_size_in_bytes metric. #292
+    - Feature: Added --es.indices_mappings flag to scrape elasticsearch index mapping stats and elasticsearch_indices_mappings_stats collector. #411
+    - Feature: Added elasticsearch_snapshot_stats_latest_snapshot_timestamp_seconds metric. #318
+    - Feature: Added support for reloading the tls client certificate in case it changes on disk. #414
+    - Fix: Fixed the elasticsearch_indices_shards_docs metric name. #291
+    - Fix: Fixed elasticsearch 7.13 node stats metrics #439
+    - Fix: Fixed snapshot stats metrics for some snapshot repository types #442
+
+-   Nvidia
+    - Updated Nvidia addon to support driver v460
+
+-   Opsportal
+    - Fix cluster details page for AKS clusters (COPS-6997)
+    - Fix UI load addon dashboard links even when custom domain ConfigMap does not exist.
+
+-   Prometheus
+    - Now possible to enable elasticsearch rules
+    - Fix: Bump Prometheus to v2.29.2 which fixes head GC and pending readers race condition that caused issues with rule evaluations.
+
+-   Reloader
+    - Reload resource if secret/configmap is re-created
+
+-   Traefik-forward-auth
+    - Shorten hook names to be within 63 character length.
+    - TFA now sanitizes incoming Connection headers
+
 June 9, 2021
 
 [stable-1.20-4.1.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.1.0)
