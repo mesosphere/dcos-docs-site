@@ -56,7 +56,7 @@ export VERSION=v2.0.0
 
     while read -r IMAGE; do
         echo "Processing ${IMAGE}"
-        REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s/^(quay|gcr|ghcr|docker).io/${REGISTRY_URL}/")"
+        REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker).io@${REGISTRY_URL}@")"
         docker tag "${IMAGE}" "${REGISTRY_IMAGE}"
         docker push "${REGISTRY_IMAGE}"
     done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
