@@ -14,11 +14,11 @@ By default, the client access token lifetime is 24 hours. After this time, the t
 
     ```yaml
     - name: dex
-        enabled: true
-        values: |
+      enabled: true
+      values: |
         config:
           expiry:
-          idTokens: "48h"
+            idTokens: "48h"
     ```
 
 2.  Run `konvoy deploy addons`, or `konvoy up` if you have yet to deploy the cluster.
