@@ -310,13 +310,13 @@ To generate the support bundle:
 1.  Run the `support-bundle` command with the `SupportBundle` spec file from the previous step.
 
     ```sh
-    support-bundle bundle.yaml
+    support-bundle bundle.yaml --redact=false
     ```
 
     ```sh
     Collecting support bundle ...
 
-    support-bundle-2021-08-13T14_44_23.tar.gz --redact=false
+    support-bundle-2021-08-13T14_44_23.tar.gz
     ```
 
 1.  To view its contents extract the bundle (replacing `support-bundle-2021-08-13T14_44_23.tar.gz` with the location from the previous step):
