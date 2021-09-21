@@ -29,10 +29,15 @@ This release provides new features and enhancements to improve the user experien
 
 ### New features and capabilities
 
+#### CLI
+
+- Do not fail but print a warning when SELinux is enabled.
+
 #### Air gapped
 
 - Konvoy 1.8.1 was failing to deploy in an air-gapped cluster running in FIPS mode. (COPS-6992, COPS-6998)
 - Include typha container image in the air-gap bundle. (COPS-6967)
+- Include missing vSphere CSI image. (COPS-7008)
 
 #### Autoscaling
 
