@@ -72,7 +72,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
-    version: 1.20.10
+    version: 1.20.11
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
