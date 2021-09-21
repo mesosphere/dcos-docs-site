@@ -26,13 +26,18 @@ This release provides new features and enhancements to improve the user experien
 | ------------------ | ------- |
 |**Minimum** | 1.17.x |
 |**Maximum** | 1.19.x |
-|**Default** | 1.19.9 |
+|**Default** | 1.19.15 |
 
 ### New features and capabilities
 
-#### Prometheus
+#### CLI
 
-- Fixed an issue where Prometheus was raising alerts about missing rule evaluations. (COPS-7011)
+- Do not fail but print a warning when SELinux is enabled.
+
+#### Air gapped
+
+- Include typha container image in the air-gap bundle. (COPS-6967)
+- Include missing vSphere CSI image. (COPS-7008)
 
 #### Autoscaling
 
@@ -42,9 +47,9 @@ This release provides new features and enhancements to improve the user experien
 
 - Fix segmentation fault when vSphere Server URL is not defined, or an empty string. (COPS-6907)
 
-#### Air gapped
+#### Prometheus
 
-- Include typha container image in the air-gap bundle. (COPS-6967)
+- Fixed an issue where Prometheus was raising alerts about missing rule evaluations. (COPS-7011)
 
 ### Component versions
 
@@ -58,7 +63,7 @@ This release provides new features and enhancements to improve the user experien
 - kubeaddons-dispatch stable-1.19-1.4.1
 - kubeaddons-kommander stable-1.19-1.3.4
 - kubernetes-base-addons stable-1.19-3.6.0
-- Kubernetes v1.19.9
+- Kubernetes v1.19.15
 - Kubeaddons v0.26.1
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
 - Terraform v0.13.5

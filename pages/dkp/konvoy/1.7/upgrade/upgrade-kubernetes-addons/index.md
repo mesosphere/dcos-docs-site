@@ -68,7 +68,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.19.9
+    version: 1.19.15
 ```
 
 ## Prepare for addons upgrade
