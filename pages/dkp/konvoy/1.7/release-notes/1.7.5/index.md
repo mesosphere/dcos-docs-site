@@ -26,7 +26,7 @@ This release provides new features and enhancements to improve the user experien
 | ------------------ | ------- |
 |**Minimum** | 1.17.x |
 |**Maximum** | 1.19.x |
-|**Default** | 1.19.9 |
+|**Default** | 1.19.15 |
 
 ### New features and capabilities
 
@@ -58,7 +58,7 @@ This release provides new features and enhancements to improve the user experien
 - kubeaddons-dispatch stable-1.19-1.4.1
 - kubeaddons-kommander stable-1.19-1.3.4
 - kubernetes-base-addons stable-1.19-3.6.0
-- Kubernetes v1.19.9
+- Kubernetes v1.19.15
 - Kubeaddons v0.26.1
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
 - Terraform v0.13.5
