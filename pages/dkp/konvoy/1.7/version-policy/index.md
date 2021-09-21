@@ -24,7 +24,7 @@ For example, Konvoy 1.7.1 supports:
 | ------------------ | ------- |
 |**Minimum** | 1.17.x |
 |**Maximum** | 1.19.x |
-|**Default** | 1.19.9 |
+|**Default** | 1.19.15 |
 
 ## Supported operating systems
 

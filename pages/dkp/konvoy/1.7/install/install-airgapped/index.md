@@ -19,7 +19,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-- [kubectl][install_kubectl] v1.19.9 or later
+- [kubectl][install_kubectl] v1.19.15 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -456,7 +456,7 @@ spec:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionMap:
-          1.19.9: stable-1.19-3.6.0
+          1.19.15: stable-1.19-3.6.0
         versionStrategy: mapped-kubernetes-version
 ```
 

@@ -77,7 +77,7 @@ After the upgrade command completes, you can start using the new Konvoy version.
 
 Konvoy v1.7.x requires Calico version `3.17.x`. If your `cluster.yaml` file specifies an older version of Calico you must update to that version. The latest supported version is `v3.17.3`,
 
-It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.19.9`.
+It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.19.15`.
 
 It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.9`.
 
@@ -92,7 +92,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
-    version: 1.19.9
+    version: 1.19.15
   ...
   containerNetworking:
     calico:

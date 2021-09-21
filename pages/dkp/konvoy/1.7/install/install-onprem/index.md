@@ -18,7 +18,7 @@ Before installing, verify that your environment meets the following basic requir
 
 * [Docker][install_docker] version 18.09.2 or later. You must have Docker installed on the host where the Konvoy command line interface (CLI) will run. For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.19.9 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
+* [kubectl][install_kubectl] v1.19.15 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
 
 * Konvoy cannot be run from a host that belongs to a Kubernetes cluster, you must have a separate host.
 
