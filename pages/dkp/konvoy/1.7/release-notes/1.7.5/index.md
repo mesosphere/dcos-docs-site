@@ -30,9 +30,14 @@ This release provides new features and enhancements to improve the user experien
 
 ### New features and capabilities
 
-#### Prometheus
+#### CLI
 
-- Fixed an issue where Prometheus was raising alerts about missing rule evaluations. (COPS-7011)
+- Do not fail but print a warning when SELinux is enabled.
+
+#### Air gapped
+
+- Include typha container image in the air-gap bundle. (COPS-6967)
+- Include missing vSphere CSI image. (COPS-7008)
 
 #### Autoscaling
 
@@ -42,9 +47,9 @@ This release provides new features and enhancements to improve the user experien
 
 - Fix segmentation fault when vSphere Server URL is not defined, or an empty string. (COPS-6907)
 
-#### Air gapped
+#### Prometheus
 
-- Include typha container image in the air-gap bundle. (COPS-6967)
+- Fixed an issue where Prometheus was raising alerts about missing rule evaluations. (COPS-7011)
 
 ### Component versions
 
