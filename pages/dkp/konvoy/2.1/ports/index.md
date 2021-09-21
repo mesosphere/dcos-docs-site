@@ -43,6 +43,7 @@ This section describes ports used by the different Kubernetes components in your
 | 9092        | calico-node          | bird metrics     |
 | 9093        | calico-typha         | metrics          |
 | 9099        | calico-node          | felix liveliness |
+| 9400        | NVIDIA GPU DCGM      | metrics          |
 | 10248       | kubelet              | health           |
 | 10249       | kube-proxy           | metrics          |
 | 10250       | kubelet              |                  |
