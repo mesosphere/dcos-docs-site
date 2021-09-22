@@ -47,7 +47,7 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 | logging-operator-3.13.0       | logging-operator      | False               |
 | metallb-0.12.2                | metallb               | False               |
 | minio-operator-4.1.7          | minio-operator        | False               |
-| nvidia-0.4.2                  | nvidia                | False               |
+| nvidia-0.4.3                  | nvidia                | False               |
 | prometheus-adapter-2.11.1     | prometheus-adapter    | True                |
 | reloader-0.0.99               | reloader              | True                |
 | traefik-10.3.0                | traefik               | True                |
