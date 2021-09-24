@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes
+navigationTitle: Release Notes Konvoy 1.8.3
 title: Release Notes Konvoy 1.8.3
 menuWeight: 40
 excerpt: View release-specific information for Konvoy 1.8.3
