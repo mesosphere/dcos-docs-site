@@ -3,7 +3,7 @@ layout: layout.pug
 beta: false
 navigationTitle: Release Notes Kommander 1.3.4
 title: Release Notes Kommander 1.3.4
-menuWeight: 20
+menuWeight: 50
 excerpt: View release-specific information for Kommander 1.3.4
 enterprise: false
 ---
@@ -44,4 +44,3 @@ Kommander provides a command center for all your cloud native management needs i
 - karma: 0.70
 - thanos: 0.10.1
 - cost-analyzer: 1.81.0
-
