@@ -19,7 +19,7 @@ Konvoy supports the following base Operating Systems.
 | [CentOS 7.7][centos7] | 3.10.0-1062.12.1.el7.x86_64 | |
 | [CentOS 7.8][centos7] | 3.10.0-1127.el7.x86_64      | |
 | [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64      | |
-| [CentOS 8.2][centos8] | 4.18.0-193.6.3.el8_2.x86_64 | GPU workloads are not currently supported |
+| [CentOS 8.2][centos8] | 4.18.0-193.6.3.el8_2.x86_64 | |
 
 ## RHEL
 
@@ -28,7 +28,7 @@ Konvoy supports the following base Operating Systems.
 | [RHEL_7.7][rhel_7_7] | 3.10.0-1062.12.1.el7.x86_64 | |
 | [RHEL_7.8][rhel_7_8] | 3.10.0-1127.8.2.el7.x86_64  | |
 | [RHEL 7.9][rhel_7_9] | 3.10.0-1160.el7.x86_64      | |
-| [RHEL 8.2][rhel_8_2] | 4.18.0-193.6.3.el8_2.x86_64 | GPU workloads are not currently supported |
+| [RHEL 8.2][rhel_8_2] | 4.18.0-193.6.3.el8_2.x86_64 | |
 
 <!--
 ## Ubuntu
@@ -50,7 +50,7 @@ Konvoy supports the following base Operating Systems.
 
 | OS Release | Notes |
 |------------| ----- |
-| [15][suse_15] | GPU workloads are not currently supported |
+| [15][suse_15] | |
 
 ## Flatcar
 
