@@ -33,7 +33,9 @@ The following components provide Nvidia GPU support on Konvoy:
 
 1.  NVIDIA GPU with Fermie architecture version 2.1 or greater.
 
-1.  Nvidia driver must be running on each GPU host node. Nvidia driver version `460.73.01` is recommended. Follow the official [Nvidia Driver Installation Guide][nvidia_driver_installation_guide] to setup the driver on the host. For example,
+1.  Nvidia driver must be running on each GPU host node. Nvidia driver version `450.51.06-1` is recommended. Follow the official [Nvidia Driver Installation Guide][nvidia_driver_installation_guide] to setup the driver on the host. For example,
+
+<p class="message--important"><strong>IMPORTANT: </strong>For Konvoy versions v1.8.0, 1.8.1, and v1.8.2, Nvidia driver version 450.51.06-1 is recommended. For Konvoy versions v1.8.3, Nvidia driver version 460.73.01 is recommended.</p>
 
 * Centos 7
 
@@ -53,7 +55,7 @@ ARCH=$( /bin/arch )
 sudo yum-config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/$distribution/${ARCH}/cuda-$distribution.repo
 sudo yum install -y kernel-devel-$(uname -r) kernel-headers-$(uname -r)
 sudo yum clean expire-cache
-sudo yum install -y nvidia-driver-latest-dkms-3:460.73.01-1.el7.x86_64
+sudo yum install -y nvidia-driver-latest-dkms-3:450.51.06-1.el7.x86_64
 ```
 
 * Ubuntu 16.04/18.04 LTS
@@ -78,7 +80,7 @@ sudo apt-get -y install cuda-drivers-460
 [centos@ip-10-0-130-28 ~]$ nvidia-smi
 Fri Jun 11 09:05:31 2021
 +-----------------------------------------------------------------------------+
-| NVIDIA-SMI 460.73.01    Driver Version: 460.73.01    CUDA Version: 11.2     |
+| NVIDIA-SMI 450.51.06    Driver Version: 450.51.06    CUDA Version: 11.0     |
 |-------------------------------+----------------------+----------------------+
 | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
