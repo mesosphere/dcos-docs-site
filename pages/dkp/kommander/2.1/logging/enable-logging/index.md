@@ -18,7 +18,7 @@ Logging is disabled by default. You will need to enable logging features explici
 Before you begin, you must:
 
 -  Be a cluster administrator with permissions to configure cluster-level platform services.
-- Set a [default storage class](../../clusters/attach-cluster/requirements-for-attaching/#default-storageclass) on each attached cluster for successful Loki deployment.
+- Set a [default storage class](../../clusters/attach-cluster/requirements-for-attaching#creating-a-default-storageclass) on each attached cluster for successful Loki deployment.
 
 ## Enable Workspace-level logging
 
