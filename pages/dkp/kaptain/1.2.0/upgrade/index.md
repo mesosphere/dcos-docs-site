@@ -17,6 +17,14 @@ Learn how to upgrade the existing Kaptain installation to a newer version.
 
 ## Upgrading Kaptain
 
+<p class="message--warning"><strong>WARNING: </strong>When upgrading from Kaptain 1.1.0 to 1.2.0, some resources are not cleaned up automatically during the upgrade and must be removed manually by running the following commands before the upgrade:
+</p>
+
+```bash
+kubectl delete mutatingwebhookconfigurations.admissionregistration.k8s.io katib-mutating-webhook-config
+kubectl delete validatingwebhookconfigurations.admissionregistration.k8s.io katib-validating-webhook-config
+```
+
 * Ensure the following base addons that are needed by Kaptain are enabled in your Konvoy cluster:
     ```yaml
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
