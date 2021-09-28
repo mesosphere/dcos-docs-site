@@ -9,9 +9,9 @@ excerpt: Deploy applications to attached clusters using the CLI
 <!-- markdownlint-disable MD004 MD040 -->
 
 This topic describes how to use the CLI to deploy an application to attached clusters within a project.
-To use the Kommander UI to deploy applications, see [Deploy applications in a project](../#deploy-applications-in-a-project).
+To use the Kommander UI to deploy applications, see [Deploy applications in a project](../../project-applications#deploy-applications-in-a-project).
 
-See [Project Applications](../#project-applications) for a list of all applications and those that are enabled by default.
+See [Project Applications](../../project-applications#project-applications) for a list of all applications and those that are enabled by default.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ export PROJECT_NAMESPACE=<project_namespace>
 
 ## Deploy the application
 
-The list of available applications that can be deployed on the attached cluster can be found [here](../#project-applications).
+The list of available applications that can be deployed on the attached cluster can be found [here](../../project-applications#project-applications).
 
 1.  Deploy one of the supported applications to [your existing attached cluster](../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 
