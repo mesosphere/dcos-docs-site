@@ -75,4 +75,4 @@ Consider the additional resource requirements for running the platform services 
 [existing-clusters]: ../generate-kubeconfig/
 [projects]: ../../../projects
 [workspaces]: ../../../workspaces
-[workspace_platform_services_table]: ../../../workspaces/workspace-platform-services/#workspace-platform-applications
+[workspace_platform_services_table]: ../../../workspaces/workspace-platform-services#workspace-platform-applications

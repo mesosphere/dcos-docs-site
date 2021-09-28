@@ -73,7 +73,7 @@ To disable all of the default dashboards, follow these steps to define an overri
     kubectl apply -f kube-prometheus-stack-overrides.yaml
     ```
 
-1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy a service with a custom configuration](../workspaces/workspace-platform-services/application-deployment/#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment will resemble this code sample:
+1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](../workspaces/workspace-platform-services/application-deployment#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment will resemble this code sample:
 
     ```yaml
     apiVersion: apps.kommander.d2iq.io/v1alpha1
@@ -197,7 +197,7 @@ For example, if you want to disable the default `node` alert rules, follow these
     kubectl apply -f kube-prometheus-stack-overrides.yaml
     ```
 
-1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy a service with a custom configuration](../workspaces/workspace-platform-services/application-deployment/#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment file resembles this code sample:
+1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](../workspaces/workspace-platform-services/application-deployment#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment file resembles this code sample:
 
     ```yaml
     apiVersion: apps.kommander.d2iq.io/v1alpha1
