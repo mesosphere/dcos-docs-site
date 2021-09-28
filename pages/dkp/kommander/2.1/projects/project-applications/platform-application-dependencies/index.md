@@ -6,7 +6,7 @@ menuWeight: 8
 excerpt: Dependencies between project applications
 ---
 
-There are many dependencies between the applications that are deployed to a project's attached clusters. It is important to note these dependencies when customizing the project applications to ensure that your services are properly deployed to the clusters. For more information on how to customize project applications, see [Project Application Deployment](../application-deployment/#deploy-an-application-with-a-custom-configuration).
+There are many dependencies between the applications that are deployed to a project's attached clusters. It is important to note these dependencies when customizing the project applications to ensure that your services are properly deployed to the clusters. For more information on how to customize project applications, see [Project Application Deployment](../application-deployment#deploy-an-application-with-a-custom-configuration).
 
 ## Application Dependencies
 
