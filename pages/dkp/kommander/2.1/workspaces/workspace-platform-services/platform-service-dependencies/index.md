@@ -6,7 +6,7 @@ menuWeight: 8
 excerpt: Dependencies between workspace applications
 ---
 
-There are many dependencies between the platform applications that are deployed to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform applications to ensure that your applications are properly deployed to the clusters. For more information on how to customize workspace platform applications, see [Workspace Platform Applications](../#customize-a-workspaces-platform-application).
+There are many dependencies between the platform applications that are deployed to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform applications to ensure that your applications are properly deployed to the clusters. For more information on how to customize workspace platform applications, see [Workspace Platform Applications](../../workspace-platform-services#customize-a-workspaces-applications).
 
 ## Platform Application Dependencies
 
