@@ -84,9 +84,9 @@ extra_images:
   - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.1.0
   - gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
   - k8s.gcr.io/cluster-api-aws/cluster-api-aws-controller:v0.7.0
-  - k8s.gcr.io/cluster-api/cluster-api-controller:v0.4.2
-  - k8s.gcr.io/cluster-api/kubeadm-bootstrap-controller:v0.4.2
-  - k8s.gcr.io/cluster-api/kubeadm-control-plane-controller:v0.4.2
+  - k8s.gcr.io/cluster-api/cluster-api-controller:v0.4.3
+  - k8s.gcr.io/cluster-api/kubeadm-bootstrap-controller:v0.4.3
+  - k8s.gcr.io/cluster-api/kubeadm-control-plane-controller:v0.4.3
   - quay.io/jetstack/cert-manager-cainjector:v1.5.3
   - quay.io/jetstack/cert-manager-controller:v1.5.3
   - quay.io/jetstack/cert-manager-webhook:v1.5.3
