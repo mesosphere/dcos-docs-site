@@ -14,7 +14,7 @@ Upgrade the existing Kaptain installation to a newer version.
 
 Before you begin, ensure you have:
 
-- Kaptain 1.2.0-1.1.0 installed on a Konvoy cluster.
+- Kaptain 1.2.0–1.1.0 installed on a Konvoy cluster.
 - The existing cluster meets the criteria listed in the [installation documentation][install]. 
 
 ## Upgrade Kaptain
