@@ -476,8 +476,8 @@ That means we have specific branches that contains different content and are dep
 We have three branches which are deployed:
 
 - `main` is our preview environment and our main development branch, it will be deployed to dev-docs.d2iq.com.
-- `production` is our production branch and will get deployed to the production environment available at docs.d2iq.com.
 - `beta` is our beta branch and will be deployed to `beta-docs.d2iq.com`.
+- - `production` is our production branch and will get deployed to the production environment available at docs.d2iq.com.
 
 Every change should be made to the `main` branch and from there be merged into the respective branches which should reflect that content.
 
