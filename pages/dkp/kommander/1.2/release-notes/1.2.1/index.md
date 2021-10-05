@@ -8,7 +8,7 @@ excerpt: View release-specific information for Kommander 1.2.1
 enterprise: false
 ---
 
-**D2iQ&reg; Kommander&reg; version 1.2.1 was released on 11, March 2021.**
+**D2iQ&reg; Kommander&reg; version 1.2.1 was released on March 11, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
