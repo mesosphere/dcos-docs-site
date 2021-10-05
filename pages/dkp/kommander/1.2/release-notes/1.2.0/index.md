@@ -19,7 +19,7 @@ For more information on addressing this limit, refer to this [procedure](../oper
 
 # Release notes for Kommander 1.2
 
-**D2iQ&reg; Kommander&reg; 1.2 was released on 16, November 2020** 
+**D2iQ&reg; Kommander&reg; 1.2 was released on November 16, 2020** 
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
