@@ -12,7 +12,7 @@ menuWeight: 33
 Before you begin, you must:
 
 - [Create a workload cluster][createnewcluster].
-- [Make the new cluster self-managing][selfmanaging].
+- [Make the new cluster self-managed][selfmanaged].
 
 ## Replace a worker node
 
@@ -105,5 +105,5 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 -->
 
 [createnewcluster]: ../new
-[selfmanaging]: ../self-managing
+[selfmanaged]: ../self-managed
 [capi_book]: https://cluster-api.sigs.k8s.io/
