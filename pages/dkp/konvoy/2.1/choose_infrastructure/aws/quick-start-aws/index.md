@@ -161,9 +161,9 @@ Tips:
     - The Konvoy version used for creating the worker cluster must match the Konvoy version used for deleting the worker cluster.
     - The Konvoy version used for deploying a bootstrap cluster must match the Konvoy version used for deploying a worker cluster.
     - Konvoy only supports moving all namespaces in the cluster; Konvoy does not support migration of individual namespaces.
-    - You must ensure that the permissions available to the CAPI controllers running on the worker cluster are sufficient.
+    - You must ensure that the permissions are sufficient and available to the CAPI controllers running on the worker cluster.
 
-1.  Remove the bootstrap cluster, as the worker cluster is now self-managing:
+1.  Remove the bootstrap cluster, as the worker cluster is now self-managed:
 
     ```sh
     dkp delete bootstrap --kubeconfig $HOME/.kube/config
