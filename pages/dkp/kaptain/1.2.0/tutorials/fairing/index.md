@@ -38,7 +38,7 @@ The Docker image builder process stores (temporary) files in MinIO.
 
 ### What You Need
 
-- An executable Python file (e.g. an `mnist.py` trainer - you can extract it from [Pytorch tutorial](../training/pytorch) in case you do not have one handy);
+- An executable Python file (e.g. an `mnist.py` trainer - you can extract it from [Pytorch tutorial](../training/pytorch) in case you do not have one handy).
 - A container registry to which you have push access.
 
 Please note that this notebook is interactive!
