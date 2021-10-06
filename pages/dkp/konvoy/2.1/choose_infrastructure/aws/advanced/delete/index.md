@@ -7,11 +7,11 @@ excerpt: Delete the Kubernetes cluster and clean up your environment
 enterprise: false
 ---
 
-## Prepare to delete a self-managing workload cluster
+## Prepare to delete a self-managed workload cluster
 
-<p class="message--note"><strong>NOTE: </strong>A self-managing workload cluster cannot delete itself. If your workload cluster is self-managing, you must create a bootstrap cluster and move the cluster lifecycle services to the bootstrap cluster before deleting the workload cluster.</p>
+<p class="message--note"><strong>NOTE: </strong>A self-managed workload cluster cannot delete itself. If your workload cluster is self-managed, you must create a bootstrap cluster and move the cluster lifecycle services to the bootstrap cluster before deleting the workload cluster.</p>
 
-If you did not make your workload cluster self-managing, as described in [Make New Cluster Self-Managing][makeselfmanaging], see [Delete the workload cluster](#delete-the-workload-cluster).
+If you did not make your workload cluster self-managed, as described in [Make New Cluster Self-Managed][makeselfmanaged], see [Delete the workload cluster](#delete-the-workload-cluster).
 
 1.  Create a bootstrap cluster:
 
@@ -138,4 +138,4 @@ INFO[2021-06-09T12:15:20-07:00] Deleting bootstrap cluster                    sr
 
 - The Konvoy version used to create the workload cluster must match the Konvoy version used to delete the workload cluster.
 
-[makeselfmanaging]: ../self-managing
+[makeselfmanaged]: ../self-managed
