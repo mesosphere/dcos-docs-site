@@ -19,7 +19,7 @@ Creating a node pool is useful when you need to run workloads that require machi
 
     See [Get Started with AWS](../../quick-start-aws#name-your-cluster) for information on naming your cluster.
 
-1.  If your workload cluster is self-managing, as described in [Make the New Cluster Self-Managing][makeselfmanaging], configure `kubectl` to use the kubeconfig for the cluster.
+1.  If your workload cluster is self-managed, as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster.
 
     ```sh
     export KUBECONFIG=${CLUSTER_NAME}.conf
@@ -51,7 +51,7 @@ INFO[2021-08-02T12:16:26-07:00] Created default/example nodepool          src="n
 
 This example uses default values for brevity. Use flags to define custom instance types, AMIs, and other properties.
 
-Advanced users can use a combination of the `--dry-run` and `--output=yaml` flags to get a complete set of node pool objects to modify locally, and/or store in version control.
+Advanced users can use a combination of the `--dry-run` and `--output=yaml` flags to get a complete set of node pool objects to modify locally or store in version control.
 
-[makeselfmanaging]: ../../advanced/self-managing
+[makeselfmanaged]: ../../advanced/self-managed
 [createnewcluster]: ../../advanced/new

@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle: Make New Cluster Self-Managing
-title: Make the New Cluster Self-Managing
+navigationTitle: Make New Cluster Self-Managed
+title: Make the New Cluster Self-Managed
 menuWeight: 80
 excerpt: Make the new Kubernetes cluster manage itself
 enterprise: false
 ---
 
-Konvoy deploys all cluster lifecycle services to a bootstrap cluster. This bootstrap cluster deploys a workload cluster. When the workload cluster is ready, move the cluster lifecycle services to the workload cluster. The workload cluster now manages its own lifecycle. This guide describes how to make a workload cluster self-managing.
+Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which then deploys a workload cluster. When the workload cluster is ready, move the cluster lifecycle services to the workload cluster, which is now self-managed. This guide describes how to make a workload cluster self-managed.
 
 Before you start, make sure you have created a workload cluster, as described in [Create the Cluster][createthecluster].
 
@@ -56,7 +56,7 @@ Before you start, make sure you have created a workload cluster, as described in
     INFO[2021-09-06T23:24:21-05:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=preprovisioned-cluster.conf get nodes  src="move/move.go:158"
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>To make sure only one set of cluster lifecycle services manages the workload cluster, Konvoy first pauses reconciliation of the objects on the bootstrap cluster. Konvoy then creates the objects on the workload cluster. As Konvoy copies the objects, the cluster lifecycle services on the workload cluster reconcile them. The workload cluster becomes self-managing after Konvoy creates all the objects. The <code>move</code> command can be safely retried, if it fails.</p>
+    <p class="message--note"><strong>NOTE: </strong>To ensure only one set of cluster lifecycle services manages the workload cluster, Konvoy first pauses reconciliation of the objects on the bootstrap cluster, then creates the objects on the workload cluster. As Konvoy copies the objects, the cluster lifecycle services on the workload cluster reconcile the objects. The workload cluster becomes self-managed after Konvoy creates all the objects. If it fails, the <code>move</code> command can be safely retried.</p>
 
 3.  Wait for the cluster control-plane to be ready:
 
@@ -87,7 +87,7 @@ Before you start, make sure you have created a workload cluster, as described in
         └─4 Machines...                                                           True                     2m33s
     ```
 
-5.  Remove the bootstrap cluster, as the workload cluster is now self-managing:
+5.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
 
     ```sh
     dkp delete bootstrap
