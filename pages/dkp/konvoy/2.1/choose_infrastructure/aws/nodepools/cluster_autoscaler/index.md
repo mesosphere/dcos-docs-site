@@ -35,7 +35,7 @@ Before you begin, you must have:
 
 - A [Bootstrap Cluster Lifecycle][bootstraplifecycle].
 - [Created a new Kubernetes Cluster][createnewcluster].
-- A [Self Managing Cluster][selfmanagingclusters].
+- A [Self-Managed Cluster][selfmanagedcluster].
 
 ### Run Cluster Autoscaler
 
@@ -99,4 +99,4 @@ Run the following steps to enable Cluster Autoscaler:
 
 [bootstraplifecycle]: ../../advanced/bootstrap
 [createnewcluster]: ../../advanced/new
-[selfmanagingclusters]: ../../advanced/self-managing
+[selfmanagedcluster]: ../../advanced/self-managed
