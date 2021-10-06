@@ -169,7 +169,9 @@ Tips:
     dkp delete bootstrap --kubeconfig $HOME/.kube/config
     ```
 
-## (Optional) Moving controllers back to the temporary bootstrap cluster
+## Moving controllers back to the temporary bootstrap cluster
+
+Skip this section if the previous step of moving controllers to the newly-created cluster was not run.
 
 1.  Create a bootstrap cluster:
 
