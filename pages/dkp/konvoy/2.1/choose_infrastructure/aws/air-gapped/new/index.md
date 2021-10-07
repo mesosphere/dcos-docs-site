@@ -8,9 +8,9 @@ beta: false
 enterprise: false
 ---
 
-## Create a new AWS Kubernetes cluster in the existing infrastructure
+## Create a new AWS Kubernetes cluster in an existing infrastructure
 
-1.  Set the environment variable to the name you assigned this cluster.
+1.  Set the environment variable to the name you assigned this cluster:
 
     ```sh
     CLUSTER_NAME=my-aws-cluster
@@ -27,12 +27,10 @@ enterprise: false
     export AWS_AMI_ID=<ami-...>
     ```
 
-    - `AWS_VPC_ID`: the VPC ID where the cluster will be created.
+    - `AWS_VPC_ID`: the VPC ID where the cluster will be created. The VPC requires the `ec2`, `elasticloadbalancing`, `secretsmanager` and `autoscaling` VPC endpoints to be already present.
     - `AWS_SUBNET_IDS`: a comma-separated list of one or more private Subnet IDs with each one in a different Availability Zone. The cluster control-plane and worker nodes will automatically be spread across these Subnets.
     - `AWS_ADDITIONAL_SECURITY_GROUPS`: a comma-seperated list of one or more Security Groups IDs to use in addition to the ones automatically created by [CAPA][capa].
-    - `AWS_AMI_ID`: the AMI ID to use for control-plane and worker nodes.
-
-    <p class="message--important"><strong>IMPORTANT: </strong>The VPC requires the <code>ec2</code>, <code>elasticloadbalancing</code>, <code>secretsmanager</code>, and <code>autoscaling</code> VPC endpoints to be already present.</p>
+    - `AWS_AMI_ID`: the AMI ID to use for control-plane and worker nodes. The AMI must be created by the [konvoy-image-builder][konvoy-image-builder] project. They will have container images "baked into" them. You can find the list of container images in this [ansible task][ansible-task-images]
 
     <p class="message--important"><strong>IMPORTANT: </strong>You must tag the subnets as described below to allow for Kubernetes to create ELBs for services of type <code>LoadBalancer</code> in those subnets. If the subnets are not tagged, they will not receive an ELB and the following error displays: <code>Error syncing load balancer, failed to ensure load balancer; could not find any suitable subnets for creating the  ELB.</code>.</p>
 
@@ -45,6 +43,8 @@ enterprise: false
     ```
 
 1.  Configure your cluster to use an existing Docker registry as a mirror when attempting to pull images:
+
+    <p class="message--important"><strong>IMPORTANT: </strong>The AMI must be created by the <a href="https://github.com/mesosphere/konvoy-image-builder">konvoy-image-builder</a> project in order to use the registry mirror feature.</p>
 
     ```sh
     export DOCKER_REGISTRY_ADDRESS=<https/http>://<registry-address>:<registry-port>
@@ -119,10 +119,10 @@ enterprise: false
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m
     ```
 
-**Note:** These AMIs are created by the [konvoy-image-builder](https://github.com/mesosphere/konvoy-image-builder) project. They will have container images "baked into" them. You can find the list of container images in this [ansible task](https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/defaults/main.yaml)
-
 [install_docker]: https://docs.docker.com/get-docker/
 [install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
+[konvoy-image-builder]: https://github.com/mesosphere/konvoy-image-builder
+[ansible-task-images]: https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/defaults/main.yaml
