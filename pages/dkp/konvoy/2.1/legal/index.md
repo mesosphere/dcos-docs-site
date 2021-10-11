@@ -2,7 +2,7 @@
 layout: layout.pug
 beta: false
 title: Legal Notices
-menuWeight: 300
+menuWeight: 5000
 excerpt: legal notices
 render: mustache
 ---
