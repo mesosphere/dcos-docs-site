@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Choose Infrastructure
 title: Choose Infrastructure
-menuWeight: 10
+menuWeight: 5
 excerpt: When configuring Konvoy, the first step is to determine your infrastructure.
 beta: false
 enterprise: false
