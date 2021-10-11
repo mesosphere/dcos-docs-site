@@ -4,12 +4,13 @@ navigationTitle: Release Notes
 title: Konvoy 2.1 Beta 1 Release Notes
 menuWeight: 0
 excerpt: View release-specific information for Konvoy 2.1
+beta: true
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 2.1 Beta 1 was released on 14 October, 2021.**
+**D2iQ&reg; Konvoy&reg; version 2.1 Beta 1 was released on October 14, 2021.**
 
 <!--- [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -29,7 +30,7 @@ This release provides new features and enhancements to improve the user experien
 
 ### New features and capabilities
 
-<!--- #### heading name with sampke tempalte for link to more info
+<!--- #### heading name with sample template for link to more info
 
 Cluster Autoscaler automatically scales up your cluster as soon as you need it, and scales it back down to save you money when you don't. In this release, the [Cluster Autoscaler](../choose_infrastructure/aws/nodepools/cluster_autoscaler) has been reimplemented, making it more responsive to scale up/down requests, as well as making adding/deleting nodes faster. --->
 
