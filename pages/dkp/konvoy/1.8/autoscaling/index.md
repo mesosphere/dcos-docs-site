@@ -374,7 +374,7 @@ in our respective `KonvoyCluster` resource in Kubernetes. These are the two even
 scaling up and down decisions, as shown below:
 
 ```shell
-kubectl get events | grep autoscaler
+kubectl get events -n konvoy | grep autoscaler
 
 Events:
   Type    Reason                  Age    From                Message
