@@ -32,7 +32,7 @@ where `<device label>` is by default:
 < class > _ < vendor >
 ```
 
-as [defined here:](https://kubernetes-sigs.github.io/node-feature-discovery/v0.7/get-started/features.html#pci)
+as [defined here](https://kubernetes-sigs.github.io/node-feature-discovery/v0.7/get-started/features.html#pci).
 
 However, due to the wide variety in devices and their assigned PCI classes, you may find that the labels assigned to your GPU nodes do not always properly identify them as containing an nVidia GPU.
 
