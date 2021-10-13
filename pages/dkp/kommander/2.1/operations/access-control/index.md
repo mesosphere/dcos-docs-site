@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 beta: false
-title: Access Control
 navigationTitle: Access Control
+title: Access Control
 menuWeight: 1
 excerpt: Centrally manage access across clusters
 ---
@@ -148,5 +148,5 @@ All groups that have been defined in the groups tab will be present at the globa
 <!--
 - [Kommander RBAC Tutorial](/dkp/kommander/1.4/tutorials/configure-rbac/) -->
 
-- [RBAC - Kommander Dashboard Authorization](/dkp/kommander/2.0/operations/access-control/rbac/#kommander-dashboard-authorization)
+- [RBAC - Kommander Dashboard Authorization](rbac/#kommander-dashboard-authorization)
 - [Kubernetes RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
