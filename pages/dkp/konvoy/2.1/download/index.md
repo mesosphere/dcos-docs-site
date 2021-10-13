@@ -1,0 +1,19 @@
+---
+layout: layout.pug
+navigationTitle: Download
+title: Download Konvoy
+excerpt: Learn how to download Konvoy
+beta: true
+enterprise: false
+menuWeight: 30
+---
+
+<!-- markdownlint-disable MD034 -->
+
+When you are ready to download a new version of Konvoy, select the button below:
+
+[button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
+
+<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product.
+
+If you have problems downloading Konvoy, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.</p>
