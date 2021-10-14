@@ -14,7 +14,7 @@ Prior to installing Kommander, you must know the version you'd like to install, 
 Set the `VERSION` environment variable to the version of Kommander you would like to install, for example:
 
 ```sh
-export VERSION=v2.0.0
+export VERSION=v2.1.0-beta.1
 ```
 
 Kommander ships in a Helm chart, so prior to installing Kommander, make Helm aware of the Helm repository providing the Kommander chart:
@@ -46,7 +46,7 @@ annotations:
   storageclass.kubernetes.io/is-default-class: "true"
 ```
 
-More information on setting a StorageClass as default can be found at [Changing the default storage class in k8s docs](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)
+More information on setting a StorageClass as default can be found at [Changing the default storage class in k8s docs][k8s-change-default-storage-class].
 
 <!--
 ## Install on kind
@@ -70,7 +70,7 @@ If you are installing Kommander on kind, you must know the following:
 
 Before running the commands below make sure that your `kubectl` configuration is pointing to the cluster you want to install Kommander on by setting the `KUBECONFIG` environment variable to the respective kubeconfig file's location.
 
-To install Kommander with http proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper](../http-proxy#enable-gatekeeper) section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`
+To install Kommander with http proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper][enable-gatekeeper] section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`
 
 ```sh
 helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --version=${VERSION} --set certManager=$(kubectl get ns cert-manager > /dev/null 2>&1 && echo "false" || echo "true")
@@ -130,5 +130,5 @@ Use the following command to access the Username and Password stored on the clus
 kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
 ```
 
-[konvoy_self_managing]: /dkp/konvoy/2.0/install/advanced/self-managing/
-[bootstrap_cluster]: /dkp/konvoy/2.0/install/advanced/bootstrap/
+[enable-gatekeeper]: ../http-proxy#enable-gatekeeper
+[k8s-change-default-storage-class]: https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/
