@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Operations
 title: Operations
 menuWeight: 10
 excerpt: Manage your cluster and deployed applications using platform applications
+beta: false
 enterprise: false
 ---
 

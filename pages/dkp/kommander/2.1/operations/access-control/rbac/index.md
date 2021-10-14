@@ -93,7 +93,7 @@ The Kommander Dashboard, and other HTTP applications protected by Kommander forw
 
 Roles have been created for granting access to the dashboard and select applications which expose an HTTP server through the ingress controller. The `cluster-admin` role is actually a system role that defines grants permission to all actions (verbs) on any resource; including non-resource URLs. The default dashboard user is bound to this role.
 
-<p class="message--note"><strong>NOTE: </strong>Granting user <code>admin</code> privileges on <code>/dkp/*</code> grants <code>admin</code> privileges to all sub-resources, even if bindings exist for sub-resources with less privileges</p>
+<p class="message--note"><strong>NOTE: </strong>Granting user `admin` privileges on `/dkp/*` grants `admin` privileges to all sub-resources, even if bindings exist for sub-resources with less privileges</p>
 
 | Dashboard           | Role                                         | Path                                 | access              |
 | ------------------- | -------------------------------------------- | ------------------------------------ | ------------------- |
@@ -191,7 +191,7 @@ PolicyRule:
 
 The user can now use the HTTP verbs HEAD, GET, DELETE, POST, and PUT when accessing any URL at or under `/dkp`. Provided the downstream application follows REST conventions, this effectively allows read, edit, and delete privileges.
 
-<p class="message--note"><strong>NOTE: </strong>In order to allow users to access the Kommander UI, ensure they are granted the appropriate <code>dkp-kommander-</code> role in addition to the Kommander roles granted in the Kommander UI. For more information, see the <a href="../">Access Control section of the Kommander documentation</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>In order to allow users to access the Kommander UI, ensure they are granted the appropriate `dkp-kommander-` role in addition to the Kommander roles granted in the Kommander UI. For more information, see the [Access Control section of the Kommander documentation](/dkp/kommander/2.0/operations/access-control/).</p>
 
 #### Group
 

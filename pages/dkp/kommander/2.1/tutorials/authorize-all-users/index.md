@@ -13,8 +13,8 @@ You want to ensure every developer in your GitHub organization has access to you
 
 First, set up GitHub as an identity provider. Start by creating a new OAuth Application in our GitHub Organization by filling out [this form](https://github.com/settings/applications/new).
 
-<p class="message--important"><strong>Important: </strong>
-Use your cluster URL followed by <code>/dex/callback</code> as the Authorization callback URL.
+<p class="message--info"><strong>Important: </strong>
+Use your cluster URL followed by `/dex/callback` as the Authorization callback URL.
 </p>
 
 ![Setting up the GitHub OAuth App](/dkp/kommander/2.0/img/tutorial-idp-github-oauth-app.png)

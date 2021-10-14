@@ -3,7 +3,7 @@ layout: layout.pug
 beta: false
 navigationTitle: Identity Providers
 title: Identity Providers
-menuWeight: 2
+menuweight: 1
 excerpt: Grant access to users in your organization
 ---
 
