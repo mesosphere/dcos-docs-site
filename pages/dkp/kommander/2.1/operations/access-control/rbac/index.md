@@ -93,7 +93,7 @@ The Kommander Dashboard, and other HTTP applications protected by Kommander forw
 
 Roles have been created for granting access to the dashboard and select applications which expose an HTTP server through the ingress controller. The `cluster-admin` role is actually a system role that defines grants permission to all actions (verbs) on any resource; including non-resource URLs. The default dashboard user is bound to this role.
 
-<p class="message--note"><strong>NOTE: </strong>Granting user `admin` privileges on `/dkp/*` grants `admin` privileges to all sub-resources, even if bindings exist for sub-resources with less privileges</p>
+<p class="message--note"><strong>NOTE: </strong>Granting user <code>admin</code> privileges on <code>/dkp/*</code> grants <code>admin</code> privileges to all sub-resources, even if bindings exist for sub-resources with less privileges</p>
 
 | Dashboard           | Role                                         | Path                                 | access              |
 | ------------------- | -------------------------------------------- | ------------------------------------ | ------------------- |
