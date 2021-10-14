@@ -26,7 +26,7 @@ To enable logging in DKP using the CLI, follow these steps on the management clu
 
    ``` bash
    cat <<EOF | kubectl apply -f -
-   apiVersion: apps.kommander.d2iq.io/v1alpha1
+   apiVersion: apps.kommander.d2iq.io/v1alpha2
    kind: AppDeployment
    metadata:
      name: logging-operator
@@ -34,8 +34,9 @@ To enable logging in DKP using the CLI, follow these steps on the management clu
    spec:
      appRef:
        name: logging-operator-3.13.0
+       kind: ClusterApp
    ---
-   apiVersion: apps.kommander.d2iq.io/v1alpha1
+   apiVersion: apps.kommander.d2iq.io/v1alpha2
    kind: AppDeployment
    metadata:
      name: fluent-bit
@@ -43,8 +44,9 @@ To enable logging in DKP using the CLI, follow these steps on the management clu
    spec:
      appRef:
        name: fluent-bit-0.16.2
+       kind: ClusterApp
    ---
-   apiVersion: apps.kommander.d2iq.io/v1alpha1
+   apiVersion: apps.kommander.d2iq.io/v1alpha2
    kind: AppDeployment
    metadata:
      name: minio-operator
@@ -52,8 +54,9 @@ To enable logging in DKP using the CLI, follow these steps on the management clu
    spec:
      appRef:
        name: minio-operator-4.1.7
+       kind: ClusterApp
    ---
-   apiVersion: apps.kommander.d2iq.io/v1alpha1
+   apiVersion: apps.kommander.d2iq.io/v1alpha2
    kind: AppDeployment
    metadata:
      name: grafana-loki
@@ -61,8 +64,9 @@ To enable logging in DKP using the CLI, follow these steps on the management clu
    spec:
      appRef:
        name: grafana-loki-0.33.1
+       kind: ClusterApp
    ---
-   apiVersion: apps.kommander.d2iq.io/v1alpha1
+   apiVersion: apps.kommander.d2iq.io/v1alpha2
    kind: AppDeployment
    metadata:
      name: grafana-logging
@@ -70,6 +74,7 @@ To enable logging in DKP using the CLI, follow these steps on the management clu
    spec:
      appRef:
        name: grafana-logging-6.9.1
+       kind: ClusterApp
      configOverrides:
        name: workspace-grafana-overrides-cm
    EOF
