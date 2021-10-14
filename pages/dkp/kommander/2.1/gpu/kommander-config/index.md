@@ -4,7 +4,7 @@ navigationTitle: Kommander configuration
 title: Kommander GPU configuration
 menuWeight: 20
 excerpt: Configure GPU for Kommander clusters
-beta: false
+beta: true
 enterprise: false
 ---
 
@@ -36,15 +36,7 @@ Before you begin, you must:
 
 ## Enable Nvidia Platform Service on Kommander
 
-To enable Nvidia GPU support on Kommander, perform the following steps:
-
-1. Add the label `konvoy.mesosphere.com/gpu-provider=NVIDIA` to each GPU node with installed Nvidia host components.
-
-   ```bash
-   kubectl label node <NODE> konvoy.mesosphere.com/gpu-provider=NVIDIA
-   ```
-
-   <p class="message--note"><strong>NOTE: </strong>These placement labels will be applied automatically in later revisions.</p>
+To enable Nvidia GPU support on Kommander, perform the following step:
 
 1. Enable the `nvidia` services when you install Kommander.
 

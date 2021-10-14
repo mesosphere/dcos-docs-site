@@ -76,13 +76,14 @@ data:
         addresses:
         - 10.0.50.25-10.0.50.50
 ---
-apiVersion: apps.kommander.d2iq.io/v1alpha1
+apiVersion: apps.kommander.d2iq.io/v1alpha2
 kind: AppDeployment
 metadata:
   name: metallb
 spec:
   appRef:
     name: metallb-0.12.2
+    kind: ClusterApp
   configOverrides:
     name: metallb-overrides
 ```
