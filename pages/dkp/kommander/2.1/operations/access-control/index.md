@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 beta: false
-title: Access Control
 navigationTitle: Access Control
+title: Access Control
 menuWeight: 1
 excerpt: Centrally manage access across clusters
 ---
@@ -29,7 +29,7 @@ This approach gives you maximum flexibility over who has access to what resource
 ### Special Limitation for Kommander Roles
 
 In addition to granting a Kommander Role, you must also grant the appropriate dkp role to allow external users and groups into the UI.
-See [RBAC - Kommander Dashboard Authorization](/dkp/kommander/2.0/operations/access-control/rbac/#kommander-dashboard-authorization) for details about the built-in dkp roles.
+See [RBAC - Kommander Dashboard Authorization][kommander-rbac] for details about the built-in dkp roles.
 Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Kommmander routes:
 
 ```yaml
@@ -148,5 +148,8 @@ All groups that have been defined in the groups tab will be present at the globa
 <!--
 - [Kommander RBAC Tutorial](/dkp/kommander/1.4/tutorials/configure-rbac/) -->
 
-- [RBAC - Kommander Dashboard Authorization](/dkp/kommander/2.0/operations/access-control/rbac/#kommander-dashboard-authorization)
-- [Kubernetes RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+- [RBAC - Kommander Dashboard Authorization][kommander-rbac]
+- [Kubernetes RBAC Authorization][k8s-rbac-auth]
+
+[k8s-rbac-auth]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[kommander-rbac]: rbac#kommander-dashboard-authorization
