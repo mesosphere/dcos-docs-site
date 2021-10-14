@@ -76,7 +76,7 @@ To disable all of the default dashboards, follow these steps to define an overri
 1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](../workspaces/workspace-platform-services/application-deployment#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment will resemble this code sample:
 
     ```yaml
-    apiVersion: apps.kommander.d2iq.io/v1alpha1
+    apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
       name: kube-prometheus-stack
@@ -84,6 +84,7 @@ To disable all of the default dashboards, follow these steps to define an overri
     spec:
       appRef:
         name: kube-prometheus-stack-17.2.1
+        kind: ClusterApp
       configOverrides:
         name: kube-prometheus-stack-overrides
     ```
@@ -200,7 +201,7 @@ For example, if you want to disable the default `node` alert rules, follow these
 1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](../workspaces/workspace-platform-services/application-deployment#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment file resembles this code sample:
 
     ```yaml
-    apiVersion: apps.kommander.d2iq.io/v1alpha1
+    apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
       name: kube-prometheus-stack
@@ -208,6 +209,7 @@ For example, if you want to disable the default `node` alert rules, follow these
     spec:
       appRef:
         name: kube-prometheus-stack-17.2.1
+        kind: ClusterApp
       configOverrides:
         name: kube-prometheus-stack-overrides
     ```
