@@ -57,7 +57,7 @@ To create and use the override configMap entries, follow these steps:
 1.  Edit the logging-operator AppDeployment to replace the `spec.configOverrides.name` value with `logging-operator-logging-overrides`. (You can use the steps in the procedure, [Deploy a service with a custom configuration](../../../workspaces/workspace-platform-services/application-deployment#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment will resemble this code sample:
 
     ```yaml
-    apiVersion: apps.kommander.d2iq.io/v1alpha1
+    apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
       name: logging-operator
@@ -65,6 +65,7 @@ To create and use the override configMap entries, follow these steps:
     spec:
       appRef:
         name: logging-operator-3.13.0
+        kind: ClusterApp
       configOverrides:
         name: logging-operator-logging-overrides
     ```
