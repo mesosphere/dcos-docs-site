@@ -25,7 +25,7 @@ To create the AppDeployments needed for Project-level logging, follow these step
    ``` bash
    cat <<EOF | kubectl apply -f -
    ---
-   apiVersion: apps.kommander.d2iq.io/v1alpha1
+   apiVersion: apps.kommander.d2iq.io/v1alpha2
    kind: AppDeployment
    metadata:
      name: project-grafana-loki
@@ -34,7 +34,7 @@ To create the AppDeployments needed for Project-level logging, follow these step
      appRef:
        name: project-grafana-loki-0.33.1
    ---
-   apiVersion: apps.kommander.d2iq.io/v1alpha1
+   apiVersion: apps.kommander.d2iq.io/v1alpha2
    kind: AppDeployment
    metadata:
      name: project-grafana-logging
