@@ -37,7 +37,7 @@ The list of available applications that can be deployed on the attached cluster 
 
     ```yaml
     cat <<EOF | kubectl apply -f -
-    apiVersion: apps.kommander.d2iq.io/v1alpha1
+    apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
       name: cert-manager-0.2.7
@@ -45,6 +45,7 @@ The list of available applications that can be deployed on the attached cluster 
     spec:
       appRef:
         name: cert-manager-0.2.7
+        kind: ClusterApp
     EOF
     ```
 
@@ -58,7 +59,7 @@ The list of available applications that can be deployed on the attached cluster 
 
     ```yaml
     cat <<EOF | kubectl apply -f -
-    apiVersion: apps.kommander.d2iq.io/v1alpha1
+    apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
       name: metallb-0.12.2
@@ -66,6 +67,7 @@ The list of available applications that can be deployed on the attached cluster 
     spec:
       appRef:
         name: metallb-0.12.2
+        kind: ClusterApp
       configOverrides:
         name: metallb-overrides-attached
     EOF

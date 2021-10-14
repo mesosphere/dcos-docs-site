@@ -36,7 +36,7 @@ The list of available applications that can be deployed on the attached cluster 
 
     ```yaml
     cat <<EOF | kubectl apply -f -
-    apiVersion: apps.kommander.d2iq.io/v1alpha1
+    apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
       name: project-grafana-logging-6.13.9
@@ -44,6 +44,7 @@ The list of available applications that can be deployed on the attached cluster 
     spec:
       appRef:
         name: project-grafana-logging-6.13.9
+        kind: ClusterApp
     EOF
     ```
 
@@ -57,7 +58,7 @@ The list of available applications that can be deployed on the attached cluster 
 
     ```yaml
     cat <<EOF | kubectl apply -f -
-    apiVersion: apps.kommander.d2iq.io/v1alpha1
+    apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
       name: project-grafana-logging
@@ -65,6 +66,7 @@ The list of available applications that can be deployed on the attached cluster 
     spec:
       appRef:
         name: project-grafana-logging-6.13.9
+        kind: ClusterApp
       configOverrides:
         name: project-grafana-logging-overrides
     EOF
