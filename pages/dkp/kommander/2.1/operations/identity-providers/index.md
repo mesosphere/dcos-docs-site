@@ -3,7 +3,7 @@ layout: layout.pug
 beta: false
 navigationTitle: Identity Providers
 title: Identity Providers
-menuweight: 1
+menuWeight: 2
 excerpt: Grant access to users in your organization
 ---
 
@@ -77,7 +77,7 @@ Identity Provider Table Row Action Menu
 
 ## Groups
 
-Access control groups are configured in the Groups tab of the Identity Providers page. Refer to [Access Control](../../../operations/access-control/) for an overview of groups in Kommander.
+Access control groups are configured in the Groups tab of the Identity Providers page. Refer to [Access Control](../../operations/access-control/) for an overview of groups in Kommander.
 
 ![Identity Provider Groups](../../img/access-control-idp-groups.png)
 
