@@ -4,7 +4,7 @@ navigationTitle: Introduction
 title: Introducing Konvoy
 excerpt: Deploy Kubernetes with Konvoy
 beta: false
-menuWeight: 5
+menuWeight: 20
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
