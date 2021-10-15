@@ -28,5 +28,5 @@ After running this command, you will see:
 
 where you can access the documentation for archived versions of Konvoy.
 
-[policy]: ../version-policy/
+[policy]: ../legal/version-policy/
 [repo]: https://github.com/mesosphere/dcos-docs-site/tree/archive/pages/dkp/konvoy
