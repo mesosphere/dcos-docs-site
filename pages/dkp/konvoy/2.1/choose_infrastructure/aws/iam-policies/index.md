@@ -5,7 +5,7 @@ title: Configure IAM Policies
 excerpt: Configure IAM Prerequisites before starting a cluster
 beta: false
 enterprise: false
-menuWeight: 0
+menuWeight: 40
 ---
 
 This guides a Konvoy user in creating IAM Policies and Instance Profiles used by the control plane and worker nodes by using an AWS CloudFormation Stack.
