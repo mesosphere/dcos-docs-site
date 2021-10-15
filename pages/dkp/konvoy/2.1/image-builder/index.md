@@ -4,7 +4,7 @@ navigationTitle: Konvoy Image Builder
 title: Konvoy Image Builder
 enterprise: false
 beta: false
-menuWeight: 100
+menuWeight: 70
 ---
 
 Konvoy Image Builder (kib) is a complete solution for building
