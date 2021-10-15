@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: GPUs
 title: GPUs in an AWS environment
-menuWeight: 150
+menuWeight: 60
 excerpt: Konvoy GPUs
 beta: true
 enterprise: false

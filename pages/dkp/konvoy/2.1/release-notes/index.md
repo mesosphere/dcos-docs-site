@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes
 title: Konvoy 2.1 Beta 1 Release Notes
-menuWeight: 0
+menuWeight: 10
 excerpt: View release-specific information for Konvoy 2.1
 beta: true
 enterprise: false
