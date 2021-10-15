@@ -5,7 +5,7 @@ title: Get Started with AWS
 excerpt: Get started by installing a cluster with the default configuration settings on AWS.
 beta: false
 enterprise: false
-menuWeight: 5
+menuWeight: 10
 ---
 
 This guide provides instructions for getting started with Konvoy to get your Kubernetes cluster up and running with basic configuration requirements on an Amazon Web Services (AWS) public cloud instances. If you want to customize your AWS environment, see [Install AWS Advanced][advanced].
