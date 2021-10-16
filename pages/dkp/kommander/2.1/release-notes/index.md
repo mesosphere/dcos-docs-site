@@ -82,8 +82,8 @@ The following services and service components have been upgraded to the listed v
     - thanos: 0.22.0
 - kubefed: 0.8.1
     - kubefed: 0.8.1
-- kubernetes-dashboard: 4.0.3
-    - kubernetes-dashboard: 2.2.0
+- kubernetes-dashboard: 5.0.2
+    - kubernetes-dashboard: 2.3.1
 - kubetunnel: 0.0.7
     - kubetunnel: 0.0.7
 - logging-operator: 3.13.0
