@@ -43,7 +43,7 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 | kube-oidc-proxy-0.2.5         | kube-oidc-proxy       | False               |
 | kube-prometheus-stack-16.13.1 | kube-prometheus-stack | True                |
 | kubecost-0.19.0               | kubecost              | True                |
-| kubernetes-dashboard-4.0.3    | kubernetes-dashboard  | True                |
+| kubernetes-dashboard-5.0.2    | kubernetes-dashboard  | True                |
 | logging-operator-3.13.0       | logging-operator      | False               |
 | metallb-0.12.2                | metallb               | False               |
 | minio-operator-4.1.7          | minio-operator        | False               |
