@@ -9,7 +9,7 @@ enterprise: false
 
 ## Scaling Node Pools
 
-While you can run [Cluster Autoscaler](../cluster_autoscaler), you can also manually scale your node pools up or down when you need more finite control over your environment. For example, if you require 10 machines to run a process, you can manually set the scaling to run those 10 machines only. However, if also using the Cluster Autoscaler, you must stay within your miniumum and maximum bounds.
+While you can run [Cluster Autoscaler](../cluster-autoscaler), you can also manually scale your node pools up or down when you need more finite control over your environment. For example, if you require 10 machines to run a process, you can manually set the scaling to run those 10 machines only. However, if also using the Cluster Autoscaler, you must stay within your miniumum and maximum bounds.
 
 ### Scaling Up Node Pools
 
@@ -69,7 +69,7 @@ INFO[2021-07-26T08:54:35-07:00] Nodepool example scaled to 3 replicas  clusterNa
 
 ### Scaling Node Pools When Using Cluster Autoscaler
 
-If you [configured the cluster autoscaler](../cluster_autoscaler) for the `demo-cluster-md-0` node pool, the value of `--replicas` must be within the minimum and maximum bounds.
+If you [configured the cluster autoscaler](../cluster-autoscaler) for the `demo-cluster-md-0` node pool, the value of `--replicas` must be within the minimum and maximum bounds.
 
 For example, assuming you have the these annotations:
 
