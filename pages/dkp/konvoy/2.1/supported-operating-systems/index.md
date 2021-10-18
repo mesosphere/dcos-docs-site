@@ -16,7 +16,6 @@ Konvoy supports the following base Operating Systems.
 
 | OS Release | Kernel Version | FIPS Support | Notes |
 |------------|----------------| :----------: | ----- |
-| [CentOS 7.7][centos7] | 3.10.0-1062.12.1.el7.x86_64 | **☑** | |
 | [CentOS 7.8][centos7] | 3.10.0-1127.el7.x86_64      | **☑** | |
 | [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64      | **☑** | |
 | [CentOS 8.2][centos8] | 4.18.0-193.6.3.el8_2.x86_64 | **☑** | |
@@ -87,3 +86,4 @@ Konvoy supports the following base Operating Systems.
 [rhel_8_2]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/8.2_release_notes/index
 [ubuntu_18]: https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes
 [ubuntu_20]: https://wiki.ubuntu.com/FocalFossa/ReleaseNotes
+[sles_15]: https://documentation.suse.com/en-us/sles/15-SP1/
