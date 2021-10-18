@@ -14,7 +14,7 @@ First you will use [Konvoy Image Builder](https://github.com/mesosphere/konvoy-i
 
 Completing this procedure results in a Kubernetes cluster, including a [Container Networking Interface (CNI)][calico] and a [Local Persistence Volume Static Provisioner][lvp], that is ready for workload deployment.
 
-Before moving to a production environment, you may want to add applications for logging and monitoring, storage, security, and other functions. You can use [Kommander](https://docs.d2iq.com/dkp/kommander/2.0/release-notes/) to select and deploy applications, or deploy your own.
+Before moving to a production environment, you may want to add applications for logging and monitoring, storage, security, and other functions. You can use [Kommander](/dkp/kommander/2.1/release-notes/) to select and deploy applications, or deploy your own.
 
 To get started, be sure that you have fulfilled the [Prerequisites](./prerequisites).
 
