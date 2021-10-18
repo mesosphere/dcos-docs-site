@@ -16,7 +16,7 @@ To use the pre-provisioned infrastructure provider, use [Konvoy Image Builder](h
 
 Completing this procedure produces a Kubernetes cluster, including a [Container Networking Interface (CNI)][calico] and a [Local Persistence Volume Static Provisioner][lvp], that is ready for workload deployment.
 
-Before moving to a production environment, you may want to add applications for logging and monitoring, storage, security, and other functions. You can use [Kommander](https://docs.d2iq.com/dkp/kommander/2.0/release-notes/) to select and deploy applications, or deploy your own.
+Before moving to a production environment, you may want to add applications for logging and monitoring, storage, security, and other functions. You can use [Kommander](/dkp/kommander/2.1/release-notes/) to select and deploy applications, or deploy your own.
 
 To get started, follow the procedure that describes creating a Konvoy cluster on a [pre-provisioned infrastructure](../pre-provisioned).
 
