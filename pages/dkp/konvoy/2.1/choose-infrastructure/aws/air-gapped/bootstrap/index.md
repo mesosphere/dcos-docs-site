@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Bootstrap
 title: Bootstrap
 menuWeight: 15
-excerpt: bootstrap a kind cluster
+excerpt: Bootstrap a kind cluster
 beta: false
 enterprise: false
 ---
