@@ -14,13 +14,13 @@ Follow thse instructions to generate a support bundle with data collected for th
 
 Before generating a support bundle, verify that you have:
 
-- An AMD64-based Linux or MacOS machine with a supported version of the operating system.
+- An x86_64-based Linux or macOS machine with a supported version of the operating system.
 - A running Kubernetes cluster.
-- `troubleshoot.sh` for [MacOS][troubleshoot-darwin] or [Linux][[troubleshoot-linux] for collecting the support bundle.
+- `troubleshoot.sh` for [macOS][troubleshoot-darwin] or [Linux][troubleshoot-linux] for collecting the support bundle.
 
 ## Download troubleshoot.sh
 
-1.  To download and extract the `troubleshoot.sh` binary for [MacOS][troubleshoot-darwin] or [Linux][[troubleshoot-linux]
+1.  To download and extract the `troubleshoot.sh` binary for [macOS][troubleshoot-darwin] or [Linux][troubleshoot-linux]
 
     For Linux:
 
@@ -28,7 +28,7 @@ Before generating a support bundle, verify that you have:
     mkdir support-bundle && curl -sL https://github.com/replicatedhq/troubleshoot/releases/download/v0.13.7/support-bundle_linux_amd64.tar.gz | tar -xz -C ./support-bundle/
     ```
 
-    For MacOS:
+    For macOS:
 
     ```sh
     mkdir support-bundle && curl -sL https://github.com/replicatedhq/troubleshoot/releases/download/v0.13.7/support-bundle_darwin_amd64.tar.gz | tar -xz -C ./support-bundle/
