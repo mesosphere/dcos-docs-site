@@ -30,7 +30,7 @@ dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --ami-format "konvoy
 
 For information on related topics or procedures, refer to the following:
 
-- [Creating GPU enabled on-premises configurations](../../choose_infrastructure/aws/gpu)
+- [Creating GPU enabled on-premises configurations](../../choose-infrastructure/aws/gpu)
 
 <!--- ## Air Gapped
 

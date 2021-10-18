@@ -12,11 +12,11 @@ enterprise: false
 
 Before working with GPUs, ensure you are familiar with the following:
 
-- [Install GPU support on supported distributions on AWS](#install-gpu-support-on-supported-distributions-on AWS)
+- [Install GPU support on supported distributions on AWS](#install-gpu-support-on-supported-distributions-on-aws)
 
 - [GPU node labeling specifications](./gpu-node-labels)
 
-Kommander also accesses [GPU](/dkp/kommander/2.0/gpu/) resources.
+Kommander also accesses [GPU](/dkp/kommander/2.1/gpu/) resources.
 
 ## Install GPU support on supported distributions on AWS
 

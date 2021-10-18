@@ -20,7 +20,7 @@ konvoy-image build --overrides overrides/fips.yaml images/ami/centos-8.yaml
 
 ### Pre-provisioned infrastructure
 
-If you are targeting a [pre-provisioned infrastructure](../../choose_infrastructure/pre-provisioned/), use the Konvoy Image Builder to install the FIPS binaries for you, with a command similar to this:
+If you are targeting a [pre-provisioned infrastructure](../../choose-infrastructure/pre-provisioned/), use the Konvoy Image Builder to install the FIPS binaries for you, with a command similar to this:
 
 ```shell
 konvoy-image provision --overrides overrides/fips.yaml images/generic/centos-8.yaml
