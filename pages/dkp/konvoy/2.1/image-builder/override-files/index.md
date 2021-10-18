@@ -10,7 +10,7 @@ menuWeight: 75
 
 The konvoy-image-builder is used to install the basic components required to run Konvoy. You can specify customization of the images through the use of override files, which are used to specify alternate package libraries, Docker image repos, and other customizations.
 
-Konvoy comes with a default override file for use with [FIPS](../../fips/), and another for use with [Nvidia](../../choose_infrastructure/aws/gpu/).
+Konvoy comes with a default override file for use with [FIPS](../../fips/), and another for use with [Nvidia](../../choose-infrastructure/aws/gpu/).
 
 ## Override files
 
