@@ -54,7 +54,7 @@ When the command is complete the `ami` id is printed and written to `./manifest.
 
 For information on related topics or procedures, refer to the following:
 
-- [Creating GPU enabled on-premises configurations](../../choose_infrastructure/aws/gpu)
+- [Creating GPU enabled on-premises configurations](../../choose-infrastructure/aws/gpu)
 
 <!--- ## Air Gapped
 
