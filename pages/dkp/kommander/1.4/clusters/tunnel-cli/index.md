@@ -11,33 +11,37 @@ excerpt: Using the CLI to attach a Kubernetes Cluster using a Tunnel
 
 ### Identify the management cluster endpoint
 
-Obtain the hostname and CA certificate for the management cluster:
+Obtain the IP or hostname and CA certificate for the management cluster:
 ```shell
-hostname=$(kubectl get service -n kubeaddons traefik-kubeaddons -o jsonpath="{.status.loadBalancer.ingress[0].hostname}")
+hostname=$(kubectl get service -n kubeaddons traefik-kubeaddons -o go-template='{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}')
 b64ca_cert=$(kubectl get secret -n cert-manager kubernetes-root-ca -o=go-template='{{index .data "tls.crt"}}')
 ```
 
-### Create a namespace
+### Specify a workspace namespace
 
-Create a namespace on the management cluster for the tunnel gateway:
+Obtain the desired workspace namespace on the management cluster for the tunnel gateway:
 ```shell
-namespace=sample
+namespace=$(kubectl get workspace default-workspace -o jsonpath="{.status.namespaceRef.name}")
+```
 
-cat > namespace.yaml <<EOF
-apiVersion: v1
-kind: Namespace
+Alternatively, if you wish to create a new workspace instead of using an existing workspace:
+```shell
+workspace=sample
+namespace=${workspace}
+
+cat > workspace.yaml <<EOF
+apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
+kind: Workspace
 metadata:
-  name: ${namespace}
+  annotations:
+    kommander.mesosphere.io/display-name: ${workspace}
+  name: ${workspace}
+spec:
+  namespaceName: ${namespace}
 EOF
 
-kubectl apply -f namespace.yaml
+kubectl apply -f workspace.yaml
 ```
-
-You can verify the namespace exists using:
-```shell
-kubectl get namespace ${namespace}
-```
-
 
 ### Create a tunnel gateway
 
