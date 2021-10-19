@@ -125,6 +125,6 @@ Fri Jun 11 09:05:31 2021
 ```
 
 [aws_instance_types]: https://aws.amazon.com/ec2/instance-types/
-[konvoy_image_builder]: /dkp/konvoy/2.0/image-builder/
+[konvoy_image_builder]: /dkp/konvoy/2.1/image-builder/
 [konvoy_image_builder_nvidia]: https://github.com/mesosphere/konvoy-image-builder/blob/main/docs/nvidia-gpu.md
-[konvoy-installation]: /dkp/konvoy/2.0/install/advanced/new/
+[konvoy-installation]: /dkp/konvoy/2.1/choose-infrastructure
