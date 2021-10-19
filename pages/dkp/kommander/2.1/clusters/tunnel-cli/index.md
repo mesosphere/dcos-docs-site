@@ -16,13 +16,19 @@ excerpt: Using the CLI to attach a Kubernetes Cluster using a Tunnel
 Obtain the hostname and CA certificate for the management cluster:
 
 ```shell
-hostname=$(kubectl get service -n kommander kommander-traefik -o jsonpath="{.status.loadBalancer.ingress[0].hostname}")
+hostname=$(kubectl get service -n kommander kommander-traefik -o go-template='{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}')
 b64ca_cert=$(kubectl get secret -n kommander kommander-bootstrap-root-ca -o=go-template='{{index .data "tls.crt"}}')
 ```
 
-### Create a workspace
+### Specify a workspace namespace
 
-Create a workspace on the management cluster for the tunnel gateway:
+Obtain the desired workspace namespace on the management cluster for the tunnel gateway:
+
+```shell
+namespace=$(kubectl get workspace default-workspace -o jsonpath="{.status.namespaceRef.name}")
+```
+
+Alternatively, if you wish to create a new workspace instead of using an existing workspace:
 
 ```shell
 workspace=sample
