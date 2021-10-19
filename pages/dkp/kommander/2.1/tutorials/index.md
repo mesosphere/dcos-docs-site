@@ -3,6 +3,6 @@ layout: layout.pug
 beta: false
 navigationTitle: Tutorials
 title: Tutorials
-menuWeight: 12
+menuWeight: 298
 excerpt: Learn how to put Kommander in action
 ---
