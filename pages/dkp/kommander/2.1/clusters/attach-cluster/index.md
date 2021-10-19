@@ -111,7 +111,7 @@ Using the **Add Cluster** option, you can attach an existing Kubernetes or Konvo
 Platform services extend the functionality of Kubernetes and allow you to deploy ready-to-use logging and monitoring stacks by federating platform services when attaching a cluster to Kommander. For more information, refer to [workspace platform services][workspace_platform_services].
 --->
 
-![Add Cluster Connect](/dkp/kommander/2.0/img/add-cluster-connect.png)
+![Add Cluster Connect](/dkp/kommander/2.1/img/add-cluster-connect.png)
 
 <!---
 ## Accessing your managed clusters using your Kommander administrator credentials
@@ -129,4 +129,4 @@ You can also retrieve a custom kubeconfig by visiting the `/token` endpoint on t
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 <!--[workspace_platform_services]: /dkp/kommander/2.0/workspaces/workspace-platform-services/
 [platform_service_req]: /dkp/kommander/2.0/workspaces/workspace-platform-services/platform-service-requirements/-->
-[attach_eks_cluster]: /dkp/kommander/2.0/clusters/attach-cluster/attach-eks-cluster/
+[attach_eks_cluster]: /dkp/kommander/2.1/clusters/attach-cluster/attach-eks-cluster/
