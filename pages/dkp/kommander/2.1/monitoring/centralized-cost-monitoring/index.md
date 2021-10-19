@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Centralized Cost Monitoring
 title: Centralized Cost Monitoring
-menuWeight: 7
+menuWeight: 30
 beta: false
 excerpt: Monitoring costs of all attached clusters with Kubecost
 ---
