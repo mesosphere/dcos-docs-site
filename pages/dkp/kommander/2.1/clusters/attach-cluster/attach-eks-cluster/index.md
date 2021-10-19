@@ -6,15 +6,15 @@ menuWeight: 45
 excerpt: Attach an existing EKS cluster to Kommander
 ---
 
-You can attach existing Kubernetes clusters to Kommander. After attaching the cluster, you can use Kommander to [examine and manage](/dkp/kommander/2.0/clusters/) this cluster. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander.
+You can attach existing Kubernetes clusters to Kommander. After attaching the cluster, you can use Kommander to [examine and manage](/dkp/kommander/2.1/clusters) this cluster. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander.
 
 ## Before you begin
 
 This procedure requires the following items and configurations:
 
 - A fully configured and running Amazon [EKS](https://aws.amazon.com/eks/) cluster with administrative privileges.
-- Konvoy v2.0.0 or above, [installed and configured](/dkp/konvoy/2.0/install/) for your Amazon EKS cluster, on your machine.
-- Kommander v2.0.0 or above, [installed and configured](/dkp/kommander/2.0/install/) on your machine.
+- Konvoy v2.0.0 or above, [installed and configured](/dkp/konvoy/2.1/choose-infrastructure) for your Amazon EKS cluster, on your machine.
+- Kommander v2.0.0 or above, [installed and configured](../../../install) on your machine.
 
 <p class="message--note"><strong>NOTE: </strong>This procedure assumes you have an existing and spun up Amazon EKS cluster(s) with administrative privileges. Refer to the Amazon <a href="https://aws.amazon.com/eks/" target="_blank">EKS</a> for setup and configuration information.</p>
 
@@ -138,10 +138,10 @@ For information on related topics or procedures, refer to the following:
 
 -   [Configuring and Running Amazon EKS Clusters](https://aws.amazon.com/eks/)
 
--   [Installing and Configuring Konvoy v2.0 or above](/dkp/konvoy/2.0/install/)
+-   [Installing and Configuring Konvoy v2.0 or above](/dkp/konvoy/2.1/choose-infrastructure)
 
--   [Installing and Configuring Kommander v2.0 or above](/dkp/kommander/2.0/install/)
+-   [Installing and Configuring Kommander v2.0 or above](../../../install)
 
--   [Working with Kommander Clusters](/dkp/kommander/2.0/clusters/)
+-   [Working with Kommander Clusters](/dkp/kommander/2.1/clusters/)
 
 [eks]: https://aws.amazon.com/eks/
