@@ -72,7 +72,7 @@ Review the [workspace platform service resource requirements][platform_service_r
 
 <TBD Need some info for this.>
 
-![Edit a Cluster Action](/dkp/kommander/2.0/img/edit-cluster-action.png)
+![Edit a Cluster Action](/dkp/kommander/2.1/img/edit-cluster-action.png)
 
 ### Edit an attached cluster
 
@@ -80,7 +80,7 @@ Review the [workspace platform service resource requirements][platform_service_r
 
 For an attached cluster, you can only edit labels assigned to that cluster.
 
-![Edit an Attached Cluster](/dkp/kommander/2.0/img/edit-cluster-attached-1-1-0.png)
+![Edit an Attached Cluster](/dkp/kommander/2.1/img/edit-cluster-attached-1-1-0.png)
 
 [k8s_docs]: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 <!--[workspace_platform_services]: /dkp/kommander/2.0/workspaces/workspace-platform-services/
