@@ -8,4 +8,4 @@ excerpt: Use the CLI to provision a Konvoy cluster
 
 <!--- markdownlint-disable MD013 MD033 --->
 
-Follow the [Konvoy process](https://docs.d2iq.com/dkp/konvoy/2.0/choose_infrastructure/index.md) to provision a cluster from the CLI, and then use the Kommander user interface to attach it using the kubeconfig.
+Follow the [Konvoy process](/dkp/konvoy/2.1/choose-infrastructure) to provision a cluster from the CLI, and then use the Kommander user interface to attach it using the kubeconfig.
