@@ -5,6 +5,7 @@ title: Installing Docker on CentOS/RHEL
 menuWeight: 5
 excerpt: Requirements, recommendations and procedures for installing Docker CE on CentOS/RHEL
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 ---
 
 ## Customer Advisory

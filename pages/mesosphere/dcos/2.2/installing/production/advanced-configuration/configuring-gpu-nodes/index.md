@@ -4,6 +4,7 @@ navigationTitle:  Configuring GPU nodes
 title: Configuring GPU nodes
 menuWeight: 10
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 excerpt: Adding Graphics Processing Units to long-running DC/OS services
 ---
 

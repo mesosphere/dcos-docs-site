@@ -4,6 +4,7 @@ navigationTitle:  Frequently Asked Questions
 title: Frequently Asked Questions
 menuWeight: 20
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 excerpt: Frequently asked questions about installing DC/OS
 ---
 

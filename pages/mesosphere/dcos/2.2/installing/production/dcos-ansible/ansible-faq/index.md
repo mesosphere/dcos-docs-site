@@ -4,6 +4,7 @@ title: DC/OS Ansible FAQs and Troubleshooting
 navigationTitle: DC/OS Ansible FAQ
 menuWeight: 2
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 excerpt: Frequently asked questions and common issues when working with Ansible for DC/OS
 ---
 

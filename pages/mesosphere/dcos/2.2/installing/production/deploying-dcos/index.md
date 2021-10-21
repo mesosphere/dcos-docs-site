@@ -4,6 +4,7 @@ title: Deploying DC/OS
 navigationTitle: Deploying DC/OS
 menuWeight: 10
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 excerpt: Deploying DC/OS in a production-ready environment
 ---
 
