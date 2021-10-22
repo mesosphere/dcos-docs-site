@@ -32,6 +32,27 @@ To print the logs from the KUDO controller:
 kubectl logs -n kudo-system kudo-controller-manager-0 -f
 ```
 
+### Kubeflow Pipelines
+List all pipeline runs in user namespace:
+```
+kubectl get workflows.argoproj.io -n <namespace>
+```
+
+Print the logs from all pipeline steps:
+```
+kubectl logs -l workflows.argoproj.io/workflow=<workflow_name> -c main --prefix=true -n <namespace>
+```
+
+Delete all completed pipeline runs:
+```
+kubectl delete workflows.argoproj.io -l workflows.argoproj.io/completed=true -n <namespace>
+```
+
+Delete all the pipeline runs with by final status (`Succeeded` or `Failed`):
+```
+kubectl delete -l workflows.argoproj.io -l workflows.argoproj.io/completed=true -l workflows.argoproj.io/phase=Succeeded -n <namespace>
+```
+
 ## Konvoy
 
 To create the Konvoy diagnostics bundle, use:

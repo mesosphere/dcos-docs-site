@@ -19,6 +19,9 @@ tested on D2iQ's Kaptain. Without the requisite Kubernetes operators and custom 
 will likely not work.</p>
 
 
+<p class="message--warning"><strong>NOTE: </strong>This notebook requires Kaptain SDK 0.4.x or later.
+</p>
+
 # Kaptain SDK: Training, Tuning, and Deploying
 
 ## Introduction
@@ -106,35 +109,24 @@ with open(f"{docker_config_folder}/config.json", "w") as outfile:
 ```
 
 ## Adapt the Model Code
-To use the Kaptain SDK, you need to add two lines of code to the original model code:
-1. One right after the model training (here: `train` method), to save the trained model to the cluster's built-in object storage, MinIO.
-1. Another right after the model evaluation (here: `test` method), to record the metrics of interest.
+When developing PyTorch models, the model definition (class) should be provided in a file independent from the trainer code. This is required for the future serving step to provide a model definition to the model server (TorchServe).
+
+First, define your model class:
 
 
 ```python
-%%writefile trainer.py
-import argparse
-import logging
-import os
+%%writefile model.py
 
 import torch
-import torch.distributed as dist
 import torch.nn as nn
 import torch.nn.functional as F
-import torch.optim as optim
-import torch.utils.data
-from torch.optim.lr_scheduler import StepLR
-from torchvision import datasets, transforms
 
-logging.getLogger().setLevel(logging.INFO)
-
-# Number of processes participating in (distributed) job
-# See: https://pytorch.org/docs/stable/distributed.html
-WORLD_SIZE = int(os.environ.get("WORLD_SIZE", 1))
-
-
-# Custom models must subclass toch.nn.Module and override `forward`
-# See: https://pytorch.org/docs/stable/nn.html#torch.nn.Module
+# Custom models must subclass either:
+# - an existing model and override __init__ with desired customizations
+# - or toch.nn.Module and override `forward` (see https://pytorch.org/docs/stable/nn.html#torch.nn.Module).
+#
+# All model architecture modifications must be done in the model class
+# to allow both the model definition and parameters to be loaded by the Inference Server.
 class PyTorchModel(nn.Module):
     def __init__(self):
         super(PyTorchModel, self).__init__()
@@ -159,6 +151,46 @@ class PyTorchModel(nn.Module):
         x = self.fc2(x)
         output = F.log_softmax(x, dim=1)
         return output
+```
+
+    Writing model.py
+
+
+To ensure the model compiles and doesn't have any missing imports, evaluate the model file:
+
+
+```python
+%run model.py
+```
+
+To train the model with the Kaptain SDK, you need to add two lines of code to the trainer code:
+1. One right after the model training (here: `train` method), to save and export the trained model to the cluster's built-in object storage, MinIO.
+1. Another right after the model evaluation (here: `test` method), to record the metrics of interest.
+
+
+```python
+%%writefile trainer.py
+import argparse
+import logging
+import os
+
+import torch
+import torch.distributed as dist
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+import torch.utils.data
+from torch.optim.lr_scheduler import StepLR
+from torchvision import datasets, transforms
+
+# Import the model class from the saved model file
+from model import PyTorchModel
+
+logging.getLogger().setLevel(logging.INFO)
+
+# Number of processes participating in (distributed) job
+# See: https://pytorch.org/docs/stable/distributed.html
+WORLD_SIZE = int(os.environ.get("WORLD_SIZE", 1))
 
 
 def should_distribute():
@@ -363,9 +395,6 @@ def main():
         if "MODEL_LIFECYCLE_PHASE" in os.environ:
             from kaptain.platform.model_export_util import ModelExportUtil
             ModelExportUtil().upload_model(model_name)
-            # we need to export trainer file for the later serving step 
-            ModelExportUtil().upload_model("trainer.py")
-
 if __name__ == "__main__":
     main()
 ```
@@ -374,13 +403,41 @@ if __name__ == "__main__":
 
 
 ## Define the Model
-The central abstraction of the Kaptain SDK is a model:
+The central abstraction of the Kaptain SDK is a `Model` class that encapsulates all the configuration and high-level APIs required for the model training, tuning, and serving. Prior to creating an instance of the `Model` class, let's consider an example where we need to specify additional dependecies required for model training, tuning and serving, and also provide minimal required configuration for the model server.
+
+Model dependencies can be provided via pip `requirements.txt`. For example:
 
 
 ```python
-extra_files = ["datasets/MNIST"]
+%%writefile requirements.txt
+fastai==2.5.2
+```
+
+    Writing requirements.txt
+
+
+Below is an example of the minimally required serving configuration for a PyTorch model. To learn more about advanced configuration options, consult the Kaptain SDK documentation.
+
+
+```python
+serving_config = {
+    "model_file": "model.py",                   # the model definition file that was created at the previous step
+    "handler": "image_classifier",              # a built-in image classifier handler provided by TorchServe
+    "requirements_file": "requirements.txt",    # the model dependenies file. You can provide a different file for serving-specific dependencies
+}
+```
+
+Finally, a `Model` instance requires providing a base Docker image (`base_image`) to use for model training, a target Docker repository and image name (`image_name`) to publish trainer code to (packed in a Docker image too), and a list of additional files that are required for the model code or the trainer code (`extra_files`).
+
+
+```python
+# as the trainer file depends on the model file, the model file should be provided as a dependency via 'extra_files'
+extra_files = ["datasets/MNIST", "model.py"]
 base_image = "mesosphere/kubeflow:1.2.0-pytorch-1.7.1"
-image_name = "mesosphere/kubeflow:mnist-sdk-pytorch-example"  # replace with your docker repository with a tag (optional), e.g. "repository/image"  or "repository/image:tag"
+# replace with your docker repository with a tag (optional), e.g. "repository/image"  or "repository/image:tag"
+image_name = "mesosphere/kubeflow:mnist-sdk-pytorch-example"
+# name of the file with additional python packages to install into the model image (e.g. "requirements.txt")
+requirements = "requirements.txt"
 ```
 
 
@@ -398,6 +455,8 @@ model = Model(
     extra_files=extra_files,
     image_name=image_name,
     base_image=base_image,
+    serving_config=serving_config,
+    requirements=requirements,
 )
 ```
 
@@ -412,11 +471,13 @@ Since a Docker image is built in the background when you `train` or `tune` a `Mo
 The name of the final image `image_name` must be provided with or without image tag.
 If the tag is omitted, a concatenation of model `id`, `framework`, and `framework_version` is used.
 
-The `main_file` specifies the name of file that contains the model code, that is, `trainer.py` for the purposes of this tutorial.
+The `main_file` specifies the name of a file that contains the trainer code, that is, `trainer.py` for the purposes of this tutorial.
+
+To specify additional Python packages required for training or serving, provide the path to your requirements file via the `requirements` parameter of the `Model` class. Details on the format of the requirements file can be found in the [pip official documentation](https://pip.pypa.io/en/stable/cli/pip_install/#requirements-file-format).
 
 More details are available with `?Model`.
 
-### Train the Model
+## Train the Model
 Training the model using three workers is as easy as the following function call:
 
 
@@ -424,10 +485,10 @@ Training the model using three workers is as easy as the following function call
 workers = 3
 gpus = 0
 cpu = "1"
-memory = "3G"
-epochs = "5"
-batch_size = "64"
-seed = "7"
+memory = "2G"
+epochs = 5
+batch_size = 1024
+seed = 7
 ```
 
 
@@ -437,7 +498,8 @@ model.train(
     cpu=cpu,
     memory=memory,
     gpus=gpus,
-    hyperparameters={"--epochs": str(epochs), "--batch-size": str(batch_size), "--seed": str(seed), "--log-interval": "10"},
+    args={"--log-interval": "10"},
+    hyperparameters={"--epochs": epochs, "--batch-size": batch_size, "--seed": seed},
 )
 ```
 
@@ -476,24 +538,42 @@ In case the issue appears for other types of workloads, it is recommended to con
 
 The low accuracy of the model is to make the demonstration of distributed training quicker, as in the next section the model's hyperparameters are optimized anyway.
 
+### Verify the Model is Exported to MinIO
+
+
+```sh
+%%sh
+set -o errexit
+mc --no-color alias set minio http://minio.kubeflow minio minio123
+mc --no-color ls -r minio/kaptain/models
+```
+
+    Added `minio` successfully.
+    [2021-05-18 22:08:09 UTC] 4.6MiB dev/mnist/trained/e268b7a148af4aa7a26f0639f1695edc/model.pt
+
+
 ## Deploy the Model
-A trained model can be deployed as an auto-scalable inference service with a single call:
+A trained model can be deployed as an auto-scalable inference service with a single call. When providing additional serving dependencies,
+make sure to specify sufficient resources (mostly memory) in order for the server to install them without issues.
 
 
 ```python
-model.deploy()
+model.deploy(cpu="1", memory="4G")
 ```
 
 The SDK will deploy the latest saved trained or tuned model.
 It is also possible to specify a custom URI for the model, and GPUs for inference.
 If the model has already been deployed before, use `replace=True` to hot-swap it.
 
-### Tune the Model
+<p class="message--note"><strong>NOTE: </strong>When a Model Server is ready, it might still take additional time to load the model and install specified dependencies. Based on the number and total size of the dependencies, the model loading will be delayed until all the dependencies installed.
+</p>
+
+## Tune the Model
 Specify the hyperparameters and ranges or discrete values, and then use the `tune` method:
 
 
 ```python
-trials = 3
+trials = 12
 parallel_trials = 2
 ```
 
@@ -505,7 +585,6 @@ hyperparams = {
     "--epochs": Discrete([str(epochs)]),
     "--batch-size": Discrete([str(batch_size)]),
     "--seed": Discrete(["1", "7"]),
-    "--log-interval": Discrete(["10"]),
 }
 
 model.tune(
@@ -513,6 +592,9 @@ model.tune(
     parallel_trials=parallel_trials, 
     workers=workers, 
     gpus=gpus, 
+    cpu=cpu,
+    memory=memory,
+    args={"--log-interval": "10"},
     hyperparameters=hyperparams, 
     objectives=["accuracy"], 
     objective_goal=0.99
@@ -542,7 +624,7 @@ The Kaptain SDK allows individual trials to be run in parallel as well as traine
 <p class="message--warning"><strong>BEWARE! </strong>With a large number of parallel trials <i>and</i> a fair number of workers per trial, it is easy to max out on the available resources.
     If the worker quota for the namespace is <i>Q</i>, the number of parallel trials is <i>P</i>, and the number of workers per trial is <i>W</i>, please ensure that <i>P</i> &times; <i>W</i> &leq; <i>Q</i></p>
 
-### Run canary rollout
+## Run canary rollout
 To run a canary rollout launch:
 
 
@@ -562,23 +644,7 @@ model.promote_canary()
 
 This will redirect all the traffic to the deployed canary revision.
 
-### Verify the Model is Exported to MinIO
-
-
-```sh
-%%sh
-set -o errexit
-mc --no-color alias set minio http://minio.kubeflow minio minio123
-mc --no-color ls -r minio/kaptain/models
-
-```
-
-    Added `minio` successfully.
-    [2021-05-18 22:08:09 UTC] 4.6MiB dev/mnist/trained/e268b7a148af4aa7a26f0639f1695edc/model.pt
-    [2021-05-18 22:08:09 UTC] 7.6KiB dev/mnist/trained/e268b7a148af4aa7a26f0639f1695edc/trainer.py
-
-
-### Test the Model Endpoint
+## Test the Model Endpoint
 
 
 ```python
@@ -601,7 +667,13 @@ test_loader = torch.utils.data.DataLoader(
 )
 dataiter = iter(test_loader)
 images, labels = dataiter.next()
-formData = {"instances": images[0:1].tolist()}
+
+formData = {
+    "instances": [
+        { "data": images[0].tolist() }
+    ]
+}
+
 with open("input.json", "w") as outfile:
     json.dump(formData, outfile)
 ```
@@ -627,9 +699,15 @@ model_name="dev-mnist"
 namespace=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
 url="http://${model_name}.${namespace}.svc.cluster.local/v1/models/${model_name}:predict"
 
-curl -Ls $url -d@input.json
+curl --location \
+     --silent \
+     --fail \
+     --retry 10 \
+     --retry-delay 10 \
+     $url \
+     -d@input.json
 ```
 
-    {"predictions": [[-21.935760498046875, -19.816402435302734, -17.836851119995117, -16.139209747314453, -23.11355972290039, -24.78223419189453, -31.363121032714844, -1.1920928244535389e-07, -23.322656631469727, -19.70915985107422]]}
+    {"predictions": [{"7": 0.9999998807907104, "2": 5.1130371048202505e-08, "3": 3.742747978208172e-08, "9": 2.259610054622385e-09, "1": 1.1725632687031862e-09}]}
 
-The seventh class has the largest probability; the neural network correctly predicts the image to be a 7.
+We can see that the class with label "7" has the largest probability; the neural network correctly predicts the image to be a number 7.

@@ -651,7 +651,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow:1.2.0-pytorch-1.7.1-gpu
+FROM mesosphere/kubeflow-dev:c6eff430-pytorch-1.7.1-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -668,7 +668,7 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow:1.2.0-mnist-pytorch-1.7.1` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow-dev:92519748-mnist-pytorch-1.7.1` in case you want to skip it for now.
 
 ## How to Create a Distributed `PyTorchJob`
 For large training jobs, run the trainer in a distributed mode.
@@ -696,7 +696,7 @@ spec:
         spec:
           containers:
             - name: pytorch
-              image: mesosphere/kubeflow:1.2.0-mnist-pytorch-1.7.1
+              image: mesosphere/kubeflow-dev:92519748-mnist-pytorch-1.7.1
               args:
                 - --epochs
                 - "${EPOCHS}"
@@ -704,8 +704,12 @@ spec:
                 - "7"
                 - --log-interval
                 - "256"
+                - --batch-size
+                - "512"
               resources:
                 limits:
+                  cpu: 1
+                  memory: "3G"
                   nvidia.com/gpu: ${GPUS}
     Worker:
       replicas: 2
@@ -717,7 +721,7 @@ spec:
         spec:
           containers:
             - name: pytorch
-              image: mesosphere/kubeflow:1.2.0-mnist-pytorch-1.7.1
+              image: mesosphere/kubeflow-dev:92519748-mnist-pytorch-1.7.1
               args:
                 - --epochs
                 - "${EPOCHS}"
@@ -725,9 +729,14 @@ spec:
                 - "7"
                 - --log-interval
                 - "256"
+                - --batch-size
+                - "512"
               resources:
                 limits:
+                  cpu: 1
+                  memory: "3G"
                   nvidia.com/gpu: ${GPUS}
+  ttlSecondsAfterFinished: 600
 END
 ```
 
@@ -743,6 +752,8 @@ Still, it's best to change the image name listed under the comments of the speci
 
 The job can run in parallel on CPUs or GPUs, provided these are available in your cluster.
 To switch to CPUs or define resource limits, please adjust `spec.containers.resources` as required.
+
+To clean up finished `PyTorchJob` set `spec.ttlSecondsAfterFinished`. It may take extra `ReconcilePeriod` seconds for the cleanup, since reconcile gets called periodically. Defaults to infinite.
 
 You can either execute the following commands on your local machine with `kubectl` or directly from the notebook.
 If you do run these locally, you cannot rely on cell magic, so you have to manually copy-paste the variables' values wherever you see `$SOME_VARIABLE`.
@@ -899,7 +910,33 @@ kubectl logs -f pytorchjob-mnist-master-0
 Note that it may take a while when the image has to be pulled from the registry.
 It usually takes a few minutes, depending on the arguments and resources of the cluster, for the status for all pods to be 'Running'.
 
-To delete the job, execute::
+The setting `spec.ttlSecondsAfterFinished` will result in the cleanup of the created job:
+
+
+```sh
+%%sh
+kubectl get pytorchjobs -w
+```
+
+    NAME               STATE     AGE
+    pytorchjob-mnist   Created   0s
+    pytorchjob-mnist   Running   2s
+    pytorchjob-mnist   Running   2s
+    pytorchjob-mnist   Succeeded   70s
+    pytorchjob-mnist   Succeeded   70s
+    pytorchjob-mnist   Succeeded   11m
+
+
+
+```sh
+%%sh
+kubectl get pytorchjob pytorchjob-mnist
+```
+
+    Error from server (NotFound): pytorchjobs.kubeflow.org "pytorchjob-mnist" not found
+
+
+To delete the job manually, execute:
 
 
 ```sh
