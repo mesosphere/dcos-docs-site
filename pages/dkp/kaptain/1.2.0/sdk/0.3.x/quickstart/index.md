@@ -174,13 +174,13 @@ Follow the [Kaptain SDK][kaptain_sdk] tutorial for more detailed information.
 
 Several environment variables can be specified to modify some of the behavior of the SDK:
 
-- **KAPTAIN_SDK_VERBOSE**: will set the output to show all of pod logs and any event related to Job, Pods, Secrets and
+- **KAPTAIN_SDK_VERBOSE**: will set the output to show all of pod logs and any event related to Job, Pods, Secrets, and
     Service Accounts.
 - **KAPTAIN_SDK_LOG_TIMEFORMAT**: a string used to change the format of the log date time from the default "%Y-%m-%d
     %H:%M:%S,%f" following strftime format.
 - **KAPTAIN_SDK_DEBUG**: will set the logging level to DEBUG for Kaptain related logging.
 
-A `"true"` value is any of `"true"`, `"yes"`, `"y"` or `"1"`, anything else is interpreted as `"false"`. Changing the environment
+A `"true"` value is any of `"true"`, `"yes"`, `"y"`, or `"1"`, anything else is interpreted as `"false"`. Changing the environment
 variables `KAPTAIN_SDK_LOG_TIMEFORMAT` and `KAPTAIN_SDK_DEBUG` only take effect if used at the beginning of the script or
 Notebook.
 
@@ -195,4 +195,4 @@ envs.VERBOSE = False
 envs.LOG_TIMEFORMAT = "%Y/%m/%d %H:%M:%S,%f"
 ```
 [credentials]: ../credentials/
-[kaptain_sdk]: https://docs.d2iq.com/dkp/kaptain/1.2.0/tutorials/sdk/
+[kaptain_sdk]: ../../../tutorials/sdk

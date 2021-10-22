@@ -311,7 +311,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow:1.2.0-spark-3.0.0-horovod-0.21.0-tensorflow-2.4.0-gpu
+FROM mesosphere/kubeflow-dev:b9ed4730-spark-3.0.0-horovod-0.21.0-tensorflow-2.4.0-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -328,7 +328,7 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow:1.2.0-mnist-spark-3.0.0-horovod-0.21.0-tensorflow-2.4.0` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow-dev:d9e06ff9-mnist-spark-3.0.0-horovod-0.21.0-tensorflow-2.4.0` in case you want to skip it for now.
 
 ## How to Create a Distributed `SparkApplication`
 The [KUDO Spark Operator](https://github.com/kudobuilder/operators/tree/master/repository/spark/docs) manages Spark applications in a similar way as the [PyTorch](../pytorch) or [TensorFlow](../tensorflow) operators manage `PyTorchJob`s and `TFJob`s, respectively. 
@@ -366,7 +366,7 @@ spec:
   type: Python
   mode: cluster
   pythonVersion: "3"
-  image: mesosphere/kubeflow:1.2.0-mnist-spark-3.0.0-horovod-0.21.0-tensorflow-2.4.0
+  image: mesosphere/kubeflow-dev:d9e06ff9-mnist-spark-3.0.0-horovod-0.21.0-tensorflow-2.4.0
   imagePullPolicy: Always  
   mainApplicationFile: "local:///mnist.py"
   sparkVersion: "3.0.0"

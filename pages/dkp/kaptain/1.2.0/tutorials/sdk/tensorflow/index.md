@@ -19,8 +19,7 @@ tested on D2iQ's Kaptain. Without the requisite Kubernetes operators and custom 
 will likely not work.</p>
 
 
-<p class="message--warning"><strong>NOTE: </strong>This notebook is for TensorFlow 2 only.
-TensorFlow 1 does not support data auto-sharding.
+<p class="message--warning"><strong>NOTE: </strong>This notebook requires Kaptain SDK 0.4.x or later.
 </p>
 
 # Kaptain SDK: Training, Tuning, and Deploying
@@ -257,7 +256,10 @@ The central abstraction of the Kaptain SDK is a model:
 ```python
 extra_files = ["datasets/mnist"]
 base_image = "mesosphere/kubeflow:1.2.0-tensorflow-2.4.0"
-image_name = "mesosphere/kubeflow:mnist-sdk-example" # replace with your docker repository with a tag (optional), e.g. "repository/image"  or "repository/image:tag"
+# replace with your docker repository with a tag (optional), e.g. "repository/image"  or "repository/image:tag"
+image_name = "mesosphere/kubeflow:mnist-sdk-example"
+# name of the file with additional python packages to install into model image (e.g. "requirements.txt")
+requirements = None
 ```
 
 
@@ -275,6 +277,7 @@ model = Model(
     extra_files=extra_files,
     image_name=image_name,
     base_image=base_image,
+    requirements=requirements,
 )
 ```
 
@@ -291,21 +294,31 @@ If the tag is omitted, a concatenation of model `id`, `framework`, and `framewor
 
 The `main_file` specifies the name of file that contains the model code, that is, `trainer.py` for the purposes of this tutorial.
 
+To specify additional Python packages required for training or serving, provide the path to your requirements file via the `requirements` parameter of the `Model` class. Details on the format of the requirements file can be found in the [pip official documentation](https://pip.pypa.io/en/stable/cli/pip_install/#requirements-file-format).
+
 More details are available with `?Model`.
 
-### Train the Model
+## Train the Model
 Training the model on 2 nodes is as easy as the following function call:
 
 
 ```python
 workers = 2
 gpus = 0
-memory = "2G"
+memory = "5G"
+cpu = "1"
 ```
 
 
 ```python
-model.train(workers=workers, cpu="1", memory=memory, gpus=gpus, hyperparameters={"--steps": "10", "--epochs": "5"})
+model.train(
+    workers=workers,
+    cpu=cpu,
+    memory=memory,
+    gpus=gpus,
+    hyperparameters={"--steps": 10, "--epochs": 5},
+    args={}, # additional command line arguments for the training job. 
+)
 ```
 
     ...
@@ -350,7 +363,7 @@ A trained model can be deployed as an auto-scalable inference service with a sin
 
 
 ```python
-model.deploy()
+model.deploy(cpu="1", memory="2G")
 ```
 
     [I 201214 11:36:13 models:506] Deploying model from s3://kaptain/models/dev/mnist/tuned/f9e0dff3211a4bf8968c95519bedb926
@@ -365,7 +378,7 @@ The SDK will deploy the latest saved trained or tuned model.
 It is also possible to specify a custom URI for the model, and GPUs for inference.
 If the model has already been deployed before, use `replace=True` to hot-swap it.
 
-### Tune the Model
+## Tune the Model
 Specify the hyperparameters and ranges or discrete values, and then use the `tune` method:
 
 
@@ -386,7 +399,16 @@ hyperparams = {
 }
 
 model.tune(
-    trials=trials, parallel_trials=parallel_trials, workers=workers, gpus=gpus, hyperparameters=hyperparams, objectives=["accuracy"], objective_goal=0.99
+    trials=trials, 
+    parallel_trials=parallel_trials, 
+    workers=workers,
+    cpu=cpu,
+    memory=memory,
+    gpus=gpus, 
+    hyperparameters=hyperparams, 
+    objectives=["accuracy"], 
+    objective_goal=0.99,
+    args={}, # additional command line arguments to pass to a Trial (TFJob). 
 )
 ```
 
@@ -413,7 +435,7 @@ The Kaptain SDK allows individual trials to be run in parallel as well as traine
 <p class="message--warning"><strong>BEWARE! </strong>With a large number of parallel trials <i>and</i> a fair number of workers per trial, it is easy to max out on the available resources.
     If the worker quota for the namespace is <i>Q</i>, the number of parallel trials is <i>P</i>, and the number of workers per trial is <i>W</i>, please ensure that <i>P</i> &times; <i>W</i> &leq; <i>Q</i></p>
 
-### Run canary rollout
+## Run canary rollout
 To run a canary rollout launch:
 
 
@@ -433,7 +455,7 @@ model.promote_canary()
 
 This will redirect all the traffic to the deployed canary revision.
 
-### Test the Model Endpoint
+## Test the Model Endpoint
 
 
 ```python
@@ -475,7 +497,13 @@ model_name="dev-mnist"
 namespace=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
 url="http://${model_name}.${namespace}.svc.cluster.local/v1/models/${model_name}:predict"
 
-curl -Ls $url -d@input.json
+curl --location \
+     --silent \
+     --fail \
+     --retry 10 \
+     --retry-delay 10 \
+     $url \
+     -d@input.json
 ```
 
     {

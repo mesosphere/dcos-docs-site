@@ -14,7 +14,7 @@ If focuses on:
 
 Using custom certificates with a private Docker registry requires the configuration of Docker access credentials
 using [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) and
-[PodDefaults](https://www.kubeflow.org/docs/notebooks/setup/) as described in the
+[PodDefaults](https://www.kubeflow.org/docs/components/notebooks/setup/) as described in the
 [Accessing Docker and Cloud Storage][credentials] guide.
 
 # Pre-requisites
@@ -60,7 +60,7 @@ following command:
 
     kubectl create secret generic docker-secret -n <kaptain_namespace> --from-file=config.json=config.json
 
-Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks.
+Be sure to replace `<kaptain_namespace>` with the namespace you use for creating notebooks.
 In this example, we used a namespace named 'user'.
 
 Verify the `Secret` is created:
@@ -213,4 +213,4 @@ model = Model(
 )
 ```
 [credentials]: ../credentials/
-[konvoy_airgapped_guide]: https://docs.d2iq.com/dkp/konvoy/latest/install/install-airgapped/#configure-the-image-registry
+[konvoy_airgapped_guide]: /dkp/konvoy/latest/choose_infrastructure/aws/air-gapped/

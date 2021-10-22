@@ -17,11 +17,13 @@ excerpt: Kaptain SDK Python API Documentation
     * [VERBOSE](#kaptain.envs._M.VERBOSE)
     * [DEBUG](#kaptain.envs._M.DEBUG)
     * [LOG\_TIMEFORMAT](#kaptain.envs._M.LOG_TIMEFORMAT)
-* [kaptain.utilities](#kaptain.utilities)
-  * [blank](#kaptain.utilities.blank)
-  * [none\_or\_blank](#kaptain.utilities.none_or_blank)
-  * [MyFormatter](#kaptain.utilities.MyFormatter)
-  * [set\_logging\_format](#kaptain.utilities.set_logging_format)
+    * [DOCKER\_BUILDER\_CPU\_LIMIT](#kaptain.envs._M.DOCKER_BUILDER_CPU_LIMIT)
+    * [DOCKER\_BUILDER\_MEM\_LIMIT](#kaptain.envs._M.DOCKER_BUILDER_MEM_LIMIT)
+    * [DOCKER\_BUILDER\_CPU\_REQUEST](#kaptain.envs._M.DOCKER_BUILDER_CPU_REQUEST)
+    * [DOCKER\_BUILDER\_MEM\_REQUEST](#kaptain.envs._M.DOCKER_BUILDER_MEM_REQUEST)
+    * [KAPTAIN\_SDK\_DELETE\_EXPERIMENT](#kaptain.envs._M.KAPTAIN_SDK_DELETE_EXPERIMENT)
+    * [KAPTAIN\_SDK\_TTL\_SECONDS\_AFTER\_FINISHED](#kaptain.envs._M.KAPTAIN_SDK_TTL_SECONDS_AFTER_FINISHED)
+    * [KAPTAIN\_SDK\_FORCE\_CLEANUP](#kaptain.envs._M.KAPTAIN_SDK_FORCE_CLEANUP)
 * [kaptain.exceptions](#kaptain.exceptions)
   * [InvalidModelProperty](#kaptain.exceptions.InvalidModelProperty)
   * [UndefinedModelProperty](#kaptain.exceptions.UndefinedModelProperty)
@@ -33,6 +35,21 @@ excerpt: Kaptain SDK Python API Documentation
   * [ModelValidationException](#kaptain.exceptions.ModelValidationException)
   * [ImageBuildException](#kaptain.exceptions.ImageBuildException)
   * [WorkloadDeploymentError](#kaptain.exceptions.WorkloadDeploymentError)
+* [kaptain.utils](#kaptain.utils)
+  * [diagnose](#kaptain.utils.diagnose)
+  * [list\_jobs](#kaptain.utils.list_jobs)
+  * [delete\_job](#kaptain.utils.delete_job)
+  * [list\_experiments](#kaptain.utils.list_experiments)
+  * [delete\_experiment](#kaptain.utils.delete_experiment)
+  * [list\_inference\_services](#kaptain.utils.list_inference_services)
+  * [delete\_inference\_service](#kaptain.utils.delete_inference_service)
+  * [delete\_jobs](#kaptain.utils.delete_jobs)
+  * [delete\_experiments](#kaptain.utils.delete_experiments)
+  * [delete\_inference\_services](#kaptain.utils.delete_inference_services)
+  * [clean](#kaptain.utils.clean)
+  * [clean\_all](#kaptain.utils.clean_all)
+  * [list\_all\_resources](#kaptain.utils.list_all_resources)
+  * [delete\_resource](#kaptain.utils.delete_resource)
 * [kaptain.model](#kaptain.model)
 * [kaptain.model.models](#kaptain.model.models)
   * [Model](#kaptain.model.models.Model)
@@ -48,6 +65,7 @@ excerpt: Kaptain SDK Python API Documentation
     * [undeploy](#kaptain.model.models.Model.undeploy)
     * [log\_data](#kaptain.model.models.Model.log_data)
     * [log\_metrics](#kaptain.model.models.Model.log_metrics)
+    * [meta](#kaptain.model.models.Model.meta)
 * [kaptain.model.frameworks](#kaptain.model.frameworks)
   * [ModelFramework](#kaptain.model.frameworks.ModelFramework)
     * [of](#kaptain.model.frameworks.ModelFramework.of)
@@ -163,60 +181,76 @@ this environment variable (KAPTAIN_SDK_DEBUG) will show stacktrace for uncaught 
 
 this environment variable (KAPTAIN_SDK_LOG_TIMEFORMAT) will set the time format to show in logs
 
-<a name="kaptain.utilities"></a>
-# kaptain.utilities
-
-<a name="kaptain.utilities.blank"></a>
-#### blank
+<a name="kaptain.envs._M.DOCKER_BUILDER_CPU_LIMIT"></a>
+#### DOCKER\_BUILDER\_CPU\_LIMIT
 
 ```python
-blank(s: str) -> bool
+ | @DOCKER_BUILDER_CPU_LIMIT.setter
+ | DOCKER_BUILDER_CPU_LIMIT(cpu_limit: str) -> None
 ```
 
-Checks if a string is blank.
+set cpu limit resource for image builder job
 
-**Arguments**:
-
-- `s`: Input string
-
-**Returns**:
-
-True if blank, False otherwise
-
-<a name="kaptain.utilities.none_or_blank"></a>
-#### none\_or\_blank
+<a name="kaptain.envs._M.DOCKER_BUILDER_MEM_LIMIT"></a>
+#### DOCKER\_BUILDER\_MEM\_LIMIT
 
 ```python
-none_or_blank(s: Optional[str]) -> bool
+ | @DOCKER_BUILDER_MEM_LIMIT.setter
+ | DOCKER_BUILDER_MEM_LIMIT(mem_limit: str) -> None
 ```
 
-Checks if an optional string is either None or blank.
+set memory limit resource for image builder job
 
-**Arguments**:
-
-- `s`: Input string
-
-**Returns**:
-
-True if None or blank, False otherwise
-
-<a name="kaptain.utilities.MyFormatter"></a>
-## MyFormatter Objects
+<a name="kaptain.envs._M.DOCKER_BUILDER_CPU_REQUEST"></a>
+#### DOCKER\_BUILDER\_CPU\_REQUEST
 
 ```python
-class MyFormatter(logging.Formatter)
+ | @DOCKER_BUILDER_CPU_REQUEST.setter
+ | DOCKER_BUILDER_CPU_REQUEST(cpu_request: str) -> None
 ```
 
-formatter for logger to allow for millisecond format via %f
+set cpu request resource for image builder job
 
-<a name="kaptain.utilities.set_logging_format"></a>
-#### set\_logging\_format
+<a name="kaptain.envs._M.DOCKER_BUILDER_MEM_REQUEST"></a>
+#### DOCKER\_BUILDER\_MEM\_REQUEST
 
 ```python
-set_logging_format(datefmt: str) -> None
+ | @DOCKER_BUILDER_MEM_REQUEST.setter
+ | DOCKER_BUILDER_MEM_REQUEST(mem_request: str) -> None
 ```
 
-Helper to change logging format when the environment variable KAPTAIN_SDK_LOG_TIMEFORMAT changes or when starting
+set memory request resource for image builder job
+
+<a name="kaptain.envs._M.KAPTAIN_SDK_DELETE_EXPERIMENT"></a>
+#### KAPTAIN\_SDK\_DELETE\_EXPERIMENT
+
+```python
+ | @KAPTAIN_SDK_DELETE_EXPERIMENT.setter
+ | KAPTAIN_SDK_DELETE_EXPERIMENT(value: bool) -> None
+```
+
+Delete the experiment resource upon the completion of the tuning step. Note: once the experiment is deleted,
+it won't be available for viewing in the Katib UI
+
+<a name="kaptain.envs._M.KAPTAIN_SDK_TTL_SECONDS_AFTER_FINISHED"></a>
+#### KAPTAIN\_SDK\_TTL\_SECONDS\_AFTER\_FINISHED
+
+```python
+ | @KAPTAIN_SDK_TTL_SECONDS_AFTER_FINISHED.setter
+ | KAPTAIN_SDK_TTL_SECONDS_AFTER_FINISHED(ttl_seconds: int) -> None
+```
+
+Number of seconds after which a completed training job gets automatically deleted.
+
+<a name="kaptain.envs._M.KAPTAIN_SDK_FORCE_CLEANUP"></a>
+#### KAPTAIN\_SDK\_FORCE\_CLEANUP
+
+```python
+ | @KAPTAIN_SDK_FORCE_CLEANUP.setter
+ | KAPTAIN_SDK_FORCE_CLEANUP(value: bool) -> None
+```
+
+If set to True, delete completed training jobs automatically ignoring the TTL.
 
 <a name="kaptain.exceptions"></a>
 # kaptain.exceptions
@@ -310,7 +344,187 @@ Raised in case of a image build failure.
 class WorkloadDeploymentError(Exception)
 ```
 
-Raised in case of a workload deployemnt failure, e.g. failed scheduling
+Raised in case of a workload deployment failure, e.g. failed scheduling
+
+<a name="kaptain.utils"></a>
+# kaptain.utils
+
+<a name="kaptain.utils.diagnose"></a>
+#### diagnose
+
+```python
+diagnose() -> None
+```
+
+List all managed resources for the current namespace: TfJobs, PyTorchJobs, Experiments and Inference Services, Secrets, Pods, and Service Accounts
+
+<a name="kaptain.utils.list_jobs"></a>
+#### list\_jobs
+
+```python
+list_jobs() -> None
+```
+
+List all training jobs in current namespace.
+
+<a name="kaptain.utils.delete_job"></a>
+#### delete\_job
+
+```python
+delete_job(name: str, kind: Optional[str] = None) -> None
+```
+
+Deletes a training job based on provided name and kind.
+
+**Arguments**:
+
+- `name`: job name
+- `kind`: job kind (optional), e.g. "tfjob" or "pytorchjob".
+
+<a name="kaptain.utils.list_experiments"></a>
+#### list\_experiments
+
+```python
+list_experiments() -> None
+```
+
+Lists Katib experiments.
+
+<a name="kaptain.utils.delete_experiment"></a>
+#### delete\_experiment
+
+```python
+delete_experiment(name: str) -> None
+```
+
+Deletes Katib experiment.
+
+**Arguments**:
+
+- `name`: Name of the experiment
+
+<a name="kaptain.utils.list_inference_services"></a>
+#### list\_inference\_services
+
+```python
+list_inference_services() -> None
+```
+
+Lists deployed inference services.
+
+<a name="kaptain.utils.delete_inference_service"></a>
+#### delete\_inference\_service
+
+```python
+delete_inference_service(name: str) -> None
+```
+
+Deletes inference service.
+
+**Arguments**:
+
+- `name`: Name of the inference service
+
+<a name="kaptain.utils.delete_jobs"></a>
+#### delete\_jobs
+
+```python
+delete_jobs(force: bool = False) -> None
+```
+
+Deletes all training jobs created by the SDK.
+
+**Arguments**:
+
+- `force`: If True, delete all (even running) jobs created by the SDK, otherwise, delete only completed jobs.
+
+<a name="kaptain.utils.delete_experiments"></a>
+#### delete\_experiments
+
+```python
+delete_experiments(force: bool = False) -> None
+```
+
+Deletes all experiments created by the SDK.
+
+**Arguments**:
+
+- `force`: If True, delete all (even running) experiments created by the SDK, otherwise, delete only completed experiments.
+
+<a name="kaptain.utils.delete_inference_services"></a>
+#### delete\_inference\_services
+
+```python
+delete_inference_services(force: bool = False) -> None
+```
+
+Delete all inference services created by the SDK.
+
+**Arguments**:
+
+inference services with 'NotReady' status.
+- `force`: If True, delete all (even already deployed) inference services created by the SDK, otherwise, delete
+
+**Returns**:
+
+
+
+<a name="kaptain.utils.clean"></a>
+#### clean
+
+```python
+clean(force: bool = False) -> None
+```
+
+Deletes stale resources (such as Secrets and ServiceAccounts which are not used by any workloads).
+
+WARNING: Use with caution! To prevent data loss, please first run this method without any arguments set and check
+whether the resources proposed by the method can be safely deleted.
+
+**Arguments**:
+
+- `force`: If False, method only prints unused resource names without actually removing them.
+
+<a name="kaptain.utils.clean_all"></a>
+#### clean\_all
+
+```python
+clean_all(force: bool = False) -> None
+```
+
+Deletes all completed workloads and stale Kubernetes resources created by the SDK.
+
+**Arguments**:
+
+delete only completed workloads and prints stale resources (secrets and service accounts).
+- `force`: If True, delete all (even running) workloads and resources created by the SDK, otherwise
+
+**Returns**:
+
+
+
+<a name="kaptain.utils.list_all_resources"></a>
+#### list\_all\_resources
+
+```python
+list_all_resources() -> None
+```
+
+Lists all deployed resources: TfJobs, PyTorchJobs, Experiments and Inference Services.
+
+<a name="kaptain.utils.delete_resource"></a>
+#### delete\_resource
+
+```python
+delete_resource(kind: str, name: str) -> None
+```
+
+Deletes inference service.
+
+**Arguments**:
+
+- `name`: Name of the resource
+- `kind`: Kind of the resource - one of "tfjob", "pytorchjob", "experiment" or "inferenceservice".
 
 <a name="kaptain.model"></a>
 # kaptain.model
@@ -329,7 +543,7 @@ class Model()
 #### \_\_init\_\_
 
 ```python
- | __init__(id: str, name: str, description: str, version: str, framework: str, framework_version: str, main_file: str, image_name: str, base_image: str, extra_files: Optional[List[str]] = None, requirements: Optional[str] = None, labels: Optional[List[str]] = None, config: Optional[Config] = None)
+ | __init__(id: str, name: str, description: str, version: str, framework: str, framework_version: str, main_file: str, image_name: str, base_image: str, extra_files: Optional[List[str]] = None, requirements: Optional[str] = None, labels: Optional[List[str]] = None, config: Optional[Config] = None, serving_config: Optional[Dict[str, str]] = None)
 ```
 
 A representation of a machine learning model.
@@ -342,6 +556,7 @@ in the model tracking database.
 
 **Arguments**:
 
+Details on the format can be found here: https://pip.pypa.io/en/stable/cli/pip_install/`requirements`-file-format.
 - `id`: Unique identifier of model, e.g. "dev/mnist". It is recommended to include the stage of the model (e.g. dev/prod) in the name to make it easier to filter models under active development and in production.
 - `name`: Short name of the model, e.g. "MNIST". This name is visible in the model tracking database.
 - `description`: Description of the model, e.g. "Digit recognition for MNIST data set". This description is visible in the model tracking database.
@@ -349,12 +564,13 @@ in the model tracking database.
 - `main_file`: Main (Python) file that contains the executable model code, e.g. "trainer.py".
 - `image_name`: Name of the repository to push the resulting image, e.g. 'kaptain/mnist' Can also contain image tag, e.g. "kaptain/mnist:0.0.1-tensorflow-2.2.0".
 - `extra_files`: Auxiliary files, e.g. ["utils.py", "data_loader.py"].
-- `requirements`: Additional pip requirements, e.g. ["numpy", "nltk==3.5"]
+- `requirements`: Path to the file with additional python packages to install into the image in pip compatible format (e.g. "requirements.txt").
 - `framework`: Machine learning library or framework used for the model, e.g. "tensorflow".
 - `framework_version`: Machine learning library or framework version used by model, e.g. "2.3.2"
 - `base_image`: Base container image, e.g. "tensorflow-2.3.2"
 - `labels`: Custom labels for deployment-related metadata, e.g. "dev/mnist-tensorflow"
 - `config`: Configuration object used for configuring access to Docker registries and blob storage.
+- `serving_config`: Configuration specific to model servers
 
 <a name="kaptain.model.models.Model.hyperparameters"></a>
 #### hyperparameters
@@ -372,7 +588,7 @@ Hyperparameters of the model as defined through an action:
 #### build
 
 ```python
- | build(verbose: Optional[bool] = None) -> None
+ | build(verbose: Optional[bool] = None) -> bool
 ```
 
 Builds a Docker image with the model training code and dependencies and publishes it to the registry
@@ -385,11 +601,15 @@ in the registry.
 
 - `verbose`: Enable verbose output (can also be set via environment variable KAPTAIN_SDK_VERBOSE).
 
+**Returns**:
+
+True if successful, otherwise False
+
 <a name="kaptain.model.models.Model.train"></a>
 #### train
 
 ```python
- | train(*args: str, *, hyperparameters: Dict[str, Any], gpus: Optional[int] = None, cpu: Optional[str] = None, memory: Optional[str] = None, resources: Optional[Resources] = None, workers: int = 2, verbose: Optional[bool] = None, **kwargs: str, ,) -> bool
+ | train(hyperparameters: Dict[str, Any], args: Optional[Dict[str, Any]] = None, gpus: Optional[int] = None, cpu: Optional[str] = None, memory: Optional[str] = None, resources: Optional[Resources] = None, workers: int = 2, verbose: Optional[bool] = None, ttl_seconds_after_finished: Optional[int] = None, force_cleanup: Optional[bool] = None) -> bool
 ```
 
 Train a model in a distributed manner.
@@ -410,6 +630,7 @@ It is illegal to specify both the 'resources' parameter or any 'simple' resource
 
 **Arguments**:
 
+Can be set via 'KAPTAIN_SDK_TTL_SECONDS_AFTER_FINISHED' environment variable.
 
 - `args`: Arguments to be passed to the training function.
 - `hyperparameters`: Dictionary of hyperparameter values.
@@ -419,7 +640,8 @@ It is illegal to specify both the 'resources' parameter or any 'simple' resource
 - `cpu`: Number of CPUs to use for each worker (optional).
 - `resources`: Advanced API for resource specification. Do not use in tandem with the parameters gpus, memory and cpu (optional).
 - `verbose`: Enable verbose output (can also be set via environment variable KAPTAIN_SDK_VERBOSE).
-- `kwargs`: Keyword arguments to be passed to the training function.
+- `ttl_seconds_after_finished`: Number of seconds after which a completed training job gets automatically deleted.
+- `force_cleanup`: If set to True, delete completed training jobs automatically ignoring the TTL (can also be set via 'KAPTAIN_SDK_FORCE_CLEANUP' environment variable).
 
 **Returns**:
 
@@ -429,7 +651,7 @@ True if successful, otherwise False
 #### tune
 
 ```python
- | tune(*args: str, *, hyperparameters: Dict[str, Domain], objectives: List[str], objective_goal: Optional[float] = None, objective_type: str = "maximize", workers: int = 2, gpus: Optional[int] = None, cpu: Optional[str] = None, memory: Optional[str] = None, resources: Optional[Resources] = None, trials: int = 16, parallel_trials: int = 2, failed_trials: int = 4, algorithm: Optional[str] = Algorithm.RANDOM.value, algorithm_setting: Optional[dict] = None, verbose: Optional[bool] = None, **kwargs: str, ,) -> bool
+ | tune(hyperparameters: Dict[str, Domain], objectives: List[str], objective_goal: Optional[float] = None, objective_type: str = "maximize", workers: int = 2, gpus: Optional[int] = None, cpu: Optional[str] = None, memory: Optional[str] = None, resources: Optional[Resources] = None, trials: int = 16, parallel_trials: int = 2, failed_trials: int = 2, algorithm: Optional[str] = Algorithm.RANDOM.value, algorithm_setting: Optional[dict] = None, args: Optional[Dict[str, Any]] = None, verbose: Optional[bool] = None, delete_experiment: Optional[bool] = None, ttl_seconds_after_finished: Optional[int] = None) -> bool
 ```
 
 Tunes a model with parallel trials and possibly distributed trials.
@@ -454,7 +676,7 @@ It is illegal to specify both the 'resources' parameter or any 'simple' resource
 **Arguments**:
 
 
-- `args`: Arguments to be passed to the training/tuning function.
+- `args`: Arguments to be passed to the the experiment trial specification.
 - `hyperparameters`: Dictionary of hyperparameters and their specified domains.
 - `objectives`: List of metrics to track in order of importance. The first one listed is used in conjunction with the objective goal and type.
 - `objective_goal`: Main objective's goal, which when reached causes the tuning to stop. The main objective is the first element in `objectives`. If None, the tuning will continue until the maximum number of `trials` has been reached.
@@ -470,7 +692,8 @@ It is illegal to specify both the 'resources' parameter or any 'simple' resource
 - `algorithm`: Algorithm to use for hyperparameter search (default: random).
 - `algorithm_setting`: Algorithm settings. Please see https://www.kubeflow.org/docs/components/hyperparameter-tuning/experiment/ for details.
 - `verbose`: Enable verbose output (can also be set via environment variable KAPTAIN_SDK_VERBOSE).
-- `kwargs`: Keyword arguments to be passed to the training/tuning function.
+- `delete_experiment`: Delete the experiment resource upon the completion of the tuning step. Can be set via 'KAPTAIN_SDK_DELETE_EXPERIMENT' environment variable. Note: once the experiment is deleted, it won't be available for viewing in the Katib UI.
+- `ttl_seconds_after_finished`: Number of seconds after which a completed training job gets automatically deleted.
 
 **Returns**:
 
@@ -617,6 +840,19 @@ Logs model evaluation metrics to a model execution.
 - `metrics`: A dictionary of metrics names and their values, e.g. {"accuracy", 0.95, "auc": 0.975}.
 - `metrics_type`: Evaluation type of the metric: training, testing, validation, or production (for deployed models).
 - `uri`: Optional URI to the metrics (e.g. log directory).
+
+<a name="kaptain.model.models.Model.meta"></a>
+#### meta
+
+```python
+ | meta() -> ModelMeta
+```
+
+Creates an immutable snapshot of model properties.
+
+**Returns**:
+
+ModelMeta data class with a copy of all current model field values
 
 <a name="kaptain.model.frameworks"></a>
 # kaptain.model.frameworks
@@ -803,7 +1039,7 @@ class DockerRegistryCertificateProvider(FileBasedConfigurationProvider)
 #### \_\_init\_\_
 
 ```python
- | __init__(certificate_body: str, ceritifcate_path: Optional[str] = None)
+ | __init__(certificate_body: str, certificate_path: Optional[str] = None)
 ```
 
 Docker Registry Certificate Provider is a container for private Docker registries running

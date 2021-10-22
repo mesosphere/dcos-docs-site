@@ -34,13 +34,13 @@ A `Secret` can be created from a file and can be accessed only by the
 service account which created it, and by users with administrative
 privileges.
 
-After a `Secret` is created it can be mounted to a Notebook container as a file
+After a `Secret` is created, it can be mounted to a Notebook container as a file
 or used to populate environment variables. To simplify the process, you can create all
 the necessary secrets once and then reuse them across notebooks. To make
 `Secrets` automatically available for mounting, create a `PodDefault` for them.
 For more information about `PodDefault` follow the
 [Kubeflow Notebook Setup Guide][kubeflow_setup] or check the
-[PodDefault manifest][poddefault_ manifest].
+[PodDefault manifest][poddefault_manifest].
 
 ## Docker credentials
 
@@ -73,7 +73,7 @@ following command:
 
     kubectl create secret generic docker-secret -n <kaptain_namespace> --from-file=config.json
 
-  Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks.
+  Be sure to replace `<kaptain_namespace>` with the namespace you use for creating notebooks.
   In this example, we used a namespace named 'user'
 
 Verify the `Secret` is created:
@@ -120,7 +120,7 @@ objects to avoid conflicts when mounting <code>Secrets</code> to <code>Pods</cod
 
 Create the `PodDefault` resource from the file using the following command:
 
-    kubectl create -f pod_default.yaml
+    kubectl apply -f pod_default.yaml
 
 After that, the Docker credentials secret will be available for
 selection in the Notebook Spawner UI and, if selected, will be mounted
@@ -138,7 +138,7 @@ There are two ways to make AWS credentials available in a notebook:
 
 <p class="message--note">
 <strong>NOTE: </strong>
-Which method to use depends on what AWS settings you need to configure:
+Which method to use depends on what AWS settings you need to configure
 <ul>
 <li>The configuration file method is recommended when working with the default account settings, i.e. when only credentials
     such as AWS Access Key ID, AWS Secret Access Key, and AWS Session Token are needed to access associated S3
@@ -171,7 +171,7 @@ command:
 
     kubectl create secret generic aws-credentials -n <kaptain_namespace> --from-file=credentials
 
-Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks. In this example, we used a namespace named 'user'
+Be sure to replace `<kaptain_namespace>` with the namespace you use for creating notebooks. In this example, we used a namespace named 'user'
 
 Verify that the `Secret` is created:
 
@@ -218,7 +218,7 @@ mounting <code>Secrets</code> to <code>Pods</code>.
 
 Create a `PodDefault` resource from the file using the following command:
 
-    kubectl create -f pod_default.yaml
+    kubectl apply -f pod_default.yaml
 
 After creating this resource, the AWS credentials secret will be available for selection in
 the Notebook Spawner UI and, if selected, will be mounted to
@@ -272,7 +272,7 @@ To create a `Secret` from the YAML specification file (e.g.
 
     kubectl create -f -n <kaptain_namespace> secret.yaml
 
-Be sure to replace <kaptain_namespace> with the namespace you use for creating notebooks.
+Be sure to replace `<kaptain_namespace>` with the namespace you use for creating notebooks.
 In this example, we used a namespace named 'user'.
 
 Verify the `Secret` is created:
@@ -314,7 +314,7 @@ To make this `Secret` available for selection in the Notebook creation dialogue,
 
 Create a `PodDefault` resource from file using the following command:
 
-    kubectl create -f pod_default.yaml
+    kubectl apply -f pod_default.yaml
 
 After that, the AWS configuration secret will be available for selection in
 the Notebook Spawner UI and, if selected, will make all the environment
@@ -478,5 +478,5 @@ The above example is the default behavior of the SDK for <code>Config</code>
 instantiation when no config is provided to the <code>Model</code> constructor.
 </p>
 
-[kubeflow_setup]: https://www.kubeflow.org/docs/notebooks/setup/
+[kubeflow_setup]: https://www.kubeflow.org/docs/components/notebooks/setup/
 [poddefault_manifest]: https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/README.md
