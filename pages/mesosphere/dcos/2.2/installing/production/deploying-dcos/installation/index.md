@@ -4,6 +4,7 @@ navigationTitle: Production Installation
 title: Production Installation
 menuWeight: 15
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 excerpt: Installing production-ready DC/OS
 ---
 

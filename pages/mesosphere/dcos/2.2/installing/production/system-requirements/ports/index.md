@@ -5,6 +5,7 @@ navigationTitle: Ports
 menuWeight: 15
 excerpt: Understanding configured ports for DC/OS deployment
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 ---
 This section describes each pre-configured port in your DC/OS deployment.
 

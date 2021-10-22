@@ -5,6 +5,7 @@ title: Node and Cluster Health Checks
 menuWeight: 25
 excerpt: Using health checks with your DC/OS cluster
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 ---
 
 

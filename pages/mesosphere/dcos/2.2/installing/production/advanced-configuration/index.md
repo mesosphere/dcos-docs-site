@@ -4,6 +4,7 @@ navigationTitle:  Advanced Configuration
 title: Advanced Configuration
 menuWeight: 15
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 excerpt: Configuring your DC/OS using advanced configuration methods
 ---
 

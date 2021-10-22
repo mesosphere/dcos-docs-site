@@ -6,6 +6,7 @@ menuWeight: 3
 excerpt: Scaling a service using the UI and the CLI
 enterprise: false
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 ---
 
 This tutorial shows how to scale a service using the UI and the CLI.

@@ -5,6 +5,7 @@ navigationTitle: ZooKeeper resources
 menuWeight: 10
 excerpt: Requirements and recommendations for ZooKeeper in a DC/OS cluster
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 ---
 ZooKeeper is a centralized coordination service that stores, maintains, and synchronizes information for distributed systems. ZooKeeper and its management service maintain state information and record details of node activity in a data directory. As changes are made to the cluster, those changes are recorded in the ZooKeeper transaction log. When the transaction log grows too large, ZooKeeper creates a snapshot of the current state of cluster nodes.
 

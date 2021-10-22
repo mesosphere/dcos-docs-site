@@ -4,6 +4,7 @@ navigationTitle:  Troubleshooting
 title: Troubleshooting
 menuWeight: 25
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 excerpt: Troubleshooting DC/OS installation issues
 ---
 

@@ -4,6 +4,7 @@ title: DC/OS Ansible Quickstart Guide
 navigationTitle: Ansible Quickstart
 menuWeight: 1
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 excerpt: Guided walkthrough of installing DC/OS using Ansible.
 ---
 
