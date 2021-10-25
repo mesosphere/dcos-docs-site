@@ -8,14 +8,24 @@ beta: false
 enterprise: false
 ---
 
-Learn how to upgrade the existing Kaptain installation to a newer version.
+Upgrade the existing Kaptain installation to a newer version.
 
 ## Prerequisites
 
-- Kaptain 1.2.0-1.1.0 is installed on a Konvoy cluster.
+Before you begin, ensure you have:
+
+- Kaptain 1.2.0–1.1.0 installed on a Konvoy cluster.
 - The existing cluster meets the criteria listed in the [installation documentation][install]. 
 
-## Upgrading Kaptain
+## Upgrade Kaptain
+
+<p class="message--warning"><strong>WARNING: </strong>When upgrading from Kaptain 1.1.0 to 1.2.0, some resources are not cleaned up automatically during the upgrade and must be removed manually by running the following commands before the upgrade:
+</p>
+
+```bash
+kubectl delete mutatingwebhookconfigurations.admissionregistration.k8s.io katib-mutating-webhook-config
+kubectl delete validatingwebhookconfigurations.admissionregistration.k8s.io katib-validating-webhook-config
+```
 
 * Ensure the following base addons that are needed by Kaptain are enabled in your Konvoy cluster:
     ```yaml
@@ -41,7 +51,7 @@ Learn how to upgrade the existing Kaptain installation to a newer version.
             enabled: true
   ```
 
-* [Download `kubeflow-1.3.0_1.2.0.tgz` tarball][download].
+* [Download][download] the `kubeflow-1.3.0_1.2.0.tgz` tarball from the support website.
 * Upgrade Kaptain:
   ```bash
   kubectl kudo upgrade --instance kaptain --namespace kubeflow ./kubeflow-1.3.0_1.2.0.tgz
@@ -51,7 +61,7 @@ Learn how to upgrade the existing Kaptain installation to a newer version.
   kubectl kudo plan status --instance kaptain --namespace kubeflow
   ```
 
-Once the upgrade plan completes, you can log in to Kaptain:
+After the upgrade completes, log in to Kaptain:
 
 * Discover the cluster endpoint and copy it to the clipboard.
   If you are running Kaptain _on-premises_, use this command:
