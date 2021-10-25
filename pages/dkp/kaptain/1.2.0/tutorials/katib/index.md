@@ -185,7 +185,6 @@ spec:
       feasibleSpace:
         min: "0.6"
         max: "0.7"
-  resumePolicy: Never
   trialTemplate:
     primaryContainerName: tensorflow
     trialParameters:
@@ -210,7 +209,7 @@ spec:
             spec:
               containers:
                 - name: tensorflow
-                  image: mesosphere/kubeflow-dev:8169ef75-mnist-tensorflow-2.4.0
+                  image: mesosphere/kubeflow:1.2.0-mnist-tensorflow-2.4.0
                   imagePullPolicy: Always
                   command: ["python", "-u", "/mnist.py"]
                   args:
@@ -218,8 +217,6 @@ spec:
                   - "--momentum=\${trialParameters.momentum}"
                   resources:
                     limits:
-                      cpu: 1
-                      memory: 3G
                       nvidia.com/gpu: $GPUS
 END
 ```
@@ -287,7 +284,6 @@ spec:
       feasibleSpace:
         min: "0.7"
         max: "1.0"
-  resumePolicy: Never
   trialTemplate:
     primaryContainerName: pytorch
     trialParameters:
@@ -309,19 +305,18 @@ spec:
             spec:
               containers:
                 - name: pytorch
-                  image: mesosphere/kubeflow-dev:92519748-mnist-pytorch-1.7.1
+                  image: mesosphere/kubeflow:1.2.0-mnist-pytorch-1.7.1
                   imagePullPolicy: Always
                   command: ["python", "-u", "/mnist.py"]
                   args:
-                    - "--epochs=5"
-                    - "--batch-size=1024"
+                    - "--epochs=1"
                     - "--lr=\${trialParameters.learningRate}"
                   resources:
                     limits:
                       nvidia.com/gpu: $GPUS
                     requests:
                       cpu: 1
-                      memory: 1G
+                      memory: 1Gi
         Worker:
           replicas: 2
           restartPolicy: OnFailure
@@ -332,28 +327,23 @@ spec:
             spec:
               containers:
                 - name: pytorch
-                  image: mesosphere/kubeflow-dev:92519748-mnist-pytorch-1.7.1
+                  image: mesosphere/kubeflow:1.2.0-mnist-pytorch-1.7.1
                   imagePullPolicy: Always
                   args:
-                    - "--epochs=5"
-                    - "--batch-size=1024"
+                    - "--epochs=1"
                     - "--lr=\${trialParameters.learningRate}"
                   resources:
                     limits:
                       nvidia.com/gpu: $GPUS
                     requests:
                       cpu: 1
-                      memory: 1G
+                      memory: 1Gi
 END
 ```
 
 Please note the subtle differences in the `trialTemplate`: the `kind` is either [`TFJob`](https://www.kubeflow.org/docs/components/training/tftraining/) or [`PyTorchJob`](https://www.kubeflow.org/docs/components/training/pytorch/) and the Docker images are obviously different.
 
-<p class="message--note"><strong>NOTE: </strong>
-    After deploying an <code>Experiment</code> resource, Katib deploys a <code>Suggestion</code> which results in a <code>Pod</code> creation. The <code>Suggestion</code> keeps track of all <code>Trials</code> and parameters suggested by the algorithm. The underlying jobs are deleted after finishing but the <code>Suggestion</code> pod keeps running in case the experiment needs to be resumed. However, if it is not expected to be resumed, it's possible to clean up the <code>Suggestion</code> pod after the completion of the experiment by setting <code>resumePolicy: Never</code> in <code>Experiment</code> YAML file.
-</p>
-
-##  Run and Monitor Experiments
+## How to Run and Monitor Experiments
 You can either execute these commands on your local machine with `kubectl` or you can run them from the notebook.
 If you do run these locally, you cannot rely on cell magic, so you have to manually copy-paste the experiment name wherever you see `$EXPERIMENT`.
 If you intend to run the following command locally, you have to set the user namespace for all subsequent commands:
@@ -400,14 +390,6 @@ To see the status, run:
 kubectl describe experiment.kubeflow.org $EXPERIMENT
 ```
 
-To see experiment suggestions:
-
-
-```sh
-%%sh
-kubectl describe suggestions.kubeflow.org $EXPERIMENT
-```
-
 To get the list of created trials, use the following command:
 
 
@@ -421,14 +403,6 @@ kubectl get trials.kubeflow.org -l experiment=$EXPERIMENT
     katib-pytorchjob-experiment-qcl4jkc6   Created   True     2s
     katib-pytorchjob-experiment-vnzgj7q6   Created   True     2s
 
-
-To fetch the logs of a particular trial, use the following command:
-
-
-```sh
-%%sh
-kubectl logs -l job-name=<trial-name> --all-containers --prefix=true
-```
 
 After the experiment is completed, use `describe` to get the best trial results:
 
@@ -460,20 +434,12 @@ Status:
 ...
 ```
 
-If an Experiment needs to be deleted, including deleting it from the "Experiments (AutoML)" page:
-
-
-```sh
-%%sh
-kubectl delete experiments.kubeflow.org $EXPERIMENT 
-```
-
 ## Katib UI
 
 So far, you have created and submitted experiments via the command line or from within Jupyter notebooks.
-Katib provides a user interface which allows you to create, configure, monitor, and delete experiments from a browser.
-The Katib UI can be launched from Kubeflow's central dashboard. 
-Select "Experiments (AutoML)" in the navigation menu.
+Katib provides a user interface, which allows you to create, configure, and monitor experiments in a browser.
+The Katib UI can be launched from Kubeflow's central dashboard.
+Just click on "Experiments (AutoML)" in the navigation menu on the left of the dashboard.
 
 ![Katib](./img/katib-1.png)
 

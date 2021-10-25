@@ -182,7 +182,6 @@ del mnist, squeezed
 ```python
 EPOCHS = 15
 GPUS = 1
-MEMORY = "4G"
 ```
 
 Make the defined constants available as shell environment variables. They parameterize the `TFJob` manifest below.
@@ -191,7 +190,6 @@ Make the defined constants available as shell environment variables. They parame
 ```python
 %env EPOCHS $EPOCHS
 %env GPUS $GPUS
-%env MEMORY $MEMORY
 ```
 
 ## How to Train the Model in the Notebook
@@ -440,7 +438,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow-dev:e6cd6c1d-tensorflow-2.4.0-gpu
+FROM mesosphere/kubeflow:1.2.0-tensorflow-2.4.0-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -457,7 +455,7 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow-dev:8169ef75-mnist-tensorflow-2.4.0` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow:1.2.0-mnist-tensorflow-2.4.0` in case you want to skip it for now.
 
 ## How to Create a Distributed `TFJob`
 For large training jobs, run the trainer in a distributed mode.
@@ -486,7 +484,7 @@ spec:
           containers:
             - name: tensorflow
               # modify this property if you would like to use a custom image
-              image: mesosphere/kubeflow-dev:8169ef75-mnist-tensorflow-2.4.0
+              image: mesosphere/kubeflow:1.2.0-mnist-tensorflow-2.4.0
               args:
                 - --epochs
                 - "${EPOCHS}"
@@ -497,8 +495,6 @@ spec:
               # Comment out these resources when using only CPUs
               resources:
                 limits:
-                  cpu: 1
-                  memory: "${MEMORY}"
                   nvidia.com/gpu: ${GPUS}
               volumeMounts:
                 - mountPath: /var/log/tf-logs
@@ -518,7 +514,7 @@ spec:
           containers:
             - name: tensorflow
               # modify this property if you would like to use a custom image
-              image: mesosphere/kubeflow-dev:8169ef75-mnist-tensorflow-2.4.0
+              image: mesosphere/kubeflow:1.2.0-mnist-tensorflow-2.4.0
               args:
                 - --epochs
                 - "${EPOCHS}"
@@ -527,11 +523,7 @@ spec:
               # Comment out these resources when using only CPUs
               resources:
                 limits:
-                  cpu: 1
-                  memory: "${MEMORY}"
                   nvidia.com/gpu: ${GPUS}
-  runPolicy:
-    ttlSecondsAfterFinished: 600
 END
 ```
 
@@ -543,8 +535,6 @@ What is supported is visible in `main()` of `mnist.py`.
 The job can run in parallel on CPUs or GPUs, provided these are available in your cluster.
 To switch to CPUs or define resource limits, please adjust `spec.containers.resources` as required.
 It is best to change the image name listed under the comment of the specification to use an equivalent image in your own container registry, to ensure everything works as expected.
-
-To clean up finished `TFJob` set `spec.runPolicy.ttlSecondsAfterFinished`. It may take extra `ReconcilePeriod` seconds for the cleanup, since reconcile gets called periodically. Defaults to infinite.
 
 You can either execute the following commands on your local machine with `kubectl` or directly from the notebook.
 If you do run these locally, you cannot rely on cell magic, so you have to manually copy-paste the variables' values wherever you see `$SOME_VARIABLE`.
@@ -675,33 +665,7 @@ kubectl logs -f tfjob-mnist-chief-0 -c tensorflow
     INFO:root:accuracy=0.9838
 
 
-The setting `spec.runPolicy.ttlSecondsAfterFinished` will result in the cleanup of the created job:
-
-
-```sh
-%%sh
-kubectl get tfjobs -w
-```
-
-    NAME          STATE     AGE
-    tfjob-mnist   Created   0s
-    tfjob-mnist   Running   2s
-    tfjob-mnist   Running   2s
-    tfjob-mnist   Succeeded   70s
-    tfjob-mnist   Succeeded   70s
-    tfjob-mnist   Succeeded   11m
-
-
-
-```sh
-%%sh
-kubectl get tfjob tfjob-mnist
-```
-
-    Error from server (NotFound): tfjobs.kubeflow.org "tfjob-mnist" not found
-
-
-To delete the job manually, run the following command:
+To delete the job, run the following command:
 
 
 ```sh
