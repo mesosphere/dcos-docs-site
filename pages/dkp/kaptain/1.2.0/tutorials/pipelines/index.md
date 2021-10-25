@@ -480,39 +480,25 @@ def train_and_serve(
 ):
     downloadOp = components.func_to_container_op(
         download_dataset, base_image=BASE_IMAGE
-    )(input_bucket)
+    )(input_bucket).set_retry(5)
 
-    downloadOp.set_retry(5).set_cpu_limit("100m").set_memory_limit("256M")
-
-    trainOp = (
-        components.func_to_container_op(train_model, base_image=BASE_IMAGE)(
-            downloadOp.output
-        )
-        .set_cpu_limit("1")
-        .set_memory_limit("1G")
+    trainOp = components.func_to_container_op(train_model, base_image=BASE_IMAGE)(
+        downloadOp.output
     )
 
-    evaluateOp = (
-        components.func_to_container_op(evaluate_model, base_image=BASE_IMAGE)(
-            downloadOp.output, trainOp.output
-        )
-        .set_cpu_limit("500m")
-        .set_memory_limit("500M")
+    evaluateOp = components.func_to_container_op(evaluate_model, base_image=BASE_IMAGE)(
+        downloadOp.output, trainOp.output
     )
 
     # To make GPU available for any of the pipeline steps, specify the required amount via `set_gpu_limit(<number of GPUs>)`.
     # It is also important to make sure that the image used to run the step has GPU drivers installed. Here's an example
     # of such a heuristic which enables GPUs for the training and evaluation steps if the image tag has a specific prefix.
     if BASE_IMAGE.endswith("-gpu"):
-        trainOp.set_gpu_limit(1).set_memory_limit("3G")
-        evaluateOp.set_gpu_limit(1).set_memory_limit("3G")
+        trainOp.set_gpu_limit(1)
+        evaluateOp.set_gpu_limit(1)
 
-    exportOp = (
-        components.func_to_container_op(export_model, base_image=BASE_IMAGE)(
-            trainOp.output, evaluateOp.output, export_bucket, model_name, model_version
-        )
-        .set_cpu_limit("100m")
-        .set_memory_limit("256M")
+    exportOp = components.func_to_container_op(export_model, base_image=BASE_IMAGE)(
+        trainOp.output, evaluateOp.output, export_bucket, model_name, model_version
     )
 
     kfservingOp = kfserving(
@@ -562,9 +548,6 @@ def mnist_pipeline(
         model_version=model_version,
     )
     dsl.get_pipeline_conf().add_op_transformer(op_transformer)
-
-    # TTL for the workflow to persist after completion (1 hour)
-    dsl.get_pipeline_conf().set_ttl_seconds_after_finished(60 * 60)
 ```
 
 Submit the pipeline directly from the notebook:
