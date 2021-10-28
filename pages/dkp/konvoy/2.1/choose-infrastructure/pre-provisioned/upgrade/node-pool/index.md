@@ -1,0 +1,133 @@
+---
+layout: layout.pug
+navigationTitle: Update Worker Node Pool
+title: Update the Worker Node Pool
+excerpt: Update the worker node pool to upgrade Kubernetes and/or change machine properties
+menuWeight: 10
+enterprise: false
+beta: true
+---
+
+## Prerequisites
+
+Before you begin, you must:
+
+- [Create a workload cluster][createnewcluster].
+
+## Overview
+
+This topic details how to update the worker node pool by updating the k8s version:
+
+The worker node pool is described by a MachineDeployment resource, which references immutable PreprovisionedMachineTemplate and KubeadmConfigTemplate resources. This topic explains how patch patch the MachineDeployment in order to update the node pool in place.
+
+## Prepare the environment
+
+1.  Set the environment variable to the name you assigned this cluster.
+
+    ```sh
+    CLUSTER_NAME=my-preprovisioned-cluster
+    ```
+
+    See [Get Started with AWS][aws-naming-cluster] for information on naming your cluster.
+
+1.  If your workload cluster is self-managed, as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster.
+
+    ```sh
+    export KUBECONFIG=${CLUSTER_NAME}.conf
+    ```
+
+1.  Verify that the control plane is already updated.
+
+    ```sh
+    kubectl get kubeadmcontrolplane ${CLUSTER_NAME}-control-plane
+    ```
+
+    The replicas, ready replicas, and updated replicas counts should be equal, as seen here:
+
+    ```sh
+    NAME                             INITIALIZED   API SERVER AVAILABLE   VERSION   REPLICAS   READY   UPDATED   UNAVAILABLE
+    my-preprovisioned-cluster-control-plane        true          true                   v1.21.3   1          1       1
+    ```
+
+1.  Define the names of the resources.
+
+    ```sh
+    export MACHINEDEPLOYMENT_NAME=$(kubectl get machinedeployments --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
+    ```
+
+1.  Prepare the patch files.
+
+    ```sh
+    echo '{}' > md-kubernetes-version-patch.yaml
+    ```
+
+## Prepare to update the Kubernetes version
+
+<!-- TODO: Explain which Kubernetes versions Konvoy supports -->
+
+<p class="message--warning"><strong>WARNING: </strong>Update the Kubernetes version of the worker node pool only if the control plane is already at the newer version.</p>
+
+1.  Define the Kubernetes version. Use the letter `v` followed by `major.minor.patch` version.
+
+    ```sh
+    export KUBERNETES_VERSION=v1.21.4
+    ```
+
+1.  Create a patch file.
+
+    ```sh
+    cat <<EOF > md-kubernetes-version-patch.yaml
+    apiVersion: cluster.x-k8s.io/v1alpha4
+    kind: MachineDeployment
+    spec:
+      template:
+        spec:
+          version: ${KUBERNETES_VERSION}
+      strategy:
+        rollingUpdate:
+          maxSurge: 0
+          maxUnavailable: 0
+    EOF
+    ```
+
+1.  Update the MachineDeployment
+
+    The MachineDeployment is patched to use a new Kubernetes version.
+
+    ```sh
+    kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME} --output=yaml \
+      | kubectl patch --local=true -f- --patch="{\"spec\": {\"template\": {\"spec\": {\"infrastructureRef\": {\"name\": \"$NEW_TEMPLATE_NAME\"} } } } }" --type=merge --output=yaml \
+      | kubectl patch --local=true -f- --patch-file=md-kubernetes-version-patch.yaml --type=merge --output=yaml \
+      | kubectl apply -f-
+    ```
+
+    ```sh
+    machinedeployment.cluster.x-k8s.io/aws-example-md-0 configured
+    ```
+
+1.  Wait for the update to complete.
+
+    When the number of replicas is equal to the number of updated replicas, the update is complete.
+
+    <!-- NOTE: `kubectl wait` is the preferred solution, but cannot be used with MachineDeployment, because it does not yet have Conditions (https://github.com/kubernetes-sigs/cluster-api/pull/4625) -->
+
+    ```sh
+    timeout 10m bash -c \
+      "until [[ $(kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.status.replicas}') \
+                == \
+                $(kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.status.updatedReplicas}')
+      ]]; do sleep 30; done"
+    ```
+
+<!--
+## Known Limitations
+
+<p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of Konvoy.</p>
+
+-->
+
+[aws-naming-cluster]: ../../../aws/quick-start-aws#name-your-cluster
+[createnewcluster]: ../../create-cluster
+[makeselfmanaged]: ../../self-managed
+[awsdefaultmachineimages]: https://cluster-api-aws.sigs.k8s.io/amis.html
+[imagebuilder]: ../../../../image-builder
