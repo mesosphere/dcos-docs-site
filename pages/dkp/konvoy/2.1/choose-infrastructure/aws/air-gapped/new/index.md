@@ -119,10 +119,13 @@ enterprise: false
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m
     ```
 
-[install_docker]: https://docs.docker.com/get-docker/
-[install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+Then, [explore your new cluster][explore-cluster].
+
+[ansible-task-images]: https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/defaults/main.yaml
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
+[explore-cluster]: ../explore
+[install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
+[install_docker]: https://docs.docker.com/get-docker/
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [konvoy-image-builder]: https://github.com/mesosphere/konvoy-image-builder
-[ansible-task-images]: https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/defaults/main.yaml
