@@ -247,8 +247,8 @@ The table below lists the third party open source software which is provided by 
 | sigs.k8s.io | controller-runtime | v0.9.6 | [Apache-2.0](https://pkg.go.dev/sigs.k8s.io/controller-runtime?tab=licenses) |
 | sigs.k8s.io | kind | v0.11.1 | [Apache-2.0](https://pkg.go.dev/sigs.k8s.io/kind?tab=licenses) |
 | sigs.k8s.io/kustomize | api | v0.8.8 | [Apache-2.0](https://pkg.go.dev/sigs.k8s.io/kustomize/api?tab=licenses) |
-| k8s.io | apimachinery | v0.21.2 | [Apache-2.0](https://pkg.go.dev/k8s.io/apimachinery?tab=licenses) |
-| sigs.k8s.io | cluster-api | v0.4.0 | [Apache-2.0](https://pkg.go.dev/sigs.k8s.io/cluster-api?tab=licenses) |
+| k8s.io | apimachinery | v0.21.4 | [Apache-2.0](https://pkg.go.dev/k8s.io/apimachinery?tab=licenses) |
+| sigs.k8s.io | cluster-api | v0.4.4 | [Apache-2.0](https://pkg.go.dev/sigs.k8s.io/cluster-api?tab=licenses) |
 | github.com/goreleaser | goreleaser | v0.175.0 | [MIT](https://pkg.go.dev/github.com/goreleaser/goreleaser?tab=licenses) |
 | github.com/itchyny | gojq | v0.12.4 | [MIT](https://pkg.go.dev/github.com/itchyny/gojq?tab=licenses) |
 | gotest.tools | gotestsum | v1.7.0 | [Apache-2.0](https://pkg.go.dev/gotest.tools/gotestsum?tab=licenses) |
