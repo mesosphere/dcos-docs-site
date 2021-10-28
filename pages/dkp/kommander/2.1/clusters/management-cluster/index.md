@@ -6,7 +6,9 @@ menuWeight: 7
 excerpt:
 ---
 
-When you install Kommander, the host cluster is attached in the Mangement Cluster Workspace as the Management Cluster. This allows the Management Cluster to be included in [Projects](../../projects/)<!-- and enables the management of its [Platform Services](../../workspaces/workspace-platform-services/) from the Management Cluster Workspace-->.
+When you install Kommander, the host cluster is attached in the **Mangement Cluster Workspace** as the **Management Cluster**, called **Management Cluster** in the Global workspace dashboard and **Kommander Host** inside the Management Cluster Workspace. This allows the Management Cluster to be included in [Projects](../../projects/)<!-- and enables the management of its [Platform Services](../../workspaces/workspace-platform-services/) from the Management Cluster Workspace-->.
+
+<p class="message--note"><strong>NOTE: </strong>Do not attach a cluster in the "Management Cluster Workspace" workspace. This workspace is reserved for your Kommander Management cluster only.</p>
 
 ## Editing
 
