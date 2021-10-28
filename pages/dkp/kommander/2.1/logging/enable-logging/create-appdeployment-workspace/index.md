@@ -20,7 +20,17 @@ To enable logging in DKP using the CLI, follow these steps on the management clu
    export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.status.namespaceRef.name}')
    ```
 
-1. Ensure that Cert-Manager and Traefik are enabled in the workspace.
+1. Ensure that Cert-Manager and Traefik are enabled in the workspace. If you want to find if the applications are enabled on the management cluster workspace, you can run:
+
+   ```bash
+   kubectl get appdeployments -n ${WORKSPACE_NAMESPACE}
+   ```
+
+1. You can confirm that the applications are deployed on the **attached** cluster by running this `kubectl` command in that **attached** cluster:
+
+   ```bash
+   kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
+   ```
 
 1. Copy this command and execute it from a command line to create the Logging-operator, Grafana-loki, and Grafana-logging AppDeployments:
 

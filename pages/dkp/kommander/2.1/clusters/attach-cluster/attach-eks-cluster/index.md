@@ -43,7 +43,7 @@ This procedure requires the following items and configurations:
 
     ```yaml
     cat << EOF | kubectl apply -f -
-    apiVersion: rbac.authorization.k8s.io/v1beta1
+    apiVersion: rbac.authorization.k8s.io/v1
     kind: ClusterRoleBinding
     metadata:
       name: kommander-cluster-admin
@@ -116,7 +116,7 @@ This procedure requires the following items and configurations:
 
 Now that you have kubeconfig, go to the Kommander UI and follow these steps below:
 
-1.  Select the **Add Cluster** button in your Kommander window.
+1.  Select **Clusters** from the left sidebar navigation, and then select the **Add Cluster** button in your Kommander window.
 
 1.  Select the **Attach Cluster** button.
 
