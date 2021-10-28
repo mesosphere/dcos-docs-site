@@ -18,16 +18,22 @@ Logging is disabled by default. You will need to enable logging features explici
 Before you begin, you must:
 
 -  Be a cluster administrator with permissions to configure cluster-level platform services.
-- Set a [default storage class](../../clusters/attach-cluster/requirements-for-attaching#creating-a-default-storageclass) on each attached cluster for successful Loki deployment.
+- Set a [default storage class][default-storage-class] on each attached cluster for successful Loki deployment.
 
 ## Enable Workspace-level logging
 
 The steps required to enable multi-tenant logging include:
 
-1.  [Create the AppDeployments to enable logging.](../../logging/enable-logging/create-appdeployment-workspace)
+1.  [Create the AppDeployments to enable logging.][create-appdeployment]
 
-1.  [Verify that the cluster's logging stack is installed.](../../logging/enable-logging/verify-cluster-logstack)
+1.  [Verify that the cluster's logging stack is installed.][verify-logging-deployment]
 
-1.  [View a cluster's log data.](../../logging/enable-logging/view-cluster-logdata)
+1.  [View a cluster's log data.][view-logdata]
 
-To get started with logging, start with the first step to create the AppDeployments using the CLI. You can also use the Kommander UI to enable the logging applications. When Workspace-level logging is fully-configured and operational, then you can configure Kommander to enable [multi-tenant logging](../multi-tenant-logging), if needed.
+To get started with logging, create the AppDeployments using the CLI. You can also [use the Kommander UI to enable the logging applications][enable-logging-via-ui]. When Workspace-level logging is fully-configured and operational, then you can configure Kommander to enable [multi-tenant logging](../multi-tenant-logging), if needed.
+
+[create-appdeployment]: ../../logging/enable-logging/create-appdeployment-workspace
+[default-storage-class]: ../../clusters/attach-cluster/requirements-for-attaching#creating-a-default-storageclass
+[enable-logging-via-ui]: ../enable-logging/enable-logging-via-ui
+[verify-logging-deployment]: ../../logging/enable-logging/verify-cluster-logstack
+[view-logdata]: ../../logging/enable-logging/view-cluster-logdata
