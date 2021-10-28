@@ -19,7 +19,7 @@ The primary components of the logging stack include these platform services:
 
 -  Grafana and Grafana Loki
 
--  Fluentbit and fluentd
+-  Fluentbit and Fluentd
 
 In addition to these platform services, logging relies on other software and system facilities, including the container runtime, the journald facility, and systemd configuration are used to collect logs and messages from all the machines in the cluster.
 
