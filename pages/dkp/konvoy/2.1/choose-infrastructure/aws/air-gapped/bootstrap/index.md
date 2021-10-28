@@ -37,8 +37,11 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which depl
     dkp update bootstrap credentials aws
     ```
 
-[install_docker]: https://docs.docker.com/get-docker/
-[install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+Then, you can create a [new AWS Kubernetes cluster][new-cluster].
+
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
+[install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
+[install_docker]: https://docs.docker.com/get-docker/
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[new-cluster]: ../new

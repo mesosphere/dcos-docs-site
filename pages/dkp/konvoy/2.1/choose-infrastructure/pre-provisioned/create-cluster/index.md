@@ -100,4 +100,44 @@ dkp create cluster preprovisioned \
     --registry-mirror-url https://registry.example.com
 ```
 
+## Use alternate pod or service subnets
+
+In Konvoy, the default pod subnet is 192.168.0.0/16, and the default service subnet is 10.96.0.0/12. If you wish to change the subnets you can do so with the following steps:
+
+1.  Generate the yaml manifests for the cluster using the `--dry-run` and `-o yaml` flags, along with the desired `dkp cluster create` command:
+
+    ```shell
+    dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443> --dry-run -o yaml > cluster.yaml
+    ```
+
+1.  To modify the service subnet, add or edit the `spec.kubeadmConfigSpec.clusterConfiguration.networking.serviceSubnet` field of the `KubeadmControlPlane` object:
+
+    ```shell
+    kind: KubeadmControlPlane
+    spec:
+      kubeadmConfigSpec:
+        clusterConfiguration:
+          networking:
+            serviceSubnet: 192.168.0.0/24
+    ```
+
+1.  To modify the pod subnet, add or edit the `spec.kubeadmConfigSpec.clusterConfiguration.networking.podSubnet` field of the `KubeadmControlPlane` object:
+
+    ```shell
+    kind: KubeadmControlPlane
+    spec:
+      kubeadmConfigSpec:
+        clusterConfiguration:
+          networking:
+            podSubnet: 172.16.0.0/16
+    ```
+
+1.  On the bootstrap cluster, modify the `data."custom-resources.yaml".spec.calicoNetwork.ipPools.cidr` value of the `calico-cni-preprovisioned` (`calico-cni-preprovisioned-flatcar` for flatcar) `ConfigMap` with your desired pod subnet:
+
+    ```shell
+    kubectl edit configmap calico-cni-preprovisioned
+    ```
+
+When you provision the cluster, the configured pod and service subnets will be applied.
+
 [define-control-plane-endpoint]: ../define-control-plane-endpoint
