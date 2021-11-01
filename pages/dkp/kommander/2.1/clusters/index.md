@@ -62,7 +62,7 @@ For more detailed information, see the [Kubernetes documentation][k8s_docs] abou
 
 Platform services, formerly called Addons, are services that the management cluster installs. You can visit a cluster's detail page to see which platform services are enabled under the "Platform Services" section.
 
-![Cluster Detail Page](/dkp/kommander/2.0/img/cluster-detail-page.png)
+![Cluster Detail Page](/dkp/kommander/2.1/img/cluster-detail-page.png)
 Figure 1. Cluster detail page
 
 Review the [workspace platform service resource requirements][platform_service_req] to ensure that the attached clusters have sufficient resources. For more information on platform services and how to customize them, see [workspace platform services][workspace_platform_services].
@@ -83,5 +83,5 @@ For an attached cluster, you can only edit labels assigned to that cluster.
 ![Edit an Attached Cluster](/dkp/kommander/2.1/img/edit-cluster-attached-1-1-0.png)
 
 [k8s_docs]: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-<!--[workspace_platform_services]: /dkp/kommander/2.0/workspaces/workspace-platform-services/
-[platform_service_req]: /dkp/kommander/2.0/workspaces/workspace-platform-services/platform-service-requirements/-->
+<!--[workspace_platform_services]: /dkp/kommander/2.1/workspaces/workspace-platform-services/
+[platform_service_req]: /dkp/kommander/2.1/workspaces/workspace-platform-services/platform-service-requirements/-->
