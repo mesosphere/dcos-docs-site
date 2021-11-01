@@ -8,7 +8,7 @@ enterprise: false
 menuWeight: 100
 ---
 
-For creating diagnostic bundles D2iQ is using a customized version of `troubleshoot.sh` integrated into `dkp-diagnose`
+For creating diagnostic bundles, D2iQ is using a customized version of `troubleshoot.sh` integrated into `dkp-diagnose`.
 
 ## Customizations
 
@@ -107,7 +107,7 @@ This collector gathers pod logs from specified namespaces or from all namespaces
 The data written into the diagnostics bundle follows this format:
 
 ```sh
-`<collector-name> / <namespace-name> / <pod-name> - (container1|container2|...)`
+<collector-name> / <namespace-name> / <pod-name> - (container1|container2|...)
 ```
 
 The following is a sample configuration file to collect logs from all the pods from all the namespaces:
