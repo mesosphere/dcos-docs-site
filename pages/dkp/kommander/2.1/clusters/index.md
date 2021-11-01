@@ -83,5 +83,5 @@ For an attached cluster, you can only edit labels assigned to that cluster.
 ![Edit an Attached Cluster](/dkp/kommander/2.1/img/edit-cluster-attached-1-1-0.png)
 
 [k8s_docs]: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-<!--[workspace_platform_services]: /dkp/kommander/2.1/workspaces/workspace-platform-services/
-[platform_service_req]: /dkp/kommander/2.1/workspaces/workspace-platform-services/platform-service-requirements/-->
+<!--[workspace_platform_services]: ../workspaces/workspace-platform-services/
+[platform_service_req]: ../workspaces/workspace-platform-services/platform-service-requirements/-->
