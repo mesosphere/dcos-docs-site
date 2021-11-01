@@ -21,7 +21,7 @@ Before generating a support bundle, verify that you have:
 
 ## Download dkp-diagnose
 
-1.  To download and extract the `dkp-diagnose` binary for [MacOS][dkp-diagnostics-darwin] or [Linux][[dkp-diagnostics-linux]
+1.  To download and extract the `dkp-diagnose` binary for [MacOS][dkp-diagnostics-darwin] or [Linux][dkp-diagnostics-linux]
 
     For Linux:
 
@@ -51,7 +51,7 @@ Before generating a support bundle, verify that you have:
 
 `dkp-diagnose` was developed by D2IQ and builds on the open source `troubleshoot.sh` project.
 
-<p class="message--note"><strong>NOTE:</strong> <code>dkp-diagnose<?code> is based on version <code>0.13.16</code> of <code>troubleshoot.sh</code> with custom modifications. The D2IQ fork is open source and available from <a href="https://github.com/mesosphere/troubleshoot">here</a>.</p>
+<p class="message--note"><strong>NOTE:</strong> <code>dkp-diagnose</code> is based on version <code>0.13.16</code> of <code>troubleshoot.sh</code> with custom modifications. The D2IQ fork is open source and available from <a href="https://github.com/mesosphere/troubleshoot">here</a>.</p>
 
 `dkp-diagnose` supports [multiple support bundle collectors][troubleshoot-collectors] and
 can be configured as a `SupportBundle` Kubernetes resource in a yaml file.
@@ -69,7 +69,7 @@ The bundle uses the following collectors:
 
 ## Generate a Support Bundle
 
-<p class="message--note"><strong>NOTE: </strong><code>dkp-diagnose</code> uses the same Kubernetes configuration as <code>kubectl</code>. <code>dkp-diagnose</code> can also be pointed at a specific configuration by using the <code>--kubeconfig</code> parameter. </p>
+<p class="message--note"><strong>NOTE: </strong><code>dkp-diagnose</code> uses the same Kubernetes configuration as <code>kubectl</code>. <code>dkp-diagnose</code> can also be pointed at a specific configuration by using the <code>--kubeconfig</code> parameter.</p>
 
 To generate the support bundle, perform the following steps:
 
@@ -145,7 +145,7 @@ dkp-diagnose ssh <path/to/ansible-inventory.yaml>
 
 The `ansible-inventory.yaml` file specifies the nodes to access for data collection.
 
-<p class="message--note"><strong>NOTE: </strong>This collector does not use the full ansible `inventory.yaml` format only a limited subset to describe the infrastructure.</p>
+<p class="message--note"><strong>NOTE: </strong>This collector does not use the full ansible <code>inventory.yaml</code> format only a limited subset to describe the infrastructure.</p>
 
 Only the following attributes of the `ansible-inventory.yaml` are supported. All other group definitions are ignored.
 
@@ -173,7 +173,7 @@ all:
 
 More information on these ansible parameters can be found [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters).
 
-<p class="message--note"><strong>NOTE: </strong>All other group definitions in the `inventory.yaml` file are ignored.</p>
+<p class="message--note"><strong>NOTE: </strong>All other group definitions in the <code>inventory.yaml</code> file are ignored.</p>
 
 Refer to the following example file:
 
