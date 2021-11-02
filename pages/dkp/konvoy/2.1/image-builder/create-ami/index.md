@@ -8,7 +8,7 @@ enterprise: false
 menuWeight: 60
 ---
 
-This procedure describes how to use the Konvoy Image Builder to create [Cluster API](https://cluster-api.sigs.k8s.io/) a compliant Amazon Machine Image (AMI). AMI images contain configuration information and software to create a specific, pre-configured, operating environment. For example, you can create an AMI image of your current computer system settings and software. The AMI image can then be replicated and distributed, creating your computer system for other users. The Konvoy Image Builder uses variable `overrides` to specify base image and container images to use in your new AMI.
+This procedure describes how to use the Konvoy Image Builder to create a [Cluster API](https://cluster-api.sigs.k8s.io/) compliant Amazon Machine Image (AMI). AMI images contain configuration information and software to create a specific, pre-configured, operating environment. For example, you can create an AMI image of your current computer system settings and software. The AMI image can then be replicated and distributed, creating your computer system for other users. The Konvoy Image Builder uses variable [`overrides`][overrides] to specify base image and container images to use in your new AMI.
 
 ## Prerequisites
 
@@ -59,3 +59,4 @@ For information on related topics or procedures, refer to the following:
 <!--- ## Air Gapped
 
 TBD (for air gapped a larger set of `extra_images` are required.) -->
+[overrides]: ../override-files/
