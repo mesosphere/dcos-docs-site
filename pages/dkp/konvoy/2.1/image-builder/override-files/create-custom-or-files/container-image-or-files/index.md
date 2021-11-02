@@ -8,9 +8,7 @@ enterprise: false
 menuWeight: 95
 ---
 
-The ansible playbooks pull a minimal set of [container images](https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/defaults/main.yaml) for use. Additional images can be added or deleted by specifying an `override` file for the `extra_images` variable.
-
-Konvoy requires several additional images be present in the image. Create a new override file and specify the following `extra_images`:
+Your AMI uses a container image. The Ansible playbooks pull a minimal set of [container images](https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/defaults/main.yaml) for use. You can add or delete additional images by specifying an `override` file for the `extra_images` variable. Konvoy requires several additional images be present. Create a new override file and specify the following `extra_images`:
 
 ```yaml
 # Example override-images.yaml
