@@ -7,5 +7,5 @@ beta: false
 menuWeight: 70
 ---
 
-Konvoy Image Builder (kib) is a complete solution for building
+Konvoy Image Builder (KIB) is a complete solution for building
 [Cluster API](https://cluster-api.sigs.k8s.io/) compliant images.
