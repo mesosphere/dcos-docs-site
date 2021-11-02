@@ -8,7 +8,7 @@ enterprise: false
 menuWeight: 85
 ---
 
-By default, Konvoy Image Builder searches for the latest Centos 7 `ami` for the base image. The current base image description, at `images/ami/centos-7.yaml`, is similar to the following:
+A base image is a specific AMI image used as the base for your new AMI image. By default, Konvoy Image Builder searches for the latest CentOS 7 `ami` for the base image. The current base image description, at `images/ami/centos-7.yaml`, is similar to the following:
 
 ```yaml
 ---
@@ -30,7 +30,7 @@ python_path: ""
 <p class="message--note"><strong>NOTE: </strong>You can specify a base image to build on, using the <code>--source-ami</code> command line flag:<br />
 <code>konvoy-image build --source-ami=ami-12345abcdef <path/to/image.yaml></code></p>
 
-To override the above base image with another base image, you can create an `override` file. Create a new file and set the `source_ami` under the `packer` key. This overrides the image search and forces the use of the specified `source_ami`.
+To override the above base image with another base image, create an `override` file and set the `source_ami` under the `packer` key. This overrides the image search and forces the use of the specified `source_ami`.
 
 ```yaml
 # Example override-source-ami.yaml
@@ -39,4 +39,4 @@ packer:
   source_ami: "ami-0123456789"
 ```
 
-Refer to this topic for information on supported [Operating Systems](../../../supported-operating-systems).
+See [Supported Operating Systems](../../../../supported-operating-systems) for details.
