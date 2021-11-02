@@ -8,7 +8,7 @@ enterprise: false
 menuWeight: 105
 ---
 
-The ansible playbooks create `systemd` drop-in files for `containerd` and `kubelet` to configure the `http_proxy`, `http_proxy`, and `no_proxy` environment variables for the service from the file `/etc/konvoy_http_proxy.conf`. To configure a proxy to be used during image creation, create a new override file and specify the following:
+An HTTP proxy configuration can be used when creating your AMI image. The ansible playbooks will create `systemd` drop-in files for `containerd` and `kubelet` to configure the `http_proxy`, `http_proxy`, and `no_proxy` environment variables for the service from the file `/etc/konvoy_http_proxy.conf`. To configure a proxy for use during image creation, create a new override file and specify the following:
 
 ```yaml
 # Example override-proxy.yaml
