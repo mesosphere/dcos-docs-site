@@ -154,5 +154,5 @@ To delete a license from Kommander, you have to delete the `Secret` and `License
 
 You have now successfully deleted a license.
 
-[support-downloads]: https://support.d2iq.com/s/downloads
-[support-creds]: https://support.d2iq.com/s/login/
+[support-downloads]: https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads
+[support-creds]: https://support.d2iq.com/hc/en-us/

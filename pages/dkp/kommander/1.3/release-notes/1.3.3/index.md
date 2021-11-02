@@ -10,7 +10,7 @@ enterprise: false
 
 **D2iQ&reg; Kommander&reg; version 1.3.3 was released on June 9, 2021.**
 
-[button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
+[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
 To get started with Kommander, [download](/dkp/konvoy/1.7/download/) and [install](/dkp/konvoy/1.7/install/) the latest version of Konvoy.
 
