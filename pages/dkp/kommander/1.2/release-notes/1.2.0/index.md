@@ -21,7 +21,7 @@ For more information on addressing this limit, refer to this [procedure](../oper
 
 **D2iQ&reg; Kommander&reg; 1.2 was released on November 16, 2020** 
 
-[button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
+[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
 To get started with Kommander, [download](/dkp/konvoy/1.6/download/) and [install](/dkp/konvoy/1.6/install/) the latest version of Konvoy.
 
