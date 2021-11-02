@@ -107,5 +107,5 @@ license.kommander.mesosphere.io "license-sample" deleted
 
 You have now successfuly deleted a license.
 
-[support-downloads]: https://support.d2iq.com/s/downloads
-[support-creds]: https://support.d2iq.com/s/login/
+[support-downloads]: https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads
+[support-creds]: https://support.d2iq.com/hc/en-us/
