@@ -14,7 +14,7 @@ beta: true
 **D2iQ&reg; Kommander&reg; version 2.1 Beta 1 was released on October 14, 2021.**
 
 <!--
-[button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
+[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
 To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [install](/dkp/konvoy/latest/install/) the latest version of Konvoy.
 
