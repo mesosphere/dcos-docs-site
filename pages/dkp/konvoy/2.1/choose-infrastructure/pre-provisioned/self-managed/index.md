@@ -27,8 +27,6 @@ Before you start, make sure you have created a workload cluster, as described in
     INFO[2021-09-06T23:22:57-05:00] Patching ClusterRoleBinding for CAPPP         src="bootstrap/controllers.go:112"
     INFO[2021-09-06T23:22:57-05:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
     INFO[2021-09-06T23:22:58-05:00] Created Tigera operator                       src="bootstrap/clusterresourceset.go:42"
-    INFO[2021-09-06T23:22:58-05:00] Initializing Calico installation              src="bootstrap/clusterresourceset.go:44"
-    INFO[2021-09-06T23:22:59-05:00] Created Calico Installation                   src="bootstrap/clusterresourceset.go:49"
     INFO[2021-09-06T23:22:59-05:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:109"
     INFO[2021-09-06T23:23:00-05:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:114"
     INFO[2021-09-06T23:23:00-05:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:116"
