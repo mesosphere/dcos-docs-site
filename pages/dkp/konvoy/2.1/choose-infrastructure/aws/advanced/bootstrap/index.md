@@ -35,8 +35,6 @@ Before you begin, you must:
     INFO[2021-08-25T13:44:39-07:00] Patching ClusterRoleBinding for CAPPP         src="bootstrap/controllers.go:112"
     INFO[2021-08-25T13:44:39-07:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
     INFO[2021-08-25T13:44:39-07:00] Created Tigera operator                       src="bootstrap/clusterresourceset.go:42"
-    INFO[2021-08-25T13:44:39-07:00] Initializing Calico installation              src="bootstrap/clusterresourceset.go:44"
-    INFO[2021-08-25T13:44:40-07:00] Created Calico Installation                   src="bootstrap/clusterresourceset.go:49"
     INFO[2021-08-25T13:44:40-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:109"
     INFO[2021-08-25T13:44:40-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:114"
     INFO[2021-08-25T13:44:40-07:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:116"
