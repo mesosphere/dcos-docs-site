@@ -28,8 +28,6 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     INFO[2021-06-07T14:11:40-07:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:101"
     INFO[2021-06-07T14:11:40-07:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:35"
     INFO[2021-06-07T14:11:41-07:00] Created Tigera operator                       src="bootstrap/clusterresourceset.go:40"
-    INFO[2021-06-07T14:11:41-07:00] Initializing Calico installation              src="bootstrap/clusterresourceset.go:42"
-    INFO[2021-06-07T14:11:42-07:00] Created Calico Installation                   src="bootstrap/clusterresourceset.go:47"
     INFO[2021-06-07T14:11:42-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:107"
     INFO[2021-06-07T14:11:42-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:112"
     INFO[2021-06-07T14:11:42-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:180"
