@@ -55,8 +55,10 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
     kind: PreprovisionedInventory
     metadata:
       name: $CLUSTER_NAME-control-plane
+      namespace: default
       labels:
         cluster.x-k8s.io/cluster-name: $CLUSTER_NAME
+        clusterctl.cluster.x-k8s.io/move: ""
     spec:
       hosts:
         # Create as many of these as needed to match your infrastructure
@@ -78,6 +80,9 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
     kind: PreprovisionedInventory
     metadata:
       name: $CLUSTER_NAME-md-0
+      namespace: default
+      labels:
+        clusterctl.cluster.x-k8s.io/move: ""
     spec:
       hosts:
         - address: $WORKER_1_ADDRESS
