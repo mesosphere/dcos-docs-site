@@ -110,32 +110,48 @@ In Konvoy, the default pod subnet is 192.168.0.0/16, and the default service sub
     dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443> --dry-run -o yaml > cluster.yaml
     ```
 
-1.  To modify the service subnet, add or edit the `spec.kubeadmConfigSpec.clusterConfiguration.networking.serviceSubnet` field of the `KubeadmControlPlane` object:
+1.  To modify the service subnet, add or edit the `spec.clusterNetwork.services.cidrBlocks` field of the `Cluster` object:
 
-    ```shell
-    kind: KubeadmControlPlane
+    ```yaml
+    kind: Cluster
     spec:
-      kubeadmConfigSpec:
-        clusterConfiguration:
-          networking:
-            serviceSubnet: 192.168.0.0/24
+      clusterNetwork:
+        services:
+          cidrBlocks:
+          - 10.0.0.0/18
     ```
 
-1.  To modify the pod subnet, add or edit the `spec.kubeadmConfigSpec.clusterConfiguration.networking.podSubnet` field of the `KubeadmControlPlane` object:
+1.  To modify the pod subnet, add or edit the `spec.clusterNetwork.pods.cidrBlocks` field of the `Cluster` object:
 
-    ```shell
-    kind: KubeadmControlPlane
+    ```yaml
+    kind: Cluster
     spec:
-      kubeadmConfigSpec:
-        clusterConfiguration:
-          networking:
-            podSubnet: 172.16.0.0/16
+      clusterNetwork:
+        pods:
+          cidrBlocks:
+          - 172.16.0.0/16
     ```
 
-1.  On the bootstrap cluster, modify the `data."custom-resources.yaml".spec.calicoNetwork.ipPools.cidr` value of the `calico-cni-preprovisioned` (`calico-cni-preprovisioned-flatcar` for flatcar) `ConfigMap` with your desired pod subnet:
+1.  On the bootstrap cluster, modify the `data."custom-resources.yaml".spec.calicoNetwork.ipPools.cidr` value of the `ConfigMap` with your desired pod subnet:
 
-    ```shell
-    kubectl edit configmap calico-cni-preprovisioned
+    ```yaml
+    apiVersion: v1
+    data:
+      custom-resources.yaml: |
+        apiVersion: operator.tigera.io/v1
+        kind: Installation
+        metadata:
+          name: default
+        spec:
+          # Configures Calico networking.
+          calicoNetwork:
+            # Note: The ipPools section cannot be modified post-install.
+            ipPools:
+            - blockSize: 26
+              cidr: 172.16.0.0/16
+    kind: ConfigMap
+    metadata:
+      name: calico-cni-<cluter-name>
     ```
 
 When you provision the cluster, the configured pod and service subnets will be applied.
