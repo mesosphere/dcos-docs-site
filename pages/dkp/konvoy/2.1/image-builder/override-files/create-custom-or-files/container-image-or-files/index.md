@@ -40,7 +40,7 @@ extra_images:
   - calico/pod2daemon-flexvol:v3.20.2
   - calico/typha:v3.20.2
   - quay.io/tigera/operator:v1.20.4
-  - bitnami/kubectl:1.21.3
+  - bitnami/kubectl:1.21.6
   - us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.21.0
   - k8s.gcr.io/nfd/node-feature-discovery:v0.8.2
   - nvcr.io/nvidia/gpu-feature-discovery:v0.4.1

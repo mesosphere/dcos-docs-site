@@ -48,7 +48,7 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 
     ```sh
     NAME                             INITIALIZED   API SERVER AVAILABLE   VERSION   REPLICAS   READY   UPDATED   UNAVAILABLE
-    my-preprovisioned-cluster-control-plane        true          true                   v1.21.3   1          1       1
+    my-preprovisioned-cluster-control-plane        true          true                   v1.21.6   1          1       1
     ```
 
 1.  Define the names of the resources.
