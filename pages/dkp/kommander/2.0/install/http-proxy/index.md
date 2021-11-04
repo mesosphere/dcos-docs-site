@@ -147,7 +147,7 @@ data:
       enable: true
       enablePodProxy: true
       podProxySettings:
-        noProxy: "127.0.0.1,192.168.0.0/16,10.0.0.0/16,10.96.0.0/12,localhost,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,kubecost-prometheus-server.kommander,logging-operator-logging-fluentd.kommander.svc,elb.amazonaws.com"
+        noProxy: "127.0.0.1,192.168.0.0/16,10.0.0.0/16,10.96.0.0/12,localhost,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,.svc.cluster.local.,kubecost-prometheus-server.kommander,logging-operator-logging-fluentd.kommander.svc,elb.amazonaws.com"
         httpProxy: "http://proxy.company.com:3128"
         httpsProxy: "http://proxy.company.com:3128"
       excludeNamespacesFromProxy: []
@@ -171,7 +171,7 @@ Set the `httpProxy` and `httpsProxy` environment variables to the address of the
         <li>The <code>podSubnet</code> is configured in CAPI objects and needs to match above Calico's - Defaults to <code>192.168.0.0/16</code> (same as above)</li>
         </ul>
       </li>
-      <li>Kubernetes Service addresses (e.g., <code>10.96.0.0/12</code>, <code>kubernetes</code>, <code>kubernetes.default</code>, <code>kubernetes.default.svc</code>, <code>kubernetes.default.svc.cluster</code>, <code>kubernetes.default.svc.cluster.local</code>, <code>.svc</code>, <code>.svc.cluster</code>, <code>.svc.cluster.local</code>)</li>
+      <li>Kubernetes Service addresses (e.g., <code>10.96.0.0/12</code>, <code>kubernetes</code>, <code>kubernetes.default</code>, <code>kubernetes.default.svc</code>, <code>kubernetes.default.svc.cluster</code>, <code>kubernetes.default.svc.cluster.local</code>, <code>.svc</code>, <code>.svc.cluster</code>, <code>.svc.cluster.local</code>, <code>.svc.cluster.local.</code>)</li>
   </ul>
   In addition to above, following are needed when installing on AWS:
   <ul>
@@ -216,7 +216,7 @@ spec:
     - name: HTTPS_PROXY
       value: "http://proxy.company.com:3128"
     - name: NO_PROXY
-      value: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
+      value: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,.svc.cluster.local."
 ```
 
 See [Define Environment Variables for a Container](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/#define-an-environment-variable-for-a-container) for more details.
