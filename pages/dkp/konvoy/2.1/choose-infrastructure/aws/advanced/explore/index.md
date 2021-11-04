@@ -31,8 +31,8 @@ Before you start, make sure you have created a workload cluster, as described in
 
     ```sh
     NAME                                         STATUS   ROLES                  AGE    VERSION
-    ip-10-0-126-209.us-west-2.compute.internal   Ready    control-plane,master   124m   v1.21.3
-    ip-10-0-204-168.us-west-2.compute.internal   Ready    <none>                 118m   v1.21.3
+    ip-10-0-126-209.us-west-2.compute.internal   Ready    control-plane,master   124m   v1.21.6
+    ip-10-0-204-168.us-west-2.compute.internal   Ready    <none>                 118m   v1.21.6
     ```
 
     <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Nodes' Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>
