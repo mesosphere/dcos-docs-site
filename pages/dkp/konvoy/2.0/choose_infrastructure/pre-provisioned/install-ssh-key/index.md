@@ -13,6 +13,7 @@ Konvoy needs SSH access to your infrastructure with superuser privileges. You mu
 ```shell
 export CLUSTER_NAME="$(whoami)-preprovisioned-cluster"
 kubectl create secret generic $CLUSTER_NAME-ssh-key --from-file=ssh-privatekey=<path-to-ssh-private-key>
+kubectl label secret $CLUSTER_NAME-ssh-key clusterctl.cluster.x-k8s.io/move=
 ```
 
 When this step is complete, [define the infrastructure nodes and partitions](../define-infrastructure).
