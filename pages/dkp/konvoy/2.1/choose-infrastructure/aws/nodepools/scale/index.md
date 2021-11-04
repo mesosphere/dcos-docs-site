@@ -36,8 +36,8 @@ Your output should be similar to this example, with the number of DESIRED and RE
 
 ```sh
 NODEPOOL                        DESIRED               READY               KUBERNETES VERSION
-example                         5                     5                   v1.21.3
-demo-cluster-md-0               4                     4                   v1.21.3
+example                         5                     5                   v1.21.6
+demo-cluster-md-0               4                     4                   v1.21.6
 ```
 
 ### Scaling Down Node Pools

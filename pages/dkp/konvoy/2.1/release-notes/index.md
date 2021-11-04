@@ -24,9 +24,9 @@ This release provides new features and enhancements to improve the user experien
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.21.3 |
+|**Minimum** | 1.21.6 |
 |**Maximum** | 1.21.x |
-|**Default** | 1.21.3 |
+|**Default** | 1.21.6 |
 
 ### New features and capabilities
 
@@ -38,7 +38,7 @@ Cluster Autoscaler automatically scales up your cluster as soon as you need it, 
 
 The following components have been upgraded to the listed version:
 
-- Kubernetes 1.21.3
+- Kubernetes 1.21.6
 - Cert Manager 1.5.3
 - CAPI 0.4.2
 
