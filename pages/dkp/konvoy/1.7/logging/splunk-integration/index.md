@@ -72,9 +72,10 @@ In your `cluster.yaml` file, for each Konvoy cluster, edit the Fluentbit section
 - name: fluentbit
   enabled: true
   values: |
-    # Configure output to use Splunk instead of Elastic
-    outputs: |
-       [OUTPUT]
+    config:
+      # Configure output to use Splunk instead of Elastic
+      outputs: |
+        [OUTPUT]
            Name          splunk
            Match         *
            Host          splunk-s1-standalone-headless.default.svc.cluster.local
