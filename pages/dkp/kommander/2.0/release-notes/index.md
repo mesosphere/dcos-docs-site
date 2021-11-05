@@ -47,6 +47,14 @@ Unidirectional Network Functionality has changed to [Network Tunneling](../clust
 
 Kommander supports environments where Internet access is restricted, and must be made through an [HTTP/HTTPS proxy.](../install/http-proxy) In these environments, you can configure Kommander to use the HTTP/HTTPS proxy. In turn, Kommander then configures all platform services to use the HTTP/HTTPS proxy. Managed clusters in restricted network conditions such as behind DMZs, firewalls, and proxies with no inbound connectivity can now be managed by Kommander. Kommander can create a TLS encrypted tunnel to enable all the observability functionality provided by Kommander. You can even use SSO to authenticate to a managed cluster.
 
+### Upstream industry changes
+
+The following sections refer to recent changes in the Open Source software DKP uses that may require action on your part as part of an upgrade or installation of D2iQ software.
+
+#### Fluentbit DNS timeout
+
+ A change in Fluentbit 1.7.5 impacted how the application behaves when the ‘splunk_send_raw’ feature is enabled. If you use this feature in Kommander, review the [Fluentbit upstream issue](https://github.com/fluent/fluent-bit/issues/3699) for suggestions on how to properly use it.
+
 ### Component updates
 
 The following services and service components have been upgraded to the listed version:
