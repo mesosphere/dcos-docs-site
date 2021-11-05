@@ -32,7 +32,7 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 
     See [Get Started with AWS][aws-naming-cluster] for information on naming your cluster.
 
-1.  If your workload cluster is self-managed, as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster.
+1.  **If your workload cluster is self-managed,** as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster. **If it's not self-managed, skip this step.**
 
     ```sh
     export KUBECONFIG=${CLUSTER_NAME}.conf
@@ -48,7 +48,7 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 
     ```sh
     NAME                             INITIALIZED   API SERVER AVAILABLE   VERSION   REPLICAS   READY   UPDATED   UNAVAILABLE
-    my-preprovisioned-cluster-control-plane        true          true                   v1.21.6   1          1       1
+    my-preprovisioned-cluster-control-plane        true          true                   v1.21.3   1          1       1
     ```
 
 1.  Define the names of the resources.
@@ -70,7 +70,7 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 1.  Define the Kubernetes version. Use the letter `v` followed by `major.minor.patch` version.
 
     ```sh
-    export KUBERNETES_VERSION=v1.21.4
+    export KUBERNETES_VERSION=v1.21.6
     ```
 
 1.  Create a patch file.
@@ -108,15 +108,10 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
     When the condition `Ready` is true, the update is complete.
 
     ```sh
-    kubectl wait --timeout=10m kubeadmcontrolplane ${KUBEADMCONTROLPLANE_NAME} --for=condition=Ready
+    kubectl wait --timeout=30m kubeadmcontrolplane ${KUBEADMCONTROLPLANE_NAME} --for=condition=Ready
     ```
 
-<!--
-## Known Limitations
-
-<p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of Konvoy.</p>
-
--->
+    <p class="message--note"><strong>NOTE: </strong>This may take longer than 30 minutes, depending on the size of your cluster.</p>
 
 [aws-naming-cluster]: ../../../aws/quick-start-aws#name-your-cluster
 [createnewcluster]: ../../create-cluster

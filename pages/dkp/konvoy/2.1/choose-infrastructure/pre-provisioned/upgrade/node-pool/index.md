@@ -30,7 +30,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
     See [Get Started with AWS][aws-naming-cluster] for information on naming your cluster.
 
-1.  If your workload cluster is self-managed, as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster.
+1.  **If your workload cluster is self-managed,** as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster. **If it's not self-managed, skip this step.**
 
     ```sh
     export KUBECONFIG=${CLUSTER_NAME}.conf
@@ -46,13 +46,19 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
     ```sh
     NAME                             INITIALIZED   API SERVER AVAILABLE   VERSION   REPLICAS   READY   UPDATED   UNAVAILABLE
-    my-preprovisioned-cluster-control-plane        true          true                   v1.21.6   1          1       1
+    my-preprovisioned-cluster-control-plane        true          true                   v1.21.3   1          1       1
     ```
 
 1.  Define the names of the resources.
 
     ```sh
     export MACHINEDEPLOYMENT_NAME=$(kubectl get machinedeployments --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
+    ```
+
+1.  Define the name of your worker template.
+
+    ```sh
+    export WORKER_TEMPLATE=$(kubectl get PreprovisionedMachineTemplate ${CLUSTER_NAME}-md-0 -ojsonpath='{.metadata.name}')
     ```
 
 1.  Prepare the patch files.
@@ -70,7 +76,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
 1.  Define the Kubernetes version. Use the letter `v` followed by `major.minor.patch` version.
 
     ```sh
-    export KUBERNETES_VERSION=v1.21.4
+    export KUBERNETES_VERSION=v1.21.6
     ```
 
 1.  Create a patch file.
@@ -96,7 +102,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
     ```sh
     kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME} --output=yaml \
-      | kubectl patch --local=true -f- --patch="{\"spec\": {\"template\": {\"spec\": {\"infrastructureRef\": {\"name\": \"$NEW_TEMPLATE_NAME\"} } } } }" --type=merge --output=yaml \
+      | kubectl patch --local=true -f- --patch="{\"spec\": {\"template\": {\"spec\": {\"infrastructureRef\": {\"name\": \"$WORKER_TEMPLATE\"} } } } }" --type=merge --output=yaml \
       | kubectl patch --local=true -f- --patch-file=md-kubernetes-version-patch.yaml --type=merge --output=yaml \
       | kubectl apply -f-
     ```
@@ -106,25 +112,13 @@ The worker node pool is described by a MachineDeployment resource, which referen
     ```
 
 1.  Wait for the update to complete.
-
-    When the number of replicas is equal to the number of updated replicas, the update is complete.
+    When the number of replicas is equal to the number of updated replicas, the update is complete. You can check the status of the update by running the following command.
 
     <!-- NOTE: `kubectl wait` is the preferred solution, but cannot be used with MachineDeployment, because it does not yet have Conditions (https://github.com/kubernetes-sigs/cluster-api/pull/4625) -->
 
     ```sh
-    timeout 10m bash -c \
-      "until [[ $(kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.status.replicas}') \
-                == \
-                $(kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.status.updatedReplicas}')
-      ]]; do sleep 30; done"
+    kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME}
     ```
-
-<!--
-## Known Limitations
-
-<p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of Konvoy.</p>
-
--->
 
 [aws-naming-cluster]: ../../../aws/quick-start-aws#name-your-cluster
 [createnewcluster]: ../../create-cluster
