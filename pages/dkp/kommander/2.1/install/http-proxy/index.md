@@ -41,41 +41,41 @@ curl --proxy http://proxy.company.com:3128 --head https://www.google.com
 
 If the proxy is working for HTTP and HTTPS, respectively, the `curl` command returns a `200 OK` HTTP response.
 
-# Enable gatekeeper
+# Enable Gatekeeper
 
 Gatekeeper acts as a [Kubernetes mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook). You can use this to mutate the Pod resources with `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` environment variables.
 
-Create/Update the chart configuration `values.yaml` file. Set the following values to enable gatekeeper:
+Create/Update the chart configuration `values.yaml` file. Set the following values to enable Gatekeeper:
 
 ```yaml
 cat << EOF >> values.yaml
 services:
   gatekeeper:
-    # Enables gatekeeper service in management cluster
+    # Enables Gatekeeper service in management cluster
     enabled: true
 controller:
   containers:
     manager:
       extraArgs:
-        # Enables gatekeeper service in managed cluster
+        # Enables Gatekeeper service in managed cluster
         default-workspace-app-deployments: "gatekeeper-0.6.8"
 EOF
 ```
 
 Save the above overrides in `values.yaml`file. These can then be supplied to `helm install` command.
 
-You can create a `kommander` namespace, or the namespace where kommander will be installed, and then label it such that gatekeeper mutation is active on the namespace.
+You can create a `kommander` namespace, or the namespace where Kommander will be installed, and then label it such that Gatekeeper mutation is active on the namespace.
 
 ```bash
 kubectl create namespace kommander
 kubectl label namespace kommander gatekeeper.d2iq.com/mutate=pod-proxy
 ```
 
-Create the `gatekeeper-overrides` configmap in the `kommander` namespace as described in [this](#create-gatekeeper-configmap-in-workspace-namespace) section before proceeding to [installing kommander](../networked#install-on-konvoy).
+Create the `gatekeeper-overrides` configmap in the `kommander` namespace as described in [this](#create-gatekeeper-configmap-in-workspace-namespace) section before proceeding to [installing Kommander](../networked#install-on-konvoy).
 
-## Enable gatekeeper for attached clusters
+## Enable Gatekeeper for attached clusters
 
-To enable gatekeeper installation in attached clusters, create the following overrides configmap on the host cluster:
+To enable Gatekeeper installation in attached clusters, create the following overrides configmap on the host cluster:
 
 ```yaml
 cat << EOF | kubectl apply -f -
@@ -95,11 +95,11 @@ data:
 EOF
 ```
 
-This ensures that gatekeeper is deployed in attached clusters.
+This ensures that Gatekeeper is deployed in attached clusters.
 
 # Configure Workspace (or Project) in which you want to use proxy
 
-To have gatekeeper mutate the manifests, create the `Workspace` (or `Project`) with the following label:
+To have Gatekeeper mutate the manifests, create the `Workspace` (or `Project`) with the following label:
 
 ```yaml
 labels:
@@ -114,7 +114,7 @@ kubectl label namespace <WORKSPACE_NAMESPACE> "gatekeeper.d2iq.com/mutate=pod-pr
 
 ## Configure attached clusters with proxy configuration
 
-In order to ensure that gatekeeper is deployed before everything else in the attached clusters, you must manually create the exact namespace of the workspace in which the cluster is going to be attached, before attaching the cluster:
+In order to ensure that Gatekeeper is deployed before everything else in the attached clusters, you must manually create the exact namespace of the workspace in which the cluster is going to be attached, before attaching the cluster:
 
 Execute the following command in the attached cluster before attaching it to the host cluster:
 
@@ -122,11 +122,11 @@ Execute the following command in the attached cluster before attaching it to the
 kubectl create namespace <WORKSPACE_NAMESPACE>
 ```
 
-Then, to configure the pods in this namespace to use proxy configuration, create the `gatekeeper-overrides` configmap described in the next section before attaching the cluster to the host cluster. You must label the workspace with `gatekeeper.d2iq.com/mutate=pod-proxy` when creating it so that gatekeeper deploys a `validatingwebhook` to mutate the pods with proxy configuration.
+Then, to configure the pods in this namespace to use proxy configuration, create the `gatekeeper-overrides` configmap described in the next section before attaching the cluster to the host cluster. You must label the workspace with `gatekeeper.d2iq.com/mutate=pod-proxy` when creating it so that Gatekeeper deploys a `validatingwebhook` to mutate the pods with proxy configuration.
 
-## Create gatekeeper configmap in Workspace namespace
+## Create Gatekeeper configmap in Workspace namespace
 
-To configure gatekeeper such that these environment variables are mutated in the pods, create the following configmap in target Workspace:
+To configure Gatekeeper such that these environment variables are mutated in the pods, create the following configmap in target Workspace:
 
 ```bash
 export NAMESPACE=<workspace-namespace>
@@ -147,7 +147,7 @@ data:
       enable: true
       enablePodProxy: true
       podProxySettings:
-        noProxy: "127.0.0.1,192.168.0.0/16,10.0.0.0/16,10.96.0.0/12,localhost,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,kubecost-prometheus-server.kommander,logging-operator-logging-fluentd.kommander.svc,elb.amazonaws.com"
+        noProxy: "127.0.0.1,192.168.0.0/16,10.0.0.0/16,10.96.0.0/12,localhost,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,.svc.cluster.local.,kubecost-prometheus-server.kommander,logging-operator-logging-fluentd.kommander.svc,elb.amazonaws.com"
         httpProxy: "http://proxy.company.com:3128"
         httpsProxy: "http://proxy.company.com:3128"
       excludeNamespacesFromProxy: []
@@ -171,7 +171,7 @@ Set the `httpProxy` and `httpsProxy` environment variables to the address of the
         <li>The <code>podSubnet</code> is configured in CAPI objects and needs to match above Calico's - Defaults to <code>192.168.0.0/16</code> (same as above)</li>
         </ul>
       </li>
-      <li>Kubernetes Service addresses (e.g., <code>10.96.0.0/12</code>, <code>kubernetes</code>, <code>kubernetes.default</code>, <code>kubernetes.default.svc</code>, <code>kubernetes.default.svc.cluster</code>, <code>kubernetes.default.svc.cluster.local</code>, <code>.svc</code>, <code>.svc.cluster</code>, <code>.svc.cluster.local</code>)</li>
+      <li>Kubernetes Service addresses (e.g., <code>10.96.0.0/12</code>, <code>kubernetes</code>, <code>kubernetes.default</code>, <code>kubernetes.default.svc</code>, <code>kubernetes.default.svc.cluster</code>, <code>kubernetes.default.svc.cluster.local</code>, <code>.svc</code>, <code>.svc.cluster</code>, <code>.svc.cluster.local</code>, <code>.svc.cluster.local.</code>)</li>
   </ul>
   In addition to above, following are needed when installing on AWS:
   <ul>
@@ -216,7 +216,7 @@ spec:
     - name: HTTPS_PROXY
       value: "http://proxy.company.com:3128"
     - name: NO_PROXY
-      value: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
+      value: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,.svc.cluster.local."
 ```
 
 See [Define Environment Variables for a Container](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/#define-an-environment-variable-for-a-container) for more details.
