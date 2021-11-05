@@ -173,7 +173,6 @@ panic: EC2 instance metadata is not available
 At this point, the troubleshooting moves to the narrower scope of debugging the [plugin][ebsplugin] and the [AWS API][awsapi].
 
 [d2iq]:https://d2iq.com
-[support]:https://support.d2iq.com
 [portworx]:https://portworx.com
 [portworxtroubleshooting]:https://docs.portworx.com/portworx-install-with-kubernetes/operate-and-maintain-on-kubernetes/troubleshooting/troubleshoot-and-get-support/
 [portworxdocs]:https://docs.portworx.com
