@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Access Documentation Archives
 title: Access Documentation Archives
 menuWeight: 1000
-excerpt: access older versions of Konvoy documentation
+excerpt: Access older versions of Konvoy documentation
 enterprise: false
 render: mustache
 ---
