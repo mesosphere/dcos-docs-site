@@ -39,7 +39,7 @@ An Ansible inventory describes the hosts in your environment and details for con
     all:
       vars:
         ansible_user: <ssh-user>
-        ansible_ssh_key_name: <path-to-ssh-private-key>
+        ansible_ssh_private_key_file: <path-to-ssh-private-key>
       hosts:
         control-plane-address-1:
         control-plane-address-2:
