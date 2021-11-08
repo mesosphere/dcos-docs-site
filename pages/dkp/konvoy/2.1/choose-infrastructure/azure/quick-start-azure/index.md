@@ -149,7 +149,7 @@ Before starting the Konvoy installation, verify that you have:
     - Konvoy only supports moving all namespaces in the cluster; Konvoy does not support migration of individual namespaces.
     - You must ensure that the permissions available to the CAPI controllers running on the worker cluster are sufficient.
 
-1.  Remove the bootstrap cluster, as the worker cluster is now self-managing:
+1.  Remove the bootstrap cluster, as the worker cluster is now self-managed:
 
     ```sh
     dkp delete bootstrap --kubeconfig $HOME/.kube/config
