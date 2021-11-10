@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
 beta: true
-navigationTitle: Continuous Delivery
-title: Continuous Delivery
+navigationTitle: Continuous Deployment
+title: Continuous Deployment
 menuWeight: 30
-excerpt: Continuous Delivery
+excerpt: Continuous Deployment
 ---
 
 <!--- markdownlist-disable MD025 --->
 
-After installing Kommander and [configuring your project and its clusters](../../), navigate to the **Continuous Delivery (CD)** tab under your Project. Here you create a GitOps source which is a source code management (SCM) repository hosting the application definition. D2iQ recommends that you create a secret first then create a GitOps source accessed by the secret.
+After installing Kommander and [configuring your project and its clusters](../../), navigate to the **Continuous Deployment (CD)** tab under your Project. Here you create a GitOps source which is a source code management (SCM) repository hosting the application definition. D2iQ recommends that you create a secret first then create a GitOps source accessed by the secret.
 
 ## Set up a secret for accessing GitOps
 
