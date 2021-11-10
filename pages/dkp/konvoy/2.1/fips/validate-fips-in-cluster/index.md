@@ -16,8 +16,10 @@ You need to download an appropriate, signed signature file before you run valida
 
 |EL version | Kubernetes version | Manifest URL                |
 |-----------|--------------------|-----------------------------|
-| 7         | v1.21.6            | [EL 7 Manifest][fips-manifest-7] |
-| 8         | v1.21.6            | [EL 8 Manifest][fips-manifest-8] |
+| 7         | v1.21.6            | [v1.21.3 EL 7 Manifest][1-21-3-fips-manifest-7] |
+| 8         | v1.21.6            | [v1.21.3 EL 8 Manifest][1-21-3-fips-manifest-8] |
+| 7         | v1.21.6            | [v1.21.6 EL 7 Manifest][1-21-6-fips-manifest-7] |
+| 8         | v1.21.6            | [v1.21.6 EL 8 Manifest][1-21-6-fips-manifest-8] |
 
 ## Run FIPS validation
 
@@ -68,5 +70,7 @@ dkp check cluster fips \
 
 In this case, the validation tool checks the cluster using the existing signature data and returns deployment details in JSON format.
 
-[fips-manifest-7]: https://kubernetes-fips.s3.us-east-2.amazonaws.com/tool/manifests/v1.21.6/manifest-rhel7.json.asc
-[fips-manifest-8]: https://kubernetes-fips.s3.us-east-2.amazonaws.com/tool/manifests/v1.21.6/manifest-rhel8.json.asc
+[1-21-3-fips-manifest-7]: https://kubernetes-fips.s3.us-east-2.amazonaws.com/tool/manifests/v1.21.6/manifest-rhel7.json.asc
+[1-21-3-fips-manifest-8]: https://kubernetes-fips.s3.us-east-2.amazonaws.com/tool/manifests/v1.21.6/manifest-rhel8.json.asc
+[1-21-6-fips-manifest-7]: https://kubernetes-fips.s3.us-east-2.amazonaws.com/tool/manifests/v1.21.6/manifest-rhel7.json.asc
+[1-21-6-fips-manifest-8]: https://kubernetes-fips.s3.us-east-2.amazonaws.com/tool/manifests/v1.21.6/manifest-rhel8.json.asc
