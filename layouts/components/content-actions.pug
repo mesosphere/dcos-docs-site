@@ -1,16 +1,5 @@
 if (!title)
   - throw `File ${path} does not contain a title`
--
-  var feedbackPath = 'https://jira.d2iq.com/secure/CreateIssueDetails!init.jspa'
-   + '?pid=14105'
-   + '&issuetype=1'
-   + `&summary=Feedback+for+${title.replace(/ /g, '+')}`
-   + '&description=Source:%20' + url + path
-   + '&labels=documentation'
-   + '&labels=needs_triage'
-   + '&components=19804'
-   + '&priority=3'
-   + '&customfield_12300=44' // Sets the team field to Documentation Team
 
 .actions
   ul.actions__list
@@ -22,7 +11,3 @@ if (!title)
       a.actions__link(href=`https://github.com/mesosphere/dcos-docs-site/tree/main/pages${path}/index.md`, target="_blank")
         i.actions__icon(data-feather='github')
         span.actions__text Contribute
-    li.actions__item
-      a.actions__link(href=feedbackPath, target="_blank")
-        i.actions__icon(data-feather='message-square')
-        span.actions__text Feedback
