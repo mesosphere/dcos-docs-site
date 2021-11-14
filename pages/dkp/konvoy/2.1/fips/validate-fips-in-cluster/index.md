@@ -26,7 +26,7 @@ You need to download an appropriate, signed signature file before you run valida
 To validate that specific components and services are FIPS-compliant, run the command:
 
 ```shell
-dkp cluster fips --signature-file=manifest.asc --signature-configmap=signatures --output-configmap=output
+dkp check cluster fips --signature-file=manifest.asc --signature-configmap=signatures --output-configmap=output
 ```
 
 The full command usage and flags include:
