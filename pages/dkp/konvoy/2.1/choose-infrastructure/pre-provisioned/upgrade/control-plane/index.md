@@ -30,7 +30,7 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
     CLUSTER_NAME=my-preprovisioned-cluster
     ```
 
-    See [Get Started with AWS][aws-naming-cluster] for information on naming your cluster.
+    See [define infrastructure](../../define-infrastructure#name-your-cluster) for information on naming your cluster.
 
 1.  **If your workload cluster is self-managed,** as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster. **If it's not self-managed, skip this step.**
 
@@ -115,8 +115,6 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 
     <p class="message--note"><strong>NOTE: </strong>This may take longer than 30 minutes, depending on the size of your cluster.</p>
 
-[aws-naming-cluster]: ../../../aws/quick-start-aws#name-your-cluster
 [createnewcluster]: ../../create-cluster
 [makeselfmanaged]: ../../self-managed
-[awsdefaultmachineimages]: https://cluster-api-aws.sigs.k8s.io/amis.html
 [imagebuilder]: ../../../../image-builder
