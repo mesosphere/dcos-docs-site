@@ -51,9 +51,9 @@ For example:
 
 ```shell
 dkp create cluster aws --cluster-name myFipsCluster \
-  --ami ami-03dcaa75d45aca36f \
-  --kubernetes-version 1.21.6+fips.0 \
-  --kubernetes-image-repository docker.io/mesosphere \
-  --etcd-image-repository docker.io/mesosphere \
-  --etcd-version 3.4.13+fips.0
+--ami=ami-03dcaa75d45aca36f \
+--kubernetes-version=1.21.6+fips.0 \
+--kubernetes-image-repository=docker.io/mesosphere \
+--etcd-image-repository=docker.io/mesosphere \
+--etcd-version=3.4.13+fips.0
 ```
