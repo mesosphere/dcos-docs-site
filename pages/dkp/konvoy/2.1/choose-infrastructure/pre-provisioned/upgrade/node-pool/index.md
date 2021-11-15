@@ -28,7 +28,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
     CLUSTER_NAME=my-preprovisioned-cluster
     ```
 
-    See [Get Started with AWS][aws-naming-cluster] for information on naming your cluster.
+    See [define infrastructure](../../define-infrastructure#name-your-cluster) for information on naming your cluster.
 
 1.  **If your workload cluster is self-managed,** as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster. **If it's not self-managed, skip this step.**
 
@@ -108,7 +108,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
     ```
 
     ```sh
-    machinedeployment.cluster.x-k8s.io/aws-example-md-0 configured
+    machinedeployment.cluster.x-k8s.io/my-preprovisioned-cluster-md-0 configured
     ```
 
 1.  Wait for the update to complete.
@@ -120,8 +120,6 @@ The worker node pool is described by a MachineDeployment resource, which referen
     kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME}
     ```
 
-[aws-naming-cluster]: ../../../aws/quick-start-aws#name-your-cluster
 [createnewcluster]: ../../create-cluster
 [makeselfmanaged]: ../../self-managed
-[awsdefaultmachineimages]: https://cluster-api-aws.sigs.k8s.io/amis.html
 [imagebuilder]: ../../../../image-builder
