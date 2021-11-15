@@ -87,7 +87,7 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
     EOF
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>If your cluster has only one control plane machine, remove the 'maxSurge: 0' from the patch.  Also, ensure you have added an additional, provisioned machine to your inventory.  A cluster with only one control plane machne will experience some downtime during the transition from the old control plane machine to the new one. </p>
+    <p class="message--note"><strong>NOTE: </strong>If your cluster has only one control plane machine, remove the 'maxSurge: 0' from the patch.  Also, ensure you have added an additional, provisioned machine to your inventory.  A cluster with only one control plane machine will experience some downtime during the transition from the old control plane machine to the new one. </p>
 
 1.  Update the KubeadmControlPlane
 
