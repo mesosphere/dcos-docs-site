@@ -211,5 +211,5 @@ If you do not want to update the instance type, go to the [next section](#apply-
 
 [createnewcluster]: ../../new
 [makeselfmanaged]: ../../self-managed
-[awsdefaultmachineimages]: https://cluster-api-aws.sigs.k8s.io/amis.html
+[awsdefaultmachineimages]: https://cluster-api-aws.sigs.k8s.io/topics/images/built-amis.html
 [imagebuilder]: ../../../../../image-builder
