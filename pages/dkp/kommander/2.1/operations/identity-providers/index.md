@@ -23,11 +23,11 @@ You should only use these static credentials to access the D2iQ Kommander Dashbo
 
 You can perform the following operations on Identity Providers:
 
-- [Create an Identity Provider](#identity-providers)
+-   [Create an Identity Provider](#identity-providers)
 
-- [Temporarily Disable an Identity Provider](#temporarily-disabling-a-provider)
+-   [Temporarily Disable an Identity Provider](#temporarily-disabling-a-provider)
 
-- [Create Groups](#groups)
+-   [Create Groups](#groups)
 
 ## Identity Providers
 
