@@ -1,18 +1,18 @@
 ---
 layout: layout.pug
-navigationTitle: Project Application Configuration Requirements
-title: Project Application Configuration Requirements
+navigationTitle: Platform Application Configuration Requirements
+title: Platform Application Configuration Requirements
 menuWeight: 40
-excerpt: Project Application Descriptions and Resource Requirements
+excerpt: Platform Application Descriptions and Resource Requirements
 enterprise: false
 draft: true
 ---
 
-## Project Application Requirements
+## Platform Application Requirements
 
-Project applications require more resources than solely deploying or attaching clusters into a project. Your cluster must have sufficient resources when deploying or attaching to ensure that the applications are installed successfully.
+Platform applications require more resources than solely deploying or attaching clusters into a project. Your cluster must have sufficient resources when deploying or attaching to ensure that the applications are installed successfully.
 
-The following table describes all the project applications that are available to the clusters in a project, minimum resource requirements, and whether they are enabled by default.
+The following table describes all the platform applications that are available to the clusters in a project, minimum resource requirements, and whether they are enabled by default.
 
 <table>
   <tr>

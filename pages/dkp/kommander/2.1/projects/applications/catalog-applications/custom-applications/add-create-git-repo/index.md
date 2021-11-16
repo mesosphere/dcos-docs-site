@@ -5,7 +5,16 @@ title: Create a GitRepository
 menuWeight: 10
 excerpt: Create a GitRepository in the Project namespace
 ---
-Use the CLI to create the GitRepository resource and add a new repository to your Project, and then adapt the URL as necessary:
+
+Use the CLI to create the GitRepository resource and add a new repository to your Project.
+
+First, set the `PROJECT_NAMESPACE` environment variable to the name of your project's namespace:
+
+```sh
+export PROJECT_NAMESPACE=<project_namespace>
+```
+
+Adapt the URL of your Git repository as necessary.
 
 ```sh
 kubectl apply -f - <<EOF
@@ -13,6 +22,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
   name: example-repo
+  namespace: ${PROJECT_NAMESPACE}
 spec:
   interval: 1m0s
   ref:
@@ -25,7 +35,7 @@ EOF
 Ensure the status of the GitRepository signals a ready state:
 
 ```sh
-kubectl get gitrepository example-repo
+kubectl get gitrepository example-repo -n ${PROJECT_NAMESPACE}
 ```
 
 The repository commit also displays the ready state:
@@ -55,6 +65,6 @@ $ kubectl -n kommander-flux logs -l app=helm-controller
 - [Flux][flux_website]
 - [Flux docs][flux_docs]
 
-[flux_gitrepo](https://fluxcd.io/docs/components/source/gitrepositories/)
-[flux_website](https://fluxcd.io)
-[flux_docs](https://fluxcd.io/docs)
+[flux_gitrepo]: https://fluxcd.io/docs/components/source/gitrepositories/
+[flux_website]: https://fluxcd.io
+[flux_docs]: https://fluxcd.io/docs
