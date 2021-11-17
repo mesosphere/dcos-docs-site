@@ -20,8 +20,15 @@ konvoy-image build --overrides overrides/fips.yaml images/ami/centos-8.yaml
 
 ### Pre-provisioned infrastructure
 
-If you are targeting a [pre-provisioned infrastructure](../../choose-infrastructure/pre-provisioned/), use the Konvoy Image Builder to install the FIPS binaries for you, with a command similar to this:
+If you are targeting a [pre-provisioned infrastructure](../../choose-infrastructure/pre-provisioned/), you can create a FIPS-compliant cluster by doing the following:
+
+1.  Create a [bootstrap cluster](../../choose-infrastructure/pre-provisioned/bootstrap)
+
+1.  Create a secret on the bootstrap cluster with the contents from `fips.yaml`[override file][fips_override] and any other user overrides you wish to provide
 
 ```shell
-konvoy-image provision --overrides overrides/fips.yaml images/generic/centos-8.yaml
+kubectl create secret generic $CLUSTER_NAME-fips-overrides --from-file=overrides.yaml=overrides.yaml
+kubectl label secret $CLUSTER_NAME-fips-overrides clusterctl.cluster.x-k8s.io/move=
 ```
+
+[fips_override]: https://github.com/mesosphere/konvoy-image-builder/blob/main/overrides/fips.yaml
