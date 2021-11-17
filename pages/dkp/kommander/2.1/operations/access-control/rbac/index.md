@@ -191,7 +191,7 @@ PolicyRule:
 
 The user can now use the HTTP verbs HEAD, GET, DELETE, POST, and PUT when accessing any URL at or under `/dkp`. Provided the downstream application follows REST conventions, this effectively allows read, edit, and delete privileges.
 
-<p class="message--note"><strong>NOTE: </strong>In order to allow users to access the Kommander UI, ensure they are granted the appropriate `dkp-kommander-` role in addition to the Kommander roles granted in the Kommander UI. For more information, see the [Access Control section of the Kommander documentation](/dkp/kommander/2.0/operations/access-control/).</p>
+<p class="message--note"><strong>NOTE: </strong>To allow users to access the Kommander UI, ensure they have the appropriate <code>dkp-kommander-</code> role in addition to the Kommander roles granted in the Kommander UI. For more information, see the <a href="../">Access Control section of the Kommander documentation</a>.</p>
 
 #### Group
 

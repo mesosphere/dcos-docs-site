@@ -14,7 +14,7 @@ beta: true
 **D2iQ&reg; Kommander&reg; version 2.1 Beta 1 was released on October 14, 2021.**
 
 <!--
-[button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
+[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
 To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [install](/dkp/konvoy/latest/install/) the latest version of Konvoy.
 
@@ -37,8 +37,8 @@ The following services and service components have been upgraded to the listed v
 
 - centralized-grafana: 17.2.1
     - grafana: 8.0.5
-- centralized-kubecost: 0.19.0
-    - cost-analyzer: 1.87.0
+- centralized-kubecost: 0.20.0
+    - cost-analyzer: 1.88.0
     - grafana: 7.5.6
     - prometheus: 2.22.2
     - prometheus alertmanager: 0.20.0
@@ -74,8 +74,8 @@ The following services and service components have been upgraded to the listed v
     - prometheus: 2.28.1
     - prometheus alertmanager: 0.22.2
     - thanos: 0.17.2
-- kubecost: 0.19.0
-    - cost-analyzer: 1.87.0
+- kubecost: 0.20.0
+    - cost-analyzer: 1.88.0
     - grafana: 7.5.6
     - prometheus: 2.22.2
     - prometheus alertmanager: 0.20.0

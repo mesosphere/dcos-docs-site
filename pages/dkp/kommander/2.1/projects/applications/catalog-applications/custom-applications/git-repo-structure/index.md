@@ -62,4 +62,5 @@ Some [substitution variables][kustomization_variable_substitution] are provided.
 [kubernetes_kustomization]: https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/
 [flux_docs]: https://fluxcd.io/docs
 [flux_get_started]: https://fluxcd.io/docs/get-started/
+[flux_website]: https://fluxcd.io
 [kustomization_variable_substitution]: https://fluxcd.io/docs/components/kustomize/kustomization/#variable-substitution

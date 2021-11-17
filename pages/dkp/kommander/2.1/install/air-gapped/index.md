@@ -24,6 +24,100 @@ Before installing, ensure you have:
 
 - All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
 
+- [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
+
+### Use MetalLB
+
+For an on-premises deployment, Kommander ships with [MetalLB][metallb], which provides load-balancing services.
+
+<p class="message--note"><strong>NOTE: </strong>Making a configuration change in the <code>ConfigMap</code> for the <code>metallb</code> application may not result in the config change applying. This is <a href="https://github.com/danderson/metallb/issues/348#issuecomment-442218138" target="_blank">intentional behavior</a>. MetalLB refuses to adopt changes to the ConfigMap that breaks existing Services. You can force MetalLB to load those changes by deleting the <code>metallb</code> controller pod:</p>
+
+   ```bash
+   kubectl -n kommander delete pod -l app=metallb,component=controller
+   ```
+
+To use MetalLB:
+
+1.  Identify and reserve a virtual IP (VIP) address range in your networking infrastructure.
+
+1.  Configure your networking infrastructure so that the reserved IP addresses is reachable:
+
+    - from all hosts specified in the inventory file.
+    - from the computer used to deploy Kubernetes.
+
+<p class="message--note"><strong>NOTE: </strong>Ensure the MetalLB subnet does not overlap with <code>podSubnet</code> and <code>serviceSubnet</code>.</p>
+
+Your configuration is complete if the reserved virtual IP addresses are in the same subnet as the rest of the cluster nodes.
+If it is in a different subnet, configure appropriate routes to ensure connectivity with the virtual IP address.
+If the virtual IP addresses share an interface with the primary IP address of the interface, disable any IP or MAC spoofing from the infrastructure firewall.
+
+You can configure MetalLB in two modes: Layer2 and BGP.
+
+#### Layer2
+
+The following example illustrates how to enable MetalLB and configure it with the Layer2 mode:
+
+   ```yaml
+   ---
+   apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: metallb-overrides
+   data:
+     values.yaml: |
+       configInline:
+         address-pools:
+         - name: default
+           protocol: layer2
+           addresses:
+           - 10.0.50.25-10.0.50.50
+   ---
+   apiVersion: apps.kommander.d2iq.io/v1alpha2
+   kind: AppDeployment
+   metadata:
+     name: metallb
+   spec:
+     appRef:
+       name: metallb-0.12.2
+       kind: ClusterApp
+     configOverrides:
+       name: metallb-overrides
+   ```
+
+The number of virtual IP addresses in the reserved range determines the maximum number of `LoadBalancer` service types you can create in the cluster.
+
+#### BGP
+
+MetalLB in `bgp` mode implements only a subset of the BGP protocol. In particular, it only advertises the virtual IP to peer BGP agent.
+
+The following example illustrates the BGP configuration in the overrides `ConfigMap`:
+
+   ```yaml
+   apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: metallb-overrides
+   data:
+     values.yaml: |
+       configInline:
+         peers:
+         - my-asn: 64500
+           peer-asn: 64500
+           peer-address: 172.17.0.4
+         address-pools:
+         - name: my-ip-space
+           protocol: bgp
+           addresses:
+           - 172.40.100.0/24
+   ```
+
+In the above configuration, `peers` defines the configuration of the BGP peer, such as peer ip address and `autonomous system number` (`asn`).
+The `address-pools` section is similar to `layer2`, except for the protocol.
+
+MetalLB also supports [advanced BGP configuration][metallb_config].
+
+See [Kommander Load Balancing][kommander-load-balancing] for more information.
+
 ### Determine the installation version
 
 Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
@@ -40,9 +134,9 @@ export VERSION=v2.1.0-beta.1
     wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O kommander-image-bundle.tar
     ```
 
-1. Place the bundle into a location where you can load and push the images to your private Docker registry.
+1. Place the bundle in a location where you can load and push the images to your private Docker registry.
 
-1. Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately and then use the following script to load the air-gapped image bundle:
+1. Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air gapped image bundle:
 
     ```bash
     #!/usr/bin/env bash
@@ -137,5 +231,9 @@ Based on the network latency between the environment of script execution and the
 
 1. [Verify your installation](../networked#verify-installation).
 
-[air-gap-konvoy]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/
 [air-gap-before-you-begin]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/prerequisites/
+[air-gap-install-metallb]: #use-metallb
+[air-gap-konvoy]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/
+[kommander-load-balancing]: ../../networking/load-balancing
+[metallb]: https://metallb.universe.tf/concepts/
+[metallb_config]: https://metallb.universe.tf/configuration/
