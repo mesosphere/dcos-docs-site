@@ -3,7 +3,7 @@ layout: layout.pug
 beta: false
 navigationTitle: Attach a Kubernetes Cluster using a Tunnel
 title: Attach Cluster using tunnel
-menuWeight: 7
+menuWeight: 10
 excerpt: Using the CLI to attach a Kubernetes Cluster using a Tunnel
 ---
 

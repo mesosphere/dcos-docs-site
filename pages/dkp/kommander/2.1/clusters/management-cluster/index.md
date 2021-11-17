@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Management Cluster
 title: Management Cluster
-menuWeight: 7
+menuWeight: 40
 excerpt:
 ---
 

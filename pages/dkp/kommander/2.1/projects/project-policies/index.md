@@ -14,9 +14,9 @@ Before you can create a Project Role Binding, ensure you have created a Group. A
 
 You can assign a role to this Kommander Group:
 
-1.  From the Projects page, select the project you are insterested in.
+1.  From the Projects page, select your project.
 
-1.  Select the Role Bindings tab, then sleect Add Roles next to the group you want.
+1.  Select the Role Bindings tab, then select Add Roles next to the group you want.
 
 1.  Select the Role, or Roles, you want from the drop-down menu, and then select Save.
 
@@ -41,9 +41,7 @@ EOF
 
 ### Configure Project Role Bindings to Bind to WorkspaceRoles - CLI Method
 
-You can also create a Project Policy to bind to a WorkspaceRole in certain instances. For example, if you are deploying Grafana to your Project, to apply RBAC to the Grafana URL, there are certain WorkspaceRoles that you can bind to a project policy.
-
-To list the WorkspaceRoles that you can bind to a Project, run the following command:
+You can also create a Project Policy to bind to a WorkspaceRole in certain instances. To list the WorkspaceRoles that you can bind to a Project, run the following command:
 
 ```bash
 kubectl get workspaceroles -n ${workspacens} -o=jsonpath='{.items[?(@.metadata.annotations.workspace\.kommander\.d2iq\.io\/project-default-workspace-role-for=="${projectns}")].metadata.name}'

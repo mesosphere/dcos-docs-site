@@ -12,12 +12,20 @@ beta: false
 Workspace logging AppDeployments enable and deploy the logging stack to all attached clusters within the workspace.
 Use the Kommander UI to enable the logging applications, or, alternately, use the CLI to create the AppDeployments.
 
-To enable logging in DKP using the CLI, follow these steps on the management cluster:
+To enable logging in DKP using the CLI, follow these steps on the **management** cluster:
 
-1. Set the `WORKSPACE_NAMESPACE` environment variable needed for this procedure using the command to get the name of the workspace's namespace:
+1. Execute the following command to get the namespace of your workspace
 
-   ``` bash
-   export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.status.namespaceRef.name}')
+   ```bash
+   kubectl get workspaces
+   ```
+
+   And copy the value under `WORKSPACE NAMESPACE` column for your workspace. This may NOT be identical to the Display Name of the `Workspace`.
+
+1. And then export the `WORKSPACE_NAMESPACE` variable:
+
+   ```bash
+   export WORKSPACE_NAMESPACE=<WORKSPACE_NAMESPACE>
    ```
 
 1. Ensure that Cert-Manager and Traefik are enabled in the workspace. If you want to find if the applications are enabled on the management cluster workspace, you can run:
@@ -32,7 +40,7 @@ To enable logging in DKP using the CLI, follow these steps on the management clu
    kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
    ```
 
-1. Copy this command and execute it from a command line to create the Logging-operator, Grafana-loki, and Grafana-logging AppDeployments:
+1. Copy this command and execute it on the **management** cluster from a command line to create the Logging-operator, Grafana-loki, and Grafana-logging AppDeployments:
 
    ``` bash
    cat <<EOF | kubectl apply -f -

@@ -13,9 +13,11 @@ After creating a GitRepository, you can either use the Kommander UI or the CLI t
 
 Go to the Kommander UI to deploy your custom applications:
 
-1. Select**Workspace** >**Project**
+1. Select **Workspace** > **Project**
 
-1. Select**View Catalog** to browse the available applications from your configured repositories.
+1. Select your project from the list.
+
+1. Select **Applications** on the top navigation bar to browse the available applications from your configured repositories.
 
 1. Select your desired application.
 
@@ -23,7 +25,7 @@ Go to the Kommander UI to deploy your custom applications:
 
 For all applications, you must provide a display name and an ID which is automatically generated based on what you enter for the display name, unless or until you edit the ID directly. The ID must be compliant with [Kubernetes DNS subdomain name validation rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names).
 
-Alternatly, you can use the CLI to deploy your custom applications.
+Alternately, you can use the CLI to deploy your custom applications.
 Set the `PROJECT_NAMESPACE` environment variable to the name of the project's namespace where the cluster is attached:
 
 ```sh

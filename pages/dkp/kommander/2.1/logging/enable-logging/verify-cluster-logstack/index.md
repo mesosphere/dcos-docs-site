@@ -7,21 +7,31 @@ excerpt: How to verify the cluster's logging stack installed successfully
 beta: false
 ---
 
-<!-- markdownlint-disable MD030 -->
-
 You must wait for the cluster’s logging stack `HelmReleases` to deploy before attempting to configure or use the logging features.
 
-1. Set the `WORKSPACE_NAMESPACE` environment variable needed for this procedure using the command to get the name of the workspace's namespace:
+Run the following commands on the **management** cluster:
 
-   ``` bash
-   export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.status.namespaceRef.name}')
-   ```
+1.  Execute the following command to get the namespace of your workspace
 
-1. Check the deployment status using this command on the attached cluster:
+    ```bash
+    kubectl get workspaces
+    ```
 
-   ``` bash
-   kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
-   ```
+    Copy the value under `WORKSPACE NAMESPACE` column for your workspace. This may NOT be identical to the Display Name of the `Workspace`.
+
+1.  Export the `WORKSPACE_NAMESPACE` variable:
+
+    ```bash
+    export WORKSPACE_NAMESPACE=<WORKSPACE_NAMESPACE>
+    ```
+
+    Ensure you switched to the correct [context or kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) of the attached cluster for the following kubectl commands.
+
+1.  Check the deployment status using this command on the **attached** cluster:
+
+    ```bash
+    kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
+    ```
 
 <p class="message--note"><strong>NOTE: </strong>It may take some time for these changes to take effect, based on the duration configured for the Flux GitRepository reconciliation.</p>
 
