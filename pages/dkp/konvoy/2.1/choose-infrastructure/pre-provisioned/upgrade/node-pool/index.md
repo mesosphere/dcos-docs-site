@@ -96,6 +96,10 @@ The worker node pool is described by a MachineDeployment resource, which referen
     EOF
     ```
 
+    <p class="message--note"><strong>NOTE: </strong>The `maxSurge: 0` configuration sets the update strategy so that an old machine is deleted before a new machine is created. This strategy is required to perform a rolling update when additional, unused machines are not available.</p>
+
+    <p class="message--warning"><strong>WARNING: </strong>When `maxSurge: 0` is configured, an update of a one-machine worker node pool interrupts workloads running in that pool.</p>
+
 1.  Update the MachineDeployment
 
     The MachineDeployment is patched to use a new Kubernetes version.
