@@ -87,7 +87,9 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
     EOF
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>If your cluster has only one control plane machine, remove the 'maxSurge: 0' from the patch.  Also, ensure you have added an additional, provisioned machine to your inventory.  A cluster with only one control plane machine will experience some downtime during the transition from the old control plane machine to the new one. </p>
+    <p class="message--note"><strong>NOTE: </strong>The `maxSurge: 0` configuration sets the update strategy so that an old machine is deleted before a new machine is created. This strategy is required to perform a rolling update when additional, unused machines are not available.</p>
+
+    <p class="message--warning"><strong>WARNING: </strong>When `maxSurge: 0` is configured, an update of a one-machine control plane is not possible.</p>
 
 1.  Update the KubeadmControlPlane
 
