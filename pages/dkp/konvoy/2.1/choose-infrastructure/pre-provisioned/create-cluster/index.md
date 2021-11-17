@@ -16,6 +16,12 @@ With the inventory, and the control plane endpoint defined, use the `dkp` binary
 dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443>
 ```
 
+<p class="message--note"><strong>NOTE: </strong>If you have [overrides for your clusters](create-secrets-and-overrides), you must specify the secret as part of the create cluster command. If these are not specified, the overrides for your nodes will not be applied. </p>
+
+```shell
+dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443> --override-secret-name=$CLUSTER_NAME-user-overrides
+```
+
 Depending on the cluster size, it will take a few minutes to be created. After the creation, use this command to get the Kubernetes kubeconfig for the new cluster and begin deploying workloads:
 
 ```shell
@@ -157,3 +163,4 @@ In Konvoy, the default pod subnet is 192.168.0.0/16, and the default service sub
 When you provision the cluster, the configured pod and service subnets will be applied.
 
 [define-control-plane-endpoint]: ../define-control-plane-endpoint
+[create-secrets-and-overrides]: ../create-secrets-and-overrides
