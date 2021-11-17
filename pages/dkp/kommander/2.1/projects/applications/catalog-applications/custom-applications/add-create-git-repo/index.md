@@ -1,20 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle: Create a GitRepository
-title: Create a GitRepository
+navigationTitle: Create a Git Repository
+title: Create a Git Repository
 menuWeight: 10
-excerpt: Create a GitRepository in the Project namespace
+excerpt: Create a Git Repository in the Project namespace
 ---
 
 Use the CLI to create the GitRepository resource and add a new repository to your Project.
 
-First, set the `PROJECT_NAMESPACE` environment variable to the name of your project's namespace:
+1. Set the `PROJECT_NAMESPACE` environment variable to the name of your project's namespace:
 
 ```sh
 export PROJECT_NAMESPACE=<project_namespace>
 ```
 
-Adapt the URL of your Git repository as necessary.
+1. Adapt the URL of your Git repository.
 
 ```sh
 kubectl apply -f - <<EOF
@@ -26,13 +26,13 @@ metadata:
 spec:
   interval: 1m0s
   ref:
-    branch: main
+    branch: <your-target-branch-name> # e.g., main
   timeout: 20s
   url: https://github.com/<example-org>/<example-repo>
 EOF
 ```
 
-Ensure the status of the GitRepository signals a ready state:
+1. Ensure the status of the GitRepository signals a ready state:
 
 ```sh
 kubectl get gitrepository example-repo -n ${PROJECT_NAMESPACE}
@@ -49,7 +49,7 @@ For more information on the GitRepository resource fields and how to make Flux a
 
 ## Troubleshoot
 
-If you run into any issues adding the GitRepository, there are three primary Flux pods where you can review the logs:
+To troubleshoot issues with adding the GitRepository, review the following logs:
 
 ```sh
 $ kubectl -n kommander-flux logs -l app=source-controller
