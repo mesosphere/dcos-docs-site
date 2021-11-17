@@ -15,7 +15,7 @@ After installing Kommander and [configuring your project and its clusters](../..
 
 Create a secret that Kommander uses to deploy the contents of your GitOps repository:
 
-<p class="message--note"><strong>NOTE: </strong>This dialog box creates a `types.kubefed.io/v1beta1, Kind=FederatedSecret` and this is not yet supported by DKP CLI. Use the GUI, as shown above, to create a federated secret or create a `FederatedSecret` manifest and apply it to the project namespace. Learn more about [FederatedSecrets](../../project-secrets/)</p>
+<p class="message--note"><strong>NOTE: </strong>This dialog box creates a <code>types.kubefed.io/v1beta1, Kind=FederatedSecret</code> and this is not yet supported by DKP CLI. Use the GUI, as shown above, to create a federated secret or create a <code>FederatedSecret</code> manifest and apply it to the project namespace. Learn more about <a href="../../project-secrets/">FederatedSecrets</a>.</p>
 
 Kommander secrets (for CD) can be configured to support any of the following three authentication methods:
 
