@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Application Deployment
-title: Deployment of Applications
+navigationTitle: Platform Application Deployment
+title: Platform Application Deployment
 menuWeight: 5
 beta: true
 excerpt: Deploy applications to attached clusters using the CLI
@@ -9,16 +9,16 @@ excerpt: Deploy applications to attached clusters using the CLI
 <!-- markdownlint-disable MD004 MD040 -->
 
 This topic describes how to use the CLI to deploy an application to attached clusters within a project.
-To use the Kommander UI to deploy applications, see [Deploy applications in a project](../../project-applications#deploy-applications-in-a-project).
+To use the Kommander UI to deploy applications, see [Deploy applications in a project](../../platform-applications#deploy-applications-in-a-project).
 
-See [Project Applications](../../project-applications#project-applications) for a list of all applications and those that are enabled by default.
+See [Platform Applications](../../platform-applications#platform-applications) for a list of all applications and those that are enabled by default.
 
 ## Prerequisites
 
 Before you begin, you must have:
 
-- A running cluster with [Kommander installed](../../../install/).
-- An [existing Kubernetes cluster attached to Kommander](../../../clusters/attach-cluster/).
+- A running cluster with [Kommander installed](../../../../install/).
+- An [existing Kubernetes cluster attached to Kommander](../../../../clusters/attach-cluster/).
 
 Set the `PROJECT_NAMESPACE` environment variable to the name of the project's namespace where the cluster is attached:
 
@@ -28,9 +28,9 @@ export PROJECT_NAMESPACE=<project_namespace>
 
 ## Deploy the application
 
-The list of available applications that can be deployed on the attached cluster can be found [here](../../project-applications#project-applications).
+The list of available applications that can be deployed on the attached cluster can be found [here](../../platform-applications#platform-applications).
 
-1.  Deploy one of the supported applications to [your existing attached cluster](../../../clusters/attach-cluster/) with an `AppDeployment` resource.
+1.  Deploy one of the supported applications to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 
 1.  Within the `AppDeployment`, define the `appRef` to specify which `App` will be deployed:
 
@@ -107,4 +107,4 @@ NAMESPACE               NAME        READY   STATUS                             A
 project-test-vjsfq    project-grafana-logging     True    Release reconciliation succeeded   7m3s
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Some of the supported applications have dependencies on other applications. See <a href="../platform-application-dependencies">Project Application Dependencies</a> for that table.</p>
+<p class="message--note"><strong>NOTE: </strong>Some of the supported applications have dependencies on other applications. See <a href="../application-dependencies">Project Application Dependencies</a> for that table.</p>

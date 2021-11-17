@@ -12,6 +12,8 @@ excerpt: Review detailed Kommander API reference information
 
 ## Table of Contents
 
+- [CAPIClusterReference](#capiclusterreference)
+- [ClusterReference](#clusterreference)
 - [KommanderCluster](#kommandercluster)
 - [KommanderClusterCondition](#kommanderclustercondition)
 - [KommanderClusterList](#kommanderclusterlist)
@@ -19,6 +21,8 @@ excerpt: Review detailed Kommander API reference information
 - [KommanderClusterStatus](#kommanderclusterstatus)
 - [License](#license)
 - [LicenseCondition](#licensecondition)
+- [LicenseExternalAWS](#licenseexternalaws)
+- [LicenseExternalReference](#licenseexternalreference)
 - [LicenseList](#licenselist)
 - [LicenseSpec](#licensespec)
 - [LicenseStatus](#licensestatus)
@@ -28,6 +32,25 @@ excerpt: Review detailed Kommander API reference information
 - [VirtualGroupClusterRoleBindingSpec](#virtualgroupclusterrolebindingspec)
 - [VirtualGroupList](#virtualgrouplist)
 - [VirtualGroupSpec](#virtualgroupspec)
+
+## CAPIClusterReference
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| name |  | string | true |
+| namespace |  | string | false |
+
+[Back to TOC](#table-of-contents)
+
+## ClusterReference
+
+ClusterReference holds a single reference to clusters provisioned via Kommander. Only one field is allowed to be set. Currently, only CAPI clusters are creatable, but this is left extensible for other provider types in the future.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| capiCluster |  | [CAPIClusterReference](#capiclusterreference) | false |
+
+[Back to TOC](#table-of-contents)
 
 ## KommanderCluster
 
@@ -70,6 +93,7 @@ KommanderClusterSpec defines the desired state of Cluster.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
+| clusterRef |  | [ClusterReference](#clusterreference) | false |
 | clusterTunnelConnectorRef | ClusterTunnelConnectorRef is a reference to TunnelConnector that should be used for connecting to cluster. | corev1.LocalObjectReference | false |
 | kubeconfigRef |  | corev1.LocalObjectReference | false |
 
@@ -116,6 +140,23 @@ License is the Schema for the licenses API.
 
 [Back to TOC](#table-of-contents)
 
+## LicenseExternalAWS
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| licenseArn | LicenseArn is a fully qualified AWS arn to a license for Kommander. | string | false |
+
+[Back to TOC](#table-of-contents)
+
+## LicenseExternalReference
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| awsLicense | AWSLicense holds a single reference to a license in AWS's License Manager | [LicenseExternalAWS](#licenseexternalaws) | false |
+| type | Type is the source of the external license referenced, i.e. AWS, GCP, Azure | LicenseExternalReferenceType | true |
+
+[Back to TOC](#table-of-contents)
+
 ## LicenseList
 
 LicenseList contains a list of License.
@@ -133,6 +174,7 @@ LicenseSpec defines the desired state of License.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
+| externalLicenseRef | ExternalLicenseRef holds a reference to an external license | [LicenseExternalReference](#licenseexternalreference) | false |
 | licenseRef | LicenseReference holds a single reference to the secret holding the license JWT | corev1.LocalObjectReference | false |
 
 [Back to TOC](#table-of-contents)
@@ -144,8 +186,8 @@ LicenseStatus defines the observed state of License.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | clusterCapacity | Maximum number of clusters that the license allows. | int32 | true |
-| coreCapacity | Maximum number of cores that the license allows. | int32 | true |
 | conditions | Conditions relevant to the license (currently used to track term breaches) | [][LicenseCondition](#licensecondition) | false |
+| coreCapacity | Maximum number of cores that the license allows. | int32 | true |
 | customerId | The customer's ID. This is the customer name provided from Salesforce. | string | true |
 | endDate | End date of the licensing period. | metav1.Time | false |
 | licenseId | The license's ID as provided from Salesforce. | string | true |

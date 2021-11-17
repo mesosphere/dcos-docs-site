@@ -16,7 +16,7 @@ There are several types of clusters that display in the Clusters tab. The cluste
 The type values include:
 
 - **Attached**: An Attached cluster is one that was not created with Kommander. You cannot manage an Attached cluster's lifecycle, but you can monitor it.
-<!--- - **Managed**: A Managed cluster is a Konvoy cluster that was created with Kommander. You can use Kommander to manage a Managed cluster's lifecycle. **Note:** This is not yet available in Kommander v2.0. -->
+- **Managed**: A Managed cluster is a Konvoy cluster that was created with Kommander. You can use Kommander to manage a Managed cluster's lifecycle.
 - **Management**: This is the Konvoy cluster that hosts Kommander.
 
 ## Statuses
@@ -25,21 +25,24 @@ A cluster card's status line displays both the current status and the version of
 
 The status list includes these values:
 
-| Status         | Description                                                                                                                                                               |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pending        | This is the initial state when a cluster is created or connected.                                                                                                         |
-| Pending Setup  | The cluster has networking restrictions that require additional setup, and is not yet connected or attached.                                                              |
-| Loading Data   | The cluster has been added to Kommander and we are fetching details about the cluster. This is the status before `Active`.                                                |
-| Active         | The cluster is connected to API server.                                                                                                                                   |
-| Joining        | The cluster is being joined to the management cluster for federation.                                                                                                     |
-| Joined         | The join process is done, and waiting for the first data from the cluster to arrive.                                                                                      |
-| Error          | There has been an error connecting to the cluster or retrieving data from the cluster.                                                                                    |
-| Join Failed    | This status can appear when kubefed does not have permission to create entities in the target cluster.                                                                    |
-| Unjoining      | Kubefed is cleaning up after itself, removing all installed resources on the target cluster.                                                                              |
-| Unjoined       | The cluster has been disconnected from the management cluster.                                                                                                            |
-| Unjoin Failed  | The Unjoin from kubefed failed or there is some other error with deleting or disconnecting.                                                                               |
+| Status         | Description                                                                                                                |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Pending        | This is the initial state when a cluster is created or connected.                                                          |
+| Pending Setup  | The cluster has networking restrictions that require additional setup, and is not yet connected or attached.               |
+| Loading Data   | The cluster has been added to Kommander and we are fetching details about the cluster. This is the status before `Active`. |
+| Active         | The cluster is connected to API server.                                                                                    |
+| Provisioning\* | The cluster is being created on your cloud provider. This process may take some time.                                      |
+| Provisioned\*  | The cluster's infrastructure has been created and configured.                                                              |
+| Joining        | The cluster is being joined to the management cluster for federation.                                                      |
+| Joined         | The join process is done, and waiting for the first data from the cluster to arrive.                                       |
+| Deleting\*     | The cluster and its resources are being removed from your cloud provider. This process may take some time.                 |
+| Error          | There has been an error connecting to the cluster or retrieving data from the cluster.                                     |
+| Join Failed    | This status can appear when kubefed does not have permission to create entities in the target cluster.                     |
+| Unjoining      | Kubefed is cleaning up after itself, removing all installed resources on the target cluster.                               |
+| Unjoined       | The cluster has been disconnected from the management cluster.                                                             |
+| Unjoin Failed  | The Unjoin from kubefed failed or there is some other error with deleting or disconnecting.                                |
 
-<p class="message--note"><strong>NOTE: </strong>These statuses only appear on Managed clusters.</p>
+<p class="message--note"><strong>*</strong>These statuses only appear on Managed clusters.</p>
 
 ## Resources
 
@@ -57,12 +60,13 @@ The Resources graphs on a cluster card show you a cluster's resource requests, l
 | Disk Limits     | The portion of the allocatable ephemeral storage resource to which the cluster is limited, measured in bytes, such as 64 GiB.                              |
 
 For more detailed information, see the [Kubernetes documentation][k8s_docs] about resources.
+
 <!--
 ## Platform services
 
 Platform services, formerly called Addons, are services that the management cluster installs. You can visit a cluster's detail page to see which platform services are enabled under the "Platform Services" section.
 
-![Cluster Detail Page](/dkp/kommander/2.0/img/cluster-detail-page.png)
+![Cluster Detail Page](/dkp/kommander/2.1/img/cluster-detail-page.png)
 Figure 1. Cluster detail page
 
 Review the [workspace platform service resource requirements][platform_service_req] to ensure that the attached clusters have sufficient resources. For more information on platform services and how to customize them, see [workspace platform services][workspace_platform_services].
@@ -83,5 +87,6 @@ For an attached cluster, you can only edit labels assigned to that cluster.
 ![Edit an Attached Cluster](/dkp/kommander/2.1/img/edit-cluster-attached-1-1-0.png)
 
 [k8s_docs]: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-<!--[workspace_platform_services]: /dkp/kommander/2.0/workspaces/workspace-platform-services/
-[platform_service_req]: /dkp/kommander/2.0/workspaces/workspace-platform-services/platform-service-requirements/-->
+
+<!--[workspace_platform_services]: ../workspaces/workspace-platform-services/
+[platform_service_req]: ../workspaces/workspace-platform-services/platform-service-requirements/-->

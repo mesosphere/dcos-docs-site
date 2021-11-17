@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Cluster Applications
 title: Cluster Applications
-menuWeight: 10
+menuWeight: 50
 excerpt:
 ---
 
