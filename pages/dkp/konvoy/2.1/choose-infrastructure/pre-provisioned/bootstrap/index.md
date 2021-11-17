@@ -20,4 +20,4 @@ Use the following command to create a bootstrap cluster:
 dkp create bootstrap
 ```
 
-When the bootstrap cluster is up, [install an SSH key](../install-ssh-key).
+When the bootstrap cluster is up, [create the correct secrets and overrides](../create-secrets-and-overrides).
