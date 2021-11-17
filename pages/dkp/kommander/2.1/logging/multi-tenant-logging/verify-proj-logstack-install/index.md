@@ -7,24 +7,47 @@ excerpt: How to verify the project logging stack installation for multi-tenant l
 beta: false
 ---
 
-<!-- markdownlint-disable MD030 -->
+You must wait for the Project's logging stack `HelmReleases` to deploy before configuring or using the Project-level logging features, including multi-tenancy:
 
-You must wait for the Project's logging stack `HelmReleases` to deploy before attempting to configure or use the Project-level logging features, including multi-tenancy. You can check the deployment status using this command **on the attached clusters**:
+Run the following commands on the **management** cluster:
 
-1. Ensure to switch to the correct [context or Kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) of the attached cluster for the following kubectl commands.
+1.  Execute the following command to get the namespace of your workspace
 
-1. Set the environment variables needed for this procedure with the command:
+    ```bash
+    kubectl get workspaces
+    ```
 
-   ``` bash
-   export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.status.namespaceRef.name}')
-   export PROJECT_NAMESPACE=$(kubectl get project -n ${WORKSPACE_NAMESPACE} <type_your_project_name> -o jsonpath='{.status.namespaceRef.name}')
-   ```
+    Copy the value under `WORKSPACE NAMESPACE` column for your workspace. This may NOT be identical to the Display Name of the `Workspace`.
 
-1. Check the deployment status using this command on the attached cluster:
+1.  Export the `WORKSPACE_NAMESPACE` variable:
 
-   ``` bash
-   kubectl get helmreleases -n ${PROJECT_NAMESPACE}
-   ```
+    ```bash
+    export WORKSPACE_NAMESPACE=<WORKSPACE_NAMESPACE>
+    ```
+
+1.  Execute the following command to get the namespace of your project
+
+    ```bash
+    kubectl get projects -n ${WORKSPACE_NAMESPACE}
+    ```
+
+    Copy the value under `PROJECT NAMESPACE` column for your project. This may NOT be identical to the Display Name of the `Project`.
+
+1.  Export the `PROJECT_NAMESPACE` variable:
+
+    ```bash
+    export PROJECT_NAMESPACE=<PROJECT_NAMESPACE>
+    ```
+
+    Run the following commands on the **attached** cluster:
+
+    Ensure you switch to the correct [context or kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) of the attached cluster for the following kubectl commands:
+
+1.  Check the deployment status using this command on the attached cluster:
+
+    ``` bash
+    kubectl get helmreleases -n ${PROJECT_NAMESPACE}
+    ```
 
 <p class="message--note"><strong>NOTE: </strong>It may take some time for these changes to take effect, based on the duration configured for the Flux GitRepository reconciliation.</p>
 
