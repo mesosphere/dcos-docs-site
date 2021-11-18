@@ -123,12 +123,12 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
 
 ```sh
-export VERSION=v2.1.0-beta.1
+export VERSION=v2.1.0
 ```
 
 ### Load the Docker images into your Docker registry
 
-1. Download the `kommander-image-bundle.tar.gz` file.
+1. Download the image bundle file:
 
     ```bash
     wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O kommander-image-bundle.tar
@@ -160,55 +160,63 @@ Based on the network latency between the environment of script execution and the
 
 ## Install on Konvoy
 
-1. Kommander v2.0 ships in a Helm chart. Prior to installing Kommander, ensure the helm charts for an air-gapped deployment are available locally. To get the latest chart:
+1. Kommander v2.1 installs with a dedicated CLI.
 
-    ```sh
-    wget "https://mesosphere.github.io/kommander/charts/kommander-bootstrap-${VERSION}.tgz"
-    ```
-
-1. Create the following `values.yaml` file that can be used for installing Kommander in your air-gapped environment:
+1. Create an installation configuration file:
 
     ```bash
-    export GOARCH=amd64
-    export CERT_MANAGER=$(kubectl get ns cert-manager > /dev/null 2>&1 && echo "false" || echo "true")
-    cat <<EOF > values-airgapped.yaml
+    kommander install --init > install.yaml
+    ```
+
+1. Adapt the configuration file for the air-gapped deployment by changing the `.apps.kommander` field. Ensure you  use the actual version number everywhere `${VERSION}` appears.:
+
+    ```yaml
+    apps:
+      kommander:
+        values: |
+          authorizedlister:
+            image:
+              tag: ${VERSION}-amd64
+          controller:
+            containers:
+              manager:
+                image:
+                  tag: ${VERSION}-amd64
+          webhook:
+            image:
+              tag: ${VERSION}-amd64
+          fluxOperator:
+            containers:
+              manager:
+                image:
+                  tag: ${VERSION}-amd64
+          kommander-licensing:
+            controller:
+              containers:
+                manager:
+                  image:
+                    tag: ${VERSION}-amd64
+            webhook:
+              image:
+                tag: ${VERSION}-amd64
+          kubetools:
+            image:
+              tag: ${VERSION}-amd64
+    ```
+
+1. In the same file, adapt the other image tags accordingly and enable air-gapped mode. Replace `${VERSION}` with the actual version number:
+
+    ```yaml
+    appManagementImageTag: "${VERSION}-amd64"
     airgapped:
       enabled: true
-      helmMirror:
-        image:
-          tag: ${VERSION}-${GOARCH}
-    certManager: ${CERT_MANAGER}
-    authorizedlister:
-      image:
-        tag: ${VERSION}-${GOARCH}
-    webhook:
-      image:
-        tag: ${VERSION}-${GOARCH}
-    bootstrapper:
-      containers:
-        manager:
-          image:
-            tag: ${VERSION}-${GOARCH}
-    controller:
-      containers:
-        manager:
-          image:
-            tag: ${VERSION}-${GOARCH}
-    fluxOperator:
-      containers:
-        manager:
-          image:
-            tag: ${VERSION}-${GOARCH}
-    gitrepository:
-      image:
-        tag: ${VERSION}-${GOARCH}
-    EOF
+      helmMirrorImageTag: "${VERSION}-amd64"
     ```
 
-1. To install Kommander in your air-gapped environment using the above `values.yaml` file, enter the following command:
+1. To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
-    helm install -n kommander --create-namespace kommander-bootstrap kommander-bootstrap-${VERSION}.tgz --values values-airgapped.yaml
+    kommander install --installer-config ./install.yaml
     ```
 
 1. If you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by creating the following configmap in the `kommander` namespace:
