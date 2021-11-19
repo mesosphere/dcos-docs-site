@@ -127,7 +127,9 @@ In Konvoy, the default pod subnet is 192.168.0.0/16, and the default service sub
           - 10.0.0.0/18
     ```
 
-1.  To modify the pod subnet, add or edit the `spec.clusterNetwork.pods.cidrBlocks` field of the `Cluster` object:
+1.  To modify the pod subnet, edit the `Cluster` and calico-cni `ConfigMap` resources:
+
+    Cluster: Add or edit the`spec.clusterNetwork.pods.cidrBlocks` field:
 
     ```yaml
     kind: Cluster
@@ -138,7 +140,7 @@ In Konvoy, the default pod subnet is 192.168.0.0/16, and the default service sub
           - 172.16.0.0/16
     ```
 
-1.  On the bootstrap cluster, modify the `data."custom-resources.yaml".spec.calicoNetwork.ipPools.cidr` value of the `ConfigMap` with your desired pod subnet:
+    ConfigMap: Edit the `data."custom-resources.yaml".spec.calicoNetwork.ipPools.cidr` field with your desired pod subnet:
 
     ```yaml
     apiVersion: v1
