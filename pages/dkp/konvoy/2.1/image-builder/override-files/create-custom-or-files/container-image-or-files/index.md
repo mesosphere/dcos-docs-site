@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Container image override files
 title: Container image override files
 excerpt: Container image override files
-beta: true
+beta: false
 enterprise: false
 menuWeight: 95
 ---

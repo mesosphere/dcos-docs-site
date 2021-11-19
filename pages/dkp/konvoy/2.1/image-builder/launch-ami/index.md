@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Launch AMIs
 title: Launch AMIs
 excerpt: Launch custom AMIs and custom AMI lookup
-beta: true
+beta: false
 enterprise: false
 menuWeight: 65
 ---

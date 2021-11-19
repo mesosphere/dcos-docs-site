@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Base image override files
 title: Base image override files
 excerpt: Base image override files
-beta: true
+beta: false
 enterprise: false
 menuWeight: 85
 ---

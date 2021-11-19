@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Create FIPS 140 Images
 title: Create FIPS 140 Images
 excerpt: Use Konvoy Image Builder to create images with FIPS-compliant binaries
-beta: true
+beta: false
 enterprise: false
 menuWeight: 10
 ---

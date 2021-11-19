@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Custom collectors
 title: Custom collectors
 excerpt: Custom collectors
-beta: true
+beta: false
 enterprise: false
 menuWeight: 100
 ---
