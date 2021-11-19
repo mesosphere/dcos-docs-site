@@ -4,7 +4,7 @@ navigationTitle: Install EKS Advanced
 title: Install EKS Advanced
 excerpt: Install Konvoy with EKS with advanced configuration options.
 subtree:
-  beta: true
+  beta: false
 menuWeight: 20
 ---
 

@@ -5,7 +5,7 @@ title: Update the Worker Node Pool
 excerpt: Update the worker node pool to upgrade Kubernetes and/or change machine properties
 menuWeight: 10
 enterprise: false
-beta: true
+beta: false
 ---
 
 ## Prerequisites

@@ -4,7 +4,7 @@ navigationTitle: GPUs
 title: GPUs in an AWS environment
 menuWeight: 60
 excerpt: Konvoy GPUs
-beta: true
+beta: false
 enterprise: false
 ---
 

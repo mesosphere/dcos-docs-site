@@ -5,7 +5,7 @@ title: Delete a Konvoy Cluster with One Command
 menuWeight: 55
 excerpt: Deleete a Konvoy cluster with a single command
 enterprise: false
-beta: true
+beta: false
 ---
 
 You can use a single command line entry to delete a Kubernetes cluster on any of the platforms supported by DKP. Deleting a cluster means removing the cluster, all of its nodes, and all of the platform applications that were deployed on it as part of its creation. Use this command with extreme care, as it is not reversible!

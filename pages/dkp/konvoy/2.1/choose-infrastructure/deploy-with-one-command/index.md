@@ -5,7 +5,7 @@ title: Deploy Konvoy with One Command
 menuWeight: 50
 excerpt: Deploy a Konvoy cluster with a single command
 enterprise: false
-beta: true
+beta: false
 ---
 You can use a single command line entry to create a Kubernetes cluster on any of the infrastructures supported by DKP. Within your environment, each cluster that you create with the `dkp create cluster` command requires a globally-unique cluster name that you specify as a flag.
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Generate a Support Bundle
 title: Generate a Support Bundle
 excerpt: Generate a Support Bundle
-beta: true
+beta: false
 enterprise: false
 render: mustache
 menuWeight: 10

@@ -4,7 +4,7 @@ navigationTitle: Configure Konvoy Automatic GPU Node Labels
 title: Configure Konvoy Automatic GPU Node Labels
 menuWeight: 10
 excerpt: Configure Konvoy Automatic GPU Node Labels
-beta: true
+beta: false
 enterprise: false
 ---
 ## Configure Konvoy Automatic GPU Node Labels

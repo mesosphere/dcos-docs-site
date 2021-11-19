@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Custom Override Files
 title: Custom Override Files
 excerpt: Learn how to create and use custom override files with Konvoy
-beta: true
+beta: false
 enterprise: false
 menuWeight: 5
 ---

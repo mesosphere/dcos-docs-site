@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: FIPS 140 Mode Performance Impact
 title: FIPS 140 Mode Performance Impact
 excerpt: Understand the performance impact from operating your cluster in FIPS 140 mode
-beta: true
+beta: false
 enterprise: false
 menuWeight: 40
 ---
