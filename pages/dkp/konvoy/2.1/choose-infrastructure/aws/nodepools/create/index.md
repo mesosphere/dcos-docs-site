@@ -17,7 +17,7 @@ Creating a node pool is useful when you need to run workloads that require machi
     CLUSTER_NAME=my-aws-cluster
     ```
 
-    See [Get Started with AWS](../../quick-start-aws#name-your-cluster) for information on naming your cluster.
+    See [Get Started with AWS][createnewcluster_name] for information on naming your cluster.
 
 1.  If your workload cluster is self-managed, as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster.
 
@@ -55,3 +55,4 @@ Advanced users can use a combination of the `--dry-run` and `--output=yaml` flag
 
 [makeselfmanaged]: ../../advanced/self-managed
 [createnewcluster]: ../../advanced/new
+[createnewcluster_name]: ../../advanced/new/index.md#create-a-new-aws-kubernetes-cluster

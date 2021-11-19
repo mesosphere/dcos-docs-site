@@ -30,7 +30,7 @@ The control plane is described by a KubeadmControlPlane resource. This reference
     CLUSTER_NAME=my-aws-cluster
     ```
 
-    See [Get Started with AWS](../../../quick-start-aws#name-your-cluster) for information on naming your cluster.
+    See [Get Started with AWS][createnewcluster_name] for information on naming your cluster.
 
 1.  If your workload cluster is self-managed, as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster.
 
@@ -210,6 +210,7 @@ If you do not want to update the instance type, go to the [next section](#apply-
 -->
 
 [createnewcluster]: ../../new
+[createnewcluster_name]: ../../new/index.md#create-a-new-aws-kubernetes-cluster
 [makeselfmanaged]: ../../self-managed
 [awsdefaultmachineimages]: https://cluster-api-aws.sigs.k8s.io/topics/images/built-amis.html
 [imagebuilder]: ../../../../../image-builder
