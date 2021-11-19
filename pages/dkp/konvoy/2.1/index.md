@@ -5,7 +5,7 @@ title: Welcome to Konvoy 2.1
 version: 2.1
 menuWeight: 0
 subtree:
-  beta: true
+  beta: false
 ---
 
 Konvoy is a complete, standalone distribution of Kubernetes that enables you to provision native Kubernetes clusters with a suite of [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) and community tools.

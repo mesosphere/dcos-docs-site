@@ -5,7 +5,7 @@ title: Pre-provisioned
 menuWeight: 30
 excerpt: Create a Kubernetes cluster on pre-provisioned infrastructure
 enterprise: false
-beta: True
+beta: false
 ---
 
 The following procedure describes creating a Konvoy cluster on a pre-provisioned infrastructure using SSH.

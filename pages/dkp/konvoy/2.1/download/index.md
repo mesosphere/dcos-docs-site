@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Download
 title: Download Konvoy
 excerpt: Learn how to download Konvoy
-beta: true
+beta: false
 enterprise: false
 menuWeight: 30
 ---

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: FIPS 140-2 Compliance
 title: FIPS 140-2 Compliance
 excerpt: Understand FIPS-140 Operating Mode and Requirements
-beta: true
+beta: false
 enterprise: false
 menuWeight: 150
 ---

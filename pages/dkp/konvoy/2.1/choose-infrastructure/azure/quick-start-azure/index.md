@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Quick Start Azure
 title: Quick Start Azure
 excerpt: Get started by installing a cluster with default configuration settings on Azure
-beta: true
+beta: false
 enterprise: false
 menuWeight: 6
 ---

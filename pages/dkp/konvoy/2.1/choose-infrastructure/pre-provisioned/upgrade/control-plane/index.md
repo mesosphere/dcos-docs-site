@@ -5,7 +5,7 @@ title: Update the Control Plane
 excerpt: Update the control plane to upgrade Kubernetes and/or change machine properties
 menuWeight: 5
 enterprise: false
-beta: true
+beta: false
 ---
 
 ## Prerequisites

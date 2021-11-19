@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: HTTP proxy override files
 title: HTTP proxy override files
 excerpt: HTTP proxy override files
-beta: true
+beta: false
 enterprise: false
 menuWeight: 105
 ---

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Default Override Files
 title: Default Override Files
 excerpt: Learn about default override files provided with Konvoy
-beta: true
+beta: false
 enterprise: false
 menuWeight: 0
 ---

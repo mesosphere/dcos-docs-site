@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Validate FIPS in cluster
 title: Validate FIPS in cluster
 excerpt: Validate FIPS operations in your cluster
-beta: true
+beta: false
 enterprise: false
 menuWeight: 30
 ---
