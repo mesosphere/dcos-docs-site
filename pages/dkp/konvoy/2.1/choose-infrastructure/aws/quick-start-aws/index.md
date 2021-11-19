@@ -20,7 +20,7 @@ Before starting the Konvoy installation, verify that you have:
 - [kubectl][install_kubectl] for interacting with the running cluster.
 - A valid AWS account with [credentials configured][aws_credentials].
 
-## Configure AWS prerequisites (required only if creating an AWS cluster)
+## Configure AWS prerequisites
 
 1.  Follow the steps in [IAM Policy Configuration](../iam-policies).
 
@@ -36,95 +36,51 @@ Before starting the Konvoy installation, verify that you have:
     export AWS_PROFILE=<profile>
     ```
 
-## Bootstrap a kind cluster and CAPI controllers
+1.  Name your cluster
 
-1.  Create a bootstrap cluster:
+    Give your cluster a unique name suitable for your environment. In AWS, it is critical that the name be unique as no two clusters in the same AWS account can have the same name.
 
-    ```sh
-    dkp create bootstrap --kubeconfig $HOME/.kube/config
-    ```
-
-## Name your cluster
-
-Give your cluster a unique name suitable for your environment.
-In AWS it is critical that the name is unique as no two clusters in the same AWS account can have the same name.
-
-Set the environment variable to be used throughout this documentation:
-
-```sh
-CLUSTER_NAME=my-aws-cluster
-```
-
-Tips:
-
-1.  To get a list of names in use in your AWS account, you could use the `aws` cli tool. For example:
+    Set the environment variable to be used throughout this documentation:
 
     ```sh
-    aws ec2 describe-vpcs --filter "Name=tag-key,Values=kubernetes.io/cluster" --query "Vpcs[*].Tags[?Key=='kubernetes.io/cluster'].Value | sort(@[*][0])"
-    ```
-
-    ```json
-    [
-        "alex-aws-cluster-afe98",
-        "sam-aws-cluster-8if9q"
-    ]
-    ```
-
-1.  If you want to create a cluster name that matches the example above, use this command.
-    This will create a unique name every time you run it so use it with forethought.
-
-    ```sh
-    CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
-    echo $CLUSTER_NAME
-    ```
-
-    ```text
-    hunter-aws-cluster-pf4a3
+    export CLUSTER_NAME=my-aws-cluster
     ```
 
 ## Create a new AWS Kubernetes cluster
 
-1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
-
-    ```sh
-    dkp update bootstrap credentials aws
-    ```
-
 1.  Create a Kubernetes cluster:
 
     ```sh
-    dkp create cluster aws --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
+    dkp create cluster aws \
+    --cluster-name=${CLUSTER_NAME} \
+    --additional-tags=owner=$(whoami) \
+    --self-managed
     ```
 
-1.  (Optional) Specify an authorized key file to have SSH access to the machines.
+    You will see output similar to the following:
 
-    The file must contain exactly one entry, as described in this [manual](https://man7.org/linux/man-pages/man8/sshd.8.html#AUTHORIZED_KEYS_FILE_FORMAT).
-
-    You can use the `.pub` file that complements your private ssh key. For example, use the public key that complements your RSA private key:
-
-    ```sh
-    --ssh-public-key-file=${HOME}/.ssh/id_rsa.pub
+    ```text
+    INFO[2021-11-16T12:27:38-06:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
+    INFO[2021-11-16T12:28:53-06:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:94"
+    INFO[2021-11-16T12:30:22-06:00] Created bootstrap controllers                 src="bootstrap/controllers.go:106"
+    INFO[2021-11-16T12:30:22-06:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:110"
+    ...
+    Cluster default/my-aws-cluster kubeconfig was written to /private/tmp/konvoyrc2/my-aws-cluster.conf,
+    You can now view resources in the new cluster by using the --kubeconfig flag with kubectl.
+    For example: kubectl --kubeconfig=my-aws-cluster.conf get nodes  src="cluster/create.go:338"
     ```
 
-    The default username for SSH access is `konvoy`. For example, use your own username:
+    As part of the underlying processing, the DKP CLI:
+    - creates a bootstrap cluster
+    - creates a workload cluster
+    - moves CAPI controllers from the bootstrap cluster to the workload cluster, making it self-managed
+    - deletes the bootstrap cluster
 
-    ```sh
-    --ssh-username=$(whoami)
-    ```
-
-1.  Wait for the cluster control-plane to be ready:
-
-    ```sh
-    kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
-    ```
+    To understand how this process works step by step, you can follow the workflow in [Install AWS Advanced][advanced].
 
 ## Explore the new Kubernetes cluster
 
-1.  Fetch the kubeconfig file:
-
-    ```sh
-    dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
-    ```
+The kubeconfig file is written to your local directory and you can now explore the cluster.
 
 1.  List the Nodes with the command:
 
@@ -132,7 +88,18 @@ Tips:
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
-   <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to <code>Ready</code> while <code>calico-node</code> pods are being deployed.</p>
+    You will see output similar to:
+
+    ```sh
+    NAME                                         STATUS   ROLES                  AGE   VERSION
+    ip-10-0-101-21.us-west-2.compute.internal    Ready    <none>                 56m   v1.21.6
+    ip-10-0-110-11.us-west-2.compute.internal    Ready    <none>                 56m   v1.21.6
+    ip-10-0-115-125.us-west-2.compute.internal   Ready    <none>                 55m   v1.21.6
+    ip-10-0-122-90.us-west-2.compute.internal    Ready    control-plane,master   56m   v1.21.6
+    ip-10-0-140-174.us-west-2.compute.internal   Ready    control-plane,master   58m   v1.21.6
+    ip-10-0-226-136.us-west-2.compute.internal   Ready    control-plane,master   54m   v1.21.6
+    ip-10-0-96-127.us-west-2.compute.internal    Ready    <none>                 56m   v1.21.6
+    ```
 
 1.  List the Pods with the command:
 
@@ -140,66 +107,63 @@ Tips:
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
     ```
 
-## (Optional) Move controllers to the newly-created cluster
+    You will see output similar to:
 
-1.  Deploy CAPI controllers on the worker cluster:
-
-    ```sh
-    dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
-    ```
-
-1.  Issue the move command:
-
-    ```sh
-    dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
-    ```
-
-    <p class="message--note"><strong>NOTE: </strong>Remember to specify flag <code>--kubeconfig</code> flag pointing to file <code>${CLUSTER_NAME}.conf</code> or make sure that the access credentials from this file become the default credentials after the move operation is complete.</p>
-
-    Note that the Konvoy `move` operation has the following limitations:
-    - Only one workload cluster is supported. This also implies that Konvoy does not support moving more than one bootstrap cluster onto the same worker cluster.
-    - The Konvoy version used for creating the worker cluster must match the Konvoy version used for deleting the worker cluster.
-    - The Konvoy version used for deploying a bootstrap cluster must match the Konvoy version used for deploying a worker cluster.
-    - Konvoy only supports moving all namespaces in the cluster; Konvoy does not support migration of individual namespaces.
-    - You must ensure that the permissions are sufficient and available to the CAPI controllers running on the worker cluster.
-
-1.  Remove the bootstrap cluster, as the worker cluster is now self-managed:
-
-    ```sh
-    dkp delete bootstrap --kubeconfig $HOME/.kube/config
-    ```
-
-## Moving controllers back to the temporary bootstrap cluster
-
-Skip this section if the previous step of moving controllers to the newly-created cluster was not run.
-
-1.  Create a bootstrap cluster:
-
-    ```sh
-    dkp create bootstrap --kubeconfig $HOME/.kube/config
-    ```
-
-1.  Issue the move command:
-
-    ```sh
-    dkp move --from-kubeconfig ${CLUSTER_NAME}.conf --to-kubeconfig $HOME/.kube/config
+    ```text
+    NAMESPACE                           NAME                                                                 READY   STATUS    RESTARTS   AGE
+    calico-system                       calico-typha-665d976df-rf7jg                                         1/1     Running   0          60m
+    capa-system                         capa-controller-manager-697b7df888-vhcbj                             2/2     Running   0          57m
+    capi-kubeadm-bootstrap-system       capi-kubeadm-bootstrap-controller-manager-67d8fc9688-5p65s           1/1     Running   0          57m
+    capi-kubeadm-control-plane-system   capi-kubeadm-control-plane-controller-manager-846ff8b565-jqmhd       1/1     Running   0          57m
+    capi-system                         capi-controller-manager-865fddc84c-9g7bb                             1/1     Running   0          57m
+    cappp-system                        cappp-controller-manager-7859fbbb7f-xjh6k                            1/1     Running   0          56m
+    ...
     ```
 
 ## Delete the Kubernetes cluster and cleanup your environment
 
-1.  Delete the provisioned Kubernetes cluster and wait a few minutes:
+If you no longer need the cluster and want to delete it, you can can do so using the DKP CLI.
+
+1.  Update the AWS bootstrap credentials:
 
     ```sh
-    dkp delete cluster --cluster-name=${CLUSTER_NAME}
+    dkp update bootstrap credentials aws --kubeconfig=${CLUSTER_NAME}.conf
     ```
 
-1.  Delete the `kind` Kubernetes cluster:
+1.  Delete the provisioned Kubernetes cluster:
 
     ```sh
-    dkp delete bootstrap --kubeconfig $HOME/.kube/config
+    dkp delete cluster \
+    --cluster-name=${CLUSTER_NAME} \
+    --kubeconfig=${CLUSTER_NAME}.conf \
+    --self-managed
     ```
 
+    You will see output similar to:
+
+    ```text
+    INFO[2021-11-17T10:22:57-06:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
+    INFO[2021-11-17T10:22:59-06:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:94"
+    ...
+    INFO[2021-11-17T10:25:01-06:00] Running cluster delete command                ClusterName=my-aws-cluster Namespace=default managementClusterKubeconfig=my-aws-cluster-bootstrap.conf src="cluster/delete.go:215"
+    INFO[2021-11-17T10:25:02-06:00] Deleting Services with type LoadBalancer for Cluster default/my-aws-cluster  src="cluster/cluster.go:34"
+    INFO[2021-11-17T10:25:02-06:00] Waiting for cluster to be fully deleted       src="cluster/delete.go:253"
+    INFO[2021-11-17T10:31:27-06:00] Deleted default/my-aws-cluster cluster   src="cluster/delete.go:123"
+    INFO[2021-11-17T10:31:27-06:00] Running delete bootstrap cluster              src="cluster/create.go:381"
+    INFO[2021-11-17T10:31:27-06:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:186"
+    ```
+
+Similar to `create cluster`, use the flag `--self-managed` with the `delete cluster`command:
+
+- creates a bootstrap cluster
+- moves the CAPI controllers from the workload cluster back to the bootstrap cluster
+- deletes the workload cluster
+- deletes the bootstrap cluster
+
+To understand how this process works step by step, you can follow the workflow in [Delete Cluster][advanced_delete].
+
+[advanced]: ../advanced/
+[advanced_delete]: ../advanced/delete/
+[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.htm
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
-[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
-[advanced]: ../advanced/

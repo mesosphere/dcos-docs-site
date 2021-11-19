@@ -16,7 +16,7 @@ enterprise: false
     CLUSTER_NAME=my-aws-cluster
     ```
 
-    See [Get Started with AWS](../../quick-start-aws#name-your-cluster) for information on naming your cluster.
+    See [Get Started with AWS][createnewcluster] for information on naming your cluster.
 
 1.  Export variables for the existing infrastructure details:
 
@@ -124,6 +124,7 @@ Then, [explore your new cluster][explore-cluster].
 [ansible-task-images]: https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/defaults/main.yaml
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
+[createnewcluster]: ../../advanced/new/index.md#create-a-new-aws-kubernetes-cluster
 [explore-cluster]: ../explore
 [install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
 [install_docker]: https://docs.docker.com/get-docker/

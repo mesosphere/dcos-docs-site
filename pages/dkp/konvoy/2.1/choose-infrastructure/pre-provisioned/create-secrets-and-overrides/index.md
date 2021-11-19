@@ -18,7 +18,7 @@ Populate this key and create the required secret, on your bootstrap cluster usin
     CLUSTER_NAME=my-preprovisioned-cluster
     ```
 
-    See [define infrastructure](../define-infrastructure#name-your-cluster) about naming your cluster.
+    See [define infrastructure](../define-infrastructure/index.md#name-your-cluster) about naming your cluster.
 
 1.  Create a secret that contains the SSH key with these commands:
 

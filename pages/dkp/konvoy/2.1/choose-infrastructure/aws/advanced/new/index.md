@@ -7,19 +7,57 @@ excerpt: Use Konvoy to create a new Kubernetes cluster
 enterprise: false
 ---
 
-Before you start, make sure you have completed the steps in [Bootstrap][bootstrap].
+## Prerequisites
+
+- Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
 
 ## Create a new AWS Kubernetes cluster
 
-1.  Set the environment variable to the name you assigned this cluster.
+1.  Give your cluster a unique name suitable for your environment.
+
+    In AWS it is critical that the name is unique, as no two clusters in the same AWS account can have the same name.
+
+1.  Set the environment variable:
 
     ```sh
     CLUSTER_NAME=my-aws-cluster
     ```
 
-    See [Get Started with AWS](../../quick-start-aws#name-your-cluster) for information on naming your cluster.
+## Tips and Tricks
 
-1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
+1.  To get a list of names used in your AWS account, use the `aws` [CLI][download_aws_cli]. After downloading, use the following command:
+
+    ```sh
+    aws ec2 describe-vpcs --filter "Name=tag-key,Values=kubernetes.io/cluster" --query "Vpcs[*].Tags[?Key=='kubernetes.io/cluster'].Value | sort(@[*][0])"
+    ```
+
+    ```json
+    [
+        "alex-aws-cluster-afe98",
+        "sam-aws-cluster-8if9q"
+    ]
+    ```
+
+1.  To create a cluster name that's unique, use the following command:
+
+    ```sh
+    CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+    echo $CLUSTER_NAME
+    ```
+
+    ```text
+    hunter-aws-cluster-pf4a3
+    ```
+
+    This will create a unique name every time you run it, so use it with forethought.
+
+1.  Set the environment variable to the name you assigned this cluster:
+
+    ```sh
+    CLUSTER_NAME=my-aws-cluster
+    ```
+
+1.  Ensure your AWS credentials are up to date. Refresh the credentials:
 
     ```sh
     dkp update bootstrap credentials aws
@@ -34,7 +72,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     > ${CLUSTER_NAME}.yaml
     ```
 
-1.  (Optional) The Control Plane and Worker nodes can be configured to use an HTTP proxy:
+1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy:
 
     ```sh
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
@@ -72,9 +110,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Inspect or edit the cluster objects:
 
-    Use your favorite editor.
-
-    <p class="message--note"><strong>NOTE: </strong>Editing the cluster objects requires some understanding of Cluster API. Edits can prevent the cluster from deploying successfully.</p>
+    <p class="message--note"><strong>NOTE: </strong>Familiarize yourself with Cluster API before editing the cluster objects as edits can prevent the cluster from deploying successfully.</p>
 
     The objects are [Custom Resources][k8s_custom_resources] defined by Cluster API components, and they belong in three different categories:
 
@@ -118,9 +154,9 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     cluster.cluster.x-k8s.io/aws-example condition met
     ```
 
-    The `READY` status will become `True` after the cluster control-plane becomes ready in one of the following steps.
+    The `READY` status becomes `True` after the cluster control-plane becomes ready in one of the following steps.
 
-1.  Once the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
+1.  After the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
 
     ```sh
     dkp describe cluster -c ${CLUSTER_NAME}
@@ -214,6 +250,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 - Konvoy generates a set of objects for one Node Pool.
 - Konvoy does not validate edits to cluster objects.
 
-[capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
-[k8s_custom_resources]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
 [bootstrap]: ../bootstrap
+[capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
+[download_aws_cli]: https://aws.amazon.com/cli/
+[k8s_custom_resources]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
