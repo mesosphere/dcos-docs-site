@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Continuous Delivery
 title: Continuous Delivery
-beta: true
+beta: false
 menuWeight: 10
 excerpt: Tutorials for implementing Continuous Delivery (CD) for your application.
 ---

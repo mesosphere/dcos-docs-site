@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Prerequisites
 title: Prerequisites
 menuWeight: 20

@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Store secrets in GitOps Repository using SealedSecrets
 navigationTitle: Store secrets in a GitOps Repository using SealedSecrets
-beta: true
+beta: false
 menuWeight: 40
 excerpt: Securely managing secrets in a GitOps workflow using SealedSecrets
 ---

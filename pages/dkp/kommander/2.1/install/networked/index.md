@@ -9,24 +9,13 @@ beta: false
 
 ## Prerequisites
 
-Prior to installing Kommander, you must know the version you'd like to install, which is provided by D2iQ.
+The `kommander` CLI installs Kommander. You must install Kommander before executing these commands. Ensure you have the version of the CLI that matches the Kommander version you want to install. Refer to the **DOWNLOAD** page to download and install Kommander.
 
-Set the `VERSION` environment variable to the version of Kommander you would like to install, for example:
-
-```sh
-export VERSION=v2.1.0-beta.1
-```
-
-Kommander ships in a Helm chart, so prior to installing Kommander, make Helm aware of the Helm repository providing the Kommander chart:
-
-```sh
-helm repo add kommander https://mesosphere.github.io/kommander/charts
-helm repo update
-```
+The `cert-manager` must be installed prior to installing Kommander.
 
 ### Default StorageClass
 
-To ensure the Git repository shipped with Kommander deploys successfully, the cluster you install Kommander on must have a default `StorageClass` configured. Run the following command:
+To ensure the Git repository that Kommander ships with deploys successfully, the cluster where Kommander is installed must have a default `StorageClass` configured. Run the following command:
 
 ```sh
 kubectl get sc
@@ -48,60 +37,44 @@ annotations:
 
 More information on setting a StorageClass as default can be found at [Changing the default storage class in k8s docs][k8s-change-default-storage-class].
 
-<!--
-## Install on kind
-
-If you are installing Kommander on kind, you must know the following:
-
-- The Docker network that kind is using to configuring the MetalLB load balancer. Run this command to find this information:
-
-    ```sh
-    docker network inspect kind -f '{{with index .IPAM.Config 0}}{{.Subnet}}{{end}}'
-    ```
-
-    The subnet is usually `172.18.0.0/16`. Type your subnet into the the following command to install Kommander:
-
-    ```sh
-    helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --devel --version=${VERSION} --set services.metallb.enabled=true,services.metallb.addresses=172.18.255.200-172.18.255.250,services.metallb.existingConfigMap=metallb-dev-config
-    ```
--->
-
 ## Install on Konvoy
 
-Before running the commands below make sure that your `kubectl` configuration is pointing to the cluster you want to install Kommander on by setting the `KUBECONFIG` environment variable to the respective kubeconfig file's location.
+Before running the commands below ensure that your `kubectl` configuration references the cluster on which you want to install Kommander. You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location.
 
-To install Kommander with http proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper][enable-gatekeeper] section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`
+To install Kommander with HTTP proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper][enable-gatekeeper] section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`
 
 ```sh
-helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --version=${VERSION} --set certManager=$(kubectl get ns cert-manager > /dev/null 2>&1 && echo "false" || echo "true")
+kommander install
 ```
 
 ## Verify installation
 
-After Helm successfully installs the chart, you must wait for all `HelmReleases` to deploy.
+After the CLI successfully installs the components, you must wait for all `HelmReleases` to deploy.
 
-The Kommander installation is a two-step process: Flux and cert-manager install first, then the Git repository spins up and permits Flux to consume further `HelmReleases` from that repository.
+The Kommander installation is a multi-step process: Flux installs first, then the Git repository spins up permiting Flux to consume further `HelmReleases` from that repository.
 
-After running `helm install`, the cert-manager `HelmRelease` is ready and, after additional time,  `HelmReleases` appear on the cluster.
+After running the install command, `HelmReleases` begin to appear on the cluster.
 
 ```sh
 kubectl -n kommander wait --for condition=Released helmreleases --all --timeout 15m
 ```
 
-This will wait for each of the helm charts to reach their `Released` condition, eventually resulting in:
+This will wait for each of the helm charts to reach their `Released` condition, eventually resulting in something resembling this:
 
 ```text
 helmrelease.helm.toolkit.fluxcd.io/centralized-grafana condition met
 helmrelease.helm.toolkit.fluxcd.io/dex condition met
 helmrelease.helm.toolkit.fluxcd.io/dex-k8s-authenticator condition met
 helmrelease.helm.toolkit.fluxcd.io/fluent-bit condition met
+helmrelease.helm.toolkit.fluxcd.io/gitea condition met
 helmrelease.helm.toolkit.fluxcd.io/grafana-logging condition met
 helmrelease.helm.toolkit.fluxcd.io/grafana-loki condition met
 helmrelease.helm.toolkit.fluxcd.io/karma condition met
 helmrelease.helm.toolkit.fluxcd.io/kommander condition met
-helmrelease.helm.toolkit.fluxcd.io/kube-oidc-proxy condition met
+helmrelease.helm.toolkit.fluxcd.io/kommander-appmanagement condition met
 helmrelease.helm.toolkit.fluxcd.io/kube-prometheus-stack condition met
 helmrelease.helm.toolkit.fluxcd.io/kubecost condition met
+helmrelease.helm.toolkit.fluxcd.io/kubecost-thanos-traefik condition met
 helmrelease.helm.toolkit.fluxcd.io/kubefed condition met
 helmrelease.helm.toolkit.fluxcd.io/kubernetes-dashboard condition met
 helmrelease.helm.toolkit.fluxcd.io/kubetunnel condition met
@@ -109,10 +82,11 @@ helmrelease.helm.toolkit.fluxcd.io/logging-operator condition met
 helmrelease.helm.toolkit.fluxcd.io/logging-operator-logging condition met
 helmrelease.helm.toolkit.fluxcd.io/minio-operator condition met
 helmrelease.helm.toolkit.fluxcd.io/prometheus-adapter condition met
+helmrelease.helm.toolkit.fluxcd.io/prometheus-thanos-traefik condition met
 helmrelease.helm.toolkit.fluxcd.io/reloader condition met
 helmrelease.helm.toolkit.fluxcd.io/thanos condition met
 helmrelease.helm.toolkit.fluxcd.io/traefik condition met
-helmrelease.helm.toolkit.fluxcd.io/traefik-forward-auth condition met
+helmrelease.helm.toolkit.fluxcd.io/traefik-forward-auth-mgmt condition met
 helmrelease.helm.toolkit.fluxcd.io/velero condition met
 ```
 
