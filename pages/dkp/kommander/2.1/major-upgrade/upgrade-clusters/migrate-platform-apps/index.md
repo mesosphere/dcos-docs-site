@@ -9,7 +9,7 @@ beta: false
 
 In previous versions of Konvoy, D2IQ provided a set of predefined, pre-configured open source applications. These applications provided a better environment for your installation. These applications were referred to as _Kubernetes Based Addons (KBAs)_. The architecture and terminology has now changed. Konvoy no longer has _KBAs_. These are now stored and managed through Kommander and are known as _platform applications_.
 
-<p class="message--note"><strong>NOTE: </strong>Kubernetes distributions contain their own set of _addons_. These _addons_ are not part of the adaptation process.</p>
+<p class="message--note"><strong>NOTE: </strong>Kubernetes distributions contain their own set of <i>addons</i>. These <i>addons</i> are not part of the adaptation process.</p>
 
 This command automatically adapts your Konvoy addons to Kommander platform applications. Certain applications may need [manual configuration changes](./prepare-apps) prior to adapting.
 
@@ -21,7 +21,7 @@ To successfully adapt your applications you must have the following configuratio
 
 <p class="message--note"><strong>NOTE: </strong>On your Konvoy cluster ensure that Kommander is not running. The <code>kommander</code> addon must not be enabled in your <code>cluster.yaml</code> file.</p>
 
-- The Kommander CLI binary installed on your computer. Refer to the **Download** topic to install Kommander.
+- The Kommander CLI binary installed on your computer. Refer to the [**Download**][download] topic to install Kommander.
 
 <!-- Put link to download here. -->
 
@@ -99,8 +99,9 @@ velero
  ✓ Ensuring deletion of Addon opsportal orphaning its Helm release
  ✓ Ensuring deletion of Addon gatekeeper orphaning its Helm release
  ✓ Ensuring check that there remain no addons and deletion of the Kubeaddons controller
+```
 
-Refer to the [Verify installation](../../../install/networked#verify-installation) topic to ensure successfull completion.
+Refer to the [Verify installation][verify-install] topic to ensure successfull completion.
 
 ## Optional post-upgrade cleanup
 
@@ -115,8 +116,11 @@ If you want to clean these objects up, you need to perform
 
 <p class="message--note"><strong>NOTE: </strong>Error messages may display during the adaptation process. These messages show a temporary state. These processes will eventually succeed.</p>
 
-Refer to the [Verify installation](../install/networked#verify_installation) topic to ensure successfull completion.
+Refer to the [Verify installation][verify-install] topic to ensure successful completion.
 
 ## Related Information
 
 - [Supported applications](./supported-apps)
+
+[download]: ../../../download
+[verify-install]: ../../../install/networked#verify-installation
