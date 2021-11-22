@@ -526,7 +526,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. Its config
     export KUBERNETES_VERSION=v1.21.6
     export KUBEADMCONTROLPLANE_NAME=$(set -o nounset -o pipefail; kubectl --kubeconfig=admin.conf get kubeadmcontrolplanes --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
     export CURRENT_TEMPLATE_NAME=$(kubectl --kubeconfig=admin.conf get kubeadmcontrolplanes ${KUBEADMCONTROLPLANE_NAME} -ojsonpath='{.spec.machineTemplate.infrastructureRef.name}')
-    export NEW_TEMPLATE_NAME=${MACHINEDEPLOYMENT_NAME}-${KUBERNETES_VERSION}
+    export NEW_TEMPLATE_NAME=${KUBEADMCONTROLPLANE_NAME}-${KUBERNETES_VERSION}
 
     cat <<EOF > control-plane-kubernetes-version-patch.yaml
     apiVersion: controlplane.cluster.x-k8s.io/v1alpha4
