@@ -97,7 +97,7 @@ pipeline {
                   mkdir -p pages/dkp/konvoy/2.1
                   ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.1 pages/dkp/konvoy/2.1 main
                   mkdir -p pages/dkp/kommander/2.1
-                  ./ci/pull-upstream.sh mesosphere/kommander docs/site main pages/dkp/kommander/2.1 main
+                  ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.1 pages/dkp/kommander/2.1 main
                 '''
               }
             }
