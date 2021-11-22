@@ -14,13 +14,13 @@ Your AMI uses a container image. The Ansible playbooks pull a minimal set of [co
 # Example override-images.yaml
 ---
 extra_images:
-  - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.2.1
+  - docker.io/mesosphere/cluster-api-aws-controller:v0.7.1-d2iq.0
+  - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.3.2
   - gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
-  - k8s.gcr.io/cluster-api-aws/cluster-api-aws-controller:v0.7.0
   - k8s.gcr.io/cluster-api/cluster-api-controller:v0.4.4
   - k8s.gcr.io/cluster-api/kubeadm-bootstrap-controller:v0.4.4
   - k8s.gcr.io/cluster-api/kubeadm-control-plane-controller:v0.4.4
-  - mcr.microsoft.com/oss/azure/aad-pod-identity/nmi:v1.8.0
+  - mcr.microsoft.com/oss/azure/aad-pod-identity/nmi:v1.8.5
   - quay.io/jetstack/cert-manager-cainjector:v1.5.3
   - quay.io/jetstack/cert-manager-controller:v1.5.3
   - quay.io/jetstack/cert-manager-webhook:v1.5.3
@@ -33,6 +33,13 @@ extra_images:
   - k8s.gcr.io/sig-storage/csi-snapshotter:v3.0.3
   - k8s.gcr.io/sig-storage/livenessprobe:v2.2.0
   - k8s.gcr.io/sig-storage/snapshot-controller:v4.2.0
+  - mcr.microsoft.com/k8s/csi/azuredisk-csi:v1.8.0
+  - mcr.microsoft.com/oss/kubernetes-csi/csi-attacher:v3.3.0
+  - mcr.microsoft.com/oss/kubernetes-csi/csi-node-driver-registrar:v2.3.0
+  - mcr.microsoft.com/oss/kubernetes-csi/csi-provisioner:v2.2.2
+  - mcr.microsoft.com/oss/kubernetes-csi/csi-resizer:v1.3.0
+  - mcr.microsoft.com/oss/kubernetes-csi/csi-snapshotter:v3.0.3
+  - mcr.microsoft.com/oss/kubernetes-csi/livenessprobe:v2.4.0
   - quay.io/external_storage/local-volume-provisioner:v2.4.0
   - calico/cni:v3.20.2
   - calico/kube-controllers:v3.20.2
