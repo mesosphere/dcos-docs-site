@@ -4,7 +4,7 @@ navigationTitle: Kommander configuration
 title: Kommander GPU configuration
 menuWeight: 20
 excerpt: Configure GPU for Kommander clusters
-beta: false
+beta: true
 enterprise: false
 ---
 

@@ -5,7 +5,7 @@ title: Kommander 2.1
 version: 2.1
 menuWeight: 0
 subtree:
-  beta: false
+  beta: true
   draft: false
 ---
 

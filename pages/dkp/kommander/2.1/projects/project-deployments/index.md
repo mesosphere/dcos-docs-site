@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Project Deployments
 title: Project Deployments
 menuWeight: 1

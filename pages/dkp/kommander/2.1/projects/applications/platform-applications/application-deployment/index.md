@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Platform Application Deployment
 title: Platform Application Deployment
 menuWeight: 5
-beta: false
+beta: true
 excerpt: Deploy applications to attached clusters using the CLI
 ---
 <!-- markdownlint-disable MD004 MD040 -->
