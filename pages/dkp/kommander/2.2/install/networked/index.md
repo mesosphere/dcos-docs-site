@@ -9,7 +9,7 @@ beta: false
 
 ## Prerequisites
 
-The `kommander` CLI installs Kommander. You must install Kommander before executing these commands. Ensure you have the version of the CLI that matches the Kommander version you want to install. Refer to the **DOWNLOAD** page to download and install Kommander.
+The `kommander` CLI installs Kommander. You must install Kommander before executing these commands. Ensure you have the version of the CLI that matches the Kommander version you want to install. Refer to the [**DOWNLOAD**][download] page to download and install Kommander.
 
 The `cert-manager` must be installed prior to installing Kommander.
 
@@ -39,9 +39,9 @@ More information on setting a StorageClass as default can be found at [Changing 
 
 ## Install on Konvoy
 
-Before running the commands below ensure that your `kubectl` configuration references the cluster on which you want to install Kommander. You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location.
+Before running the commands below, ensure that your `kubectl` configuration references the cluster on which you want to install Kommander. You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location.
 
-To install Kommander with HTTP proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper][enable-gatekeeper] section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`
+To install Kommander with HTTP proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper][enable-gatekeeper] section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`.
 
 ```sh
 kommander install
@@ -106,3 +106,5 @@ kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.dat
 
 [enable-gatekeeper]: ../http-proxy#enable-gatekeeper
 [k8s-change-default-storage-class]: https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/
+
+[download]: ../../download
