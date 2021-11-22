@@ -15,7 +15,7 @@ beta: false
 
 #### Alerting
 
-Custom `alertmanager` [configurations](https://docs.d2iq.com/dkp/konvoy/1.8/monitoring/#notify-prometheus-alerts-in-slack) must be copied or re-created [manually](https://docs.d2iq.com/dkp/kommander/2.0/monitoring/#notify-prometheus-alerts-in-slack). You can do this before migrating Prometheus, so that there is no time interval when the alertmanager is not configured.
+Custom `alertmanager` [configurations](/dkp/konvoy/1.8/monitoring/#notify-prometheus-alerts-in-slack) must be copied or re-created [manually](../../../../monitoring#notify-prometheus-alerts-in-slack). You can do this before migrating Prometheus, so that there is no time interval when the alertmanager is not configured.
 
 #### Custom ServiceMonitor objects
 
@@ -49,7 +49,7 @@ The Kommander 2.1 logging stack is completely different from previous versions. 
 
 -   The Fluent Bit Addon is deleted.
 
-Elasticsearch, elasticsearch-curator, and kibana Addons are deleted without uninstalling the Helm release formerly managed by the Kubeaddons controller. You must manually uninstall these Helm releases.
+Elasticsearch, elasticsearch-curator, and Kibana Addons are deleted without uninstalling the Helm release formerly managed by the Kubeaddons controller. You must manually uninstall these Helm releases.
 
 ### Caveats
 

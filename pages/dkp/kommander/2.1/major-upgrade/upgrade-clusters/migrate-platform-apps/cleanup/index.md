@@ -35,7 +35,6 @@ The output sholud look like the following:
 release "kibana-kubeaddons" uninstalled
 release "elasticsearch-curator-kubeaddons" uninstalled
 release "elasticsearch-kubeaddons" uninstalled
-
 ```
 
 ## Istio
@@ -49,11 +48,13 @@ It is safe to delete this secret using `kubectl` after successful upgrade:
 kubectl delete -n istio-system secret sh.helm.release.v1.istio-kubeaddons.v1
 ```
 
-WARNING: As long as this secret exists, `helm list -n istio-system`
+<p class="message--note"><strong>WARNING: </strong>
+As long as this secret exists, <code>helm list -n istio-system</code>
 will wrongly report existence of a Helm release called "istio-kubeaddons".
 If you manipulate this "Helm release" using Helm, it may corrupt the Istio
 Platform Application in Kommander, potentially disrupting operation of
 Istio workloads.
+</p>
 
 ## Gatekeeper
 
@@ -70,8 +71,10 @@ kubectl delete -n kubeaddons service gatekeeper-webhook-service
 
 ```
 
-WARNING: As long as the secret exists, `helm list -n kubeaddons`
+<p class="message--note"><strong>WARNING: </strong>
+As long as the secret exists, <code>helm list -n kubeaddons</code>
 will wrongly report existence of a Helm release called "gatekeeper-kubeaddons".
 If you manipulate this "Helm release" using Helm, it may corrupt the Gatekeeper
 Platform Application in Kommander, potentially making Kubernetes on the cluster
 inoperable.
+</p>
