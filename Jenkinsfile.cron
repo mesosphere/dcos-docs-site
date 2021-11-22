@@ -72,12 +72,11 @@ pipeline {
                   git remote set-url origin git@github.com:mesosphere/dcos-docs-site.git
                   git remote set-branches origin '*'
                   git fetch -v
-                  git checkout -t origin/main || git checkout main || echo "on main"
+                  git checkout -t origin/develop || git checkout develop || echo "on develop"
 
 
                   ##### REABSE MAIN ON PRODUCTION
-                  ./ci/rebase.sh main production
-                  ./ci/rebase.sh beta production
+                  ./ci/rebase.sh develop production
 
                   ##### CREATE SYNC PRS
 
@@ -97,9 +96,9 @@ pipeline {
 
                   ##### Next
                   mkdir -p pages/dkp/konvoy/2.2
-                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site main pages/dkp/konvoy/2.2 main
+                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site main pages/dkp/konvoy/2.2 develop
                   mkdir -p pages/dkp/kommander/2.2
-                  ./ci/pull-upstream.sh mesosphere/kommander docs/site main pages/dkp/kommander/2.2 main
+                  ./ci/pull-upstream.sh mesosphere/kommander docs/site main pages/dkp/kommander/2.2 develop
                 '''
               }
             }

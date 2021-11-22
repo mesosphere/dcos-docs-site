@@ -2,7 +2,7 @@
 
 boolean isProduction = env.BRANCH_NAME == "production"
 boolean isBeta = env.BRANCH_NAME == "beta"
-boolean isPreview = env.BRANCH_NAME == "main"
+boolean isPreview = env.BRANCH_NAME == "develop"
 
 def bucket   = isProduction ? "production"
              : isBeta ? "staging"
@@ -77,7 +77,7 @@ pipeline {
 
     stage("Restart dev deployment") {
       agent { label 'docs-site-kubectl' }
-      when { branch "main" }
+      when { branch "develop" }
       steps {
         sh '''
           kubectl -n docs-site rollout restart deployment docs-site-dev
