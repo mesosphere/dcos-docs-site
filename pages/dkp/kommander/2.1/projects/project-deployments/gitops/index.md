@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: What is GitOps?
 title: What is GitOps?
 menuWeight: 10
