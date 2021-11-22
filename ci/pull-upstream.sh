@@ -11,7 +11,7 @@ REPO_NAME="$1"                           # e.g. mesosphere/konvoy
 REPO_SUBFOLDER="$2"                      # e.g. docs/site
 REPO_BRANCH="$3"                         # e.g. release-1.7
 DOCS_SUBFOLDER="$4"                      # e.g. pages/dkp/konvoy/1.7
-BASE_BRANCH="$5"                         # e.g. main or production
+BASE_BRANCH="$5"                         # e.g. develop or production
 echo "BASE_BRANCH: " "$BASE_BRANCH"
 REPO_URL="git@github.com:$REPO_NAME.git"
 BRANCH="autosync/$REPO_NAME/$REPO_BRANCH"
