@@ -18,11 +18,22 @@ beta: false
 To get started with Kommander, [download](../download/) and [install](../install/) the latest version of Kommander.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
--->
 
 ## Release summary
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Kommander.
+
+## Known issues
+
+When you create a new Konvoy 2.1 cluster with Kommander 2.1 installed, if you want to install applications to the Kommander Host Management Cluster through the UI, you will need to select Deploy on the Foundational Applications section.
+
+To do this, in the Kommander UI, click on the Global Workspace nav at the top of the page, and select **Management Cluster Workspace**.
+
+Then select **Applications** in the left sidebar.
+
+Scroll down to the **Foundational** section, and select the "Deploy" button.
+
+After this, you can deploy different applications through the UI.
 
 ### New features and capabilities
 

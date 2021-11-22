@@ -366,6 +366,9 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. Its config
     kind: KubeadmControlPlane
     spec:
       version: v1.21.6
+      rolloutStrategy:
+        rollingUpdate:
+          maxSurge: 0
     EOF
     ```
 
@@ -407,6 +410,10 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. Its config
       template:
         spec:
           version: v1.21.6
+      strategy:
+        rollingUpdate:
+          maxSurge: 0
+          maxUnavailable: 0
     EOF
     ```
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: View Helm Releases
 title: View Helm Releases
 menuWeight: 50

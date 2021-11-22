@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Continuous Deployment
 title: Continuous Deployment
 menuWeight: 30
