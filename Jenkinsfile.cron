@@ -75,7 +75,7 @@ pipeline {
                   git checkout -t origin/main || git checkout main || echo "on main"
 
 
-                  ##### REABSE MAIN ON PORODUCTION
+                  ##### REABSE MAIN ON PRODUCTION
                   ./ci/rebase.sh main production
                   ./ci/rebase.sh beta production
 
@@ -84,6 +84,7 @@ pipeline {
                   apk add curl curl-dev rsync --no-cache
 
                   ##### Konvoy
+                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.1 pages/dkp/konvoy/2.1 production
                   ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.0 pages/dkp/konvoy/2.0 production
                   ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.8 pages/dkp/konvoy/1.8 production
                   ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.7 pages/dkp/konvoy/1.7 production
@@ -91,13 +92,14 @@ pipeline {
 
 
                   ##### Kommander
+                  ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.1 pages/dkp/kommander/2.1 production
                   ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.0 pages/dkp/kommander/2.0 production
 
                   ##### Next
-                  mkdir -p pages/dkp/konvoy/2.1
-                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.1 pages/dkp/konvoy/2.1 main
-                  mkdir -p pages/dkp/kommander/2.1
-                  ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.1 pages/dkp/kommander/2.1 main
+                  mkdir -p pages/dkp/konvoy/2.2
+                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site main pages/dkp/konvoy/2.2 main
+                  mkdir -p pages/dkp/kommander/2.2
+                  ./ci/pull-upstream.sh mesosphere/kommander docs/site main pages/dkp/kommander/2.2 main
                 '''
               }
             }
