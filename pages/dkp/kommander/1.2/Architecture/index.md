@@ -18,6 +18,6 @@ Kommander provides management and insights for multiple Kubernetes clusters, and
 - Governance and policy administration
 - Centralized authorization
 
-The diagram below shows the architectural design and components that make up Kommander.
+The diagram below shows the architectural design and components that make up Kommander:
 
 ![Kommander Architecture](/dkp/kommander/1.2/img/Kommander_architecture.png)

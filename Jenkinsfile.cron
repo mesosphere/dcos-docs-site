@@ -75,24 +75,22 @@ pipeline {
                   git checkout -t origin/develop || git checkout develop || echo "on develop"
 
 
-                  ##### REABSE MAIN ON PRODUCTION
-                  ./ci/rebase.sh develop production
+                  ##### REBASE DEVELOP ON PRODUCTION
+                  ./ci/rebase.sh develop main
 
                   ##### CREATE SYNC PRS
-
                   apk add curl curl-dev rsync --no-cache
 
                   ##### Konvoy
-                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.1 pages/dkp/konvoy/2.1 production
-                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.0 pages/dkp/konvoy/2.0 production
-                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.8 pages/dkp/konvoy/1.8 production
-                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.7 pages/dkp/konvoy/1.7 production
-                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.6 pages/dkp/konvoy/1.6 production
-
+                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.1 pages/dkp/konvoy/2.1 main
+                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.0 pages/dkp/konvoy/2.0 main
+                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.8 pages/dkp/konvoy/1.8 main
+                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.7 pages/dkp/konvoy/1.7 main
+                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.6 pages/dkp/konvoy/1.6 main
 
                   ##### Kommander
-                  ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.1 pages/dkp/kommander/2.1 production
-                  ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.0 pages/dkp/kommander/2.0 production
+                  ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.1 pages/dkp/kommander/2.1 main
+                  ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.0 pages/dkp/kommander/2.0 main
 
                   ##### Next
                   mkdir -p pages/dkp/konvoy/2.2

@@ -1,20 +1,20 @@
 #!/usr/bin/env groovy
 
-boolean isProduction = env.BRANCH_NAME == "production"
+boolean isProduction = env.BRANCH_NAME == "main"
 boolean isBeta = env.BRANCH_NAME == "beta"
 boolean isPreview = env.BRANCH_NAME == "develop"
 
 def bucket   = isProduction ? "production"
              : isBeta ? "staging"
-             : isPreview ? "preview" // TODO: Create this bucket
+             : isPreview ? "preview"
              : "pr-${env.CHANGE_ID}"
 
 def creds    = isProduction ? "s3-production"
              : isBeta ? "s3-staging"
-             : "s3-development" // TODO: Can we use these credentials for develop branch and PRs?
+             : "s3-development"
 def hostname = isProduction ? "docs.d2iq.com"
              : isBeta ? "beta-docs.d2iq.com"
-             : isPreview ? "dev-docs.d2iq.com" // TODO: Where to get this url from?
+             : isPreview ? "dev-docs.d2iq.com"
              : "docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"
 
 pipeline {
@@ -37,7 +37,7 @@ pipeline {
     }
 
     stage("Push image") {
-      when { branch "production" }
+      when { branch "main" }
       steps {
         sh '''
           docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
@@ -51,7 +51,6 @@ pipeline {
         ALGOLIA_UPDATE = "${isProduction ? 'true' : ''}"
         AWS_DEFAULT_REGION = "us-west-2"
         BUCKET = "docs-d2iq-com-${bucket}"
-        // TODO: What does that mean?
         PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-${isProduction ? 'Production' : 'Development'}"
         REDIR_HOSTNAME = "${hostname}"
       }
