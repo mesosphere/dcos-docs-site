@@ -23,16 +23,10 @@ Go to the Kommander UI to deploy your custom applications:
 
 1. Select the version you'd like to deploy from the version drop-down, and then select Deploy. The `Deploy Project Custom Application` page is displayed.
 
-1. (Optional) If you want to override the default config map, copy your content into the text editor under **Configure Service** or just upload your yaml file that contains the `ConfigMap` that looks like this:
+1. (Optional) If you want to override the default configuration values, copy your values content into the text editor under **Configure Service** or just upload your yaml file that contains the values:
 
    ```yaml
-   apiVersion: v1
-   kind: ConfigMap
-   metadata:
-     namespace: ${PROJECT_NAMESPACE}
-     name: my-custom-app-overrides
-   data:
-     values.yaml: ""
+   someField: someValue
    ```
 
 1. Once you confirm the details are correct, click the `Deploy` button.
@@ -104,7 +98,8 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
      namespace: ${PROJECT_NAMESPACE}
      name: my-custom-app-overrides
    data:
-     values.yaml: ""
+     values.yaml: |
+       someField: someValue
    EOF
    ```
 
