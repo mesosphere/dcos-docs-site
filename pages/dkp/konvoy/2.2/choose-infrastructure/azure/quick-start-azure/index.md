@@ -77,14 +77,6 @@ Before starting the Konvoy installation, verify that you have:
     export AZURE_CLIENT_SECRET_B64="$(echo -n "${AZURE_CLIENT_SECRET}" | base64 | tr -d '\n')"
     ```
 
-## Bootstrap a kind cluster and CAPI controllers
-
-1.  Create a bootstrap cluster:
-
-    ```sh
-    dkp create bootstrap
-    ```
-
 ## Create a new Azure Kubernetes cluster
 
 1.  Give your cluster a name suitable for your environment:
@@ -95,22 +87,34 @@ Before starting the Konvoy installation, verify that you have:
 1.  Create a Kubernetes cluster:
 
     ```sh
-    dkp create cluster azure --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
+    dkp create cluster azure \
+    --cluster-name=${CLUSTER_NAME} \
+    --additional-tags=owner=$(whoami) \
+    --self-managed
     ```
 
-1.  Wait for the cluster control-plane to be ready:
+    You will see output similar to the following:
 
-    ```sh
-    kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
+    ```text
+    INFO[2021-11-16T12:27:38-06:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
+    INFO[2021-11-16T12:28:53-06:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:94"
+    INFO[2021-11-16T12:30:22-06:00] Created bootstrap controllers                 src="bootstrap/controllers.go:106"
+    INFO[2021-11-16T12:30:22-06:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:110"
+    ...
+    Cluster default/my-azure-cluster kubeconfig was written to /private/tmp/konvoyrc2/my-azure-cluster.conf,
+    You can now view resources in the new cluster by using the --kubeconfig flag with kubectl.
+    For example: kubectl --kubeconfig=my-azure-cluster.conf get nodes  src="cluster/create.go:338"
     ```
+
+    As part of the underlying processing, the DKP CLI:
+    - creates a bootstrap cluster
+    - creates a workload cluster
+    - moves CAPI controllers from the bootstrap cluster to the workload cluster, making it self-managed
+    - deletes the bootstrap cluster
 
 ## Explore the new Kubernetes cluster
 
-1.  Fetch the kubeconfig file:
-
-    ```sh
-    dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
-    ```
+The kubeconfig file is written to your local directory and you can now explore the cluster.
 
 1.  List the Nodes with the command:
 
@@ -118,7 +122,18 @@ Before starting the Konvoy installation, verify that you have:
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to <code>Ready</code> while <code>calico-node</code> pods are being deployed.</p>
+    You will see output similar to:
+
+    ```sh
+    NAME                                   STATUS   ROLES                  AGE     VERSION
+    my-azure-cluster-control-plane-t6pzx   Ready    control-plane,master   8m17s   v1.21.6
+    my-azure-cluster-control-plane-trjhl   Ready    control-plane,master   5m12s   v1.21.6
+    my-azure-cluster-control-plane-xkt47   Ready    control-plane,master   9m44s   v1.21.6
+    my-azure-cluster-md-0-hvg4b            Ready    <none>                 6m17s   v1.21.6
+    my-azure-cluster-md-0-k72hx            Ready    <none>                 6m20s   v1.21.6
+    my-azure-cluster-md-0-tj4p8            Ready    <none>                 8m10s   v1.21.6
+    my-azure-cluster-md-0-xwjw6            Ready    <none>                 6m37s   v1.21.6
+    ```
 
 1.  List the Pods with the command:
 
@@ -126,49 +141,17 @@ Before starting the Konvoy installation, verify that you have:
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
     ```
 
-## (Optional) Move controllers to the newly-created cluster
+    You will see output similar to:
 
-1.  Deploy CAPI controllers on the worker cluster:
-
-    ```sh
-    dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
-    ```
-
-1.  Issue the move command:
-
-    ```sh
-    dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
-    ```
-
-    <p class="message--note"><strong>NOTE: </strong>Remember to specify flag <code>--kubeconfig</code> flag pointing to file <code>${CLUSTER_NAME}.conf</code> or make sure that the access credentials from this file become the default credentials after the move operation is complete.</p>
-
-    Note that the Konvoy `move` operation has the following limitations:
-    - Only one workload cluster is supported. This also implies that Konvoy does not support moving more than one bootstrap cluster onto the same worker cluster.
-    - The Konvoy version used for creating the worker cluster must match the Konvoy version used for deleting the worker cluster.
-    - The Konvoy version used for deploying a bootstrap cluster must match the Konvoy version used for deploying a worker cluster.
-    - Konvoy only supports moving all namespaces in the cluster; Konvoy does not support migration of individual namespaces.
-    - You must ensure that the permissions available to the CAPI controllers running on the worker cluster are sufficient.
-
-1.  Remove the bootstrap cluster, as the worker cluster is now self-managed:
-
-    ```sh
-    dkp delete bootstrap --kubeconfig $HOME/.kube/config
-    ```
-
-## Moving controllers back to the temporary bootstrap cluster
-
-Skip this section if the previous step of moving controllers to the newly-created cluster was not run.
-
-1.  Create a bootstrap cluster:
-
-    ```sh
-    dkp create bootstrap --kubeconfig $HOME/.kube/config
-    ```
-
-1.  Issue the move command:
-
-    ```sh
-    dkp move --from-kubeconfig ${CLUSTER_NAME}.conf --to-kubeconfig $HOME/.kube/config
+    ```text
+    NAMESPACE                           NAME                                                                 READY   STATUS    RESTARTS   AGE
+    calico-system                       calico-typha-665d976df-rf7jg                                         1/1     Running   0          60m
+    capa-system                         capa-controller-manager-697b7df888-vhcbj                             2/2     Running   0          57m
+    capi-kubeadm-bootstrap-system       capi-kubeadm-bootstrap-controller-manager-67d8fc9688-5p65s           1/1     Running   0          57m
+    capi-kubeadm-control-plane-system   capi-kubeadm-control-plane-controller-manager-846ff8b565-jqmhd       1/1     Running   0          57m
+    capi-system                         capi-controller-manager-865fddc84c-9g7bb                             1/1     Running   0          57m
+    cappp-system                        cappp-controller-manager-7859fbbb7f-xjh6k                            1/1     Running   0          56m
+    ...
     ```
 
 ## Delete the Kubernetes cluster and cleanup your environment
@@ -176,13 +159,10 @@ Skip this section if the previous step of moving controllers to the newly-create
 1.  Delete the provisioned Kubernetes cluster and wait a few minutes:
 
     ```sh
-    dkp delete cluster --cluster-name=${CLUSTER_NAME}
-    ```
-
-1.  Delete the `kind` Kubernetes cluster:
-
-    ```sh
-    dkp delete bootstrap --kubeconfig $HOME/.kube/config
+    dkp delete cluster \
+    --cluster-name=${CLUSTER_NAME} \
+    --kubeconfig=${CLUSTER_NAME}.conf \
+    --self-managed
     ```
 
 [install_docker]: https://docs.docker.com/get-docker/
