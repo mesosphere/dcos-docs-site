@@ -25,15 +25,74 @@ This release provides new features and enhancements to improve the user experien
 
 ## Known issues
 
-When you create a new Konvoy 2.1 cluster with Kommander 2.1 installed, if you want to install applications to the Kommander Host Management Cluster through the UI, you will need to select Deploy on the Foundational Applications section.
+### Extra step to install applications to the Kommander Host Management Cluster
 
-To do this, in the Kommander UI, click on the Global Workspace nav at the top of the page, and select **Management Cluster Workspace**.
+When you create a new Konvoy 2.1 cluster with Kommander 2.1 installed, if you want to install applications to the Kommander Host Management Cluster through the UI, you need to select Deploy on the Foundational Applications section.
+
+From the Kommander UI, click on the Global Workspace nav at the top of the page, and select **Management Cluster Workspace**.
 
 Then select **Applications** in the left sidebar.
 
 Scroll down to the **Foundational** section, and select the "Deploy" button.
 
 After this, you can deploy different applications through the UI.
+
+### Create cert-manager resources on clusters with cert-manager pre-installed prior to attaching them
+
+If you are attaching a cluster that already has `cert-manager` installed, you need to manually create some cert-manager resources prior to attaching your cluster.
+
+For example, [Konvoy-created clusters that are self-managed][konvoy-self-managed] have `cert-manager` already installed to the `cert-manager` namespace.
+
+Create the following yaml file:
+
+```yaml
+cat << EOF > cert_manager_root-ca.yaml
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: kommander-bootstrap-ca-issuer
+  namespace: cert-manager
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kommander-bootstrap-root-certificate
+  namespace: cert-manager
+spec:
+  commonName: ca.kommander-bootstrap
+  dnsNames:
+    - ca.kommander-bootstrap
+  duration: 8760h
+  isCA: true
+  issuerRef:
+    name: kommander-bootstrap-ca-issuer
+  secretName: kommander-bootstrap-root-ca
+  subject:
+    organizations:
+      - cert-manager
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: kommander-bootstrap-issuer
+  namespace: cert-manager
+spec:
+  ca:
+    secretName: kommander-bootstrap-root-ca
+EOF
+```
+
+Then, apply this file to your cluster:
+
+```sh
+kubectl apply -f cert_manager_root-ca.yaml
+```
+
+Once complete, continue to [attach your cluster][attach-cluster] to Kommander.
+
+You should expect to see that cert-manager will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
 
 ### New features and capabilities
 
@@ -103,3 +162,5 @@ The following services and service components have been upgraded to the listed v
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
+[attach-cluster]: ../clusters/attach-cluster#attaching-a-cluster
+[konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
