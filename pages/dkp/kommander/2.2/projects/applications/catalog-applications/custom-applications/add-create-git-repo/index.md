@@ -8,35 +8,35 @@ excerpt: Create a Git Repository in the Project namespace
 
 Use the CLI to create the GitRepository resource and add a new repository to your Project.
 
-1. Set the `PROJECT_NAMESPACE` environment variable to the name of your project's namespace:
+1.  Set the `PROJECT_NAMESPACE` environment variable to the name of your project's namespace:
 
-```sh
-export PROJECT_NAMESPACE=<project_namespace>
-```
+    ```sh
+    export PROJECT_NAMESPACE=<project_namespace>
+    ```
 
-1. Adapt the URL of your Git repository.
+1.  Adapt the URL of your Git repository.
 
-```sh
-kubectl apply -f - <<EOF
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: GitRepository
-metadata:
-  name: example-repo
-  namespace: ${PROJECT_NAMESPACE}
-spec:
-  interval: 1m0s
-  ref:
-    branch: <your-target-branch-name> # e.g., main
-  timeout: 20s
-  url: https://github.com/<example-org>/<example-repo>
-EOF
-```
+    ```sh
+    kubectl apply -f - <<EOF
+    apiVersion: source.toolkit.fluxcd.io/v1beta1
+    kind: GitRepository
+    metadata:
+      name: example-repo
+      namespace: ${PROJECT_NAMESPACE}
+    spec:
+      interval: 1m0s
+      ref:
+        branch: <your-target-branch-name> # e.g., main
+      timeout: 20s
+      url: https://github.com/<example-org>/<example-repo>
+    EOF
+    ```
 
-1. Ensure the status of the GitRepository signals a ready state:
+1.  Ensure the status of the `GitRepository` signals a ready state:
 
-```sh
-kubectl get gitrepository example-repo -n ${PROJECT_NAMESPACE}
-```
+    ```sh
+    kubectl get gitrepository example-repo -n ${PROJECT_NAMESPACE}
+    ```
 
 The repository commit also displays the ready state:
 

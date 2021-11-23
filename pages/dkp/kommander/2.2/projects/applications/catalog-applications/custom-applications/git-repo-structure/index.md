@@ -45,13 +45,13 @@ Use the following basic directory structure for your git repository:
 
 - You can define multiple versions of an application, under different directories nested under the `services/<app name>/` directory.
 
-- Define application manifests such as the `HelmRelease` under each versioned directory `services/<app name>/<version>/` in `<app name>.yaml` which is listed in the `kustomization.yaml` Kubernetes Kustomization file. For more information, see the [Kubernetes Kustomization docs][kubernetes_kustomization].
+- Define application manifests, such as a [HelmRelease][helmreleases], under each versioned directory `services/<app name>/<version>/` in `<app name>.yaml` which is listed in the `kustomization.yaml` Kubernetes Kustomization file. For more information, see the [Kubernetes Kustomization docs][kubernetes_kustomization].
 
-- Define the default values ConfigMap for HelmReleases in the `services/<app name>/<version>/defaults` directory, accompanied by a `kustomization.yaml` Kubernetes Kustomization file pointing to the ConfigMap file.
+- Define the default values ConfigMap for `HelmReleases` in the `services/<app name>/<version>/defaults` directory, accompanied by a `kustomization.yaml` Kubernetes Kustomization file pointing to the `ConfigMap` file.
 
 - Define the `metadata.yaml` of each application under the `services/<app name>/` directory. For more information, see the [Application Metadata docs][kommander_app_metadata].
 
-<!-- add more details about what each file should contain? insert example yamls of each of these files? -->
+<!-- add more details about what each file should contain? insert example yamls of each of these files? link to an example repo? -->
 
 ### Helm Repositories
 
@@ -75,7 +75,7 @@ For more information, see the flux documentation about [HelmRepositories][helmre
 Some [substitution variables][kustomization_variable_substitution] are provided.
 <!-- add more background and context on subst vars -->
 
-- `${releaseName}`: For each App deployment, this variable is set to the AppDeployment name. Use this variable to prefix the names of any resources that are defined in the application directory in the Git repository so that multiple instances of the same application can be deployed. If you create resources without using the `releaseName` prefix (or suffix) in the name field, there can be conflicts if the same named resource is created in that same namespace.
+- `${releaseName}`: For each App deployment, this variable is set to the `AppDeployment` name. Use this variable to prefix the names of any resources that are defined in the application directory in the Git repository so that multiple instances of the same application can be deployed. If you create resources without using the `releaseName` prefix (or suffix) in the name field, there can be conflicts if the same named resource is created in that same namespace.
 - `${releaseNamespace}`: The namespace of the Project.
 - `${workspaceNamespace}`: The namespace of the Workspace that the Project belongs to.
 
@@ -93,3 +93,4 @@ Some [substitution variables][kustomization_variable_substitution] are provided.
 [kustomization_variable_substitution]: https://fluxcd.io/docs/components/kustomize/kustomization/#variable-substitution
 [helmrepositories]: https://fluxcd.io/docs/components/source/helmrepositories/
 [kommander_app_metadata]: ../application-metadata
+[helmreleases]: https://fluxcd.io/docs/components/helm/helmreleases/
