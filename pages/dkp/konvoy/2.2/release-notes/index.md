@@ -58,7 +58,7 @@ Konvoy 2.1 comes with an easier way to deploy in an air gapped environment. Rath
 
 #### DKP Licensing through Amazon Marketplace
 
-You can now purchase a license for Konvoy or Kommander throug the AWS Marketplace, then add it to Kommander. In the Kommander UI, you can see information such as the license status (valid or expired), the license capacity (number of cores or clusters), and expiration date.
+You can purchase a license for Konvoy or Kommander through the AWS Marketplace, and then add it to Kommander. In the Kommander UI, you can see information such as the license status (valid or expired), the license capacity (number of cores or clusters), and expiration date.
 
 ### Component updates
 
