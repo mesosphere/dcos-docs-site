@@ -5,7 +5,7 @@ title: Application Metadata
 menuWeight: 40
 excerpt: To display more information about custom applications in the UI, define a metadata.yaml file for each application in the git repository.
 ---
-You can define how custom applications are displayed in the Kommander UI by defining a metadata.yaml file for each application in the git repository. You must define this file at `services/<application>/metadata.yaml` for it to process correctly.
+You can define how custom applications are displayed in the Kommander UI by defining a `metadata.yaml` file for each application in the git repository. You must define this file at `services/<application>/metadata.yaml` for it to process correctly.
 
 You can define the following fields:
 
@@ -15,7 +15,7 @@ You can define the following fields:
 | description | ""                   | Short description, should be a sentence or two, displayed in the UI on the application card.    |
 | category    | general              | 1 or more categories for this application. Categories are used to group applications in the UI. |
 | overview    |                      | Markdown overview used on the application detail page in the UI.                                |
-| icon        |                      | Base64 encoded icon svg file used for application logos in the UI.                              |
+| icon        |                      | Base64 encoded icon SVG file used for application logos in the UI.                              |
 
 None of these fields are required for the application to be displayed in the UI.
 
