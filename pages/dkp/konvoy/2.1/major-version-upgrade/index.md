@@ -20,11 +20,11 @@ The overall process for upgrading the major version to DKP 2.1 has the following
 
 -   [Download and install DKP 2.1](../download)
 
--   [Review the CAPI concepts and terms](/capi-concepts-and-terms), and [understand the standard configuration](/understand-standard-configuration)
+-   [Review the CAPI concepts and terms](capi-concepts-and-terms), and [understand the standard configuration](understand-standard-config)
 
--   [Plan your major version upgrade](/plan)
+-   [Plan your major version upgrade](plan)
 
--   [Perform the upgrade steps](/upgrade) for your specific environment
+-   [Perform the upgrade steps](upgrade) for your specific environment
 
 For multi-cluster customers, the DKP major version upgrade is handled through the Konvoy clusters.
 
