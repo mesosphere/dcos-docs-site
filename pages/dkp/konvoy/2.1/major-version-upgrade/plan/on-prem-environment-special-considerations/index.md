@@ -25,5 +25,6 @@ For example, a cluster name with an underscore is valid in Konvoy 1.8, but not v
 
 - Upgrading clusters with multiple imageRegistries
 - Clusters using a bastion
+- Clusters using GPU enabled nodepool
 
 [kubernetes-resource-name]: https://v1-21.docs.kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names

@@ -61,6 +61,8 @@ As an alternative, you must delete these resources manually:
 
 -   Clusters using a bastion
 
+-   Clusters using GPU enabled nodepool
+
 ## During the upgrade, the default Storage Class configuration changes
 
    Configuration | Konvoy 1.8 | Konvoy 2.1
