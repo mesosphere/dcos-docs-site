@@ -40,8 +40,8 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 | istio-1.9.1                   | istio                 | False               |
 | jaeger-2.21.0                 | jaeger                | False               |
 | kiali-1.29.1                  | kiali                 | False               |
-| kube-oidc-proxy-0.2.5         | kube-oidc-proxy       | False               |
-| kube-prometheus-stack-16.13.1 | kube-prometheus-stack | True                |
+| kube-oidc-proxy-0.2.5         | kube-oidc-proxy       | True                |
+| kube-prometheus-stack-17.2.1  | kube-prometheus-stack | True                |
 | kubecost-0.20.0               | kubecost              | True                |
 | kubernetes-dashboard-5.0.2    | kubernetes-dashboard  | True                |
 | logging-operator-3.13.0       | logging-operator      | False               |
@@ -58,4 +58,4 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 
 <p class="message--note"><strong>NOTE: </strong>Only a single deployment of <code>traefik</code> per cluster is supported.</p>
 
-<p class="message--note"><strong>NOTE: </strong>Kommander automatically manages the deployment of <code>traefik-forward-auth</code> when clusters are attached to the workspace. This application is not shown in the Kommander UI.</p>
+<p class="message--note"><strong>NOTE: </strong>Kommander automatically manages the deployment of <code>traefik-forward-auth</code> and <code>kube-oidc-proxy</code> when clusters are attached to the workspace. These applications are not shown in the Kommander UI.</p>
