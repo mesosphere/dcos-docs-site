@@ -45,31 +45,35 @@ If the proxy is working for HTTP and HTTPS, respectively, the `curl` command ret
 
 Gatekeeper acts as a [Kubernetes mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook). You can use this to mutate the Pod resources with `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` environment variables.
 
-Create/Update the chart configuration `values.yaml` file. Set the following values to enable Gatekeeper:
+Enable Gatekeeper in the configuration file:
 
-```yaml
-cat << EOF >> values.yaml
-services:
-  gatekeeper:
-    # Enables Gatekeeper service in management cluster
-    enabled: true
-controller:
-  containers:
-    manager:
-      extraArgs:
-        # Enables Gatekeeper service in managed cluster
-        default-workspace-app-deployments: "gatekeeper-0.6.8"
-EOF
-```
+1. Kommander installs with a dedicated CLI.
 
-Save the above overrides in `values.yaml`file. These can then be supplied to `helm install` command.
+1. Create an installation configuration file:
 
-You can create a `kommander` namespace, or the namespace where Kommander will be installed, and then label it such that Gatekeeper mutation is active on the namespace.
+    ```bash
+    kommander install --init > install.yaml
+    ```
 
-```bash
-kubectl create namespace kommander
-kubectl label namespace kommander gatekeeper.d2iq.com/mutate=pod-proxy
-```
+1. Adapt the configuration file for installing `gatekeeper` by adding the `.apps.gatekeeper` field:
+
+    ```yaml
+    apps:
+      gatekeeper: null
+    ```
+
+1. You can create a `kommander` namespace, or the namespace where Kommander will be installed, and then label it such that Gatekeeper mutation is active on the namespace.
+
+    ```bash
+    kubectl create namespace kommander
+    kubectl label namespace kommander gatekeeper.d2iq.com/mutate=pod-proxy
+    ```
+
+1. Install Kommander using the above configuration file:
+
+    ```bash
+    kommander install --installer-config ./install.yaml
+    ```
 
 Create the `gatekeeper-overrides` configmap in the `kommander` namespace as described in [this](#create-gatekeeper-configmap-in-workspace-namespace) section before proceeding to [installing Kommander](../networked#install-on-konvoy).
 
