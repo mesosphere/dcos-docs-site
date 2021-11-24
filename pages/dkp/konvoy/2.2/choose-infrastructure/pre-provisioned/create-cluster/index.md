@@ -16,7 +16,7 @@ With the inventory, and the control plane endpoint defined, use the `dkp` binary
 dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>If you have [overrides for your clusters](create-secrets-and-overrides), you must specify the secret as part of the create cluster command. If these are not specified, the overrides for your nodes will not be applied. </p>
+<p class="message--note"><strong>NOTE: </strong>If you have <a href="../create-secrets-and-overrides">overrides for your clusters</a>, you must specify the secret as part of the create cluster command. If these are not specified, the overrides for your nodes will not be applied. </p>
 
 ```shell
 dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443> --override-secret-name=$CLUSTER_NAME-user-overrides
