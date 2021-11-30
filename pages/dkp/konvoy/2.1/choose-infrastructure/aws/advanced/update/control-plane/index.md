@@ -48,7 +48,7 @@ The control plane is described by a KubeadmControlPlane resource. This reference
 
     ```sh
     NAME                             INITIALIZED   API SERVER AVAILABLE   VERSION   REPLICAS   READY   UPDATED   UNAVAILABLE
-    aws-example-control-plane        true          true                   v1.21.6   1          1       1
+    my-aws-cluster-control-plane        true          true                   v1.21.6   3          3       3
     ```
 
 1.  Define the names of the resources.
