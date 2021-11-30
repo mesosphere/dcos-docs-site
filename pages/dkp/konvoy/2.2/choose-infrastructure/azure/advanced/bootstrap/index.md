@@ -50,9 +50,9 @@ Before you begin, you must:
     Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
 
     - [Core Provider][capi]
-    - [AWS Infrastructure Provider][capa]
-    - [Kubeadm Bootstrap Provider][cabpk]
-    - [Kubeadm ControlPlane Provider][kcp]
+    - [Azure Infrastructure Provider][capz]
+    - [kubeadm Bootstrap Provider][cabpk]
+    - [kubeadm ControlPlane Provider][kcp]
 
     Konvoy waits until the controller-manager and webhook deployments of these providers are ready. List these deployments using this command:
 
@@ -92,30 +92,31 @@ Before you begin, you must:
 
     A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.
 
-    For example, this is the `aws-ebs-csi` ClusterResourceSet, which is now deployed by Konvoy from the above actions:
+    For example, this is the `azure-disk-csi` ClusterResourceSet, which is now deployed by Konvoy from the above actions:
 
     ```yaml
     kind: ClusterResourceSet
     metadata:
-      name: aws-ebs-csi
+      name: azure-disk-csi
     spec:
       clusterSelector:
         matchLabels:
-          konvoy.d2iq.io/csi: aws-ebs
-          konvoy.d2iq.io/provider: aws
+          konvoy.d2iq.io/csi: azure-disk
+          konvoy.d2iq.io/provider: azure
       resources:
       - kind: ConfigMap
-        name: aws-ebs-csi
+        name: azure-disk-csi
       strategy: ApplyOnce
     ```
 
     Konvoy defines the selectors and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_caep].
 
+When complete, move on to the [Create a New Cluster][new-cluster] section.
+
+[new-cluster]: ../new
 [install_docker]: https://docs.docker.com/get-docker/
-[install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
-[capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
+[capz]: https://github.com/kubernetes-sigs/cluster-api-provider-azure
 [kind]: https://github.com/kubernetes-sigs/kind
 [capi_book]: https://cluster-api.sigs.k8s.io/
 [calico]: https://docs.projectcalico.org/
