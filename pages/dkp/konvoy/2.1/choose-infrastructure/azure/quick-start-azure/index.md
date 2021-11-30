@@ -20,7 +20,7 @@ Before starting the Konvoy installation, verify that you have:
 - [kubectl][install_kubectl] for interacting with the running cluster.
 - A valid Azure account with [credentials configured][azure_credentials].
 
-## Configure Azure prerequisites (required only when creating an Azure cluster)
+## Configure Azure prerequisites
 
 1.  Log in to Azure:
 

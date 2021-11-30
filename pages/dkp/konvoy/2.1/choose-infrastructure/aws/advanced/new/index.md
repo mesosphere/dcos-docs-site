@@ -11,7 +11,7 @@ enterprise: false
 
 - Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
 
-## Create a new AWS Kubernetes cluster
+## Name your cluster
 
 1.  Give your cluster a unique name suitable for your environment.
 
@@ -56,6 +56,8 @@ enterprise: false
     ```sh
     CLUSTER_NAME=my-aws-cluster
     ```
+
+## Create a new AWS Kubernetes cluster
 
 1.  Ensure your AWS credentials are up to date. Refresh the credentials:
 
