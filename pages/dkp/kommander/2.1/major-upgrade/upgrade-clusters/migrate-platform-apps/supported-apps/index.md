@@ -7,7 +7,7 @@ excerpt: Adapt Konvoy addons to Kommander platform applications
 beta: false
 ---
 
-<!-- markdownlint-disable MD034 -->
+<!-- markdownlint-disable MD0013 MD030 MD034 -->
 
 The following Kubernetes based addons (KBAs) are supported for adapting from Konvoy 1.8 to Kommander 2.1.
 

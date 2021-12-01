@@ -7,4 +7,4 @@ excerpt: Major Version Upgrade to Kommander Clusters
 beta: false
 ---
 
-This section details upgrading Kommander clusters to 2.1.
+This section details how to upgrade Kommander clusters to 2.1.
