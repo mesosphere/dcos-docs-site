@@ -122,30 +122,30 @@ You can now purchase a license for Konvoy or Kommander through the AWS Marketpla
 
 The following services and service components have been upgraded to the listed version:
 
-- centralized-grafana: 17.2.1
+- centralized-grafana: 18.1.1
 - centralized-kubecost: 0.20.0
 - cert-manager: 0.2.7
 - dex: 2.20.5
 - external-dns: 2.20.5
 - fluent-bit: 0.16.2
 - gatekeeper: 0.6.8
-- grafana-logging: 6.13.9
+- grafana-logging: 6.16.14
 - grafana-loki: 0.33.1
 - istio: 1.9.1
 - jaeger: 2.21.0
 - karma: 2.0.0
 - kiali: 1.29.1
 - kube-oidc-proxy: 0.2.5
-- kube-prometheus-stack: 17.2.1
+- kube-prometheus-stack: 18.1.1
 - kubecost: 0.20.0
 - kubefed: 0.8.1
 - kubernetes-dashboard: 5.0.2
 - kubetunnel: 0.0.7
-- logging-operator: 3.13.0
+- logging-operator: 3.15.0
 - metallb: 0.12.2
 - minio-operator: 4.1.7
 - nvidia: 0.4.3
-- project-grafana-logging: 6.13.9
+- project-grafana-logging: 6.16.14
 - project-grafana-loki: 0.33.1
 - project-logging: 1.0.0
 - prometheus-adapter: 2.11.1

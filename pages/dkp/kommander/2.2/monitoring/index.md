@@ -83,7 +83,7 @@ To disable all of the default dashboards, follow these steps to define an overri
       namespace: <your-workspace-namespace>
     spec:
       appRef:
-        name: kube-prometheus-stack-17.2.1
+        name: kube-prometheus-stack-18.1.1
         kind: ClusterApp
       configOverrides:
         name: kube-prometheus-stack-overrides
@@ -208,7 +208,7 @@ For example, if you want to disable the default `node` alert rules, follow these
       namespace: <your-workspace-namespace>
     spec:
       appRef:
-        name: kube-prometheus-stack-17.2.1
+        name: kube-prometheus-stack-18.1.1
         kind: ClusterApp
       configOverrides:
         name: kube-prometheus-stack-overrides
