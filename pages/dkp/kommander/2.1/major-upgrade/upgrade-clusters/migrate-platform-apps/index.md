@@ -7,31 +7,123 @@ excerpt: Adapt Konvoy addons to Kommander
 beta: false
 ---
 
-In previous versions of Konvoy, D2IQ provided a set of predefined, pre-configured open source applications. These applications provided a better environment for your installation. These applications were referred to as _Kubernetes Based Addons (KBAs)_. The architecture and terminology has now changed. Konvoy no longer has _KBAs_. These are now stored and managed through Kommander and are known as _platform applications_.
+<!-- markdownlint-disable MD0013 MD030 MD0034 -->
 
-<p class="message--note"><strong>NOTE: </strong>Kubernetes distributions contain their own set of <i>addons</i>. These <i>addons</i> are not part of the adaptation process.</p>
+In previous versions of Konvoy, you used _Kubernetes Based Addons (KBAs)_ which are now managed through Kommander and are known as _platform applications_.
 
-This command automatically adapts your Konvoy addons to Kommander platform applications. Certain applications may need [manual configuration changes](./prepare-apps) prior to adapting.
+This section automatically adapts your Konvoy addons to Kommander platform applications. Certain applications may need [manual configuration changes](./prepare-apps) prior to adapting.
+
+<p class="message--note"><strong>NOTE: </strong>Kubernetes distributions contain their own set of <i>addons</i>. These <i>addons</i> are not part of the adoption process.</p>
 
 ## Prerequisites
 
-To successfully adapt your applications you must have the following configurations:
+To successfully adapt your applications, you must have:
 
-- A Konvoy 1.8 cluster.
+-   A Konvoy 1.8.3 cluster that has already been [upgraded to DKP 2.1](https://docs.d2iq.com/dkp/konvoy/2.1/major-version-upgrade/), with the kommander addon disabled in your cluster.yaml.
 
-<p class="message--note"><strong>NOTE: </strong>On your Konvoy cluster ensure that Kommander is not running. The <code>kommander</code> addon must not be enabled in your <code>cluster.yaml</code> file.</p>
+-   [Download](../../../download) and install the Kommander CLI binary on your computer.
 
-- The Kommander CLI binary installed on your computer. Refer to the [**Download**][download] topic to install Kommander.
+## Prepare your cluster
 
-<!-- Put link to download here. -->
+Check for the following on your existing `cluster.yaml`:
 
-<p class="message--note"><strong>NOTE: </strong>For the adaption to complete successfully, Kommander must not be running.</p>
+- One or more of `spec.kubernetes.networking.noProxy`, `spec.kubernetes.networking.httpProxy` or `spec.kubernetes.networking.httpsProxy` is set in `ClusterConfiguration`.
+- Enabled `gatekeeper` with custom `values` field in `ClusterConfiguration` in `cluster.yaml`.
+
+If none of the conditions apply to your cluster, then you can skip to next section.
+
+1.  Because Kommander 2.0+ uses flux to manage applications, we need to configure the gatekeeper `mutatingwebhookconfigurations` (which is a cluster-scoped resource) such that it allows `dry-run` calls, which are required by the flux kustomize controller to calculate the diff of a resource. In order to do this:
+
+    ```bash
+    kubectl get mutatingwebhookconfigurations gatekeeper-mutating-webhook-configuration
+    ```
+
+    If there are no `mutatingwebhookconfigurations`, skip to the next step. This is expected if you set `mutations.enable` to `false` in gatekeeper addon `values`. If you see the `gatekeeper-mutating-webhook-configuration` then execute the following:
+
+    ```bash
+    kubectl patch mutatingwebhookconfigurations gatekeeper-mutating-webhook-configuration --type "json" -p '[{"op": "add", "path": "/webhooks/0/sideEffects", "value": "None"}]'
+    ```
+
+2.  Update the `metadata.annotations` of these gatekeeper resources:
+
+    ```bash
+    kubectl annotate mutatingwebhookconfigurations gatekeeper-mutating-webhook-configuration --overwrite "meta.helm.sh/release-name"="kommander-gatekeeper" "meta.helm.sh/release-namespace"="kommander"
+    kubectl annotate assign pod-mutation-no-proxy --overwrite "meta.helm.sh/release-name"="kommander-gatekeeper" "meta.helm.sh/release-namespace"="kommander"
+    ```
+
+    If the patch fails because the above resource do not exist, you can ignore those errors.
+
+3.  In the `ClusterConfiguration`, if you have set one or more of `noProxy`, `httpProxy`,or `httpsProxy` in `spec.kuberentes.networking` but these values differ from the `values` section of `gatekeeper` addon, then you need to update the gatekeeper addon configuration to match these values. Look up this configmap rendered from `spec.kubernetes.networking`:
+
+    ```bash
+    kubectl get cm kubeaddons-remap-values -nkubeaddons -o=jsonpath={.data.values}
+    ```
+
+    which should print an output more or less similar to the following:
+
+    ```yaml
+    gatekeeper:
+      mutation:
+        enable: true
+        enablePodProxy: true
+        namespaceSelectorForProxy:
+          "gatekeeper.d2iq.com/mutate": "pod-proxy"
+        no-proxy: "<YOUR noProxy settings>"
+        http-proxy: "<YOUR httpProxy settings>"
+        https-proxy: "<YOUR httpsProxy settings>"
+    ```
+
+    You need to copy the above configuration into `Addon` resource of `gatekeeper`. Start by printing the current `values` section:
+
+    ```bash
+    kubectl get addon gatekeeper -nkubeaddons -o=jsonpath={.spec.chartReference.values}
+    ```
+
+    which should print an output more or less similar to the following:
+
+    ```yaml
+    ---
+    replicas: 2
+    webhook:
+      certManager:
+        enabled: true
+
+    # enable mutations
+    mutations:
+      enable: false
+      enablePodProxy: false
+
+      podProxySettings:
+        noProxy:
+        httpProxy:
+        httpsProxy:
+
+      excludeNamespacesFromProxy: []
+      namespaceSelectorForProxy: {}
+    ```
+
+    Copy the values from the `ConfigMap` into gatekeeper `Addon` resource accordingly:
+
+    | ConfigMap kubeaddons-remap-values `.data.values` | Addon gatekeeper `.spec.chartReference.values` |
+    | ---------------------------------------------    | ------------------------------------- |
+    | gatekeeper.mutation.enable                       | mutations.enable                      |
+    | gatekeeper.mutation.enablePodProxy               | mutations.enablePodProxy              |
+    | gatekeeper.mutation.namespaceSelectorForProxy    | mutations.namespaceSelectorForProxy   |
+    | gatekeeper.mutation.no-proxy                     | mutations.podProxySettings.noProxy    |
+    | gatekeeper.mutation.http-proxy                   | mutations.podProxySettings.httpProxy  |
+    | gatekeeper.mutation.https-proxy                  | mutations.podProxySettings.httpsProxy |
+
+    If the values in the gatekeeper `Addon` resource already match the values from the `kubeaddons-remap-values` ConfigMap in `kubeaddons` namespace then there is no need to updating anything. If not, edit the gatekeeper `Addon` to reflect the above value remapping:
+
+    ```bash
+    kubectl edit addon -nkubeaddons gatekeeper
+    ```
+
+    and save the changes before continuing with the migration procedure.
 
 ## Move your applications
 
-The following step describes how to adapt your existing platform applications to Kommander.
-
-Enter the following command to start the adaption process:
+To adapt your existing platform applications to Kommander enter the following command:
 
 ```sh
 kommander migrate -y
@@ -103,12 +195,9 @@ velero
 
 Refer to the [Verify installation][verify-install] topic to ensure successfull completion.
 
-## Optional post-upgrade cleanup
+## Post-upgrade cleanup
 
-If you had certain applications installed, upgrade might leave Kubernetes
-objects that belonged to Konvoy but are not used by Kommander. While you can
-safely disregard these objects, you should not arbitrarily remove or modify
-them, or use third-party tools (like Helm) that expect these objects to be
+Depending on what Konvoy addons you had configured, the upgrade may leave Kubernetes objects behind that belonged to Konvoy, but are not used by Kommander. While you can safely disregard these objects, you should not arbitrarily remove or modify them, or use third-party tools (like Helm) that expect these objects to be
 in a correct state against these objects.
 
 If you want to clean these objects up, you need to perform

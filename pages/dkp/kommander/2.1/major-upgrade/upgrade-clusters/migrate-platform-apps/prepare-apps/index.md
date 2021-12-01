@@ -7,43 +7,45 @@ excerpt: Certain applications may need manual intervention prior to moving
 beta: false
 ---
 
+<!-- markdownlint-disable MD0013 MD030 -->
+
 ## Prometheus application
 
-<p class="message--note"><strong>NOTE: </strong> <strong>Downtime:</strong> Regardless of the number of command retries, there is going to be a single downtime of Prometheus. This begins when the first run of the command reaches the "KubePrometheusStack" stage and ends when this stage successfully completes for the first time. If the process is interrupted during this stage, Prometheus might remain down until the process is restarted. Repeated attempts to adapt Prometheus after a successful adaptation have no affect and do not result in downtime.</p>
+<p class="message--note"><strong>NOTE: </strong> <strong>Downtime:</strong> Regardless of the number of command retries, there is a single downtime of Prometheus that begins when the first run of the command reaches the "KubePrometheusStack" stage and ends when this stage successfully completes for the first time. If the process is interrupted during this stage, Prometheus may remain down until the process is restarted. Repeated attempts to adapt Prometheus after a successful adaptation have no affect and do not result in downtime.</p>
 
-### Manual steps for moving custom Prometheus configurations
+### Move custom Prometheus configurations
 
 #### Alerting
 
-Custom `alertmanager` [configurations](/dkp/konvoy/1.8/monitoring/#notify-prometheus-alerts-in-slack) must be copied or re-created [manually](../../../../monitoring#notify-prometheus-alerts-in-slack). You can do this before migrating Prometheus, so that there is no time interval when the alertmanager is not configured.
+Custom `alertmanager` [configurations](https://docs.d2iq.com/dkp/konvoy/1.8/monitoring/#notify-prometheus-alerts-in-slack) must be copied or re-created [manually](https://docs.d2iq.com/dkp/kommander/2.0/monitoring/#notify-prometheus-alerts-in-slack). You can do this before adapting Prometheus, so that there is no time interval when the alertmanager is not configured.
 
 #### Custom ServiceMonitor objects
 
-You can copy or re-create ServiceMonitors using a label `release: kube-prometheus-stack` instead of `release: prometheus-kubeaddons`. This can be done before processing, using different names or namespaces for the new objects. Also you can re-label existing ServiceMonitors before or after the processing. This can introduce an interval when Prometheus is running but ServiceMonitors have no effect. After the Prometheus-operator in the adapted Prometheus starts, it only looks at ServiceMonitor objects with `release: kube-prometheus-stack` label. As a result, the adapted Prometheus only ignores ServiceMonitors with the old label until they are relabeled.
+You should copy or re-create ServiceMonitors using the label `release: kube-prometheus-stack` instead of `release: prometheus-kubeaddons`. This can be done before processing, using different names or namespaces for the new objects. Alternatively, you could just re-label any existing ServiceMonitors before or after the processing, but this will introduce an interval where Prometheus is running but the ServiceMonitors have no effect. After the Prometheus-operator in the adapted Prometheus starts, it only looks at ServiceMonitor objects with `release: kube-prometheus-stack` label, and it ignores ServiceMonitors with the old label until they are relabeled.
 
 There are two ways to adapt ServiceMonitors created using Helm values of the Addon:
 
--   Create standalone ServiceMonitor resources with a label `release: kube-prometheus-stack`. This can be done before processing.
+-   Create new standalone ServiceMonitor resources with the label `release: kube-prometheus-stack`. This can be done before processing.
 
--   Add the custom ServiceMonitor configurations into additionalServiceMonitors into the overrides ConfigMap of the migrated AppDeployment. This can only be done after processing. This results in an interval when the migrated Prometheus application is running but these custom ServiceMonitors are not configured.
+-   Add the custom ServiceMonitor configurations into an additionalServiceMonitors section of the overrides ConfigMap of the Prometheus AppDeployment. This can only be done after processing. This results in an interval when the adapted Prometheus application is running but these custom ServiceMonitors are not configured.
 
 <p class="message--important"><strong>IMPORTANT: </strong>To be able to adapt ServiceMonitors created using Helm values of the Addon, you must store the Addon values before starting the moving process. The Addon removal is one of the first processing steps. After that the old Addon values are not accessible.</p>
 
 #### Cleanup
 
-After processing is complete, you may remove both the old alertmanager configuration secret and the old ServiceMonitors having the `release: prometheus-kubeaddons` label. They are no longer used.
+After processing is complete, remove both the old alertmanager configuration secret and any ServiceMonitors that have the `release: prometheus-kubeaddons` label.
 
-### Resolve Prometheus migration issues
+### Resolve Prometheus adaption issues
 
--   Users who have a nonstandard configuration of the Addon may have to edit the `kube-prometheus-stack-overrides` ConfigMap for the HelmRelease to get reconciled.
+-   If you customized the Addon, you may have to edit the `kube-prometheus-stack-overrides` ConfigMap for the HelmRelease to get reconciled.
 
--   The new Prometheus may not select the old PersistentVolumes. This can be due to a name mismatch of actual and expected PersistentVolumeClaims. You can identify the PersistentVolumes of the old Prometheus installation by looking at `migration.kommander.mesosphere.io/statefulset-name` and `migration.kommander.mesosphere.io/statefulset-ns` labels.
+-   If you customized the storage for Prometheus, it is possible the adaption cannot select the old PersistentVolumes. For example, there could be a name mismatch between the actual and expected PersistentVolumeClaims. You can identify the PersistentVolumes of the old Prometheus installation by inspecting the migration.kommander.mesosphere.io/statefulset-name and migration.kommander.mesosphere.io/statefulset-ns labels.
 
-## Fluent Bit and logging stack migration
+## Fluent Bit and logging stack adaption
 
-The Kommander 2.1 logging stack is completely different from previous versions. The new logging stack is based on Loki and Grafana. Previous versions were based on Elasticsearch and Kibana. Logging stack migration is triggered by detecting the Fluent Bit Addon. This produces the following:
+The Kommander 2.1 logging stack is different from previous versions and is based on Loki and Grafana. Previous versions were based on Elasticsearch and Kibana. Logging stack adaption is triggered by detecting the Fluent Bit Addon. This results in the following actions:
 
--   A new Fluent Bit AppDeployment is created on the 2.x side using D2IQ helm value defaults.
+-   A new Fluent Bit AppDeployment is created using D2IQ helm value defaults.
 
 -   All the other 2.x logging stack components are installed.
 
@@ -53,11 +55,11 @@ Elasticsearch, elasticsearch-curator, and Kibana Addons are deleted without unin
 
 ### Caveats
 
--   Customers using Fluent Bit Addon non-default configurations must add corresponding configOverrides to their 2.x AppDeployment. This is based on their 2.x defaults combined with their custom modifications.
+-   If you customized the Fluent Bit Addon configuration in 1.x, you must add corresponding configOverrides to your 2.x AppDeployment.   The configOverrides should be based on the 2.x defaults combined with your custom modifications.
 
--   The remaining components of the old logging stack are not uninstalled. You must delete old logging stacks if they are no longer needed.
+-   The remaining components of the old logging stack are not uninstalled, and must be manuall deleted.  See the [post upgrade cleanup][../post-upgrade-cleanup] section for details.
 
--   Customers who use Fluent Bit but do not need other parts of the 2.x logging stack installed, must specify the `--skip-new-logging-stack-apps` flag when moving their applications.
+-   If your 1.8 cluster only used use Fluent Bit and you do not need other parts of the 2.x logging stack installed, specify the `--skip-new-logging-stack-apps` flag when performing the adaption process.
 
 ## Kubernetes-dashboard
 
@@ -69,14 +71,14 @@ You must back up any custom Grafana dashboards before running the adaption proce
 
 ## Velero
 
-Velero has moved from the Velero namespace to the Kommander namespace. Any backup automation/runbooks should be updated accordingly. Also documentation must include the Velero config update for namespace.
+In 2.x, the Velero install has moved from the `velero` namespace to the `kommander` namespace.   If you have runbooks or automation that invokes the velero tool, make sure to update them as suggested below.
 
-<p class="message--note"><strong>NOTE: </strong>Velero namespace must be Kommander. Set the Velero namespace to Kommander with the <code>velero client config set namespace=kommander</code>. You can also set an environment variable with <code>export VELERO_NAMESPACE=kommander</code>.</p>
+<p class="message--note"><strong>NOTE: </strong> The Velero namespace can be set to kommander with the <code>velero client config set namespace=kommander</code>.  Alternatively you can set the environment variable <code>export VELERO_NAMESPACE=kommander</code>, or use the velero --namespace command line option.</p>
 
 ## SSO stack
 
-Moving custom-configured identity providers is not supported. After processing the [SSO](../../../../security/oidc) stack must be re-configured again.
+The adaption procedure is not able to adapt custom-configured identity providers. After processing, the [SSO](../../../../security/oidc) stack must be configured again.
 
 ## Additional Notes
 
-Do not run the `install` command on a relocated cluster. This might overwrite changes applied by `migrate` command.
+Do not run the `install` command on a relocated cluster. This may overwrite changes applied by the `migrate` command.
