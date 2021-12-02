@@ -118,7 +118,7 @@ spec:
             env:
               HTTP_PROXY: "http://proxy.company.com:3128"
               HTTPS_PROXY: "http://proxy.company.com:3128"
-              NO_PROXY: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
+              NO_PROXY: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,169.254.0.0/24,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
     ...
 ```
 
@@ -155,7 +155,7 @@ spec:
     - name: HTTPS_PROXY
       value: "http://proxy.company.com:3128"
     - name: NO_PROXY
-      value: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
+      value: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,169.254.0.0/24,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
 ```
 
 See [Define Environment Variables for a Container](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/#define-an-environment-variable-for-a-container) for more details.
