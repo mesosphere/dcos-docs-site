@@ -41,7 +41,7 @@ More information on setting a StorageClass as default can be found at [Changing 
 
 Before running the commands below, ensure that your `kubectl` configuration references the cluster on which you want to install Kommander. You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location.
 
-To install Kommander with HTTP proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper][enable-gatekeeper] section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`.
+To install Kommander with HTTP proxy setting enabled, you need to follow the instructions outlined in [enable Gatekeeper][enable-gatekeeper] section before proceeding further. To enable a Gatekeeper proxy, you must pass the `install.yaml` (or whatever the config file was named) you created to the following command using `--installer-config=install.yaml`
 
 ```sh
 kommander install
