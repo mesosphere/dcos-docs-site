@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
     "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia node index.js",
-    "webpack": "webpack --progress --colors"
+    "webpack": "webpack --progress --colors",
+    "prepare": "husky install"
   },
   "author": "D2iQ",
   "devDependencies": {
@@ -19,8 +20,11 @@
     "babel-preset-env": "^1.7.0",
     "css-loader": "^0.28.4",
     "debug": "^3.1.0",
+    "eslint": "^8.3.0",
     "extract-text-webpack-plugin": "^2.1.2",
+    "husky": "^7.0.4",
     "js-yaml": "^3.9.1",
+    "lint-staged": "^12.1.2",
     "markdown-it": "^12.0.4",
     "markdown-it-anchor": "^4.0.0",
     "markdown-it-attrs": "^1.2.1",
@@ -48,6 +52,7 @@
     "webpack-dev-server": "^3.1.11"
   },
   "dependencies": {
+    "eslint-config-airbnb": "^19.0.2",
     "html-entities": "^2.1.0",
     "mustache": "^4.1.0",
     "react": "^17.0.1",
@@ -56,5 +61,8 @@
   "engines": {
     "node": "^12.0.0",
     "npm": "^6.0.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }

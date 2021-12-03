@@ -1,0 +1,17 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx lint-staged
+
+# Get the changed files
+DIFF_FILES=$(git diff HEAD --name-only '*.md')
+echo $DIFF_FILES
+
+if [ -z "$DIFF_FILES" ]
+then
+      echo "No md files changed"
+else
+    # Vale 
+      vale --config=./.vale.ini $DIFF_FILES
+fi
+
