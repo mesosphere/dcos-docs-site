@@ -7,7 +7,8 @@
     "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
     "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia node index.js",
     "webpack": "webpack --progress --colors",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "patch-package"
   },
   "author": "D2iQ",
   "devDependencies": {
@@ -40,8 +41,12 @@
     "mkdirp": "^0.5.1",
     "ngindox": "^0.2.0",
     "node-sass": "^4.5.3",
+    "patch-package": "6.4.7",
     "postcss-loader": "^2.0.6",
     "pug": "^3.0.1",
+    "remark-cli": "10.0.1",
+    "remark-lint-no-dead-urls": "1.1.0",
+    "remark-validate-links": "11.0.2",
     "sanitize-html": "^1.14.1",
     "sass-loader": "^6.0.6",
     "semver": "^7.3.2",
@@ -63,6 +68,16 @@
     "npm": "^6.0.0"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix"
+    "*.js": "eslint --cache --fix",
+    "*.md": [
+      "vale --config=./.vale.ini",
+      "remark --quiet --frail"
+    ]
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-validate-links",
+      "remark-lint-no-dead-urls"
+    ]
   }
 }

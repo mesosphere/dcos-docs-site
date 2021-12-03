@@ -1,0 +1,13 @@
+diff --git a/node_modules/remark-validate-links/lib/find/find-references.js b/node_modules/remark-validate-links/lib/find/find-references.js
+index c5e0d35..242a9ac 100644
+--- a/node_modules/remark-validate-links/lib/find/find-references.js
++++ b/node_modules/remark-validate-links/lib/find/find-references.js
+@@ -34,7 +34,7 @@ const lineExpression = /^#l\d/i
+ 
+ // List from: https://github.com/github/markup#markups
+ const readmeExtensions = new Set(['.markdown', '.mdown', '.mkdn', '.md'])
+-const readmeBasename = /^readme$/i
++const readmeBasename = /^readme|index$/i
+ 
+ /**
+  * @param {{tree: Root, file: VFile, fileSet?: FileSet, options: Options}} ctx
