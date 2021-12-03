@@ -37,6 +37,26 @@ Scroll down to the **Foundational** section, and select the "Deploy" button.
 
 After this, you can deploy different applications through the UI.
 
+### Create Custom Catalog GitRepositories on attached clusters
+
+To add custom catalog applications to a Project, a GitRepository pointing to the catalog Git repository **must be also created on each attached cluster in the Project**. Follow the steps on the [Create a Git Repository][project-custom-applications-git-repo] page, but apply the same commands on each attached cluster that is in the Project.
+
+```sh
+kubectl apply -f - <<EOF
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: example-repo
+  namespace: <project-namespace>
+spec:
+  interval: 1m0s
+  ref:
+    branch: <your-target-branch-name> # e.g., main
+  timeout: 20s
+  url: https://github.com/<example-org>/<example-repo>
+EOF
+```
+
 ### Create cert-manager resources on clusters with cert-manager pre-installed prior to attaching them
 
 If you are attaching a cluster that already has `cert-manager` installed, you need to manually create some cert-manager resources prior to attaching your cluster.
@@ -164,3 +184,4 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [attach-cluster]: ../clusters/attach-cluster#attaching-a-cluster
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
+[project-custom-applications-git-repo]: ../projects/applications/catalog-applications/custom-applications/add-create-git-repo
