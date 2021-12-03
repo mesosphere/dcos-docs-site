@@ -23,12 +23,13 @@
     "debug": "^3.1.0",
     "eslint": "^8.3.0",
     "extract-text-webpack-plugin": "^2.1.2",
-    "husky": "^7.0.4",
+    "husky": "7.0.4",
     "js-yaml": "^3.9.1",
     "lint-staged": "^12.1.2",
     "markdown-it": "^12.0.4",
     "markdown-it-anchor": "^4.0.0",
     "markdown-it-attrs": "^1.2.1",
+    "markdownlint-cli": "0.30.0",
     "metalsmith": "^2.3.0",
     "metalsmith-assets": "^0.1.0",
     "metalsmith-data-loader": "^1.1.2",
@@ -71,7 +72,8 @@
     "*.js": "eslint --cache --fix",
     "*.md": [
       "vale --config=./.vale.ini",
-      "remark --quiet --frail"
+      "remark --quiet --frail",
+      "markdownlint --ignore node_modules"
     ]
   },
   "remarkConfig": {
