@@ -11,24 +11,33 @@ beta: false
 
 You can evaluate Kommander running two clusters, the Kommander host cluster and one additional cluster, for free. If you want to add more clusters, you need a valid license.
 
-To obtain a valid Kommander license, contact your sales representative at <sales@d2iq.com>. After purchase, download the license file from the [support website][support-downloads] using your [login credentials][support-creds] to a place accessible by Kommander.
+To obtain a valid Kommander license:
+
+-   Contact your sales representative at <sales@d2iq.com>. After purchase download the license file from the [support website][support-downloads] using your login credentials to a place accessible by Kommander.
+
+-   Purchase a license via the AWS Marketplace. In this case, the license information (ARN) is accessible in the AWS License Manager console after purchase.
 
 ## Enter a Valid License Key
 
-After you have downloaded the license, an administrator must add it to Kommander.
+After you download the license, an administrator must add it to Kommander.
 
 In the Kommander UI, do the following:
 
-1. Select **Global** in the workspace header drop-down.
-1. In the side menu, select **Administration** > **Licensing**.
-1. Select **+ Add License**.
-1. Paste your license content in the textbox and select **Add**.
+1.  Select **Global** in the workspace header drop-down.
 
-If there is an error submitting the license, you can add the license directly through `kubectl`.
+1.  In the sidebar menu, select **Administration** > **Licensing**.
 
-## Entering a valid license via kubectl
+1.  Select **+ Add License** to enter the Add License form.
 
-You can add a license directly using `kubectl`.
+1.  On the Add License form page, select D2iQ or AWS Marketplace depending on where you acquired your license.
+
+1.  Paste your license content in the textbox and select **Save**.
+
+If there is an error submitting a license acquired directly from D2iQ, you can add the license directly through `kubectl`.
+
+## Enter a license via kubectl
+
+You can add a license acquired from D2iQ directly using `kubectl`.
 
 1.  Create a secret, replacing `MY_LICENSE` in the below command with your D2iQ-provided Kommander license:
 
@@ -56,9 +65,23 @@ In the above example, your license is named 'my-license'.
 
 You should then be able to return to the license page in the UI to see your valid license display.
 
-## Delete a license
+## Remove a license
 
-To delete a license from Kommander, you have to delete the `Secret` and `License` objects. In this example, the secret is named "my-license-secret".
+If your license information has changed, you may need to remove an existing license from Kommander in order to add a new one. Only administrators will have the ability to remove licenses.
+
+<p class="message--note"><strong>NOTE: </strong>Original license information can still be obtained from D2iQ or the AWS License Manager console even after removing from Kommander.</p>
+
+In the Kommander UI, do the following:
+
+1.  Select **Global** in the workspace header drop-down.
+
+1.  In the sidebar menu, select **Administration** > **Licensing**.
+
+1.  Your existing licenses will be listed. Click **Remove License** on the license you would like to remove, and follow the prompts.
+
+### Manually remove a license using kubectl
+
+To remove a license from Kommander using `kubectl`, you have to delete the `Secret` and `License` objects. In this example, the secret is named "my-license-secret".
 
 1.  Validate that the secret exists in the `kommander` namespace:
 
@@ -145,7 +168,7 @@ To delete a license from Kommander, you have to delete the `Secret` and `License
     license.kommander.mesosphere.io "my-license" deleted
     ```
 
-You have now successfully deleted a license.
+You have now successfully removed a license.
 
 [support-downloads]: https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads
 [support-creds]: https://support.d2iq.com/hc/en-us
