@@ -57,51 +57,6 @@ pipeline {
             }
           }
         }
-
-        stage("Sync") {
-          steps {
-            withCredentials([string(credentialsId: "d146870f-03b0-4f6a-ab70-1d09757a51fc", variable: "GITHUB_TOKEN")]) {
-              sshagent(credentials : ['4ff09dce-407b-41d3-847a-9e6609dd91b8']) {
-                sh '''#!/bin/bash
-                  set -euxo pipefail
-
-                  ##### ENHANCE ON SHALLOW REPO
-
-                  git config user.name "Docs Bot"
-                  git config user.email "docs-bot@d2iq.com"
-                  git remote set-url origin git@github.com:mesosphere/dcos-docs-site.git
-                  git remote set-branches origin '*'
-                  git fetch -v
-                  git checkout -t origin/develop || git checkout develop || echo "on develop"
-
-
-                  ##### REBASE DEVELOP ON PRODUCTION
-                  ./ci/rebase.sh develop main
-
-                  ##### CREATE SYNC PRS
-                  apk add curl curl-dev rsync --no-cache
-
-                  ##### Konvoy
-                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.1 pages/dkp/konvoy/2.1 main
-                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site release-2.0 pages/dkp/konvoy/2.0 main
-                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.8 pages/dkp/konvoy/1.8 main
-                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.7 pages/dkp/konvoy/1.7 main
-                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.6 pages/dkp/konvoy/1.6 main
-
-                  ##### Kommander
-                  ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.1 pages/dkp/kommander/2.1 main
-                  ./ci/pull-upstream.sh mesosphere/kommander docs/site release-2.0 pages/dkp/kommander/2.0 main
-
-                  ##### Next
-                  mkdir -p pages/dkp/konvoy/2.2
-                  ./ci/pull-upstream.sh mesosphere/konvoy2 docs/site main pages/dkp/konvoy/2.2 develop
-                  mkdir -p pages/dkp/kommander/2.2
-                  ./ci/pull-upstream.sh mesosphere/kommander docs/site main pages/dkp/kommander/2.2 develop
-                '''
-              }
-            }
-          }
-        }
       }
     }
   }
