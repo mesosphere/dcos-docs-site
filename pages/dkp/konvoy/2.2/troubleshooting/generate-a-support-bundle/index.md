@@ -26,13 +26,13 @@ Before generating a support bundle, verify that you have:
     For Linux:
 
     ```sh
-    mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.0_linux_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
+    mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.2_linux_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
     ```
 
     For macOS:
 
     ```sh
-    mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.0_darwin_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
+    mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.2_darwin_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
     ```
 
 1.  Add the binary to your PATH:
@@ -199,8 +199,8 @@ The fallback collector runs a bash script over SSH and copies the collected data
 
 Redactors are supported and are in the same format as the main `dkp-diagnose` command. Per node collection timeouts are supported using the `--timeout` parameter.
 
-[dkp-diagnostics-darwin]: https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.1_darwin_amd64.tar.gz
-[dkp-diagnostics-linux]: https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.1_linux_amd64.tar.gz
+[dkp-diagnostics-darwin]: https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.2_darwin_amd64.tar.gz
+[dkp-diagnostics-linux]: https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.2_linux_amd64.tar.gz
 [troubleshoot-collectors]: https://troubleshoot.sh/docs/collect/all/
 [clusterInfo-collector]: https://troubleshoot.sh/docs/collect/cluster-info/
 [clusterResources-collector]: https://troubleshoot.sh/docs/collect/cluster-resources/

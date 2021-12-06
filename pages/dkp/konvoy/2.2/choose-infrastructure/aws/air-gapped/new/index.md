@@ -10,6 +10,17 @@ enterprise: false
 
 ## Create a new AWS Kubernetes cluster in an existing infrastructure
 
+When you use existing infrastructure, DKP does _not_ create, modify, or delete the following AWS resources:
+
+- Internet Gateways
+- NAT Gateways
+- Routing tables
+- Subnets
+- VPC
+- VPC Endpoints (for subnets without NAT Gateways)
+
+<p class="message--note"><strong>NOTE: </strong>An AWS subnet has Network ACLs that can control taffic in and out of the subnet. DKP does not modify the Network ACLs of an existing subnet. DKP uses Security Groups to control traffic. If a Network ACL denies traffic that is allowed by DKP-managed Security Groups, the cluster may not work correctly.</p>
+
 1.  Set the environment variable to the name you assigned this cluster:
 
     ```sh
