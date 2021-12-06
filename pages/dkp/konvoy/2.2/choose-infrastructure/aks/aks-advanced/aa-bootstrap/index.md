@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Bootstrap
-title: Bootstrap
+navigationTitle: AKS Bootstrap
+title: AKS Bootstrap
 menuWeight: 15
-excerpt: Prepare to deploy Kubernetes clusters
+excerpt: Prepare to deploy Kubernetes clusters for AKS
 enterprise: false
 ---
 
@@ -13,7 +13,7 @@ To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) contr
 
 Before you begin, you must:
 
-- Complete the steps in [Prerequisites][prerequisites].
+- Complete the steps in [Prerequisites][aa-prerequisites].
 - Ensure the `dkp` binary can be found in your $PATH.
 
 ## Bootstrap Cluster Lifecycle Services
@@ -26,7 +26,7 @@ Before you begin, you must:
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
-    ```sh
+    ```text
     INFO[2021-08-25T13:43:50-32:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:143"
     INFO[2021-08-25T13:43:52-07:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:96"
     INFO[2021-08-25T13:44:29-07:00] Created bootstrap controllers                 src="bootstrap/controllers.go:101"
@@ -50,7 +50,6 @@ Before you begin, you must:
     Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
 
     - [Core Provider][capi]
-    - [AWS Infrastructure Provider][capa]
     - [Kubeadm Bootstrap Provider][cabpk]
     - [Kubeadm ControlPlane Provider][kcp]
 
@@ -116,11 +115,14 @@ Before you begin, you must:
 
     Konvoy defines the selectors and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_caep].
 
+When complete, you can [create the new cluster][aa-new].
+
+[aa-new]: ../aa-new
+[aa-prerequisites]: ../aa-prerequisites
 [install_docker]: https://docs.docker.com/get-docker/
 [install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
-[capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+[capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/tree/v0.6.6/
 [kind]: https://github.com/kubernetes-sigs/kind
 [capi_book]: https://cluster-api.sigs.k8s.io/
 [calico]: https://docs.projectcalico.org/
@@ -128,4 +130,3 @@ Before you begin, you must:
 [kcp]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/controlplane/kubeadm
 [cabpk]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/bootstrap/kubeadm
 [clusterresourceset_caep]: https://github.com/kubernetes-sigs/cluster-api/blob/master/docs/proposals/20200220-cluster-resource-set.md
-[prerequisites]: ../prerequisites

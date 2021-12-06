@@ -1,132 +1,41 @@
 ---
 layout: layout.pug
-navigationTitle: Create a New Cluster
-title: Create a New Cluster
+navigationTitle: Create a New AKS Cluster
+title: Create a New AKS Cluster
 menuWeight: 20
-excerpt: Use Konvoy to create a new Kubernetes cluster
+excerpt: Use Konvoy to create a new AKS cluster
 enterprise: false
 ---
 
-## Prerequisites
-
-- Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
-
-## Name your cluster
-
-1.  Give your cluster a unique name suitable for your environment.
-
-    In AWS it is critical that the name is unique, as no two clusters in the same AWS account can have the same name.
-
-1.  Set the environment variable:
-
-    ```sh
-    CLUSTER_NAME=my-aws-cluster
-    ```
-
-## Tips and Tricks
-
-1.  To get a list of names used in your AWS account, use the `aws` [CLI][download_aws_cli]. After downloading, use the following command:
-
-    ```sh
-    aws ec2 describe-vpcs --filter "Name=tag-key,Values=kubernetes.io/cluster" --query "Vpcs[*].Tags[?Key=='kubernetes.io/cluster'].Value | sort(@[*][0])"
-    ```
-
-    ```json
-    [
-        "alex-aws-cluster-afe98",
-        "sam-aws-cluster-8if9q"
-    ]
-    ```
-
-1.  To create a cluster name that's unique, use the following command:
-
-    ```sh
-    CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
-    echo $CLUSTER_NAME
-    ```
-
-    ```text
-    hunter-aws-cluster-pf4a3
-    ```
-
-    This will create a unique name every time you run it, so use it with forethought.
-
-1.  Set the environment variable to the name you assigned this cluster:
-
-    ```sh
-    CLUSTER_NAME=my-aws-cluster
-    ```
+Before you start, make sure you have completed the steps in [Bootstrap][bootstrap].
 
 ## Create a new AWS Kubernetes cluster
 
-1.  Ensure your AWS credentials are up to date. Refresh the credentials:
+1.  Set the environment variable to a name for this cluster.
 
     ```sh
-    dkp update bootstrap credentials aws
+    CLUSTER_NAME=my-aks-cluster
     ```
 
-1.  Generate the Kubernetes cluster objects:
+    See [Get Started with AKS](../../aks-quickstart) for information on naming your cluster.
 
-    ```sh
-    dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
-    --dry-run \
-    --output=yaml \
-    > ${CLUSTER_NAME}.yaml
-    ```
+1.  Inspecting or editing the cluster objects:
 
-1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy:
+    Use your favorite editor.
 
-    ```sh
-    export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
-    export CONTROL_PLANE_HTTPS_PROXY=http://example.org:8080
-    export CONTROL_PLANE_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.elb.amazonaws.com"
-
-    export WORKER_HTTP_PROXY=http://example.org:8080
-    export WORKER_HTTPS_PROXY=http://example.org:8080
-    export WORKER_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.elb.amazonaws.com"
-    ```
-
-    - Replace `example.org,example.com,example.net` with you internal addresses
-    - `localhost` and `127.0.0.1` addesses should not use the proxy
-    - `10.96.0.0/12` is the default Kubernetes service subnet
-    - `192.168.0.0/16` is the default Kubernetes pod subnet
-    - `kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local` is the internal Kubernetes kube-apiserver service
-    - `.svc,.svc.cluster,.svc.cluster.local` is the internal Kubernetes services
-    - `169.254.169.254` is the AWS metadata server
-    - `.elb.amazonaws.com` is for the worker nodes to allow them to communicate directly to the kube-apiserver ELB
-
-1.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
-
-    ```sh
-    dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
-    --control-plane-http-proxy="${CONTROL_PLANE_HTTP_PROXY}" \
-    --control-plane-https-proxy="${CONTROL_PLANE_HTTPS_PROXY}" \
-    --control-plane-no-proxy="${CONTROL_PLANE_NO_PROXY}" \
-    --worker-http-proxy="${WORKER_HTTP_PROXY}" \
-    --worker-https-proxy="${WORKER_HTTPS_PROXY}" \
-    --worker-no-proxy="${WORKER_NO_PROXY}" \
-    --dry-run \
-    --output=yaml \
-    > ${CLUSTER_NAME}.yaml
-    ```
-
-1.  Inspect or edit the cluster objects:
-
-    <p class="message--note"><strong>NOTE: </strong>Familiarize yourself with Cluster API before editing the cluster objects as edits can prevent the cluster from deploying successfully.</p>
+    <p class="message--note"><strong>NOTE: </strong>Editing the cluster objects requires some understanding of Cluster API. Edits can prevent the cluster from deploying successfully.</p>
 
     The objects are [Custom Resources][k8s_custom_resources] defined by Cluster API components, and they belong in three different categories:
 
     1.  Cluster
 
-        A _Cluster_ object has references to the infrastructure-specific and control plane objects. Because this is an AWS cluster, there is an _AWSCluster_ object that describes the infrastructure-specific cluster properties. Here, this means the AWS region, the VPC ID, subnet IDs, and security group rules required by the Pod network implementation.
+        A _Cluster_ object has references to the infrastructure-specific and control plane objects.
 
     1.  Control Plane
 
-        A _KubeadmControlPlane_ object describes the control plane, which is the group of machines that run the Kubernetes control plane components, which include the etcd distributed database, the API server, the core controllers, and the scheduler. The object describes the configuration for these components. The object also has a reference to an infrastructure-specific object that describes the properties of all control plane machines. Here, it references an _AWSMachineTemplate_ object, which describes the instance type, the type of disk used, and the size of the disk, among other properties.
-
     1.  Node Pool
 
-        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (e.g., kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and an _AWSMachineTemplate_ object, which describes the instance type, the type of disk used, the size of the disk, among other properties.
+        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (e.g., kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_.
 
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
@@ -137,13 +46,13 @@ enterprise: false
     ```
 
     ```sh
-    cluster.cluster.x-k8s.io/aws-example created
-    awscluster.infrastructure.cluster.x-k8s.io/aws-example created
-    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/aws-example-control-plane created
-    awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-control-plane created
-    machinedeployment.cluster.x-k8s.io/aws-example-mp-0 created
-    awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-mp-0 created
-    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-mp-0 created
+    cluster.cluster.x-k8s.io/my-aks-cluster created
+    awscluster.infrastructure.cluster.x-k8s.io/my-aks-cluster created
+    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/my-aks-cluster-control-plane created
+    awsmachinetemplate.infrastructure.cluster.x-k8s.io/my-aks-cluster-control-plane created
+    machinedeployment.cluster.x-k8s.io/my-aks-cluster-mp-0 created
+    awsmachinetemplate.infrastructure.cluster.x-k8s.io/my-aks-cluster-mp-0 created
+    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/my-aks-cluster-mp-0 created
     ```
 
 1.  Wait for the cluster control-plane to be ready:
@@ -156,9 +65,9 @@ enterprise: false
     cluster.cluster.x-k8s.io/aws-example condition met
     ```
 
-    The `READY` status becomes `True` after the cluster control-plane becomes ready in one of the following steps.
+    The `READY` status will become `True` after the cluster control-plane becomes ready. You can follow along in the following steps.
 
-1.  After the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
+1.  Once the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
 
     ```sh
     dkp describe cluster -c ${CLUSTER_NAME}
@@ -166,12 +75,12 @@ enterprise: false
 
     ```text
     NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
-    /aws-example                                                    True                     35s
-    ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
-    ├─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     36s
+    /my-aks-cluster                                                    True                     35s
+    ├─ClusterInfrastructure - AKSCluster/my-aks-cluster                True                     4m47s
+    ├─ControlPlane - KubeadmControlPlane/my-aks-cluster-control-plane  True                     36s
     │   └─3 Machine...                                              True                     4m20s
     └─Workers
-        └─MachineDeployment/aws-example-md-0
+        └─MachineDeployment/my-aks-cluster-md-0
     ```
 
 1.  As they progress, the controllers also create Events. List the Events using this command:
@@ -180,7 +89,7 @@ enterprise: false
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 
-    For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AWSCluster"` and `kubectl get events --field-selector involvedObject.kind="AWSMachine"`.
+    For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AKSCluster"` and `kubectl get events --field-selector involvedObject.kind="AKSMachine"`.
 
     ```text
     7m26s       Normal    SuccessfulSetNodeRef                            machine/aws-example-control-plane-2wb9q      ip-10-0-182-218.us-west-2.compute.internal
@@ -252,7 +161,9 @@ enterprise: false
 - Konvoy generates a set of objects for one Node Pool.
 - Konvoy does not validate edits to cluster objects.
 
-[bootstrap]: ../bootstrap
+When complete, you can [explore the new cluster][aa-explore].
+
+[aa-explore]: ../aa-explore
 [capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
-[download_aws_cli]: https://aws.amazon.com/cli/
 [k8s_custom_resources]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
+[bootstrap]: ../aa-bootstrap
