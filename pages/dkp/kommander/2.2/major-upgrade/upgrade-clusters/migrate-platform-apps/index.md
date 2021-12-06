@@ -7,25 +7,21 @@ excerpt: Adapt Konvoy addons to Kommander
 beta: false
 ---
 
-In previous versions of Konvoy, D2IQ provided a set of predefined, pre-configured open source applications. These applications provided a better environment for your installation. These applications were referred to as _Kubernetes Based Addons (KBAs)_. The architecture and terminology has now changed. Konvoy no longer has _KBAs_. These are now stored and managed through Kommander and are known as _platform applications_.
+<!-- markdownlint-disable MD0013 MD030 MD0034 -->
 
-<p class="message--note"><strong>NOTE: </strong>Kubernetes distributions contain their own set of _addons_. These _addons_ are not part of the adaptation process.</p>
+In previous versions of Konvoy, you used _Kubernetes Based Addons (KBAs)_ which are now managed through Kommander and are known as _platform applications_.
 
-This command automatically adapts your Konvoy addons to Kommander platform applications. Certain applications may need [manual configuration changes](./prepare-apps) prior to adapting.
+This section automatically adapts your Konvoy addons to Kommander platform applications. Certain applications may need [manual configuration changes](./prepare-apps) prior to adapting.
+
+<p class="message--note"><strong>NOTE: </strong>Kubernetes distributions contain their own set of <i>addons</i>. These <i>addons</i> are not part of the adoption process.</p>
 
 ## Prerequisites
 
-To successfully adapt your applications you must have the following configurations:
+To successfully adapt your applications, you must have:
 
-- A Konvoy 1.8 cluster.
+-   A Konvoy 1.8.3 cluster that has already been [upgraded to DKP 2.1](https://docs.d2iq.com/dkp/konvoy/2.1/major-version-upgrade/), with the kommander addon disabled in your cluster.yaml.
 
-<p class="message--note"><strong>NOTE: </strong>On your Konvoy cluster ensure that Kommander is not running. The <code>kommander</code> addon must not be enabled in your <code>cluster.yaml</code> file.</p>
-
-- The Kommander CLI binary installed on your computer. Refer to the **Download** topic to install Kommander.
-
-<!-- Put link to download here. -->
-
-<p class="message--note"><strong>NOTE: </strong>For the adaption to complete successfully, Kommander must NOT be running.</p>
+-   [Download](../../../download) and install the Kommander CLI binary on your computer.
 
 ## Prepare your cluster
 
@@ -127,9 +123,7 @@ If none of the conditions apply to your cluster, then you can skip to next secti
 
 ## Move your applications
 
-The following step describes how to adapt your existing platform applications to Kommander.
-
-Enter the following command to start the adaption process:
+To adapt your existing platform applications to Kommander enter the following command:
 
 ```sh
 kommander migrate -y
@@ -200,12 +194,9 @@ velero
 
 Refer to the [Verify installation](../../../install/networked#verify-installation) topic to ensure successfull completion.
 
-## Optional post-upgrade cleanup
+## Post-upgrade cleanup
 
-If you had certain applications installed, upgrade might leave Kubernetes
-objects that belonged to Konvoy but are not used by Kommander. While you can
-safely disregard these objects, you should not arbitrarily remove or modify
-them, or use third-party tools (like Helm) that expect these objects to be
+Depending on what Konvoy addons you had configured, the upgrade may leave Kubernetes objects behind that belonged to Konvoy, but are not used by Kommander. While you can safely disregard these objects, you should not arbitrarily remove or modify them, or use third-party tools (like Helm) that expect these objects to be
 in a correct state against these objects.
 
 If you want to clean these objects up, you need to perform

@@ -45,24 +45,35 @@ If the proxy is working for HTTP and HTTPS, respectively, the `curl` command ret
 
 Gatekeeper acts as a [Kubernetes mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook). You can use this to mutate the Pod resources with `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` environment variables.
 
-Enable Gatekeeper in the configuration file:
+Kommander installs with a dedicated CLI.
 
-1. Kommander installs with a dedicated CLI.
-
-1. Create an installation configuration file:
+1. Create (if necessary) and update the Kommander installation config file. If one does not already exist, then create it using the following commands:
 
     ```bash
-    kommander install --init > install.yaml
+    ./kommander install --init > install.yaml
     ```
 
-1. Adapt the configuration file for installing `gatekeeper` by adding the `.apps.gatekeeper` field:
+1. Append the `apps` section in `install.yaml` with the following values to enable Gatekeeper and configure it to add HTTP proxy settings to the pods.
+
+    <p class="message--note"><strong>NOTE: </strong>Only pods created after applying this setting will be mutated. Also, this will only impact pods in the namespace with the <code>"gatekeeper.d2iq.com/mutate=pod-proxy"</code> label.</p>
 
     ```yaml
     apps:
-      gatekeeper: null
+      gatekeeper:
+        values: |
+          mutations:
+            enable: true
+            enablePodProxy: true
+            podProxySettings:
+              noProxy: "127.0.0.1,192.168.0.0/16,10.0.0.0/16,10.96.0.0/12,169.254.169.254,169.254.0.0/24,localhost,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,.svc.cluster.local.,kubecost-prometheus-server.kommander,logging-operator-logging-fluentd.kommander.svc,elb.amazonaws.com"
+              httpProxy: "http://proxy.company.com:3128"
+              httpsProxy: "http://proxy.company.com:3128"
+            excludeNamespacesFromProxy: []
+            namespaceSelectorForProxy:
+              "gatekeeper.d2iq.com/mutate": "pod-proxy"
     ```
 
-1. You can create a `kommander` namespace, or the namespace where Kommander will be installed, and then label it such that Gatekeeper mutation is active on the namespace.
+1. You can create a `kommander` namespace, or the namespace where Kommander will be installed, and then label it such that the Gatekeeper mutation is active on the namespace.
 
     ```bash
     kubectl create namespace kommander
@@ -72,34 +83,8 @@ Enable Gatekeeper in the configuration file:
 1. Install Kommander using the above configuration file:
 
     ```bash
-    kommander install --installer-config ./install.yaml
+    ./kommander install --installer-config ./install.yaml
     ```
-
-Create the `gatekeeper-overrides` configmap in the `kommander` namespace as described in [this](#create-gatekeeper-configmap-in-workspace-namespace) section before proceeding to [installing Kommander](../networked#install-on-konvoy).
-
-## Enable Gatekeeper for attached clusters
-
-To enable Gatekeeper installation in attached clusters, create the following overrides configmap on the host cluster:
-
-```yaml
-cat << EOF | kubectl apply -f -
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  annotations:
-  name: kommander-0.1.0-overrides
-  namespace: kommander
-data:
-  values.yaml: |
-    ---
-    attached:
-      prerequisites:
-        gatekeeper:
-          enabled: true
-EOF
-```
-
-This ensures that Gatekeeper is deployed in attached clusters.
 
 # Configure Workspace (or Project) in which you want to use proxy
 
@@ -113,7 +98,7 @@ labels:
 This can be done when creating the Workspace (or Project) from the UI OR by running the following command from the CLI once the namespace is created:
 
 ```bash
-kubectl label namespace <WORKSPACE_NAMESPACE> "gatekeeper.d2iq.com/mutate=pod-proxy"
+kubectl label namespace <NAMESPACE> "gatekeeper.d2iq.com/mutate=pod-proxy"
 ```
 
 ## Configure attached clusters with proxy configuration
@@ -123,14 +108,14 @@ In order to ensure that Gatekeeper is deployed before everything else in the att
 Execute the following command in the attached cluster before attaching it to the host cluster:
 
 ```bash
-kubectl create namespace <WORKSPACE_NAMESPACE>
+kubectl create namespace <NAMESPACE>
 ```
 
 Then, to configure the pods in this namespace to use proxy configuration, create the `gatekeeper-overrides` configmap described in the next section before attaching the cluster to the host cluster. You must label the workspace with `gatekeeper.d2iq.com/mutate=pod-proxy` when creating it so that Gatekeeper deploys a `validatingwebhook` to mutate the pods with proxy configuration.
 
 ## Create Gatekeeper configmap in Workspace namespace
 
-To configure Gatekeeper such that these environment variables are mutated in the pods, create the following configmap in target Workspace:
+To configure Gatekeeper such that these environment variables are mutated in the pods, create the following configmap in the target Workspace:
 
 ```bash
 export NAMESPACE=<workspace-namespace>
@@ -151,7 +136,7 @@ data:
       enable: true
       enablePodProxy: true
       podProxySettings:
-        noProxy: "127.0.0.1,192.168.0.0/16,10.0.0.0/16,10.96.0.0/12,localhost,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,.svc.cluster.local.,kubecost-prometheus-server.kommander,logging-operator-logging-fluentd.kommander.svc,elb.amazonaws.com"
+        noProxy: "127.0.0.1,192.168.0.0/16,10.0.0.0/16,10.96.0.0/12,169.254.169.254,169.254.0.0/24,localhost,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,.svc.cluster.local.,kubecost-prometheus-server.kommander,logging-operator-logging-fluentd.kommander.svc,elb.amazonaws.com"
         httpProxy: "http://proxy.company.com:3128"
         httpsProxy: "http://proxy.company.com:3128"
       excludeNamespacesFromProxy: []
@@ -176,6 +161,7 @@ Set the `httpProxy` and `httpsProxy` environment variables to the address of the
         </ul>
       </li>
       <li>Kubernetes Service addresses (e.g., <code>10.96.0.0/12</code>, <code>kubernetes</code>, <code>kubernetes.default</code>, <code>kubernetes.default.svc</code>, <code>kubernetes.default.svc.cluster</code>, <code>kubernetes.default.svc.cluster.local</code>, <code>.svc</code>, <code>.svc.cluster</code>, <code>.svc.cluster.local</code>, <code>.svc.cluster.local.</code>)</li>
+      <li>Auto-IP addresses <code>169.254.169.254,169.254.0.0/24</code></li>
   </ul>
   In addition to above, following are needed when installing on AWS:
   <ul>
@@ -200,7 +186,7 @@ In a default installation with `gatekeeper` enabled, you can have proxy environm
 
 No further manual changes are required.
 
-<p class="message--important"><strong>IMPORTANT:</strong> If Gatekeeper is not installed, and you need to use a http proxy you must manually configure your applications as described further in this section. </p>
+<p class="message--important"><strong>IMPORTANT:</strong> If Gatekeeper is not installed, and you need to use an HTTP proxy you must manually configure your applications as described further in this section. </p>
 
 ## Manually configure your application
 
@@ -220,7 +206,7 @@ spec:
     - name: HTTPS_PROXY
       value: "http://proxy.company.com:3128"
     - name: NO_PROXY
-      value: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,.svc.cluster.local."
+      value: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,169.254.0.0/24,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,.svc.cluster.local."
 ```
 
 See [Define Environment Variables for a Container](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/#define-an-environment-variable-for-a-container) for more details.

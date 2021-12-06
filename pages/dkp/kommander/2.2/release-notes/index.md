@@ -37,6 +37,26 @@ Scroll down to the **Foundational** section, and select the "Deploy" button.
 
 After this, you can deploy different applications through the UI.
 
+### Create Custom Catalog GitRepositories on attached clusters
+
+To add custom catalog applications to a Project, a GitRepository pointing to the catalog Git repository **must be also created on each attached cluster in the Project**. Follow the steps on the [Create a Git Repository][project-custom-applications-git-repo] page, but apply the same commands on each attached cluster that is in the Project.
+
+```sh
+kubectl apply -f - <<EOF
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: example-repo
+  namespace: <project-namespace>
+spec:
+  interval: 1m0s
+  ref:
+    branch: <your-target-branch-name> # e.g., main
+  timeout: 20s
+  url: https://github.com/<example-org>/<example-repo>
+EOF
+```
+
 ### Create cert-manager resources on clusters with cert-manager pre-installed prior to attaching them
 
 If you are attaching a cluster that already has `cert-manager` installed, you need to manually create some cert-manager resources prior to attaching your cluster.
@@ -122,30 +142,30 @@ You can now purchase a license for Konvoy or Kommander through the AWS Marketpla
 
 The following services and service components have been upgraded to the listed version:
 
-- centralized-grafana: 17.2.1
-- centralized-kubecost: 0.20.0
+- centralized-grafana: 18.1.1
+- centralized-kubecost: 0.20.2
 - cert-manager: 0.2.7
 - dex: 2.20.5
 - external-dns: 2.20.5
 - fluent-bit: 0.16.2
 - gatekeeper: 0.6.8
-- grafana-logging: 6.13.9
+- grafana-logging: 6.16.14
 - grafana-loki: 0.33.1
 - istio: 1.9.1
 - jaeger: 2.21.0
 - karma: 2.0.0
 - kiali: 1.29.1
 - kube-oidc-proxy: 0.2.5
-- kube-prometheus-stack: 17.2.1
-- kubecost: 0.20.0
+- kube-prometheus-stack: 18.1.1
+- kubecost: 0.20.2
 - kubefed: 0.8.1
 - kubernetes-dashboard: 5.0.2
 - kubetunnel: 0.0.7
-- logging-operator: 3.13.0
+- logging-operator: 3.15.0
 - metallb: 0.12.2
 - minio-operator: 4.1.7
 - nvidia: 0.4.3
-- project-grafana-logging: 6.13.9
+- project-grafana-logging: 6.16.14
 - project-grafana-loki: 0.33.1
 - project-logging: 1.0.0
 - prometheus-adapter: 2.11.1
@@ -164,3 +184,4 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [attach-cluster]: ../clusters/attach-cluster#attaching-a-cluster
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
+[project-custom-applications-git-repo]: ../projects/applications/catalog-applications/custom-applications/add-create-git-repo
