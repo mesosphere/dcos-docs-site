@@ -24,6 +24,6 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 
 | NAME                           | APP ID                  | Deployed by default |
 | ------------------------------ | ----------------------- | ------------------- |
-| project-grafana-logging-6.13.9 | project-grafana-logging | No                  |
+| project-grafana-logging-6.16.14 | project-grafana-logging | No                  |
 | project-grafana-loki-0.33.1    | project-grafana-loki    | No                  |
 | project-logging-1.0.0          | project-logging         | No                  |
