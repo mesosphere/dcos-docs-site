@@ -8,7 +8,7 @@ The version is defined in Konvoy’s `cluster.yaml` definition when [creating](.
 
 <p class="message--note"><strong>NOTE: </strong>
 When adding the Kubernetes Base Addons (KBA) to your <code>cluster.yaml</code> file, to install or upgrade your addons, ensure you use the argument that corresponds to your Kubernetes version, For example,
-<a href="https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.2.0" target="_blank">stable-1.20-4.2.0</a> would be Kubernetes 1.17.x.</p>
+<a href="https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.3.0" target="_blank">stable-1.20-4.3.0</a> would be Kubernetes 1.17.x.</p>
 
 ```yaml
 kind: ClusterConfiguration
@@ -16,7 +16,7 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.20-4.2.0
+    configVersion: stable-1.20-4.3.0
     addonsList:
     ...
 ```

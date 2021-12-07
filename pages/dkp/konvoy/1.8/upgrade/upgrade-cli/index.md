@@ -53,13 +53,13 @@ After the upgrade command completes, you can start using the new Konvoy version.
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
-It is recommended to upgrade to the newest supported version of Kubernetes. Set `spec.kubernetes.version: 1.20.6` for of kind: ClusterConfiguration.
+It is recommended to upgrade to the newest supported version of Kubernetes. Set `spec.kubernetes.version: 1.20.13` for of kind: ClusterConfiguration.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.20-4.2.0` for of kind: ClusterConfiguration.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.20-4.3.0` for of kind: ClusterConfiguration.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.20-1.4.2` for of kind: ClusterConfiguration.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.20-1.4.3-rc.2` for of kind: ClusterConfiguration.
 
-If you have Dispatch enabled, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-dispatch` to be `configVersion: stable-1.20-1.4.5` for of kind: ClusterConfiguration
+If you have Dispatch enabled, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-dispatch` to be `configVersion: stable-1.20-1.4.6` for of kind: ClusterConfiguration
 
 The version of Konvoy is now `v1.8.3`, set `spec.version: v1.8.3`.
 
@@ -72,20 +72,20 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
-    version: 1.20.11
+    version: 1.20.13
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: stable-1.20-4.2.0
+      configVersion: stable-1.20-4.3.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-      configVersion: stable-1.20-1.4.5
+      configVersion: stable-1.20-1.4.6
       addonsList:
         - name: dispatch
           enabled: true
 ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: stable-1.20-1.4.2
+      configVersion: testing-1.20-1.4.3-rc.2
       addonsList:
         - name: kommander
           enabled: true

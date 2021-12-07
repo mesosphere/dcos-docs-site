@@ -1068,7 +1068,7 @@ The table below lists the third party open source software which is provided by 
 | github.com/golangci | gocyclo | v0.0.0-20180528144436-0a533e8fa43d | [BSD-3-Clause](https://pkg.go.dev/github.com/golangci/gocyclo?tab=licenses) |
 | github.com/golangci | gofmt | v0.0.0-20190930125516-244bba706f1a | [](https://pkg.go.dev/github.com/golangci/gofmt?tab=licenses) |
 | github.com/golangci | ineffassign | v0.0.0-20190609212857-42439a7714cc | [MIT](https://pkg.go.dev/github.com/golangci/ineffassign?tab=licenses) |
-| github.com/golangci | lint-1 | v0.0.0-20191013205115-297bf364a8e0 | [BSD-3-Clause](https://pkg.go.dev/github.com/golangci/lint-1?tab=licenses) |
+| github.com/golangci | lint-1 | v0.0.0-2019101.20.135-297bf364a8e0 | [BSD-3-Clause](https://pkg.go.dev/github.com/golangci/lint-1?tab=licenses) |
 | github.com/golangci | maligned | v0.0.0-20180506175553-b1d89398deca | [BSD-3-Clause](https://pkg.go.dev/github.com/golangci/maligned?tab=licenses) |
 | github.com/golangci | misspell | v0.0.0-20180809174111-950f5d19e770 | [MIT](https://pkg.go.dev/github.com/golangci/misspell?tab=licenses) |
 | github.com/golangci | prealloc | v0.0.0-20180630174525-215b22d4de21 | [MIT](https://pkg.go.dev/github.com/golangci/prealloc?tab=licenses) |
