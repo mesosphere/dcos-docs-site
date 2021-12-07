@@ -40,9 +40,9 @@ We have multiple environments for our documentation to support multiple use case
 
 We use a branching workflow to decide what should be shown on which environment. Specific branches contain different content and deploy to different environments.
 
-- `main` is our primary source of truth and will get deployed to the production environment available at https://docs.d2iq.com/. Use this branch only in the case that you need to make a change to the production version of site (hotfix). Hotfixes will need to be cherry-picked back to our develop branch, so please coordinate with a docs admin.
-- `develop` is our preview environment and the development branch for upstream doc changes not ready for production. Thus, this is our default branch as most work will be in preparation for a forthcoming release. It will be deployed to https://dev-docs.d2iq.com/
-- `beta` is our beta branch and will be deployed to https://beta-docs.d2iq.com/. `develop` will be merged into `beta` when it is time to update this branch.
+- `main` is the primary source of truth and will get deployed to the production environment available at https://docs.d2iq.com/. Use this branch only in the case that you need to make a change to the production version of site (hotfix). Hotfixes will need to be cherry-picked back to our develop branch, so please coordinate with a docs admin.
+- `develop` is a preview environment and the development branch for upstream doc changes not ready for production. Thus, this is our default branch as most work will be in preparation for a forthcoming release. It will be deployed to https://dev-docs.d2iq.com/
+- `beta` is our beta branch and will be deployed to https://beta-docs.d2iq.com/. `develop` will be merged into `beta` upon beta releases.
 
 ```
 o = commit
@@ -57,7 +57,7 @@ main        ------------------o----
 
 ## Useful VSCode extensions
 
-Extensions can make it easier to work within the editor. Open the extensions browser by clicking the Settings Icon in the very lower left of VSCode and choosing `Extensions`, or, as you can see, it has a shortcut.
+Extensions can make it easier to work within the editor. Open the extensions browser by clicking the Settings Icon in the lower left of VSCode and choosing `Extensions`, or, as you can see, it has a shortcut.
 
 ![Settings, Extensions](https://i.imgur.com/0XkNShr.png)
 
@@ -65,7 +65,7 @@ One extension that is often useful is `Gitlens`
 
 ## CVEs
 
-We're publishing CVEs here: https://docs.d2iq.com/dkp/security-updates/. In case you want to update them, run `make update-cves` and commit the now changed file in `assets/cves.json`.
+CVEs are published here: https://docs.d2iq.com/dkp/security-updates/. In case you want to update them, run `make update-cves` and commit the now changed file in `assets/cves.json`.
 
 ## Archive old documentation
 

@@ -5,7 +5,7 @@
 ### TL;DR Common Gotchas
 
 1.  The docs site uses metalsmith markdown rendering, which is similar to but not exactly github flavored markdown (gfm).
-1.  Every folder must have one and only one corresponding index.md file, naming is limited as the folder name becomes part of the link structure, choose wisely.
+1.  Every folder must have one and only one corresponding index.md file, naming is limited as the folder name becomes part of the link structure, choose wisely. Use dashes in folder naming.
 1.  Every index.md file must have the minimum front matter metadata of:
     layout, title, navigationTitle, menuWeight and excerpt.
 
@@ -155,8 +155,8 @@ For example, `/pages/some/directory/index.md` is located at `docs.d2iq.com/some/
 
 ### Create the folder
 
-within the existing structure, give it a title that is meaningful and will show up within the links structure of the published website
-`https://docs.d2iq.com/mesosphere/dcos/2.0/administering-clusters/backup-and-restore/backup-restore-cli/`
+Within the existing structure, give it a title that is meaningful and will show up within the links structure of the published website
+`https://docs.d2iq.com/mesosphere/dcos/2.0/administering-clusters/backup-and-restore/backup-restore-cli/`. Use dashes (kebab-case) in folder naming.
 
 ### Create a single index file for each folder
 
