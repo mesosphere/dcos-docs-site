@@ -29,43 +29,43 @@ This release provides new features and enhancements to improve the user experien
 
 ### New features and capabilities
 
-#### CLI
+#### Networking
 
--
-
-#### Air gapped
-
--
+- Calico has been updated to v3.20.2 to address an issue that prevented container deletion. (COPS-7092)
 
 #### Autoscaling
 
--
+- Fixed an issue installing the auto-provisioning component in an Ubuntu environment. (COPS-7102)
 
-#### vSphere
+#### Air-Gapped
 
--
+- Rhel8 FIPS packages have been updated to produce the necessary SHA256 signatures during installation. (COPS-7066)
+- Users within the system:authenticated group are now able to access group-appropriate URLs. (COPS-7067)
+
+### Bug Fixes
 
 #### Prometheus
 
--
+-  Prometheus addon upgrades now appropriately upgrade the alertmanager CRD.
 
 ### Component versions
 
 - Ansible 2.9.16.0
-- Calico 3.17.3
+- Calico 3.20.2
 - Cluster-autoscaler v0.5.0
 - Containerd v1.4.7
 - Docker v19.03.15
-- kubeaddons-dispatch stable-1.19-1.4.5
-- kubeaddons-kommander stable-1.20-1.4.2
-- kubernetes-base-addons stable-1.20-4.2.0
-- Kubernetes v1.20.11
+- kubeaddons-dispatch stable-1.20-1.4.6
+- kubeaddons-kommander stable-1.20-1.4.3
+- kubernetes-base-addons stable-1.20-4.3.0
+- Kubernetes v1.20.13
 - Kubeaddons v0.26.0
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
 - Terraform v0.13.7
 - Terraform AWS plugin ~> 3.0
 - Terraform Azure plugin ~> 2.31
 - Terraform GCP plugin ~> 3.42
+
 
 ## Additional resources
 
