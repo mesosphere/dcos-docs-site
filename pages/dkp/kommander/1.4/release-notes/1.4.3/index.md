@@ -31,7 +31,6 @@ Kommander provides a command center for all your cloud native management needs i
 
 - Fixed http proxing support in unidirectional environments (COPS-7078).
 
-- Updated Traefik Forward Auth to 3.0.3, pulling in a fix for URL pattern matching.
 
 - Resolved UI issue where socks requests were timing out.
 
