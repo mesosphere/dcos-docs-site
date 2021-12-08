@@ -38,7 +38,7 @@ Before you begin, you must:
 
 To enable Nvidia GPU support when installing Kommander, perform the following steps:
 
-<p class="message--note"><strong>NOTE: </strong>Kommander v2.1 installs with a dedicated CLI.</p>
+<p class="message--note"><strong>NOTE: </strong>Kommander installs with a dedicated CLI.</p>
 
 1. Create an installation configuration file:
 
