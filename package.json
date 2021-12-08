@@ -72,14 +72,8 @@
     "*.js": "eslint --cache --fix",
     "*.md": [
       "vale --config=./.vale.ini",
-      "remark --quiet --frail",
+      "remark --quiet --frail --no-stdout",
       "markdownlint --ignore node_modules"
-    ]
-  },
-  "remarkConfig": {
-    "plugins": [
-      "remark-validate-links",
-      "remark-lint-no-dead-urls"
     ]
   }
 }

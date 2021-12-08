@@ -25,6 +25,8 @@ DC/OS
 dcos
 Dex
 Dispatch
+DKP
+dkp
 Dockerfile
 DKLB
 DSL(|s)
@@ -66,8 +68,11 @@ liveness
 Logstash
 LSTM(|s)
 Luigi
+Makefile
+markdownlint
 Mesos
 Mesosphere
+Metalsmith
 MKE
 ML(|Ops)
 MNIST
