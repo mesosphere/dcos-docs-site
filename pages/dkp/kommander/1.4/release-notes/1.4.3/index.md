@@ -27,7 +27,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 ### Bug fixes
 
-- Fixed an issue where Kommander UI runs out of ports. This monitors ports and forces a restart if it runs out. 
+- Fixed an issue where the Kommander UI could run out of ports.  Kommander UI now monitors port usage and can recover automatically if it runs out. 
 
 - Fixed http proxing support in unidirectional environments (COPS-7078).
 
