@@ -53,7 +53,7 @@ To enable Nvidia GPU support when installing Kommander, perform the following st
       nvidia: null
     ```
 
-1. Install Kommander, using the configuration file you created in the previous step, with this command:
+1. Install Kommander, using the configuration file you created:
 
     ```bash
     kommander install --installer-config ./install.yaml
