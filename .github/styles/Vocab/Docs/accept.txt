@@ -51,6 +51,8 @@ Keras
 keypair
 keyspace
 Kibana
+KIND
+kind
 kmem
 Knative
 Kommander
