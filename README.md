@@ -6,8 +6,9 @@ D2iQ's documentation site uses a JavaScript static site generator called Metalsm
 
 ## Prerequisites
 
-1. Install node.js version ^12.0.0 (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf))
+1. Install node.js version 12.22.7 (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf) or [nvm-windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows))
 1. Clone the repo
+1. Windows users will need to [install python2](https://github.com/nodejs/node-gyp/tree/v3.8.0#on-windows) globally
 1. Install dependencies via command `npm i`
 1. Install [vale](https://docs.errata.ai/vale/install) for pre-commit checks.
 
