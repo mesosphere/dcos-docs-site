@@ -29,7 +29,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 - Fixed an issue where the Kommander UI could run out of ports.  Kommander UI now monitors port usage and can recover automatically if it runs out. 
 
-- Fixed http proxing support in unidirectional environments (COPS-7078).
+- Fixed an issue with attaching clusters with networking restrictions that also use an HTTP Proxy (COPS-7078).
 
 
 - Resolved UI issue where socks requests were timing out.
