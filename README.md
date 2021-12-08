@@ -61,9 +61,9 @@ main        ------------------o----
 
 <!-- markdownlint-enable fenced-code-language -->
 
-## Pre-commit checks
+## Husky pre-commit hook
 
-This repo validates code before committing. It will only lint files that have changed.
+This repo validates code before committing. No additionally tooling needs to be installed. It will only lint files that have changed.
 
 The Docs team introduced these linters in December 2021 and decided not to retroactively apply them to existing files. Thus, _you will encounter errors on files you have changed that you did not introduce_. Please cheerfully address them as best you can!
 
@@ -91,6 +91,17 @@ We highly recommend the following extensions to find linting errors before they 
 
 - https://github.com/errata-ai/vale-vscode#using-vale
 - https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
+
+### Configure the Vale VSCode extension
+
+Because the folder structure is so deeply nested, the Vale VSCode extension has a hard time finding the configuration file. Change your VSCode settings to use the Vale CLI and also to point to the `.vale.ini` folder in the root of this repo:
+
+```json
+{
+  "vale.valeCLI.config": "${workspaceFolder}/.vale.ini",
+  "vale.core.useCLI": true
+}
+```
 
 ## CVEs
 
