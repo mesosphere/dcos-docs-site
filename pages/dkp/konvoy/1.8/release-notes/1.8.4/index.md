@@ -70,8 +70,3 @@ This release provides new features and enhancements to improve the user experien
 ## Additional resources
 
 For information about working with native Kubernetes, see the [Kubernetes documentation](https://kubernetes.io/docs/home/).
-
-[kubernetes-doc](https://kubernetes.io/docs/home/)
-[konvoy-vsphere](/../../install/install-vsphere)
-[konvoy-ccontrol-plane-certificates](/../../networking/control-plane-certificates/)
-[security-groups-configuration](/../../install/install-aws/advanced-provisioning#security-groups)
