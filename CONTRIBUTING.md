@@ -199,4 +199,4 @@ By this time, you should have a tech writer assigned to the PR and they will hav
 
 ### Docs Team will merge your PR
 
-docs builds go live as needed and sometimes multiple times in a day. For hotfixes, please make sure to communicate the reason for escalation to immediate promotion.
+Docs builds go live as needed and sometimes multiple times in a day. For hotfixes, please make sure to communicate the reason for escalation to immediate promotion.
