@@ -44,39 +44,6 @@ Kubernetes assigns this Service an IP address. In particular, the `kube-proxy` i
 The name of a Service object must be a valid DNS label name.
 </p>
 
-## Service Topology
-
-[Service Topology][servicetopology] is a mechanism in Kubernetes to route traffic based upon the Node topology of the cluster.
-As an example, you can configure a Service can be configured to route the traffic to endpoints on specific nodes, or even based on the region or availability zone of the nodes location.
-
-To enable this new feature in your Kubernetes use the feature gates `--feature-gates="ServiceTopology=true,EndpointSlice=true"` flag.
-After the feature is enabled, you can control Service traffic routing by defining the `topologyKeys` field
-in the Service API object.
-
-In the following example, a Service defines `topologyKeys` to be routed to endpoints only in the same
-zone:
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-konvoy-service
-  namespace: default
-spec:
-  selector:
-    app: MyKonvoyApp
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9191
-  topologyKeys:
-    - "topology.kubernetes.io/zone"
-```
-
-<p class="message--note"><strong>NOTE: </strong>
-If the value of the `topologyKeys` field does not match any pattern, the traffic is rejected.
-</p>
-
 ## EndpointSlices
 
 [EndpointSlices][endpointslices] are an API resource that appeared as a scalable and more manageable solution to network endpoints within a Kubernetes cluster.
