@@ -25,7 +25,7 @@ This release provides new features and enhancements to improve the user experien
 | ------------------ | ------- |
 | **Minimum**  | 1.18.x  |
 | **Maximum**  | 1.20.x  |
-| **Default**  | 1.20.11  |
+| **Default**  | 1.20.13  |
 
 ### New features and capabilities
 
@@ -39,7 +39,7 @@ This release provides new features and enhancements to improve the user experien
 
 #### Air-Gapped
 
-- Rhel8 FIPS packages have been updated to produce the necessary SHA256 signatures during installation. (COPS-7066)
+- RHEL 8 FIPS packages have been updated to produce the necessary SHA256 signatures during installation. (COPS-7066)
 - Users within the system:authenticated group are now able to access group-appropriate URLs. (COPS-7067)
 
 ### Bug Fixes
