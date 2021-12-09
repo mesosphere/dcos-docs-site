@@ -6,11 +6,11 @@ D2iQ's documentation site uses a JavaScript static site generator called Metalsm
 
 ## Prerequisites
 
-1. Install node.js version 12.22.7 (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf) or [nvm-windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows))
 1. Clone the repo
+1. Install node.js version 12.22.7 (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf) or [nvm-windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows))
 1. Windows users will need to [install python2](https://github.com/nodejs/node-gyp/tree/v3.8.0#on-windows) globally
 1. Install dependencies via command `npm i`
-1. Install [vale](https://docs.errata.ai/vale/install) for pre-commit checks.
+1. Install [vale](https://docs.errata.ai/vale/install) (an [ASDF plugin](https://github.com/osg/asdf-vale) is also available).
 
 ## Development
 
@@ -63,9 +63,9 @@ main        ------------------o----
 
 ## Husky pre-commit hook
 
-This repo validates code before committing. No additionally tooling needs to be installed. It will only lint files that have changed.
+This repo validates code before committing, without the need for additional tooling to run. It will only lint files that have changed.
 
-The Docs team introduced these linters in December 2021 and decided not to retroactively apply them to existing files. Thus, _you will encounter errors on files you have changed that you did not introduce_. Please cheerfully address them as best you can!
+The Docs team introduced these linters in December 2021 and decided not to retroactively apply them to existing files. Thus, **you will encounter errors on files you have changed that you did not introduce**. Please cheerfully address errors as best you can!
 
 - Grammar lint via [vale](https://docs.errata.ai/)
 - Link validation using [remark](https://github.com/remarkjs/remark)
