@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Kommander&reg; version 1.4.3 was released on December 9, 2021.**
+**D2iQ&reg; Kommander&reg; version 1.4.3 was released on December 13, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
@@ -27,10 +27,9 @@ Kommander provides a command center for all your cloud native management needs i
 
 ### Bug fixes
 
-- Fixed an issue where the Kommander UI could run out of ports.  Kommander UI now monitors port usage and can recover automatically if it runs out. 
+- Fixed an issue where the Kommander UI could run out of ports. Kommander UI now monitors port usage and can recover automatically if it runs out. 
 
 - Fixed an issue with attaching clusters with networking restrictions that also use an HTTP Proxy (COPS-7078).
-
 
 - Resolved UI issue where socks requests were timing out.
 
