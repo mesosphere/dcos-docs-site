@@ -106,6 +106,7 @@ sigmoidal
 softmax
 Splunk
 subcommand
+subtree
 TensorFlow
 Thanos
 Toree
