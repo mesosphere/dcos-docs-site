@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+if ! command -v vale &> /dev/null; then
+  echo "vale could not be found."
+  echo "Please make sure it is installed on your system: https://docs.errata.ai/vale/install"
+  exit 1
+fi
+
+npx lint-staged
