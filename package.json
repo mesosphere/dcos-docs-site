@@ -4,9 +4,11 @@
   "description": "Mesosphere docs",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
-    "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia node index.js",
-    "webpack": "webpack --progress --colors"
+    "dev": "cross-env NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
+    "build": "cross-env NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia node index.js",
+    "webpack": "webpack --progress --colors",
+    "prepare": "husky install",
+    "postinstall": "patch-package"
   },
   "author": "D2iQ",
   "devDependencies": {
@@ -17,13 +19,18 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^0.28.4",
     "debug": "^3.1.0",
+    "eslint": "^8.3.0",
     "extract-text-webpack-plugin": "^2.1.2",
+    "husky": "7.0.4",
     "js-yaml": "^3.9.1",
+    "lint-staged": "^12.1.2",
     "markdown-it": "^12.0.4",
     "markdown-it-anchor": "^4.0.0",
     "markdown-it-attrs": "^1.2.1",
+    "markdownlint-cli": "0.30.0",
     "metalsmith": "^2.3.0",
     "metalsmith-assets": "^0.1.0",
     "metalsmith-data-loader": "^1.1.2",
@@ -36,8 +43,12 @@
     "mkdirp": "^0.5.1",
     "ngindox": "^0.2.0",
     "node-sass": "^4.5.3",
+    "patch-package": "6.4.7",
     "postcss-loader": "^2.0.6",
     "pug": "^3.0.1",
+    "remark-cli": "10.0.1",
+    "remark-lint-no-dead-urls": "1.1.0",
+    "remark-validate-links": "11.0.2",
     "sanitize-html": "^1.14.1",
     "sass-loader": "^6.0.6",
     "semver": "^7.3.2",
@@ -48,6 +59,7 @@
     "webpack-dev-server": "^3.1.11"
   },
   "dependencies": {
+    "eslint-config-airbnb": "^19.0.2",
     "html-entities": "^2.1.0",
     "mustache": "^4.1.0",
     "react": "^17.0.1",
@@ -56,5 +68,13 @@
   "engines": {
     "node": "^12.0.0",
     "npm": "^6.0.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.md": [
+      "vale --config=./.vale.ini",
+      "remark --quiet --frail --no-stdout",
+      "markdownlint --ignore node_modules"
+    ]
   }
 }
