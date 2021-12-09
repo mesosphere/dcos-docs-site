@@ -32,42 +32,24 @@ This release provides new features and enhancements to improve the user experien
 #### Networking
 
 - Calico has been updated to v3.20.2 to address an issue that prevented container deletion. (COPS-7092)
-<<<<<<< HEAD
 
 #### Autoscaling
 
 - Fixed an issue installing the auto-provisioning component in an Ubuntu environment. (COPS-7102)
-=======
->>>>>>> 8c15784257 (Update index.md)
 
 #### Air-Gapped
 
 - RHEL 8 FIPS packages have been updated to produce the necessary SHA256 signatures during installation. (COPS-7066)
 
-<<<<<<< HEAD
 ### Bug Fixes
 
 #### Authentication
 
 - Users within the system:authenticated group are now able to access group-appropriate URLs. (COPS-7067)
-=======
-- Fixed an issue installing the auto-provisioning component in an Ubuntu environment. (COPS-7102)
-
-#### Air-Gapped
-
-- RHEL 8 FIPS packages have been updated to produce the necessary SHA256 signatures during installation. (COPS-7066)
-- Users within the system:authenticated group are now able to access group-appropriate URLs. (COPS-7067)
-
-### Bug Fixes
->>>>>>> 8c15784257 (Update index.md)
 
 ### Known Issues
 
-<<<<<<< HEAD
 -  Prometheus addon upgrades fail due to a missing alertmanager CRD. To work around this issue, manually apply the missing CRD to the cluster prior to upgrading by running: `kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.47.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml`
-=======
--  Prometheus addon upgrades now appropriately upgrade the alertmanager CRD.
->>>>>>> 8c15784257 (Update index.md)
 
 ### Component versions
 
