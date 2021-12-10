@@ -167,13 +167,13 @@ konvoy apply kubeconfig
 
     ```text
     NAME                                         STATUS   ROLES    AGE   VERSION
-    ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.20.11
-    ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.20.11
-    ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.20.11
-    ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.20.11
-    ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.20.11
-    ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.20.11
-    ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.20.11
+    ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.20.13
+    ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.20.13
+    ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.20.13
+    ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.20.13
+    ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.20.13
+    ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.20.13
+    ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.20.13
     ```
 
 # Next steps
