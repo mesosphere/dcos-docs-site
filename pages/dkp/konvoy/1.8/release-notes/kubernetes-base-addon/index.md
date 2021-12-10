@@ -12,6 +12,8 @@ enterprise: false
 
 ## Kubernetes Base Addons Updates
 
+For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
+
 September 15, 2021
 
 [stable-1.20-4.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.2.0)
