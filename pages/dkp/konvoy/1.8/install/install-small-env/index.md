@@ -74,7 +74,7 @@ This version of the installation creates a minimal cluster with 2 worker nodes a
      autoProvisioning:
        disabled: true
      kubernetes:
-       version: 1.20.11
+       version: 1.20.13
        controlPlane:
          controlPlaneEndpointOverride: 172.17.1.251:6443
          keepalived: {}
@@ -435,7 +435,7 @@ This cluster configuration deploys a default cluster in Docker (2 worker nodes a
          username: "your-dockerhub-username"
          password: "xxx-yourpassword-xxx"
      kubernetes:
-       version: 1.20.11
+       version: 1.20.13
        controlPlane:
          controlPlaneEndpointOverride: 172.17.1.251:6443
          keepalived: {}

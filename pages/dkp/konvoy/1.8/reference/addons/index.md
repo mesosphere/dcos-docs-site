@@ -53,7 +53,7 @@ spec:
   ...
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.20-4.2.0
+    configVersion: stable-1.20-4.3.0
     addonsList:
     - name: cert-manager
       enabled: true
@@ -61,7 +61,7 @@ spec:
       enabled: false
 ```
 
-In this example, `cert-manager` is installed with the D2iQ recommended configuration set in the `kubernetes-base-addons` repository on github as of the `stable-1.20-4.2.0` release.
+In this example, `cert-manager` is installed with the D2iQ recommended configuration set in the `kubernetes-base-addons` repository on github as of the `stable-1.20-4.3.0` release.
 `external-dns` is not enabled, but can be enabled if needed.
 
 ### Advanced
@@ -91,7 +91,7 @@ If you add a list of addresses for metallb to use, it assigns those addresses to
 ```yaml
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.20-4.2.0
+    configVersion: stable-1.20-4.3.0
     addonsList:
     - name: cert-manager
       enabled: true
