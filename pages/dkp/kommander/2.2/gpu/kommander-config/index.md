@@ -36,13 +36,30 @@ Before you begin, you must:
 
 ## Enable Nvidia Platform Service on Kommander
 
-To enable Nvidia GPU support on Kommander, perform the following step:
+To enable Nvidia GPU support when installing Kommander, perform the following steps:
 
-1. Enable the `nvidia` services when you install Kommander.
+<p class="message--note"><strong>NOTE: </strong>Kommander installs with a dedicated CLI.</p>
 
-   ```bash
-   helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --set services.nvidia.enabled=true
-   ```
+1. Create an installation configuration file:
+
+    ```bash
+    kommander install --init > install.yaml
+    ```
+
+1. Append the following to the apps section in the install.yaml file to enable Nvidia platform services.
+
+    ```yaml
+    apps:
+      nvidia: null
+    ```
+
+1. Install Kommander, using the configuration file you created:
+
+    ```bash
+    kommander install --installer-config ./install.yaml
+    ```
+
+
 
 ## Disable Nvidia Platform Service on Kommander
 
@@ -62,13 +79,9 @@ Kommander can automatically upgrade the Nvidia GPU platform service. However, GP
 
 To upgrade, follow the instructions to disable the service, and then the instructions to enable the service.
 
-<!-- FIXME(tillt): How can we do this on Kommander2? -> check Max's demo for an answer! -->
-
 ## Nvidia GPU Monitoring
 
 Kommander uses the [NVIDIA Data Center GPU Manager][nvidia_dcgm] to export GPU metrics towards Prometheus. By default, Kommander has a Grafana dashboard called `NVIDIA DCGM Exporter Dashboard` to monitor GPU metrics. This GPU dashboard is shown in Kommander's Grafana UI.
-
-<!-- FIXME(tillt): How to deploy a specific/later version of this service on Kommander2? -->
 
 ## Troubleshooting
 
