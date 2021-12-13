@@ -18,6 +18,7 @@ COPS
 Couchbase
 covariant
 covariate
+cpu
 CRD
 D2iQ
 Datastax
@@ -45,6 +46,7 @@ hostname
 hyperparameter(|s)
 https
 Istio
+istio
 (json|JSON)
 Kafka
 Kaptain
@@ -63,6 +65,7 @@ kubectl
 kubelet
 kubeconfig
 Kubecost
+kubecost
 kubelet(|s)
 Kubeflow
 Kubernetes
@@ -88,6 +91,7 @@ Nagios
 namespace
 namespaced
 (nginx|NGINX)
+NVIDIA
 Nvidia
 nvidia
 onboarding
@@ -97,9 +101,12 @@ Percona
 PostgreSQL
 preprocessor(|s)
 Prometheus
+prometheus
 Pushgateway
 PyTorch
 rebalance
+Reloader
+reloader
 repo
 RGB
 RNN(|s)
