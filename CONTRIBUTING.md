@@ -193,6 +193,12 @@ Our markdown comes with metadata - also called "frontmatter". Here are the speci
 
 ## When a PR is ready for publishing
 
+### Style guides
+
+In general, the documentation team follows the Microsoft Style Guide. Anything that deviates from that style guide is [documented here](https://wiki.d2iq.com/display/ENG/Documentation+Style+Guide).
+
+Kubernetes also has some terms that are specific to Kubernetes. That [style guide is found here](https://kubernetes.io/docs/contribute/style/style-guide/).
+
 ### Give final approvals and merge
 
 By this time, you should have a tech writer assigned to the PR and they will have given feedback. Once both sides have signed off, it is ready for a `ready-to-merge` label.
