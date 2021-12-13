@@ -1,6 +1,11 @@
+<!--
+NOTE: You can preview the docs build using the following URL, adding the PR # where specified:
+http://docs-d2iq-com-pr-<add_pr_##_here>.s3-website-us-west-2.amazonaws.com/
+-->
+
 ## Jira Ticket
 
-Before creating this pull request, make sure you have a separate ticket for the docs team to track their work. If you need assistance, ask in the #documentation Slack channel.
+<!-- Before creating this pull request, make sure you have a separate ticket for the docs team to track their work. If you need assistance, ask in the #documentation Slack channel. -->
 
 <!-- Link to JIRA ticket -->
 
