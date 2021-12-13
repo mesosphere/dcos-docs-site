@@ -5,6 +5,7 @@ Alertmanager
 ANN(|s)
 Ansible
 autoscal(e|es|ed|ing)
+backoff
 Cassandra
 checkpoint(|s|ed|ing)
 Chronos
@@ -18,7 +19,9 @@ COPS
 Couchbase
 covariant
 covariate
+cpu
 CRD
+datacenter
 D2iQ
 Datastax
 DC/OS
@@ -45,6 +48,7 @@ hostname
 hyperparameter(|s)
 https
 Istio
+istio
 (json|JSON)
 Kafka
 Kaptain
@@ -54,6 +58,7 @@ keypair
 keyspace
 Kibana
 KIND
+kiali
 kind
 kmem
 Knative
@@ -63,6 +68,7 @@ kubectl
 kubelet
 kubeconfig
 Kubecost
+kubecost
 kubelet(|s)
 Kubeflow
 Kubernetes
@@ -78,6 +84,8 @@ markdownlint
 Mesos
 Mesosphere
 Metalsmith
+Metallb
+metallb
 MKE
 ML(|Ops)
 MNIST
@@ -88,6 +96,7 @@ Nagios
 namespace
 namespaced
 (nginx|NGINX)
+NVIDIA
 Nvidia
 nvidia
 onboarding
@@ -97,9 +106,12 @@ Percona
 PostgreSQL
 preprocessor(|s)
 Prometheus
+prometheus
 Pushgateway
 PyTorch
 rebalance
+Reloader
+reloader
 repo
 RGB
 RNN(|s)
