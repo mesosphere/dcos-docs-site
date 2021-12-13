@@ -5,6 +5,7 @@ Alertmanager
 ANN(|s)
 Ansible
 autoscal(e|es|ed|ing)
+backoff
 Cassandra
 checkpoint(|s|ed|ing)
 Chronos
@@ -20,6 +21,7 @@ covariant
 covariate
 cpu
 CRD
+datacenter
 D2iQ
 Datastax
 DC/OS
@@ -56,6 +58,7 @@ keypair
 keyspace
 Kibana
 KIND
+kiali
 kind
 kmem
 Knative
@@ -81,6 +84,8 @@ markdownlint
 Mesos
 Mesosphere
 Metalsmith
+Metallb
+metallb
 MKE
 ML(|Ops)
 MNIST
