@@ -33,8 +33,10 @@ DSL(|s)
 ECR
 etcd
 Flink
+fluentbit
 GCR
 Grafana
+grafana
 grayscale
 GRU
 Hashicorp
@@ -64,6 +66,7 @@ Kubecost
 kubelet(|s)
 Kubeflow
 Kubernetes
+kubernetes
 KUDO
 linkerd
 liveness
@@ -86,6 +89,7 @@ namespace
 namespaced
 (nginx|NGINX)
 Nvidia
+nvidia
 onboarding
 overfit(|s|ted|ting)
 Papermill
@@ -111,8 +115,10 @@ TensorFlow
 Thanos
 Toree
 Traefik
+traefik
 uncordon(|ed)
 unmount(|ing|ed)
 Velero
+velero
 XGBoost
 yakcl
