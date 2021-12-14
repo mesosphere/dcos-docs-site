@@ -47,9 +47,9 @@ This release provides new features and enhancements to improve the user experien
 
 - Users within the system:authenticated group are now able to access group-appropriate URLs. (COPS-7067)
 
-#### Prometheus
+### Known Issues
 
--  Prometheus addon upgrades now appropriately upgrade the alertmanager CRD.
+-  Prometheus addon upgrades fail due to a missing alertmanager CRD. To work around this issue, manually apply the missing CRD to the cluster prior to upgrading by running: `kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.47.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml`
 
 ### Component versions
 
