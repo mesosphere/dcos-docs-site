@@ -117,3 +117,6 @@ unmount(|ing|ed)
 Velero
 XGBoost
 yakcl
+Zookeeper
+zookeeper
+ZooKeeper
