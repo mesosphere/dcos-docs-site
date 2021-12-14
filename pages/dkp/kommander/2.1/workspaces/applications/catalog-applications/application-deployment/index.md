@@ -37,12 +37,12 @@ The list of available applications that can be deployed on the attached cluster 
     apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
-      name: cert-manager
+      name: spark-operator
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: cert-manager-0.2.7
-        kind: ClusterApp
+        name: spark-operator-1.1.6
+        kind: App
     EOF
     ```
 
@@ -59,14 +59,14 @@ The list of available applications that can be deployed on the attached cluster 
     apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
-      name: metallb
+      name: spark-operator
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: metallb-0.12.2
-        kind: ClusterApp
+        name: spark-operator-1.1.6
+        kind: App
       configOverrides:
-        name: metallb-overrides-attached
+        name: spark-operator-overrides
     EOF
     ```
 
@@ -78,15 +78,12 @@ The list of available applications that can be deployed on the attached cluster 
     kind: ConfigMap
     metadata:
       namespace: ${WORKSPACE_NAMESPACE}
-      name: metallb-overrides-attached
+      name: spark-operator-overrides
     data:
       values.yaml: |
         configInline:
-          address-pools:
-          - name: default
-            protocol: layer2
-            addresses:
-            - 172.17.255.150-172.17.255.199
+          uiService:
+            enable: false
     EOF
     ```
 
@@ -98,6 +95,6 @@ The applications are now deployed. Connect to the attached cluster and check the
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
-NAMESPACE               NAME        READY   STATUS                             AGE
-workspace-test-vjsfq    metallb     True    Release reconciliation succeeded   7m3s
+NAMESPACE               NAME               READY   STATUS                             AGE
+workspace-test-vjsfq    spark-operator     True    Release reconciliation succeeded   7m3s
 ```
