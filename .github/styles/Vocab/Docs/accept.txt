@@ -15,6 +15,7 @@ CNTK
 configmap
 Component
 component
+Component
 Conda
 containerd
 contravariant
