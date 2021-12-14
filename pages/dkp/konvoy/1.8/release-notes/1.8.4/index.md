@@ -9,7 +9,7 @@ enterprise: false
 ---
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.4 was released on **
+**D2iQ&reg; Konvoy&reg; version 1.8.4 was released on December 14, 2021**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
