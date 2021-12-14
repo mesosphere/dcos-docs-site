@@ -514,18 +514,18 @@ spec:
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.3
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.4
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.3
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.4
       addonsList:
       - name: dispatch
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.3
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.4
       addonsList:
       - name: kommander
         enabled: false
