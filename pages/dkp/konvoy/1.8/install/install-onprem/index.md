@@ -205,7 +205,7 @@ spec:
     - name: dispatch
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: testing-1.20-1.4.3-rc.2
+    configVersion: stable-1.20-1.4.3
     addonsList:
     - name: kommander
       enabled: true
