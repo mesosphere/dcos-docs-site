@@ -36,7 +36,7 @@ Kommander provides a command center for all your cloud native management needs i
 ### Component Versions
 
 - Addon: 1.4.3-3
-- Chart: 0.38.4
+- Chart: 0.38.5
 - kommander-federation (yakcl): 0.20.2
 - kommander-licensing (yakcl): 0.20.2
 - UI: 6.100.0
