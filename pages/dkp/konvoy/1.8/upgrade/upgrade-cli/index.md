@@ -55,13 +55,15 @@ After the upgrade command completes, you can start using the new Konvoy version.
 
 It is recommended to upgrade to the newest supported version of Kubernetes. Set `spec.kubernetes.version: 1.20.13` for of kind: ClusterConfiguration.
 
+The version of Calico got bumped in Konvoy v1.8.4, from Calico v3.17.3 to v3.20.2. You will want to change this in `spec.containerNetworking.calico.version: v3.17.3` for of kind: ClusterConfiguration.
+
 The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.20-4.3.0` for of kind: ClusterConfiguration.
 
 If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.20-1.4.3` for of kind: ClusterConfiguration.
 
 If you have Dispatch enabled, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-dispatch` to be `configVersion: stable-1.20-1.4.6` for of kind: ClusterConfiguration
 
-The version of Konvoy is now `v1.8.4`, set `spec.version: v1.8.4`.
+The version of Konvoy is now `v1.8.4`, set `spec.version: v1.8.4` for both of kind: ClusterProvisioner and of kind: ClusterConfiguration.
 
 ```yaml
 kind: ClusterProvisioner
@@ -73,6 +75,10 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     version: 1.20.13
+  ...
+  containerNetworking:
+    calico:
+      version: v3.20.2
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
