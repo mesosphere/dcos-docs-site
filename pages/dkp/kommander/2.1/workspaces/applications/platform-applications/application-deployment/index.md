@@ -10,16 +10,16 @@ excerpt: Deploy applications to attached clusters using the CLI
 <!-- markdownlint-disable MD004 MD040 -->
 
 This topic describes how to use the CLI to deploy an application to attached clusters within a workspace.
-To use the Kommander UI to deploy applications, see [Customize a workspace's applications](../../workspace-platform-services#customize-a-workspaces-applications).
+To use the Kommander UI to deploy applications, see [Customize a workspace's applications](../../platform-applications#customize-a-workspaces-applications).
 
-See [Workspace Platform Applications](../../workspace-platform-services#workspace-platform-applications) for a list of all applications and those that are enabled by default.
+See [Workspace Platform Applications](../../platform-applications#workspace-platform-applications) for a list of all applications and those that are enabled by default.
 
 ## Prerequisites
 
 Before you begin, you must have:
 
-- A running cluster with [Kommander installed](../../../install/).
-- An [existing Kubernetes cluster attached to Kommander](../../../clusters/attach-cluster/).
+- A running cluster with [Kommander installed](../../../../install/).
+- An [existing Kubernetes cluster attached to Kommander](../../../../clusters/attach-cluster/).
 
 Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace's namespace where the cluster is attached:
 
@@ -29,9 +29,9 @@ export WORKSPACE_NAMESPACE=<workspace_namespace>
 
 ## Deploy the application
 
-The list of available applications that can be deployed on the attached cluster can be found [here](../../workspace-platform-services#workspace-platform-applications).
+The list of available applications that can be deployed on the attached cluster can be found [in this documentation](../../platform-applications#workspace-platform-applications).
 
-1.  Deploy a supported application to [your existing attached cluster](../../../clusters/attach-cluster/) with an `AppDeployment` resource.
+1.  Deploy a supported application to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 
 1.  Within the `AppDeployment`, define the `appRef` to specify which `App` will be deployed:
 
