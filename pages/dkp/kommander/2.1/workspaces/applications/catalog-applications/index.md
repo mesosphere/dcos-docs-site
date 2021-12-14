@@ -14,4 +14,4 @@ Catalog applications are any third-party or open source applications that appear
 | ----------------------------- | --------------------- |
 | kafka-operator-0.20.0         | kafka-operator        |
 | spark-operator-1.1.6          | spark-operator        |
-| zookeepr-operator-0.2.13      | zookeepr-operator     |
+| zookeeper-operator-0.2.13     | zookeeper-operator    |

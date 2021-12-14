@@ -17,7 +17,7 @@ Before you begin, you must have:
 - A running cluster with [Kommander installed](../../../../install/).
 - An [existing Kubernetes cluster attached to Kommander](../../../../clusters/attach-cluster/).
 
-Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace's namespace the attached cluster exists:
+Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace's namespace the attached cluster exists in:
 
 ```sh
 export WORKSPACE_NAMESPACE=<workspace_namespace>
