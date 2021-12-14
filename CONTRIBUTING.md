@@ -193,10 +193,16 @@ Our markdown comes with metadata - also called "frontmatter". Here are the speci
 
 ## When a PR is ready for publishing
 
+### Style guides
+
+In general, the documentation team uses Vale as our style guide. Anything that deviates from that style guide is decided by the docs team and implemented in Vale.
+
+Kubernetes also has some terms that are specific to Kubernetes. That [style guide is found on the Kubernetes website](https://kubernetes.io/docs/contribute/style/style-guide/).
+
 ### Give final approvals and merge
 
 By this time, you should have a tech writer assigned to the PR and they will have given feedback. Once both sides have signed off, it is ready for a `ready-to-merge` label.
 
 ### Docs Team will merge your PR
 
-docs builds go live as needed and sometimes multiple times in a day. For hotfixes, please make sure to communicate the reason for escalation to immediate promotion.
+Docs builds go live as needed and sometimes multiple times in a day. For hotfixes, please make sure to communicate the reason for escalation to immediate promotion.

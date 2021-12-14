@@ -47,6 +47,7 @@ GRU
 Hashicorp
 Horovod
 hostname
+hotfix(|es)
 hyperparameter(|s)
 https
 Istio
