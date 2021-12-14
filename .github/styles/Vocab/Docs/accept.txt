@@ -5,12 +5,14 @@ Alertmanager
 ANN(|s)
 Ansible
 autoscal(e|es|ed|ing)
+backend
 backoff
 Cassandra
 checkpoint(|s|ed|ing)
 Chronos
 CNN(|s)
 CNTK
+configmap
 component
 Conda
 containerd
@@ -51,6 +53,7 @@ Istio
 istio
 (json|JSON)
 Kafka
+kafka
 Kaptain
 Katib
 Keras
@@ -134,3 +137,5 @@ Velero
 velero
 XGBoost
 yakcl
+Zookeeper
+zookeeper
