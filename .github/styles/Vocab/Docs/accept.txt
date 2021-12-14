@@ -49,6 +49,8 @@ hyperparameter(|s)
 https
 Istio
 istio
+JIRA
+Jira
 (json|JSON)
 Kafka
 Kaptain
