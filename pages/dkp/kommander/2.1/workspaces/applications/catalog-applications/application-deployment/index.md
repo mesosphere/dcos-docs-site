@@ -7,7 +7,6 @@ beta: false
 excerpt: Deploy applications to attached clusters using the CLI
 ---
 
-<!-- markdownlint-disable MD004 MD040 -->
 
 This topic describes how to use the CLI to deploy a workspace catalog application to attached clusters within a workspace.
 
@@ -18,7 +17,7 @@ Before you begin, you must have:
 - A running cluster with [Kommander installed](../../../../install/).
 - An [existing Kubernetes cluster attached to Kommander](../../../../clusters/attach-cluster/).
 
-Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace's namespace where the cluster is attached:
+Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace's namespace the attached cluster exists:
 
 ```sh
 export WORKSPACE_NAMESPACE=<workspace_namespace>
@@ -26,11 +25,11 @@ export WORKSPACE_NAMESPACE=<workspace_namespace>
 
 ## Deploy the application
 
-The list of available applications that can be deployed on the attached cluster can be found [in this documentation](../../catalog-applications#workspace-catalog-applications).
+See [workspace catalog applications](../../catalog-applications#workspace-catalog-applications) for the list of available applications that you can deploy on the attached cluster.
 
 1.  Deploy a supported application to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 
-1.  Within the `AppDeployment`, define the `appRef` to specify which `App` will be deployed:
+1.  Within the `AppDeployment`, define the `appRef` to specify which `App` to deploy:
 
     ```yaml
     cat <<EOF | kubectl apply -f -
