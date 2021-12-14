@@ -35,7 +35,7 @@ Change the `spec.calicoNetwork.nodeAddressAutodetectionV4` to be `interface: ens
      calicoNetwork:
      ...
        nodeAddressAutodetectionV4:
-         interface: interface: ens192
+         interface: ens192
    ```
 
 After this, you may need to delete the node feature discovery worker pod in the `node-feature-discovery` namespace if it failed. This pod will then reconcile.
