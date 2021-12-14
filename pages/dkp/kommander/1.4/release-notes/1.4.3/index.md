@@ -31,7 +31,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 - Fixed an issue with attaching clusters with networking restrictions that also use an HTTP Proxy (COPS-7078).
 
-- Resolved UI issue where socks requests were timing out.
+- Resolved a UI issue where socks requests were timing out.
 
 ### Component Versions
 
