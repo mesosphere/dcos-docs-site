@@ -195,7 +195,7 @@ Our markdown comes with metadata - also called "frontmatter". Here are the speci
 
 ### Style guides
 
-In general, the documentation team follows the Microsoft Style Guide. Anything that deviates from that style guide is documented in the internal D2iQ wiki (search for Documentation Style Guide).
+In general, the documentation team uses Vale as our style guide. Anything that deviates from that style guide is decided by the docs team and implemented in Vale.
 
 Kubernetes also has some terms that are specific to Kubernetes. That [style guide is found on the Kubernetes website](https://kubernetes.io/docs/contribute/style/style-guide/).
 
