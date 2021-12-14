@@ -85,7 +85,9 @@ Nagios
 namespace
 namespaced
 (nginx|NGINX)
+NVIDIA
 Nvidia
+nvidia
 onboarding
 overfit(|s|ted|ting)
 Papermill
@@ -103,6 +105,7 @@ Scala
 scikit-learn
 serverless
 sigmoidal
+Snapshotter
 softmax
 Splunk
 subcommand
