@@ -23,7 +23,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 ## Features/Improvements
 
-- Updated Kubecost enterprise key
+- Updated Kubecost enterprise key.
 
 ### Bug fixes
 
