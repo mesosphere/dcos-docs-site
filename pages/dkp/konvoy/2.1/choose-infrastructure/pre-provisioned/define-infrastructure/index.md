@@ -110,7 +110,7 @@ hunter-aws-cluster-pf4a3
 
 For DKP to install completely, you must stop `firewalld`, if enabled.
 
-You will need to check to see if `firewalld` is running. SSH into all the machines you are deploying DKP onto, and check to see if it is running:
+Verify `firewalld` is running before you deploy DKP. Use SSH to access each of the machines onto which you are deploying DKP, and check to see if 'firewalld' is running, using the command:
 
 ```sh
 systemctl status firewalld
