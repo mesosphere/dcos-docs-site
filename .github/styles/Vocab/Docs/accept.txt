@@ -13,6 +13,7 @@ Chronos
 CNN(|s)
 CNTK
 configmap
+Component
 component
 Conda
 containerd
