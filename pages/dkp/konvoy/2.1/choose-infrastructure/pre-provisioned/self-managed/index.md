@@ -28,7 +28,7 @@ To edit the installation file, run the command:
    kubectl edit installation default --kubeconfig ${CLUSTER_NAME}.conf
    ```
 
-Change the `spec.calicoNetwork.nodeAddressAutodetectionV4` to be `interface: ens192`, and save this file:
+Change the value for `spec.calicoNetwork.nodeAddressAutodetectionV4` to `interface: ens192`, and save the file:
 
    ```sh
    spec:
