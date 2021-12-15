@@ -77,31 +77,31 @@ The following components have been upgraded to the listed version:
 
 If you are deploying to CentOS using the [pre-provisioned provider](../choose-infrastructure/pre-provisioned) method, ensure this setting is followed on your machines:
 
-First, check your `/etc/fstab` file:
+1.  Check your `/etc/fstab` file:
 
-```sh
-cat /etc/fstab
-```
+    ```sh
+    cat /etc/fstab
+    ```
 
-If there is the line, you will need to comment that out:
+1.  Search for this line:
 
-```sh
-/dev/mapper/centos-swap swap                    swap    defaults        0 0
-```
+    ```sh
+    /dev/mapper/centos-swap swap                    swap    defaults        0 0
+    ```
 
-This will then look like this:
+1.  Comment out the line, if it exists:
 
-```sh
-# /dev/mapper/centos-swap swap                    swap    defaults        0 0
-```
+    ```sh
+    # /dev/mapper/centos-swap swap                    swap    defaults        0 0
+    ```
 
-Then, run:
+1.  Run this command to complete the process:
 
-```sh
-swapoff /dev/mapper/centos-swap
-```
+    ```sh
+    swapoff /dev/mapper/centos-swap
+    ```
 
-Now you will be able to install a pre-provisioned DKP cluster on a CentOS machine.
+You are now able to install a pre-provisioned DKP cluster on a CentOS machine.
 
 ## Additional resources
 
