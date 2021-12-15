@@ -75,7 +75,7 @@ The following components have been upgraded to the listed version:
 
 ### Building on a CentOS OS using Pre-provisioned
 
-If you are deploying to CentOS using the [pre-provisioned provider](../choose-infrastructure/pre-provisioned) method, you will need to ensure this setting is followed on your machines:
+If you are deploying to CentOS using the [pre-provisioned provider](../choose-infrastructure/pre-provisioned) method, ensure this setting is followed on your machines:
 
 First, check your `/etc/fstab` file:
 
