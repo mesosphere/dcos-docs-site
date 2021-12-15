@@ -14,7 +14,7 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
 
 Give your cluster a unique name suitable for your environment.
 
-Set the environment variable to be used throughout this documentation:
+Set the environment variable to be used throughout this procedure:
 
 ```sh
 CLUSTER_NAME=my-preprovisioned-cluster
