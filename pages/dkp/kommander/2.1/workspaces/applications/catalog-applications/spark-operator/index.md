@@ -21,20 +21,8 @@ For details on custom configuration for the operator, please refer to the [Spark
 
 ## Uninstall via the CLI
 
+<!-- TODO: use the actual link to CR doc once it's ready -->
 <p class="message--note"><strong>NOTE: </strong>Uninstalling the Spark Operator will not affect existing <b>SparkApplication</b> and <b>ScheduledSparkApplication</b> custom resources. You need to manually remove any leftover custom resources and CRDs from the operator. Please refer to <a href="https://google.com">deleting Spark Operator custom resources</a></p>
-
-<!-- 1.  View all Spark Operator custom resources in the cluster:
-
-    ```bash
-    kubectl get sparkapp -A
-    kubectl get scheduledsparkapp -A
-    ```
-
-1.  Deleting a SparkApplication:
-
-    ```bash
-    kubectl delete kafkacluster <name of KafkaCluster>
-    ``` -->
 
 1.  Uninstalling a Spark Operator `AppDeployment`:
 
