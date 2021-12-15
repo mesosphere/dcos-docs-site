@@ -22,7 +22,7 @@ Before setting the cluster to manage itself, explore your cluster with this comm
 <p class="message--note"><strong>NOTE: </strong>If you see a <code>calico-node</code> pod not ready on your cluster, you need to edit the <code>installation</code> file.
 </p>
 
-If you have to edit the installation file, run the command:
+To edit the installation file, run the command:
 
    ```sh 
    kubectl edit installation default --kubeconfig ${CLUSTER_NAME}.conf
