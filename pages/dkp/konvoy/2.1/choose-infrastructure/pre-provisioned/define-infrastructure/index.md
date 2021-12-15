@@ -21,7 +21,7 @@ CLUSTER_NAME=my-preprovisioned-cluster
 ```
 
 Note: If you want to create a unique cluster name, use this command.
-This will create a unique name every time you run it so use it with forethought.
+This creates a unique name every time you run it, so use it carefully.
 
 ```sh
 CLUSTER_NAME=$(whoami)-preprovisioned-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
