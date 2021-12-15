@@ -8,6 +8,38 @@ excerpt: Workspace Catalog Applications
 <!-- TODO: settle down the link target to custom applications -->
 Catalog applications are any third-party or open source applications that appear in the Catalog. These applications can be provided by D2iQ for use in your environment.
 
+## Installing the workspace catalog via the CLI
+
+1.  Set the `WORKSPACE_NAMESPACE` environment variable to the name of your workspace’s namespace:
+
+    ```bash
+    export WORKSPACE_NAMESPACE=<workspace namespace>
+    ```
+
+1.  Create the `GitRepository`:
+
+    ```sh
+    kubectl apply -f - <<EOF
+    apiVersion: source.toolkit.fluxcd.io/v1beta1
+    kind: GitRepository
+    metadata:
+      name: dkp-catalog-applications
+      namespace: ${WORKSPACE_NAMESPACE}
+    spec:
+      interval: 1m0s
+      ref:
+        branch: main
+      timeout: 20s
+      url: https://github.com/mesosphere/dkp-catalog-applications  
+    EOF
+    ```
+
+1.  You should now see the workspace catalog `Apps` available in the UI and CLI
+
+    ```bash
+    kubectl get apps -n ${WORKSPACE_NAMESPACE}
+    ```
+
 ## Workspace catalog applications
 
 | NAME                          | APP ID                |
