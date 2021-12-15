@@ -43,6 +43,7 @@ hostname
 hotfix(|es)
 hyperparameter(|s)
 https
+istio
 Istio
 (json|JSON)
 Kafka
