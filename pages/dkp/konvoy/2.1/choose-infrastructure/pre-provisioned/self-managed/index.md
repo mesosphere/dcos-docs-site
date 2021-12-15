@@ -38,7 +38,7 @@ Change the value for `spec.calicoNetwork.nodeAddressAutodetectionV4` to `interfa
          interface: ens192
    ```
 
-After this, you may need to delete the node feature discovery worker pod in the `node-feature-discovery` namespace if it failed. This pod will then reconcile.
+After saving the file, you may need to delete the node feature discovery worker pod in the `node-feature-discovery` namespace, if it failed. After you delete it, Kubernetes replaces the pod as part of its normal reconciliation.
 
 ## Make the new Kubernetes cluster manage itself
 
