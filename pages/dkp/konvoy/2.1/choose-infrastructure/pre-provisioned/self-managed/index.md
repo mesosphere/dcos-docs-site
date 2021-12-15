@@ -13,7 +13,7 @@ Before you start, make sure you have created a workload cluster, as described in
 
 ## Explore the cluster
 
-Before checking making the cluster manage itself, explore your cluster:
+Before setting the cluster to manage itself, explore your cluster with this command:
 
    ```sh
    kubectl get pods -A --kubeconfig ${CLUSTER_NAME}.conf
