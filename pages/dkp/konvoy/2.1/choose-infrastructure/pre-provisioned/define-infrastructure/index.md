@@ -116,7 +116,7 @@ Verify `firewalld` is running before you deploy DKP. Use SSH to access each of t
 systemctl status firewalld
 ```
 
-If it is active, you will need to stop `firewalld`:
+If `firewalld` is active, stop it with the command:
 
 ```sh
 systemctl stop firewalld
