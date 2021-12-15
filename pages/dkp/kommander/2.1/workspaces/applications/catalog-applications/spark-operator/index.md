@@ -21,8 +21,7 @@ For details on custom configuration for the operator, please refer to the [Spark
 
 ## Uninstall via the CLI
 
-<!-- TODO: use the actual link to CR doc once it's ready -->
-<p class="message--note"><strong>NOTE: </strong>Uninstalling the Spark Operator will not affect existing <b>SparkApplication</b> and <b>ScheduledSparkApplication</b> custom resources. You need to manually remove any leftover custom resources and CRDs from the operator. Please refer to <a href="https://google.com">deleting Spark Operator custom resources</a></p>
+<p class="message--note"><strong>NOTE: </strong>Uninstalling the Spark Operator will not affect existing <b>SparkApplication</b> and <b>ScheduledSparkApplication</b> custom resources. You need to manually remove any leftover custom resources and CRDs from the operator. Please refer to <a href="../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/spark-operator-custom-resources#clean-up">deleting Spark Operator custom resources</a>.</p>
 
 1.  Uninstalling a Spark Operator `AppDeployment`:
 
