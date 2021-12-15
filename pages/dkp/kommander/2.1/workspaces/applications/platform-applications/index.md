@@ -6,7 +6,6 @@ menuWeight: 30
 excerpt: How workspace platform applications work
 ---
 
-
 When attaching a cluster, Kommander deploys certain platform applications on the newly attached cluster. Operators can use the Kommander UI to customize which platform applications to deploy to the attached clusters in a given workspace.
 
 The following table describes the list of platform applications that are deployed on attachment.
@@ -25,7 +24,7 @@ This takes you to the **Applications** page which displays all applications that
 
 To use the CLI to deploy or uninstall applications, see [Application Deployment](./application-deployment)
 
-<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the applications, which are listed <a href="./platform-service-dependencies/">in this documentation</a>. Review them carefully prior to customizing to ensure that the applications are deployed successfully.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the applications, which are listed <a href="./platform-service-dependencies/">in the workspace platform application dependencies</a> documentation. Review them carefully prior to customizing to ensure that the applications are deployed successfully.</p>
 
 ## Workspace platform applications
 
@@ -58,4 +57,4 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 
 <p class="message--note"><strong>NOTE: </strong>Only a single deployment of <code>traefik</code> per cluster is supported.</p>
 
-<p class="message--note"><strong>NOTE: </strong>Kommander automatically manages the deployment of <code>traefik-forward-auth</code> when clusters are attached to the workspace. This application is not shown in the Kommander UI.</p>
+<p class="message--note"><strong>NOTE: </strong>Kommander automatically manages the deployment of <code>traefik-forward-auth</code> and <code>kube-oidc-proxy</code> when clusters are attached to the workspace. These applications are not shown in the Kommander UI.</p>
