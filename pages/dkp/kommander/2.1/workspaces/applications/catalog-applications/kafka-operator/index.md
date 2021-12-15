@@ -14,7 +14,7 @@ excerpt: Information about the Kafka Operator
 
 1.  Follow the generic installation instructions for workspace catalog applications on the [Application Deployment](../application-deployment/) page.
 
-1.  Within the `AppDeployment`, update the `appRef` to specify the correct `zookeeper-operator` App. You can find the `appRef.name` by listing the available `Apps` in the workspace namespace:
+1.  Within the `AppDeployment`, update the `appRef` to specify the correct `kafka-operator` App. You can find the `appRef.name` by listing the available `Apps` in the workspace namespace:
 
     ```bash
     kubectl get apps -n ${WORKSPACE_NAMESPACE}
@@ -26,24 +26,12 @@ For details on custom configuration for the operator, please refer to the [Kafka
 
 Uninstalling the Kafka operator will not affect existing `KafkaCluster` deployments. After uninstalling the operator, you will need to manually remove any leftover Custom Resource Definitions (CRDs) from the operator.
 
-1.  View all Kafka resources in the cluster:
-
-    ```bash
-    kubectl get kafkaclusters -A
-    kubectl get kafkausers -A
-    Kubectl get kafkatopics -A
-    ```
-
-1.  Deleting a `KafkaCluster`:
-
-    ```bash
-    kubectl delete kafkacluster <name of KafkaCluster>
-    ```
+1.  Delete all Kafka custom resources that are deployed, see [Deleting Kafka Custom Resources](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/kafka#deleting-kafka-custom-resources).
 
 1.  Uninstalling a Kafka operator `AppDeployment`:
 
     ```bash
-    kubectl delete AppDeployment <name of AppDeployment>
+    kubectl -n <workspace namespace> delete AppDeployment <name of AppDeployment>
     ```
 
 1.  Removing Kafka CRDs:

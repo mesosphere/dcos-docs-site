@@ -142,3 +142,5 @@ XGBoost
 yakcl
 Zookeeper
 zookeeper
+ZooKeeper
+sed
