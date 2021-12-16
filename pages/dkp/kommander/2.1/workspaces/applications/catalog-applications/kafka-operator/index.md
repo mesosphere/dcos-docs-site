@@ -10,7 +10,7 @@ excerpt: Information about the Kafka Operator
 
 [Apache Kafka](https://kafka.apache.org/) is an open-source distributed event streaming platform used for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications. The [Kafka Operator](https://banzaicloud.com/docs/supertubes/kafka-operator/) is a Kubernetes operator to automate provisioning, management, autoscaling, and operations of Apache Kafka clusters deployed to Kubernetes. It works by watching custom resources, such as `KafkaClusters`, `KafkaUsers`, and `KafkaTopics` to provision underlying Kubernetes resources (i.e `StatefulSets`) required for a production-ready Kafka Cluster.
 
-## Installation
+## Install
 
 1.  Follow the generic installation instructions for workspace catalog applications on the [Application Deployment](../application-deployment/) page.
 
