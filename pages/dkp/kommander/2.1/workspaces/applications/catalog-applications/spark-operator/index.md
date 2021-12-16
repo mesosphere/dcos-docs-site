@@ -22,7 +22,9 @@ For details on custom configuration for the operator, please refer to the [Spark
 ## Sample override configmap
 
 ```yaml
-
+podLabels:
+  owner: john
+  team: operations
 ```
 
 ## Uninstall via the CLI
