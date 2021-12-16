@@ -44,7 +44,34 @@ If you use already use one or more of the following IdPs, you can configure Dex 
 
 ## Add login connectors
 
-Kommander uses Dex to provide OpenID Connect single sign-on (SSO) to the cluster. Dex can be configured to use multiple connectors, including GitHub, LDAP, and SAML 2.0. The [Dex Connector documentation](https://dexidp.io/docs/connectors/) describes how to configure different connectors. You can add the configuration as the values field in the Dex application.
+Kommander uses Dex to provide OpenID Connect single sign-on (SSO) to the cluster. Dex can be configured to use multiple connectors, including GitHub, LDAP, and SAML 2.0. The [Dex Connector documentation](https://dexidp.io/docs/connectors/) describes how to configure different connectors. You can add the configuration as the values field in the Dex application. An example Dex configuration provided to the Kommander CLI's `install` command would look similar to this:
+
+```yaml
+apiVersion: config.kommander.mesosphere.io/v1alpha1
+kind: Installation
+apps:
+  dex:
+    values: |
+      config:
+        connectors:
+        - type: oidc
+          id: google
+          name: Google
+          config:
+            issuer: https://accounts.google.com/o/oauth2/v2/auth
+            clientID: YOUR_CLIENT_ID
+            clientSecret: YOUR_CLIENT_SECRET
+            redirectURI: https://DKP_CLUSTER_DOMAIN/dex/callback
+            scopes:
+            - openid
+            - profile
+            - email
+            insecureSkipEmailVerified: true
+            insecureEnableGroups: true
+            userIDKey: email
+            userNameKey: email
+[...]
+```
 
 ## Authentication
 
