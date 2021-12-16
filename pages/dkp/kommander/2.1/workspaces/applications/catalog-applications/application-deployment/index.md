@@ -47,7 +47,7 @@ Go to the Kommander UI to deploy your custom applications:
 
 For all applications, you must provide a display name and an ID which is automatically generated based on what you enter for the display name, unless or until you edit the ID directly. The ID must be compliant with [Kubernetes DNS subdomain name validation rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names).
 
-Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to deploy your custom applications.
+Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to deploy your catalog applications.
 
 ## Deploy the application using the CLI
 
