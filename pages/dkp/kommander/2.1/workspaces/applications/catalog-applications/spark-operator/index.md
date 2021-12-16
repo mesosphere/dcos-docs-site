@@ -19,6 +19,12 @@ You can find generic installation instructions for workspace catalog application
 
 For details on custom configuration for the operator, please refer to the [Spark Operator Helm Chart documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/charts/spark-operator-chart/README.md).
 
+## Sample override configmap
+
+```yaml
+
+```
+
 ## Uninstall via the CLI
 
 <p class="message--note"><strong>NOTE: </strong>Uninstalling the Spark Operator will not affect existing <b>SparkApplication</b> and <b>ScheduledSparkApplication</b> custom resources. You need to manually remove any leftover custom resources and CRDs from the operator. Please refer to <a href="../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/spark-operator-custom-resources#clean-up">deleting Spark Operator custom resources</a>.</p>
@@ -27,6 +33,13 @@ For details on custom configuration for the operator, please refer to the [Spark
 
     ```bash
     kubectl -n <your workspace namespace> delete AppDeployment <name of AppDeployment>
+    ```
+
+1.  Removing Spark Operator Service Account:
+
+    ```bash
+    # <name of service account> is spark-operator-service-account if you didn't override the RBAC resources.
+    kubectl -n <your workspace namespace> delete serviceaccounts <name of service account>
     ```
 
 1.  Removing Spark Operator CRDs:
