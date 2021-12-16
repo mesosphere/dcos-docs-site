@@ -6,7 +6,7 @@ menuWeight: 20
 excerpt: Get Started on Spark Operator Custom Resources
 ---
 
-To run your Spark workloads with Spark Operator, you need to apply Spark Operator specific custom resources. Spark Operator will work with the following  kinds of custom resources:
+To run your Spark workloads with Spark Operator, apply the Spark Operator specific custom resources. The Spark Operator works with the following  kinds of custom resources:
 
 - `SparkApplication`
 - `ScheduledSparkApplication`
@@ -15,7 +15,7 @@ See [Spark Operator API documentation](https://github.com/mesosphere/spark-on-k8
 
 ## Prerequisites
 
-1.  You need to deploy your Spark Operator first. See [this documentation](../../../../../workspaces/applications/catalog-applications/spark-operator) for more information about Spark Operator installation.
+1.  First, deploy your Spark Operator. See the [Spark Operator](../../../../../workspaces/applications/catalog-applications/spark-operator) documentation for more information.
 
 2.  You need to ensure the necessary RBAC resources referenced in your custom resources exist, otherwise the your custom resources will fail. See [this Spark Operator documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/docs/quick-start-guide.md#about-the-spark-job-namespace) for details.
     -   This is an example of commands you need to create RBAC resources needed in your project namespace:
@@ -81,7 +81,7 @@ See [Spark Operator API documentation](https://github.com/mesosphere/spark-on-k8
        export SPARK_SERVICE_ACCOUNT=spark-service-account
        ```
 
-1.  Now apply the SparkApplication custom resource in your project namespace
+1.  Apply the SparkApplication custom resource in your project namespace
 
     ```bash
     kubectl apply -f - <<EOF

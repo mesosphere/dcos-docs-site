@@ -12,7 +12,7 @@ The Kubernetes Operator for Apache Spark aims to make specifying and running Spa
 
 Note: the default installation is bare-bone, please provide your override configmap to enable desired Spark Operator features
 
-## Installation
+## Install
 
 <!-- Need to add link to the application deployment page in PR -->
 You can find generic installation instructions for workspace catalog applications on the Application Deployment page.
