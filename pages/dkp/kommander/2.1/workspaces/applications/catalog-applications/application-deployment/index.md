@@ -23,7 +23,33 @@ Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace'
 export WORKSPACE_NAMESPACE=<workspace_namespace>
 ```
 
-## Deploy the application
+After creating a GitRepository, you can either use the Kommander UI or the CLI to deploy your custom applications.
+
+## Deploy the application using the Kommander UI
+
+Go to the Kommander UI to deploy your custom applications:
+
+1.  Select the desired **Workspace**
+
+1.  Select **Applications** on the left navigation bar to browse the available applications from your configured repositories.
+
+1.  Select your desired application.
+
+1.  Select the version you'd like to deploy from the version drop-down, and then select Deploy. The `Deploy Workspace Catalog Application` page is displayed.
+
+1.  (Optional) If you want to override the default configuration values, copy your values content into the text editor under **Configure Service** or just upload your yaml file that contains the values:
+
+   ```yaml
+   someField: someValue
+   ```
+
+1. Once you confirm the details are correct, click the `Deploy` button.
+
+For all applications, you must provide a display name and an ID which is automatically generated based on what you enter for the display name, unless or until you edit the ID directly. The ID must be compliant with [Kubernetes DNS subdomain name validation rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names).
+
+Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to deploy your custom applications.
+
+## Deploy the application using the CLI
 
 See [workspace catalog applications](../../catalog-applications#workspace-catalog-applications) for the list of available applications that you can deploy on the attached cluster.
 
@@ -49,7 +75,7 @@ See [workspace catalog applications](../../catalog-applications#workspace-catalo
 
 <p class="message--note"><strong>NOTE: </strong>The <code>appRef.name</code> must match the app <code>name</code> from the list of available catalog applications.</p>
 
-## Deploy an application with a custom configuration
+## Deploy an application with a custom configuration using the CLI
 
 1.  Provide the name of a `ConfigMap` in the `AppDeployment`, which provides custom configuration on top of the default configuration:
 
