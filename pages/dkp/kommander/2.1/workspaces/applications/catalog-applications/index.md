@@ -25,6 +25,8 @@ Catalog applications are any third-party or open source applications that appear
     metadata:
       name: dkp-catalog-applications
       namespace: ${WORKSPACE_NAMESPACE}
+      labels:
+        kommander.d2iq.io/gitapps-gitrepository-type: catalog
     spec:
       interval: 1m0s
       ref:
