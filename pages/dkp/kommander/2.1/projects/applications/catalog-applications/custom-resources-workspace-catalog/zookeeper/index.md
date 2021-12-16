@@ -47,5 +47,5 @@ A [Helm chart](https://github.com/pravega/zookeeper-operator/tree/master/charts/
 1.  Deleting a specific `ZookeeperCluster`:
 
     ```bash
-    kubectl delete zookeepercluster <name of zookeepercluster>
+    kubectl -n ${PROJECT_NAMESPACE} delete zookeepercluster <name of zookeepercluster>
     ```

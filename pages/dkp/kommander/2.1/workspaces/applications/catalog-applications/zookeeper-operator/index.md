@@ -31,7 +31,7 @@ Uninstalling the ZooKeeper operator will not directly affect any running `Zookee
 1.  Uninstalling a ZooKeeper operator `AppDeployment`:
 
     ```bash
-    kubectl delete AppDeployment <name of AppDeployment>
+    kubectl -n <workspace namespace> delete AppDeployment <name of AppDeployment>
     ```
 
 1.  Removing ZooKeeper CRDs:
