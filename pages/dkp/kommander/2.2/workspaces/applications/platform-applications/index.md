@@ -25,7 +25,7 @@ This takes you to the **Applications** page which displays all applications that
 
 To use the CLI to deploy or uninstall applications, see [Application Deployment](./application-deployment)
 
-<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the applications, which are listed <a href="./platform-service-dependencies/">in this documentation</a>. Review them carefully prior to customizing to ensure that the applications are deployed successfully.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the applications, which are listed <a href="./platform-service-dependencies/">in the platform service dependencies</a> documentation. Review them carefully prior to customizing to ensure that the applications are deployed successfully.</p>
 
 ## Workspace platform applications
 
