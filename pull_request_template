@@ -1,0 +1,16 @@
+## Jira Ticket
+
+Before creating this pull request, make sure you have a separate ticket for the docs team to track their work. If you need assistance, ask in the #documentation Slack channel.
+
+<!-- Link to JIRA ticket -->
+
+## Description of changes being made
+
+## Checklist
+
+- [ ] Test all commands and procedures, if applicable.
+- [ ] Create new PRs against `develop`, or `main` for hotfixes to production.
+- [ ] Update all links if you are moving a page.
+- [ ] Add release date to Release Notes page in the following format: <Package> was released on <Day>, <Month> <Year> Example: `Mesosphere® DC/OS™ 2.1.0 was released on 9, June 2020`
+
+See the [contribution guidelines](https://github.com/mesosphere/dcos-docs-site/blob/main/CONTRIBUTING.md) for more information.
