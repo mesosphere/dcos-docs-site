@@ -7,7 +7,6 @@ beta: false
 excerpt: Deploy applications to attached clusters using the CLI
 ---
 
-
 This topic describes how to use the CLI to deploy a workspace catalog application to attached clusters within a workspace.
 
 ## Prerequisites
