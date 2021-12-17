@@ -15,7 +15,7 @@ After you complete the upgrade, some Kubernetes objects that belonged to Konvoy 
 
 After a successful upgrade, the 1.8 addons no longer exist. Helm releases of Kibana, Elasticsearch, and Elasticsearch-Curator remain but are not managed by the addons, if they were installed.
 
-Uninstall these Helm releases from the command line, using this Helm command:
+Uninstall these Helm releases from the command line, using the command:
 
 ```sh
 helm uninstall -n kubeaddons kibana-kubeaddons elasticsearch-curator-kubeaddons elasticsearch-kubeaddons elasticsearchexporter-kubeaddons
