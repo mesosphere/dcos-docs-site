@@ -57,4 +57,4 @@ kubectl delete -n kubeaddons service gatekeeper-webhook-service
 ```
 
 <p class="message--note"><strong>WARNING: </strong>As long as the secret exists, <code>helm list -n kubeaddons</code>
-will wrongly report existence of a "gatekeeper-kubeaddons" Helm release. If you manipulate this "Helm release" using Helm, it may corrupt the Gatekeeper Platform Application in Kommander, potentially making Kubernetes on the cluster inoperable.</p>
+wrongly reports the existence of a "gatekeeper-kubeaddons" Helm release. If you manipulate this "Helm release" using Helm, it might corrupt the Gatekeeper Platform Application in Kommander, potentially making Kubernetes on the cluster inoperable.</p>
