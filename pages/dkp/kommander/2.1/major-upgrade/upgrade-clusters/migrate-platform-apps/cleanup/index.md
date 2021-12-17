@@ -24,9 +24,10 @@ helm uninstall -n kubeaddons kibana-kubeaddons elasticsearch-curator-kubeaddons 
 The output looks like the following:
 
 ```sh
-release "elasticsearchexporter-kubeaddons" uninstalled
+release "kibana-kubeaddons" uninstalled
 release "elasticsearch-curator-kubeaddons" uninstalled
 release "elasticsearch-kubeaddons" uninstalled
+release "elasticsearchexporter-kubeaddons" uninstalled
 ```
 
 ## Istio
@@ -45,7 +46,7 @@ kubectl delete -n istio-system secret sh.helm.release.v1.istio-kubeaddons.v1
 
 If Gatekeeper is installed on the cluster, the upgrade leaves a Helm Secret, Deployments, and a Service that belonged to the 1.8 Gatekeeper addon in the `kubeaddons` namespace.
 
-<p class="message--note"><strong>WARNING: </strong>As long as the secret exists, `helm list -n kubeaddons` incorrectly reports the existence of a "gatekeeper-kubeaddons" Helm release. If you manipulate this "Helm release" using Helm, it might corrupt the Gatekeeper Platform Application in Kommander, potentially making Kubernetes on the cluster inoperable.</p>
+<p class="message--note"><strong>WARNING: </strong>As long as the secret exists, <code>helm list -n kubeaddons</code> incorrectly reports the existence of a "gatekeeper-kubeaddons" Helm release. If you manipulate this "Helm release" using Helm, it might corrupt the Gatekeeper Platform Application in Kommander, potentially making Kubernetes on the cluster inoperable.</p>
 
 Delete these objects using the `kubectl`commands:
 
@@ -53,8 +54,7 @@ Delete these objects using the `kubectl`commands:
 kubectl delete -n kubeaddons secret sh.helm.release.v1.gatekeeper-kubeaddons.v1
 kubectl delete -n kubeaddons deployments gatekeeper-audit gatekeeper-controller-manager
 kubectl delete -n kubeaddons service gatekeeper-webhook-service
-
 ```
 
-<p class="message--note"><strong>WARNING: </strong>As long as the secret exists, <code>helm list -n kubeaddons</code>
-wrongly reports the existence of a "gatekeeper-kubeaddons" Helm release. If you manipulate this "Helm release" using Helm, it might corrupt the Gatekeeper Platform Application in Kommander, potentially making Kubernetes on the cluster inoperable.</p>
+<p class="message--note"><strong>WARNING: </strong>As long as the secret exists, <code>helm list -n kubeaddons</code> wrongly reports the existence of a "gatekeeper-kubeaddons" Helm release.
+If you manipulate this "Helm release" using Helm, it might corrupt the Gatekeeper Platform Application in Kommander, potentially making Kubernetes on the cluster inoperable.</p>
