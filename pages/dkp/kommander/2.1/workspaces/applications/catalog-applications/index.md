@@ -36,7 +36,7 @@ Catalog applications are any third-party or open source applications that appear
     EOF
     ```
 
-1.  You should now see the workspace catalog `Apps` available in the UI and CLI
+1.  You should now see the workspace catalog `Apps` available in the UI, and in the CLI using `kubectl`:
 
     ```bash
     kubectl get apps -n ${WORKSPACE_NAMESPACE}

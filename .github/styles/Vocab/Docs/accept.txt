@@ -137,3 +137,4 @@ Zookeeper
 zookeeper
 ZooKeeper
 sed
+kafka
