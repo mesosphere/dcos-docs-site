@@ -7,6 +7,7 @@ excerpt: Workspace Platform Application Descriptions and Resource Requirements
 enterprise: false
 draft: true
 ---
+
 ## Workspace platform application requirements
 
 Workspace platform applications require more resources than solely deploying or attaching clusters into a workspace. Your cluster must have sufficient resources when deploying or attaching to ensure that the platform services are installed successfully.
