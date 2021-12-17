@@ -18,6 +18,7 @@ COPS
 Couchbase
 covariant
 covariate
+cpu
 CRD
 D2iQ
 Datastax
@@ -33,7 +34,9 @@ DSL(|s)
 ECR
 etcd
 Flink
+fluentbit
 GCR
+grafana
 Grafana
 grayscale
 GRU
@@ -43,6 +46,7 @@ hostname
 hotfix(|es)
 hyperparameter(|s)
 https
+istio
 Istio
 (json|JSON)
 Kafka
@@ -51,6 +55,8 @@ Katib
 Keras
 keypair
 keyspace
+kiali
+Kiali
 Kibana
 KIND
 kind
@@ -61,9 +67,11 @@ Konvoy
 kubectl
 kubelet
 kubeconfig
+kubecost
 Kubecost
 kubelet(|s)
 Kubeflow
+kubernetes
 Kubernetes
 KUDO
 linkerd
@@ -75,6 +83,8 @@ Makefile
 markdownlint
 Mesos
 Mesosphere
+metallb
+MetalLB
 Metalsmith
 MKE
 ML(|Ops)
@@ -86,6 +96,7 @@ Nagios
 namespace
 namespaced
 (nginx|NGINX)
+nvidia
 Nvidia
 onboarding
 overfit(|s|ted|ting)
@@ -93,10 +104,13 @@ Papermill
 Percona
 PostgreSQL
 preprocessor(|s)
+prometheus
 Prometheus
 Pushgateway
 PyTorch
 rebalance
+reloader
+Reloader
 repo
 RGB
 RNN(|s)
@@ -112,8 +126,10 @@ TensorFlow
 Thanos
 Toree
 Traefik
+traefik
 uncordon(|ed)
 unmount(|ing|ed)
 Velero
+velero
 XGBoost
 yakcl
