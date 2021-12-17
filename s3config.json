@@ -8,7 +8,7 @@
   "RoutingRules": [
     { "Condition": { "KeyPrefixEquals": "mesosphere/dcos/latest/" },                                           "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/2.2/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "dkp/konvoy/latest/" },                                                "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/konvoy/2.1/", "HttpRedirectCode": "307" } },
-    { "Condition": { "KeyPrefixEquals": "dkp/dispatch/latest/" },                                              "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/dispatch/1.2/", "HttpRedirectCode": "307" } },
+    { "Condition": { "KeyPrefixEquals": "dkp/dispatch/latest/" },                                              "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/dispatch/1.4/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "dkp/kommander/latest/" },                                             "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/kommander/2.1/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "dkp/kaptain/latest/" },                                               "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/kaptain/1.2.0-1.1.0/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "dkp/kubeflow/" },                                                     "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/kaptain/", "HttpRedirectCode": "307" } },
@@ -54,5 +54,7 @@
     { "Condition": { "KeyPrefixEquals": "version-policy/" },                                                   "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/version-policy/", "HttpRedirectCode": "301" } },
     { "Condition": { "KeyPrefixEquals": "support" },                                                           "Redirect": { "HostName": "support.d2iq.com", "Protocol": "https", "HttpRedirectCode": "301" } },
     { "Condition": { "KeyPrefixEquals": "dkp/kommander/1.4/Architecture/" },                                "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/kommander/1.4/architecture/", "HttpRedirectCode": "301" } }
+    { "Condition": { "KeyPrefixEquals": "ksphere/dispatch/" },                                              "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/dispatch/", "HttpRedirectCode": "307" } },
+
   ]
 }
