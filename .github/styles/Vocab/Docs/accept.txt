@@ -51,6 +51,7 @@ hostname
 hotfix(|es)
 hyperparameter(|s)
 https
+istio
 Istio
 istio
 JIRA
@@ -126,6 +127,7 @@ Scala
 scikit-learn
 serverless
 sigmoidal
+Snapshotter
 softmax
 Splunk
 subcommand
