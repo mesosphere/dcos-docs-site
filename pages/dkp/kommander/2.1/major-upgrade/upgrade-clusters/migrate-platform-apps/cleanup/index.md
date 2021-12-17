@@ -31,7 +31,7 @@ release "elasticsearch-kubeaddons" uninstalled
 
 ## Istio
 
-If Istio is installed on the cluster, the upgrade leaves the Helm Secret that belonged to the 1.8 Istio addon in the `istio-system` namespace.
+If Istio is installed on the cluster, the upgrade retains the Helm Secret that belonged to the 1.8 Istio addon in the `istio-system` namespace.
 
 <p class="message--note"><strong>WARNING: </strong>As long as this secret exists, <code>helm list -n istio-system</code> will incorrectly report existence of an "istio-kubeaddons" Helm release. If you manipulate this "Helm release" using Helm, it may corrupt the Istio Platform Application in Kommander, which can disrupt operation of Istio workloads.</p>
 
