@@ -73,7 +73,7 @@ The following components have been upgraded to the listed version:
 - Node Feature Discovery 0.8.2
 - Nvidia Node Feature Discovery 0.4.1
 
-### Building on a CentOS OS using Pre-provisioned
+### Build on a CentOS OS using pre-provisioned
 
 If you are deploying to CentOS using the [pre-provisioned provider](../choose-infrastructure/pre-provisioned) method, ensure this setting is followed on your machines:
 
