@@ -53,8 +53,7 @@
     { "Condition": { "KeyPrefixEquals": "services/" },                                                         "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/services/", "HttpRedirectCode": "301" } },
     { "Condition": { "KeyPrefixEquals": "version-policy/" },                                                   "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/version-policy/", "HttpRedirectCode": "301" } },
     { "Condition": { "KeyPrefixEquals": "support" },                                                           "Redirect": { "HostName": "support.d2iq.com", "Protocol": "https", "HttpRedirectCode": "301" } },
-    { "Condition": { "KeyPrefixEquals": "dkp/kommander/1.4/Architecture/" },                                "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/kommander/1.4/architecture/", "HttpRedirectCode": "301" } }
-    { "Condition": { "KeyPrefixEquals": "ksphere/dispatch/" },                                              "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/dispatch/", "HttpRedirectCode": "307" } },
-
+    { "Condition": { "KeyPrefixEquals": "dkp/kommander/1.4/Architecture/" },                                "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/kommander/1.4/architecture/", "HttpRedirectCode": "301" } },
+    { "Condition": { "KeyPrefixEquals": "ksphere/dispatch/" },                                              "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "dkp/dispatch/", "HttpRedirectCode": "307" } }
   ]
 }
