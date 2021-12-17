@@ -13,7 +13,7 @@ After you complete the upgrade, some Kubernetes objects that belonged to Konvoy 
 
 ## Components of the 1.8 logging stack
 
-After a successful upgrade, the 1.8 addons no longer exist. Helm releases of Kibana, Elasticsearch, and Elasticsearch-Curator remain and are not managed by the addons, if they were installed.
+After a successful upgrade, the 1.8 addons no longer exist. Helm releases of Kibana, Elasticsearch, and Elasticsearch-Curator remain but are not managed by the addons, if they were installed.
 
 Uninstall these Helm releases from the command line, using this Helm command:
 
