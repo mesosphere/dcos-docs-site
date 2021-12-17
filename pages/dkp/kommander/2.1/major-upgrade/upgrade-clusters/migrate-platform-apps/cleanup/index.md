@@ -9,7 +9,7 @@ beta: false
 
 <!-- markdownlint-disable MD0013 MD030 -->
 
-After upgrade is complete, some Kubernetes objects that belonged to Konvoy 1.8 addons, but are not used by Kommander 2.1 Platform Applications may remain on the cluster. The existence of these objects has no impact on the function of Kommander 2.1. However, modifying or deleting them can corrupt the Kommander 2.1 installation produced by the upgrade. As a result, you should remove these objects using the following steps.
+After you complete the upgrade, some Kubernetes objects that belonged to Konvoy 1.8 addons, but are not used by Kommander 2.1 Platform Applications, could remain on the cluster. The existence of these objects has no impact on the function of Kommander 2.1. However, modifying or deleting these objects might corrupt the Kommander 2.1 installation produced by the upgrade. As a result, you should remove these objects using the following procedure:
 
 ## Components of the 1.8 logging stack
 
