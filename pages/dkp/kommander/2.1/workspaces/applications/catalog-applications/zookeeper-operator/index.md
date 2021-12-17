@@ -24,17 +24,17 @@ For details on custom configuration for the operator, please refer to the [ZooKe
 
 ## Uninstall via the CLI
 
-Uninstalling the ZooKeeper operator will not directly affect any running `ZookeeperCluster`s. By default, the operator will wait for any `ZookeeperClusters` to be deleted before it will fully uninstall (you can set `hooks.delete: true` in the application configuration to disable this behavior). After uninstalling the operator, you will need to manually clean up any leftover Custom Resource Definitions (CRDs).
+Uninstalling the ZooKeeper operator will not directly affect any running `ZookeeperClusters`. By default, the operator will wait for any `ZookeeperClusters` to be deleted before it will fully uninstall (you can set `hooks.delete: true` in the application configuration to disable this behavior). After uninstalling the operator, you will need to manually clean up any leftover Custom Resource Definitions (CRDs).
 
-1.  Delete all `ZookeeperCluster`'s, see [Deleting ZooKeeper Clusters](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/zookeeper#deleting-zookeeper-clusters).
+1.  Delete all `ZookeeperClusters`, see [Deleting ZooKeeper Clusters](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/zookeeper#deleting-zookeeper-clusters).
 
-1.  Uninstalling a ZooKeeper operator `AppDeployment`:
+1.  Uninstall a ZooKeeper operator `AppDeployment`:
 
     ```bash
     kubectl -n <workspace namespace> delete AppDeployment <name of AppDeployment>
     ```
 
-1.  Removing ZooKeeper CRDs:
+1.  Remove ZooKeeper CRDs:
 
     <p class="message--warning"><strong>WARNING: </strong>Once you remove the CRDs, all deployed ZookeeperClusters will be deleted!</p>
 

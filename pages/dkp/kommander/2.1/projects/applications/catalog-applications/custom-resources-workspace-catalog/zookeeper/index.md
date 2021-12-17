@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Deploying ZooKeeper in a project
 ---
 
-## Getting Started
+## Getting started
 
 To get started with creating ZooKeeper clusters in your project namespace, you first need to deploy the [ZooKeeper operator](../../../../../workspaces/applications/catalog-applications/zookeeper-operator/) in the workspace where the project exists.
 
@@ -14,7 +14,7 @@ Once you have the ZooKeeper operator deployed, you can create ZooKeeper Clusters
 
 A [Helm chart](https://github.com/pravega/zookeeper-operator/tree/master/charts/zookeeper) exists in the ZooKeeper operator repository that can assist with deploying ZooKeeper clusters.
 
-### Example Deployment
+### Example deployment
 
 1.  Set the `PROJECT_NAMESPACE` environment variable to the name of your project’s namespace:
 
@@ -36,7 +36,18 @@ A [Helm chart](https://github.com/pravega/zookeeper-operator/tree/master/charts/
     EOF
     ```
 
-## Deleting ZooKeeper Clusters
+1.  Check the status of your ZooKeeper cluster using `kubectl`:
+
+    ```bash
+    kubectl get zk
+    ```
+
+    ```text
+    NAME        REPLICAS   READY REPLICAS    VERSION   DESIRED VERSION   INTERNAL ENDPOINT    EXTERNAL ENDPOINT   AGE
+    zookeeper   3          3                 0.2.13    0.2.13            10.100.200.18:2181   N/A                 94s
+    ```
+
+## Deleting ZooKeeper clusters
 
 1.  View `ZookeeperClusters` in all namespaces:
 
@@ -44,7 +55,7 @@ A [Helm chart](https://github.com/pravega/zookeeper-operator/tree/master/charts/
     kubectl get zookeeperclusters -A
     ```
 
-1.  Deleting a specific `ZookeeperCluster`:
+1.  Delete a specific `ZookeeperCluster`:
 
     ```bash
     kubectl -n ${PROJECT_NAMESPACE} delete zookeepercluster <name of zookeepercluster>
