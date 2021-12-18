@@ -58,6 +58,7 @@ kmem
 Knative
 Kommander
 Konvoy
+kubeadm
 kubectl
 kubelet
 kubeconfig
@@ -107,6 +108,7 @@ sigmoidal
 softmax
 Splunk
 subcommand
+subnet
 subtree
 TensorFlow
 Thanos

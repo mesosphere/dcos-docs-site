@@ -18,13 +18,15 @@ Before you begin, you must:
 
 ## Bootstrap Cluster Lifecycle Services
 
-1.  If an HTTP proxy is required for the bootstrap cluster, set the local `http_proxy`, `https_proxy`, and `no_proxy` environment variables. They are copied into the bootstrap cluster.
+1.  If an HTTP proxy is required for the bootstrap cluster, set the local `http_proxy`, `https_proxy`, and `no_proxy` environment variables. Konvoy copies them into the bootstrap cluster.
 
 1.  Create a bootstrap cluster:
 
     ```sh
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
+
+    The output appears similar to:
 
     ```sh
     INFO[2021-11-23T15:54:07-08:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
@@ -47,7 +49,7 @@ Before you begin, you must:
     INFO[2021-11-23T15:56:06-08:00] Created/Updated NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:302"
     ```
 
-    Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
+    Konvoy creates a bootstrap cluster using [KIND][kind] as a library, and then deploys the following [Cluster API][capi_book] providers on the cluster:
 
     - [Core Provider][capi]
     - [Azure Infrastructure Provider][capz]
@@ -59,6 +61,8 @@ Before you begin, you must:
     ```sh
     kubectl get --all-namespaces deployments -l=clusterctl.cluster.x-k8s.io
     ```
+
+    The output appears similar to
 
     ```sh
     NAMESPACE                           NAME                                            READY   UP-TO-DATE   AVAILABLE   AGE
@@ -73,11 +77,13 @@ Before you begin, you must:
     cert-manager                        cert-manager-webhook                            1/1     1            1           5m52s
     ```
 
-    Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
+    Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List the ClusterResourceSets using this command:
 
     ```sh
     kubectl get clusterresourceset
     ```
+
+    The output appears similar to:
 
     ```sh
     NAME                       AGE
@@ -90,9 +96,9 @@ Before you begin, you must:
     tigera-operator            5m38s
     ```
 
-    A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.
+    A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When Konvoy creates a cluster with matching labels, it applies the YAML manifest to the cluster. Konvoy applies the manifest only once, during cluster creation.
 
-    For example, this is the `azure-disk-csi` ClusterResourceSet, which is now deployed by Konvoy from the above actions:
+    For example, this is the `azure-disk-csi` ClusterResourceSet, deployed by Konvoy from the actions described previously:
 
     ```yaml
     kind: ClusterResourceSet

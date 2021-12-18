@@ -23,18 +23,20 @@ enterprise: false
 
 ## Tips and Tricks
 
-1.  To create a cluster name that's unique, use the following command:
+1.  To create a cluster name that is unique, use the following command:
 
     ```sh
     CLUSTER_NAME=$(whoami)-azure-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 
+    The output appears similar to:
+
     ```text
     hunter-azure-cluster-pf4a3
     ```
 
-    This will create a unique name every time you run it, so use it with forethought.
+    This command creates a unique name every time you run it, so use it carefully.
 
 1.  Set the environment variable to the name you assigned this cluster:
 
@@ -53,7 +55,7 @@ enterprise: false
     > ${CLUSTER_NAME}.yaml
     ```
 
-1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy:
+1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy, copy these commands to an editor and apply the list of edits that follows to customize them before executing them from the command line:
 
     ```sh
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
@@ -66,13 +68,13 @@ enterprise: false
     ```
 
     - Replace `example.org,example.com,example.net` with your internal addresses
-    - `localhost` and `127.0.0.1` addesses should not use the proxy
+    - `localhost` and `127.0.0.1` addresses should not use the proxy
     - `10.96.0.0/12` is the default Kubernetes service subnet
     - `192.168.0.0/16` is the default Kubernetes pod subnet
     - `kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local` is the internal Kubernetes kube-apiserver service
     - `.svc,.svc.cluster,.svc.cluster.local` is the internal Kubernetes services
     - `169.254.169.254` is the Azure metadata server
-    - `.cloudapp.azure.com` is for the worker nodes to allow them to communicate directly to the kube-apiserver loadbalancer
+    - `.cloudapp.azure.com` is for the worker nodes to allow them to communicate directly to the kube-apiserver load balancer
 
 1.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
 
@@ -91,7 +93,7 @@ enterprise: false
 
 1.  Inspect or edit the cluster objects:
 
-    <p class="message--note"><strong>NOTE: </strong>Familiarize yourself with Cluster API before editing the cluster objects as edits can prevent the cluster from deploying successfully.</p>
+    <p class="message--note"><strong>NOTE: </strong>Familiarize yourself with [Cluster API][capi_book] before editing the cluster objects as edits may prevent the cluster from deploying successfully.</p>
 
     The objects are [Custom Resources][k8s_custom_resources] defined by Cluster API components, and they belong in three different categories:
 
@@ -105,11 +107,11 @@ enterprise: false
 
     1.  Node Pool
 
-        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (e.g., kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and an _AzureMachineTemplate_ object, which describes the instance type, the type of disk used, the size of the disk, among other properties.
+        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (for example, the kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and an _AzureMachineTemplate_ object, which describes the instance type, the type of disk used, the size of the disk, among other properties.
 
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
-1.  Create the cluster from the objects.
+1.  Create the cluster from the objects with the command:
 
     ```sh
     kubectl apply -f ${CLUSTER_NAME}.yaml
@@ -144,7 +146,7 @@ enterprise: false
     ```
 
     ```text
-    NAME                                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
+    NAME                                                                 READY  SEVERITY  REASON  SINCE  MESSAGE
     /my-azure-cluster                                                    True                     6m37s
     ├─ClusterInfrastructure - AzureCluster/my-azure-cluster              True                     13m
     ├─ControlPlane - KubeadmControlPlane/my-azure-cluster-control-plane  True                     6m37s
@@ -203,3 +205,4 @@ Next, you can [Explore the New Cluster][explore-new-cluster].
 [explore-new-cluster]: ../explore
 [capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
 [k8s_custom_resources]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
+[capi_book]: https://cluster-api.sigs.k8s.io/
