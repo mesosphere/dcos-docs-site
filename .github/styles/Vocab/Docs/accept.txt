@@ -8,12 +8,13 @@ autoscal(e|es|ed|ing)
 backend
 backoff
 Cassandra
+CentOS
 checkpoint(|s|ed|ing)
 Chronos
 CNN(|s)
 CNTK
 configmap
-Component
+ConfigMap
 component
 Component
 Conda
@@ -24,6 +25,7 @@ Couchbase
 covariant
 covariate
 cpu
+CPU
 CRD
 datacenter
 D2iQ
@@ -39,9 +41,12 @@ DKLB
 DSL(|s)
 ECR
 etcd
+fips
+FIPS
 Flink
 fluentbit
 GCR
+goboring
 Grafana
 grafana
 grayscale
@@ -73,6 +78,7 @@ kmem
 Knative
 Kommander
 Konvoy
+konvoy-image
 kubectl
 kubelet
 kubeconfig
@@ -83,6 +89,7 @@ Kubeflow
 Kubernetes
 kubernetes
 KUDO
+licensors
 linkerd
 liveness
 Logstash
@@ -92,6 +99,7 @@ Makefile
 markdownlint
 Mesos
 Mesosphere
+mesosphere
 Metalsmith
 Metallb
 metallb
