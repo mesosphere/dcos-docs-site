@@ -7,6 +7,7 @@ Ansible
 autoscal(e|es|ed|ing)
 auto-assign
 (Auto-Provisioner|auto-provisioner)
+awscsiprovisioner
 backend
 backoff
 bootup
@@ -24,7 +25,7 @@ config
 configmap
 configMap
 ConfigMap
-containerd
+(Containerd|containerd)
 contravariant
 COPS
 coredns
@@ -56,6 +57,7 @@ ECR
 elasticsearchexporter
 ETCD
 etcd
+felix
 finalizer(|s)
 fips
 FIPS
@@ -91,6 +93,7 @@ Kafka
 kafka
 Kaptain
 Katib
+Keepalived
 Keras
 keypair
 keyspace
@@ -159,11 +162,13 @@ onboarding
 overfit(|s|ted|ting)
 Papermill
 Percona
+Portworx
 PostgreSQL
-preconfigured
+preconfigure(|d)
 preprocessor(|s)
 Prometheus
 prometheus
+Purestorage
 Pushgateway
 PyTorch
 rebalance
@@ -180,9 +185,11 @@ sigmoidal
 Snapshotter
 softmax
 Splunk
+stdout
 subcommand
 (Subnet|Subnets|subnet|subnets)
 subtree
+syncserver
 systemd
 Telegraf
 Tensorflow
