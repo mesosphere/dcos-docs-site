@@ -23,7 +23,7 @@ An Ingress controller fulfills the Ingress with a load balancer.
 A cluster can have multiple Ingress controllers.
 D2iQ recommends adding your own Ingress controllers for your applications.
 The Traefik Ingress controller that Kommander installs for access to the Kommander dashboard can be replaced later if a different solution is a better fit.
-Using your own Ingress controller in parallel for your own business requirements ensures that you are are not limited by any future changes in Kommander.
+Using your own Ingress controller in parallel for your own business requirements ensures that you are not limited by any future changes in Kommander.
 
 ## Traefik v2.4
 

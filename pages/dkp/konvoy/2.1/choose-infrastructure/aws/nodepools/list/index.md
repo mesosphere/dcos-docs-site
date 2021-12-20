@@ -9,7 +9,7 @@ enterprise: false
 
 ## Listing Node Pools
 
-Use this command to list the node pools of a given cluster. This returns specific properties of each node pool so that you can see the name of the machinedeployments.
+Use this command to list the node pools of a given cluster. This returns specific properties of each node pool so that you can see the name of the MachineDeployments.
 
 To list all node pools for a managed cluster, run:
 

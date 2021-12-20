@@ -21,9 +21,9 @@ where `<device label>` is by default:
 < class > _ < vendor >
 ```
 
-as [defined here:](https://kubernetes-sigs.github.io/node-feature-discovery/v0.7/get-started/features.html#pci)
+as [defined in this topic:](https://kubernetes-sigs.github.io/node-feature-discovery/v0.7/get-started/features.html#pci)
 
-However, due to the wide variety in devices and their assigned PCI classes, you may find that the labels assigned to your GPU nodes do not always properly identify them as containing an nVidia GPU.
+However, due to the wide variety in devices and their assigned PCI classes, you may find that the labels assigned to your GPU nodes do not always properly identify them as containing an Nvidia GPU.
 
 If the default detection does not work, you can manually change the configmap "nvidia-feature-discovery.yaml" before creating the cluster and change the lines:
 

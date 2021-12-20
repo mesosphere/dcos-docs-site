@@ -60,7 +60,7 @@ dkp create cluster preprovisioned \
 
 ## Use an HTTP Proxy
 
-If you require http proxy configurations, you can apply them during the `create` operation by adding the appropriate flags to the `create cluster` command:
+If you require HTTP proxy configurations, you can apply them during the `create` operation by adding the appropriate flags to the `create cluster` command:
 
 | Proxy configuration                      | Flag                                 |
 | ---------------------------------------- | ------------------------------------ |

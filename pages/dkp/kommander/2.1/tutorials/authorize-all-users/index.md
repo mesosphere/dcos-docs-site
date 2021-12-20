@@ -4,7 +4,7 @@ beta: false
 navigationTitle: Authorize a group across clusters
 title: Authorize a group across clusters
 menuWeight: 1
-excerpt: Install Github as an identity provider and grant access to all developers
+excerpt: Install GitHub as an identity provider and grant access to all developers
 ---
 
 ## Authorize all developers to have read access to your clusters
@@ -23,7 +23,7 @@ After you create this application, you should something like this:
 
 ![Created a GitHub OAuth App](/dkp/kommander/2.1/img/tutorial-idp-github-oauth-created.png)
 
-In Kommander UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Identity Providers** tab and click the **Add Identity Provider** button. Ensure Github is selected as the identity provider type, and copy the Client ID and Client Secret values into the form. Press **Save** to create your Identity Provider.
+In Kommander UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Identity Providers** tab and click the **Add Identity Provider** button. Ensure GitHub is selected as the identity provider type, and copy the Client ID and Client Secret values into the form. Press **Save** to create your Identity Provider.
 
 ![Adding the GitHub OAuth App](/dkp/kommander/2.1/img/tutorial-idp-github-added.png)
 
