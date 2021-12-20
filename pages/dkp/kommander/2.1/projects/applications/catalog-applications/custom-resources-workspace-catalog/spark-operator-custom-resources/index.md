@@ -36,27 +36,27 @@ See [Spark Operator API documentation](https://github.com/mesosphere/spark-on-k8
         metadata:
           namespace: ${PROJECT_NAMESPACE}
           name: spark-role
-          rules:
-          - apiGroups: [""]
-            resources: ["pods"]
-            verbs: ["*"]
-          - apiGroups: [""]
-            resources: ["services"]
-            verbs: ["*"]
+        rules:
+        - apiGroups: [""]
+          resources: ["pods"]
+          verbs: ["*"]
+        - apiGroups: [""]
+          resources: ["services"]
+          verbs: ["*"]
         ---
         apiVersion: rbac.authorization.k8s.io/v1
         kind: RoleBinding
         metadata:
           name: spark-role-binding
           namespace: ${PROJECT_NAMESPACE}
-          subjects:
-          - kind: ServiceAccount
-            name: spark-service-account
-            namespace: ${PROJECT_NAMESPACE}
-          roleRef:
+        subjects:
+        - kind: ServiceAccount
+          name: spark-service-account
+          namespace: ${PROJECT_NAMESPACE}
+        roleRef:
           kind: Role
-            name: spark-role
-            apiGroup: rbac.authorization.k8s.io
+          name: spark-role
+          apiGroup: rbac.authorization.k8s.io
         EOF
         ```
 
@@ -92,35 +92,35 @@ See [Spark Operator API documentation](https://github.com/mesosphere/spark-on-k8
     apiVersion: "sparkoperator.k8s.io/v1beta2"
     kind: SparkApplication
     metadata:
-    name: pyspark-pi
-    namespace: ${PROJECT_NAMESPACE}
+      name: pyspark-pi
+      namespace: ${PROJECT_NAMESPACE}
     spec:
-    type: Python
-    pythonVersion: "3"
-    mode: cluster
-    image: "gcr.io/spark-operator/spark-py:v3.1.1"
-    imagePullPolicy: Always
-    mainApplicationFile: local:///opt/spark/examples/src/main/python/pi.py
-    sparkVersion: "3.1.1"
-    restartPolicy:
-    type: OnFailure
-    onFailureRetries: 3
-    onFailureRetryInterval: 10
-    onSubmissionFailureRetries: 5
-    onSubmissionFailureRetryInterval: 20
-    driver:
-    cores: 1
-    coreLimit: "1200m"
-    memory: "512m"
-    labels:
-        version: 3.1.1
-    serviceAccount: ${SPARK_SERVICE_ACCOUNT}
-    executor:
-    cores: 1
-    instances: 1
-    memory: "512m"
-    labels:
-        version: 3.1.1
+      type: Python
+      pythonVersion: "3"
+      mode: cluster
+      image: "gcr.io/spark-operator/spark-py:v3.1.1"
+      imagePullPolicy: Always
+      mainApplicationFile: local:///opt/spark/examples/src/main/python/pi.py
+      sparkVersion: "3.1.1"
+      restartPolicy:
+        type: OnFailure
+        onFailureRetries: 3
+        onFailureRetryInterval: 10
+        onSubmissionFailureRetries: 5
+        onSubmissionFailureRetryInterval: 20
+      driver:
+        cores: 1
+        coreLimit: "1200m"
+        memory: "512m"
+        labels:
+          version: 3.1.1
+        serviceAccount: ${SPARK_SERVICE_ACCOUNT}
+      executor:
+        cores: 1
+        instances: 1
+        memory: "512m"
+        labels:
+          version: 3.1.1
     EOF
     ```
 
