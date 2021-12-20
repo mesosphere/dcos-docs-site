@@ -288,10 +288,10 @@ kubectl get kubefedcluster -n kommander ${kubefed}
 
 To access services running on the remote cluster from the management cluster, connect to the tunnel proxy.
 
-There are three methods:
+You can use these three methods:
 
 1. If the client program supports use of a kubeconfig file, use the managed cluster's kubeconfig.
-1. If the client program supports SOCKS5 proxying, use the proxy directly.
+1. If the client program supports SOCKS5 proxies, use the proxy directly.
 1. Otherwise, deploy a proxy server on the management cluster.
 
 ### Managed cluster service
