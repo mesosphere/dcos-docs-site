@@ -12,7 +12,7 @@ excerpt: Information about the ZooKeeper Operator
 
 ## Install
 
-These install instructions describe how to install the ZooKeeper operator in a workspace. After following the install instructions, you will have the ZooKeeper operator running in a workspace namespace, ready to manage and create ZooKeeper clusters in any project namespaces. See the [ZooKeeper custom resource documentation](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/zookeeper/) for more information on creating ZooKeeper clusters.
+Follow these steps to install the ZooKeeper operator in a workspace. This procedure results in a ZooKeeper operator running in a workspace namespace, ready to manage and create ZooKeeper clusters in any project namespaces. See the [ZooKeeper custom resource documentation](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/zookeeper/) for more information on creating ZooKeeper clusters.
 
 1.  Follow the generic installation instructions for workspace catalog applications on the [Application Deployment](../application-deployment/) page.
 
@@ -26,7 +26,7 @@ For details on custom configuration for the operator, please refer to the [ZooKe
 
 ## Uninstall via the CLI
 
-Uninstalling the ZooKeeper operator will not directly affect any running `ZookeeperClusters`. By default, the operator will wait for any `ZookeeperClusters` to be deleted before it will fully uninstall (you can set `hooks.delete: true` in the application configuration to disable this behavior). After uninstalling the operator, you will need to manually clean up any leftover Custom Resource Definitions (CRDs).
+Uninstalling the ZooKeeper operator will not directly affect any running `ZookeeperClusters`. By default, the operator waits for any `ZookeeperClusters` to be deleted before it will fully uninstall (you can set `hooks.delete: true` in the application configuration to disable this behavior). After uninstalling the operator, you need to manually clean up any leftover Custom Resource Definitions (CRDs).
 
 1.  Delete all `ZookeeperClusters`, see [Deleting ZooKeeper Clusters](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/zookeeper#deleting-zookeeper-clusters).
 
