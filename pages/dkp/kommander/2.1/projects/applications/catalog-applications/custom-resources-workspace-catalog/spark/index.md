@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Deploy Custom Resources with Spark Operator
-title: Deploy Custom Resources with Spark Operator
+navigationTitle: Spark
+title: Spark
 menuWeight: 20
-excerpt: Get Started on Spark Operator Custom Resources
+excerpt: Deploying Spark in a project
 ---
 
 To run your Spark workloads with Spark Operator, apply the Spark Operator specific custom resources. The Spark Operator works with the following kinds of custom resources:
@@ -21,7 +21,7 @@ Follow these steps:
 
 1.  Ensure the necessary RBAC resources referenced in your custom resources exist, otherwise the custom resources can fail. See the [Spark Operator documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/docs/quick-start-guide.md#about-the-spark-job-namespace) for details.
 
-    - This is an example of commands for you you to create the RBAC resources needed in your project namespace:
+    -   This is an example of commands for you to create the RBAC resources needed in your project namespace:
 
         ```bash
         export PROJECT_NAMESPACE=<project namespace>
