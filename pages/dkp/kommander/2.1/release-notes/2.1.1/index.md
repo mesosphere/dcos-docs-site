@@ -20,6 +20,10 @@ To get started with Kommander, [download](../../download/) and [install](../../i
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Kommander.
 
+## New features and capabilities
+
+<!-- Add new items, if any -->
+
 ## Known issues
 
 ### DKP delete fails in AWS
@@ -41,10 +45,6 @@ When making a pre-provisioned cluster self-managing, the `PreprovisionedInventor
 ### RBAC and Grafana dashboards access
 
 Unable to access the dashboards for RBAC and Grafana, when a using the url for logging and monitoring. (COPS-7072)
-
-## New features and capabilities
-
-<!-- Add new items, if any -->
 
 ## Component updates
 
