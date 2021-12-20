@@ -6,7 +6,7 @@ menuWeight: 20
 excerpt: Get Started on Spark Operator Custom Resources
 ---
 
-To run your Spark workloads with Spark Operator, apply the Spark Operator specific custom resources. The Spark Operator works with the following  kinds of custom resources:
+To run your Spark workloads with Spark Operator, apply the Spark Operator specific custom resources. The Spark Operator works with the following kinds of custom resources:
 
 - `SparkApplication`
 - `ScheduledSparkApplication`
@@ -17,50 +17,53 @@ See [Spark Operator API documentation](https://github.com/mesosphere/spark-on-k8
 
 1.  First, deploy your Spark Operator. See the [Spark Operator](../../../../../workspaces/applications/catalog-applications/spark-operator) documentation for more information.
 
-2.  You need to ensure the necessary RBAC resources referenced in your custom resources exist, otherwise the your custom resources will fail. See [this Spark Operator documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/docs/quick-start-guide.md#about-the-spark-job-namespace) for details.
-    -   This is an example of commands you need to create RBAC resources needed in your project namespace:
+1.  You need to ensure the necessary RBAC resources referenced in your custom resources exist, otherwise the custom resources will fail. See [this Spark Operator documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/docs/quick-start-guide.md#about-the-spark-job-namespace) for details.
+
+    - This is an example of commands you need to create RBAC resources needed in your project namespace:
 
         ```bash
         export PROJECT_NAMESPACE=<project namespace>
+
         kubectl apply -f - <<EOF
         apiVersion: v1
         kind: ServiceAccount
         metadata:
-        name: spark-service-account
-        namespace: ${PROJECT_NAMESPACE}
+          name: spark-service-account
+          namespace: ${PROJECT_NAMESPACE}
         ---
         apiVersion: rbac.authorization.k8s.io/v1
         kind: Role
         metadata:
-        namespace: ${PROJECT_NAMESPACE}
-        name: spark-role
-        rules:
-        - apiGroups: [""]
-        resources: ["pods"]
-        verbs: ["*"]
-        - apiGroups: [""]
-        resources: ["services"]
-        verbs: ["*"]
+          namespace: ${PROJECT_NAMESPACE}
+          name: spark-role
+          rules:
+          - apiGroups: [""]
+            resources: ["pods"]
+            verbs: ["*"]
+          - apiGroups: [""]
+            resources: ["services"]
+            verbs: ["*"]
         ---
         apiVersion: rbac.authorization.k8s.io/v1
         kind: RoleBinding
         metadata:
-        name: spark-role-binding
-        namespace: ${PROJECT_NAMESPACE}
-        subjects:
-        - kind: ServiceAccount
-        name: spark-service-account
-        namespace: ${PROJECT_NAMESPACE}
-        roleRef:
-        kind: Role
-        name: spark-role
-        apiGroup: rbac.authorization.k8s.io
+          name: spark-role-binding
+          namespace: ${PROJECT_NAMESPACE}
+          subjects:
+          - kind: ServiceAccount
+            name: spark-service-account
+            namespace: ${PROJECT_NAMESPACE}
+          roleRef:
+          kind: Role
+            name: spark-role
+            apiGroup: rbac.authorization.k8s.io
         EOF
         ```
 
 ## Deploy a simple SparkApplication
 
 1.  Create your [Project](../../../../../projects) if you don’t already have one.
+
 1.  Set the `PROJECT_NAMESPACE` environment variable to the name of your project’s namespace:
 
     ```bash
@@ -68,6 +71,7 @@ See [Spark Operator API documentation](https://github.com/mesosphere/spark-on-k8
     ```
 
 1.  Set the SPARK_SERVICE_ACCOUNT environment variable to one of the following:
+
     1.  `${PROJECT_NAMESPACE}`, if you skipped the step in [Prerequisites](#prerequisites) to create RBAC resources.
 
         ```bash
@@ -75,7 +79,7 @@ See [Spark Operator API documentation](https://github.com/mesosphere/spark-on-k8
         export SPARK_SERVICE_ACCOUNT=${PROJECT_NAMESPACE}
         ```
 
-    1.  `spark-service-account`
+    1.  Or set to `spark-service-account`
 
        ```bash
        export SPARK_SERVICE_ACCOUNT=spark-service-account
