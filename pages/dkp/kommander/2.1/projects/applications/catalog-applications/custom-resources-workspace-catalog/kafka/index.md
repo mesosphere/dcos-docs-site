@@ -82,7 +82,7 @@ This example deployment walks you through first deploying a ZooKeeper cluster an
     kubectl -n ${PROJECT_NAMESPACE} get kafkaclusters 
     ```
 
-1.  With both the ZooKeeper cluster and Kafka cluster running in your project's namespace, refer to the [Kafka Operator documentation](https://banzaicloud.com/docs/supertubes/kafka-operator/test/) for information on how to test and verify they are working as expected in. When performing those steps, ensure you substitute: `zookeeper-client.<project namespace>:2181` anywhere that the zookeeper client address is mentioned.
+With both the ZooKeeper cluster and Kafka cluster running in your project's namespace, refer to the [Kafka Operator documentation](https://banzaicloud.com/docs/supertubes/kafka-operator/test/) for information on how to test and verify they are working as expected in. When performing those steps, ensure you substitute: `zookeeper-client.<project namespace>:2181` anywhere that the zookeeper client address is mentioned.
 
 ## Deleting Kafka custom resources
 
