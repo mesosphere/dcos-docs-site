@@ -133,3 +133,6 @@ Velero
 velero
 XGBoost
 yakcl
+Zookeeper
+zookeeper
+ZooKeeper
