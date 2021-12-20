@@ -10,7 +10,9 @@ excerpt: Information about the ZooKeeper Operator
 
 [ZooKeeper](https://zookeeper.apache.org/index.html) is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The [ZooKeeper operator](https://github.com/pravega/zookeeper-operator) is a Kubernetes operator that handles the provisioning and management of ZooKeeper clusters. It works by watching custom resources, such as `ZookeeperClusters`, to provision the underlying Kubernetes resources (`StatefulSets`) required for a production-ready ZooKeeper Cluster.
 
-## Installation
+## Install
+
+These install instructions describe how to install the ZooKeeper operator in a workspace. After following the install instructions, you will have the ZooKeeper operator running in a workspace namespace, ready to manage and create ZooKeeper clusters in any project namespaces. See the [ZooKeeper custom resource documentation](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/zookeeper/) for more information on creating ZooKeeper clusters.
 
 1.  Follow the generic installation instructions for workspace catalog applications on the [Application Deployment](../application-deployment/) page.
 
@@ -46,4 +48,4 @@ Uninstalling the ZooKeeper operator will not directly affect any running `Zookee
 
 - [ZooKeeper Operator Documentation](https://github.com/pravega/zookeeper-operator)
 - [ZooKeeper Cluster Helm Chart](https://github.com/pravega/zookeeper-operator/tree/master/charts/zookeeper)
-- [ZooKeeper Documentation](https://zookeeper.apache.org/)
+- [ZooKeeper Documentation](https://zookeeper.apache.org/documentation)

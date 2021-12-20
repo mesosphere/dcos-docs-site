@@ -16,6 +16,8 @@ A [Helm chart](https://github.com/pravega/zookeeper-operator/tree/master/charts/
 
 ### Example deployment
 
+This example deployment walks you through deploying a ZooKeeper cluster in a project namespace. After following the steps below, you should have a running ZooKeeper cluster ready for use in your project's namespace.
+
 1.  Set the `PROJECT_NAMESPACE` environment variable to the name of your project’s namespace:
 
     ```bash
@@ -60,3 +62,9 @@ A [Helm chart](https://github.com/pravega/zookeeper-operator/tree/master/charts/
     ```bash
     kubectl -n ${PROJECT_NAMESPACE} delete zookeepercluster <name of zookeepercluster>
     ```
+
+## Resources
+
+- [ZooKeeper Operator Documentation](https://github.com/pravega/zookeeper-operator)
+- [ZooKeeper Cluster Helm Chart](https://github.com/pravega/zookeeper-operator/tree/master/charts/zookeeper)
+- [ZooKeeper Documentation](https://zookeeper.apache.org/documentation)
