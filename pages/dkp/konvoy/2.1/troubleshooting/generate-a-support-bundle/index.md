@@ -49,9 +49,9 @@ Before generating a support bundle, verify that you have:
 
 ## Create a diagnostic bundle
 
-`dkp-diagnose` was developed by D2IQ and builds on the open source `troubleshoot.sh` project.
+`dkp-diagnose` was developed by D2iQ and builds on the open source `troubleshoot.sh` project.
 
-<p class="message--note"><strong>NOTE:</strong> <code>dkp-diagnose</code> is based on version <code>0.13.16</code> of <code>troubleshoot.sh</code> with custom modifications. The D2IQ fork is open source and available from <a href="https://github.com/mesosphere/troubleshoot">here</a>.</p>
+<p class="message--note"><strong>NOTE:</strong> <code>dkp-diagnose</code> is based on version <code>0.13.16</code> of <code>troubleshoot.sh</code> with custom modifications. The D2iQ fork is open source and available from <a href="https://github.com/mesosphere/troubleshoot">on this public GitHub repository</a>.</p>
 
 `dkp-diagnose` supports [multiple support bundle collectors][troubleshoot-collectors] and
 can be configured as a `SupportBundle` Kubernetes resource in a yaml file.
@@ -103,7 +103,7 @@ To generate the support bundle, perform the following steps:
 
 ### Collect information from a bootstrap cluster
 
-In the case where your bootstrap cluster has not yet pivoted towards your Konvoy cluster, you can collect log information from that bootstrap cluster as well. There are a preconfigured set of relevant collectors. Specify an additional bootstrap cluster kubeconfig using the `--bootstrap-kubeconfig` parameter to activate bootstrap cluster diagnostics. You will receive an additional support bundle named `bootstrap-support-bundle-<date created>`.
+In the case where your bootstrap cluster has not yet pivoted towards your Konvoy cluster, you can collect log information from that bootstrap cluster as well, and there are a preconfigured set of relevant collectors. Specify an additional bootstrap cluster kubeconfig using the `--bootstrap-kubeconfig` parameter to activate bootstrap cluster diagnostics. You will receive an additional support bundle named `bootstrap-support-bundle-<date created>`.
 
 Note that the bootstrap cluster diagnostics are independent of the configuration of the "main" or Konvoy cluster diagnostics. We run a static collector set that collects the following bootstrap cluster information:
 
@@ -145,13 +145,13 @@ dkp-diagnose ssh <path/to/ansible-inventory.yaml>
 
 The `ansible-inventory.yaml` file specifies the nodes to access for data collection.
 
-<p class="message--note"><strong>NOTE: </strong>This collector does not use the full ansible <code>inventory.yaml</code> format only a limited subset to describe the infrastructure.</p>
+<p class="message--note"><strong>NOTE: </strong>This collector does not use the full Ansible <code>inventory.yaml</code> format only a limited subset to describe the infrastructure.</p>
 
 Only the following attributes of the `ansible-inventory.yaml` are supported. All other group definitions are ignored.
 
 -   Support for `all` shared variables.
 -   Support for `hosts` key in `all` groups.
--   Supported behavorial inventory is limited to:
+-   Supported behavioral inventory is limited to:
     - `ansible_host`
     - `ansible_port`
     - `ansible_user`
@@ -171,7 +171,7 @@ all:
       ansible_port: 2222
 ```
 
-More information on these ansible parameters can be found [here](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters).
+More information on these Ansible parameters can be found in the [Ansible user guide](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters).
 
 <p class="message--note"><strong>NOTE: </strong>All other group definitions in the <code>inventory.yaml</code> file are ignored.</p>
 

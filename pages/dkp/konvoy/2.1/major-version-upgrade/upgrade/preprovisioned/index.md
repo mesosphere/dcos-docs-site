@@ -24,7 +24,7 @@ If `keepalived` is enabled, update Konvoy 1.8 Configuration with the interface u
     ens192
     ```
 
-1.  Update `cluster.yaml` with the output of the previous commanddocs/site/major-version-upgrade/upgrade/prepare-local-environment/index.md:90
+1.  Update `cluster.yaml` with the output of the previous command:
 
     ```yaml
     kind: ClusterConfiguration
@@ -128,13 +128,13 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
     INFO[2021-11-17T17:25:09-05:00] Run 'export CLUSTER_NAME=konvoy-migration' and follow the rest of the documentation  src="cluster/prepare-to-adopt.go:179"
     ```
 
-1.  Update your environment with the cluster name for use in later steps by running the shell command from the the last line of output in the previous step:
+1.  Update your environment with the cluster name for use in later steps by running the shell command from the last line of output in the previous step:
 
     ```text
     INFO[2021-11-15T19:59:35-05:00] Run 'export CLUSTER_NAME=konvoy-migration' and follow the rest of the documentation  src="cluster/adopt.go:178"
     ```
 
-    ...and then verify that your environment has the cluster name:
+    And then verify that your environment has the cluster name:
 
     ```sh
     echo $CLUSTER_NAME
@@ -312,7 +312,7 @@ pod "capi-controller-manager-d4b9c7c4c-hkqfl" deleted
 
 ## Prepare the Dex Addon for Kubernetes v1.21.6
 
-The Dex Addon acts as the cluster's OpenID Connect identity provider. Its configuration must be changed so that it works correctly with Kubernetes v1.21.6, as well as with v1.20.11.
+The Dex Addon acts as the cluster's OpenID Connect identity provider. Its configuration must be changed so that it works correctly with Kubernetes v1.21.6, and v1.20.11.
 
 1.  Edit the Dex configuration
 
