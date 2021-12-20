@@ -13,11 +13,11 @@ checkpoint(|s|ed|ing)
 Chronos
 CNN(|s)
 CNTK
-configmap
-ConfigMap
 component
 Component
 Conda
+configmap
+ConfigMap
 containerd
 contravariant
 COPS
