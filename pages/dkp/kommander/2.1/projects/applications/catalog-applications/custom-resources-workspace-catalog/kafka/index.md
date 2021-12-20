@@ -6,14 +6,16 @@ menuWeight: 5
 excerpt: Deploying Kafka in a project
 ---
 
-## Getting Started
+## Getting started
 
 <!-- TODO: Fix ZooKeeper operator link - this relies on the zookeeper docs being available in order to pass pre-commit -->
 To get started with creating and managing a Kafka Cluster in a project, you first need to deploy the [Kafka operator](../../../../../workspaces/applications/catalog-applications/kafka-operator/) and the [ZooKeeper operator](../../../../../workspaces/applications/catalog-applications/) in the workspace where the project exists.
 
-Once you have the Kafka operator deployed, you can create Kafka Clusters by applying a `KafkaCluster` custom resource in a project's namespace. You can find various examples of the custom resources and their configurations in the [Kafka operator repository](https://github.com/banzaicloud/koperator/tree/master/config/samples).
+After you deploy the Kafka operator, create Kafka Clusters by applying a `KafkaCluster` custom resource in a project's namespace. Refer to the [Kafka operator repository](https://github.com/banzaicloud/koperator/tree/master/config/samples) for examples of the custom resources and their configurations.
 
-## Example Deployment
+## Example deployment
+
+This example deployment walks you through first deploying a ZooKeeper cluster and then a Kafka cluster in a project namespace. After following the steps below, you should have a running ZooKeeper cluster and Kafka cluster ready for use in your project's namespace.
 
 1.  Set the `PROJECT_NAMESPACE` environment variable to the name of your project’s namespace:
 
@@ -33,6 +35,12 @@ Once you have the Kafka operator deployed, you can create Kafka Clusters by appl
     spec:
       replicas: 1
     EOF
+    ```
+
+1.  Check the status of your ZooKeeper cluster using `kubectl`:
+
+    ```bash
+    kubectl -n ${PROJECT_NAMESPACE} get zookeeper
     ```
 
 1.  Download the [sample Kafka Cluster](https://raw.githubusercontent.com/banzaicloud/koperator/master/config/samples/simplekafkacluster.yaml) file.
@@ -68,9 +76,15 @@ Once you have the Kafka operator deployed, you can create Kafka Clusters by appl
     kubectl apply -n ${PROJECT_NAMESPACE} -f simplekafkacluster.yaml
     ```
 
-1.  Now that you have both the ZooKeeper cluster and Kafka cluster running in your project's namespace, you can find information on how to test and verify they are working as expected in the [Kafka Operator documentation](https://banzaicloud.com/docs/supertubes/kafka-operator/test/)
+1.  Check the status of your Kafka cluster using `kubectl`:
 
-## Deleting Kafka Custom Resources
+    ```bash
+    kubectl -n ${PROJECT_NAMESPACE} get kafkaclusters 
+    ```
+
+1.  With both the ZooKeeper cluster and Kafka cluster running in your project's namespace, refer to the [Kafka Operator documentation](https://banzaicloud.com/docs/supertubes/kafka-operator/test/) for information on how to test and verify they are working as expected in. When performing those steps, ensure you substitute: `zookeeper-client.<project namespace>:2181` anywhere that the zookeeper client address is mentioned.
+
+## Deleting Kafka custom resources
 
 1.  View all Kafka resources in the cluster:
 
@@ -80,8 +94,15 @@ Once you have the Kafka operator deployed, you can create Kafka Clusters by appl
     Kubectl get kafkatopics -A
     ```
 
-1.  Deleting a `KafkaCluster` example:
+1.  Delete a `KafkaCluster` example:
 
     ```bash
     kubectl -n ${PROJECT_NAMESPACE} delete kafkacluster <name of KafkaCluster>
     ```
+
+## Resources
+
+- [Kafka Operator Documentation](https://banzaicloud.com/docs/supertubes/kafka-operator/)
+- [Kafka Operator GitHub Repository](https://github.com/banzaicloud/koperator)
+- [Sample Kafka Operator Custom Resources](https://github.com/banzaicloud/koperator/tree/master/config/samples)
+- [Apache Kafka Documentation](https://kafka.apache.org/documentation/)
