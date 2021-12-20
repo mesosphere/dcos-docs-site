@@ -23,11 +23,11 @@ Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace'
 export WORKSPACE_NAMESPACE=<workspace_namespace>
 ```
 
-After creating a GitRepository, you can either use the Kommander UI or the CLI to deploy your custom applications.
+After creating a GitRepository, you can either use the Kommander UI or the CLI to deploy your catalog applications.
 
 ## Deploy the application using the Kommander UI
 
-Go to the Kommander UI to deploy your custom applications:
+Go to the Kommander UI to deploy your catalog applications:
 
 1.  Select the desired **Workspace**
 
@@ -37,13 +37,13 @@ Go to the Kommander UI to deploy your custom applications:
 
 1.  Select the version you'd like to deploy from the version drop-down, and then select Deploy. The `Deploy Workspace Catalog Application` page is displayed.
 
-1.  (Optional) If you want to override the default configuration values, copy your values content into the text editor under **Configure Service** or just upload your yaml file that contains the values:
+1.  (Optional) If you want to override the default configuration values, copy your customized values into the text editor under **Configure Service** or upload your yaml file that contains the values:
 
-   ```yaml
-   someField: someValue
-   ```
+    ```yaml
+    someField: someValue
+    ```
 
-1. Once you confirm the details are correct, click the `Deploy` button.
+1.  Once you confirm the details are correct, select the `Deploy` button.
 
 For all applications, you must provide a display name and an ID which is automatically generated based on what you enter for the display name, unless or until you edit the ID directly. The ID must be compliant with [Kubernetes DNS subdomain name validation rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names).
 
