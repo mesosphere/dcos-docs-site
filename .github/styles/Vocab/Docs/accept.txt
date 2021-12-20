@@ -65,7 +65,7 @@ firewalld
 Flink
 (fluentbit|Fluentbit)
 Fluentd
-gapped
+air gapped environment
 GCR
 (Goboring|goboring)
 golang
