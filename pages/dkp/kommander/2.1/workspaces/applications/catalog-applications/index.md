@@ -32,7 +32,7 @@ Follow these steps to install the catalog from the CLI.
     spec:
       interval: 1m0s
       ref:
-        branch: main
+        tag: v2.1.1
       timeout: 20s
       url: https://github.com/mesosphere/dkp-catalog-applications  
     EOF
