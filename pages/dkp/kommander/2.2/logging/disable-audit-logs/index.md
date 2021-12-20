@@ -42,7 +42,7 @@ clusters in the workspace by using the OS documentation and examining the
     kubectl get -n kommander configmaps fluent-bit-0.16.2-d2iq-defaults -o=jsonpath='{.data.values\.yaml}' > fluent-bit-values.yaml
     ```
 
-1.  Edit the resulting file `fluent-bit-values.yaml` by removing all sections except for for `extraVolumes`, `extraVolumeMounts` and `config.inputs`. The result should look similarly to this:
+1.  Edit the resulting file `fluent-bit-values.yaml` by removing all sections except for `extraVolumes`, `extraVolumeMounts` and `config.inputs`. The result should look similarly to this:
 
     ```yaml
     extraVolumes:
@@ -245,7 +245,7 @@ config:
 
 1.  Edit the `fluent-bit` AppDeployment to set the value of
 `spec.configOverrides.name` to the name of the created `ConfigMap`.
-(You can use the steps in the procedure, [Deploy an application with a custom configuration](../../workspaces/workspace-platform-services/application-deployment#deploy-an-application-with-a-custom-configuration) as a guide.)
+(You can use the steps in the procedure, [Deploy an application with a custom configuration][workspace-deploy-app] as a guide.)
 
     ```bash
     kubectl edit -n ${WORKSPACE_NAMESPACE} fluent-bit
@@ -275,3 +275,5 @@ with a label `log_source=kubernetes_host` are now present in Loki.
 For information on related topics or procedures, refer to the following:
 
 - [Logging](..)
+
+[workspace-deploy-app]: ../../workspaces/applications/platform-applications/application-deployment#deploy-an-application-with-a-custom-configuration

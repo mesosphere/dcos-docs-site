@@ -13,7 +13,7 @@ Additionally, you can provide a custom certificate for each domain, or one can b
 
 ## Configure a custom domain
 
-To configure Kommander to use a custom domain, the domain name must be provided in an installation config file. E.g. to use the domain `mycluster.domain.dom`, create the following file:
+To configure Kommander to use a custom domain, the domain name must be provided in an installation config file. For example, to use the domain `mycluster.domain.dom`, create the following file:
 
 ```yaml
 apiVersion: config.kommander.mesosphere.io/v1alpha1
@@ -33,7 +33,7 @@ Soon after the command completes, obtain the cluster ingress IP address or hostn
 kubectl -n kommander get svc kommander-traefik -o go-template='{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}{{ "\n"}}'
 ```
 
-Next, you need to create a DNS record for your custom hostname that resolves to the cluster ingress load balancer hostname or ip address.  If the previous command returns a hostname, you should create a CNAME DNS entry that resolves to that hostname.  If the cluster ingress is an IP address, create a DNS A record.
+Next, you need to create a DNS record for your custom hostname that resolves to the cluster ingress load balancer hostname or IP address. If the previous command returns a hostname, you should create a CNAME DNS entry that resolves to that hostname. If the cluster ingress is an IP address, create a DNS A record.
 
 <p class="message--important"><strong>IMPORTANT: </strong> The domain must be resolvable from the client (your browser) and from the cluster. On installation, Kommander will wait for the domain to resolve to the load balancer. Only then the cluster will be fully functional.</p>
 
@@ -62,7 +62,7 @@ ingressCertificate:
 
 Kommander can be configured to automatically issue a trusted certificate for the configured custom domain and renew it before expiration.
 
-<p class="message--important"><strong>IMPORTANT: </strong>This feature is currently only supported for the management cluster.  Kommander does not currently support attaching clusters that use ACME certs. </p>
+<p class="message--important"><strong>IMPORTANT: </strong>This feature is currently only supported for the management cluster. Kommander does not currently support attaching clusters that use ACME certs. </p>
 
 ### Let's encrypt
 
@@ -106,7 +106,7 @@ acme:
 
 ### Customize issuer details
 
-By default, `kommander install` sets up a working ACME solver using HTTP01 challenges. If further control over the certificate issuing is needed, you can modify the pre-configured `ClusterIssuer`. E.g. to use a DNS01 challenge:
+By default, `kommander install` sets up a working ACME solver using HTTP01 challenges. If further control over the certificate issuing is needed, you can modify the pre-configured `ClusterIssuer`. For example, you can use a DNS01 challenge:
 
 ```yaml
 cat <<EOF | kubectl apply -f -

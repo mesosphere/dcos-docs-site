@@ -111,7 +111,7 @@ The following example illustrates the BGP configuration in the overrides `Config
            - 172.40.100.0/24
    ```
 
-In the above configuration, `peers` defines the configuration of the BGP peer, such as peer ip address and `autonomous system number` (`asn`).
+In the above configuration, `peers` defines the configuration of the BGP peer, such as peer IP address and `autonomous system number` (`asn`).
 The `address-pools` section is similar to `layer2`, except for the protocol.
 
 MetalLB also supports [advanced BGP configuration][metallb_config].

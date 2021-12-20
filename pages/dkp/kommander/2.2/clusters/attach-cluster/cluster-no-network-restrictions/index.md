@@ -19,7 +19,7 @@ Use this option when you want to attach a cluster that does not require addition
 
 1. In the **Connection Information** dialog box, paste your kubeconfig file into the field, or select the upload link below the field to specify a file.
 
-1. Select the intended context or change the display name provided with the config in the **Context** select list.
+1. Select the intended context or change the display name provided with the kubeconfig in the **Context** select list.
 
 1. Add labels to classify your cluster as needed.
 
