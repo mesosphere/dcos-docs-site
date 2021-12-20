@@ -10,6 +10,8 @@ Catalog applications are any third-party or open source applications that appear
 
 ## Install the workspace catalog via the CLI
 
+Follow these steps to install the catalog from the CLI.
+
 1.  Set the `WORKSPACE_NAMESPACE` environment variable to the name of your workspace’s namespace:
 
     ```bash
@@ -36,7 +38,7 @@ Catalog applications are any third-party or open source applications that appear
     EOF
     ```
 
-1.  You should now see the workspace catalog `Apps` available in the UI, and in the CLI using `kubectl`:
+1.  Verify that you can see the workspace catalog `Apps` available in the UI and in the CLI, using `kubectl`:
 
     ```bash
     kubectl get apps -n ${WORKSPACE_NAMESPACE}
