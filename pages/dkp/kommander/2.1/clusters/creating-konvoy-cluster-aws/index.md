@@ -25,7 +25,7 @@ Select the pre-configured [AWS infrastructure provider](../../operations/infrast
 - **Region**: Select the data center region to reveal selectable Availability Zones.
 - **Add Infrastructure Provider Tags**: Specify tags to be set on all resources created in your infrastructure provider for this cluster. You can add up to 10 tags in this form. Different infrastructure providers have varying restrictions on their tags. See the [AWS Tags User Guide][aws-tags] for more information on using tags in AWS.
 
-Click **Create** to begin provisioning the Konvoy cluster. This step may take a few minutes, and the cluster may fail to join initially if it tries to join before the cluster is fully ready. It will retry to join automatically and should resolve once the cluster is fully provisioned.
+Click **Create** to begin provisioning the Konvoy cluster. This step may take a few minutes, taking time for the cluster to be ready and fully deploy its components. The cluster will retry to join automatically and should resolve once it is fully provisioned.
 
 [aws-tags]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
 [projects]: ../../projects/
