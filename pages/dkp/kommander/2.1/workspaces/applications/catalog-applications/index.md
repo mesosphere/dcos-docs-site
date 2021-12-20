@@ -8,7 +8,7 @@ excerpt: Workspace Catalog Applications
 <!-- TODO: settle down the link target to custom applications -->
 Catalog applications are any third-party or open source applications that appear in the Catalog. These applications can be provided by D2iQ for use in your environment.
 
-## Installing the workspace catalog via the CLI
+## Install the workspace catalog via the CLI
 
 1.  Set the `WORKSPACE_NAMESPACE` environment variable to the name of your workspace’s namespace:
 
