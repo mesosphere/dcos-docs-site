@@ -27,7 +27,7 @@ Confluent, Confluent Platform, and Confluent Zookeeper are a registered trademar
 
 Couchbase is a registered trademark, and Couchbase Gateway, and Couchbase Server are trademarks of Couchbase.
 
-Crunchbase and ETCD are trademarks or registered trademarks of Crunchbase, Iinc.
+Crunchbase and ETCD are trademarks or registered trademarks of Crunchbase, Inc.
 
 Datastax, Titan, and TitanDB are registered trademarks of Datastax, Inc. and its subsidiaries in the United States and other countries.
 

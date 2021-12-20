@@ -39,7 +39,7 @@ spec:
 EOF
 ```
 
-Ensure the projectns variable is set before executing the command.
+Ensure the `projectns` variable is set before executing the command.
 
 ```bash
 projectns=$(kubectl -n ${workspacens} get projects.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="project1-")].status.namespaceRef.name}')

@@ -49,7 +49,7 @@ To get started, ensure you have [kubectl][kubectl] set up and configured with [C
     EOF
     ```
 
-1.  Set up the following environment variables with the access data that's needed for producing a new kubeconfig file:
+1.  Set up the following environment variables with the access data that is needed for producing a new kubeconfig file:
 
     ```shell
     export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')
@@ -103,7 +103,7 @@ Using the **Add Cluster** option, you can attach an existing Kubernetes or Konvo
 
 1.  Select the **No additional networking restrictions** card to display the **Cluster Configuration** dialog box, which accepts a kubeconfig file that you can paste or upload into the field.
 
-1.  Select the **Workspace** you want to contain the cluster, and select the intended context, or change the display name provided with the config in the **Context** select list. You can also add labels to classify your cluster. If the name of the cluster is in the kubeconfig, it automatically populates in the Cluster name field. You can edit this or the name you want for your cluster.
+1.  Select the **Workspace** you want to contain the cluster, and select the intended context, or change the display name provided with the kubeconfig in the **Context** select list. You can also add labels to classify your cluster. If the name of the cluster is in the kubeconfig, it automatically populates in the Cluster name field. You can edit this or the name you want for your cluster.
 
 1.  Select **Submit** to attach your cluster.
 
