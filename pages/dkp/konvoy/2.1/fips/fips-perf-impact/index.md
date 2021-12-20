@@ -8,7 +8,7 @@ enterprise: false
 menuWeight: 40
 ---
 
-The Go language cryptographic module, Goboring, relies on CGO’s foreign function interface to call C-language functions exposed by the cryptographic module. Each call into the C library starts with a base overhead of 200ns.
+The Go language cryptographic module, goboring, relies on CGO’s foreign function interface to call C-language functions exposed by the cryptographic module. Each call into the C library starts with a base overhead of 200ns.
 
 One [benchmark](https://github.com/golang/go/issues/21525) finds that the time to encrypt a single AES-128 block increased from 13ns to 209ns over the internal golang implementation. The preferred mode of D2iQ's FIPS module is `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`.
 

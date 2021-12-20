@@ -38,7 +38,7 @@ enterprise: false
     ]
     ```
 
-1.  To create a cluster name that's unique, use the following command:
+1.  To create a cluster name that is unique, use the following command:
 
     ```sh
     CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
@@ -87,7 +87,7 @@ enterprise: false
     ```
 
     - Replace `example.org,example.com,example.net` with you internal addresses
-    - `localhost` and `127.0.0.1` addesses should not use the proxy
+    - `localhost` and `127.0.0.1` addresses should not use the proxy
     - `10.96.0.0/12` is the default Kubernetes service subnet
     - `192.168.0.0/16` is the default Kubernetes pod subnet
     - `kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local` is the internal Kubernetes kube-apiserver service
@@ -126,7 +126,7 @@ enterprise: false
 
     1.  Node Pool
 
-        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (e.g., kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and an _AWSMachineTemplate_ object, which describes the instance type, the type of disk used, the size of the disk, among other properties.
+        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (for example, kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and an _AWSMachineTemplate_ object, which describes the instance type, the type of disk used, the size of the disk, among other properties.
 
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 

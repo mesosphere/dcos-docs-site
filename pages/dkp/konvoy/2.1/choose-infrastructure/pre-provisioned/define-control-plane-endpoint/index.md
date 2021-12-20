@@ -22,7 +22,7 @@ In addition, the control plane should have an endpoint that remains available if
 
 In this example, the control plane endpoint host is `lb.example.com`, and the control plane endpoint port is `6443`. The control plane nodes are `cp1.example.com`, `cp2.example.com`, and `cp3.example.com`. The port of each API server is `6443`.
 
-## External Loadbalancer
+## External load balancer
 
 We recommend an external load balancer be the control plane endpoint. To distribute request load among the control plane machines, configure the load balancer to send requests to all the control plane machines. Configure the load balancer to send requests only to control plane machines that are responding to API requests.
 

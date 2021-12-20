@@ -42,7 +42,7 @@ clusters in the workspace by using the OS documentation and examining the
     kubectl get -n kommander configmaps fluent-bit-0.16.2-d2iq-defaults -o=jsonpath='{.data.values\.yaml}' > fluent-bit-values.yaml
     ```
 
-1.  Edit the resulting file `fluent-bit-values.yaml` by removing all sections except for for `extraVolumes`, `extraVolumeMounts` and `config.inputs`. The result should look similarly to this:
+1.  Edit the resulting file `fluent-bit-values.yaml` by removing all sections except for `extraVolumes`, `extraVolumeMounts` and `config.inputs`. The result should look similarly to this:
 
     ```yaml
     extraVolumes:

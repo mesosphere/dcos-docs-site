@@ -9,7 +9,7 @@ enterprise: false
 
 ## Scaling Node Pools
 
-While you can run [Cluster Autoscaler](../cluster-autoscaler), you can also manually scale your node pools up or down when you need more finite control over your environment. For example, if you require 10 machines to run a process, you can manually set the scaling to run those 10 machines only. However, if also using the Cluster Autoscaler, you must stay within your miniumum and maximum bounds.
+While you can run [Cluster Autoscaler](../cluster-autoscaler), you can also manually scale your node pools up or down when you need more finite control over your environment. For example, if you require 10 machines to run a process, you can manually set the scaling to run those 10 machines only. However, if also using the Cluster Autoscaler, you must stay within your minimum and maximum bounds.
 
 ### Scaling Up Node Pools
 
@@ -53,7 +53,7 @@ INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                cl
 INFO[2021-07-26T08:54:35-07:00] Nodepool example scaled to 4 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
 ```
 
-In a default cluster, the nodes to delete are selected at random. This behavior is controller by [CAPI's delete policy][capi_delete_policy]. However, when using the Konvoy CLI to scale down a node pool it is also possible to specifiy the Kubernetes Nodes you want to delete.
+In a default cluster, the nodes to delete are selected at random. This behavior is controller by [CAPI's delete policy][capi_delete_policy]. However, when using the Konvoy CLI to scale down a node pool it is also possible to specify the Kubernetes Nodes you want to delete.
 
 To do this, set the flag `--nodes-to-delete` with a list of nodes as below.
 This adds an annotation `cluster.x-k8s.io/delete-machine=yes` to the matching Machine object that contain `status.NodeRef` with the node names from `--nodes-to-delete`.

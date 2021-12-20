@@ -81,7 +81,7 @@ After adopting the cluster, you use this AMI to scale up, or replace a failed in
 
 ## Prepare AWS EBS CSI Plugin for Cluster Adoption
 
-The AWS EBS CSI plugin uses AWS APIs to mount and umount EBS volumes. It receives permission to use these APIs based on the machine where it runs. In Konvoy 1.8, both control plane and worker machines have the required permissions. In Konvoy 2.1, only control plane machines have the required permissions.
+The AWS EBS CSI plugin uses AWS APIs to mount and unmount EBS volumes. It receives permission to use these APIs based on the machine where it runs. In Konvoy 1.8, both control plane and worker machines have the required permissions. In Konvoy 2.1, only control plane machines have the required permissions.
 
 Configure the AWS EBS CSI plugin so that it runs only on the control plane machines, so that the plugin can access the AWS APIs after the upgrade to Konvoy 2.1.
 
@@ -112,7 +112,7 @@ For the cluster adoption to be successful, the control-plane and worker machines
 1. Modify the IAM Role of every control plane machine to `control-plane.cluster-api-provider-aws.sigs.k8s.io`.
 2. Modify the IAM Role of every worker node pool machine to `nodes.cluster-api-provider-aws.sigs.k8s.io`.
 
-## Modify Subnets So That New Instances Are Assigned a Public IPv4 Address
+## Modify subnets so that new instances are assigned a public IPv4 address
 
 <!-- TODO This will be different for an air-gapped Konvoy 1.8 cluster. -->
 
@@ -221,13 +221,13 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
     INFO[2021-11-15T19:59:35-05:00] Run 'export CLUSTER_NAME=konvoy-migration' and follow the rest of the documentation  src="cluster/adopt.go:178"
     ```
 
-1.  Update your environment with the cluster name for use in later steps, by running the shell command from the the last line of output in the previous step:
+1.  Update your environment with the cluster name for use in later steps, by running the shell command from the last line of output in the previous step:
 
     ```sh
     INFO[2021-11-15T19:59:35-05:00] Run 'export CLUSTER_NAME=konvoy-migration' and follow the rest of the documentation  src="cluster/adopt.go:178"
     ```
 
-    ...and then verify that your environment has the cluster name:
+    And then verify that your environment has the cluster name:
 
     ```sh
     echo $CLUSTER_NAME
@@ -369,7 +369,7 @@ INFO[2021-11-17T17:29:04-05:00] unpaused reconciliation of the cluster (konvoy-m
 
 ## Wait for Cluster to Reach a Steady State
 
-Describe the cluster with the commmand:
+Describe the cluster with the command:
 
 ```sh
 dkp --kubeconfig=admin.conf describe cluster --cluster-name $CLUSTER_NAME
@@ -456,7 +456,7 @@ You use this AMI to update the cluster Kubernetes version to v1.21.6.
 
 ## Prepare the Dex Addon for Kubernetes v1.21.6
 
-The Dex Addon acts as the cluster's OpenID Connect identity provider. Its configuration must be changed so that it works correctly with Kubernetes v1.21.6, as well as with v1.20.11.
+The Dex Addon acts as the cluster's OpenID Connect identity provider. Its configuration must be changed so that it works correctly with Kubernetes v1.21.6, and with v1.20.11.
 
 1.  Edit the Dex configuration
 
@@ -508,7 +508,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. Its config
     export AMI_ID=<your ami ID>
     ```
 
-    ...and then verify that your environment has the AMI ID:
+    And then verify that your environment has the AMI ID:
 
     ```sh
     echo $AMI_ID
@@ -594,7 +594,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. Its config
     export AMI_ID=<your ami ID>
     ```
 
-    ...and then verify that your environment has the AMI ID:
+    And then verify that your environment has the AMI ID:
 
     ```sh
     echo $AMI_ID

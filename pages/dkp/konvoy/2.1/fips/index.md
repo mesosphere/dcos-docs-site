@@ -26,11 +26,11 @@ To ensure proper operations in FIPS mode, be sure that your environment meets th
 
 ### Supported operating systems
 
-Supported Operating Systems for FIPS mode are Red Hat Enterprise Linux and Centos. See the [Supported Operating Systems](../supported-operating-systems) for details on the tested and supported versions.
+Supported Operating Systems for FIPS mode are Red Hat Enterprise Linux and CentOS. See the [Supported Operating Systems](../supported-operating-systems) for details on the tested and supported versions.
 
 ## Deploying a Cluster in FIPS mode
 
-In order to create a cluster in FIPS mode, we must inform the bootstrap controllers of the appropriate image repository and version tags of the official D2IQ FIPS builds of kubernetes.
+In order to create a cluster in FIPS mode, we must inform the bootstrap controllers of the appropriate image repository and version tags of the official D2iQ FIPS builds of kubernetes.
 
 ### Supported FIPS builds
 
@@ -41,7 +41,7 @@ In order to create a cluster in FIPS mode, we must inform the bootstrap controll
 
 When creating a cluster, use the following command line options:
 
-- `--ami <fips enabled AMI created in the previous step>` (aws only)
+- `--ami <fips enabled AMI created in the previous step>` (AWS only)
 - `--kubernetes-version <version>+fips.<build>`
 - `--etcd-version <version>+fips.<build>`
 - `--kubernetes-image-repository docker.io/mesosphere`

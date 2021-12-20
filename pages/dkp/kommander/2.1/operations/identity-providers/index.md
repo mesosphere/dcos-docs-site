@@ -43,11 +43,11 @@ Identity Providers
 
 ### Limit who has access
 
-- The Github provider allows you to specify which organizations and teams are eligible for access.
+- The GitHub provider allows you to specify which organizations and teams are eligible for access.
 
-![Github Form](../../img/Identity-provider-Github.png)
+![GitHub Form](../../img/Identity-provider-Github.png)
 
-Github Form
+GitHub Form
 
 - The LDAP provider allows you to configure search filters for either users or groups.
 

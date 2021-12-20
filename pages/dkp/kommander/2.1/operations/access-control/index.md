@@ -30,7 +30,7 @@ This approach gives you maximum flexibility over who has access to what resource
 
 In addition to granting a Kommander Role, you must also grant the appropriate dkp role to allow external users and groups into the UI.
 See [RBAC - Kommander Dashboard Authorization][kommander-rbac] for details about the built-in dkp roles.
-Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Kommmander routes:
+Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Kommander routes:
 
 ```yaml
 ---
