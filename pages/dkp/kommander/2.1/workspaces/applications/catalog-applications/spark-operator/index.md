@@ -18,6 +18,8 @@ You can find generic installation instructions for workspace catalog application
 
 For details on custom configuration for the operator, refer to the [Spark Operator Helm Chart documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/charts/spark-operator-chart/README.md).
 
+After you finish the installation, see [Spark Operator custom resource documentation](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/spark/) for more information about how to submit your Spark jobs.
+
 ## Sample override config
 
 <p class="message--note"><strong>NOTE: </strong>Ensure you configure the AppDeployment with the appropriate override configmap</p>
