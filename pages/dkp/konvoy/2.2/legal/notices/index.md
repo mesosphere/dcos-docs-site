@@ -9,7 +9,9 @@ beta: false
 enterprise: false
 ---
 
-D2iQ&reg; and its licensors are the owners of all right, title and interest in and to D2iQ software products, the documentation, all updates, upgrades, and derivative works thereto, and all intellectual property rights therein.  D2iQ software products may additionally include third-party open source software.
+<!-- vale Microsoft.Avoid = NO -->
+
+D2iQ&reg; and its licensors are the owners of all right, title and interest in and to D2iQ software products, the documentation, all updates, upgrades, and derivative works thereto, and all intellectual property rights therein. D2iQ software products may additionally include third-party open source software.
 
 ## Trademarks and Registered Trademarks
 
@@ -29,7 +31,7 @@ Confluent, Confluent Platform, and Confluent Zookeeper are a registered trademar
 
 Couchbase is a registered trademark, and Couchbase Gateway, and Couchbase Server are trademarks of Couchbase.
 
-Crunchbase and ETCD are trademarks or registered trademarks of Crunchbase, Iinc.
+Crunchbase and ETCD are trademarks or registered trademarks of Crunchbase, Inc.
 
 Datastax, Titan, and TitanDB are registered trademarks of Datastax, Inc. and its subsidiaries in the United States and other countries.
 
