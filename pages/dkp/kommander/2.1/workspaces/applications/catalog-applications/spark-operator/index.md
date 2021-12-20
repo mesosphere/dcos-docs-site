@@ -16,11 +16,11 @@ The Kubernetes Operator for Apache Spark aims to make specifying and running Spa
 
 You can find generic installation instructions for workspace catalog applications on the [Application Deployment topic](../application-deployment).
 
-For details on custom configuration for the operator, please refer to the [Spark Operator Helm Chart documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/charts/spark-operator-chart/README.md).
+For details on custom configuration for the operator, refer to the [Spark Operator Helm Chart documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/charts/spark-operator-chart/README.md).
 
 ## Sample override config
 
-<p class="message--note"><strong>NOTE: </strong>Make sure to configure your AppDeployment with desired override configmap</p>
+<p class="message--note"><strong>NOTE: </strong>Ensure you configure the AppDeployment with the appropriate override configmap</p>
 
 -   Using UI
 
@@ -32,7 +32,7 @@ For details on custom configuration for the operator, please refer to the [Spark
 
 -   Using CLI
 
-    Please see [this documentation in Application Deployment](../application-deployment#deploy-an-application-with-a-custom-configuration) for details.
+    See [Application Deployment](../application-deployment#deploy-an-application-with-a-custom-configuration) for details.
 
     ```yaml
     cat <<EOF | kubectl apply -f -
@@ -52,22 +52,22 @@ For details on custom configuration for the operator, please refer to the [Spark
 
 ## Uninstall via the CLI
 
-<p class="message--note"><strong>NOTE: </strong>Uninstalling the Spark Operator will not affect existing <b>SparkApplication</b> and <b>ScheduledSparkApplication</b> custom resources. You need to manually remove any leftover custom resources and CRDs from the operator. Please refer to <a href="../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/spark-operator-custom-resources#clean-up">deleting Spark Operator custom resources</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>Uninstalling the Spark Operator does not affect existing <b>SparkApplication</b> and <b>ScheduledSparkApplication</b> custom resources. You need to manually remove any leftover custom resources and CRDs from the operator. Please refer to <a href="../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/spark-operator-custom-resources#clean-up">deleting Spark Operator custom resources</a>.</p>
 
-1.  Uninstalling a Spark Operator `AppDeployment`:
+1.  Uninstall the Spark Operator `AppDeployment`:
 
     ```bash
     kubectl -n <your workspace namespace> delete AppDeployment <name of AppDeployment>
     ```
 
-1.  Removing Spark Operator Service Account:
+1.  Remove the Spark Operator Service Account:
 
     ```bash
     # <name of service account> is spark-operator-service-account if you didn't override the RBAC resources.
     kubectl -n <your workspace namespace> delete serviceaccounts <name of service account>
     ```
 
-1.  Removing Spark Operator CRDs:
+1.  Remove the Spark Operator CRDs:
     <p class="message--note"><strong>NOTE: </strong>The CRDs are not finalized for deletion until you delete the associated custom resources.</p>
 
     ```bash

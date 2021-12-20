@@ -15,11 +15,13 @@ See [Spark Operator API documentation](https://github.com/mesosphere/spark-on-k8
 
 ## Prerequisites
 
-1.  First, deploy your Spark Operator. See the [Spark Operator](../../../../../workspaces/applications/catalog-applications/spark-operator) documentation for more information.
+Follow these steps:
 
-1.  You need to ensure the necessary RBAC resources referenced in your custom resources exist, otherwise the custom resources will fail. See [this Spark Operator documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/docs/quick-start-guide.md#about-the-spark-job-namespace) for details.
+1.  Deploy your Spark Operator. See the [Spark Operator](../../../../../workspaces/applications/catalog-applications/spark-operator) documentation for more information.
 
-    - This is an example of commands you need to create RBAC resources needed in your project namespace:
+1.  Ensure the necessary RBAC resources referenced in your custom resources exist, otherwise the custom resources can fail. See the [Spark Operator documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/docs/quick-start-guide.md#about-the-spark-job-namespace) for details.
+
+    - This is an example of commands for you you to create the RBAC resources needed in your project namespace:
 
         ```bash
         export PROJECT_NAMESPACE=<project namespace>
@@ -61,6 +63,8 @@ See [Spark Operator API documentation](https://github.com/mesosphere/spark-on-k8
         ```
 
 ## Deploy a simple SparkApplication
+
+Follow these steps:
 
 1.  Create your [Project](../../../../../projects) if you don’t already have one.
 
@@ -125,6 +129,8 @@ See [Spark Operator API documentation](https://github.com/mesosphere/spark-on-k8
     ```
 
 ## Clean up
+
+Follow these steps:
 
 1.  View `SparkApplications` in all namespaces:
 
