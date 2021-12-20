@@ -28,6 +28,7 @@ covariate
 cpu
 CPU
 CRD
+Crunchbase
 datacenter
 D2iQ
 daemonsets
@@ -42,6 +43,7 @@ Dockerfile
 DKLB
 DSL(|s)
 ECR
+ETCD
 etcd
 finalizer(|s)
 fips
@@ -157,6 +159,8 @@ Splunk
 subcommand
 subnet
 subtree
+Telegraf
+Tensorflow
 TensorFlow
 Thanos
 Toree
