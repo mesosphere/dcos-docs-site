@@ -10,7 +10,9 @@ render: mustache
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 ## Access archived versions of Kommander documentation
 
-In accordance with our [version policy][policy], we regularly archive older, unsupported versions of our Kommander documentation. At this time, this includes documentation for Kommander 1.1 and below. You can still access older versions of Kommander documentation on our [public github repo][repo], or by locally running a Docker image (experimental):
+In accordance with our [version policy][policy], we regularly archive older, unsupported versions of our Kommander documentation.
+At this time, this includes documentation for Kommander 1.1 and below.
+You can still access older versions of Kommander documentation on our [public GitHub repository][repo], or by locally running a Docker image (experimental):
 
 On your local machine, run:
 

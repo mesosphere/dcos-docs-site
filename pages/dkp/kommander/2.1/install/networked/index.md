@@ -51,7 +51,7 @@ kommander install
 
 After the CLI successfully installs the components, you must wait for all `HelmReleases` to deploy.
 
-The Kommander installation is a multi-step process: Flux installs first, then the Git repository spins up permiting Flux to consume further `HelmReleases` from that repository.
+The Kommander installation is a multi-step process: Flux installs first, then the Git repository spins up permitting Flux to consume further `HelmReleases` from that repository.
 
 After running the install command, `HelmReleases` begin to appear on the cluster.
 
@@ -92,7 +92,7 @@ helmrelease.helm.toolkit.fluxcd.io/velero condition met
 
 ## Access Kommander Web UI
 
-When all the `HelmReleases` are ready, use the following command to retrieve the URL for accessing Kommander's Web interface:
+When all the `HelmReleases` are ready, use the following command to retrieve the URL to access Kommander's Web interface:
 
 ```sh
 kubectl -n kommander get svc kommander-traefik -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}/dkp/kommander/dashboard{{ "\n"}}'
