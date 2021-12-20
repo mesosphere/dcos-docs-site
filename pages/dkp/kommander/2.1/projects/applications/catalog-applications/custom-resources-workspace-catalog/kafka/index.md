@@ -11,11 +11,11 @@ excerpt: Deploying Kafka in a project
 <!-- TODO: Fix ZooKeeper operator link - this relies on the zookeeper docs being available in order to pass pre-commit -->
 To get started with creating and managing a Kafka Cluster in a project, you first need to deploy the [Kafka operator](../../../../../workspaces/applications/catalog-applications/kafka-operator/) and the [ZooKeeper operator](../../../../../workspaces/applications/catalog-applications/) in the workspace where the project exists.
 
-After you deploy the Kafka operator, create Kafka Clusters by applying a `KafkaCluster` custom resource in a project's namespace. Refer to the [Kafka operator repository](https://github.com/banzaicloud/koperator/tree/master/config/samples) for examples of the custom resources and their configurations.
+After deploying the Kafka operator, create Kafka Clusters by applying a `KafkaCluster` custom resource in a project's namespace. Refer to the [Kafka operator repository](https://github.com/banzaicloud/koperator/tree/master/config/samples) for examples of the custom resources and their configurations.
 
 ## Example deployment
 
-This example deployment walks you through first deploying a ZooKeeper cluster and then a Kafka cluster in a project namespace. After following the steps below, you should have a running ZooKeeper cluster and Kafka cluster ready for use in your project's namespace.
+This example deployment walks you through first deploying a ZooKeeper cluster and then a Kafka cluster in a project namespace. The result of this procedure is a running ZooKeeper cluster and Kafka cluster ready for use in your project's namespace.
 
 1.  Set the `PROJECT_NAMESPACE` environment variable to the name of your project’s namespace:
 
@@ -61,7 +61,7 @@ This example deployment walks you through first deploying a ZooKeeper cluster an
         sed -i "s/zookeeper-client.zookeeper:2181/zookeeper-client.${PROJECT_NAMESPACE}:2181/g" simplekafkacluster.yaml
         ```
 
-1.  The file should now contain the following line:
+1.  Verify the file contains the following line:
 
     ```yaml
     ...
@@ -85,6 +85,8 @@ This example deployment walks you through first deploying a ZooKeeper cluster an
 With both the ZooKeeper cluster and Kafka cluster running in your project's namespace, refer to the [Kafka Operator documentation](https://banzaicloud.com/docs/supertubes/kafka-operator/test/) for information on how to test and verify they are working as expected in. When performing those steps, ensure you substitute: `zookeeper-client.<project namespace>:2181` anywhere that the zookeeper client address is mentioned.
 
 ## Deleting Kafka custom resources
+
+Follow these steps to delete the Kafka custom resources.
 
 1.  View all Kafka resources in the cluster:
 

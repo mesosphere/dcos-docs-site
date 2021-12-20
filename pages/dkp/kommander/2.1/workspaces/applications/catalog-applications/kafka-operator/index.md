@@ -12,7 +12,7 @@ excerpt: Information about the Kafka Operator
 
 ## Install
 
-These install instructions describe how to install the Kafka operator in a workspace. After following the install instructions, you will have the Kafka operator running in a workspace namespace, ready to manage and create Kafka clusters in any project namespaces. See the [Kafka custom resource documentation](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/kafka/) for more information on creating Kafka clusters.
+Follow these steps to install the Kafka operator in a workspace. This procedure results in a Kafka operator running in a workspace namespace, ready to manage and create Kafka clusters in any project namespaces. See the [Kafka custom resource documentation](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/kafka/) for more information on creating Kafka clusters.
 
 1.  Follow the generic installation instructions for workspace catalog applications on the [Application Deployment](../application-deployment/) page.
 
@@ -28,7 +28,7 @@ Refer to the [Kafka operator Helm Chart documentation](https://github.com/banzai
 
 Uninstalling the Kafka operator does not affect existing `KafkaCluster` deployments. After uninstalling the operator, you must manually remove any remaining Custom Resource Definitions (CRDs) from the operator.
 
-1.  Delete all Kafka custom resources that are deployed (see [Deleting Kafka Custom Resources](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/kafka#deleting-kafka-custom-resources)).
+1.  Delete all of the deployed Kafka custom resources (see [Deleting Kafka Custom Resources](../../../../projects/applications/catalog-applications/custom-resources-workspace-catalog/kafka#deleting-kafka-custom-resources)).
 
 1.  Uninstall a Kafka operator `AppDeployment`:
 
