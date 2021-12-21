@@ -12,7 +12,7 @@ beta: false
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
 
-To get started with Kommander, [download](../download/) and [install](../install/) the latest version of Kommander.
+To get started with Kommander, [download](../../download/) and [install](../../install/) the latest version of Kommander.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 
@@ -123,13 +123,13 @@ For more information on planning your upgrade, see the [DKP Major Version upgrad
 
 Kommander 2.1 now allows for provisioning and managing of Kubernetes clusters making it easier than ever to get your infrastructure up and running quickly.
 
-For more information on provisioning from Kommander, see [Managing Clusters](../clusters/).
+For more information on provisioning from Kommander, see [Managing Clusters](../../clusters/).
 
 #### Kommander Continuous Deployment
 
 Kommander 2.1 now supports continuous delivery/deployment using Flux, which is designed for Kubernetes and supports multi-cluster and multi-tenant use cases. Configure Kommander Projects with GitOps-based Continuous Deployments using FluxCD, which enables canary and A/B deployments, as well as roll-back. Kommander now uses a completely declarative approach, where what you define for production is what you get, without the need to monitor and manually intervene when something goes wrong.
 
-For more information on setting up continuous deployment using Flux, see [Continuous Deploymnet](../projects/project-deployments/continuous-delivery).
+For more information on setting up continuous deployment using Flux, see [Continuous Deploymnet](../../projects/project-deployments/continuous-delivery).
 
 #### DKP Licensing through Amazon Marketplace
 
@@ -179,6 +179,6 @@ The following services and service components have been upgraded to the listed v
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
-[attach-cluster]: ../clusters/attach-cluster#attaching-a-cluster
+[attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
-[project-custom-applications-git-repo]: ../projects/applications/catalog-applications/custom-applications/add-create-git-repo
+[project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
