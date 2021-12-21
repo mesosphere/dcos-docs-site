@@ -6,15 +6,15 @@ menuWeight: 10
 excerpt: How to host git repositories on Gitea for airgapped deployments
 ---
 
-DKP Supports using external catalog git repository to install applications. In cases where external repository is not accessible from within the cluster, it is possible to use the Gitea server that comes out-of-box with a kommander deployment.
+DKP Supports using an external catalog git repository to install applications. In cases where an external repository is not accessible from within the cluster, it is possible to use the Gitea server that comes out-of-box with a kommander deployment to install applications.
 
-1. Set the `TARGET_NAMESPACE` to either your workspace (or project) namespace in which the catalog repository needs to be created.
+1. Set the `TARGET_NAMESPACE` to the workspace (or project) namespace in which the catalog repository needs to be created.
 
     ```bash
     export TARGET_NAMESPACE=<WORKSPACE_OR_PROJECT_NAMESPACE>
     ```
 
-1. Setup gitea environment variables locally
+1. Create environment variables that contain the Gitea credentials:
 
     ```bash
     GITEA_USERNAME=$(kubectl get secrets -nkommander-flux kommander-git-credentials -oyaml -o go-template="{{.data.username | base64decode }}")
@@ -22,27 +22,27 @@ DKP Supports using external catalog git repository to install applications. In c
     ```
 
 <!-- TODO: should we just ask to create a new user? Its less risky, but difficult for users as they need to remember the username and password for future-->
-1. Using the above username and password, login to gitea UI and create a new repository under `kommander` organization. It's also possible to register a new user and then create a repository under that new username. Rest of this document assumes you are using `kommander` organization. You should be able to substitute `kommander` with your own organization name.
+1. Using the above username and password, follow the steps below to login to the gitea UI and create a new repository in the `kommander` organization.   
     
     ```bash
     kubectl -n kommander get ingress gitea -o go-template='https://{{ (index .status.loadBalancer.ingress 0).hostname }}:443/dkp/kommander/git'
     ```
 
-1. Login to gitea dashboard with `GITEA_USERNAME` and `GITEA_PASSWORD` credentials. Create a new repository named `dkp-catalog-applications` or any other name you prefer.
+1. Login to the Gitea dashboard with the `GITEA_USERNAME` and `GITEA_PASSWORD` credentials. Create a new repository named `dkp-catalog-applications` or any other name you prefer.
 
-1. Clone the newly created repository on your local machine
+1. Clone the newly created repository on your local machine:
 
     ```bash
     git clone -c http.sslVerify=false https://$GITEA_USERNAME:$GITEA_PASSWORD@$(kubectl -n kommander get ingress gitea -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'):443/dkp/kommander/git/kommander/dkp-catalog-applications
     ```
 
-1. Download and extract the catalog repository bundle on to your local machine from download portal and extract the contents into `dkp-catalog-applications` cloned earlier.
+1. Download and extract the catalog repository bundle on to your local machine from the download portal and extract the contents into `dkp-catalog-applications` cloned earlier:
 
     ```bash
     curl -fsSL https://github.com/mesosphere/dkp-catalog-applications/archive/refs/tags/v2.1.1-rc.2.tar.gz | tar zxf - --strip-components=1 -C dkp-catalog-applications
     ```
 
-1. Navigate into `dkp-catalog-applications` and push the changes.
+1. Navigate into the `dkp-catalog-applications` directory and push the changes:
 
     ```bash
     cd dkp-catalog-applications
@@ -51,7 +51,7 @@ DKP Supports using external catalog git repository to install applications. In c
     git push --set-upstream origin master
     ```
 
-1. Run the following command to create a secret containing Certificate Authority information into `TARGET_NAMESPACE`
+1. Run the following command to create a secret containing Certificate Authority information in `TARGET_NAMESPACE`
 
     ```bash
     k create secret generic -n${TARGET_NAMESPACE} ${TARGET_NAMESPACE} --from-literal=caFile="$(kubectl get secrets -nkommander-flux kommander-git-credentials -o template='{{ .data.caFile | base64decode }}')" --type opaque
