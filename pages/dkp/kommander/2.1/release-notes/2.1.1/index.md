@@ -23,17 +23,17 @@ This release provides new features and enhancements to improve the user experien
 
 ### Ability to add catalog applications 
 
-With this release, you can now add catalog applications to your Kommander instances. The following applications are provided for you:
+With this release, you can now add catalog applications to your Kommander instances. Currently, we provide the following operator applications that are workspace-scoped:
 
-* Kafka
-* Spark
-* Zookeeper
+* Kafka operator
+* Spark operator
+* Zookeeper operator
 
-For more information, see the catalog application documentation. 
+For more information, see [DKP catalog applications](../../workspaces/applications/catalog-applications/dkp-applications/).
 
 ## Fixes and Improvements
 
-- Fixed an issue where the 'dkp delete' command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
+- Fixed an issue where the `dkp delete` command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
 - Fixed an issue where the AWS `--region` or Azure `--location` installer flags were not being enforced in the target cluster. (COPS-7101)
 - Corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
 
@@ -44,7 +44,7 @@ The following services and service components have been upgraded to the listed v
 - centralized-grafana: 18.1.1
 - centralized-kubecost: 0.20.0
 - cert-manager: 0.2.7
-- dex: 2.20.5
+- dex: 2.9.10
 - external-dns: 2.20.5
 - fluent-bit: 0.16.2
 - gatekeeper: 0.6.8
@@ -58,15 +58,15 @@ The following services and service components have been upgraded to the listed v
 - kube-oidc-proxy: 0.2.5
 - kube-prometheus-stack: 18.1.1
 - kubecost: 0.20.0
-- kubefed: 0.8.1
+- kubefed: 0.9.0
 - kubernetes-dashboard: 5.0.2
-- kubetunnel: 0.0.7
+- kubetunnel: 0.0.8
 - logging-operator: 3.15.0
 - metallb: 0.12.2
 - minio-operator: 4.1.7
 - nfs-server-provisioner: 0.6.0
 - nvidia: 0.4.3
-- project-grafana-logging: 6.16.4
+- project-grafana-logging: 6.16.14
 - project-grafana-loki: 0.33.1
 - project-logging: 1.0.0
 - prometheus-adapter: 2.11.1
