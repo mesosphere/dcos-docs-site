@@ -47,7 +47,11 @@ hyperparameter(|s)
 (https|HTTPS)
 (istio|Istio)
 (json|JSON)
+<<<<<<< HEAD
 (kafka|Kafka)
+=======
+(Kafka|kafka)
+>>>>>>> chore: alpha accept words list
 Kaptain
 Katib
 Keras
@@ -130,4 +134,3 @@ Zookeeper
 zookeeper
 ZooKeeper
 sed
-kafka
