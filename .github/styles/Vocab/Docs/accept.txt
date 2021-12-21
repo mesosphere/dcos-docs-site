@@ -128,4 +128,3 @@ XGBoost
 yakcl
 (zookeeper|Zookeeper|ZooKeeper)
 sed
-kafka
