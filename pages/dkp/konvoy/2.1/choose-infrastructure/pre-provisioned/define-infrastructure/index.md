@@ -12,25 +12,27 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
 
 ## Name your cluster
 
-1.  Give your cluster a unique name suitable for your environment.
+Give your cluster a unique name suitable for your environment.
 
-    Set the environment variable to be used throughout this documentation:
+Set the environment variable to be used throughout this procedure:
 
-    ```sh
-    CLUSTER_NAME=my-preprovisioned-cluster
-    ```
+```sh
+CLUSTER_NAME=my-preprovisioned-cluster
+```
 
-    Note: If you want to create a unique cluster name, use this command.
-    This will create a unique name every time you run it so use it with forethought.
+Note: If you want to create a unique cluster name, use this command.
+This creates a unique name every time you run it, so use it carefully.
 
-    ```sh
-    CLUSTER_NAME=$(whoami)-preprovisioned-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
-    echo $CLUSTER_NAME
-    ```
+```sh
+CLUSTER_NAME=$(whoami)-preprovisioned-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+echo $CLUSTER_NAME
+```
 
-    ```text
-    hunter-aws-cluster-pf4a3
-    ```
+```text
+hunter-aws-cluster-pf4a3
+```
+
+## Define your infrastructure
 
 1.  Export these environment variables:
 
@@ -101,7 +103,23 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
 1.  Apply the new infrastructure file with the command:
 
     ```shell
-    kubectl apply -f preprovisioned_inventory.yaml
+    envsubst < preprovisioned_inventory.yaml | kubectl apply -f -
     ```
+
+## Prepare your machines
+
+For DKP to install completely, you must stop `firewalld`, if enabled.
+
+Verify `firewalld` is running before you deploy DKP. Use SSH to access each of the machines onto which you are deploying DKP, and check to see if 'firewalld' is running, using the command:
+
+```sh
+systemctl status firewalld
+```
+
+If `firewalld` is active, stop it with the command:
+
+```sh
+systemctl stop firewalld
+```
 
 After defining the infrastructure, [define the control plane endpoint](../define-control-plane-endpoint).
