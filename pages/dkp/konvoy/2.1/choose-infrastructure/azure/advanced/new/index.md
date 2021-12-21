@@ -67,7 +67,7 @@ Be sure also that you review the [known limitations section](../new#known-limita
 
 This procedure uses the `--dry-run` and `--output-yaml` flags together to create basic Azure Kubernetes cluster objects in a YAML file. This approach allows you to examine the YAML objects before creating the actual Azure Kubernetes cluster itself.
 
-When creating the basic Azure Kubernetes cluster objects, you need to first consider whether you need to use an HTTP proxy.  If you do, you need to do some additional configuration when creating the cluster objects. Consult the optional "Configure the control plane and workers to use an HTTP Proxy" section for more details.
+When creating the basic Azure Kubernetes cluster objects, you need to first consider whether you need to use an HTTP proxy. If you do, you need to do some additional configuration when creating the cluster objects. Consult the optional "Configure the control plane and workers to use an HTTP Proxy" section for more details.
 
 1.  Generate the basic Kubernetes cluster objects:
 
