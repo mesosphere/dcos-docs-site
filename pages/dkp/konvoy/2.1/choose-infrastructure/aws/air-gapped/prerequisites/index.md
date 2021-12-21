@@ -22,12 +22,6 @@ Before you begin, you must have:
 
 1.  Follow the steps in [IAM Policy Configuration](../../iam-policies).
 
-1.  Export the AWS region where you want to deploy the cluster:
-
-    ```sh
-    export AWS_REGION=us-west-2
-    ```
-
 1.  Export the AWS profile with the credentials you want to use to create the Kubernetes cluster:
 
      ```sh
