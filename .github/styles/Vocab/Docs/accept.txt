@@ -53,8 +53,7 @@ Keras
 keypair
 keyspace
 Kibana
-KIND
-kind
+(kind|KIND)
 kmem
 Knative
 Kommander
