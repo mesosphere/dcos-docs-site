@@ -73,6 +73,36 @@ The following components have been upgraded to the listed version:
 - Node Feature Discovery 0.8.2
 - Nvidia Node Feature Discovery 0.4.1
 
+### Build on a CentOS OS using pre-provisioned
+
+If you are deploying to CentOS using the [pre-provisioned provider](../choose-infrastructure/pre-provisioned) method, ensure this setting is followed on your machines:
+
+1.  Check your `/etc/fstab` file:
+
+    ```sh
+    cat /etc/fstab
+    ```
+
+1.  Search for this line:
+
+    ```sh
+    /dev/mapper/centos-swap swap                    swap    defaults        0 0
+    ```
+
+1.  Comment out the line, if it exists:
+
+    ```sh
+    # /dev/mapper/centos-swap swap                    swap    defaults        0 0
+    ```
+
+1.  Run this command to complete the process:
+
+    ```sh
+    swapoff /dev/mapper/centos-swap
+    ```
+
+You are now able to install a pre-provisioned DKP cluster on a CentOS machine.
+
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->

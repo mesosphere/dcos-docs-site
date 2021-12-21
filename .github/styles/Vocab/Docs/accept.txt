@@ -42,8 +42,10 @@ Horovod
 hostname
 hotfix(|es)
 hyperparameter(|s)
-http
+HTTP
+HTTPS
 https
+istio
 Istio
 (json|JSON)
 Kafka
@@ -88,7 +90,9 @@ Nagios
 namespace
 namespaced
 (nginx|NGINX)
+NVIDIA
 Nvidia
+nvidia
 onboarding
 overfit(|s|ted|ting)
 Papermill
@@ -106,6 +110,7 @@ Scala
 scikit-learn
 serverless
 sigmoidal
+Snapshotter
 softmax
 Splunk
 subcommand

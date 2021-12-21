@@ -11,6 +11,35 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which then
 
 Before you start, make sure you have created a workload cluster, as described in [Create the Cluster][createthecluster].
 
+## Explore the cluster
+
+Before setting the cluster to manage itself, explore your cluster with this command:
+
+   ```sh
+   kubectl get pods -A --kubeconfig ${CLUSTER_NAME}.conf
+   ```
+
+<p class="message--note"><strong>NOTE: </strong>If you see a <code>calico-node</code> pod not ready on your cluster, you need to edit the <code>installation</code> file.
+</p>
+
+To edit the installation file, run the command:
+
+   ```sh 
+   kubectl edit installation default --kubeconfig ${CLUSTER_NAME}.conf
+   ```
+
+Change the value for `spec.calicoNetwork.nodeAddressAutodetectionV4` to `interface: ens192`, and save the file:
+
+   ```sh
+   spec:
+     calicoNetwork:
+     ...
+       nodeAddressAutodetectionV4:
+         interface: ens192
+   ```
+
+After saving the file, you may need to delete the node feature discovery worker pod in the `node-feature-discovery` namespace, if it failed. After you delete it, Kubernetes replaces the pod as part of its normal reconciliation.
+
 ## Make the new Kubernetes cluster manage itself
 
 1.  Deploy cluster lifecycle services on the workload cluster:
