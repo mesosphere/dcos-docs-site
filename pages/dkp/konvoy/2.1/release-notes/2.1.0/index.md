@@ -1,16 +1,16 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes
-title: Konvoy 2.1 Release Notes
+navigationTitle: Release Notes Konvoy 2.1.0
+title: Konvoy 2.1 Release Notes Konvoy 2.1.0
 menuWeight: 10
-excerpt: View release-specific information for Konvoy 2.1
+excerpt: View release-specific information for Konvoy 2.1.0
 beta: false
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 2.1 was released on November 18, 2021.**
+**D2iQ&reg; Konvoy&reg; version 2.1.0 was released on November 18, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
@@ -72,6 +72,36 @@ The following components have been upgraded to the listed version:
 - Cluster Autoscaler 1.21.0
 - Node Feature Discovery 0.8.2
 - Nvidia Node Feature Discovery 0.4.1
+
+### Build on a CentOS OS using pre-provisioned
+
+If you are deploying to CentOS using the [pre-provisioned provider](../choose-infrastructure/pre-provisioned) method, ensure this setting is followed on your machines:
+
+1.  Check your `/etc/fstab` file:
+
+    ```sh
+    cat /etc/fstab
+    ```
+
+1.  Search for this line:
+
+    ```sh
+    /dev/mapper/centos-swap swap                    swap    defaults        0 0
+    ```
+
+1.  Comment out the line, if it exists:
+
+    ```sh
+    # /dev/mapper/centos-swap swap                    swap    defaults        0 0
+    ```
+
+1.  Run this command to complete the process:
+
+    ```sh
+    swapoff /dev/mapper/centos-swap
+    ```
+
+You are now able to install a pre-provisioned DKP cluster on a CentOS machine.
 
 ## Additional resources
 
