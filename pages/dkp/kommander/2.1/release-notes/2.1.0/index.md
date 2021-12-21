@@ -20,6 +20,67 @@ To get started with Kommander, [download](../../download/) and [install](../../i
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Kommander.
 
+### New features and capabilities
+
+#### DKP Major Version Upgrade
+
+Konvoy and Kommander 2.1 represent a major version upgrade that moves forward DKP architecture to give you access to D2iQ's next generation centralized Kubernetes and smart cloud native applications. It incorporates ClusterAPI as a major re-architecture in its management of production Kubernetes clusters. [ClusterAPI](https://cluster-api.sigs.k8s.io/introduction.html), or CAPI, enables declarative creation, configuration, and management of clusters. Declarative mode is a Kubernetes best practice that simplifies lifecycle tasks, making them more consistent and more repeatable. 2.1 enhances your existing clusters to use a new architecture.
+
+For more information on planning your upgrade, see the [DKP Major Version upgrade](https://docs.d2iq.com/dkp/konvoy/2.1/major-version-upgrade/) guide.
+
+#### Provision Kubernetes Infrastructure from Kommander
+
+Kommander 2.1 now allows for provisioning and managing of Kubernetes clusters making it easier than ever to get your infrastructure up and running quickly.
+
+For more information on provisioning from Kommander, see [Managing Clusters](../../clusters/).
+
+#### Kommander Continuous Deployment
+
+Kommander 2.1 now supports continuous delivery/deployment using Flux, which is designed for Kubernetes and supports multi-cluster and multi-tenant use cases. Configure Kommander Projects with GitOps-based Continuous Deployments using FluxCD, which enables canary and A/B deployments, as well as roll-back. Kommander now uses a completely declarative approach, where what you define for production is what you get, without the need to monitor and manually intervene when something goes wrong.
+
+For more information on setting up continuous deployment using Flux, see [Continuous Deploymnet](../../projects/project-deployments/continuous-delivery).
+
+#### DKP Licensing through Amazon Marketplace
+
+You can now purchase a license for Konvoy or Kommander through the AWS Marketplace, then add it to Kommander. In the Kommander UI, you can see information such as the license status (valid or expired), the license capacity (number of cores or clusters), and expiration date.
+
+### Component updates
+
+The following services and service components have been upgraded to the listed version:
+
+- centralized-grafana: 17.2.1
+- centralized-kubecost: 0.20.0
+- cert-manager: 0.2.7
+- dex: 2.20.5
+- external-dns: 2.20.5
+- fluent-bit: 0.16.2
+- gatekeeper: 0.6.8
+- grafana-logging: 6.13.9
+- grafana-loki: 0.33.1
+- istio: 1.9.1
+- jaeger: 2.21.0
+- karma: 2.0.0
+- kiali: 1.29.1
+- kube-oidc-proxy: 0.2.5
+- kube-prometheus-stack: 17.2.1
+- kubecost: 0.20.0
+- kubefed: 0.8.1
+- kubernetes-dashboard: 5.0.2
+- kubetunnel: 0.0.7
+- logging-operator: 3.13.0
+- metallb: 0.12.2
+- minio-operator: 4.1.7
+- nvidia: 0.4.3
+- project-grafana-logging: 6.13.9
+- project-grafana-loki: 0.33.1
+- project-logging: 1.0.0
+- prometheus-adapter: 2.11.1
+- reloader: 0.0.99
+- thanos: 0.4.5
+- traefik: 10.3.0
+- traefik-forward-auth: 0.3.2
+- velero: 3.1.3
+
 ## Known issues
 
 ### Extra step to install applications to the Kommander Host Management Cluster
@@ -110,67 +171,6 @@ kubectl apply -f cert_manager_root-ca.yaml
 Once complete, continue to [attach your cluster][attach-cluster] to Kommander.
 
 You should expect to see that cert-manager will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
-
-### New features and capabilities
-
-#### DKP Major Version Upgrade
-
-Konvoy and Kommander 2.1 represent a major version upgrade that moves forward DKP architecture to give you access to D2iQ's next generation centralized Kubernetes and smart cloud native applications. It incorporates ClusterAPI as a major re-architecture in its management of production Kubernetes clusters. [ClusterAPI](https://cluster-api.sigs.k8s.io/introduction.html), or CAPI, enables declarative creation, configuration, and management of clusters. Declarative mode is a Kubernetes best practice that simplifies lifecycle tasks, making them more consistent and more repeatable. 2.1 enhances your existing clusters to use a new architecture.
-
-For more information on planning your upgrade, see the [DKP Major Version upgrade](https://docs.d2iq.com/dkp/konvoy/2.1/major-version-upgrade/) guide.
-
-#### Provision Kubernetes Infrastructure from Kommander
-
-Kommander 2.1 now allows for provisioning and managing of Kubernetes clusters making it easier than ever to get your infrastructure up and running quickly.
-
-For more information on provisioning from Kommander, see [Managing Clusters](../../clusters/).
-
-#### Kommander Continuous Deployment
-
-Kommander 2.1 now supports continuous delivery/deployment using Flux, which is designed for Kubernetes and supports multi-cluster and multi-tenant use cases. Configure Kommander Projects with GitOps-based Continuous Deployments using FluxCD, which enables canary and A/B deployments, as well as roll-back. Kommander now uses a completely declarative approach, where what you define for production is what you get, without the need to monitor and manually intervene when something goes wrong.
-
-For more information on setting up continuous deployment using Flux, see [Continuous Deploymnet](../../projects/project-deployments/continuous-delivery).
-
-#### DKP Licensing through Amazon Marketplace
-
-You can now purchase a license for Konvoy or Kommander through the AWS Marketplace, then add it to Kommander. In the Kommander UI, you can see information such as the license status (valid or expired), the license capacity (number of cores or clusters), and expiration date.
-
-### Component updates
-
-The following services and service components have been upgraded to the listed version:
-
-- centralized-grafana: 17.2.1
-- centralized-kubecost: 0.20.0
-- cert-manager: 0.2.7
-- dex: 2.20.5
-- external-dns: 2.20.5
-- fluent-bit: 0.16.2
-- gatekeeper: 0.6.8
-- grafana-logging: 6.13.9
-- grafana-loki: 0.33.1
-- istio: 1.9.1
-- jaeger: 2.21.0
-- karma: 2.0.0
-- kiali: 1.29.1
-- kube-oidc-proxy: 0.2.5
-- kube-prometheus-stack: 17.2.1
-- kubecost: 0.20.0
-- kubefed: 0.8.1
-- kubernetes-dashboard: 5.0.2
-- kubetunnel: 0.0.7
-- logging-operator: 3.13.0
-- metallb: 0.12.2
-- minio-operator: 4.1.7
-- nvidia: 0.4.3
-- project-grafana-logging: 6.13.9
-- project-grafana-loki: 0.33.1
-- project-logging: 1.0.0
-- prometheus-adapter: 2.11.1
-- reloader: 0.0.99
-- thanos: 0.4.5
-- traefik: 10.3.0
-- traefik-forward-auth: 0.3.2
-- velero: 3.1.3
 
 ### Additional resources
 
