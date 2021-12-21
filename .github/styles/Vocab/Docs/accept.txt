@@ -42,8 +42,8 @@ Horovod
 hostname
 hotfix(|es)
 hyperparameter(|s)
-(http|HTTP)
-(https|HTTPS)
+http
+https
 Istio
 (json|JSON)
 Kafka

@@ -65,7 +65,9 @@ Be sure also that you review the [known limitations section](../new#known-limita
 
 ## Create new Azure Kubernetes cluster objects
 
-This procedure uses the `--dry-run` and `--output-yaml` flags together to create basic Azure Kubernetes cluster objects in a YAML file. This approach allows you to examine the YAML objects before creating the actual Azure Kubernetes cluster itself. For example, you may need to specify an HTTP proxy for your control plane and worker nodes. You could also configure the cluster to use your existing network infrastructure. If you need either of those additional configurations, skip to the relevant procedures _without_ executing this one.
+This procedure uses the `--dry-run` and `--output-yaml` flags together to create basic Azure Kubernetes cluster objects in a YAML file. This approach allows you to examine the YAML objects before creating the actual Azure Kubernetes cluster itself.
+
+When creating the basic Azure Kubernetes cluster objects, you need to first consider whether you need to use an HTTP proxy.  If you do, you need to do some additional configuration when creating the cluster objects. Consult the optional "Configure the control plane and workers to use an HTTP Proxy" section for more details.
 
 1.  Generate the basic Kubernetes cluster objects:
 
@@ -76,11 +78,11 @@ This procedure uses the `--dry-run` and `--output-yaml` flags together to create
     > ${CLUSTER_NAME}.yaml
     ```
 
-The output of this command is `${CLUSTER_NAME}.yaml` file that you can examine or modify. If you use this method to create a basic cluster without HTTP proxies or setting existing network infrastructure values, skip to the heading, "Inspect or edit the cluster objects."
+The output of this command is a `${CLUSTER_NAME}.yaml` file that you can examine or modify. If you use this method to create a basic cluster without HTTP proxies, skip to the heading, "Inspect or edit the cluster objects."
 
 ## (Optional) Configure the control plane and workers to use an HTTP Proxy
 
-This procedure uses the `--dry-run` and `--output-yaml` flags together to create basic Azure Kubernetes cluster objects in a YAML file. This approach allows you to examine the YAML objects before creating the actual Azure Kubernetes cluster itself. To configure the Control Plane and Worker nodes to use an HTTP proxy:
+To configure the Control Plane and Worker nodes to use an HTTP proxy:
 
 1.  Copy the commands in the following code block to an editor and apply the list of edits that follows to customize them, then execute them from the command line:
 
@@ -118,7 +120,7 @@ This procedure uses the `--dry-run` and `--output-yaml` flags together to create
     > ${CLUSTER_NAME}.yaml
     ```
 
-The output of this command is `${CLUSTER_NAME}.yaml` file that you can examine or modify further. If you are using this method to create your cluster without setting existing network infrastructure values, review the information under "Inspect or edit the cluster objects" and then go to "Create the actual Kubernetes cluster."
+The output of this command is a `${CLUSTER_NAME}.yaml` file that you can examine or modify further.
 
 ## Inspect or edit the cluster objects
 
@@ -142,9 +144,9 @@ The output of this command is `${CLUSTER_NAME}.yaml` file that you can examine o
 
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
-## Configure existing network infrastructure in the cluster
+## (Optional) Configure existing network infrastructure in the cluster
 
-As part of inspecting and editing your cluster objects, you can also configure it to use existing network infrastructure.
+As part of inspecting and editing your cluster objects, you can also configure it to use existing network infrastructure. If you do not need to use an existing network infrastructure, you can skip this step.
 
 1.  Review the following AzureCluster excerpt, noting the entries under `networkSpec` for the apiServerLB, nodeOutboundLB, subnets, and vnet values:
 
