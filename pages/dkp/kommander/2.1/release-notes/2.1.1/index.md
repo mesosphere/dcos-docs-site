@@ -24,27 +24,24 @@ This release provides new features and enhancements to improve the user experien
 
 <!-- Add new items, if any -->
 
-## Known issues
+## Fixes and Improvements
 
 ### DKP delete fails in AWS
 
-When attempting to delete a DKP cluster from AWS where you have permanent credentials, The 'dkp delete' command fails with SIGSEGV. As an alternative, manually delete your cluster. (COPS-7109)
+Fixed an issue where the 'dkp delete' command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
 
 ### DKP installer fails to follow respective AWS --region or Azure --location flags
 
-The installer flag for AWS `--region` or Azure `--location`are not enforced in the target cluster. We corrected this isssue and the correct flags generate in the cluster.yaml files. (COPS-7101)
+Fixed an issue where the the AWS `--region` or Azure `--location` installer flags were not being enforced in the target cluster. (COPS-7101)
 
 ### Broken documentation links
 
 Some hyperlinks on the Major Version Upgrade to DKP page were not working. We corrected these issues. (COPS-7099)
 
-### Some items are not moving with DKP move command
+### DKP move command not moving some items
 
-When making a pre-provisioned cluster self-managing, the `PreprovisionedInventory` object and SSH key secret were  not moved to the target cluster. We corrected this issue. (COPS-7079)
+We corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
 
-### RBAC and Grafana dashboards access
-
-Unable to access the dashboards for RBAC and Grafana, when a using the url for logging and monitoring. (COPS-7072)
 
 ## Component updates
 
