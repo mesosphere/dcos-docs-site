@@ -42,6 +42,9 @@ Horovod
 hostname
 hotfix(|es)
 hyperparameter(|s)
+HTTP
+http
+HTTPS
 https
 istio
 Istio
