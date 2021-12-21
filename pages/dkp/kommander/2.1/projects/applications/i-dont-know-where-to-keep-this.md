@@ -57,7 +57,6 @@ DKP Supports using an external catalog git repository to install applications. I
     ```
 
     **NOTE**: This command needs to be run in ALL target clusters that belong to the specific Workspace or Project. 
-    <!-- TODO: Create a federated secret maybe? -->
 
 1. Finally, run the following command to create the catalog `GitRepository`
 
@@ -73,7 +72,6 @@ DKP Supports using an external catalog git repository to install applications. I
       ref:
         branch: master
       timeout: 20s
-      # TODO: use different url so this works in attached clusters
       url: ${GITEA_URL}/kommander/dkp-catalog-applications.git
       secretRef:
         name: ${TARGET_NAMESPACE}
