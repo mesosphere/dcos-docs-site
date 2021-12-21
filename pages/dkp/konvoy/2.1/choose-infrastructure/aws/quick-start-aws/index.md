@@ -24,12 +24,6 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Follow the steps in [IAM Policy Configuration](../iam-policies).
 
-1.  Export the AWS region where you want to deploy the cluster:
-
-    ```sh
-    export AWS_REGION=us-west-2
-    ```
-
 1.  Export the AWS Profile with the credentials that you want to use to create the Kubernetes cluster:
 
     ```sh
