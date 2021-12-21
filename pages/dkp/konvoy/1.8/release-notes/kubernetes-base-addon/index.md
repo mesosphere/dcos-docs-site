@@ -14,13 +14,6 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
-December 3, 2021
-
-[stable-1.20-4.3.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.3.0)
-
--   Traefik-forward-auth
-    - Upgrade container image to 3.0.3, pulling in a fix for URL pattern matching. (#1345)
-
 September 15, 2021
 
 [stable-1.20-4.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.2.0)
