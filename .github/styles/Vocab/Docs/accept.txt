@@ -117,5 +117,6 @@ Traefik
 uncordon(|ed)
 unmount(|ing|ed)
 Velero
+(vnet|VNET)
 XGBoost
 yakcl
