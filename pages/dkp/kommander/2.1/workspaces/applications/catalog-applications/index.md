@@ -29,6 +29,7 @@ Follow these steps to install the catalog from the CLI.
       namespace: ${WORKSPACE_NAMESPACE}
       labels:
         kommander.d2iq.io/gitapps-gitrepository-type: catalog
+        kommander.d2iq.io/gitrepository-type: catalog
     spec:
       interval: 1m0s
       ref:
