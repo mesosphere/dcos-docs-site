@@ -39,7 +39,7 @@ Follow these steps to install the catalog from the CLI.
     EOF
     ```
 
-1.  Verify that you can see the workspace catalog `Apps` available in the UI and in the CLI, using `kubectl`:
+1.  Verify that you can see the workspace catalog `Apps` available in the UI, and in the CLI, using `kubectl`:
 
     ```bash
     kubectl get apps -n ${WORKSPACE_NAMESPACE}
