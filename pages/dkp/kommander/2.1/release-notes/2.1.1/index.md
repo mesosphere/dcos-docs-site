@@ -87,6 +87,6 @@ The following services and service components have been upgraded to the listed v
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
-[attach-cluster]: ../clusters/attach-cluster#attaching-a-cluster
+[attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
-[project-custom-applications-git-repo]: ../projects/applications/catalog-applications/custom-applications/add-create-git-repo
+[project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
