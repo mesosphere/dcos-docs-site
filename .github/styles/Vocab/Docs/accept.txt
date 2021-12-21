@@ -25,8 +25,8 @@ DC/OS
 dcos
 Dex
 Dispatch
-DKP
-dkp
+(dkp|DKP)
+(docker|Docker)
 Dockerfile
 DKLB
 DSL(|s)
@@ -42,11 +42,9 @@ Horovod
 hostname
 hotfix(|es)
 hyperparameter(|s)
-HTTP
-HTTPS
-https
-istio
-Istio
+(http|HTTP)
+(https|HTTPS)
+(istio|Istio)
 (json|JSON)
 Kafka
 Kaptain
