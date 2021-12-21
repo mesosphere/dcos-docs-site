@@ -79,6 +79,8 @@ hostname
 Hostname
 hotfix(|es)
 hyperparameter(|s)
+HTTP
+http
 HTTPS
 https
 io
