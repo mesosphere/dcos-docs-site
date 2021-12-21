@@ -7,7 +7,6 @@ excerpt: View release-specific information for Kommander 2.1.1
 enterprise: false
 beta: false
 ---
-
 **D2iQ&reg; Kommander&reg; version 2.1.0 was released on December 23, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
@@ -22,7 +21,11 @@ This release provides new features and enhancements to improve the user experien
 
 ## New features and capabilities
 
-<!-- Add new items -->
+With this release, we provide you the ability to deploy or delete the following Catalog Applications from Kommander:
+
+* Kafka
+* Spark
+* Zookeeper
 
 ## Fixes and Improvements
 
@@ -37,7 +40,6 @@ Fixed an issue where the AWS `--region` or Azure `--location` installer flags we
 ### DKP move command not moving some items
 
 We corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
-
 
 ## Component updates
 
