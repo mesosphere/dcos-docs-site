@@ -38,6 +38,8 @@ Konvoy and Kommander 2.1 represent a major version upgrade that moves forward DK
 
 * Provision a cluster using an advanced YAML editor.
 
+* More bootstrap images are included with air-gapped bundles that contain OS packages.
+
 ### Bug Fixes
 
 * The 'dkp delete' command no longer results in a segmentation violation or segmentation fault (SIGSEGV). [COPS-7109]
