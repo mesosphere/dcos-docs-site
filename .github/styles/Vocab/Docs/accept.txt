@@ -3,7 +3,7 @@ addon
 Airflow
 Alertmanager
 ANN(|s)
-Ansible
+(ansible|Ansible)
 autoscal(e|es|ed|ing)
 Cassandra
 checkpoint(|s|ed|ing)
@@ -42,7 +42,8 @@ Horovod
 hostname
 hotfix(|es)
 hyperparameter(|s)
-https
+(http|HTTP)
+(https|HTTPS)
 Istio
 (json|JSON)
 Kafka
