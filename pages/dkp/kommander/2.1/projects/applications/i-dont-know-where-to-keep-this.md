@@ -21,19 +21,18 @@ DKP Supports using an external catalog git repository to install applications. I
     GITEA_PASSWORD=$(kubectl get secrets -nkommander-flux kommander-git-credentials -oyaml -o go-template="{{.data.password | base64decode }}")
     ```
 
-<!-- TODO: should we just ask to create a new user? Its less risky, but difficult for users as they need to remember the username and password for future-->
 1. Using the above username and password, follow the steps below to login to the gitea UI and create a new repository in the `kommander` organization.   
     
     ```bash
-    kubectl -n kommander get ingress gitea -o go-template='https://{{ (index .status.loadBalancer.ingress 0).hostname }}:443/dkp/kommander/git'
+    GITEA_URL=$(kubectl -n kommander get ingress gitea -o go-template='https://{{ (index .status.loadBalancer.ingress 0).hostname }}:443/dkp/kommander/git')
     ```
 
-1. Login to the Gitea dashboard with the `GITEA_USERNAME` and `GITEA_PASSWORD` credentials. Create a new repository named `dkp-catalog-applications` or any other name you prefer.
+1. Login to the Gitea dashboard at `GITEA_URL` with the `GITEA_USERNAME` and `GITEA_PASSWORD` credentials. Create a new repository named `dkp-catalog-applications` or any other name you prefer.
 
 1. Clone the newly created repository on your local machine:
 
     ```bash
-    git clone -c http.sslVerify=false https://$GITEA_USERNAME:$GITEA_PASSWORD@$(kubectl -n kommander get ingress gitea -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'):443/dkp/kommander/git/kommander/dkp-catalog-applications
+    git clone -c http.sslVerify=false https://$GITEA_USERNAME:$GITEA_PASSWORD@$GITEA_URL/kommander/dkp-catalog-applications
     ```
 
 1. Download and extract the catalog repository bundle on to your local machine from the download portal and extract the contents into `dkp-catalog-applications` cloned earlier:
@@ -62,7 +61,6 @@ DKP Supports using an external catalog git repository to install applications. I
 
 1. Finally, run the following command to create the catalog `GitRepository`
 
-    <!-- TODO: support custom host name -->
     ```bash
     kubectl apply -f - <<EOF
     apiVersion: source.toolkit.fluxcd.io/v1beta1
@@ -76,7 +74,7 @@ DKP Supports using an external catalog git repository to install applications. I
         branch: master
       timeout: 20s
       # TODO: use different url so this works in attached clusters
-      url: https://gitea-http.kommander.svc/kommander/dkp-catalog-applications.git
+      url: ${GITEA_URL}/kommander/dkp-catalog-applications.git
       secretRef:
         name: ${TARGET_NAMESPACE}
     EOF
