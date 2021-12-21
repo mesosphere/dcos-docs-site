@@ -21,25 +21,21 @@ This release provides new features and enhancements to improve the user experien
 
 ## New features and capabilities
 
-With this release, we provide you the ability to deploy or delete the following Catalog Applications from Kommander:
+### Ability to add catalog applications 
+
+With this release, you can now add catalog applications to your Kommander instances. The following applications are provided for you:
 
 * Kafka
 * Spark
 * Zookeeper
 
+For more information, see the catalog application documentation. 
+
 ## Fixes and Improvements
 
-### DKP delete fails in AWS
-
-Fixed an issue where the 'dkp delete' command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
-
-### DKP installer fails to follow respective AWS --region or Azure --location flags
-
-Fixed an issue where the AWS `--region` or Azure `--location` installer flags were not being enforced in the target cluster. (COPS-7101)
-
-### DKP move command not moving some items
-
-We corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
+- Fixed an issue where the 'dkp delete' command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
+- Fixed an issue where the AWS `--region` or Azure `--location` installer flags were not being enforced in the target cluster. (COPS-7101)
+- Corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
 
 ## Component updates
 
