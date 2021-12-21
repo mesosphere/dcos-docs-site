@@ -49,7 +49,7 @@ https
 istio
 Istio
 (json|JSON)
-Kafka
+(Kafka|kafka)
 Kaptain
 Katib
 Keras
@@ -139,4 +139,3 @@ Zookeeper
 zookeeper
 ZooKeeper
 sed
-kafka
