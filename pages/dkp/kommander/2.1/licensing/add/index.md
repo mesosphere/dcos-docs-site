@@ -51,6 +51,4 @@ You can add a license acquired from D2iQ directly using `kubectl`.
     EOF
     ```
 
-In the above example, your license is named 'my-license'.
-
-You should then be able to return to the license page in the UI to see your valid license display.
+Return to the license page in the UI to see your valid license display.
