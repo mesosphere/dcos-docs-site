@@ -34,17 +34,31 @@ This release provides new features and enhancements to improve the user experien
 
 Konvoy and Kommander 2.1 represent a major version upgrade that moves forward DKP architecture to give you access to D2iQ's next generation centralized Kubernetes and smart cloud native applications. It incorporates ClusterAPI as a major re-architecture in its management of production Kubernetes clusters. [ClusterAPI](https://cluster-api.sigs.k8s.io/introduction.html), or CAPI, enables declarative creation, configuration, and management of clusters. Declarative mode is a Kubernetes best practice that simplifies lifecycle tasks, making them more consistent and more repeatable. 2.1 enhances your existing clusters to use a new architecture.
 
+#### Support for NVIDIA 470 Driver
+
+Konvoy 2.1 supports the upgraded Nvidia 470.x driver and DCGM exporter 2.2.9, which enables technology for running DKP on NVIDIA DGX. NVIDIA DGX customers now have a robust Kubernetes platform in Konvoy and Kommander that vastly simplifies the process of getting the infrastructure needed for applications up and running on this powerful hardware platform.
+
+#### DKP Licensing through Amazon Marketplace
+
+You can purchase a license for Konvoy or Kommander through the AWS Marketplace, and then add it to Kommander. In the Kommander UI, you can see information such as the license status (valid or expired), the license capacity (number of cores or clusters), and expiration date.
+
 #### Other Feature Additions
 
 * Added the ability to provision a cluster using an advanced YAML editor.
 
-* More bootstrap images are included with air-gapped bundles that contain OS packages.
+### Fixes and Improvements
 
-### Bug Fixes
+#### DKP delete fails in AWS
 
-* The 'dkp delete' command no longer results in a segmentation violation or segmentation fault (SIGSEGV). [COPS-7109]
+Fixed an issue where the 'dkp delete' command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
 
-* DKP installer now obeys the appropriate region flags. [COPS-7101]
+#### DKP installer fails to follow respective AWS --region or Azure --location flags
+
+Fixed an issue where the AWS `--region` or Azure `--location` installer flags were not being enforced in the target cluster. (COPS-7101)
+
+#### DKP move command not moving some items
+
+We corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
 
 ### Component updates
 
