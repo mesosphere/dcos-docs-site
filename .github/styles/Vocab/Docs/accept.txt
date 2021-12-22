@@ -116,6 +116,6 @@ Toree
 (Traefik|traefik)
 uncordon(|ed)
 unmount(|ing|ed)
-(Velero|valero)
+(Velero|velero)
 XGBoost
 yakcl
