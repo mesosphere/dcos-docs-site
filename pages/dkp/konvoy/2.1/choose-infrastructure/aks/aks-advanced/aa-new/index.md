@@ -46,13 +46,15 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     ```
 
     ```sh
-    cluster.cluster.x-k8s.io/my-aks-cluster created
-    awscluster.infrastructure.cluster.x-k8s.io/my-aks-cluster created
-    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/my-aks-cluster-control-plane created
-    awsmachinetemplate.infrastructure.cluster.x-k8s.io/my-aks-cluster-control-plane created
-    machinedeployment.cluster.x-k8s.io/my-aks-cluster-mp-0 created
-    awsmachinetemplate.infrastructure.cluster.x-k8s.io/my-aks-cluster-mp-0 created
-    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/my-aks-cluster-mp-0 created
+	cluster.cluster.x-k8s.io/my-aks-cluster created
+    azuremanagedcontrolplane.infrastructure.cluster.x-k8s.io/my-aks-cluster created
+    azuremanagedcluster.infrastructure.cluster.x-k8s.io/my-aks-cluster created
+    machinepool.cluster.x-k8s.io/my-aks-cluster created
+    azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/cpkwwfs created
+    clusterresourceset.addons.cluster.x-k8s.io/calico-installation-my-aks-cluster created
+    configmap/calico-cni-my-aks-cluster created
+    machinepool.cluster.x-k8s.io/my-aks-cluster-md-0 created
+    azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mpk2qzq created
     ```
 
 1.  Wait for the cluster control-plane to be ready:
@@ -62,7 +64,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     ```
 
     ```text
-    cluster.cluster.x-k8s.io/aws-example condition met
+    cluster.cluster.x-k8s.io/my-aks-cluster condition met
     ```
 
     The `READY` status will become `True` after the cluster control-plane becomes ready. You can follow along in the following steps.
