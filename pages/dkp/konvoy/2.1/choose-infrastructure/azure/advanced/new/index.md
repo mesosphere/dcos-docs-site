@@ -7,6 +7,25 @@ excerpt: Use Konvoy to create a new Kubernetes cluster
 enterprise: false
 ---
 
+Several small procedures work together to create a new Azure Kubernetes cluster. Be sure to read each one carefully, as some are optional. The basic process is:
+
+1.  Satisfy the [prerequisites](../new#prerequisites).
+
+1.  [Name your cluster](../new#name-your-cluster).
+
+1.  [Create new Azure Kubernetes cluster objects](../new#create-new-azure-kubernetes-cluster-objects).
+
+1.  [Inspect and edit the cluster objects](../new#inspect-or-edit-the-cluster-objects)
+
+    Editing the objects allows you to use the optional procedures for:
+
+    - Specifying an HTTP proxy
+    - Configuring the cluster to use existing network infrastructure
+
+1.  [Create the actual Azure Kubernetes cluster](../new#create-the-actual-azure-kubernetes-cluster)
+
+Be sure also that you review the [known limitations section](../new#known-limitations)
+
 ## Prerequisites
 
 - Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
@@ -21,20 +40,22 @@ enterprise: false
     CLUSTER_NAME=my-azure-cluster
     ```
 
-## Tips and Tricks
+### Naming Tips and Tricks
 
-1.  To create a cluster name that's unique, use the following command:
+1.  To create a cluster name that is unique, use the following command:
 
     ```sh
     CLUSTER_NAME=$(whoami)-azure-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 
+    The output appears similar to:
+
     ```text
     hunter-azure-cluster-pf4a3
     ```
 
-    This will create a unique name every time you run it, so use it with forethought.
+    This command creates a unique name every time you run it, so use it carefully.
 
 1.  Set the environment variable to the name you assigned this cluster:
 
@@ -42,9 +63,13 @@ enterprise: false
     CLUSTER_NAME=my-azure-cluster
     ```
 
-## Create a new Azure Kubernetes cluster
+## Create new Azure Kubernetes cluster objects
 
-1.  Generate the Kubernetes cluster objects:
+This procedure uses the `--dry-run` and `--output-yaml` flags together to create basic Azure Kubernetes cluster objects in a YAML file. This approach allows you to examine the YAML objects before creating the actual Azure Kubernetes cluster itself.
+
+When creating the basic Azure Kubernetes cluster objects, you need to first consider whether you need to use an HTTP proxy. If you do, you need to do some additional configuration when creating the cluster objects. Consult the optional "Configure the control plane and workers to use an HTTP Proxy" section for more details.
+
+1.  Generate the basic Kubernetes cluster objects:
 
     ```sh
     dkp create cluster azure --cluster-name=${CLUSTER_NAME} \
@@ -53,7 +78,13 @@ enterprise: false
     > ${CLUSTER_NAME}.yaml
     ```
 
-1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy:
+The output of this command is a `${CLUSTER_NAME}.yaml` file that you can examine or modify. If you use this method to create a basic cluster without HTTP proxies, skip to the heading, "Inspect or edit the cluster objects."
+
+## (Optional) Configure the control plane and workers to use an HTTP Proxy
+
+To configure the Control Plane and Worker nodes to use an HTTP proxy:
+
+1.  Copy the commands in the following code block to an editor and apply the list of edits that follows to customize them, then execute them from the command line:
 
     ```sh
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
@@ -66,15 +97,15 @@ enterprise: false
     ```
 
     - Replace `example.org,example.com,example.net` with your internal addresses
-    - `localhost` and `127.0.0.1` addesses should not use the proxy
+    - `localhost` and `127.0.0.1` addresses should not use the proxy
     - `10.96.0.0/12` is the default Kubernetes service subnet
     - `192.168.0.0/16` is the default Kubernetes pod subnet
     - `kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local` is the internal Kubernetes kube-apiserver service
     - `.svc,.svc.cluster,.svc.cluster.local` is the internal Kubernetes services
     - `169.254.169.254` is the Azure metadata server
-    - `.cloudapp.azure.com` is for the worker nodes to allow them to communicate directly to the kube-apiserver loadbalancer
+    - `.cloudapp.azure.com` allows the worker nodes to communicate directly to the kube-apiserver load balancer
 
-1.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
+1.  Copy and run the following command to create a Kubernetes cluster with HTTP proxy configured. (This step assumes you did not already create a cluster in the previous procedure.)
 
     ```sh
     dkp create cluster azure --cluster-name=${CLUSTER_NAME} \
@@ -89,9 +120,13 @@ enterprise: false
     > ${CLUSTER_NAME}.yaml
     ```
 
+The output of this command is a `${CLUSTER_NAME}.yaml` file that you can examine or modify further.
+
+## Inspect or edit the cluster objects
+
 1.  Inspect or edit the cluster objects:
 
-    <p class="message--note"><strong>NOTE: </strong>Familiarize yourself with Cluster API before editing the cluster objects as edits can prevent the cluster from deploying successfully.</p>
+    <p class="message--note"><strong>NOTE: </strong>Familiarize yourself with [Cluster API][capi_book] before editing the cluster objects as edits may prevent the cluster from deploying successfully.</p>
 
     The objects are [Custom Resources][k8s_custom_resources] defined by Cluster API components, and they belong in three different categories:
 
@@ -105,15 +140,99 @@ enterprise: false
 
     1.  Node Pool
 
-        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (e.g., kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and an _AzureMachineTemplate_ object, which describes the instance type, the type of disk used, the size of the disk, among other properties.
+        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (for example, the kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and an _AzureMachineTemplate_ object, which describes the instance type, the type of disk used, the size of the disk, among other properties.
 
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
-1.  Create the cluster from the objects.
+## (Optional) Configure existing network infrastructure in the cluster
+
+As part of inspecting and editing your cluster objects, you can also configure it to use existing network infrastructure. If you do not need to use an existing network infrastructure, you can skip this step.
+
+1.  Review the following AzureCluster excerpt, noting the entries under `networkSpec` for the apiServerLB, nodeOutboundLB, subnets, and vnet values:
+
+    ```yaml
+    ---
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha4
+    kind: AzureCluster
+    metadata:
+      creationTimestamp: "2021-12-17T20:25:12Z"
+      generation: 1
+      name: my-azure-cluster
+      namespace: default
+      uid: 64851501-f658-4b40-84a7-6a9f7c871629
+    spec:
+      additionalTags:
+        konvoy.d2iq.io_cluster-name: my-azure-cluster
+        konvoy.d2iq.io_version: v2.1.0
+      azureEnvironment: AzurePublicCloud
+      bastionSpec: {}
+      controlPlaneEndpoint:
+        host: ""
+        port: 0
+      location: westus
+      networkSpec:
+        apiServerLB:
+          frontendIPs:
+          - name: my-azure-cluster-public-lb-frontEnd
+            publicIP:
+              name: pip-my-azure-cluster-apiserver
+          idleTimeoutInMinutes: 4
+          name: my-azure-cluster-public-lb
+          sku: Standard
+          type: Public
+        nodeOutboundLB:
+          frontendIPs:
+          - name: my-azure-cluster-frontEnd
+            publicIP:
+              name: pip-my-azure-cluster-node-outbound
+          frontendIPsCount: 1
+          idleTimeoutInMinutes: 4
+          name: my-azure-cluster
+          sku: Standard
+          type: Public
+        subnets:
+        - cidrBlocks:
+          - 10.0.0.0/16
+          name: my-azure-cluster-controlplane-subnet
+          natGateway:
+            ip:
+              name: ""
+          role: control-plane
+          routeTable: {}
+          securityGroup:
+            name: my-azure-cluster-controlplane-nsg
+        - cidrBlocks:
+          - 10.1.0.0/16
+          name: my-azure-cluster-node-subnet
+          natGateway:
+            ip:
+              name: ""
+          role: node
+          routeTable:
+            name: my-azure-cluster-node-routetable
+          securityGroup:
+            name: my-azure-cluster-node-nsg
+        vnet:
+          cidrBlocks:
+          - 10.0.0.0/8
+          name: my-azure-cluster-vnet
+          resourceGroup: my-azure-cluster
+      resourceGroup: my-azure-cluster
+    ```
+
+    After you make and verify changes in these areas, save the file and go to the "create the actual cluster" procedure.
+
+## Create the actual Azure Kubernetes cluster
+
+Use this procedure to create the Azure Kubernetes cluster when you finish your inspection and edits.
+
+1.  Create the cluster from the generated, and any modified, YAML objects using the command:
 
     ```sh
     kubectl apply -f ${CLUSTER_NAME}.yaml
     ```
+
+    The output appears similar to:
 
     ```sh
     cluster.cluster.x-k8s.io/my-azure-cluster created
@@ -127,24 +246,30 @@ enterprise: false
     kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/my-azure-cluster-md-0 created
     ```
 
-1.  Wait for the cluster control-plane to be ready:
+1.  Wait for the cluster's control-plane Status to be Ready:
 
     ```sh
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
+    When the control plane status is Ready, the output is similar to:
+
     ```text
     cluster.cluster.x-k8s.io/my-azure-cluster condition met
     ```
 
-1.  After the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
+    After DKP creates the objects on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines, and as they progress, they update the Status of each object.
+
+1.  Run the DKP Konvoy command to describe the current status of the cluster:
 
     ```sh
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
+    The output is similar to:
+
     ```text
-    NAME                                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
+    NAME                                                                 READY  SEVERITY  REASON  SINCE  MESSAGE
     /my-azure-cluster                                                    True                     6m37s
     ├─ClusterInfrastructure - AzureCluster/my-azure-cluster              True                     13m
     ├─ControlPlane - KubeadmControlPlane/my-azure-cluster-control-plane  True                     6m37s
@@ -154,13 +279,15 @@ enterprise: false
     └─4 Machines...                                                      True                     8m10s  See my-azure-cluster-md-0-84bd8b5f5b-b8cnq, my-azure-cluster-md-0-84bd8b5f5b-j8ldg, ...
     ```
 
-1.  As they progress, the controllers also create Events. List the Events using this command:
+1.  As they progress, the controllers also create Events. List the Events using the command:
 
     ```sh
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 
-    For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AzureCluster"` and `kubectl get events --field-selector involvedObject.kind="AzureMachine"`.
+    For brevity, the example command also uses `grep`. You can use separate commands to get Events for specific objects, for example, `kubectl get events --field-selector involvedObject.kind="AzureCluster"` and `kubectl get events --field-selector involvedObject.kind="AzureMachine"`.
+
+    The output is similar to:
 
     ```text
     15m         Normal    AzureClusterObjectNotFound                  azurecluster                                          AzureCluster object default/my-azure-cluster not found
@@ -203,3 +330,4 @@ Next, you can [Explore the New Cluster][explore-new-cluster].
 [explore-new-cluster]: ../explore
 [capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
 [k8s_custom_resources]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
+[capi_book]: https://cluster-api.sigs.k8s.io/
