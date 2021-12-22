@@ -12,6 +12,8 @@ Catalog applications are any third-party or open source applications that appear
 
 Follow these steps to install the catalog from the CLI.
 
+1. If running in airgapped environment, refer to [airgapped setup instructions](../../../install/air-gapped/catalog).
+
 1.  Set the `WORKSPACE_NAMESPACE` environment variable to the name of your workspace’s namespace:
 
     ```bash

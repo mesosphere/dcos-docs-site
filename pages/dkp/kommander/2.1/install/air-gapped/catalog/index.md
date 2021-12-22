@@ -8,6 +8,13 @@ excerpt: How to host git repositories on Gitea for airgapped deployments
 
 DKP Supports using an external catalog git repository to install applications. In cases where an external repository is not accessible from within the cluster, it is possible to use the Gitea server that comes out-of-box with a kommander deployment to install applications.
 
+
+1. Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
+
+    ```bash
+    export VERSION=v2.1.1
+    ```
+
 1. Set the `TARGET_NAMESPACE` to the workspace (or project) namespace in which the catalog repository needs to be created.
 
     ```bash
@@ -27,7 +34,7 @@ DKP Supports using an external catalog git repository to install applications. I
     GITEA_URL=$(kubectl -n kommander get ingress gitea -o go-template='https://{{ (index .status.loadBalancer.ingress 0).hostname }}:443/dkp/kommander/git')
     ```
 
-1. Login to the Gitea dashboard at `GITEA_URL` with the `GITEA_USERNAME` and `GITEA_PASSWORD` credentials. Create a new repository named `dkp-catalog-applications` or any other name you prefer.
+1. Login to the Gitea dashboard at `GITEA_URL` with the `GITEA_USERNAME` and `GITEA_PASSWORD` credentials. Create a new repository named `dkp-catalog-applications` (or any other name you prefer) under `kommander` organization.
 
 1. Clone the newly created repository on your local machine:
 
@@ -38,7 +45,7 @@ DKP Supports using an external catalog git repository to install applications. I
 1. Download and extract the catalog repository bundle on to your local machine from the download portal and extract the contents into `dkp-catalog-applications` cloned earlier:
 
     ```bash
-    curl -fsSL https://github.com/mesosphere/dkp-catalog-applications/archive/refs/tags/v2.1.1-rc.2.tar.gz | tar zxf - --strip-components=1 -C dkp-catalog-applications
+    curl -fsSL https://github.com/mesosphere/dkp-catalog-applications/archive/refs/tags/$VERSION.tar.gz | tar zxf - --strip-components=1 -C dkp-catalog-applications
     ```
 
 1. Navigate into the `dkp-catalog-applications` directory and push the changes:
@@ -50,15 +57,18 @@ DKP Supports using an external catalog git repository to install applications. I
     git push --set-upstream origin master
     ```
 
-1. Run the following command to create a secret containing Certificate Authority information in `TARGET_NAMESPACE`
+1. Run the following command to create a secret containing Gitea credentials in `TARGET_NAMESPACE`:
 
     ```bash
-    k create secret generic -n${TARGET_NAMESPACE} ${TARGET_NAMESPACE} --from-literal=caFile="$(kubectl get secrets -nkommander-flux kommander-git-credentials -o template='{{ .data.caFile | base64decode }}')" --type opaque
+    kubectl create secret generic -n${TARGET_NAMESPACE} ${TARGET_NAMESPACE} --type opaque \
+        --from-literal=caFile="$(kubectl get secrets -nkommander-flux kommander-git-credentials -o template='{{ .data.caFile | base64decode }}')" \
+        --from-literal=username="$(kubectl get secrets -nkommander-flux kommander-git-credentials -o template='{{ .data.username | base64decode }}')" \
+        --from-literal=password="$(kubectl get secrets -nkommander-flux kommander-git-credentials -o template='{{ .data.password | base64decode }}')"
     ```
 
     **NOTE**: This command needs to be run in ALL target clusters that belong to the specific Workspace or Project. 
 
-1. Finally, run the following command to create the catalog `GitRepository`
+1. Finally, run the following command to create the catalog `GitRepository`:
 
     ```bash
     kubectl apply -f - <<EOF
@@ -67,6 +77,8 @@ DKP Supports using an external catalog git repository to install applications. I
     metadata:
       name: dkp-catalog-applications
       namespace: ${TARGET_NAMESPACE}
+      labels:
+        kommander.d2iq.io/gitapps-gitrepository-type: catalog
     spec:
       interval: 1m0ss
       ref:
