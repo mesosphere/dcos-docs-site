@@ -11,7 +11,7 @@ beta: false
 
 Before you begin using Kommander, you must:
 
-- Configure a Konvoy cluster using the [Konvoy Install](/pages/dkp/konvoy/2.1/choose-infrastructure/) instructions.
+- Configure a Konvoy cluster using the [Konvoy Install](/dkp/konvoy/2.1/choose-infrastructure/) instructions.
 - Install `cert-manager` prior to installing Kommander.
 - Install Kommander before executing any `kommander` commands. Ensure you have the version of the CLI that matches the Kommander version you want to install.
 
