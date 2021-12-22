@@ -23,7 +23,7 @@ This release provides new features and enhancements to improve the user experien
 
 ### Ability to add catalog applications 
 
-With this release, you can now add catalog applications to your Kommander instances. The following applications are provided for you:
+With this release, you can now add catalog applications to your Kommander instances. Currently, we provide the following operator applications that are workspace-scoped:
 
 * Kafka
 * Spark
