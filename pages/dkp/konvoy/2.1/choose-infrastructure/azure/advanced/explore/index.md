@@ -7,7 +7,7 @@ excerpt: Learn to interact with your Kubernetes cluster
 enterprise: false
 ---
 
-This guide explains how to use the command line to interact with your newly deployed Kubernetes cluster.
+This guide explains how to use the command line to interact with your newly-deployed Kubernetes cluster.
 
 Before you start, make sure you have created a workload cluster, as described in [Create a New Cluster][createnewcluster].
 
@@ -15,7 +15,7 @@ Before you start, make sure you have created a workload cluster, as described in
 
 1.  Get a kubeconfig file for the workload cluster:
 
-    When the workload cluster is created, the cluster lifecycle services generate a kubeconfig file for the workload cluster, and write it to a _Secret_. The kubeconfig file is scoped to the cluster administrator.
+    When the workload cluster is created, the cluster lifecycle services generate a kubeconfig file for the workload cluster, and writes it to a _Secret_. The kubeconfig file is scoped to the cluster administrator.
 
     Get the kubeconfig from the _Secret_, and write it to a file, using this command:
 
@@ -23,11 +23,13 @@ Before you start, make sure you have created a workload cluster, as described in
     dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
-1.  List the Nodes using this command:
+1.  List the Nodes using the command:
 
     ```sh
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
+
+    The output appears similar to:
 
     ```sh
     NAME                                   STATUS   ROLES                  AGE     VERSION
@@ -35,13 +37,15 @@ Before you start, make sure you have created a workload cluster, as described in
     my-azure-cluster-md-0-hvg4b            Ready    <none>                 6m17s   v1.21.6
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Nodes' Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>
+    <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Node's Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>
 
 1.  List the Pods using this command:
 
     ```sh
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get --all-namespaces pods
     ```
+
+    The output appears similar to:
 
     ```sh
     NAMESPACE                           NAME                                                                 READY   STATUS    RESTARTS   AGE

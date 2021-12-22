@@ -15,13 +15,15 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
 1.  Create a bootstrap cluster:
 
-    The bootstrap cluster will host the Cluster API controllers that reconcile the cluster objects marked for deletion:
+    The bootstrap cluster hosts the Cluster API controllers that reconcile the cluster objects marked for deletion:
 
     <p class="message--note"><strong>NOTE: </strong>To avoid using the wrong kubeconfig, the following steps use explicit kubeconfig paths and contexts.</p>
 
     ```sh
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
+
+    The output appears similar to:
 
     ```sh
     INFO[2021-11-23T15:54:07-08:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
@@ -45,6 +47,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```
 
 1.  Move the Cluster API objects from the workload to the bootstrap cluster:
+
     The cluster lifecycle services on the bootstrap cluster are ready, but the workload cluster configuration is on the workload cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the workload to the bootstrap cluster. This process is also called a [Pivot][pivot].
 
     ```sh
@@ -54,6 +57,8 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
         --to-kubeconfig $HOME/.kube/config \
         --to-context kind-konvoy-capi-bootstrapper
     ```
+
+    The output appears similar to:
 
     ```sh
     INFO[2021-06-09T11:47:11-07:00] Running pivot command                         fromClusterKubeconfig=azure-example.conf fromClusterContext= src="move/move.go:83" toClusterKubeconfig=/home/clusteradmin/.kube/config toClusterContext=
@@ -66,6 +71,8 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```sh
     dkp describe cluster --kubeconfig $HOME/.kube/config -c ${CLUSTER_NAME}
     ```
+
+    The output appears similar to:
 
     ```text
     NAME                                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
@@ -88,13 +95,15 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     kubectl --kubeconfig $HOME/.kube/config wait --for=condition=controlplaneready "clusters/${CLUSTER_NAME}" --timeout=60m
     ```
 
+    The output appears similar to:
+
     ```sh
     cluster.cluster.x-k8s.io/my-azure-example condition met
     ```
 
 ## Delete the workload cluster
 
-1.  Make sure your Azure credentials are up to date. Refresh the credentials using this command:
+1.  Make sure your Azure credentials are up-to-date. Refresh the credentials using this command:
 
     ```sh
     dkp update bootstrap credentials azure --kubeconfig $HOME/.kube/config
@@ -109,6 +118,8 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     dkp delete cluster --cluster-name=${CLUSTER_NAME} --kubeconfig $HOME/.kube/config
     ```
 
+    The output appears similar to:
+
     ```sh
     INFO[2021-06-09T11:53:42-07:00] Running cluster delete command                clusterName=my-azure-example managementClusterKubeconfig= namespace=default src="cluster/delete.go:95"
     INFO[2021-06-09T11:53:42-07:00] Waiting for cluster to be fully deleted       src="cluster/delete.go:123"
@@ -122,6 +133,8 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 ```sh
 dkp delete bootstrap --kubeconfig $HOME/.kube/config
 ```
+
+The output appears similar to:
 
 ```sh
 INFO[2021-06-09T12:15:20-07:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:182"
