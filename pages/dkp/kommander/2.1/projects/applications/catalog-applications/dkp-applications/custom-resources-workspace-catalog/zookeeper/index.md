@@ -8,7 +8,7 @@ excerpt: Deploying ZooKeeper in a project
 
 ## Getting started
 
-To get started with creating ZooKeeper clusters in your project namespace, you first need to deploy the [ZooKeeper operator](../../../../../workspaces/applications/catalog-applications/zookeeper-operator/) in the workspace where the project exists.
+To get started with creating ZooKeeper clusters in your project namespace, you first need to deploy the [ZooKeeper operator](../../../../../../workspaces/applications/catalog-applications/dkp-applications/zookeeper-operator/) in the workspace where the project exists.
 
 After you deploy the ZooKeeper operator, you can create ZooKeeper Clusters by applying a `ZookeeperCluster` custom resource in a project's namespace.
 
