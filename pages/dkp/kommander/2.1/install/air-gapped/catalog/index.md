@@ -8,6 +8,11 @@ excerpt: How to host git repositories on Gitea for air gapped deployments
 
 DKP supports using an external catalog git repository to install applications. In cases where an external repository is not accessible from within the cluster, you can use the Gitea server that comes out-of-box with a Kommander deployment to install applications.
 
+## Prerequisites
+
+1. `git` needs to be installed in the local environment (from where a connection to air-gapped cluster can be established)
+
+## Host external repository on Gitea
 
 1. Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
 
