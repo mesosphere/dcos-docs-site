@@ -8,7 +8,7 @@ excerpt: Deploying Kafka in a project
 
 ## Getting started
 
-To get started with creating and managing a Kafka Cluster in a project, you first need to deploy the [Kafka operator](../../../../../workspaces/applications/catalog-applications/kafka-operator/) and the [ZooKeeper operator](../../../../../workspaces/applications/catalog-applications/zookeeper-operator/) in the workspace where the project exists.
+To get started with creating and managing a Kafka Cluster in a project, you first need to deploy the [Kafka operator](../../../../../../workspaces/applications/catalog-applications/dkp-applications/kafka-operator/) and the [ZooKeeper operator](../../../../../../workspaces/applications/catalog-applications/dkp-applications/zookeeper-operator/) in the workspace where the project exists.
 
 After deploying the Kafka operator, create Kafka Clusters by applying a `KafkaCluster` custom resource in a project's namespace. Refer to the [Kafka operator repository](https://github.com/banzaicloud/koperator/tree/master/config/samples) for examples of the custom resources and their configurations.
 
