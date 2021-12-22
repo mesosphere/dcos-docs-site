@@ -9,9 +9,11 @@ beta: false
 
 ## Prerequisites
 
-The `kommander` CLI installs Kommander. You must install Kommander before executing these commands. Ensure you have the version of the CLI that matches the Kommander version you want to install. Refer to the [**DOWNLOAD**][download] page to download and install Kommander.
+Before you begin using Kommander, you must:
 
-The `cert-manager` must be installed prior to installing Kommander.
+- Configure a Konvoy cluster using the [Konvoy Install](/pages/dkp/konvoy/2.1/choose-infrastructure/) instructions.
+- Install `cert-manager` prior to installing Kommander.
+- Install Kommander before executing any `kommander` commands. Ensure you have the version of the CLI that matches the Kommander version you want to install.
 
 ### Default StorageClass
 

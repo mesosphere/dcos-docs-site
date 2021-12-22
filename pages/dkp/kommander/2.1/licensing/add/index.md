@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Add a Kommander license
-title: Add
+title: Add a license to Kommander
 excerpt: Add licenses for Kommander clusters
 menuWeight: 5
 beta: false
@@ -21,7 +21,7 @@ In the Kommander UI, do the following:
 
 1.  On the Add License form page, select D2iQ or AWS Marketplace depending on where you acquired your license.
 
-1.  Paste your license content in the textbox and select **Save**.
+1.  Paste your license content in the text box and select **Save**.
 
 If there is an error submitting a license acquired directly from D2iQ, you can add the license directly through `kubectl`.
 
