@@ -36,7 +36,7 @@ Konvoy and Kommander 2.1 represent a major version upgrade that moves forward DK
 
 #### Other Feature Additions
 
-* Provision a cluster using an advanced YAML editor.
+* Added the ability to provision a cluster using an advanced YAML editor.
 
 * More bootstrap images are included with air-gapped bundles that contain OS packages.
 
