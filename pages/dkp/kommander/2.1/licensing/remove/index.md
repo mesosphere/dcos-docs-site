@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Remove a Kommander license
-title: Remove
+title: Remove a Kommander license
 excerpt: Remove licenses for Kommander clusters
 menuWeight: 0
 beta: false
