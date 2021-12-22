@@ -39,7 +39,7 @@ annotations:
 
 More information on setting a StorageClass as default can be found at [Changing the default storage class in k8s docs][k8s-change-default-storage-class].
 
-## Install on Konvoy
+## Install Kommander on Konvoy
 
 Before running the commands below, ensure that your `kubectl` configuration references the cluster on which you want to install Kommander. You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location.
 
