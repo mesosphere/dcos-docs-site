@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Purchase a Kommander license
 title: Purchase
 excerpt: Obtain licenses for Kommander clusters
-menuWeight: 0
+menuWeight: 20
 beta: false
 ---
 
