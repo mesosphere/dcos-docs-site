@@ -27,7 +27,7 @@ Before you begin, you must:
     ```
 
     ```text
-	INFO[2021-12-22T13:51:34-05:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
+    INFO[2021-12-22T13:51:34-05:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
     INFO[2021-12-22T13:53:09-05:00] Created bootstrap controllers                 src="bootstrap/controllers.go:111"
     INFO[2021-12-22T13:53:09-05:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:115"
     INFO[2021-12-22T13:53:09-05:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
