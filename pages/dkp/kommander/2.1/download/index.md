@@ -25,7 +25,7 @@ Follow the instructions on AWS console to download the container image.
 After downloading the image, run the following command to copy the binaries onto your host.
 
     ```sh
-    $ docker run -it --rm -u $(id -u):$(id -g) -v $(pwd):/dkp $CONTAINER_IMAGES
+    docker run -it --rm -u $(id -u):$(id -g) -v $(pwd):/dkp $CONTAINER_IMAGES
     dkp and kommander binaries placed in the local directory, to run:
     ./dkp --help
     ./kommander --help
