@@ -36,7 +36,7 @@ Konvoy and Kommander 2.1 represent a major version upgrade that moves forward DK
 
 #### Easier Air-gapped deployments
 
-Konvoy 2.1 comes with an easier way to deploy in an air gapped environment. Rather than one large package that includes the requirements for all air gapped environments, we now provide air-gapped bundles for individual needs.
+Konvoy 2.1 comes with an easier way to deploy in an air gapped environment. Rather than one large package that includes the requirements for all air-gapped environments, we now provide air-gapped bundles for individual needs.
 
 #### Other Feature Additions
 
