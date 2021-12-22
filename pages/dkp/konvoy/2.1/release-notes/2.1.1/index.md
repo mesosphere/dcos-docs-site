@@ -60,14 +60,8 @@ We corrected an issue where the `PreprovisionedInventory` object and SSH key sec
 
 The following components have been upgraded to the listed version:
 
-- Calico 3.20
-- AWS EBS CSI 1.4
-- CSI External Snapshotter 4.2.1
-- Azure CSI 1.8.0
-- Local Static Provisioner CSI 2.4.0
-- Cluster Autoscaler 1.21.0
-- Node Feature Discovery 0.8.2
-- Nvidia Node Feature Discovery 0.4.1
+- Cluster API Preprovisioned Provider v0.4.0
+- Konvoy Image Builder v1.5.0
 
 ## Additional resources
 
