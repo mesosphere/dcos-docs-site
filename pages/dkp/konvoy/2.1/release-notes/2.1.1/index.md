@@ -34,13 +34,9 @@ This release provides new features and enhancements to improve the user experien
 
 Konvoy and Kommander 2.1 represent a major version upgrade that moves forward DKP architecture to give you access to D2iQ's next generation centralized Kubernetes and smart cloud native applications. It incorporates ClusterAPI as a major re-architecture in its management of production Kubernetes clusters. [ClusterAPI](https://cluster-api.sigs.k8s.io/introduction.html), or CAPI, enables declarative creation, configuration, and management of clusters. Declarative mode is a Kubernetes best practice that simplifies lifecycle tasks, making them more consistent and more repeatable. 2.1 enhances your existing clusters to use a new architecture.
 
-#### Support for NVIDIA 470 Driver
+#### Easier Air-gapped deployments
 
-Konvoy 2.1 supports the upgraded Nvidia 470.x driver and DCGM exporter 2.2.9, which enables technology for running DKP on NVIDIA DGX. NVIDIA DGX customers now have a robust Kubernetes platform in Konvoy and Kommander that vastly simplifies the process of getting the infrastructure needed for applications up and running on this powerful hardware platform.
-
-#### DKP Licensing through Amazon Marketplace
-
-You can purchase a license for Konvoy or Kommander through the AWS Marketplace, and then add it to Kommander. In the Kommander UI, you can see information such as the license status (valid or expired), the license capacity (number of cores or clusters), and expiration date.
+Konvoy 2.1 comes with an easier way to deploy in an air gapped environment. Rather than one large package that includes the requirements for all air gapped environments, we now provide air-gapped bundles for individual needs.
 
 #### Other Feature Additions
 
