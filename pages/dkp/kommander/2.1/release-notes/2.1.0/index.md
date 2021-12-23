@@ -26,7 +26,7 @@ This release provides new features and enhancements to improve the user experien
 
 Konvoy and Kommander 2.1 represent a major version upgrade that moves forward DKP architecture to give you access to D2iQ's next generation centralized Kubernetes and smart cloud native applications. It incorporates ClusterAPI as a major re-architecture in its management of production Kubernetes clusters. [ClusterAPI](https://cluster-api.sigs.k8s.io/introduction.html), or CAPI, enables declarative creation, configuration, and management of clusters. Declarative mode is a Kubernetes best practice that simplifies lifecycle tasks, making them more consistent and more repeatable. 2.1 enhances your existing clusters to use a new architecture.
 
-For more information on planning your upgrade, see the [DKP Major Version upgrade](https://docs.d2iq.com/dkp/konvoy/2.1/major-version-upgrade/) guide.
+For more information on planning your upgrade, see the [DKP Major Version upgrade](/dkp/konvoy/2.1/major-version-upgrade/) guide.
 
 #### Provision Kubernetes Infrastructure from Kommander
 
