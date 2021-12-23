@@ -46,7 +46,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     ```
 
     ```sh
-	cluster.cluster.x-k8s.io/my-aks-cluster created
+    cluster.cluster.x-k8s.io/my-aks-cluster created
     azuremanagedcontrolplane.infrastructure.cluster.x-k8s.io/my-aks-cluster created
     azuremanagedcluster.infrastructure.cluster.x-k8s.io/my-aks-cluster created
     machinepool.cluster.x-k8s.io/my-aks-cluster created
