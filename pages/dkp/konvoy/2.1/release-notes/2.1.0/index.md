@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes Konvoy 2.1.0
-title: Konvoy 2.1 Release Notes Konvoy 2.1.0
+title: Release Notes Konvoy 2.1.0
 menuWeight: 10
 excerpt: View release-specific information for Konvoy 2.1.0
 beta: false
@@ -38,19 +38,19 @@ Konvoy and Kommander 2.1 represent a major version upgrade that moves forward DK
 
 In Konvoy 2.1, customers who require FIPS 140-2 encryption ciphers, have an easier way to validate that specific components and services are FIPS-compliant according to the NIST FIPS 140-2 standard by checking the signatures of the files against a signed signature file. For more information on running FIPS validation commands, see Validate FIPS in Cluster.
 
-For more information on using FIPS with Konvoy, see [FIPS 140-2 Compliance](../fips/)
+For more information on using FIPS with Konvoy, see [FIPS 140-2 Compliance](../../fips/)
 
 #### Diagnostics Bundle
 
 In DKP 2.1, we provide you a single command for collecting metrics and generating a diagnostic bundle. This allows you to easily upload the bundle to our support team, resulting in less downtime. The diagnostic bundle includes node-level instrumentation around CPU, memory, and disk usage, OS health.
 
-For more information on creating and sending a Konvoy Diagnostics Bundle, see [Generate a Support Bundle](../troubleshooting/generate-a-support-bundle).
+For more information on creating and sending a Konvoy Diagnostics Bundle, see [Generate a Support Bundle](../../troubleshooting/generate-a-support-bundle).
 
 #### Support for NVIDIA 470 Driver
 
 Konvoy 2.1 supports the upgraded Nvidia 470.x driver and DCGM exporter 2.2.9, which enables technology for running DKP on NVIDIA DGX. NVIDIA DGX customers now have a robust Kubernetes platform in Konvoy and Kommander that vastly simplifies the process of getting the infrastructure needed for applications up and running on this powerful hardware platform.
 
-For more information on using Nvidia with Konvoy, see the [GPU](../choose-infrastructure/aws/gpu) documentation.
+For more information on using Nvidia with Konvoy, see the [GPU](../../choose-infrastructure/aws/gpu) documentation.
 
 #### Easier Air-gapped deployments
 
@@ -75,7 +75,7 @@ The following components have been upgraded to the listed version:
 
 ### Build on a CentOS OS using pre-provisioned
 
-If you are deploying to CentOS using the [pre-provisioned provider](../choose-infrastructure/pre-provisioned) method, ensure this setting is followed on your machines:
+If you are deploying to CentOS using the [pre-provisioned provider](../../choose-infrastructure/pre-provisioned) method, ensure this setting is followed on your machines:
 
 1.  Check your `/etc/fstab` file:
 
