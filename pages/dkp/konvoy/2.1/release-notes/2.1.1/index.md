@@ -46,7 +46,7 @@ Konvoy 2.1 comes with an easier way to deploy in an air gapped environment. Rath
 
 #### DKP delete fails in AWS
 
-Fixed an issue where the 'dkp delete' command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
+Fixed an issue where the `dkp delete` command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
 
 #### DKP installer fails to follow respective AWS --region or Azure --location flags
 
