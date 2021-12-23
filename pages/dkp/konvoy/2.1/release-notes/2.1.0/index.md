@@ -52,7 +52,7 @@ Konvoy 2.1 supports the upgraded Nvidia 470.x driver and DCGM exporter 2.2.9, wh
 
 For more information on using Nvidia with Konvoy, see the [GPU](../../choose-infrastructure/aws/gpu) documentation.
 
-#### Easier Air-gapped deployments
+#### Easier air-gapped deployments
 
 Konvoy 2.1 comes with an easier way to deploy in an air gapped environment. Rather than one large package that includes the requirements for all air gapped environments, you can now create a smaller package that is specific to your requirements and can fit on a laptop or USB.
 
