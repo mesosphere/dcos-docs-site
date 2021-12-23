@@ -29,15 +29,6 @@ html(lang='en')
       .landing__container
         include partials/filters.html
         .blurb__item(data-sphere="ksphere")
-          a.blurb__left(href="/dkp/kommander")
-            img.landing__tile-image(src='/assets/Kommander_Docs.png')
-          .blurb__right
-            a(href='/dkp/kommander')
-              h3.blurb__header Kommander
-            a.blurb__desc(href='/dkp/kommander')
-              p.color__grey Deliver federated management and governance across disparate clusters for any on-premise or cloud Kubernetes distribution.
-            +links(`/dkp/kommander/${kommanderDocsLatest}`)
-        .blurb__item(data-sphere="ksphere")
           a.blurb__left(href="/dkp/konvoy")
             img.landing__tile-image(src='/assets/Konvoy_Docs.png')
           .blurb__right
@@ -47,14 +38,14 @@ html(lang='en')
               p.color__grey A packaged set of integrated operational services for Kubernetes so you can get up and running quickly and easily.
             +links(`/dkp/konvoy/${konvoyDocsLatest}`)
         .blurb__item(data-sphere="ksphere")
-          a.blurb__left(href="/dkp/dispatch")
-            img.landing__tile-image(src='/assets/Dispatch_Docs.png')
+          a.blurb__left(href="/dkp/kommander")
+            img.landing__tile-image(src='/assets/Kommander_Docs.png')
           .blurb__right
-            a(href='/dkp/dispatch')
-              h3.blurb__header Dispatch
-            a.blurb__desc(href='/dkp/dispatch')
-              p.color__grey Dispatch has been deprecated.
-            +links(`/dkp/dispatch/${dispatchDocsLatest}`)
+            a(href='/dkp/kommander')
+              h3.blurb__header Kommander
+            a.blurb__desc(href='/dkp/kommander')
+              p.color__grey Deliver federated management and governance across disparate clusters for any on-premise or cloud Kubernetes distribution.
+            +links(`/dkp/kommander/${kommanderDocsLatest}`)
         .blurb__item(data-sphere="ksphere")
           a.blurb__left(href="/dkp/kaptain")
             img.landing__tile-image(src='/assets/Kubeflow_Docs.png')
@@ -73,6 +64,15 @@ html(lang='en')
             a.blurb__desc(href='/mesosphere/dcos')
               p.color__grey A wide range of enterprise-grade capabilities for strong Day 2 operations of cloud native services.
             +links(`/mesosphere/dcos/${dcosDocsLatest}`)
+            .blurb__item(data-sphere="ksphere")
+          a.blurb__left(href="/dkp/dispatch")
+            img.landing__tile-image(src='/assets/Dispatch_Docs.png')
+          .blurb__right
+            a(href='/dkp/dispatch')
+              h3.blurb__header Dispatch
+            a.blurb__desc(href='/dkp/dispatch')
+              p.color__grey Dispatch has been deprecated.
+            +links(`/dkp/dispatch/${dispatchDocsLatest}`)
         .blurb__item(data-sphere="ksphere")
           a.blurb__left(href='https://kudo.dev/' target="_blank")
             img.landing__tile-image(src='/assets/KUDO_Docs.png')
