@@ -121,7 +121,7 @@ Follow these steps to create a bootstrap cluster:
 You need to add the custom CAs into two places:
 
 * The `capa-controller-manager` pod, because CAPA controllers interact with AWS API when creating and deleting infrastructure.
-* The trusted root CAs in the AWS AMI used as Kubernetes nodes. The first step of the node bootstrap process is to fetch the sensitive information from the AWS Secrets Manager service, so the `aws` client on the instances needs to trust this custom CA. This process will be unique to your environment but a general flow will be similar to what is documented [here](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+* The trusted root CAs in the AWS AMI used as Kubernetes nodes. The first step of the node bootstrap process is to fetch the sensitive information from the AWS Secrets Manager service, so the `aws` client on the instances needs to trust this custom CA. This process is unique to your environment but a general flow can be similar to what is documented in [adding trusted root certificates to the server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 
 1.  Place the AWS CA file as `ca.pem` in your working directory
