@@ -15,7 +15,7 @@ Your AMI uses a container image. The Ansible playbooks pull a minimal set of [co
 ---
 extra_images:
   - docker.io/mesosphere/cluster-api-aws-controller:v0.7.1-d2iq.0
-  - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.3.2
+  - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.4.0
   - gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
   - k8s.gcr.io/cluster-api/cluster-api-controller:v0.4.4
   - k8s.gcr.io/cluster-api/kubeadm-bootstrap-controller:v0.4.4
@@ -25,6 +25,8 @@ extra_images:
   - quay.io/jetstack/cert-manager-controller:v1.5.3
   - quay.io/jetstack/cert-manager-webhook:v1.5.3
   - us.gcr.io/k8s-artifacts-prod/cluster-api-azure/cluster-api-azure-controller:v0.5.3
+  - docker.io/mesosphere/konvoy-image-builder:v1.5.0
+  - docker.io/plndr/kube-vip:v0.3.7
   - k8s.gcr.io/provider-aws/aws-ebs-csi-driver:v1.4.0
   - k8s.gcr.io/sig-storage/csi-attacher:v3.1.0
   - k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.1.0
@@ -41,17 +43,17 @@ extra_images:
   - mcr.microsoft.com/oss/kubernetes-csi/csi-snapshotter:v3.0.3
   - mcr.microsoft.com/oss/kubernetes-csi/livenessprobe:v2.4.0
   - quay.io/external_storage/local-volume-provisioner:v2.4.0
-  - calico/cni:v3.20.2
-  - calico/kube-controllers:v3.20.2
-  - calico/node:v3.20.2
-  - calico/pod2daemon-flexvol:v3.20.2
-  - calico/typha:v3.20.2
+  - docker.io/calico/cni:v3.20.2
+  - docker.io/calico/kube-controllers:v3.20.2
+  - docker.io/calico/node:v3.20.2
+  - docker.io/calico/pod2daemon-flexvol:v3.20.2
+  - docker.io/calico/typha:v3.20.2
   - quay.io/tigera/operator:v1.20.4
-  - bitnami/kubectl:1.21.6
+  - docker.io/bitnami/kubectl:1.21.6
   - us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.21.0
   - k8s.gcr.io/nfd/node-feature-discovery:v0.8.2
   - nvcr.io/nvidia/gpu-feature-discovery:v0.4.1
-  - busybox:1
-  - mesosphere/pause-alpine:3.2
-  - mesosphere/dkp-diagnostics-node-collector:v0.3.2
+  - docker.io/library/busybox:1
+  - docker.io/mesosphere/pause-alpine:3.2
+  - docker.io/mesosphere/dkp-diagnostics-node-collector:v0.3.3
 ```
