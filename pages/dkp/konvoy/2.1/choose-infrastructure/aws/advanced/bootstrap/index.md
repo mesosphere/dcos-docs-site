@@ -116,12 +116,12 @@ Follow these steps to create a bootstrap cluster:
 
    Konvoy defines the selectors and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_caep].
 
-## Custom cluster API for CAPI
+## Using a Custom AWS CA
 
 You need to add the custom CAs into two places:
 
-* The capa-controller-manager Pod, because CAPA controllers use the service endpoints.
-* The file system EC2 instance, because the first step of the CAPA bootstrap process is to fetch the sensitive information necessary for bootstrap from the AWS Secrets service.
+* The `capa-controller-manager` pod, because CAPA controllers interact with AWS API when creating and deleting infrastructure.
+* The trusted root CAs in the AWS AMI used as Kubernetes nodes. The first step of the node bootstrap process is to fetch the sensitive information from the AWS Secrets Manager service, so the `aws` client on the instances needs to trust this custom CA. This process will be unique to your environment but a general flow will be similar to what is documented [here](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 
 1.  Place the AWS CA file as `ca.pem` in your working directory
@@ -132,9 +132,10 @@ You need to add the custom CAs into two places:
     kubectl create configmap -n capa-system aws-ca --from-file=ca.pem
     ```
 
-3. Update the capa-controller-manager to set an environment variable`AWS_CA_BUNDLE` in`capa-controller-manager`:
+3. Update the capa-controller-manager to set an environment variable `AWS_CA_BUNDLE` in `capa-controller-manager`:
 
-    ``` kubectl patch deployment -n capa-system capa-controller-manager --patch '{"spec":{"template":{"spec":{"$setElementOrder/containers":[{"name":"manager"},{"name":"kube-rbac-proxy"}],"$setElementOrder/volumes":[{"name":"cert"},{"name":"credentials"},{"name":"aws-ca"}],"containers":[{"$setElementOrder/env":[{"name":"AWS_SHARED_CREDENTIALS_FILE"},{"name":"AWS_CA_BUNDLE"}],"$setElementOrder/volumeMounts":[{"mountPath":"/tmp/k8s-webhook-server/serving-certs"},{"mountPath":"/home/.aws"},{"mountPath":"/home/.konvoy/aws-ca.pem"}],"env":[{"name":"AWS_CA_BUNDLE","value":"/home/.konvoy/aws-ca.pem"}],"name":"manager","volumeMounts":[{"mountPath":"/home/.konvoy/aws-ca.pem","name":"aws-ca","subPath":"ca.pem"}]}],"volumes":[{"configMap":{"name":"aws-ca"},"name":"aws-ca"}]}}}}' ```
+    ```sh
+    kubectl patch deployment -n capa-system capa-controller-manager --patch '{"spec":{"template":{"spec":{"$setElementOrder/containers":[{"name":"manager"},{"name":"kube-rbac-proxy"}],"$setElementOrder/volumes":[{"name":"cert"},{"name":"credentials"},{"name":"aws-ca"}],"containers":[{"$setElementOrder/env":[{"name":"AWS_SHARED_CREDENTIALS_FILE"},{"name":"AWS_CA_BUNDLE"}],"$setElementOrder/volumeMounts":[{"mountPath":"/tmp/k8s-webhook-server/serving-certs"},{"mountPath":"/home/.aws"},{"mountPath":"/home/.konvoy/aws-ca.pem"}],"env":[{"name":"AWS_CA_BUNDLE","value":"/home/.konvoy/aws-ca.pem"}],"name":"manager","volumeMounts":[{"mountPath":"/home/.konvoy/aws-ca.pem","name":"aws-ca","subPath":"ca.pem"}]}],"volumes":[{"configMap":{"name":"aws-ca"},"name":"aws-ca"}]}}}}' ```
 
 [install_docker]: https://docs.docker.com/get-docker/
 [install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
