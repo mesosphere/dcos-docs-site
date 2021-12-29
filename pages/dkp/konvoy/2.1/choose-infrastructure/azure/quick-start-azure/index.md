@@ -8,7 +8,7 @@ enterprise: false
 menuWeight: 6
 ---
 
-This Quick Start guide provides simplified instructions for using Konvoy to get your Kubernetes cluster up and running with minimal configuration requirements on an Azure public cloud instances.
+This Quick Start guide provides simplified instructions for using Konvoy to get your Kubernetes cluster up and running with minimal configuration requirements on an Azure public cloud instance.
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ Before starting the Konvoy installation, verify that you have:
     export AZURE_CLIENT_SECRET='<password>' # Z79yVstq_E.R0R7RUUck718vEHSuyhAB0C
     ```
 
-1.  Base64 encode the same environment variables:
+1.  Base64 encode those same environment variables:
 
     ```sh
     export AZURE_SUBSCRIPTION_ID_B64="$(echo -n "${AZURE_SUBSCRIPTION_ID}" | base64 | tr -d '\n')"
@@ -84,7 +84,7 @@ Before starting the Konvoy installation, verify that you have:
     ```sh
     CLUSTER_NAME=my-azure-cluster
 
-1.  Create a Kubernetes cluster:
+1.  Create a Kubernetes cluster, with the command:
 
     ```sh
     dkp create cluster azure \
@@ -93,7 +93,7 @@ Before starting the Konvoy installation, verify that you have:
     --self-managed
     ```
 
-    You will see output similar to the following:
+    The output appears similar to:
 
     ```text
     INFO[2021-11-16T12:27:38-06:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
@@ -107,22 +107,22 @@ Before starting the Konvoy installation, verify that you have:
     ```
 
     As part of the underlying processing, the DKP CLI:
-    - creates a bootstrap cluster
-    - creates a workload cluster
-    - moves CAPI controllers from the bootstrap cluster to the workload cluster, making it self-managed
-    - deletes the bootstrap cluster
+    - Creates a bootstrap cluster
+    - Creates a workload cluster
+    - Moves CAPI controllers from the bootstrap cluster to the workload cluster, making it self-managed
+    - Deletes the bootstrap cluster
 
 ## Explore the new Kubernetes cluster
 
 The kubeconfig file is written to your local directory and you can now explore the cluster.
 
-1.  List the Nodes with the command:
+1.  List the cluster's Nodes with the command:
 
     ```sh
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
-    You will see output similar to:
+    The output appears similar to:
 
     ```sh
     NAME                                   STATUS   ROLES                  AGE     VERSION
@@ -141,7 +141,7 @@ The kubeconfig file is written to your local directory and you can now explore t
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
     ```
 
-    You will see output similar to:
+    The output appears similar to:
 
     ```text
     NAMESPACE                           NAME                                                                 READY   STATUS    RESTARTS   AGE
@@ -156,7 +156,7 @@ The kubeconfig file is written to your local directory and you can now explore t
 
 ## Delete the Kubernetes cluster and cleanup your environment
 
-1.  Delete the provisioned Kubernetes cluster and wait a few minutes:
+1.  Delete the provisioned Kubernetes cluster and wait a few minutes for the processing to complete:
 
     ```sh
     dkp delete cluster \
