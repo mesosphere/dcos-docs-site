@@ -73,7 +73,7 @@ DKP supports using an external catalog git repository to install applications. I
         --from-literal=password="${GITEA_PASSWORD}"
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>This command needs to be run in Management cluster (where kommander is installed) and ALL target clusters that belong to the specific Workspace or Project.</p>
+    <p class="message--note"><strong>NOTE: </strong>This command needs to be run in Management cluster (where Kommander is installed) and ALL target clusters that belong to the specific Workspace or Project.</p>
 
 1. Optionally, cleanup the certificate and locally cloned repository:
 
@@ -105,4 +105,4 @@ DKP supports using an external catalog git repository to install applications. I
     EOF
     ```
 
-1. Once the the newly created `GitRepository` on the management cluster is reconciled, corresponding `App`s are loaded by kommander controller.
+1. Once the newly created `GitRepository` on the management cluster is reconciled, corresponding `App`s are loaded by Kommander controller.
