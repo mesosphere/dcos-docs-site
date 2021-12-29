@@ -8,6 +8,8 @@ excerpt: Create a Git Repository in the Project namespace
 
 Use the CLI to create the GitRepository resource and add a new repository to your Project.
 
+1.  Refer to [air-gapped setup instructions](../../../../../install/air-gapped/catalog), if you are running in air-gapped environment.
+
 1.  Set the `PROJECT_NAMESPACE` environment variable to the name of your project's namespace:
 
     ```sh
