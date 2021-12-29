@@ -132,7 +132,7 @@ For more information on provisioning from Kommander, see [Managing Clusters](../
 
 Kommander 2.1 now supports continuous delivery/deployment using Flux, which is designed for Kubernetes and supports multi-cluster and multi-tenant use cases. Configure Kommander Projects with GitOps-based Continuous Deployments using FluxCD, which enables canary and A/B deployments, as well as roll-back. Kommander now uses a completely declarative approach, where what you define for production is what you get, without the need to monitor and manually intervene when something goes wrong.
 
-For more information on setting up continuous deployment using Flux, see [Continuous Deploymnet](../projects/project-deployments/continuous-delivery).
+For more information on setting up continuous deployment using Flux, see [Continuous Deployment](../projects/project-deployments/continuous-delivery).
 
 #### DKP Licensing through Amazon Marketplace
 
