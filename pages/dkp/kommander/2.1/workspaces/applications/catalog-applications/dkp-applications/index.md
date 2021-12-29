@@ -12,6 +12,8 @@ DKP applications are catalog applications provided by D2iQ for use in your envir
 
 Follow these steps to install the DKP catalog from the CLI.
 
+1. Refer to [air-gapped setup instructions](../../../../install/air-gapped/catalog), if you are running in air-gapped environment.
+
 1.  Set the `WORKSPACE_NAMESPACE` environment variable to the name of your workspace’s namespace:
 
     ```bash

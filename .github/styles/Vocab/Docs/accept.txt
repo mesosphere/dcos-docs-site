@@ -128,3 +128,4 @@ XGBoost
 yakcl
 (zookeeper|Zookeeper|ZooKeeper)
 sed
+Gitea
