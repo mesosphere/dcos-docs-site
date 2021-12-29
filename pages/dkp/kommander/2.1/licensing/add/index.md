@@ -9,7 +9,7 @@ beta: false
 
 ## Prerequisites
 
-For licenses purchased via the [AWS Marketplace](https://aws.amazon.com/marketplace/), an AWS administrator must attach the [AWS managed policy](https://docs.aws.amazon.com/license-manager/latest/userguide/security-iam-awsmanpol.html#security-iam-AWSLicenseManagerConsumptionPolicy) `AWSLicenseManagerConsumptionPolicy` to the `AWSIAMRoleControlPlane` role created when [configuring AWS IAM policies for Konvoy](/dkp/konvoy/latest/choose-infrastructure/aws/iam-policies/).
+For licenses that you purchase from the [AWS Marketplace](https://aws.amazon.com/marketplace/), an AWS administrator must attach the [AWS managed policy](https://docs.aws.amazon.com/license-manager/latest/userguide/security-iam-awsmanpol.html#security-iam-AWSLicenseManagerConsumptionPolicy) `AWSLicenseManagerConsumptionPolicy` to the `control-plane.cluster-api-provider-aws.sigs.k8s.io` role created when [configuring AWS IAM policies for Konvoy](/dkp/konvoy/latest/choose-infrastructure/aws/iam-policies/).
 
 Without this policy attached to the role, Kommander cannot verify the license information provided in the steps below.
 
@@ -21,9 +21,9 @@ For licenses purchased via the AWS marketplace, find the license in the "Granted
 
 ## Enter license information
 
-An administrator must add licenses to Kommander.
+<p class="message--note"><strong>NOTE: </strong>An administrator must add licenses to Kommander.</p>
 
-In the Kommander UI, do the following:
+From the Kommander UI, complete the following steps:
 
 1.  Select **Global** in the workspace header drop-down.
 
