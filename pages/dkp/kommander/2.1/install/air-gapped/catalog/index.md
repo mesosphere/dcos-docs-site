@@ -10,7 +10,7 @@ DKP supports using an external catalog git repository to install applications. I
 
 ## Prerequisites
 
-1. `git` needs to be installed in the local environment (from where a connection to air-gapped cluster can be established)
+1. Install `git` in the local environment (from where a connection to air-gapped cluster is established).
 
 ## Host external repository on Gitea
 
@@ -20,7 +20,7 @@ DKP supports using an external catalog git repository to install applications. I
     export VERSION=v2.1.1
     ```
 
-1. Set the `TARGET_NAMESPACE` to the workspace (or project) namespace in which the catalog repository needs to be created.
+1. Set the `TARGET_NAMESPACE` to the workspace (or project) namespace in which the catalog repository will be created.
 
     ```bash
     export TARGET_NAMESPACE=<WORKSPACE_OR_PROJECT_NAMESPACE>
@@ -59,7 +59,7 @@ DKP supports using an external catalog git repository to install applications. I
     ```bash
     cd ${GITEA_REPOSITORY_NAME}
     git add .
-    git commit -m "feat: initialize ${GITEA_REPOSITORY_NAME} for airgapped"
+    git commit -m "feat: initialize ${GITEA_REPOSITORY_NAME} for air-gapped"
     git push --set-upstream origin ${GITEA_REPOSITORY_DEFAULT_BRANCH}
     cd ..
     ```
@@ -82,7 +82,7 @@ DKP supports using an external catalog git repository to install applications. I
     rm /tmp/ca.crt
     ```
 
-1. Finally, run the following command to create the catalog `GitRepository`:
+1. Run the following command to create the catalog `GitRepository`:
 
     ```bash
     kubectl apply -f - <<EOF
@@ -104,3 +104,5 @@ DKP supports using an external catalog git repository to install applications. I
         name: ${TARGET_NAMESPACE}
     EOF
     ```
+
+1. Once the the newly created `GitRepository` on the management cluster is reconciled, corresponding `App`s are loaded by kommander controller.
