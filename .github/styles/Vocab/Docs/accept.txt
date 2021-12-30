@@ -57,7 +57,7 @@ keyspace
 (kibana|Kibana)
 (kind|KIND)
 kmem
-Knative
+(knative|Knative)
 Kommander
 Konvoy
 kubeadm
