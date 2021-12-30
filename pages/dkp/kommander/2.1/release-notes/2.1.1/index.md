@@ -7,7 +7,8 @@ excerpt: View release-specific information for Kommander 2.1.1
 enterprise: false
 beta: false
 ---
-**D2iQ&reg; Kommander&reg; version 2.1.0 was released on December 23, 2021.**
+
+**D2iQ&reg; Kommander&reg; version 2.1.1 was released on December 30, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
 
@@ -21,13 +22,13 @@ This release provides new features and enhancements to improve the user experien
 
 ## New features and capabilities
 
-### Ability to add catalog applications 
+### Ability to add catalog applications
 
 With this release, you can now add catalog applications to your Kommander instances. Currently, we provide the following operator applications that are workspace-scoped:
 
-* Kafka operator
-* Spark operator
-* Zookeeper operator
+- Kafka operator
+- Spark operator
+- Zookeeper operator
 
 For more information, see [DKP catalog applications](../../workspaces/applications/catalog-applications/dkp-applications/).
 

@@ -93,7 +93,7 @@ keyspace
 (kibana|Kibana)
 (kind|KIND)
 kmem
-Knative
+(knative|Knative)
 kommander
 Kommander
 Konvoy
