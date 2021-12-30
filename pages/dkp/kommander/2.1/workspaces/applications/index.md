@@ -6,7 +6,8 @@ title: Applications
 menuWeight: 30
 excerpt: Applications
 ---
-This section documents the applications and application types that you can use with Kommander.
+
+This section documents the applications and application types that you can utilize with Kommander.
 
 Application types are:
 

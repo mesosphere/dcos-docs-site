@@ -193,4 +193,6 @@ unpause(|s)
 XGBoost
 xlarge
 yakcl
-(zookeeper|Zookeeper)
+(zookeeper|Zookeeper|ZooKeeper)
+sed
+Gitea

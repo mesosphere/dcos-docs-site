@@ -6,7 +6,6 @@ menuWeight: 30
 excerpt: How workspace platform applications work
 ---
 
-
 When attaching a cluster, Kommander deploys certain platform applications on the newly attached cluster. Operators can use the Kommander UI to customize which platform applications to deploy to the attached clusters in a given workspace.
 
 The following table describes the list of platform applications that are deployed on attachment.
@@ -58,4 +57,4 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 
 <p class="message--note"><strong>NOTE: </strong>Only a single deployment of <code>traefik</code> per cluster is supported.</p>
 
-<p class="message--note"><strong>NOTE: </strong>Kommander automatically manages the deployment of <code>traefik-forward-auth</code> when clusters are attached to the workspace. This application is not shown in the Kommander UI.</p>
+<p class="message--note"><strong>NOTE: </strong>Kommander automatically manages the deployment of <code>traefik-forward-auth</code> and <code>kube-oidc-proxy</code> when clusters are attached to the workspace. These applications are not shown in the Kommander UI.</p>
