@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 2.1 was released on December 23rd, 2021.**
+**D2iQ&reg; Konvoy&reg; version 2.1 was released on December 30, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
@@ -36,29 +36,29 @@ Konvoy and Kommander 2.1 represent a major version upgrade that moves forward DK
 
 #### Easier Air-gapped deployments
 
-Konvoy 2.1 comes with an easier way to deploy in an air gapped environment. Rather than one large package that includes the requirements for all air-gapped environments, we now provide air-gapped bundles for individual needs.
+Konvoy 2.1 comes with an easier way to deploy in an air-gapped environment. Rather than one large package that includes the requirements for all air-gapped environments, we now provide air-gapped bundles for individual needs.
 
 #### Other Feature Additions
 
-* Added the ability to provision a cluster using an advanced YAML editor.
+- Added the ability to provision a cluster using an advanced YAML editor.
 
 ### Fixes and Improvements
 
-#### DKP delete fails in AWS
+-   DKP delete fails in AWS
 
-Fixed an issue where the `dkp delete` command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
+    Fixed an issue where the `dkp delete` command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
 
-#### DKP installer fails to follow respective AWS --region or Azure --location flags
+-   DKP installer fails to follow respective AWS --region or Azure --location flags
 
-Fixed an issue where the AWS `--region` or Azure `--location` installer flags were not being enforced in the target cluster. (COPS-7101)
+    Fixed an issue where the AWS `--region` or Azure `--location` installer flags were not being enforced in the target cluster. (COPS-7101)
 
-#### DKP move command not moving some items
+-   DKP move command not moving some items
 
-We corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
+    We corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
 
 ### Component updates
 
-The following components have been upgraded to the listed version:
+The following components are upgraded to the listed version:
 
 - Cluster API Preprovisioned Provider v0.4.0
 - Konvoy Image Builder v1.5.0
