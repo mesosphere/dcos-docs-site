@@ -29,7 +29,7 @@ To configure the Gitea server, follow these steps:
     ```
 
 1. Go to the Gitea UI below and register a new user account:
-
+    
     ```bash
     GITEA_HOSTNAME=$((kubectl -n kommander get cm konvoyconfig-kubeaddons -o go-template='{{if ne .data.clusterHostname ""}}{{.data.clusterHostname}}{{"\n"}}{{end}}' ; kubectl -n kommander get ingress gitea -o jsonpath="{.status.loadBalancer.ingress[0]['ip','hostname']}") | head -1) && echo https://${GITEA_HOSTNAME}/dkp/kommander/git/
     ```
