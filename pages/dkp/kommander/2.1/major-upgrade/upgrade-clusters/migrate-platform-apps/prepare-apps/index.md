@@ -17,13 +17,13 @@ beta: false
 
 #### Alerting
 
-Custom `alertmanager` [configurations](https://docs.d2iq.com/dkp/konvoy/1.8/monitoring/#notify-prometheus-alerts-in-slack) must be copied or re-created [manually](https://docs.d2iq.com/dkp/kommander/2.0/monitoring/#notify-prometheus-alerts-in-slack). You can do this before adapting Prometheus, so that there is no time interval when the alertmanager is not configured.
+Custom `alertmanager` [configurations](/dkp/konvoy/1.8/monitoring/#notify-prometheus-alerts-in-slack) must be copied or re-created [manually](/dkp/kommander/2.1/monitoring/#notify-prometheus-alerts-in-slack). You can do this before adapting Prometheus, so that there is no time interval when the `alertmanager` is not configured.
 
 #### Custom ServiceMonitor objects
 
-You should copy or re-create ServiceMonitors using the label `release: kube-prometheus-stack` instead of `release: prometheus-kubeaddons`. This can be done before processing, using different names or namespaces for the new objects. Alternatively, you could just re-label any existing ServiceMonitors before or after the processing, but this will introduce an interval where Prometheus is running but the ServiceMonitors have no effect. After the Prometheus-operator in the adapted Prometheus starts, it only looks at ServiceMonitor objects with `release: kube-prometheus-stack` label, and it ignores ServiceMonitors with the old label until they are relabeled.
+You should copy or re-create ServiceMonitors using the label `release: kube-prometheus-stack` instead of `release: prometheus-kubeaddons`. This can be done before processing, using different names or namespaces for the new objects. Alternatively, you could just re-label any existing ServiceMonitors before or after the processing, but this will introduce an interval where Prometheus is running but the ServiceMonitors have no effect. After the Prometheus-operator in the adapted Prometheus starts, it only looks at ServiceMonitor objects with `release: kube-prometheus-stack` label, and it ignores ServiceMonitors with the old label until they are re-labeled.
 
-There are two ways to adapt ServiceMonitors created using Helm values of the Addon:
+You can use two ways to adapt ServiceMonitors created using Helm values of the Addon:
 
 -   Create new standalone ServiceMonitor resources with the label `release: kube-prometheus-stack`. This can be done before processing.
 
@@ -39,13 +39,13 @@ After processing is complete, remove both the old alertmanager configuration sec
 
 -   If you customized the Addon, you may have to edit the `kube-prometheus-stack-overrides` ConfigMap for the HelmRelease to get reconciled.
 
--   If you customized the storage for Prometheus, it is possible the adaption cannot select the old PersistentVolumes. For example, there could be a name mismatch between the actual and expected PersistentVolumeClaims. You can identify the PersistentVolumes of the old Prometheus installation by inspecting the migration.kommander.mesosphere.io/statefulset-name and migration.kommander.mesosphere.io/statefulset-ns labels.
+-   If you customized the storage for Prometheus, it is possible the adaption cannot select the old PersistentVolumes. For example, there could be a name mismatch between the actual and expected PersistentVolumeClaims. You can identify the PersistentVolumes of the old Prometheus installation by inspecting the `migration.kommander.mesosphere.io/statefulset-name` and `migration.kommander.mesosphere.io/statefulset-ns` labels.
 
 ## Fluent Bit and logging stack adaption
 
 The Kommander 2.1 logging stack is different from previous versions and is based on Loki and Grafana. Previous versions were based on Elasticsearch and Kibana. Logging stack adaption is triggered by detecting the Fluent Bit Addon. This results in the following actions:
 
--   A new Fluent Bit AppDeployment is created using D2IQ helm value defaults.
+-   A new Fluent Bit AppDeployment is created using D2iQ Helm value defaults.
 
 -   All the other 2.x logging stack components are installed.
 
@@ -55,15 +55,15 @@ Elasticsearch, elasticsearch-curator, and Kibana Addons are deleted without unin
 
 ### Caveats
 
--   If you customized the Fluent Bit Addon configuration in 1.x, you must add corresponding configOverrides to your 2.x AppDeployment.   The configOverrides should be based on the 2.x defaults combined with your custom modifications.
+-   If you customized the Fluent Bit Addon configuration in 1.x, you must add corresponding configOverrides to your 2.x AppDeployment. The configOverrides should be based on the 2.x defaults combined with your custom modifications.
 
--   The remaining components of the old logging stack are not uninstalled, and must be manuall deleted.  See the [post upgrade cleanup][../post-upgrade-cleanup] section for details.
+-   The remaining components of the old logging stack are not uninstalled, and must be manually deleted. See the [post upgrade cleanup](../cleanup) section for details.
 
 -   If your 1.8 cluster only used use Fluent Bit and you do not need other parts of the 2.x logging stack installed, specify the `--skip-new-logging-stack-apps` flag when performing the adaption process.
 
 ## Kubernetes-dashboard
 
-Currently, any custom modifications of the addon Helm values are not recognized. The moving process overrides them with Kommander 2.0 values and removes the old addon. Backup your settings and reapply them after processing is complete if required.
+Currently, any custom modifications of the addon Helm values are not recognized. The moving process overrides them with Kommander 2.1 values and removes the old addon. Backup your settings and reapply them after processing is complete if required.
 
 ## Grafana
 
@@ -71,13 +71,13 @@ You must back up any custom Grafana dashboards before running the adaption proce
 
 ## Velero
 
-In 2.x, the Velero install has moved from the `velero` namespace to the `kommander` namespace.   If you have runbooks or automation that invokes the velero tool, make sure to update them as suggested below.
+In 2.x, the Velero install has moved from the `velero` namespace to the `kommander` namespace. If you have runbooks or automation that invokes the velero tool, make sure to update them as suggested below.
 
-<p class="message--note"><strong>NOTE: </strong> The Velero namespace can be set to kommander with the <code>velero client config set namespace=kommander</code>.  Alternatively you can set the environment variable <code>export VELERO_NAMESPACE=kommander</code>, or use the velero --namespace command line option.</p>
+<p class="message--note"><strong>NOTE: </strong> The Velero namespace can be set to <code>kommander</code> with the <code>velero client config set namespace=kommander</code>.  Alternatively you can set the environment variable <code>export VELERO_NAMESPACE=kommander</code>, or use the velero --namespace command line option.</p>
 
 ## SSO stack
 
-The adaption procedure is not able to adapt custom-configured identity providers. After processing, the [SSO](../../../../security/oidc) stack must be configured again.
+The adaption procedure is not able to adapt custom configured identity providers. After processing, the [SSO](../../../../security/oidc) stack must be configured again.
 
 ## Additional Notes
 

@@ -8,7 +8,7 @@ beta: true
 enterprise: false
 ---
 
-When using Konvoy to provision clusters, you run the `konvoy init` command to generate a standard cluster.yaml file. The unmodified output of this command is called a standard configuration and looks like this:
+When using Konvoy to provision clusters, you run the `konvoy init` command to generate a standard `cluster.yaml` file. The unmodified output of this command is called a standard configuration and looks like this:
 
 ```yaml
 kind: ClusterProvisioner
@@ -201,7 +201,7 @@ Every environment is a "custom" environment to some degree. The most common cust
 
 -   Automatic certificate management
 
-The major version upgrade supports some of the Addons that are disabled by default, (set to `enabled: false` in the cluster.yaml file).
+The major version upgrade supports some of the Addons that are disabled by default, (set to `enabled: false` in the `cluster.yaml` file).
 
 Helm values determine the configuration of individual enabled Addons. Konvoy 1.x documentation describes several scenarios in which you will need to edit the Addon values to achieve a custom configuration. For Kommander 2.1, the equivalent custom configurations usually are achievable, but the corresponding modifications of values are often slightly different from 1.x. The Kommander CLI provides automated major version upgrade only for a limited subset of such custom value modifications.
 
