@@ -213,16 +213,10 @@ Based on the network latency between the environment of script execution and the
       helmMirrorImageTag: "${VERSION}-amd64"
     ```
 
-1. Download the Kommander application definitions:
-
-    ```bash
-    wget "https://downloads.mesosphere.com/dkp/kommander-applications_${VERSION}.tar.gz"
-    ```
-
 1. To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
-    kommander install --installer-config ./install.yaml --kommander-applications-repository kommander-applications_${VERSION}.tar.gz
+    kommander install --installer-config ./install.yaml
     ```
 
 1. If you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by creating the following configmap in the `kommander` namespace:

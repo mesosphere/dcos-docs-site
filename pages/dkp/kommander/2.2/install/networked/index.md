@@ -9,9 +9,11 @@ beta: false
 
 ## Prerequisites
 
-The `kommander` CLI installs Kommander. You must install Kommander before executing these commands. Ensure you have the version of the CLI that matches the Kommander version you want to install. Refer to the [**DOWNLOAD**][download] page to download and install Kommander.
+Before you begin using Kommander, you must:
 
-The `cert-manager` must be installed prior to installing Kommander.
+- Configure a Konvoy cluster using the [Konvoy Install](/dkp/konvoy/2.1/choose-infrastructure/) instructions.
+- Install `cert-manager` prior to installing Kommander. (Konvoy does this as part of its install process).
+- Install Kommander before executing any `kommander` commands. Ensure you have the version of the CLI that matches the Kommander version you want to install.
 
 ### Default StorageClass
 
@@ -37,7 +39,7 @@ annotations:
 
 More information on setting a StorageClass as default can be found at [Changing the default storage class in k8s docs][k8s-change-default-storage-class].
 
-## Install on Konvoy
+## Install Kommander on Konvoy
 
 Before running the commands below, ensure that your `kubectl` configuration references the cluster on which you want to install Kommander. You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location.
 

@@ -55,7 +55,7 @@ Kommander installs with a dedicated CLI.
 
 1. Append the `apps` section in `install.yaml` with the following values to enable Gatekeeper and configure it to add HTTP proxy settings to the pods.
 
-    <p class="message--note"><strong>NOTE: </strong>Only pods created after applying this setting will be mutated. Also, this will only impact pods in the namespace with the <code>"gatekeeper.d2iq.com/mutate=pod-proxy"</code> label.</p>
+   <p class="message--note"><strong>NOTE: </strong>Only pods created after applying this setting will be mutated. Also, this will only impact pods in the namespace with the <code>"gatekeeper.d2iq.com/mutate=pod-proxy"</code> label.</p>
 
     ```yaml
     apps:

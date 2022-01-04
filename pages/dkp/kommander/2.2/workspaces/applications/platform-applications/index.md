@@ -6,7 +6,6 @@ menuWeight: 30
 excerpt: How workspace platform applications work
 ---
 
-
 When attaching a cluster, Kommander deploys certain platform applications on the newly attached cluster. Operators can use the Kommander UI to customize which platform applications to deploy to the attached clusters in a given workspace.
 
 The following table describes the list of platform applications that are deployed on attachment.
@@ -35,16 +34,16 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 | external-dns-2.20.5           | external-dns          | False               |
 | fluent-bit-0.16.2             | fluent-bit            | False               |
 | gatekeeper-0.6.8              | gatekeeper            | False               |
-| grafana-logging-6.16.14        | grafana-logging       | False               |
+| grafana-logging-6.13.9        | grafana-logging       | False               |
 | grafana-loki-0.33.1           | grafana-loki          | False               |
 | istio-1.9.1                   | istio                 | False               |
 | jaeger-2.21.0                 | jaeger                | False               |
 | kiali-1.29.1                  | kiali                 | False               |
-| kube-oidc-proxy-0.2.5         | kube-oidc-proxy       | True                |
-| kube-prometheus-stack-18.1.1  | kube-prometheus-stack | True                |
-| kubecost-0.20.2               | kubecost              | True                |
+| kube-oidc-proxy-0.2.5         | kube-oidc-proxy       | False               |
+| kube-prometheus-stack-16.13.1 | kube-prometheus-stack | True                |
+| kubecost-0.20.0               | kubecost              | True                |
 | kubernetes-dashboard-5.0.2    | kubernetes-dashboard  | True                |
-| logging-operator-3.15.0       | logging-operator      | False               |
+| logging-operator-3.13.0       | logging-operator      | False               |
 | metallb-0.12.2                | metallb               | False               |
 | minio-operator-4.1.7          | minio-operator        | False               |
 | nvidia-0.4.3                  | nvidia                | False               |

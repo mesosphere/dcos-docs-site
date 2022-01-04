@@ -19,7 +19,7 @@ This section automatically adapts your Konvoy addons to Kommander platform appli
 
 To successfully adapt your applications, you must have:
 
--   A Konvoy 1.8.3 cluster that has already been [upgraded to DKP 2.1](https://docs.d2iq.com/dkp/konvoy/2.1/major-version-upgrade/), with the kommander addon disabled in your cluster.yaml.
+-   A Konvoy 1.8.3 cluster that has already been [upgraded to DKP 2.1](https://docs.d2iq.com/dkp/konvoy/2.1/major-version-upgrade/), with the `kommander` addon disabled in your cluster.yaml.
 
 -   [Download](../../../download) and install the Kommander CLI binary on your computer.
 
@@ -191,8 +191,9 @@ velero
  ✓ Ensuring deletion of Addon opsportal orphaning its Helm release
  ✓ Ensuring deletion of Addon gatekeeper orphaning its Helm release
  ✓ Ensuring check that there remain no addons and deletion of the Kubeaddons controller
+```
 
-Refer to the [Verify installation](../../../install/networked#verify-installation) topic to ensure successfull completion.
+Refer to the [Verify installation][verify-install] topic to ensure successful completion.
 
 ## Post-upgrade cleanup
 
@@ -204,8 +205,11 @@ If you want to clean these objects up, you need to perform
 
 <p class="message--note"><strong>NOTE: </strong>Error messages may display during the adaptation process. These messages show a temporary state. These processes will eventually succeed.</p>
 
-Refer to the [Verify installation](../install/networked#verify_installation) topic to ensure successfull completion.
+Refer to the [Verify installation][verify-install] topic to ensure successful completion.
 
 ## Related Information
 
 - [Supported applications](./supported-apps)
+
+[download]: ../../../download
+[verify-install]: ../../../install/networked#verify-installation
