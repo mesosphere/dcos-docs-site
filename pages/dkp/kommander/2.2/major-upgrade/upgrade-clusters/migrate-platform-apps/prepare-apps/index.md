@@ -23,7 +23,7 @@ Custom `alertmanager` [configurations](https://docs.d2iq.com/dkp/konvoy/1.8/moni
 
 You should copy or re-create ServiceMonitors using the label `release: kube-prometheus-stack` instead of `release: prometheus-kubeaddons`. This can be done before processing, using different names or namespaces for the new objects. Alternatively, you could just re-label any existing ServiceMonitors before or after the processing, but this will introduce an interval where Prometheus is running but the ServiceMonitors have no effect. After the Prometheus-operator in the adapted Prometheus starts, it only looks at ServiceMonitor objects with `release: kube-prometheus-stack` label, and it ignores ServiceMonitors with the old label until they are relabeled.
 
-There are two ways to adapt ServiceMonitors created using Helm values of the Addon:
+You can use two ways to adapt ServiceMonitors created using Helm values of the Addon:
 
 -   Create new standalone ServiceMonitor resources with the label `release: kube-prometheus-stack`. This can be done before processing.
 
@@ -45,19 +45,19 @@ After processing is complete, remove both the old alertmanager configuration sec
 
 The Kommander 2.1 logging stack is different from previous versions and is based on Loki and Grafana. Previous versions were based on Elasticsearch and Kibana. Logging stack adaption is triggered by detecting the Fluent Bit Addon. This results in the following actions:
 
--   A new Fluent Bit AppDeployment is created using D2IQ helm value defaults.
+-   A new Fluent Bit AppDeployment is created using D2iQ helm value defaults.
 
 -   All the other 2.x logging stack components are installed.
 
 -   The Fluent Bit Addon is deleted.
 
-Elasticsearch, elasticsearch-curator, and kibana Addons are deleted without uninstalling the Helm release formerly managed by the Kubeaddons controller. You must manually uninstall these Helm releases.
+Elasticsearch, elasticsearch-curator, and Kibana Addons are deleted without uninstalling the Helm release formerly managed by the Kubeaddons controller. You must manually uninstall these Helm releases.
 
 ### Caveats
 
--   If you customized the Fluent Bit Addon configuration in 1.x, you must add corresponding configOverrides to your 2.x AppDeployment.   The configOverrides should be based on the 2.x defaults combined with your custom modifications.
+-   If you customized the Fluent Bit Addon configuration in 1.x, you must add corresponding configOverrides to your 2.x AppDeployment. The configOverrides should be based on the 2.x defaults combined with your custom modifications.
 
--   The remaining components of the old logging stack are not uninstalled, and must be manuall deleted.  See the [post upgrade cleanup][../post-upgrade-cleanup] section for details.
+-   The remaining components of the old logging stack are not uninstalled, and must be manually deleted. See the [post upgrade cleanup][../post-upgrade-cleanup] section for details.
 
 -   If your 1.8 cluster only used use Fluent Bit and you do not need other parts of the 2.x logging stack installed, specify the `--skip-new-logging-stack-apps` flag when performing the adaption process.
 
@@ -71,9 +71,9 @@ You must back up any custom Grafana dashboards before running the adaption proce
 
 ## Velero
 
-In 2.x, the Velero install has moved from the `velero` namespace to the `kommander` namespace.   If you have runbooks or automation that invokes the velero tool, make sure to update them as suggested below.
+In 2.x, the Velero install has moved from the `velero` namespace to the `kommander` namespace. If you have runbooks or automation that invokes the velero tool, make sure to update them as suggested below.
 
-<p class="message--note"><strong>NOTE: </strong> The Velero namespace can be set to kommander with the <code>velero client config set namespace=kommander</code>.  Alternatively you can set the environment variable <code>export VELERO_NAMESPACE=kommander</code>, or use the velero --namespace command line option.</p>
+<p class="message--note"><strong>NOTE: </strong> The Velero namespace can be set to <code>kommander</code> with the <code>velero client config set namespace=kommander</code>.  Alternatively you can set the environment variable <code>export VELERO_NAMESPACE=kommander</code>, or use the velero --namespace command line option.</p>
 
 ## SSO stack
 

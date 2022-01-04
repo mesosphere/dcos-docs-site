@@ -64,7 +64,7 @@ To create and use the override configMap entries, follow these steps:
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: logging-operator-3.15.0
+        name: logging-operator-3.13.0
         kind: ClusterApp
       configOverrides:
         name: logging-operator-logging-overrides
