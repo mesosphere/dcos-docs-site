@@ -8,18 +8,20 @@ beta: false
 enterprise: false
 ---
 
+<!-- vale ttd-light.Quotes = NO -->
+
 The following are important considerations when planning your major version upgrade:
 
 ## The Cluster name must be a valid Kubernetes resource name
 
-The cluster name must be a [valid Kubernetes resource name][kubernetes-resource-name], i.e., it must follow these rules:
+The cluster name must be a [valid Kubernetes resource name][kubernetes-resource-name], that is, it must follow these rules:
 
 - contain no more than 253 characters
 - contain only lowercase alphanumeric characters, '-' or '.'
 - start with an alphanumeric character
 - end with an alphanumeric character
 
-For example, a cluster name with an underscore is valid in Konvoy 1.8, but not valid in Konvoy 2.1.
+For example, a cluster name with an underscore (`_`) is valid in Konvoy 1.8, but not valid in Konvoy 2.1.
 
 ## Machines created after adoption will not use a separate EBS volume for storing container images
 
@@ -61,7 +63,7 @@ As an alternative, you must delete these resources manually:
 
 -   Clusters using a bastion
 
--   Clusters using GPU enabled nodepool
+-   Clusters using GPU enabled node pool
 
 ## During the upgrade, the default Storage Class configuration changes
 

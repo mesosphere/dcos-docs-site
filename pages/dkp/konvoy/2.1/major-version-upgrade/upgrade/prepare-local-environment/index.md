@@ -118,3 +118,5 @@ enterprise: false
     sa.key
     sa.pub
     ```
+
+When complete, move on to [upgrading your AWS cluster](../aws) or [upgrading your Preprovisioned cluster](../preprovisioned), depending on your infrastructure.

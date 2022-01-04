@@ -1,9 +1,11 @@
 ad hoc
-addon
+(Addon|addon)
 Airflow
-Alertmanager
+(Alertmanager|alertmanager)
 ANN(|s)
 (ansible|Ansible)
+auto-assign
+(auto-provisioner|Auto-Provisioner)
 autoscal(e|es|ed|ing)
 Cassandra
 checkpoint(|s|ed|ing)
@@ -50,6 +52,7 @@ hyperparameter(|s)
 (kafka|Kafka)
 Kaptain
 Katib
+Keepalived
 Keras
 keypair
 keyspace
@@ -69,6 +72,7 @@ kubelet(|s)
 Kubeflow
 (kubernetes|Kubernetes)
 kubetunnel
+kustomize
 KUDO
 linkerd
 liveness
@@ -109,6 +113,7 @@ repo
 (reloader|Reloader)
 RGB
 RNN(|s)
+runbooks
 Scala
 scikit-learn
 serverless
@@ -117,6 +122,7 @@ Snapshotter
 softmax
 Splunk
 subcommand
+(subnet|subnets|Subnets)
 subtree
 TensorFlow
 (thanos|Thanos)
@@ -124,6 +130,7 @@ Toree
 (traefik|Traefik)
 uncordon(|ed)
 unmount(|s|ing|ed)
+unpauses
 (Velero|velero)
 XGBoost
 yakcl
