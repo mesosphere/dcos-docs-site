@@ -94,7 +94,6 @@ keyspace
 (kind|KIND)
 kmem
 (knative|Knative)
-kommander
 Kommander
 Konvoy
 konvoy
@@ -150,8 +149,12 @@ PostgreSQL
 preconfigure(|d)
 preprocessor(|s)
 (preprovisioned|Preprovisioned)
+<<<<<<< HEAD
 (prometheus|Prometheus)
 Purestorage
+=======
+(Prometheus|Prometheus)
+>>>>>>> main
 Pushgateway
 PyTorch
 rebalance
