@@ -79,7 +79,7 @@ Follow these steps:
     1.  `${PROJECT_NAMESPACE}`, if you skipped the step in [Prerequisites](#prerequisites) to create RBAC resources.
 
         ```bash
-        # This service account is automatically created when you create a project and has access to everything in the project namespace.
+        # This service account is automatically created when you create a project and has access to everything in the project namespace. 
         export SPARK_SERVICE_ACCOUNT=${PROJECT_NAMESPACE}
         ```
 

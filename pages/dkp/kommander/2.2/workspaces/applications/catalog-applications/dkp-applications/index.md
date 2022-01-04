@@ -37,7 +37,7 @@ Follow these steps to install the DKP catalog from the CLI.
       ref:
         tag: v2.1.1
       timeout: 20s
-      url: https://github.com/mesosphere/dkp-catalog-applications
+      url: https://github.com/mesosphere/dkp-catalog-applications  
     EOF
     ```
 
