@@ -191,7 +191,8 @@ LicenseStatus defines the observed state of License.
 | customerId | The customer's ID. This is the customer name provided from Salesforce. | string | true |
 | endDate | End date of the licensing period. | metav1.Time | false |
 | licenseId | The license's ID as provided from Salesforce. | string | true |
-| productName | The product (Konvoy or Kommander) the license is for. | string | true |
+| productName | The product name the license is for. | string | true |
+| productSKU | The product SKU the license is for. | string | true |
 | startDate | Start date of the licensing period. | metav1.Time | false |
 | valid | Indicates whether the license is valid, i.e. the secret containing the JWT exists and the JWT carries a valid D2iQ signature. This does NOT indicate whether the license has expired or terms have been breached. | bool | true |
 | version | The license's version ID as provided when the license was created. | string | true |
