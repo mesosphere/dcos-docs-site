@@ -12,7 +12,7 @@ enterprise: false
 
 Follow these steps only if you are upgrading an AWS cluster.
 
-## Create AMI that is compatible with Konvoy 2.x, Kubernetes v1.20.13, and CentOS 7
+## Create an AMI that is compatible with Konvoy 2.x, Kubernetes v1.20.13, and CentOS 7
 
 After adopting the cluster, you use this AMI to scale up, or replace a failed instance in the control plane and worker node pools.
 
