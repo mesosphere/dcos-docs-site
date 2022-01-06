@@ -312,7 +312,7 @@ pod "capi-controller-manager-d4b9c7c4c-hkqfl" deleted
 
 ## Prepare the Dex Addon for Kubernetes v1.21.6
 
-The Dex Addon acts as the cluster's OpenID Connect identity provider. Its configuration must be changed so that it works correctly with both Kubernetes v1.21.6 and v1.20.11.
+The Dex Addon acts as the cluster's OpenID Connect identity provider. You must change its configuration so that it works correctly with both Kubernetes v1.21.6 and v1.20.11.
 
 1.  Edit the Dex configuration
 
