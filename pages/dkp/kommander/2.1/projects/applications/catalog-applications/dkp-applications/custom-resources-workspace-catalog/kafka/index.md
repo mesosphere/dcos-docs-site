@@ -14,6 +14,8 @@ After deploying the Kafka operator, create Kafka Clusters by applying a `KafkaCl
 
 ## Example deployment
 
+<p class="message--note"><strong>NOTE: </strong>The Custom Resources need to be applied to each attached cluster in a project.</p>
+
 This example deployment walks you through first deploying a ZooKeeper cluster and then a Kafka cluster in a project namespace. The result of this procedure is a running ZooKeeper cluster and Kafka cluster ready for use in your project's namespace.
 
 1.  Set the `PROJECT_NAMESPACE` environment variable to the name of your project’s namespace:
