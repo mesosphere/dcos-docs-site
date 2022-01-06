@@ -10,13 +10,13 @@ excerpt: Deploying ZooKeeper in a project
 
 To get started with creating ZooKeeper clusters in your project namespace, you first need to deploy the [ZooKeeper operator](../../../../../../workspaces/applications/catalog-applications/dkp-applications/zookeeper-operator/) in the workspace where the project exists.
 
-After you deploy the ZooKeeper operator, you can create ZooKeeper Clusters by applying a `ZookeeperCluster` custom resource in a project's namespace.
+After you deploy the ZooKeeper operator, you can create ZooKeeper Clusters by applying a `ZookeeperCluster` custom resource **on each attached cluster** in a project's namespace.
 
 A [Helm chart](https://github.com/pravega/zookeeper-operator/tree/master/charts/zookeeper) exists in the ZooKeeper operator repository that can assist with deploying ZooKeeper clusters.
 
 ### Example deployment
 
-<p class="message--note"><strong>NOTE: </strong>The Custom Resources need to be applied to each attached cluster in a project.</p>
+<p class="message--note"><strong>NOTE: </strong>The Custom Resources must be applied to each attached cluster in a project.</p>
 
 Follow these steps to deploy a ZooKeeper cluster in a project namespace. This procedure results in a running ZooKeeper cluster, ready for use in your project's namespace.
 
