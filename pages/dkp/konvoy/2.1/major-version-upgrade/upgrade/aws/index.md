@@ -512,7 +512,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
     export AMI_ID=<your ami ID>
     ```
 
-    And, then verify that your environment has the AMI ID:
+    Then verify that your environment has the AMI ID:
 
     ```sh
     echo $AMI_ID
