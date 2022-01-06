@@ -232,7 +232,7 @@ When the adoption process reconciles a Machine object that has not been bootstra
 
 DKP machines are already bootstrapped and also create the KubeadmConfigs and the Secrets. This command sets the appropriate owner references on these resources.
 
-This command also unpauses the Cluster object, which then starts the reconcile process:
+This command also stops the pause on the Cluster object, which then starts the reconcile process:
 
 ```sh
 dkp --kubeconfig=admin.conf adopt cluster preprovisioned
@@ -312,7 +312,7 @@ pod "capi-controller-manager-d4b9c7c4c-hkqfl" deleted
 
 ## Prepare the Dex Addon for Kubernetes v1.21.6
 
-The Dex Addon acts as the cluster's OpenID Connect identity provider. Its configuration must be changed so that it works correctly with Kubernetes v1.21.6, as with v1.20.11.
+The Dex Addon acts as the cluster's OpenID Connect identity provider. Its configuration must be changed so that it works correctly with both Kubernetes v1.21.6 and v1.20.11.
 
 1.  Edit the Dex configuration
 

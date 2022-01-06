@@ -19,7 +19,7 @@ This section automatically adapts your Konvoy addons to Kommander platform appli
 
 To successfully adapt your applications, you must have:
 
--   A Konvoy 1.8.3 cluster that has already been [upgraded to DKP 2.1](/dkp/konvoy/2.1/major-version-upgrade/), with the `kommander` addon disabled in your cluster.yaml.
+-   A Konvoy 1.8.3 or 1.8.4 cluster that you have already [upgraded to DKP 2.1](/dkp/konvoy/2.1/major-version-upgrade/), with the `kommander` addon disabled in your cluster.yaml.
 
 -   [Download](../../../download) and install the Kommander CLI binary on your computer.
 
@@ -28,11 +28,11 @@ To successfully adapt your applications, you must have:
 Check for the following on your existing `cluster.yaml`:
 
 - One or more of `spec.kubernetes.networking.noProxy`, `spec.kubernetes.networking.httpProxy` or `spec.kubernetes.networking.httpsProxy` is set in `ClusterConfiguration`.
-    - Enabled `gatekeeper` with custom `values` field in `ClusterConfiguration` in `cluster.yaml`.
+- Enabled `gatekeeper` with custom `values` field in `ClusterConfiguration` in `cluster.yaml`.
 
 If none of the conditions apply to your cluster, then you can skip to next section.
 
-1.  Because Kommander 2.0+ uses Flux to manage applications, we need to configure the Gatekeeper `mutatingwebhookconfigurations` (which is a cluster-scoped resource) such that it allows `dry-run` calls, which are required by the Flux kustomize controller to calculate the difference of a resource. In order to do this:
+1.  Because Kommander 2.0+ uses Flux to manage applications, you must configure the Gatekeeper `mutatingwebhookconfigurations` (which is a cluster-scoped resource) to allow `dry-run` calls. They are required by the Flux kustomize controller to calculate the difference of a resource. To do this:
 
     ```bash
     kubectl get mutatingwebhookconfigurations gatekeeper-mutating-webhook-configuration
@@ -53,7 +53,7 @@ If none of the conditions apply to your cluster, then you can skip to next secti
 
     If the patch fails because the above resource do not exist, you can ignore those errors.
 
-3.  In the `ClusterConfiguration`, if you have set one or more of `noProxy`, `httpProxy`,or `httpsProxy` in `spec.kuberentes.networking` but these values differ from the `values` section of `gatekeeper` addon, then you need to update the Gatekeeper addon configuration to match these values. Look up this ConfigMap rendered from `spec.kubernetes.networking`:
+3.  In the `ClusterConfiguration`, if you have set one or more of `noProxy`, `httpProxy`,or `httpsProxy` in `spec.kubernetes.networking` but these values differ from the `values` section of `gatekeeper` addon, then you need to update the Gatekeeper addon configuration to match these values. Look up this ConfigMap rendered from `spec.kubernetes.networking`:
 
     ```bash
     kubectl get cm kubeaddons-remap-values -nkubeaddons -o=jsonpath={.data.values}
@@ -79,7 +79,7 @@ If none of the conditions apply to your cluster, then you can skip to next secti
     kubectl get addon gatekeeper -nkubeaddons -o=jsonpath={.spec.chartReference.values}
     ```
 
-    This will print an output similar to the following:
+    This will print the following output:
 
     ```yaml
     ---
@@ -113,7 +113,7 @@ If none of the conditions apply to your cluster, then you can skip to next secti
     | gatekeeper.mutation.http-proxy                   | mutations.podProxySettings.httpProxy  |
     | gatekeeper.mutation.https-proxy                  | mutations.podProxySettings.httpsProxy |
 
-    If the values in the Gatekeeper `Addon` resource already match the values from the `kubeaddons-remap-values` ConfigMap in `kubeaddons` namespace, then there is no need to updating anything. If not, edit the Gatekeeper `Addon` to reflect the above value remapping:
+    If the values in the Gatekeeper `Addon` resource already match the values from the `kubeaddons-remap-values` ConfigMap in `kubeaddons` namespace, then there is no need to update anything. If not, edit the Gatekeeper `Addon` to reflect the above value remapping:
 
     ```bash
     kubectl edit addon -nkubeaddons gatekeeper

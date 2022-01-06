@@ -345,7 +345,7 @@ When the cluster adoption process reconciles a Machine object that has not been 
 
 DKP machines are already bootstrapped and also create the KubeadmConfigs and the Secrets. This command will set the appropriate owner references on these resources.
 
-This command also unpauses the Cluster object, which then starts the reconcile process:
+This command also stops the pause on the Cluster object, which then starts the reconcile process:
 
 ```sh
 dkp --kubeconfig=admin.conf adopt cluster aws
