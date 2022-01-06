@@ -102,7 +102,7 @@ If none of the conditions apply to your cluster, then you can skip to next secti
       namespaceSelectorForProxy: {}
     ```
 
-    Copy the values from the `ConfigMap` into Gatekeeper `Addon` resource accordingly:
+    Copy the values from the `ConfigMap` into the Gatekeeper `Addon` resource accordingly:
 
     | ConfigMap kubeaddons-remap-values `.data.values` | Addon gatekeeper `.spec.chartReference.values` |
     | ---------------------------------------------    | ------------------------------------- |
