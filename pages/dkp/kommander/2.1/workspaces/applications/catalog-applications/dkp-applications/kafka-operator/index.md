@@ -14,7 +14,7 @@ excerpt: Information about the Kafka Operator
 
 Follow these steps to install the Kafka operator in a workspace. This procedure results in a Kafka operator running in a workspace namespace, ready to manage and create Kafka clusters in any project namespaces. See the [Kafka custom resource documentation](../../../../../projects/applications/catalog-applications/dkp-applications/custom-resources-workspace-catalog/kafka/) for more information on creating Kafka clusters.
 
-<p class="message--note"><strong>NOTE: </strong>You should only install the Kafka operator once per workspace.</p>
+<p class="message--note"><strong>NOTE: </strong>Only install the Kafka operator once per workspace.</p>
 
 1.  Follow the generic installation instructions for workspace catalog applications on the [Application Deployment](../../application-deployment/) page.
 
