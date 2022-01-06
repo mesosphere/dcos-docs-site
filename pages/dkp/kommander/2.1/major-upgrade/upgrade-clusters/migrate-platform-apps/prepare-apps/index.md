@@ -23,7 +23,7 @@ You must copy or [recreate](/dkp/kommander/2.1/monitoring/#notify-prometheus-ale
 
 Copy or re-create ServiceMonitors using the label `release: kube-prometheus-stack` instead of `release: prometheus-kubeaddons` before processing, using different names or namespaces for the new objects. Or, you can re-label any existing ServiceMonitors before or after processing, but this will introduce an interval where Prometheus is running but the ServiceMonitors have no effect. After the Prometheus-operator in the adapted Prometheus starts, it only looks at ServiceMonitor objects with `release: kube-prometheus-stack` label, and it ignores ServiceMonitors with the old label until they are re-labeled.
 
-ServiceMonitors created using Helm values of the Addon can be adapted in two ways:
+You can adapt the ServiceMonitors created using Helm values of the Addon in two ways:
 
 -   Create new standalone ServiceMonitor resources with the label `release: kube-prometheus-stack`. This can be done before processing.
 
