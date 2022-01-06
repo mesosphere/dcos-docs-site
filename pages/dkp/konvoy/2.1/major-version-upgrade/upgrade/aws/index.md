@@ -460,7 +460,7 @@ You use this AMI to update the cluster Kubernetes version to v1.21.6.
 
 ## Prepare the Dex Addon for Kubernetes v1.21.6
 
-The Dex Addon acts as the cluster's OpenID Connect identity provider. Its configuration must be changed so that it works correctly with Kubernetes v1.21.6, as with v1.20.13.
+The Dex Addon acts as the cluster's OpenID Connect identity provider. You must change its configuration so that it works correctly with both Kubernetes v1.21.6 and v1.20.13.
 
 1.  Edit the Dex configuration
 
