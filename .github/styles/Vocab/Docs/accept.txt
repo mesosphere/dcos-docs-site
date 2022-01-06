@@ -1,6 +1,7 @@
 ad hoc
 (Addon|addon)
 Airflow
+air gapped environment
 (Alertmanager|alertmanager)
 ANN(|s)
 (ansible|Ansible)
@@ -64,7 +65,6 @@ firewalld
 Flink
 (fluentbit|Fluentbit)
 Fluentd
-air gapped environment
 GCR
 Gitea
 gitops
@@ -152,12 +152,8 @@ PostgreSQL
 preconfigure(|d)
 preprocessor(|s)
 (preprovisioned|Preprovisioned)
-<<<<<<< HEAD
 (prometheus|Prometheus)
 Purestorage
-=======
-(Prometheus|Prometheus)
->>>>>>> main
 Pushgateway
 PyTorch
 rebalance
