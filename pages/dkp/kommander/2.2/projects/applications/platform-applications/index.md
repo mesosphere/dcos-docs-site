@@ -18,12 +18,12 @@ You can select which applications to deploy in a project by going to the **Appli
 
 To use the CLI to enable or disable applications, see [Application Deployment](./application-deployment)
 
-<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the applications, which are listed <a href="application-dependencies/">here</a>. Review them carefully prior to customizing to ensure that the applications are deployed successfully.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the applications, which are listed <a href="application-dependencies/">in this topic</a>. Review them carefully prior to customizing to ensure that the applications are deployed successfully.</p>
 
 ## Platform applications
 
 | NAME                           | APP ID                  | Deployed by default |
 | ------------------------------ | ----------------------- | ------------------- |
-| project-grafana-logging-6.13.9 | project-grafana-logging | False               |
+| project-grafana-logging-6.16.14 | project-grafana-logging | False               |
 | project-grafana-loki-0.33.1    | project-grafana-loki    | False               |
 | project-logging-1.0.0          | project-logging         | False               |

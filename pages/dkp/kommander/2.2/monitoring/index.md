@@ -34,8 +34,8 @@ The `kube-prometheus-stack`is deployed by default on the management cluster and 
 - grafana: monitors and visualizes metrics.
 - service monitors: collects internal Kubernetes components.
 
-A detailed description of the exposed metrics can be found [here][kube_state_exposed_metrics].
-The `service-monitors` collect internal Kubernetes components but can also be extended to monitor customer apps as explained [here](#monitor-applications).
+A detailed description of the exposed metrics can be found [in the kube-state-metrics documentation on GitHub][kube_state_exposed_metrics].
+The `service-monitors` collect internal Kubernetes components but can also be extended to monitor customer apps as explained [in this section](#monitor-applications).
 
 ## Grafana Dashboards
 
@@ -45,10 +45,10 @@ Kommander ships with a set of default dashboards including:
 - Kubernetes Components: API Server, Nodes, Pods, Kubelet, Scheduler, StatefulSets and Persistent Volumes
 - Kubernetes USE method: Cluster and Nodes
 - Calico
-- Etcd
+- etcd
 - Prometheus
 
-Find the complete list of default enabled dashboards [here][grafana_default_dashboards].
+Find the complete list of default enabled dashboards [on GitHub][grafana_default_dashboards].
 
 To disable all of the default dashboards, follow these steps to define an overrides ConfigMap:
 
@@ -73,7 +73,7 @@ To disable all of the default dashboards, follow these steps to define an overri
     kubectl apply -f kube-prometheus-stack-overrides.yaml
     ```
 
-1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](../workspaces/workspace-platform-services/application-deployment#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment will resemble this code sample:
+1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](/dkp/kommander/2.2/workspaces/workspace-platform-services/application-deployment/#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment will resemble this code sample:
 
     ```yaml
     apiVersion: apps.kommander.d2iq.io/v1alpha2
@@ -83,7 +83,7 @@ To disable all of the default dashboards, follow these steps to define an overri
       namespace: <your-workspace-namespace>
     spec:
       appRef:
-        name: kube-prometheus-stack-17.2.1
+        name: kube-prometheus-stack-18.1.1
         kind: ClusterApp
       configOverrides:
         name: kube-prometheus-stack-overrides
@@ -93,7 +93,7 @@ To access the Grafana UI, browse to the landing page and then search for the Gra
 
 ### Add custom dashboards
 
-In Kommander you can define your own custom dashboards. There are a few methods to [import dashboards][grafana_import_dashboards] to Grafana.
+In Kommander you can define your own custom dashboards. You can use a few methods to [import dashboards][grafana_import_dashboards] to Grafana.
 
 One method is to [use ConfigMaps to import dashboards][grafana_sidecar_dashboards].
 Below are steps on how to create a ConfigMap with your dashboard definition.
@@ -169,7 +169,7 @@ Some examples of the alerts currently available are:
 - CoreDNSDown
 - KubeVersionMismatch
 
-A complete list with all the pre-defined alerts can be found [here][prometheus_rules].
+A complete list with all the pre-defined alerts can be found [on GitHub][prometheus_rules].
 
 ### Use overrides configMaps to configure alert rules
 
@@ -198,7 +198,7 @@ For example, if you want to disable the default `node` alert rules, follow these
     kubectl apply -f kube-prometheus-stack-overrides.yaml
     ```
 
-1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](../workspaces/workspace-platform-services/application-deployment#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment file resembles this code sample:
+1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](/dkp/kommander/2.2/workspaces/workspace-platform-services/application-deployment/#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment file resembles this code sample:
 
     ```yaml
     apiVersion: apps.kommander.d2iq.io/v1alpha2
@@ -208,7 +208,7 @@ For example, if you want to disable the default `node` alert rules, follow these
       namespace: <your-workspace-namespace>
     spec:
       appRef:
-        name: kube-prometheus-stack-17.2.1
+        name: kube-prometheus-stack-18.1.1
         kind: ClusterApp
       configOverrides:
         name: kube-prometheus-stack-overrides
@@ -374,9 +374,9 @@ By default, the `kube-prometheus-stack` provides the following service monitors 
 
 The operator is in charge of iterating over all of these `ServiceMonitor` objects and collecting the metrics from these defined components.
 
-The following example illustrates how to retrieve application metrics. In this example:
+The following example illustrates how to retrieve application metrics. In this example, there are:
 
-- There are three instances of a simple app named `my-app`
+- Three instances of a simple app named `my-app`
 - The sample app listens and exposes metrics on port 8080
 - The app is assumed to already be running
 
@@ -445,7 +445,7 @@ data:
               interval: 30s
 ```
 
-Official documentation about using a `ServiceMonitor` to monitor an app with the Prometheus-operator on Kubernetes can be found [here](https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md#related-resources).
+Official documentation about using a `ServiceMonitor` to monitor an app with the Prometheus-operator on Kubernetes can be found [on this GitHub repository](https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md#related-resources).
 
 ## Set a specific storage capacity for Prometheus
 

@@ -12,7 +12,7 @@ DKP applications are catalog applications provided by D2iQ for use in your envir
 
 Follow these steps to install the DKP catalog from the CLI.
 
-1. Refer to [air-gapped setup instructions](../../../../install/air-gapped/catalog), if you are running in air-gapped environment.
+1.  Refer to [air-gapped setup instructions](../../../../install/air-gapped/catalog), if you are running in air-gapped environment.
 
 1.  Set the `WORKSPACE_NAMESPACE` environment variable to the name of your workspace’s namespace:
 
@@ -35,7 +35,7 @@ Follow these steps to install the DKP catalog from the CLI.
     spec:
       interval: 1m0s
       ref:
-        tag: v2.1.1
+        tag: v2.2.0
       timeout: 20s
       url: https://github.com/mesosphere/dkp-catalog-applications  
     EOF

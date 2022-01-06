@@ -28,7 +28,7 @@ export PROJECT_NAMESPACE=<project_namespace>
 
 ## Deploy the application
 
-The list of available applications that can be deployed on the attached cluster can be found [here](../../platform-applications#platform-applications).
+The list of available applications that can be deployed on the attached cluster can be found [in the platform applications topic](../../platform-applications#platform-applications).
 
 1.  Deploy one of the supported applications to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 
@@ -39,11 +39,11 @@ The list of available applications that can be deployed on the attached cluster 
     apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
-      name: project-grafana-logging-6.13.9
+      name: project-grafana-logging-6.16.14
       namespace: ${PROJECT_NAMESPACE}
     spec:
       appRef:
-        name: project-grafana-logging-6.13.9
+        name: project-grafana-logging-6.16.14
         kind: ClusterApp
     EOF
     ```
@@ -65,7 +65,7 @@ The list of available applications that can be deployed on the attached cluster 
       namespace: ${PROJECT_NAMESPACE}
     spec:
       appRef:
-        name: project-grafana-logging-6.13.9
+        name: project-grafana-logging-6.16.14
         kind: ClusterApp
       configOverrides:
         name: project-grafana-logging-overrides

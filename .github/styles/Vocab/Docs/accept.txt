@@ -53,8 +53,7 @@ DSL(|s)
 ECR
 (Elasticsearch|elasticsearch)
 elasticsearchexporter
-ETCD
-etcd
+(ETCD|etcd)
 felix
 finalizer(|s)
 fips
@@ -101,7 +100,7 @@ konvoy
 konvoy-image
 (Kubeadm|kubeadm)
 kubectl
-kubelet
+(kubelet|Kubelet)
 (kubeconfig|Kubeconfig)
 (kubecost|Kubecost)
 (kubefed|Kubefed)
