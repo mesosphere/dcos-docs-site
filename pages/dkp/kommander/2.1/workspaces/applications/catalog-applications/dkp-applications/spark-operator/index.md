@@ -16,6 +16,8 @@ The Kubernetes Operator for Apache Spark aims to make specifying and running Spa
 
 You can find generic installation instructions for workspace catalog applications on the [Application Deployment topic](../../application-deployment).
 
+<p class="message--note"><strong>NOTE: </strong>You should only install the Spark operator once per workspace.</p>
+
 For details on custom configuration for the operator, refer to the [Spark Operator Helm Chart documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/charts/spark-operator-chart/README.md).
 
 After you finish the installation, see [Spark Operator custom resource documentation](../../../../../projects/applications/catalog-applications/dkp-applications/custom-resources-workspace-catalog/spark/) for more information about how to submit your Spark jobs.
