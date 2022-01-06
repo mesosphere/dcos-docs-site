@@ -1,12 +1,14 @@
 ad hoc
 (Addon|addon)
 Airflow
+air gapped environment
 (Alertmanager|alertmanager)
 ANN(|s)
 (ansible|Ansible)
 auto-assign
 (auto-provisioner|Auto-Provisioner)
 autoscal(e|es|ed|ing)
+bool
 Cassandra
 checkpoint(|s|ed|ing)
 (chronos|Chronos)
@@ -37,6 +39,8 @@ etcd
 Flink
 fluentbit
 GCR
+Gitea
+gitops
 (grafana|Grafana)
 grayscale
 GRU
@@ -103,7 +107,7 @@ Percona
 PostgreSQL
 preprocessor(|s)
 (preprovisioned|Preprovisioned)
-(Prometheus|Prometheus)
+(prometheus|Prometheus)
 Pushgateway
 PyTorch
 rebalance
@@ -116,6 +120,7 @@ RNN(|s)
 runbooks
 Scala
 scikit-learn
+sed
 serverless
 sigmoidal
 Snapshotter
@@ -134,5 +139,3 @@ unmount(|s|ing|ed)
 XGBoost
 yakcl
 (zookeeper|Zookeeper|ZooKeeper)
-sed
-Gitea
