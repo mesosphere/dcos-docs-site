@@ -53,7 +53,7 @@ If none of the conditions apply to your cluster, then you can skip to next secti
 
     If the patch fails because the above resource do not exist, you can ignore those errors.
 
-3.  In the `ClusterConfiguration`, if you have set one or more of `noProxy`, `httpProxy`,or `httpsProxy` in `spec.kuberentes.networking` but these values differ from the `values` section of `gatekeeper` addon, then you need to update the gatekeeper addon configuration to match these values. Look up this configmap rendered from `spec.kubernetes.networking`:
+3.  In the `ClusterConfiguration`, if you have set one or more of `noProxy`, `httpProxy`,or `httpsProxy` in `spec.kubernetes.networking` but these values differ from the `values` section of `gatekeeper` addon, then you need to update the gatekeeper addon configuration to match these values. Look up this ConfigMap rendered from `spec.kubernetes.networking`:
 
     ```bash
     kubectl get cm kubeaddons-remap-values -nkubeaddons -o=jsonpath={.data.values}
