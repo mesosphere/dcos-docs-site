@@ -17,13 +17,13 @@ beta: false
 
 #### Alerting
 
-Custom `alertmanager` [configurations](/dkp/konvoy/1.8/monitoring/#notify-prometheus-alerts-in-slack) must be copied or re-created [manually](/dkp/kommander/2.1/monitoring/#notify-prometheus-alerts-in-slack). You can do this before adapting Prometheus, so that there is no time interval when the `alertmanager` is not configured.
+You must copy or [recreate](/dkp/kommander/2.1/monitoring/#notify-prometheus-alerts-in-slack) custom `alertmanager` [configurations](/dkp/konvoy/1.8/monitoring/#notify-prometheus-alerts-in-slack) before adapting Prometheus, so that there is no time interval when the `alertmanager` is not configured.
 
 #### Custom ServiceMonitor objects
 
-You should copy or re-create ServiceMonitors using the label `release: kube-prometheus-stack` instead of `release: prometheus-kubeaddons`. This can be done before processing, using different names or namespaces for the new objects. Alternatively, you could just re-label any existing ServiceMonitors before or after the processing, but this will introduce an interval where Prometheus is running but the ServiceMonitors have no effect. After the Prometheus-operator in the adapted Prometheus starts, it only looks at ServiceMonitor objects with `release: kube-prometheus-stack` label, and it ignores ServiceMonitors with the old label until they are re-labeled.
+Copy or re-create ServiceMonitors using the label `release: kube-prometheus-stack` instead of `release: prometheus-kubeaddons` before processing, using different names or namespaces for the new objects. Or, you can re-label any existing ServiceMonitors before or after processing, but this will introduce an interval where Prometheus is running but the ServiceMonitors have no effect. After the Prometheus-operator in the adapted Prometheus starts, it only looks at ServiceMonitor objects with `release: kube-prometheus-stack` label, and it ignores ServiceMonitors with the old label until they are re-labeled.
 
-You can use two ways to adapt ServiceMonitors created using Helm values of the Addon:
+ServiceMonitors created using Helm values of the Addon can be adapted in two ways:
 
 -   Create new standalone ServiceMonitor resources with the label `release: kube-prometheus-stack`. This can be done before processing.
 
@@ -73,7 +73,7 @@ You must back up any custom Grafana dashboards before running the adaption proce
 
 In 2.x, the Velero install has moved from the `velero` namespace to the `kommander` namespace. If you have runbooks or automation that invokes the velero tool, make sure to update them as suggested below.
 
-<p class="message--note"><strong>NOTE: </strong> The Velero namespace can be set to <code>kommander</code> with the <code>velero client config set namespace=kommander</code>.  Alternatively you can set the environment variable <code>export VELERO_NAMESPACE=kommander</code>, or use the velero --namespace command line option.</p>
+<p class="message--note"><strong>NOTE: </strong> The Velero namespace can be set to <code>kommander</code> with the command <code>velero client config set namespace=kommander</code>. Alternatively you can set the environment variable <code>export VELERO_NAMESPACE=kommander</code>, or use the velero <code>--namespace kommander</code> command line option.</p>
 
 ## SSO stack
 
