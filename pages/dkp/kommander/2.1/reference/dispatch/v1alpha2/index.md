@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: v1alpha2
-title: workspaces.kommander.mesosphere.io/v1alpha2
+title: dispatch.d2iq.io/v1alpha2
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
