@@ -10,6 +10,7 @@ auto-assign
 awscsiprovisioner
 backend
 backoff
+bool
 bootup
 Cassandra
 CentOS
@@ -65,6 +66,8 @@ Flink
 Fluentd
 air gapped environment
 GCR
+Gitea
+gitops
 (Goboring|goboring)
 golang
 (grafana|Grafana)
@@ -167,6 +170,7 @@ RNN(|s)
 runbook(|s)
 Scala
 scikit-learn
+sed
 serverless
 sigmoidal
 Snapshotter
@@ -198,5 +202,3 @@ XGBoost
 xlarge
 yakcl
 (zookeeper|Zookeeper|ZooKeeper)
-sed
-Gitea
