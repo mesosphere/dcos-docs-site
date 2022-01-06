@@ -16,25 +16,25 @@ DKP supports using an external catalog git repository to install applications. I
 
 To configure the Gitea server, follow these steps:
 
-1. Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
+1.  Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
 
     ```bash
-    export VERSION=v2.1.1
+    export VERSION=v2.2.0
     ```
 
-1. Set the `TARGET_NAMESPACE` to the workspace (or project) namespace in which the catalog repository will be created.
+1.  Set the `TARGET_NAMESPACE` to the workspace (or project) namespace in which the catalog repository will be created.
 
     ```bash
     export TARGET_NAMESPACE=<WORKSPACE_OR_PROJECT_NAMESPACE>
     ```
 
-1. Go to the Gitea UI below and register a new user account:
-    
+1.  Go to the Gitea UI below and register a new user account:
+
     ```bash
     GITEA_HOSTNAME=$((kubectl -n kommander get cm konvoyconfig-kubeaddons -o go-template='{{if ne .data.clusterHostname ""}}{{.data.clusterHostname}}{{"\n"}}{{end}}' ; kubectl -n kommander get ingress gitea -o jsonpath="{.status.loadBalancer.ingress[0]['ip','hostname']}") | head -1) && echo https://${GITEA_HOSTNAME}/dkp/kommander/git/
     ```
 
-1. Create a new repository under the new user account. Rest of this guide assumes you created a private repository named `dkp-catalog-applications` with `main` as default branch. You can substitute these values as needed. Create environment variables that contain the Gitea credentials and repository metadata:
+1.  Create a new repository under the new user account. Rest of this guide assumes you created a private repository named `dkp-catalog-applications` with `main` as default branch. You can substitute these values as needed. Create environment variables that contain the Gitea credentials and repository metadata:
 
     ```bash
     GITEA_USERNAME=<YOUR_GITEA_USERNAME>
@@ -43,20 +43,20 @@ To configure the Gitea server, follow these steps:
     GITEA_REPOSITORY_DEFAULT_BRANCH=main
     ```
 
-1. Clone the newly created repository on your local machine:
+1.  Clone the newly created repository on your local machine:
 
     ```bash
     kubectl -n kommander get secret kommander-traefik-certificate -o go-template='{{index .data "ca.crt"|base64decode}}' > /tmp/ca.crt
     git clone -c http.sslCAInfo=/tmp/ca.crt https://${GITEA_USERNAME}:${GITEA_PASSWORD}@${GITEA_HOSTNAME}/dkp/kommander/git/${GITEA_USERNAME}/${GITEA_REPOSITORY_NAME}
     ```
 
-1. Download and extract the catalog repository bundle to your local machine from the download portal and extract the contents into the `${GITEA_REPOSITORY_NAME}` repository cloned in the above step:
+1.  Download and extract the catalog repository bundle to your local machine from the download portal and extract the contents into the `${GITEA_REPOSITORY_NAME}` repository cloned in the above step:
 
     ```bash
     curl -fsSL https://github.com/mesosphere/dkp-catalog-applications/archive/refs/tags/${VERSION}.tar.gz | tar zxf - --strip-components=1 -C ${GITEA_REPOSITORY_NAME}
     ```
 
-1. Navigate into the `${GITEA_REPOSITORY_NAME}` directory and push the changes:
+1.  Navigate into the `${GITEA_REPOSITORY_NAME}` directory and push the changes:
 
     ```bash
     cd ${GITEA_REPOSITORY_NAME}
@@ -66,7 +66,7 @@ To configure the Gitea server, follow these steps:
     cd ..
     ```
 
-1. Run the following command to create a secret containing Gitea credentials in `TARGET_NAMESPACE`:
+1.  Run the following command to create a secret containing Gitea credentials in `TARGET_NAMESPACE`:
 
     ```bash
     kubectl create secret generic -n${TARGET_NAMESPACE} ${TARGET_NAMESPACE} --type opaque \
@@ -77,14 +77,14 @@ To configure the Gitea server, follow these steps:
 
     <p class="message--note"><strong>NOTE: </strong>This command needs to be run in Management cluster (where Kommander is installed) and ALL target clusters that belong to the specific Workspace or Project.</p>
 
-1. Optionally, cleanup the certificate and locally cloned repository:
+1.  Optionally, cleanup the certificate and locally cloned repository:
 
     ```bash
     rm -rf ${GITEA_REPOSITORY_NAME}
     rm /tmp/ca.crt
     ```
 
-1. Run the following command to create the catalog `GitRepository`:
+1.  Run the following command to create the catalog `GitRepository`:
 
     ```bash
     kubectl apply -f - <<EOF
@@ -107,4 +107,4 @@ To configure the Gitea server, follow these steps:
     EOF
     ```
 
-1. After the newly created `GitRepository` on the management cluster reconciles, any corresponding `App`s are loaded by Kommander controller.
+1.  After the newly created `GitRepository` on the management cluster reconciles, any corresponding `App`s are loaded by Kommander controller.
