@@ -225,7 +225,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
     INFO[2021-11-15T19:59:35-05:00] Run 'export CLUSTER_NAME=konvoy-migration' and follow the rest of the documentation  src="cluster/adopt.go:178"
     ```
 
-1.  Update your environment with the cluster name for use in later steps, by running the shell command from the last line of output in the previous step:
+1.  Update your environment with the cluster name for use in later steps. Do this by running the shell command from the last line of output in the previous step:
 
     ```sh
     export CLUSTER_NAME=konvoy-migration
