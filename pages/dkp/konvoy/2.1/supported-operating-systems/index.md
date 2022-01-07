@@ -8,11 +8,14 @@ beta: false
 enterprise: false
 ---
 
+<!-- vale Microsoft.RangeFormat = NO -->
+
 Konvoy supports the following base Operating Systems.
 
 ## Amazon Web Services (AWS)
 
-| Operating System      | Kernel                      | Default Config | FIPS | Air Gapped | FIPS with Air Gapped | GPU Support |
+<!-- vale Vale.Spelling = NO -->
+| Operating System      | Kernel                      | Default Config | FIPS | Air Gapped | FIPS with Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> |
 |-----------------------|-----------------------------|----------------|------|------------|----------------------|-------------|
 | [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64      | Yes            | Yes  | Yes        | Yes                  | Yes         |
 | [RHEL 7.9][rhel_7_9]  | 3.10.0-1160.el7.x86_64      | Yes            | Yes  | Yes        |                      | Yes         |
@@ -21,10 +24,12 @@ Konvoy supports the following base Operating Systems.
 | [Ubuntu 18.04 (Bionic Beaver)][ubuntu_18] |         | Yes            |      |            |                      |             |
 | [Ubuntu 20.04 (Focal Fossa)][ubuntu_20] |           | Yes            |      |            |                      | Yes         |
 | [Oracle Linux RHCK 7.9][RHCK]    | kernel-3.10.0-1160.el7            |  Yes           |   Yes   |   Yes         |                      |         |
+<!-- vale Vale.Spelling = YES -->
 
-## Pre Provisioned/On Premises
+## Pre-Provisioned/On Premises
 
-| Operating System         | Kernel | Default Config | FIPS | Air Gapped | GPU Support |
+<!-- vale Vale.Spelling = NO -->
+| Operating System         | Kernel | Default Config | FIPS | Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> |
 |--------------------------|--------|----------------|------|------------|-------------|
 | [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64 |   |      | Yes        |             |
 | [Flatcar][flatcar] | 2905.2.1 | | GPU workloads are not currently supported |
