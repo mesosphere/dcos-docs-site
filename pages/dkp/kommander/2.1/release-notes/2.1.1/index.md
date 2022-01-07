@@ -49,7 +49,7 @@ The following services and service components have been upgraded to the listed v
 - external-dns: 2.20.5
 - fluent-bit: 0.16.2
 - gatekeeper: 0.6.8
-- grafana-logging: 6.16.4
+- grafana-logging: 6.16.14
 - grafana-loki: 0.33.1
 - istio: 1.9.1
 - jaeger: 2.21.0
