@@ -23,7 +23,7 @@ Konvoy supports the following base Operating Systems.
 | [RHEL 8.4][rhel_8_4]  | 4.18.0-193.6.3.el8_4.x86_64 | Yes            | Yes  |            | Yes                  |             |
 | [Ubuntu 18.04 (Bionic Beaver)][ubuntu_18] |         | Yes            |      |            |                      |             |
 | [Ubuntu 20.04 (Focal Fossa)][ubuntu_20] |           | Yes            |      |            |                      | Yes         |
-| [Oracle Linux RHCK 7.9][RHCK]    | kernel-3.10.0-1160.el7            |  Yes           |   Yes   |   Yes         |                      |         |
+| [Oracle Linux RHCK 7.9][RHCK] | kernel-3.10.0-1160.el7   |  Yes |   Yes      |   Yes     |  Yes                    |         |
 
 ## Pre-Provisioned/On Premises
 
@@ -32,6 +32,8 @@ Konvoy supports the following base Operating Systems.
 |--------------------------|--------|----------------|------|------------|-------------|
 | [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64 |   |      | Yes        |             |
 | [Flatcar][flatcar] | 2905.2.1 | | GPU workloads are not currently supported |
+| [Oracle Linux RHCK 7.9][RHCK] | kernel-3.10.0-1160.el7 |  Yes |   Yes   |   Yes         |                      |         |
+
 
 [centos7]: https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS7.2003
 [centos8]: https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS8.2004
