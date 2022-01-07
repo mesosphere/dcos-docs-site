@@ -5,9 +5,9 @@ air gapped environment
 (Alertmanager|alertmanager)
 ANN(|s)
 (ansible|Ansible)
-autoscal(e|es|ed|ing)
 auto-assign
-(Auto-Provisioner|auto-provisioner)
+(auto-provisioner|Auto-Provisioner)
+autoscal(e|es|ed|ing)
 awscsiprovisioner
 backend
 backoff
@@ -111,6 +111,7 @@ kubelet(|s)
 Kubeflow
 (kubernetes|Kubernetes)
 kubetunnel
+kustomize
 KUDO
 Kustomization
 (Kustomize|kustomize)

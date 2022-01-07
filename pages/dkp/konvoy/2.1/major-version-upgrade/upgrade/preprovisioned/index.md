@@ -134,7 +134,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
     INFO[2021-11-15T19:59:35-05:00] Run 'export CLUSTER_NAME=konvoy-migration' and follow the rest of the documentation  src="cluster/adopt.go:178"
     ```
 
-    And then verify that your environment has the cluster name:
+    Then, verify that your environment has the cluster name:
 
     ```sh
     echo $CLUSTER_NAME
@@ -226,13 +226,13 @@ clusteraddon.kubeaddons.mesosphere.io "localvolumeprovisioner" deleted
 
 The `dkp adopt` command performs several steps.
 
-Every Machine has a bootstrap config (KubeadmConfig) and bootstrap data (Secret). These must have owner references to be included in the "move" operation.
+Every Machine has a bootstrap configuration (KubeadmConfig) and bootstrap data (Secret). These must have owner references to be included in the "move" operation.
 
 When the adoption process reconciles a Machine object that has not been bootstrapped, it creates the KubeadmConfig from the associated KubeadmConfigTemplate, and CABPK creates the Secret when it reconciles the KubeadmConfig. The owner references are set at this time.
 
 DKP machines are already bootstrapped and also create the KubeadmConfigs and the Secrets. This command sets the appropriate owner references on these resources.
 
-This command also unpauses the Cluster object, which then starts the reconcile process:
+This command also stops the pause on the Cluster object, which then starts the reconcile process:
 
 ```sh
 dkp --kubeconfig=admin.conf adopt cluster preprovisioned
@@ -312,7 +312,7 @@ pod "capi-controller-manager-d4b9c7c4c-hkqfl" deleted
 
 ## Prepare the Dex Addon for Kubernetes v1.21.6
 
-The Dex Addon acts as the cluster's OpenID Connect identity provider. Its configuration must be changed so that it works correctly with Kubernetes v1.21.6, and v1.20.11.
+The Dex Addon acts as the cluster's OpenID Connect identity provider. You must change its configuration so that it works correctly with both Kubernetes v1.21.6 and v1.20.11.
 
 1.  Edit the Dex configuration
 
@@ -323,11 +323,11 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. Its config
     Paste the following into the YAML document nested in the `spec.chartReference.values` field of the Addon resource:
 
     ```yaml
-        env:
-        - name: KUBERNETES_POD_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
+    env:
+      - name: KUBERNETES_POD_NAMESPACE
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.namespace
     ```
 
     Do **not** change any other values in the Addon resource. The Addon should now look like this. Make sure that the `env` field is vertically aligned with the `image` field.

@@ -19,9 +19,9 @@ This section automatically adapts your Konvoy addons to Kommander platform appli
 
 To successfully adapt your applications, you must have:
 
--   A Konvoy 1.8.3 cluster that has already been [upgraded to DKP 2.1](https://docs.d2iq.com/dkp/konvoy/2.1/major-version-upgrade/), with the `kommander` addon disabled in your cluster.yaml.
+- A Konvoy 1.8.3 or 1.8.4 cluster that you have already [upgraded to DKP 2.1](/dkp/konvoy/2.1/major-version-upgrade/), with the `kommander` addon disabled in your cluster.yaml.
 
--   [Download](../../../download) and install the Kommander CLI binary on your computer.
+- [Download](../../../download) and install the Kommander CLI binary on your computer.
 
 ## Prepare your cluster
 
@@ -32,19 +32,19 @@ Check for the following on your existing `cluster.yaml`:
 
 If none of the conditions apply to your cluster, then you can skip to next section.
 
-1.  Because Kommander 2.0+ uses flux to manage applications, we need to configure the gatekeeper `mutatingwebhookconfigurations` (which is a cluster-scoped resource) such that it allows `dry-run` calls, which are required by the flux kustomize controller to calculate the diff of a resource. In order to do this:
+1.  Because Kommander 2.0+ uses Flux to manage applications, you must configure the Gatekeeper `mutatingwebhookconfigurations` (which is a cluster-scoped resource) to allow `dry-run` calls. They are required by the Flux kustomize controller to calculate the difference of a resource. To do this:
 
     ```bash
     kubectl get mutatingwebhookconfigurations gatekeeper-mutating-webhook-configuration
     ```
 
-    If there are no `mutatingwebhookconfigurations`, skip to the next step. This is expected if you set `mutations.enable` to `false` in gatekeeper addon `values`. If you see the `gatekeeper-mutating-webhook-configuration` then execute the following:
+    If there are no `mutatingwebhookconfigurations`, skip to the next step. This is expected if you set `mutations.enable` to `false` in Gatekeeper addon `values`. If you see the `gatekeeper-mutating-webhook-configuration` then execute the following:
 
     ```bash
     kubectl patch mutatingwebhookconfigurations gatekeeper-mutating-webhook-configuration --type "json" -p '[{"op": "add", "path": "/webhooks/0/sideEffects", "value": "None"}]'
     ```
 
-2.  Update the `metadata.annotations` of these gatekeeper resources:
+2.  Update the `metadata.annotations` of these Gatekeeper resources:
 
     ```bash
     kubectl annotate mutatingwebhookconfigurations gatekeeper-mutating-webhook-configuration --overwrite "meta.helm.sh/release-name"="kommander-gatekeeper" "meta.helm.sh/release-namespace"="kommander"
@@ -53,7 +53,7 @@ If none of the conditions apply to your cluster, then you can skip to next secti
 
     If the patch fails because the above resource do not exist, you can ignore those errors.
 
-3.  In the `ClusterConfiguration`, if you have set one or more of `noProxy`, `httpProxy`,or `httpsProxy` in `spec.kubernetes.networking` but these values differ from the `values` section of `gatekeeper` addon, then you need to update the gatekeeper addon configuration to match these values. Look up this ConfigMap rendered from `spec.kubernetes.networking`:
+3.  In the `ClusterConfiguration`, if you have set one or more of `noProxy`, `httpProxy`,or `httpsProxy` in `spec.kubernetes.networking` but these values differ from the `values` section of `gatekeeper` addon, then you need to update the Gatekeeper addon configuration to match these values. Look up this ConfigMap rendered from `spec.kubernetes.networking`:
 
     ```bash
     kubectl get cm kubeaddons-remap-values -nkubeaddons -o=jsonpath={.data.values}
@@ -73,13 +73,13 @@ If none of the conditions apply to your cluster, then you can skip to next secti
         https-proxy: "<YOUR httpsProxy settings>"
     ```
 
-    You need to copy the above configuration into `Addon` resource of `gatekeeper`. Start by printing the current `values` section:
+    You need to copy the above configuration into the `Addon` resource of `gatekeeper`. Start by printing the current `values` section:
 
     ```bash
     kubectl get addon gatekeeper -nkubeaddons -o=jsonpath={.spec.chartReference.values}
     ```
 
-    which should print an output more or less similar to the following:
+    This will print the following output:
 
     ```yaml
     ---
@@ -102,24 +102,24 @@ If none of the conditions apply to your cluster, then you can skip to next secti
       namespaceSelectorForProxy: {}
     ```
 
-    Copy the values from the `ConfigMap` into gatekeeper `Addon` resource accordingly:
+    Copy the values from the `ConfigMap` into the Gatekeeper `Addon` resource accordingly:
 
     | ConfigMap kubeaddons-remap-values `.data.values` | Addon gatekeeper `.spec.chartReference.values` |
-    | ---------------------------------------------    | ------------------------------------- |
-    | gatekeeper.mutation.enable                       | mutations.enable                      |
-    | gatekeeper.mutation.enablePodProxy               | mutations.enablePodProxy              |
-    | gatekeeper.mutation.namespaceSelectorForProxy    | mutations.namespaceSelectorForProxy   |
-    | gatekeeper.mutation.no-proxy                     | mutations.podProxySettings.noProxy    |
-    | gatekeeper.mutation.http-proxy                   | mutations.podProxySettings.httpProxy  |
-    | gatekeeper.mutation.https-proxy                  | mutations.podProxySettings.httpsProxy |
+    | ------------------------------------------------ | ---------------------------------------------- |
+    | gatekeeper.mutation.enable                       | mutations.enable                               |
+    | gatekeeper.mutation.enablePodProxy               | mutations.enablePodProxy                       |
+    | gatekeeper.mutation.namespaceSelectorForProxy    | mutations.namespaceSelectorForProxy            |
+    | gatekeeper.mutation.no-proxy                     | mutations.podProxySettings.noProxy             |
+    | gatekeeper.mutation.http-proxy                   | mutations.podProxySettings.httpProxy           |
+    | gatekeeper.mutation.https-proxy                  | mutations.podProxySettings.httpsProxy          |
 
-    If the values in the gatekeeper `Addon` resource already match the values from the `kubeaddons-remap-values` ConfigMap in `kubeaddons` namespace then there is no need to updating anything. If not, edit the gatekeeper `Addon` to reflect the above value remapping:
+    If the values in the Gatekeeper `Addon` resource already match the values from the `kubeaddons-remap-values` ConfigMap in `kubeaddons` namespace, then there is no need to update anything. If not, edit the Gatekeeper `Addon` to reflect the above value remapping:
 
     ```bash
     kubectl edit addon -nkubeaddons gatekeeper
     ```
 
-    and save the changes before continuing with the migration procedure.
+    Then, save the changes before continuing with the migration procedure.
 
 ## Move your applications
 
@@ -129,7 +129,7 @@ To adapt your existing platform applications to Kommander enter the following co
 kommander migrate -y
 ```
 
-As the command progresses, your output looks like the following:
+As the command progresses, your output will look like the following:
 
 ```sh
  ✓ Checking if migration from DKP 1.x is necessary

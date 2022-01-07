@@ -8,19 +8,23 @@ beta: false
 enterprise: false
 ---
 
+<!-- vale proselint.DateCase = NO -->
+
 Follow these steps only if you are upgrading an AWS cluster.
 
-## Create AMI that is compatible with Konvoy 2.x, Kubernetes v1.20.11, and CentOS 7
+## Create an AMI that is compatible with Konvoy 2.x, Kubernetes v1.20.13, and CentOS 7
 
 After adopting the cluster, you use this AMI to scale up, or replace a failed instance in the control plane and worker node pools.
 
-1.  Create the AMI using Konvoy Image Builder:
+<p class="message--note"><strong>NOTE: </strong>Konvoy v1.8.4 uses Kubernetes version 1.20.13 by default. If upgrading from Konvoy v1.8.3, use Kubernetes version 1.20.11 for the below commands.</p>
 
-    ```shell=sh
-    echo "kubernetes_version: 1.20.11" > kubever.yaml
+1.  Create the AMI using [Konvoy Image Builder][kib] (you can [download the newest release on GitHub][kib-releases]):
+
+    ```sh
+    echo "kubernetes_version: 1.20.13" > kubever.yaml
     konvoy-image build \
-        images/ami/centos-7.yaml \
-        --overrides kubever.yaml
+    images/ami/centos-7.yaml \
+    --overrides kubever.yaml
     ```
 
     The output appears similar to this:
@@ -77,7 +81,7 @@ After adopting the cluster, you use this AMI to scale up, or replace a failed in
             ...
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>Konvoy 1.8.3 returns an error if the `postAdoptImageID` fields are present. To use the `konvoy` again after this step, temporarily comment out the `postAdoptImageID` fields.</p>
+    <p class="message--note"><strong>NOTE: </strong>Konvoy 1.8.3 and above returns an error if the <code>postAdoptImageID</code> fields are present. If you must use the <code>konvoy</code> CLI again after this step, temporarily comment out the <code>postAdoptImageID</code> fields.</p>
 
 ## Prepare AWS EBS CSI Plugin for Cluster Adoption
 
@@ -112,7 +116,7 @@ For the cluster adoption to be successful, the control-plane and worker machines
 1. Modify the IAM Role of every control plane machine to `control-plane.cluster-api-provider-aws.sigs.k8s.io`.
 2. Modify the IAM Role of every worker node pool machine to `nodes.cluster-api-provider-aws.sigs.k8s.io`.
 
-## Modify subnets so that new instances are assigned a public IPv4 address
+## Modify Subnets so that new instances are assigned a public IPv4 Address
 
 <!-- TODO This will be different for an air-gapped Konvoy 1.8 cluster. -->
 
@@ -221,19 +225,19 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
     INFO[2021-11-15T19:59:35-05:00] Run 'export CLUSTER_NAME=konvoy-migration' and follow the rest of the documentation  src="cluster/adopt.go:178"
     ```
 
-1.  Update your environment with the cluster name for use in later steps, by running the shell command from the last line of output in the previous step:
+1.  Update your environment with the cluster name for use in later steps. Do this by running the shell command from the last line of output in the previous step:
 
     ```sh
-    INFO[2021-11-15T19:59:35-05:00] Run 'export CLUSTER_NAME=konvoy-migration' and follow the rest of the documentation  src="cluster/adopt.go:178"
+    export CLUSTER_NAME=konvoy-migration
     ```
 
-    And then verify that your environment has the cluster name:
+    Then, verify that your environment has the cluster name:
 
     ```sh
     echo $CLUSTER_NAME
     ```
 
-    The output should be your cluster name, for example:.
+    The output should be your cluster name, for example:
 
     ```sh
     konvoy-migration
@@ -335,13 +339,13 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 The `dkp adopt` command performs several steps.
 
-Every Machine has a bootstrap config (KubeadmConfig) and bootstrap data (Secret). These must have owner references to be included in the "move" operation.
+Every Machine has a bootstrap configuration (KubeadmConfig) and bootstrap data (Secret). These must have owner references to be included in the "move" operation.
 
 When the cluster adoption process reconciles a Machine object that has not been bootstrapped, it creates the KubeadmConfig from the associated KubeadmConfigTemplate, and CABPK creates the Secret when it reconciles the KubeadmConfig. The owner references are set at this time.
 
 DKP machines are already bootstrapped and also create the KubeadmConfigs and the Secrets. This command will set the appropriate owner references on these resources.
 
-This command also unpauses the Cluster object, which then starts the reconcile process:
+This command also stops the pause on the Cluster object, which then starts the reconcile process:
 
 ```sh
 dkp --kubeconfig=admin.conf adopt cluster aws
@@ -425,13 +429,13 @@ pod "capi-controller-manager-d4b9c7c4c-hkqfl" deleted
 
 You use this AMI to update the cluster Kubernetes version to v1.21.6.
 
-1.  Create the AMI using Konvoy Image Builder:
+1.  Create the AMI using [Konvoy Image Builder][kib] (you can [download the newest release on GitHub][kib-releases]):
 
     ```sh
     echo "kubernetes_version: 1.21.6" > kubever.yaml
     konvoy-image build \
-        images/ami/centos-7.yaml \
-        --overrides kubever.yaml
+    images/ami/centos-7.yaml \
+    --overrides kubever.yaml
     ```
 
     The output appears similar to this:
@@ -456,7 +460,7 @@ You use this AMI to update the cluster Kubernetes version to v1.21.6.
 
 ## Prepare the Dex Addon for Kubernetes v1.21.6
 
-The Dex Addon acts as the cluster's OpenID Connect identity provider. Its configuration must be changed so that it works correctly with Kubernetes v1.21.6, and with v1.20.11.
+The Dex Addon acts as the cluster's OpenID Connect identity provider. You must change its configuration so that it works correctly with both Kubernetes v1.21.6 and v1.20.13.
 
 1.  Edit the Dex configuration
 
@@ -467,11 +471,11 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. Its config
     Paste the following into the YAML document nested in the `spec.chartReference.values` field of the Addon resource:
 
     ```yaml
-        env:
-        - name: KUBERNETES_POD_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
+    env:
+      - name: KUBERNETES_POD_NAMESPACE
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.namespace
     ```
 
     Do **not** change any other values in the Addon resource. The Addon should now look like this. Make sure that the `env` field is vertically aligned with the `image` field.
@@ -508,7 +512,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. Its config
     export AMI_ID=<your ami ID>
     ```
 
-    And then verify that your environment has the AMI ID:
+    Then verify that your environment has the AMI ID:
 
     ```sh
     echo $AMI_ID
@@ -594,7 +598,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. Its config
     export AMI_ID=<your ami ID>
     ```
 
-    And then verify that your environment has the AMI ID:
+    Then, verify that your environment has the AMI ID:
 
     ```sh
     echo $AMI_ID
@@ -681,3 +685,6 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. Its config
                 $(kubectl --kubeconfig=admin.conf get machinedeployment ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.status.updatedReplicas}')
       ]]; do sleep 30; done"
     ```
+
+[kib]: ../../../image-builder
+[kib-releases]: https://github.com/mesosphere/konvoy-image-builder/releases
