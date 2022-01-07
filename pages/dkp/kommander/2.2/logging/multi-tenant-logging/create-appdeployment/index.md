@@ -61,7 +61,7 @@ To create the AppDeployments needed for Project-level logging, follow these step
       namespace: ${PROJECT_NAMESPACE}
     spec:
       appRef:
-        name: project-grafana-logging-6.16.4
+        name: project-grafana-logging-6.16.14
         kind: ClusterApp
     EOF
     ```
