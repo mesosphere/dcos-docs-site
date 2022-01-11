@@ -61,6 +61,7 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
       name: $CLUSTER_NAME-md-0
       namespace: default
       labels:
+        cluster.x-k8s.io/cluster-name: $CLUSTER_NAME
         clusterctl.cluster.x-k8s.io/move: ""
     spec:
       hosts:
