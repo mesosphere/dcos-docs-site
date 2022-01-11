@@ -1,0 +1,98 @@
+---
+layout: layout.pug
+navigationTitle: Cluster Configuration
+title: Cluster Configuration
+menuWeight: 10
+excerpt: Create a cluster configuration file and apply it to your environment.
+beta: false
+enterprise: false
+---
+
+## Create the cluster configuration file
+
+1. Update cluster.sh with the existing infrastructure values.
+
+```sh
+vi cluster-aws.sh
+```
+
+2. Generate the cluster configuration file from the updated cluster.sh file.
+
+```sh
+./cluster.sh
+```
+<p class="message--important"><strong>NOTE: </strong>AWS based AMI may contain a systemd process called autotune. Force autotune to allow ipv4_forward to be enabled in support of Kubernetes. Add the following to the cluster-sbx.yaml</p>
+
+```sh
+kind: KubeadmControlPlane
+...
+    preKubeadmCommands:
+    - systemctl daemon-reload
+    - systemctl restart containerd
+    - /run/kubeadm/konvoy-set-kube-proxy-configuration.sh
+    - autotune override sysctl:net.ipv4.ip_forward:1
+    - systemctl restart autotune
+...
+kind: KubeadmConfigTemplate
+      preKubeadmCommands:
+      - systemctl daemon-reload
+      - systemctl restart containerd
+      - /run/kubeadm/konvoy-set-kube-proxy-configuration.sh
+      - autotune override sysctl:net.ipv4.ip_forward:1
+      - systemctl restart autotune
+```
+<p class="message--important"><strong>NOTE: </strong>Update the AMI root volume size to match new AMI generated with Konvoy Image Builder for both the control planes and default node pool.</p>
+
+```sh
+apiVersion: infrastructure.cluster.x-k8s.io/v1alpha4
+kind: AWSMachineTemplate
+metadata:
+  name: cluster-sbx-control-plane
+  namespace: default
+spec:
+  template:
+    spec:
+      ami:
+        id: ami-0d1ab6c50a5f30339
+      iamInstanceProfile: ag-role.cluster-api-provider-aws.sigs.k8s.io
+      imageLookupBaseOS: centos-7
+      imageLookupFormat: capa-ami-{{.BaseOS}}-?{{.K8sVersion}}-*
+      imageLookupOrg: "258751437250"
+      instanceType: m5.xlarge
+      rootVolume:
+        size: 250
+...
+apiVersion: infrastructure.cluster.x-k8s.io/v1alpha4
+kind: AWSMachineTemplate
+metadata:
+  name: cluster-sbx-md-0
+  namespace: default
+spec:
+  template:
+    spec:
+      ami:
+        id: ami-0d1ab6c50a5f30339
+      iamInstanceProfile: ag-role.cluster-api-provider-aws.sigs.k8s.io
+      imageLookupBaseOS: centos-7
+      imageLookupFormat: capa-ami-{{.BaseOS}}-?{{.K8sVersion}}-*
+      imageLookupOrg: "258751437250"
+      instanceType: m5.2xlarge
+      rootVolume:
+        size: 250
+...
+```
+
+3. Apply the cluster configuration.
+
+```sh
+kubectl apply -f cluster-sbx.yaml
+```
+4. Monitor the Kubernetes cluster deployment.
+
+```sh
+watch ./dkp describe cluster -c cluster-sbx
+```
+
+When ready, begin [configuring the control plane.][clustercontrol].
+
+[clustercontrol]: ../clustercontrol
