@@ -84,6 +84,7 @@ hunter-aws-cluster-pf4a3
       name: $CLUSTER_NAME-md-0
       namespace: default
       labels:
+        cluster.x-k8s.io/cluster-name: $CLUSTER_NAME
         clusterctl.cluster.x-k8s.io/move: ""
     spec:
       hosts:
