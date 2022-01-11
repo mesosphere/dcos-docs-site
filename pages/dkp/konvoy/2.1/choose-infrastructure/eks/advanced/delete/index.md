@@ -56,7 +56,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```
 
     ```sh
-    INFO[2021-06-09T11:47:11-07:00] Running pivot command                         fromClusterKubeconfig=aws-example.conf fromClusterContext= src="move/move.go:83" toClusterKubeconfig=/home/clusteradmin/.kube/config toClusterContext=
+    INFO[2021-06-09T11:47:11-07:00] Running pivot command                         fromClusterKubeconfig=eks-example.conf fromClusterContext= src="move/move.go:83" toClusterKubeconfig=/home/clusteradmin/.kube/config toClusterContext=
     INFO[2021-06-09T11:47:36-07:00] Pivot operation complete.                     src="move/move.go:108"
     INFO[2021-06-09T11:47:36-07:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/clusteradmin/.kube/config get nodes  src="move/move.go:155"
     ```
@@ -68,13 +68,12 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```
 
     ```sh
-    NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
-    /eks-example                                                    True                     35s
-    ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
-    ├─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     36s
-    │   └─3 Machine...                                              True                     4m20s
+    NAME                                                               READY  SEVERITY  REASON  SINCE  MESSAGE
+    /eks-example                                                       True                     9m4s
+    ├─ControlPlane - AWSManagedControlPlane/eks-example-control-plane  True                     9m4s
     └─Workers
-        └─MachineDeployment/aws-example-md-0
+      └─MachineDeployment/eks-example                                  True                     7m39s
+        └─4 Machines...    
     ```
 
      <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use dkp with the workload cluster kubeconfig.</p>
@@ -111,9 +110,9 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```
 
     ```sh
-    INFO[2021-06-09T11:53:42-07:00] Running cluster delete command                clusterName=aws-example managementClusterKubeconfig= namespace=default src="cluster/delete.go:95"
+    INFO[2021-06-09T11:53:42-07:00] Running cluster delete command                clusterName=eks-example managementClusterKubeconfig= namespace=default src="cluster/delete.go:95"
     INFO[2021-06-09T11:53:42-07:00] Waiting for cluster to be fully deleted       src="cluster/delete.go:123"
-    INFO[2021-06-09T12:14:03-07:00] Deleted default/aws-example cluster  src="cluster/delete.go:129"
+    INFO[2021-06-09T12:14:03-07:00] Deleted default/eks-example cluster  src="cluster/delete.go:129"
     ```
 
     After the workload cluster is deleted, delete the bootstrap cluster.
