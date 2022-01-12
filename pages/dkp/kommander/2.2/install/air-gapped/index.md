@@ -30,7 +30,7 @@ Before installing, ensure you have:
 
 For an on-premises deployment, Kommander ships with [MetalLB][metallb], which provides load-balancing services.
 
-<p class="message--note"><strong>NOTE: </strong>Making a configuration change in the <code>ConfigMap</code> for the <code>metallb</code> application may not result in the config change applying. This is <a href="https://github.com/danderson/metallb/issues/348#issuecomment-442218138" target="_blank">intentional behavior</a>. MetalLB refuses to adopt changes to the ConfigMap that breaks existing Services. You can force MetalLB to load those changes by deleting the <code>metallb</code> controller pod:</p>
+<p class="message--note"><strong>NOTE: </strong>Making a configuration change in the <code>ConfigMap</code> for the <code>metallb</code> application may not result in the configuration change applying. This is <a href="https://github.com/danderson/metallb/issues/348#issuecomment-442218138" target="_blank">intentional behavior</a>. MetalLB refuses to adopt changes to the ConfigMap that breaks existing Services. You can force MetalLB to load those changes by deleting the <code>metallb</code> controller pod:</p>
 
    ```bash
    kubectl -n kommander delete pod -l app=metallb,component=controller
@@ -213,6 +213,17 @@ Based on the network latency between the environment of script execution and the
       helmMirrorImageTag: "${VERSION}-amd64"
     ```
 
+1. In the same file, if you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by setting the following:
+
+    ```yaml
+    apps:
+      traefik:
+        values: |
+          service:
+            annotations:
+              service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+    ```
+
 1. Download the Kommander application definitions:
 
     ```bash
@@ -223,24 +234,6 @@ Based on the network latency between the environment of script execution and the
 
     ```bash
     kommander install --installer-config ./install.yaml --kommander-applications-repository kommander-applications_${VERSION}.tar.gz
-    ```
-
-1. If you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by creating the following configmap in the `kommander` namespace:
-
-    ```yaml
-    cat << EOF | kubectl apply -f -
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      name: traefik-overrides
-      namespace: kommander
-    data:
-      values.yaml: |
-        ---
-        service:
-          annotations:
-            service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-    EOF
     ```
 
 1. [Verify your installation](../networked#verify-installation).
