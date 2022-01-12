@@ -29,7 +29,7 @@ Before you begin, you must:
     ```sh
     INFO[2022-01-11T16:54:05-05:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
     INFO[2022-01-11T16:54:09-05:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:99"
-    INFO[2022-01-11T16:54:09-05:00] CAPI provider already exists!                 src="bootstrap/controllers.go:107"    
+    INFO[2022-01-11T16:54:09-05:00] CAPI provider already exists!                 src="bootstrap/controllers.go:107"
     INFO[2022-01-11T16:54:09-05:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:115"
     INFO[2022-01-11T16:54:09-05:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
     INFO[2022-01-11T16:54:09-05:00] Created/Updated Tigera operator               src="bootstrap/clusterresourceset.go:42"
