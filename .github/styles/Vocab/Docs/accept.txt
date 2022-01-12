@@ -67,7 +67,7 @@ kmem
 (knative|Knative)
 Kommander
 Konvoy
-kubeadm
+(Kubeadm|kubeadm)
 kubectl
 (kubeconfig|Kubeconfig)
 (kubecost|Kubecost)
@@ -136,6 +136,7 @@ Toree
 uncordon(|ed)
 unmount(|s|ing|ed)
 (Velero|velero)
+vnet
 XGBoost
 yakcl
 (zookeeper|Zookeeper|ZooKeeper)
