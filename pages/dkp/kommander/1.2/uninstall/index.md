@@ -7,7 +7,8 @@ excerpt: Remove Kommander and related infrastructure
 menuWeight: 13
 ---
 
-# Remove a Kommander Cluster
+## Remove a Kommander Cluster
+
 Uninstalling Kommander is similar to [uninstalling Konvoy](/dkp/konvoy/1.6/uninstall) except for one critical difference: Managed clusters created by Kommander must be deleted before uninstalling the management Konvoy clusters, otherwise the state of those clusters will be lost and it would be necessary to manually delete those cluster assets on your cloud provider's console.
 
 <p class="message--warning"><strong>WARNING: </strong>
