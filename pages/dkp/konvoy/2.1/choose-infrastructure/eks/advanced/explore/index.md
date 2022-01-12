@@ -35,7 +35,6 @@ Before you start, make sure you have created a workload cluster, as described in
     ip-10-0-117-5.us-west-2.compute.internal     Ready    <none>   12m   v1.21.5-eks-bc4871b
     ip-10-0-81-221.us-west-2.compute.internal    Ready    <none>   12m   v1.21.5-eks-bc4871b
     ip-10-0-94-48.us-west-2.compute.internal     Ready    <none>   12m   v1.21.5-eks-bc4871b
-
     ```
 
     <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Nodes' Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>
