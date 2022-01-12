@@ -126,7 +126,7 @@ The output of this command is a `${CLUSTER_NAME}.yaml` file that you can examine
 
 1.  Inspect or edit the cluster objects:
 
-    <p class="message--note"><strong>NOTE: </strong>Familiarize yourself with [Cluster API][capi_book] before editing the cluster objects as edits may prevent the cluster from deploying successfully.</p>
+    <p class="message--note"><strong>NOTE: </strong>Familiarize yourself with <a href="https://cluster-api.sigs.k8s.io/">Cluster API</a> before editing the cluster objects as edits may prevent the cluster from deploying successfully.</p>
 
     The objects are [Custom Resources][k8s_custom_resources] defined by Cluster API components, and they belong in three different categories:
 
