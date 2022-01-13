@@ -37,6 +37,7 @@ Before you begin, you must have:
 
 ### Download the Air-gapped bundle
 
+
 The air-gapped bundle includes the following packages and tooling
 
 - Command line tooling
