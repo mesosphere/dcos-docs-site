@@ -14,6 +14,8 @@ excerpt: Information about the ZooKeeper Operator
 
 Follow these steps to install the ZooKeeper operator in a workspace. This procedure results in a ZooKeeper operator running in a workspace namespace, ready to manage and create ZooKeeper clusters in any project namespaces. See the [ZooKeeper custom resource documentation](../../../../../projects/applications/catalog-applications/dkp-applications/custom-resources-workspace-catalog/zookeeper/) for more information on creating ZooKeeper clusters.
 
+<p class="message--note"><strong>NOTE: </strong>Only install the ZooKeeper operator once per workspace.</p>
+
 1.  Follow the generic installation instructions for workspace catalog applications on the [Application Deployment](../../application-deployment/) page.
 
 1.  Within the `AppDeployment`, update the `appRef` to specify the correct `zookeeper-operator` App. You can find the `appRef.name` by listing the available `Apps` in the workspace namespace:
