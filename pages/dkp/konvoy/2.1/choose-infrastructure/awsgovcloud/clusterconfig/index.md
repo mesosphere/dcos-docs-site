@@ -43,7 +43,7 @@ enterprise: false
           - systemctl restart autotune
     ```
 
-    <p class="message--important"><strong>NOTE: </strong>Update the AMI root volume size to match new AMI generated with Konvoy Image Builder for both the control planes and default node pool.</p>
+    <p class="message--important"><strong>NOTE: </strong>Update the AMI root volume size to match the new AMI generated with Konvoy Image Builder for both the control planes and default node pool.</p>
 
     ```yaml
     apiVersion: infrastructure.cluster.x-k8s.io/v1alpha4
