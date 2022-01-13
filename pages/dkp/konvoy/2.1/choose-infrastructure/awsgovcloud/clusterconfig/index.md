@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Cluster Configuration
-title: Cluster Configuration
+title: Configure Cluster
 menuWeight: 20
 excerpt: Create a cluster configuration file and apply it to your environment.
 beta: false
