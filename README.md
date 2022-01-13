@@ -46,6 +46,8 @@ D2iQ has multiple environments for documentation to support various use cases: p
 - `develop` is a preview environment and the development branch for upstream doc changes not ready for production. Thus, this is the default branch as most work will be in preparation for a forthcoming release. It deploys to https://dev-docs.d2iq.com/
 - `beta` is the beta branch deployed to https://beta-docs.d2iq.com/. The docs team will promote `develop` to `beta` upon beta releases.
 
+**Note:** In most cases, if you are making changes to a yet-to-be-released version of the app and documentation, branch off of `develop`. If you are making changes to an already released version of the app and documentation, branch off of `main`. For example: If Kommander v2.1 is released, and you have a change to a topic in 2.1 - branch off of `main`. If you want to make the same change to the same topic in the upcoming release version Kommander v2.2, only change the files in the `/2.2/` folder in `develop`. The changes in the `/2.1/` version's folder will be added from `main` to `develop` on a regular interval.
+
 <!-- markdownlint-disable fenced-code-language -->
 
 ```
