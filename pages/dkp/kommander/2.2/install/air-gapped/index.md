@@ -123,7 +123,7 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
 
 ```sh
-export VERSION=v2.1.0
+export VERSION=v2.2.0
 ```
 
 ### Load the Docker images into your Docker registry
@@ -160,7 +160,7 @@ Based on the network latency between the environment of script execution and the
 
 ## Install on Konvoy
 
-1. Kommander v2.1 installs with a dedicated CLI.
+1. Kommander v2.2 installs with a dedicated CLI.
 
 1. Create an installation configuration file:
 
@@ -238,9 +238,9 @@ Based on the network latency between the environment of script execution and the
 
 1. [Verify your installation](../networked#verify-installation).
 
-[air-gap-before-you-begin]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/prerequisites/
+[air-gap-before-you-begin]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/prerequisites/
 [air-gap-install-metallb]: #use-metallb
-[air-gap-konvoy]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/
+[air-gap-konvoy]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/
 [kommander-load-balancing]: ../../networking/load-balancing
 [metallb]: https://metallb.universe.tf/concepts/
 [metallb_config]: https://metallb.universe.tf/configuration/
