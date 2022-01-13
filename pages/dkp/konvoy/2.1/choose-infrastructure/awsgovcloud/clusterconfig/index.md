@@ -10,7 +10,7 @@ enterprise: false
 
 ## Create the cluster configuration file
 
-1.  Update cluster.sh with the existing infrastructure values.
+1.  Update `cluster-aws.sh` with the existing infrastructure values.
 
     ```sh
     vi cluster-aws.sh
