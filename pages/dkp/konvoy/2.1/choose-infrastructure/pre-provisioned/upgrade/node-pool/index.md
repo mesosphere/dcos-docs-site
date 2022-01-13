@@ -18,7 +18,7 @@ Before you begin, you must:
 
 This topic details how to update the worker node pool by updating the k8s version:
 
-The worker node pool is described by a MachineDeployment resource, which references immutable PreprovisionedMachineTemplate and KubeadmConfigTemplate resources. This topic explains how patch patch the MachineDeployment in order to update the node pool in place.
+The worker node pool is described by a MachineDeployment resource, which references immutable PreprovisionedMachineTemplate and KubeadmConfigTemplate resources. This topic explains how to patch the MachineDeployment in order to update the node pool in place.
 
 ## Prepare the environment
 
@@ -30,7 +30,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
     See [define infrastructure](../../define-infrastructure#name-your-cluster) for information on naming your cluster.
 
-1.  **If your workload cluster is self-managed,** as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster. **If it's not self-managed, skip this step.**
+1.  **If your workload cluster is self-managed,** as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster. **If it is not self-managed, skip this step.**
 
     ```sh
     export KUBECONFIG=${CLUSTER_NAME}.conf
@@ -96,9 +96,9 @@ The worker node pool is described by a MachineDeployment resource, which referen
     EOF
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>The `maxSurge: 0` configuration sets the update strategy so that an old machine is deleted before a new machine is created. This strategy is required to perform a rolling update when additional, unused machines are not available.</p>
+    <p class="message--note"><strong>NOTE: </strong>The <code>maxSurge: 0</code> configuration sets the update strategy so that an old machine is deleted before a new machine is created. This strategy is required to perform a rolling update when additional, unused machines are not available.</p>
 
-    <p class="message--warning"><strong>WARNING: </strong>When `maxSurge: 0` is configured, an update of a one-machine worker node pool interrupts workloads running in that pool.</p>
+    <p class="message--warning"><strong>WARNING: </strong>When <code>maxSurge: 0</code> is configured, an update of a one-machine worker node pool interrupts workloads running in that pool.</p>
 
 1.  Update the MachineDeployment
 

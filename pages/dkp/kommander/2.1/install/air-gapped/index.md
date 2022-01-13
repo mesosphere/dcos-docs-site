@@ -30,7 +30,7 @@ Before installing, ensure you have:
 
 For an on-premises deployment, Kommander ships with [MetalLB][metallb], which provides load-balancing services.
 
-<p class="message--note"><strong>NOTE: </strong>Making a configuration change in the <code>ConfigMap</code> for the <code>metallb</code> application may not result in the config change applying. This is <a href="https://github.com/danderson/metallb/issues/348#issuecomment-442218138" target="_blank">intentional behavior</a>. MetalLB refuses to adopt changes to the ConfigMap that breaks existing Services. You can force MetalLB to load those changes by deleting the <code>metallb</code> controller pod:</p>
+<p class="message--note"><strong>NOTE: </strong>Making a configuration change in the <code>ConfigMap</code> for the <code>metallb</code> application may not result in the configuration change applying. This is <a href="https://github.com/danderson/metallb/issues/348#issuecomment-442218138" target="_blank">intentional behavior</a>. MetalLB refuses to adopt changes to the ConfigMap that breaks existing Services. You can force MetalLB to load those changes by deleting the <code>metallb</code> controller pod:</p>
 
    ```bash
    kubectl -n kommander delete pod -l app=metallb,component=controller
@@ -111,7 +111,7 @@ The following example illustrates the BGP configuration in the overrides `Config
            - 172.40.100.0/24
    ```
 
-In the above configuration, `peers` defines the configuration of the BGP peer, such as peer ip address and `autonomous system number` (`asn`).
+In the above configuration, `peers` defines the configuration of the BGP peer, such as peer IP address and `autonomous system number` (`asn`).
 The `address-pools` section is similar to `layer2`, except for the protocol.
 
 MetalLB also supports [advanced BGP configuration][metallb_config].
@@ -136,7 +136,7 @@ export VERSION=v2.1.0
 
 1. Place the bundle in a location where you can load and push the images to your private Docker registry.
 
-1. Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air gapped image bundle:
+1. Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
 
     ```bash
     #!/usr/bin/env bash
@@ -213,6 +213,17 @@ Based on the network latency between the environment of script execution and the
       helmMirrorImageTag: "${VERSION}-amd64"
     ```
 
+1. In the same file, if you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB:
+
+    ```yaml
+    apps:
+      traefik:
+        values: |
+          service:
+            annotations:
+              service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+    ```
+
 1. Download and extract the `kommander-applications` bundle.
 
     ```bash
@@ -223,24 +234,6 @@ Based on the network latency between the environment of script execution and the
 
     ```bash
     kommander install --installer-config ./install.yaml --kommander-applications-repository ./kommander-applications
-    ```
-
-1. If you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by creating the following configmap in the `kommander` namespace:
-
-    ```yaml
-    cat << EOF | kubectl apply -f -
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      name: traefik-overrides
-      namespace: kommander
-    data:
-      values.yaml: |
-        ---
-        service:
-          annotations:
-            service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-    EOF
     ```
 
 1. [Verify your installation](../networked#verify-installation).

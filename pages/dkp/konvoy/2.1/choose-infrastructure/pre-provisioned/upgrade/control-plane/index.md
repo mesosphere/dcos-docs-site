@@ -16,7 +16,7 @@ Before you begin, you must:
 
 ## Overview
 
-There are many reasons to update the control plane. This topic covers three of the most common:
+You may have many reasons to update the control plane. This topic covers three of the most common:
 
 1. To upgrade the Kubernetes version.
 
@@ -32,7 +32,7 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 
     See [define infrastructure](../../define-infrastructure#name-your-cluster) for information on naming your cluster.
 
-1.  **If your workload cluster is self-managed,** as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster. **If it's not self-managed, skip this step.**
+1.  **If your workload cluster is self-managed,** as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster. **If it is not self-managed, skip this step.**
 
     ```sh
     export KUBECONFIG=${CLUSTER_NAME}.conf
@@ -87,9 +87,9 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
     EOF
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>The `maxSurge: 0` configuration sets the update strategy so that an old machine is deleted before a new machine is created. This strategy is required to perform a rolling update when additional, unused machines are not available.</p>
+    <p class="message--note"><strong>NOTE: </strong>The <code>maxSurge: 0</code> configuration sets the update strategy so that an old machine is deleted before a new machine is created. This strategy is required to perform a rolling update when additional, unused machines are not available.</p>
 
-    <p class="message--warning"><strong>WARNING: </strong>When `maxSurge: 0` is configured, an update of a one-machine control plane is not possible.</p>
+    <p class="message--warning"><strong>WARNING: </strong>When <code>maxSurge: 0</code> is configured, an update of a one-machine control plane is not possible.</p>
 
 1.  Update the KubeadmControlPlane
 
