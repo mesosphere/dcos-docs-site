@@ -30,7 +30,7 @@ Before installing, ensure you have:
 
 For an on-premises deployment, Kommander ships with [MetalLB][metallb], which provides load-balancing services.
 
-<p class="message--note"><strong>NOTE: </strong>Making a configuration change in the <code>ConfigMap</code> for the <code>metallb</code> application may not result in the config change applying. This is <a href="https://github.com/danderson/metallb/issues/348#issuecomment-442218138" target="_blank">intentional behavior</a>. MetalLB refuses to adopt changes to the ConfigMap that breaks existing Services. You can force MetalLB to load those changes by deleting the <code>metallb</code> controller pod:</p>
+<p class="message--note"><strong>NOTE: </strong>Making a configuration change in the <code>ConfigMap</code> for the <code>metallb</code> application may not result in the configuration change applying. This is <a href="https://github.com/danderson/metallb/issues/348#issuecomment-442218138" target="_blank">intentional behavior</a>. MetalLB refuses to adopt changes to the ConfigMap that breaks existing Services. You can force MetalLB to load those changes by deleting the <code>metallb</code> controller pod:</p>
 
    ```bash
    kubectl -n kommander delete pod -l app=metallb,component=controller
@@ -123,7 +123,7 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
 
 ```sh
-export VERSION=v2.1.0
+export VERSION=v2.2.0
 ```
 
 ### Load the Docker images into your Docker registry
@@ -160,7 +160,7 @@ Based on the network latency between the environment of script execution and the
 
 ## Install on Konvoy
 
-1. Kommander v2.1 installs with a dedicated CLI.
+1. Kommander v2.2 installs with a dedicated CLI.
 
 1. Create an installation configuration file:
 
@@ -213,6 +213,17 @@ Based on the network latency between the environment of script execution and the
       helmMirrorImageTag: "${VERSION}-amd64"
     ```
 
+1. In the same file, if you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by setting the following:
+
+    ```yaml
+    apps:
+      traefik:
+        values: |
+          service:
+            annotations:
+              service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+    ```
+
 1. Download the Kommander application definitions:
 
     ```bash
@@ -225,29 +236,11 @@ Based on the network latency between the environment of script execution and the
     kommander install --installer-config ./install.yaml --kommander-applications-repository kommander-applications_${VERSION}.tar.gz
     ```
 
-1. If you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by creating the following configmap in the `kommander` namespace:
-
-    ```yaml
-    cat << EOF | kubectl apply -f -
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      name: traefik-overrides
-      namespace: kommander
-    data:
-      values.yaml: |
-        ---
-        service:
-          annotations:
-            service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-    EOF
-    ```
-
 1. [Verify your installation](../networked#verify-installation).
 
-[air-gap-before-you-begin]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/prerequisites/
+[air-gap-before-you-begin]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/prerequisites/
 [air-gap-install-metallb]: #use-metallb
-[air-gap-konvoy]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/
+[air-gap-konvoy]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/
 [kommander-load-balancing]: ../../networking/load-balancing
 [metallb]: https://metallb.universe.tf/concepts/
 [metallb_config]: https://metallb.universe.tf/configuration/
