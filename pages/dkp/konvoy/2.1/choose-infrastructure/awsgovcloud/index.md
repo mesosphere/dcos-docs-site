@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: 
-title: AWS GovCloud Installation
+title: AWS GovCloud
 menuWeight: 10
 excerpt: AWS GovCloud Installation information
 beta: false
