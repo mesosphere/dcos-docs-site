@@ -72,14 +72,14 @@ The air-gapped bundle includes the following packages and tooling
     ```sh
     // Logout
     exit
-    
+
     // Login
     ssh user@x.x.x.x
     ```
 
 After a successful login, move on to setting up Konvoy Image Builder.
 
-### Konvoy Image Builder
+### Create AMI
 
 Use Konvoy Image Builder to create an Amazon Machine Image (AMI) based on the desired OS included in the air-gapped bundle.
 
@@ -87,7 +87,7 @@ Use Konvoy Image Builder to create an Amazon Machine Image (AMI) based on the de
 
     ```sh
     curl -OL https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.5.0-rc.3/konvoy-image-bundle-v1.5.0-rc.3_linux_amd64.tar.gz
-    
+
     tar -xvf konvoy-image-bundle-v1.5.0-rc.3_linux_amd64.tar.gz
     ```
 
@@ -104,7 +104,7 @@ Use Konvoy Image Builder to create an Amazon Machine Image (AMI) based on the de
       # vpc_id: vpc-058da8b5f1fcb1369
       #Optional Subnet ID
       # subnet_id: subnet-052653ab52e5773f0
-    
+
     EOF
     ```
 

@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-## Adding cluster controllers
+## Add cluster controllers
 
 1.  Get the kubeconfig file.
 
@@ -38,7 +38,7 @@ enterprise: false
 
     ```sh
     kubectl --kubeconfig cluster-sbx.conf wait --for=condition=ControlPlaneReady "clusters/cluster-sbx" --timeout=20m
-    
+
     // Output
     cluster.cluster.x-k8s.io/aws-example condition met
     ```

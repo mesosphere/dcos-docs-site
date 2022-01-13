@@ -56,6 +56,8 @@ enterprise: false
         spec:
           ami:
             id: ami-0d1ab6c50a5f30339
+          cloudInit:
+            insecureSkipSecretsManager: false
           iamInstanceProfile: ag-role.cluster-api-provider-aws.sigs.k8s.io
           imageLookupBaseOS: centos-7
           imageLookupFormat: capa-ami-{{.BaseOS}}-?{{.K8sVersion}}-*
@@ -74,6 +76,8 @@ enterprise: false
         spec:
           ami:
             id: ami-0d1ab6c50a5f30339
+          cloudInit:
+            insecureSkipSecretsManager: false
           iamInstanceProfile: ag-role.cluster-api-provider-aws.sigs.k8s.io
           imageLookupBaseOS: centos-7
           imageLookupFormat: capa-ami-{{.BaseOS}}-?{{.K8sVersion}}-*
