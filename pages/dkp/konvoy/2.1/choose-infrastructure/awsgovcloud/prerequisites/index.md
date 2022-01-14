@@ -50,16 +50,17 @@ The air-gapped bundle includes the following packages and tooling
 - Docker registry image
 
 1.  Download the air-gapped bundle.
+<p class="message--important"><strong>NOTE: </strong>Enter in the appropriate version in the $VERSION field.</p>
 
     ```sh
-    curl -O downloads.mesosphere.io/konvoy/airgapped/os-packages_1.21.6_x86_64_rpms.tar.gz
-    curl -O downloads.mesosphere.io/konvoy/airgapped/pip-packages.tar.gz
+    curl -O downloads.d2iq.com/konvoy/airgapped/$VERSION.tar.gz
+    curl -O downloads.d2iq.com/konvoy/airgapped/pip-packages.tar.gz
     ```
 
 1.  Expand the air-gapped bundle artifact.
 
     ```sh
-    tar -xvf os-packages_1.21.6_x86_64_rpms.tar.gz
+    tar -xvf $VERSION.tar.gz
     ```
 
 1.  Run setup.
