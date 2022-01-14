@@ -8,6 +8,7 @@ ANN(|s)
 auto-assign
 (auto-provisioner|Auto-Provisioner)
 autoscal(e|es|ed|ing)
+autotune
 awscsiprovisioner
 backend
 backoff
@@ -194,6 +195,7 @@ unpause(|s)
 (URI|URIs)
 (Velero|velero)
 (WebSocket|Websocket|websocket)
+vnet
 XGBoost
 xlarge
 yakcl
