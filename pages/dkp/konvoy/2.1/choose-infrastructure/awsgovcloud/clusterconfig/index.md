@@ -22,7 +22,7 @@ enterprise: false
     ./cluster.sh
     ```
 
-    <p class="message--important"><strong>NOTE: </strong>An Amazon Linux 2-based AMI runs the `autotune` utility to set Linux kernel parameters optimal for the EC2 instance type. Kubernetes requires the `ipv4_forward` kernel parameter to be enabled, but the `autotune` utility disables it by default. To override the default, add the following to the <code>cluster-sbx.yaml</code>.</p>
+    <p class="message--important"><strong>NOTE: </strong>An Amazon Linux 2-based AMI runs the <code>autotune</code> utility to set Linux kernel parameters optimal for the EC2 instance type. Kubernetes requires the <code>ipv4_forward</code> kernel parameter to be enabled, but the <code>autotune</code> utility disables it by default. To override the default, add the following to the <code>cluster-sbx.yaml</code>.</p>
 
     ```yaml
     kind: KubeadmControlPlane
