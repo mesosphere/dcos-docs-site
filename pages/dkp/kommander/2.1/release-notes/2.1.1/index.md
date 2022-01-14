@@ -22,6 +22,11 @@ This release provides new features and enhancements to improve the user experien
 
 ## New features and capabilities
 
+### Provision Konvoy with air-gapped bundles
+
+You can now provision air-gapped environments with Konvoy using the pre-packaged air-gapped bundles provided by D2iQ. 
+
+For more information, see [AWS Gov Cloud](../../../../konvoy/2.1/choose-infrastructure/awsgovcloud/)
 ### Ability to add catalog applications
 
 With this release, you can now add catalog applications to your Kommander instances. Currently, we provide the following operator applications that are workspace-scoped:
