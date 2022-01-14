@@ -37,7 +37,6 @@ Before you begin, you must have:
 
 ### Download the Air-gapped bundle
 
-
 The air-gapped bundle includes the following packages and tooling
 
 - Command line tooling
@@ -50,7 +49,8 @@ The air-gapped bundle includes the following packages and tooling
 - Docker registry image
 
 1.  Download the air-gapped bundle.
-<p class="message--important"><strong>NOTE: </strong>Enter in the appropriate version in the $VERSION field.</p>
+
+    <p class="message--important"><strong>NOTE: </strong>Enter in the appropriate version in the <code>$VERSION</code> field.</p>
 
     ```sh
     curl -O downloads.d2iq.com/konvoy/airgapped/$VERSION.tar.gz
