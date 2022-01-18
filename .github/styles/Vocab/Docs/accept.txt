@@ -39,7 +39,7 @@ ECR
 etcd
 Flink
 fluentbit
-GCR
+(GCR|gcr)
 Gitea
 gitops
 (grafana|Grafana)
