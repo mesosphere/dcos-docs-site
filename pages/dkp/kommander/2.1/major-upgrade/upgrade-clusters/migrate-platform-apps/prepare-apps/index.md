@@ -25,9 +25,9 @@ Copy or re-create ServiceMonitors using the label `release: kube-prometheus-stac
 
 You can adapt the ServiceMonitors created using Helm values of the Addon in two ways:
 
--   Create new standalone ServiceMonitor resources with the label `release: kube-prometheus-stack`. This can be done before processing.
+- Create new standalone ServiceMonitor resources with the label `release: kube-prometheus-stack`. This can be done before processing.
 
--   Add the custom ServiceMonitor configurations into an additionalServiceMonitors section of the overrides ConfigMap of the Prometheus AppDeployment. This can only be done after processing. This results in an interval when the adapted Prometheus application is running but these custom ServiceMonitors are not configured.
+- Add the custom ServiceMonitor configurations into an additionalServiceMonitors section of the overrides ConfigMap of the Prometheus AppDeployment. This can only be done after processing. This results in an interval when the adapted Prometheus application is running but these custom ServiceMonitors are not configured.
 
 <p class="message--important"><strong>IMPORTANT: </strong>To be able to adapt ServiceMonitors created using Helm values of the Addon, you must store the Addon values before starting the moving process. The Addon removal is one of the first processing steps. After that the old Addon values are not accessible.</p>
 
@@ -37,29 +37,29 @@ After processing is complete, remove both the old alertmanager configuration sec
 
 ### Resolve Prometheus adaption issues
 
--   If you customized the Addon, you may have to edit the `kube-prometheus-stack-overrides` ConfigMap for the HelmRelease to get reconciled.
+- If you customized the Addon, you may have to edit the `kube-prometheus-stack-overrides` ConfigMap for the HelmRelease to get reconciled.
 
--   If you customized the storage for Prometheus, it is possible the adaption cannot select the old PersistentVolumes. For example, there could be a name mismatch between the actual and expected PersistentVolumeClaims. You can identify the PersistentVolumes of the old Prometheus installation by inspecting the `migration.kommander.mesosphere.io/statefulset-name` and `migration.kommander.mesosphere.io/statefulset-ns` labels.
+- If you customized the storage for Prometheus, it is possible the adaption cannot select the old PersistentVolumes. For example, there could be a name mismatch between the actual and expected PersistentVolumeClaims. You can identify the PersistentVolumes of the old Prometheus installation by inspecting the `migration.kommander.mesosphere.io/statefulset-name` and `migration.kommander.mesosphere.io/statefulset-ns` labels.
 
 ## Fluent Bit and logging stack adaption
 
 The Kommander 2.1 logging stack is different from previous versions and is based on Loki and Grafana. Previous versions were based on Elasticsearch and Kibana. Logging stack adaption is triggered by detecting the Fluent Bit Addon. This results in the following actions:
 
--   A new Fluent Bit AppDeployment is created using D2iQ Helm value defaults.
+- A new Fluent Bit AppDeployment is created using D2iQ Helm value defaults.
 
--   All the other 2.x logging stack components are installed.
+- All the other 2.x logging stack components are installed.
 
--   The Fluent Bit Addon is deleted.
+- The Fluent Bit Addon is deleted.
 
 Elasticsearch, elasticsearch-curator, and Kibana Addons are deleted without uninstalling the Helm release formerly managed by the Kubeaddons controller. You must manually uninstall these Helm releases.
 
 ### Caveats
 
--   If you customized the Fluent Bit Addon configuration in 1.x, you must add corresponding configOverrides to your 2.x AppDeployment. The configOverrides should be based on the 2.x defaults combined with your custom modifications.
+- If you customized the Fluent Bit Addon configuration in 1.x, you must add corresponding configOverrides to your 2.x AppDeployment. The configOverrides should be based on the 2.x defaults combined with your custom modifications.
 
--   The remaining components of the old logging stack are not uninstalled, and must be manually deleted. See the [post upgrade cleanup](../cleanup) section for details.
+- The remaining components of the old logging stack are not uninstalled, and must be manually deleted. See the [post upgrade cleanup](../cleanup) section for details.
 
--   If your 1.8 cluster only used use Fluent Bit and you do not need other parts of the 2.x logging stack installed, specify the `--skip-new-logging-stack-apps` flag when performing the adaption process.
+- If your 1.8 cluster only used use Fluent Bit and you do not need other parts of the 2.x logging stack installed, specify the `--skip-new-logging-stack-apps` flag when performing the adaption process.
 
 ## Kubernetes-dashboard
 

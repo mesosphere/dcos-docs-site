@@ -19,9 +19,9 @@ This section automatically adapts your Konvoy addons to Kommander platform appli
 
 To successfully adapt your applications, you must have:
 
--   A Konvoy 1.8.3 or 1.8.4 cluster that you have already [upgraded to DKP 2.1](/dkp/konvoy/2.1/major-version-upgrade/), with the `kommander` addon disabled in your cluster.yaml.
+- A Konvoy 1.8.3 or 1.8.4 cluster that you have already [upgraded to DKP 2.1](/dkp/konvoy/2.1/major-version-upgrade/), with the `kommander` addon disabled in your cluster.yaml.
 
--   [Download](../../../download) and install the Kommander CLI binary on your computer.
+- [Download](../../../download) and install the Kommander CLI binary on your computer.
 
 ## Prepare your cluster
 
@@ -105,13 +105,13 @@ If none of the conditions apply to your cluster, then you can skip to next secti
     Copy the values from the `ConfigMap` into the Gatekeeper `Addon` resource accordingly:
 
     | ConfigMap kubeaddons-remap-values `.data.values` | Addon gatekeeper `.spec.chartReference.values` |
-    | ---------------------------------------------    | ------------------------------------- |
-    | gatekeeper.mutation.enable                       | mutations.enable                      |
-    | gatekeeper.mutation.enablePodProxy               | mutations.enablePodProxy              |
-    | gatekeeper.mutation.namespaceSelectorForProxy    | mutations.namespaceSelectorForProxy   |
-    | gatekeeper.mutation.no-proxy                     | mutations.podProxySettings.noProxy    |
-    | gatekeeper.mutation.http-proxy                   | mutations.podProxySettings.httpProxy  |
-    | gatekeeper.mutation.https-proxy                  | mutations.podProxySettings.httpsProxy |
+    | ------------------------------------------------ | ---------------------------------------------- |
+    | gatekeeper.mutation.enable                       | mutations.enable                               |
+    | gatekeeper.mutation.enablePodProxy               | mutations.enablePodProxy                       |
+    | gatekeeper.mutation.namespaceSelectorForProxy    | mutations.namespaceSelectorForProxy            |
+    | gatekeeper.mutation.no-proxy                     | mutations.podProxySettings.noProxy             |
+    | gatekeeper.mutation.http-proxy                   | mutations.podProxySettings.httpProxy           |
+    | gatekeeper.mutation.https-proxy                  | mutations.podProxySettings.httpsProxy          |
 
     If the values in the Gatekeeper `Addon` resource already match the values from the `kubeaddons-remap-values` ConfigMap in `kubeaddons` namespace, then there is no need to update anything. If not, edit the Gatekeeper `Addon` to reflect the above value remapping:
 

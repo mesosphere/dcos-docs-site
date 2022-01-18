@@ -6,11 +6,11 @@ D2iQ's documentation site uses a JavaScript static site generator called Metalsm
 
 ## Prerequisites
 
-1. Install node.js version 12.22.7 (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf) or [nvm-windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows))
 1. Clone the repo
+1. Install node.js version 12.22.7 (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf) or [nvm-windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows))
 1. Windows users will need to [install python2](https://github.com/nodejs/node-gyp/tree/v3.8.0#on-windows) globally
 1. Install dependencies via command `npm i`
-1. Install [vale](https://docs.errata.ai/vale/install) for pre-commit checks.
+1. Install [vale](https://docs.errata.ai/vale/install) (an [ASDF plugin](https://github.com/osg/asdf-vale) is also available).
 
 ## Development
 
@@ -46,6 +46,8 @@ D2iQ has multiple environments for documentation to support various use cases: p
 - `develop` is a preview environment and the development branch for upstream doc changes not ready for production. Thus, this is the default branch as most work will be in preparation for a forthcoming release. It deploys to https://dev-docs.d2iq.com/
 - `beta` is the beta branch deployed to https://beta-docs.d2iq.com/. The docs team will promote `develop` to `beta` upon beta releases.
 
+**Note:** In most cases, if you are making changes to a yet-to-be-released version of the app and documentation, branch off of `develop`. If you are making changes to an already released version of the app and documentation, branch off of `main`. For example: If Kommander v2.1 is released, and you have a change to a topic in v2.1 - branch off of `main`. If you want to make the same change to the same topic in the upcoming release version Kommander v2.2, only change the files in the `/2.2/` folder in `develop`. The changes in the `/2.1/` version's folder will be added from `main` branch the to `develop` branch on a regular interval.
+
 <!-- markdownlint-disable fenced-code-language -->
 
 ```
@@ -63,9 +65,9 @@ main        ------------------o----
 
 ## Husky pre-commit hook
 
-This repo validates code before committing. No additionally tooling needs to be installed. It will only lint files that have changed.
+This repo validates code before committing, without the need for additional tooling to run. It will only lint files that have changed.
 
-The Docs team introduced these linters in December 2021 and decided not to retroactively apply them to existing files. Thus, _you will encounter errors on files you have changed that you did not introduce_. Please cheerfully address them as best you can!
+The Docs team introduced these linters in December 2021 and decided not to retroactively apply them to existing files. Thus, **you will encounter errors on files you have changed that you did not introduce**. Please cheerfully address errors as best you can!
 
 - Grammar lint via [vale](https://docs.errata.ai/)
 - Link validation using [remark](https://github.com/remarkjs/remark)
