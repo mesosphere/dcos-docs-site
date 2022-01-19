@@ -7,7 +7,7 @@ beta: false
 excerpt: View release-specific information for Kaptain
 ---
 
-**D2iQ&reg; Kaptain&reg; version 1.3 was released on January 14, 2022.**
+**D2iQ&reg; Kaptain&reg; version 1.3 was released on January 19, 2022.**
 
 To get started with Kaptain, [download](../../download) and [install](../../install) the latest version of Kaptain.
 
@@ -45,7 +45,7 @@ In DKP 2.1, Kaptain's dependencies are managed through Kommander, the centralize
 
 #### Installation and Upgrade Improvements
 
-The Kaptain installation and upgrade time has been shortened in 1.4.
+The Kaptain installation and upgrade time has been shortened in 1.3.
 
 #### Docker images improvements
 
