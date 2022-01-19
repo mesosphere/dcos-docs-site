@@ -12,8 +12,8 @@ Configure Kaptain to use a Kommander management cluster for authentication.
 
 ## Prerequisites
 - A Kommander management cluster.
-- A managed Konvoy cluster, into which Kaptain will be installed.
-- The managed (Konvoy) cluster is [attached][attached-cluster] to the management cluster (Kommander). (You will need to [create a cluster via Kommander][create-managed-cluster] to have a managed Konvoy cluster.)
+- A managed cluster, into which Kaptain will be installed.
+- The managed cluster is [attached][attached-cluster] to the management cluster (Kommander). (You will need to [create a cluster via Kommander][create-managed-cluster] to have a managed Konvoy cluster.)
 
 ## Kaptain configuration requirements
 To use the Kommander Dex instance for authentication with Kaptain you will need to collect the following information:
@@ -23,27 +23,55 @@ To use the Kommander Dex instance for authentication with Kaptain you will need 
 - External OIDC provider CA bundle
 
 ## Get Dex Client Id
-To get the external Dex Client ID, run the following command on the managed cluster (Konvoy):
 
-```bash
-kubectl describe configmaps -n kommander-system traefik-forward-auth-kommander-kubeaddons-configmap | grep client-id | cut -d '-' -f4-
-```
-
-## Get Dex Client Secret
-To get the Dex client secret, run the following command on the management cluster:
+### Konvoy 1.x
+To get the Dex client secret, run the following command on the managed cluster:
 ```bash
 kubectl get secrets -n kubeaddons \
 "$(kubectl get clients.dex.mesosphere.io -n kubeaddons <Dex Client ID> --template={{.spec.clientSecretRef.name}})" \
 --template='{{index .data "client-secret"}}' | base64 --decode
 ```
 
+### DKP 2.x
+To get the external Dex Client ID on DKP 2.x, run the following command on the management cluster (Kommander):
+
+```bash
+kubectl describe configmaps -n kommander traefik-forward-auth-configmap | grep client-id | cut -d '-' -f4-
+```
+
+## Get Dex Client Secret
+### Konvoy 1.x
+To get the Dex client secret on Konvoy 1.x, run the following command on the management (Kommander) cluster:
+```bash
+kubectl get secrets -n kubeaddons \
+"$(kubectl get clients.dex.mesosphere.io -n kubeaddons <Dex Client ID> --template={{.spec.clientSecretRef.name}})" \
+--template='{{index .data "client-secret"}}' | base64 --decode
+```
+
+### DKP 2.x
+To get the Dex client secret on DKP 2.x, run the following command on the management (Kommander) cluster:
+```bash
+kubectl get secrets -n kommander \
+"$(kubectl get clients.dex.mesosphere.io -n kommander <Dex Client ID> --template={{.spec.clientSecretRef.name}})" \
+--template='{{index .data "client-secret"}}' | base64 --decode
+```
+
 ## Get external OIDC provider endpoint and CA bundle
 Get the management cluster's OIDC provider endpoint as `https://<management-cluster-url>/dex`
+
+### Get CA bundle on Konvoy 1.x
 
 To get the OIDC provider CA bundle, run the following command on the management cluster (Kommander):
 ```bash
 kubectl get secret traefik-kubeaddons-certificate -n kubeaddons -o jsonpath="{.data.ca\.crt}"
 ```
+
+### Get CA bundle on DKP 2.x
+To get the OIDC provider CA bundle, run the following command on the management cluster (Kommander):
+```bash
+kubectl get secret kommander-traefik-certificate -n kommander -o jsonpath='{.data.ca\.crt}'
+```
+
 ## Install Kaptain
 Create or update a configuration file named `parameters.yaml` that includes the following properties:
 ```yaml
@@ -54,7 +82,7 @@ oidcProviderBase64CaBundle: <OIDC provider CA bundle>
 ```
 The resulting configuration file should look similar to the following:
 ```yaml
-externalDexClientId: dex-controller-dextfa-client-managed-cluster-admin-managed-cluster-dkzzq
+externalDexClientId: dex-controller-dextfa-client-host-cluster-mmtt5
 externalDexClientSecret: kkyhCc0W94WDJezbzsN7Ykif3DrwNuT40p3TWOKlDtdgjfJm1ItrJaqzRqQD7pUn
 oidcProviderEndpoint: https://<Management-cluster-URL>/dex
 oidcProviderBase64CaBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS9tLS0tCk1JSUMrVENDQWVHZ0F3SUJBZ0lSQUp1NlBOSFVsWVZHR0AzRW9vSGNPd1F3RFFZSktvWklodmNOQVFFTEJRQXcKRlRFVE1CRUdBMVVFQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TURFeU1EZ3dPVFEzTkBsYUZ3MHpNREV5TURZdwpPVFEzTkRsYU1CY3hGVEFUQmdOVkJBTVRER05sY25RdGJXRnVZV2RsY2pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCCkJRQURnZ0VQQURDQ0FRb0NnZ0VCQUwzQmlJR0RnVkpzRVhJUjEvc6hkdysvzzFLaG9PdkVwcVM5Mk1pS050cDkKaW1xVUtqZGFMSHVxYlBheWhuMjNwTmhUa2haL0NEOVgyb05xVFhOR0Q2SE44WGFrMWt4VE9xWnd4am9yNktydQpUWGZrREVmZGtHVG9nZUlSaEtpSUdxRUU1Vy9teWNkVkdDUThnNXEvcUprd3JIZHgyOTZMREVwSDEzMm9aQmk1CmVNMlZvNmpVYnUydkp4MHpyVnIzeVWuaUp0TlNpbnFoN1RVc2I2bTZoeFErRkVBZFY1djdraVBLVW4wdmZTVlYKQ1YwNXdmbUU0WEEyY2d5N3RpeEV3NkFCNmFOeGYwcGVSVXpXS0ZoL3FJdGpFWEg5RVJiWVJ5cDA1UGUyb2xCVwpHWXpiVDJsblVPeW5uL0I3YWZRSExWS0RPcTRsa3NmWlBoWTJQWmZwVW5NQ0F3RUFBYU5DTUVBd0RnWURWUjBQCkFRSC9CQVFEQWdLa01BOEdBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZHZmtITWxVTU1hSzRtRjgKNUNPeXhPMHAvWGNNTUEwR0NTcUdTSWIzRFFFQkN3VUFBNElCQVFERjh2d3lhWnpZUmRYRGo5ODJrN0RZRDY2cwpMVE44d3Q0ZkxKbEJKODREFzd0TGJmSVdmYkJ4VzFDd0UxdEhuaTFPd3pROGkzUytpUFhuQ0dCZFNSdm5FQkJsCnF1bkpqdWRBMm9odEs5SmViTUhPTEFpbXRnWVhZdVllTFZudGxpWCtQdmxRMWxoYzByeXFENkRkWUUwckJSdlcKRkgvSTY2b2ZONGZFVlJ2RjFiSG5uZ1BsZlFUcHNRRzZFZVNoa0RvclAwSDhxNnU5RXcyaG5Ba0hwRXVlWUJibQpkeXZvRStVWTM1ck9XK3pEQ3NXNUNPRTVGWjVWQ64lRmJMRmRSUU9tdW9BaXlCV2UyTHZHdjgzdXVSZTRsSWhxCnAxSEIrZlBPTGdJVGRaSHEwYkgvdEZZNEw0YmNkRGhGYnlJRldzN01NZ2FxeCtMZThoMDNIZE5ybG5USQotLS0tWARORCBDRVJUSUZJQ0FURS0tRS0tCg==
@@ -84,9 +112,18 @@ Once Kaptain is up, get the redirect URL from Kaptain's authservice by running t
 kubectl exec -it -n kubeflow authservice-0 -- sh -c 'echo $REDIRECT_URL'
 ```
 
+### Konvoy 1.x
+
 On the management cluster add the Redirect URL to the `redirectURIs` list of the Dex client resource:
 ```bash
 kubectl patch clients.dex.mesosphere.io -n kubeaddons <Dex Client ID> \
+  --type "json" -p '[{"op":"add", "path" :"/spec/redirectURIs/-", "value": "<Redirect URL>"}]'
+```
+
+### DKP 2.x
+On the management cluster add the Redirect URL to the `redirectURIs` list of the Dex client resource:
+```bash
+kubectl patch clients.dex.mesosphere.io -n kommander <Dex Client ID> \
   --type "json" -p '[{"op":"add", "path" :"/spec/redirectURIs/-", "value": "<Redirect URL>"}]'
 ```
 
