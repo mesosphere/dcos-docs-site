@@ -61,6 +61,7 @@
   "dependencies": {
     "eslint-config-airbnb": "^19.0.2",
     "html-entities": "^2.1.0",
+    "metalsmith-redirect": "^3.1.0",
     "mustache": "^4.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"

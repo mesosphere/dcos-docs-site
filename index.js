@@ -2,6 +2,7 @@
 const fs = require("fs");
 const minimatch = require("minimatch");
 const Metalsmith = require("metalsmith");
+const metalsmithRedirect = require("metalsmith-redirect");
 const markdown = require("metalsmith-markdownit");
 const layouts = require("metalsmith-layouts");
 const assets = require("metalsmith-assets");
@@ -191,6 +192,26 @@ if (process.env.NODE_ENV === "development") {
   );
   MS.use(timer("Watch"));
 }
+
+// Re-directing for local environments
+// This will have to get updated every new release
+// TODO: Use variables that do not have to
+// get updated every time there is a new release,
+// but, this is the first pass, and any working redirect is better than
+// right now.
+if (process.env.NODE_ENV === "development") {
+  MS.use(
+    metalsmithRedirect({
+      redirections: {
+        'dkp/dispatch/latest/': '/dkp/dispatch/1.4/',
+        'dkp/kubeflow/': '/dkp/kaptain/',
+        'dkp/kaptain/latest/': '/dkp/kaptain/1.3.0/',
+        'dkp/kommander/latest/': '/dkp/kommander/2.1/',
+        'dkp/konvoy/latest/': '/dkp/konvoy/2.1/',
+      },
+    })
+  )
+};
 
 // Serve
 if (process.env.NODE_ENV === "development") {
