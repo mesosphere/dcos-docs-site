@@ -22,7 +22,7 @@ Before you begin, ensure you have:
 * Ensure the following base addons that are needed by Kaptain are enabled in your Konvoy cluster:
     ```yaml
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: stable-1.20-4.1.0
+      configVersion: stable-1.20-4.3.0
       addonsList:
         - name: istio
           enabled: true
