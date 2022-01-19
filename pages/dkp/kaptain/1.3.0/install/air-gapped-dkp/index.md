@@ -1,46 +1,18 @@
 ---
 layout: layout.pug
-navigationTitle: Install air-gapped
-title: Install Kaptain on an air-gapped cluster
+navigationTitle: Install air-gapped on DKP 2.x
+title: Install Kaptain on an air-gapped DKP 2.x cluster
 menuWeight: 10
-excerpt: Install Kaptain on an air-gapped cluster
+excerpt: Install Kaptain on an air-gapped DKP 2.x cluster
 beta: false
 enterprise: false
 ---
 
-## Air-Gapped Installation
+## DKP 2.x Air-Gapped Installation
 
 <p class="message--note"><strong>IMPORTANT: </strong>The air-gapped installation procedure is still in beta, so the process may change in the future.</p>
 
 Kaptain supports installation on an air-gapped (a.k.a. offline or private) Konvoy cluster. Before installing Kaptain, please follow the [Konvoy Air-Gapped Installation Guide][konvoy-air-gap] to set up the air-gapped Konvoy cluster. The cluster admin is responsible for configuring the Konvoy cluster correctly and ensuring container images have been pre-loaded to the private registry before installing Kaptain.
-
-### Prerequisites for Konvoy 1.x
-
-* When installing on Konvoy 1.x, ensure the following Kubernetes base addons that are needed by Kaptain are enabled:
-    ```yaml
-      - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-        configVersion: stable-1.20-4.1.0
-        addonsList:
-          - name: istio
-            enabled: true
-          - name: dex
-            enabled: true
-          - name: cert-manager
-            enabled: true
-          - name: prometheus
-            enabled: true
-    ```
-
-* Add the Kaptain addon repository to your Konvoy `cluster.yaml` to install Kaptain dependencies:
-    ```yaml
-      - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
-        configVersion: stable-1.20-1.4.0
-        addonsList:
-          - name: knative
-            enabled: true
-    ```
-
-* Then follow the [Konvoy documentation][konvoy_deploy_addons] to deploy the addons.
 
 ### Prerequisites for DKP 2.x
 
@@ -74,14 +46,13 @@ Check [Kommander installation documentation][kommander-install] for more informa
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
 In case you need to run Spark jobs on Kubernetes using Spark Operator, it needs to be installed separately.
-Use the following instructions to install Spark Operator from Kommander Catalog for your target platform:
-[Konvoy 1.x][install-spark-konvoy1] or [DKP 2.x][install-spark-dkp2].
+Use the following instructions to install Spark Operator from Kommander Catalog for [DKP 2.x][install-spark-dkp2].
 
 ### Load the Docker images into your Docker registry
 
 1. Download the image bundle file:
-    * Download `kaptain_air_gapped.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
-    * (Optional) Download the custom image artifacts `kaptain_air_gapped_cpu.tar.gz` or `kaptain_air_gapped_gpu.tar.gz` based on whether need CPU or GPU for your workloads.
+    * Download `kaptain_air_gapped.tar` that will contain the required artifacts to perform an air-gapped installation.
+    * (Optional) Download the custom image artifacts `kaptain_air_gapped_cpu.tar` or `kaptain_air_gapped_gpu.tar` based on whether you need CPU or GPU for your workloads.
 
 2. Place the bundle in a location where you can load and push the images to your private Docker registry.
 
