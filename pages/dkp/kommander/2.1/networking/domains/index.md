@@ -10,18 +10,12 @@ enterprise: false
 
 You must have access to the following domains through the customers networking rules so that Kommander can download all required images:
 
-- k8s.gcr.io
-- registry.hub.docker.com
-- quay.io
-- gcr.io
-- packages.cloud.google.com
-- download.docker.com
-- github.com
-- grafana.com
-- raw.githubusercontent.com
-- mesosphere.github.io
-- storage.googleapis.com
-- ntp.org
-- docker.elastic.org
+ - docker.io
+ - gcr.io
+ - k8s.gcr.io
+ - mcr.microsoft.com
+ - nvcr.io
+ - quay.io
+ - us.gcr.io
 
 <p class="message--note"><strong>NOTE: </strong>In an air-gapped installation, these domains do not need to be accessible.</p>
