@@ -73,6 +73,7 @@ golang
 (grafana|Grafana)
 grayscale
 GRU
+(Gzipped|gzipped)
 Hashicorp
 Horovod
 hostname
