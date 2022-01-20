@@ -104,7 +104,7 @@ error: the server doesn't have a resource type "kommandercluster"
 If your cluster is self-managed, the output resembles this example:
 
 ```bash
-NAME     AGE   PHASE
+NAME         AGE   PHASE
 my-cluster   30m   Provisioned
 ```
 
