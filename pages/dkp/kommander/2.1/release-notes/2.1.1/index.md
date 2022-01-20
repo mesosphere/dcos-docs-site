@@ -77,6 +77,8 @@ The following services and service components have been upgraded to the listed v
 - traefik-forward-auth: 0.3.2
 - velero: 3.1.3
 
+## Known Issues 
+
 ### Create cert-manager resources on attached clusters with cert-manager pre-installed
 
 If you are attaching a cluster that already has `cert-manager` installed, you need to manually create some cert-manager resources after attaching your cluster.
@@ -158,7 +160,7 @@ kubectl patch certificate -n $WORKSPACE_NAMESPACE kube-oidc-proxy --type='merge'
 kubectl patch certificate -n $WORKSPACE_NAMESPACE kommander-traefik --type='merge' -p '{"spec": {"issuerRef": {"kind": "Issuer", "name": "kommander-bootstrap-issuer"}}}'
 ```
 
-You should expect to see that cert-manager will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
+Cert-manager will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
 
 ## Additional resources
 
