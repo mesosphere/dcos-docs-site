@@ -18,6 +18,5 @@ If you want to learn more, please read our [blog post for Kaptain](https://d2iq.
 | ------------------------------------------------- | ------------------------------------------------------------ |
 | Out-of-the-box integration of Spark and Horovod   | No need to install additional libraries to create data pipelines or train Spark ML models on multiple CPUs or GPUs |
 | Fully tested pre-baked notebook images            | A familiar environment that has been fully tested and integrates with all the shared resources (CPUs, GPUs) and data access controls needed to build and share models as a team |
- |
 | Train, tune, and deploy from a Jupyter notebook   | No context switching or credentials and CLI tools on individuals' laptops    |
 | Enterprise-grade security controls and profiles   | Multi-tenancy? No problem!                                      |
