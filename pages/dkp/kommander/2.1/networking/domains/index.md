@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Domains
 title: Required Domains
 menuWeight: 30
-excerpt: This section describes the required domains for Konvoy
+excerpt: This section describes the required domains for Kommander
 beta: false
 enterprise: false
 ---
