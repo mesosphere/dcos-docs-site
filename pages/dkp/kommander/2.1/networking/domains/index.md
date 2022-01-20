@@ -7,7 +7,8 @@ excerpt: This section describes the required domains for Kommander
 beta: false
 enterprise: false
 ---
-You must have access to the following domains through the customers networking rules so that Konvoy can download all required images:
+
+You must have access to the following domains through the customers networking rules so that Kommander can download all required images:
 
 - k8s.gcr.io
 - registry.hub.docker.com
