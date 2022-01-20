@@ -76,7 +76,7 @@ A simple `import` will suffice.
 
 <p class="message--warning"><strong>WARNING: </strong>Please do not store passwords directly in notebooks.
     Ideally, credentials are stored safely inside secrets management solutions or provided with service accounts.
-    Please check the section on <a href="https://docs.d2iq.com/dkp/kaptain/1.3.0/secrets-management/">how to manage secrets</a> in the official Kaptain documentation for more details on how to set up Docker credentials that you can attach to a notebook server.
+    Please check the section on <a href="https://docs.d2iq.com/dkp/kaptain/">how to manage secrets</a> in the official Kaptain documentation for more details on how to set up Docker credentials that you can attach to a notebook server.
     This notebook should be used for demonstration purposes only!
 </p>
 
