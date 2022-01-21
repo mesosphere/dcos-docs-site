@@ -50,16 +50,20 @@ The air-gapped bundle includes the following packages and tooling
 - Docker registry image
 
 1.  Download the air-gapped bundle.
+Define an environment variable for the Kubernetes version that corresponds with Konvoy release you are installing - you can find the correct Kubernetes version by checking the release notes for the release you are installing.
+
+export VERSION=1.21.6
+
 
     ```sh
-    curl -O downloads.mesosphere.io/konvoy/airgapped/os-packages_1.21.6_x86_64_rpms.tar.gz
-    curl -O downloads.mesosphere.io/konvoy/airgapped/pip-packages.tar.gz
+    curl -O downloads.d2iq.com/konvoy/airgapped/os-packages_$VERSION_x86_64_rpms.tar.gz
+    curl -O downloads.d2iq.com/konvoy/airgapped/pip-packages.tar.gz
     ```
 
 1.  Expand the air-gapped bundle artifact.
 
     ```sh
-    tar -xvf os-packages_1.21.6_x86_64_rpms.tar.gz
+    tar -xvf os-packages_$VERSION_x86_64_rpms.tar.gz
     ```
 
 1.  Run setup.
