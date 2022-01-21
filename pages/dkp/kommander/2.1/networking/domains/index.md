@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-You must have access to the following domains through the customers networking rules so that Kommander can download all required images:
+You must have access to the following domains through the customer networking rules so that Kommander can download all required images:
 
  - docker.io
  - gcr.io
