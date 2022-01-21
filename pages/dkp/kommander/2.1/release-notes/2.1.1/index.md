@@ -87,28 +87,24 @@ If you attach a cluster that already has `cert-manager` installed, you need to m
 
 For example, [Konvoy-created clusters that are self-managed][konvoy-self-managed] have `cert-manager` already installed to the `cert-manager` namespace.
 
-Verify that your cluster is self-managed by:
+Verify that your cluster have `cert-manager` installed by:
 
 ```bash
 export KUBECONFIG=<kubeconfig-path>
-export WORKSPACE_NAMESPACE=<your-workspace-namespace>
-kubectl get kommandercluster -n $WORKSPACE_NAMESPACE
+kubectl get pod -A | grep "cert-manager" 
 ```
 
-If your cluster is not self-managed, the output resembles this example:
+If your cluster does not have `cert-manager` installed, the output will be empty.
+
+If your cluster has `cert-manager` installed, the output resembles this example:
 
 ```bash
-error: the server doesn't have a resource type "kommandercluster"
+cert-manager                        cert-manager-848f547974-crl47                                        1/1     Running   0          5m5s
+cert-manager                        cert-manager-cainjector-54f4cc6b5-wbzvr                              1/1     Running   0          5m5s
+cert-manager                        cert-manager-webhook-7c9588c76-pdxrb                                 1/1     Running   0          5m4s
 ```
 
-If your cluster is self-managed, the output resembles this example:
-
-```bash
-NAME         AGE   PHASE
-my-cluster   30m   Provisioned
-```
-
-If your cluster is self-managed, then create the following yaml file:
+If your cluster has `cert-manager` installed, then create the following yaml file:
 
 ```yaml
 cat << EOF > cert_manager_root-ca.yaml
@@ -149,7 +145,7 @@ spec:
 EOF
 ```
 
-Next, apply this file to your self-managed cluster you are attaching to Kommander:
+Next, apply this file to your cluster you are attaching to Kommander:
 
 ```sh
 kubectl apply -f cert_manager_root-ca.yaml
@@ -162,7 +158,7 @@ kubectl patch certificate -n $WORKSPACE_NAMESPACE kube-oidc-proxy --type='merge'
 kubectl patch certificate -n $WORKSPACE_NAMESPACE kommander-traefik --type='merge' -p '{"spec": {"issuerRef": {"kind": "Issuer", "name": "kommander-bootstrap-issuer"}}}'
 ```
 
-`cert-manager` will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
+`cert-manager` HelmRelease will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
 
 ## Additional resources
 
