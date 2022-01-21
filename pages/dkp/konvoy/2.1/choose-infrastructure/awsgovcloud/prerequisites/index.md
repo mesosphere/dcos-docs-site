@@ -63,7 +63,7 @@ export VERSION=1.21.6
 1.  Expand the air-gapped bundle artifact.
 
     ```sh
-    tar -xvf $VERSION.tar.gz
+    tar -xvf os-packages_$VERSION_x86_64_rpms.tar.gz
     ```
 
 1.  Run setup.
