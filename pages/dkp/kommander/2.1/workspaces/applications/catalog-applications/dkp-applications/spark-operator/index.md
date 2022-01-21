@@ -36,7 +36,7 @@ After you finish the installation, see [Spark Operator custom resource documenta
 
 -   Using CLI
 
-    See [Application Deployment](../../application-deployment#deploy-an-application-with-a-custom-configuration-using-the-cli) for details.
+    See [Application Deployment](../../application-deployment#deploy-an-application-with-a-custom-configuration) for details.
 
     ```yaml
     cat <<EOF | kubectl apply -f -
