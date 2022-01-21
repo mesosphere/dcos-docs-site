@@ -149,7 +149,7 @@ spec:
 EOF
 ```
 
-Next, apply this file to your cluster:
+Next, apply this file to your self-managed cluster you are attaching to Kommander:
 
 ```sh
 kubectl apply -f cert_manager_root-ca.yaml
@@ -162,7 +162,7 @@ kubectl patch certificate -n $WORKSPACE_NAMESPACE kube-oidc-proxy --type='merge'
 kubectl patch certificate -n $WORKSPACE_NAMESPACE kommander-traefik --type='merge' -p '{"spec": {"issuerRef": {"kind": "Issuer", "name": "kommander-bootstrap-issuer"}}}'
 ```
 
-Cert-manager will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
+`cert-manager` will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
 
 ## Additional resources
 
