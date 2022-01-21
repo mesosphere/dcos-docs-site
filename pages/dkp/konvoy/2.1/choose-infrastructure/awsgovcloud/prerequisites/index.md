@@ -50,7 +50,10 @@ The air-gapped bundle includes the following packages and tooling
 - Docker registry image
 
 1.  Download the air-gapped bundle.
-<p class="message--important"><strong>NOTE: </strong>Enter in the appropriate version in the $VERSION field.</p>
+Define an environment variable for the Kubernetes version that corresponds with Konvoy release you are installing - you can find the correct Kubernetes version by checking the release notes for the release you are installing.
+
+export VERSION=1.21.6
+
 
     ```sh
     curl -O downloads.d2iq.com/konvoy/airgapped/$VERSION.tar.gz
