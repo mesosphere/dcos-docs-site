@@ -79,15 +79,13 @@ The following services and service components have been upgraded to the listed v
 
 ## Known Issues
 
-The following items are known issues with this release.
-
 ### Create cert-manager resources on attached clusters with cert-manager pre-installed
 
-If you attach a cluster that already has `cert-manager` installed, you need to manually create the three cert-manager resources, in the yaml file, after attaching your cluster.
+If you are attaching a cluster that already has `cert-manager` installed, you need to manually create some cert-manager resources after attaching your cluster.
 
 For example, [Konvoy-created clusters that are self-managed][konvoy-self-managed] have `cert-manager` already installed to the `cert-manager` namespace.
 
-Verify that your cluster is self-managed by:
+Check whether your cluster is self-managed by:
 
 ```bash
 export KUBECONFIG=<kubeconfig-path>
@@ -95,20 +93,20 @@ export WORKSPACE_NAMESPACE=<your-workspace-namespace>
 kubectl get kommandercluster -n $WORKSPACE_NAMESPACE
 ```
 
-If your cluster is not self-managed, the output resembles this example:
+If your cluster is not self-managed, it produces output like:
 
 ```bash
 error: the server doesn't have a resource type "kommandercluster"
 ```
 
-If your cluster is self-managed, the output resembles this example:
+Otherwise, it should produce output like:
 
 ```bash
 NAME         AGE   PHASE
 my-cluster   30m   Provisioned
 ```
 
-If your cluster is self-managed, then create the following yaml file:
+Create the following yaml file only if your cluster is self-managed:
 
 ```yaml
 cat << EOF > cert_manager_root-ca.yaml
@@ -149,13 +147,13 @@ spec:
 EOF
 ```
 
-Next, apply this file to your cluster:
+Then, apply this file to your cluster:
 
 ```sh
 kubectl apply -f cert_manager_root-ca.yaml
 ```
 
-Finally, fix the broken certificates for the attached cluster:
+Now, fix the broken certificates for the attached cluster:
 
 ```bash
 kubectl patch certificate -n $WORKSPACE_NAMESPACE kube-oidc-proxy --type='merge' -p '{"spec": {"issuerRef": {"kind": "Issuer", "name": "kommander-bootstrap-issuer"}}}'
