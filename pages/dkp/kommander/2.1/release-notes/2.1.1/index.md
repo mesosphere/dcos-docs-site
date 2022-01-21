@@ -1,174 +1,72 @@
 ---
 layout: layout.pug
-navigationTitle: Kommander 2.1.1 Release Notes
-title: Kommander 2.1.1 Release Notes
+navigationTitle: Release Notes Konvoy 2.1.1
+title: Release Notes Konvoy 2.1.1
 menuWeight: 20
-excerpt: View release-specific information for Kommander 2.1.1
-enterprise: false
+excerpt: View release-specific information for Konvoy 2.1.1
 beta: false
+enterprise: false
 ---
 
-**D2iQ&reg; Kommander&reg; version 2.1.1 was released on December 30, 2021.**
+<!-- markdownlint-disable MD034 -->
 
-[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
+**D2iQ&reg; Konvoy&reg; version 2.1 was released on December 30, 2021.**
 
-To get started with Kommander, [download](../../download/) and [install](../../install/) the latest version of Kommander.
+[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
-<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
+<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
 ## Release summary
 
-This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Kommander.
+This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Konvoy.
 
-## New features and capabilities
+### Supported versions
 
-### Ability to add catalog applications
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.21.6 |
+|**Maximum** | 1.21.x |
+|**Default** | 1.21.6 |
 
-With this release, you can now add catalog applications to your Kommander instances. Currently, we provide the following operator applications that are workspace-scoped:
+### New features and capabilities
 
-- Kafka operator
-- Spark operator
-- Zookeeper operator
+#### DKP Major Version Upgrade
 
-For more information, see [DKP catalog applications](../../workspaces/applications/catalog-applications/dkp-applications/).
+Konvoy and Kommander 2.1 represent a major version upgrade that moves forward DKP architecture to give you access to D2iQ's next generation centralized Kubernetes and smart cloud native applications. It incorporates ClusterAPI as a major re-architecture in its management of production Kubernetes clusters. [ClusterAPI](https://cluster-api.sigs.k8s.io/introduction.html), or CAPI, enables declarative creation, configuration, and management of clusters. Declarative mode is a Kubernetes best practice that simplifies lifecycle tasks, making them more consistent and more repeatable. 2.1 enhances your existing clusters to use a new architecture.
 
-## Fixes and Improvements
+#### Easier Air-gapped deployments
 
-- Fixed an issue where the `dkp delete` command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
-- Fixed an issue where the AWS `--region` or Azure `--location` installer flags were not being enforced in the target cluster. (COPS-7101)
-- Corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
+Konvoy 2.1 comes with an easier way to [deploy in an air-gapped environment](../../../../konvoy/2.1/choose-infrastructure/awsgovcloud/). Rather than one large package that includes the requirements for all air-gapped environments, D2iQ now provides air-gapped bundles for individual needs.
 
-## Component updates
+#### Other Feature Additions
 
-The following services and service components have been upgraded to the listed version:
+- Added the ability to provision a cluster using an advanced YAML editor.
 
-- centralized-grafana: 18.1.1
-- centralized-kubecost: 0.20.0
-- cert-manager: 0.2.7
-- dex: 2.9.10
-- external-dns: 2.20.5
-- fluent-bit: 0.16.2
-- gatekeeper: 0.6.8
-- grafana-logging: 6.16.14
-- grafana-loki: 0.33.1
-- istio: 1.9.1
-- jaeger: 2.21.0
-- karma: 2.0.0
-- kiali: 1.29.1
-- knative: 0.18.3
-- kube-oidc-proxy: 0.2.5
-- kube-prometheus-stack: 18.1.1
-- kubecost: 0.20.0
-- kubefed: 0.9.0
-- kubernetes-dashboard: 5.0.2
-- kubetunnel: 0.0.8
-- logging-operator: 3.15.0
-- metallb: 0.12.2
-- minio-operator: 4.1.7
-- nfs-server-provisioner: 0.6.0
-- nvidia: 0.4.3
-- project-grafana-logging: 6.16.14
-- project-grafana-loki: 0.33.1
-- project-logging: 1.0.0
-- prometheus-adapter: 2.11.1
-- reloader: 0.0.99
-- thanos: 0.4.5
-- traefik: 10.3.0
-- traefik-forward-auth: 0.3.2
-- velero: 3.1.3
+### Fixes and Improvements
 
-## Known Issues
+-   DKP delete fails in AWS
 
-### Create cert-manager resources on attached clusters with cert-manager pre-installed
+    Fixed an issue where the `dkp delete` command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
 
-If you are attaching a cluster that already has `cert-manager` installed, you need to manually create some cert-manager resources after attaching your cluster.
+-   DKP installer fails to follow respective AWS --region or Azure --location flags
 
-For example, [Konvoy-created clusters that are self-managed][konvoy-self-managed] have `cert-manager` already installed to the `cert-manager` namespace.
+    Fixed an issue where the AWS `--region` or Azure `--location` installer flags were not being enforced in the target cluster. (COPS-7101)
 
-Check whether your cluster is self-managed by:
+-   DKP move command not moving some items
 
-```bash
-export KUBECONFIG=<kubeconfig-path>
-export WORKSPACE_NAMESPACE=<your-workspace-namespace>
-kubectl get cluster -n $WORKSPACE_NAMESPACE
-```
+    We corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
 
-If your cluster is not self-managed, it produces output like:
+### Component updates
 
-```bash
-error: the server doesn't have a resource type "cluster"
-```
+The following components are upgraded to the listed version:
 
-Otherwise, it should produce output like:
-
-```bash
-NAME         AGE   PHASE
-my-cluster   30m   Provisioned
-```
-
-Create the following yaml file only if your cluster is self-managed:
-
-```yaml
-cat << EOF > cert_manager_root-ca.yaml
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: kommander-bootstrap-ca-issuer
-  namespace: $WORKSPACE_NAMESPACE
-spec:
-  selfSigned: {}
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: kommander-bootstrap-root-certificate
-  namespace: $WORKSPACE_NAMESPACE
-spec:
-  commonName: ca.kommander-bootstrap
-  dnsNames:
-    - ca.kommander-bootstrap
-  duration: 8760h
-  isCA: true
-  issuerRef:
-    name: kommander-bootstrap-ca-issuer
-  secretName: kommander-bootstrap-root-ca
-  subject:
-    organizations:
-      - cert-manager
----
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: kommander-bootstrap-issuer
-  namespace: $WORKSPACE_NAMESPACE
-spec:
-  ca:
-    secretName: kommander-bootstrap-root-ca
-EOF
-```
-
-Then, apply this file to your cluster:
-
-```sh
-kubectl apply -f cert_manager_root-ca.yaml
-```
-
-Now, fix the broken certificates for the attached cluster:
-
-```bash
-kubectl patch certificate -n $WORKSPACE_NAMESPACE kube-oidc-proxy --type='merge' -p '{"spec": {"issuerRef": {"kind": "Issuer", "name": "kommander-bootstrap-issuer"}}}'
-kubectl patch certificate -n $WORKSPACE_NAMESPACE kommander-traefik --type='merge' -p '{"spec": {"issuerRef": {"kind": "Issuer", "name": "kommander-bootstrap-issuer"}}}'
-```
-
-Cert-manager will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
+- Cluster API Preprovisioned Provider v0.4.0
+- Konvoy Image Builder v1.5.0
 
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->
 
-For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
+For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
-[attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
-[konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
-[project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
