@@ -29,20 +29,19 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     The output from this command resembles the following:
 
     ```text
-    NAME                                         STATUS   ROLES                  AGE   VERSION
-    ip-10-0-102-60.us-west-2.compute.internal    Ready    control-plane,master   36m   v1.21.3
-    ip-10-0-118-168.us-west-2.compute.internal   Ready    <none>                 42m   v1.21.3
-    ip-10-0-175-114.us-west-2.compute.internal   Ready    control-plane,master   44m   v1.21.3
-    ip-10-0-214-26.us-west-2.compute.internal    Ready    control-plane,master   40m   v1.21.3
-    ip-10-0-84-17.us-west-2.compute.internal     Ready    <none>                 42m   v1.21.3
+    NAME                                         STATUS   ROLES    AGE   VERSION
+    ip-10-0-115-179.us-west-2.compute.internal   Ready    <none>   14m   v1.21.5-eks-bc4871b
+    ip-10-0-117-5.us-west-2.compute.internal     Ready    <none>   14m   v1.21.5-eks-bc4871b
+    ip-10-0-81-221.us-west-2.compute.internal    Ready    <none>   14m   v1.21.5-eks-bc4871b
+    ip-10-0-94-48.us-west-2.compute.internal     Ready    <none>   14m   v1.21.5-eks-bc4871b
     ```
 
 1.  Export a variable with the node name to use in the next steps:
 
-    This example uses the name `ip-10-0-118-168.us-west-2.compute.internal`.
+    This example uses the name `ip-10-0-94-48.us-west-2.compute.internal`.
 
     ```sh
-    export NAME_NODE_TO_DELETE="ip-10-0-118-168.us-west-2.compute.internal"
+    export NAME_NODE_TO_DELETE="ip-10-0-94-48.us-west-2.compute.internal"
     ```
 
 1.  Delete the Machine resource
@@ -53,7 +52,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```
 
     ```text
-    machine.cluster.x-k8s.io "aws-example-md-0-7fbfb98fcf-4xcv9" deleted
+    machine.cluster.x-k8s.io "eks-example-md-0-7fbfb98fcf-4xcv9" deleted
     ```
 
     The command will not return immediately. It will return once the Machine resource has been deleted.
@@ -68,10 +67,10 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     ```sh
     NAME               PHASE       REPLICAS   READY   UPDATED   UNAVAILABLE
-    aws-example-md-0   ScalingUp   2          1       2         1
+    eks-example-md-0   ScalingUp   2          1       2         1
     ```
 
-    There are 2 replicas, but only 1 is ready. There is 1 unavailable replica, and the `ScalingUp` phase means a new Machine is being created.
+    You can see there are 2 replicas, but only 1 is ready. There's 1 unavailable replica, and the `ScalingUp` phase means a new Machine is being created.
 
 1.  Identify the replacement Machine using this command:
 
