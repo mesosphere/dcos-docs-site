@@ -77,7 +77,7 @@ The following services and service components have been upgraded to the listed v
 - traefik-forward-auth: 0.3.2
 - velero: 3.1.3
 
-## Known Issues
+## Known Issues 
 
 The following items are known issues with this release.
 
