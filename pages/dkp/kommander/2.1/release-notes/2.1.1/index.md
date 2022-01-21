@@ -90,13 +90,13 @@ Check whether your cluster is self-managed by:
 ```bash
 export KUBECONFIG=<kubeconfig-path>
 export WORKSPACE_NAMESPACE=<your-workspace-namespace>
-kubectl get kommandercluster -n $WORKSPACE_NAMESPACE
+kubectl get cluster -n $WORKSPACE_NAMESPACE
 ```
 
 If your cluster is not self-managed, it produces output like:
 
 ```bash
-error: the server doesn't have a resource type "kommandercluster"
+error: the server doesn't have a resource type "cluster"
 ```
 
 Otherwise, it should produce output like:
