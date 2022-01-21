@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Ingress
 title: Ingress
-menuWeight: 8
+menuWeight: 10
 excerpt: Traefik Ingress Controller
 beta: false
 enterprise: false
