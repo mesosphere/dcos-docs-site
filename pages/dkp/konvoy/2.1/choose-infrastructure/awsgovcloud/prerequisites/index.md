@@ -56,7 +56,7 @@ export VERSION=1.21.6
 
 
     ```sh
-    curl -O downloads.d2iq.com/konvoy/airgapped/$VERSION.tar.gz
+    curl -O downloads.d2iq.com/konvoy/airgapped/os-packages_$VERSION_x86_64_rpms.tar.gz
     curl -O downloads.d2iq.com/konvoy/airgapped/pip-packages.tar.gz
     ```
 
