@@ -278,10 +278,16 @@ Based on the network latency between the environment of script execution and the
     wget "https://downloads.mesosphere.com/dkp/kommander-applications_${VERSION}.tar.gz"
     ```
 
+1. Download the Kommander charts bundle:
+
+    ```bash
+    wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz
+    ```
+
 1. To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
-    kommander install --installer-config ./install.yaml --kommander-applications-repository kommander-applications_${VERSION}.tar.gz
+    kommander install --installer-config ./install.yaml --kommander-applications-repository kommander-applications_${VERSION}.tar.gz --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz
     ```
 
 1. [Verify your installation](../networked#verify-installation).
