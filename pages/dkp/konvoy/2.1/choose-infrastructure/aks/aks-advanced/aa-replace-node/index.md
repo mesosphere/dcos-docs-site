@@ -52,7 +52,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```
 
     ```text
-    machine.cluster.x-k8s.io "my-aks-cluster-md-0-7fbfb98fcf-4xcv9" deleted
+    machine.cluster.x-k8s.io "aks-example-md-0-7fbfb98fcf-4xcv9" deleted
     ```
 
     The command will not return immediately. It will return once the Machine resource has been deleted.
@@ -67,7 +67,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     ```sh
     NAME               PHASE       REPLICAS   READY   UPDATED   UNAVAILABLE
-    my-aks-cluster-md-0   ScalingUp   2          1       2         1
+    aks-example-md-0   ScalingUp   2          1       2         1
     ```
 
     There are 2 replicas, but only 1 is ready. There is 1 unavailable replica, and the `ScalingUp` phase means a new Machine is being created.
