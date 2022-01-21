@@ -40,9 +40,9 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
 1.  Create the cluster from the objects.
-
+    <!---FIXME: remove --kubernetes-version when dkp defaults to a supported version--->
     ```sh
-    dkp create cluster aks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
+    dkp create cluster aks --cluster-name=${CLUSTER_NAME} --kubernetes-version=1.21.7 --additional-tags=owner=$(whoami)
     ```
 
     ```sh
@@ -56,6 +56,8 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     machinepool.cluster.x-k8s.io/aks-example-md-0 created
     azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mpd56zd created
     ```
+
+   <p class="message--important"><strong>IMPORTANT: </strong>Not all released versions of Kubernetes are available in Azure when creating a Managed Clusters (AKS). Use the Azure portal or CLI to <a href="https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#azure-portal-and-cli-versions">find the versions supported in your cluster's location</a>.</p>
 
 1.  Wait for the cluster control-plane to be ready:
 
