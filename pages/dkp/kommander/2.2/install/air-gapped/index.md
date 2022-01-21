@@ -281,13 +281,30 @@ Based on the network latency between the environment of script execution and the
 1. Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz
+    wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz"
+    ```
+
+1. (Optional) Download the [DKP catalog applications][dkp_catalog_applications] chart bundle if you intend on deploying any DKP catalog applications:
+
+    ```bash
+    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz"
     ```
 
 1. To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
-    kommander install --installer-config ./install.yaml --kommander-applications-repository kommander-applications_${VERSION}.tar.gz --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz
+    kommander install --installer-config ./install.yaml \
+    --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
+    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz
+    ```
+
+    To upload the optional [DKP catalog applications][dkp_catalog_applications] chart bundle, add an additional `--chart-bundle` flag to the `install` command:
+
+    ```bash
+    kommander install --installer-config ./install.yaml \
+    --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
+    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz \
+    --charts-bundle dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz
     ```
 
 1. [Verify your installation](../networked#verify-installation).
@@ -298,3 +315,4 @@ Based on the network latency between the environment of script execution and the
 [kommander-load-balancing]: ../../networking/load-balancing
 [metallb]: https://metallb.universe.tf/concepts/
 [metallb_config]: https://metallb.universe.tf/configuration/
+[dkp_catalog_applications]: ../../workspaces/applications/catalog-applications/dkp-applications/
