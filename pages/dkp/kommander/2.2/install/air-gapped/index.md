@@ -17,6 +17,8 @@ Before installing, ensure you have:
 
 - A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander-image-bundle.tar` tarball has the required artifacts.
 
+- A charts bundle file containing all Helm charts that Kommander installation needs.
+
 - Connectivity with clusters attaching to the management cluster:
   - Both management and attached clusters must connect to the Docker registry.
   - Management cluster must connect to the attached cluster's API server.
@@ -25,6 +27,52 @@ Before installing, ensure you have:
 - All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
 
 - [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
+
+### Kommander charts bundle
+
+The charts bundle is a gzipped Tar archive containing Helm charts, which are required during Kommander installation.
+Create the charts bundle with the Kommander CLI or downloaded along with the Kommander CLI.
+Execute this command to create the charts bundle:
+
+    ```bash
+    kommander helmmirror create bundle
+    ```
+
+Kommander creates `charts-bundle.tar.gz`.
+Optionally, specify the output using the `-o` parameter:
+
+    ```bash
+    kommander helmmirror create bundle -o [name of the output file]
+    ```
+
+### Kommander's internal Helm repository
+
+The Kommander charts bundle is uploaded to Kommander's internal Helm repository.
+To inspect the contents:
+
+    ```bash
+    kommander helmmirror get charts
+    ```
+
+Individual charts can be removed using:
+
+    ```bash
+    kommander helmmirror delete chart [chartName] [chartVersion]
+    ```
+
+It is possible to upload new charts as well:
+
+    ```bash
+    kommander helmmirror upload chart [chartTarball]
+    ```
+
+Or upload a new bundle:
+
+    ```bash
+    kommander helmmirror upload bundle [chartsTarball]...
+    ```
+
+Please check the built-in help text for each command for more information.
 
 ### Use MetalLB
 
@@ -230,10 +278,16 @@ Based on the network latency between the environment of script execution and the
     wget "https://downloads.mesosphere.com/dkp/kommander-applications_${VERSION}.tar.gz"
     ```
 
+1. Download the Kommander charts bundle:
+
+    ```bash
+    wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz
+    ```
+
 1. To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
-    kommander install --installer-config ./install.yaml --kommander-applications-repository kommander-applications_${VERSION}.tar.gz
+    kommander install --installer-config ./install.yaml --kommander-applications-repository kommander-applications_${VERSION}.tar.gz --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz
     ```
 
 1. [Verify your installation](../networked#verify-installation).
