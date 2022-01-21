@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Delete AKS Cluster
-title: Delete AKS Cluster
+navigationTitle: Delete Cluster
+title: Delete Cluster
 menuWeight: 40
 excerpt: Delete the AKS cluster and clean up your environment
 enterprise: false
@@ -21,9 +21,9 @@ enterprise: false
     ```
 
     ```sh
-    INFO[2021-06-09T11:53:42-07:00] Running cluster delete command                clusterName=my-aks-cluster managementClusterKubeconfig= namespace=default src="cluster/delete.go:95"
+    INFO[2021-06-09T11:53:42-07:00] Running cluster delete command                clusterName=aks-example managementClusterKubeconfig= namespace=default src="cluster/delete.go:95"
     INFO[2021-06-09T11:53:42-07:00] Waiting for cluster to be fully deleted       src="cluster/delete.go:123"
-    INFO[2021-06-09T12:14:03-07:00] Deleted default/my-aks-cluster cluster  src="cluster/delete.go:129"
+    INFO[2021-06-09T12:14:03-07:00] Deleted default/aks-example cluster  src="cluster/delete.go:129"
     ```
 
 ## Delete the bootstrap cluster
