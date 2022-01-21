@@ -80,7 +80,6 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     /aks-example                                                    True                     35s
     ├─ClusterInfrastructure - AzureManagedCluster/aks-example
     └─ControlPlane - AzureManagedControlPlane/aks-example
-
     ```
 
 1.  As they progress, the controllers also create Events. List the Events using this command:
