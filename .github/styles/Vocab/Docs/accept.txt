@@ -8,7 +8,6 @@ ANN(|s)
 auto-assign
 (auto-provisioner|Auto-Provisioner)
 autoscal(e|es|ed|ing)
-autotune
 bool
 Cassandra
 checkpoint(|s|ed|ing)
@@ -130,7 +129,6 @@ Splunk
 subcommand
 (subnet|subnets|Subnets)
 subtree
-systemd
 TensorFlow
 (thanos|Thanos)
 Toree
