@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: AKS Prerequisites
+navigationTitle: Prerequisites
 title: AKS Prerequisites
 menuWeight: 10
 excerpt: Prepare your machine and environment to run DKP

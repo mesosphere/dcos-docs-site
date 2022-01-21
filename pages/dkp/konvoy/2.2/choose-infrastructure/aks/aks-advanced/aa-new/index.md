@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Create a New AKS Cluster
-title: Create a New AKS Cluster
+navigationTitle: Create a New Cluster
+title: Create a New Cluster
 menuWeight: 20
 excerpt: Use Konvoy to create a new AKS cluster
 enterprise: false
@@ -9,12 +9,12 @@ enterprise: false
 
 Before you start, make sure you have completed the steps in [Bootstrap][bootstrap].
 
-## Create a new AWS Kubernetes cluster
+## Create a new AKS Kubernetes cluster
 
 1.  Set the environment variable to a name for this cluster.
 
     ```sh
-    CLUSTER_NAME=my-aks-cluster
+    CLUSTER_NAME=aks-example
     ```
 
     See [Get Started with AKS](../../aks-quickstart) for information on naming your cluster.
@@ -35,24 +35,26 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
     1.  Node Pool
 
-        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (e.g., kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_.
+        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (for example, kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_.
 
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
 1.  Create the cluster from the objects.
 
     ```sh
-    kubectl apply -f ${CLUSTER_NAME}.yaml
+    dkp create cluster aks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
     ```
 
     ```sh
-    cluster.cluster.x-k8s.io/my-aks-cluster created
-    awscluster.infrastructure.cluster.x-k8s.io/my-aks-cluster created
-    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/my-aks-cluster-control-plane created
-    awsmachinetemplate.infrastructure.cluster.x-k8s.io/my-aks-cluster-control-plane created
-    machinedeployment.cluster.x-k8s.io/my-aks-cluster-mp-0 created
-    awsmachinetemplate.infrastructure.cluster.x-k8s.io/my-aks-cluster-mp-0 created
-    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/my-aks-cluster-mp-0 created
+    cluster.cluster.x-k8s.io/aks-example created
+    azuremanagedcontrolplane.infrastructure.cluster.x-k8s.io/aks-example created
+    azuremanagedcluster.infrastructure.cluster.x-k8s.io/aks-example created
+    machinepool.cluster.x-k8s.io/aks-example created
+    azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/cpphgw4 created
+    clusterresourceset.addons.cluster.x-k8s.io/calico-installation-aks-example created
+    configmap/calico-cni-aks-example created
+    machinepool.cluster.x-k8s.io/aks-example-md-0 created
+    azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mpd56zd created
     ```
 
 1.  Wait for the cluster control-plane to be ready:
@@ -62,7 +64,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     ```
 
     ```text
-    cluster.cluster.x-k8s.io/aws-example condition met
+    cluster.cluster.x-k8s.io/aks-example condition met
     ```
 
     The `READY` status will become `True` after the cluster control-plane becomes ready. You can follow along in the following steps.
@@ -75,12 +77,10 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
     ```text
     NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
-    /my-aks-cluster                                                    True                     35s
-    ├─ClusterInfrastructure - AKSCluster/my-aks-cluster                True                     4m47s
-    ├─ControlPlane - KubeadmControlPlane/my-aks-cluster-control-plane  True                     36s
-    │   └─3 Machine...                                              True                     4m20s
-    └─Workers
-        └─MachineDeployment/my-aks-cluster-md-0
+    /aks-example                                                    True                     35s
+    ├─ClusterInfrastructure - AzureManagedCluster/aks-example
+    └─ControlPlane - AzureManagedControlPlane/aks-example
+
     ```
 
 1.  As they progress, the controllers also create Events. List the Events using this command:

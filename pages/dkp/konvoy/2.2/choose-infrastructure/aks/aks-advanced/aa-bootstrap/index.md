@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: AKS Bootstrap
-title: AKS Bootstrap
+navigationTitle: Bootstrap
+title: Bootstrap
 menuWeight: 15
 excerpt: Prepare to deploy Kubernetes clusters for AKS
 enterprise: false
@@ -27,24 +27,23 @@ Before you begin, you must:
     ```
 
     ```text
-    INFO[2021-08-25T13:43:50-32:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:143"
-    INFO[2021-08-25T13:43:52-07:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:96"
-    INFO[2021-08-25T13:44:29-07:00] Created bootstrap controllers                 src="bootstrap/controllers.go:101"
-    INFO[2021-08-25T13:44:29-07:00] Waiting for bootstrap controllers to be ready  src="bootstrap/controllers.go:104"
-    INFO[2021-08-25T13:44:39-07:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:109"
-    INFO[2021-08-25T13:44:39-07:00] Patching ClusterRoleBinding for CAPPP         src="bootstrap/controllers.go:112"
-    INFO[2021-08-25T13:44:39-07:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
-    INFO[2021-08-25T13:44:39-07:00] Created Tigera operator                       src="bootstrap/clusterresourceset.go:42"
-    INFO[2021-08-25T13:44:40-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:109"
-    INFO[2021-08-25T13:44:40-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:114"
-    INFO[2021-08-25T13:44:40-07:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:116"
-    INFO[2021-08-25T13:44:40-07:00] Created Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:121"
-    INFO[2021-08-25T13:44:40-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:181"
-    INFO[2021-08-25T13:44:40-07:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:186"
-    INFO[2021-08-25T13:44:40-07:00] Initializing Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:239"
-    INFO[2021-08-25T13:44:40-07:00] Created Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:244"
-    INFO[2021-08-25T13:44:40-07:00] Initializing NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:297"
-    INFO[2021-08-25T13:44:40-07:00] Created NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:302"
+    INFO[2021-12-22T13:51:34-05:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
+    INFO[2021-12-22T13:53:09-05:00] Created bootstrap controllers                 src="bootstrap/controllers.go:111"
+    INFO[2021-12-22T13:53:09-05:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:115"
+    INFO[2021-12-22T13:53:09-05:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
+    INFO[2021-12-22T13:53:09-05:00] Created/Updated Tigera operator               src="bootstrap/clusterresourceset.go:42"
+    INFO[2021-12-22T13:53:09-05:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:95"
+    INFO[2021-12-22T13:53:09-05:00] Created/Updated AWS EBS CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:100"
+    INFO[2021-12-22T13:53:09-05:00] Initializing Azure Disk CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:102"
+    INFO[2021-12-22T13:53:09-05:00] Created Azure Disk CustomResourceSet          src="bootstrap/clusterresourceset.go:107"
+    INFO[2021-12-22T13:53:09-05:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:109"
+    INFO[2021-12-22T13:53:09-05:00] Created/Updated Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:114"
+    INFO[2021-12-22T13:53:09-05:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:181"
+    INFO[2021-12-22T13:53:09-05:00] Created/Updated Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:186"
+    INFO[2021-12-22T13:53:09-05:00] Initializing Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:239"
+    INFO[2021-12-22T13:53:09-05:00] Created/Updated Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:244"
+    INFO[2021-12-22T13:53:09-05:00] Initializing NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:297"
+    INFO[2021-12-22T13:53:09-05:00] Created/Updated NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:302"
     ```
 
     Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
@@ -79,17 +78,14 @@ Before you begin, you must:
     ```
 
     ```sh
-    NAME                                            AGE
-    aws-ebs-csi                                     5m41s
-    calico-installation-aws                         5m41s
-    calico-installation-azure                       5m41s
-    calico-installation-preprovisioned              5m41s
-    calico-installation-preprovisioned-flatcar      5m41s
-    cluster-autoscaler                              5m41s
-    local-volume-provisioner                        5m41s
-    node-feature-discovery                          5m41s
-    nvidia-feature-discovery                        5m41s
-    tigera-operator                                 5m41s
+    NAME                       AGE
+    aws-ebs-csi                4m57s
+    azure-disk-csi             4m57s
+    cluster-autoscaler         4m57s
+    local-volume-provisioner   4m57s
+    node-feature-discovery     4m57s
+    nvidia-feature-discovery   4m57s
+    tigera-operator            4m57s
     ```
 
     A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.

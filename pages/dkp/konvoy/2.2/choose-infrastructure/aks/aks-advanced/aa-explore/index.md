@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Explore New AKS Cluster
-title: Explore New AKS Cluster
+navigationTitle: Explore New Cluster
+title: Explore New Cluster
 menuWeight: 25
 excerpt: Learn to interact with your AKS Kubernetes cluster
 enterprise: false
@@ -30,9 +30,14 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    NAME                                         STATUS   ROLES                  AGE    VERSION
-    ip-10-0-126-209.eastus2.compute.internal   Ready    control-plane,master   124m   v1.21.3
-    ip-10-0-204-168.eastus2.compute.internal   Ready    <none>                 118m   v1.21.3
+    NAME                              STATUS   ROLES   AGE     VERSION
+    aks-cplbnlb-18646133-vmss000000   Ready    agent   2m43s   v1.21.2
+    aks-cplbnlb-18646133-vmss000001   Ready    agent   2m47s   v1.21.2
+    aks-cplbnlb-18646133-vmss000002   Ready    agent   2m58s   v1.21.2
+    aks-mpz427b-18646133-vmss000000   Ready    agent   3m1s    v1.21.2
+    aks-mpz427b-18646133-vmss000001   Ready    agent   3m1s    v1.21.2
+    aks-mpz427b-18646133-vmss000002   Ready    agent   2m47s   v1.21.2
+    aks-mpz427b-18646133-vmss000003   Ready    agent   3m6s    v1.21.2
     ```
 
     <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Nodes' Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>
@@ -44,42 +49,64 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    NAMESPACE                           NAME                                                                 READY   STATUS    RESTARTS   AGE
-    calico-system                       calico-kube-controllers-f95867bfb-4vxzz                              1/1     Running   0          124m
-    calico-system                       calico-node-xjqkq                                                    1/1     Running   0          124m
-    calico-system                       calico-node-z2h7c                                                    1/1     Running   0          120m
-    calico-system                       calico-typha-74b6bbd989-5d8lb                                        1/1     Running   0          124m
-    calico-system                       calico-typha-74b6bbd989-zxd94                                        1/1     Running   0          120m
-    capa-system                         capa-controller-manager-7cbc764d6b-5fcb8                             2/2     Running   0          12m
-    capi-kubeadm-bootstrap-system       capi-kubeadm-bootstrap-controller-manager-6cf88b5459-cr46w           2/2     Running   0          12m
-    capi-kubeadm-control-plane-system   capi-kubeadm-control-plane-controller-manager-86f749cf89-dj6vp       2/2     Running   0          12m
-    capi-system                         capi-controller-manager-7c9ff4ddc7-wdz8s                             2/2     Running   0          12m
-    capi-webhook-system                 capa-controller-manager-5848b6b65b-plfbv                             2/2     Running   0          12m
-    capi-webhook-system                 capi-controller-manager-54bf59bd8d-9jv5s                             2/2     Running   0          12m
-    capi-webhook-system                 capi-kubeadm-bootstrap-controller-manager-65c99884-7lcrc             2/2     Running   0          12m
-    capi-webhook-system                 capi-kubeadm-control-plane-controller-manager-5869f67c96-qkhcn       2/2     Running   0          12m
-    capi-webhook-system                 capz-controller-manager-55557b6cdf-29kjf                             2/2     Running   0          12m
-    capz-system                         capz-controller-manager-5b98d9756d-vlgxz                             2/2     Running   0          11m
-    capz-system                         capz-nmi-tbpmr                                                       1/1     Running   0          11m
-    cert-manager                        cert-manager-86cb5dcfdd-f8zb5                                        1/1     Running   0          13m
-    cert-manager                        cert-manager-cainjector-84cf775b89-cdwfk                             1/1     Running   0          13m
-    cert-manager                        cert-manager-webhook-5d5dc765f6-29qqq                                1/1     Running   0          13m
-    kube-system                         coredns-74ff55c5b-9xdnd                                              1/1     Running   0          127m
-    kube-system                         coredns-74ff55c5b-xfkww                                              1/1     Running   0          127m
-    kube-system                         ebs-csi-controller-9c4b68678-2tmpx                                   4/4     Running   0          125m
-    kube-system                         ebs-csi-controller-9c4b68678-lgvnm                                   4/4     Running   0          125m
-    kube-system                         ebs-csi-node-7phdg                                                   3/3     Running   0          125m
-    kube-system                         ebs-csi-node-d9m6p                                                   3/3     Running   0          120m
-    kube-system                         etcd-ip-10-0-126-209.eastus2.compute.internal                      1/1     Running   0          127m
-    kube-system                         kube-apiserver-ip-10-0-126-209.eastus2.compute.internal            1/1     Running   0          127m
-    kube-system                         kube-controller-manager-ip-10-0-126-209.eastus2.compute.internal   1/1     Running   0          127m
-    kube-system                         kube-proxy-744s5                                                     1/1     Running   0          127m
-    kube-system                         kube-proxy-hsmmr                                                     1/1     Running   0          120m
-    kube-system                         kube-scheduler-ip-10-0-126-209.eastus2.compute.internal            1/1     Running   0          127m
-    tigera-operator                     tigera-operator-675ccbb69c-2cwpn                                     1/1     Running   0          125m
+    NAMESPACE                NAME                                            READY   STATUS     RESTARTS   AGE
+    calico-system            calico-kube-controllers-5dcd4b47b5-tgslm        1/1     Running    0          3m58s
+    calico-system            calico-node-46dj9                               1/1     Running    0          3m58s
+    calico-system            calico-node-crdgc                               1/1     Running    0          3m58s
+    calico-system            calico-node-m7s7x                               1/1     Running    0          3m58s
+    calico-system            calico-node-qfkqc                               1/1     Running    0          3m57s
+    calico-system            calico-node-sfqfm                               1/1     Running    0          3m57s
+    calico-system            calico-node-sn67x                               1/1     Running    0          3m53s
+    calico-system            calico-node-w2pvt                               1/1     Running    0          3m58s
+    calico-system            calico-typha-6f7f59969c-5z4t5                   1/1     Running    0          3m51s
+    calico-system            calico-typha-6f7f59969c-ddzqb                   1/1     Running    0          3m58s
+    calico-system            calico-typha-6f7f59969c-rr4lj                   1/1     Running    0          3m51s
+    kube-system              azure-ip-masq-agent-4f4v6                       1/1     Running    0          4m11s
+    kube-system              azure-ip-masq-agent-5xfh2                       1/1     Running    0          4m11s
+    kube-system              azure-ip-masq-agent-9hlk8                       1/1     Running    0          4m8s
+    kube-system              azure-ip-masq-agent-9vsgg                       1/1     Running    0          4m16s
+    kube-system              azure-ip-masq-agent-b9wjj                       1/1     Running    0          3m57s
+    kube-system              azure-ip-masq-agent-kpjtl                       1/1     Running    0          3m53s
+    kube-system              azure-ip-masq-agent-vr7hd                       1/1     Running    0          3m57s
+    kube-system              cluster-autoscaler-b4789f4bf-qkfk2              0/1     Init:0/1   0          3m28s
+    kube-system              coredns-845757d86-9jf8b                         1/1     Running    0          5m29s
+    kube-system              coredns-845757d86-h4xfs                         1/1     Running    0          4m
+    kube-system              coredns-autoscaler-5f85dc856b-xjb5z             1/1     Running    0          5m23s
+    kube-system              csi-azuredisk-node-4n4fx                        3/3     Running    0          3m53s
+    kube-system              csi-azuredisk-node-8pnjj                        3/3     Running    0          3m57s
+    kube-system              csi-azuredisk-node-sbt6r                        3/3     Running    0          3m57s
+    kube-system              csi-azuredisk-node-v25wc                        3/3     Running    0          4m16s
+    kube-system              csi-azuredisk-node-vfbxg                        3/3     Running    0          4m11s
+    kube-system              csi-azuredisk-node-w5ff5                        3/3     Running    0          4m11s
+    kube-system              csi-azuredisk-node-zzgqx                        3/3     Running    0          4m8s
+    kube-system              csi-azurefile-node-2rpcc                        3/3     Running    0          3m57s
+    kube-system              csi-azurefile-node-4gqkf                        3/3     Running    0          4m11s
+    kube-system              csi-azurefile-node-f6k8m                        3/3     Running    0          4m16s
+    kube-system              csi-azurefile-node-k72xq                        3/3     Running    0          4m8s
+    kube-system              csi-azurefile-node-vx7r4                        3/3     Running    0          3m53s
+    kube-system              csi-azurefile-node-zc8kr                        3/3     Running    0          4m11s
+    kube-system              csi-azurefile-node-zkl6b                        3/3     Running    0          3m57s
+    kube-system              kube-proxy-4fpb6                                1/1     Running    0          3m53s
+    kube-system              kube-proxy-6qfbf                                1/1     Running    0          4m16s
+    kube-system              kube-proxy-6wnt2                                1/1     Running    0          4m8s
+    kube-system              kube-proxy-cspd5                                1/1     Running    0          3m57s
+    kube-system              kube-proxy-nsgq6                                1/1     Running    0          4m11s
+    kube-system              kube-proxy-qz2st                                1/1     Running    0          4m11s
+    kube-system              kube-proxy-zvh9k                                1/1     Running    0          3m57s
+    kube-system              metrics-server-6bc97b47f7-ltkkj                 1/1     Running    0          5m28s
+    kube-system              tunnelfront-77d68f78bf-t78ck                    1/1     Running    0          5m23s
+    node-feature-discovery   node-feature-discovery-master-65dc499cd-fxwb5   1/1     Running    0          3m28s
+    node-feature-discovery   node-feature-discovery-worker-277xc             1/1     Running    0          3m28s
+    node-feature-discovery   node-feature-discovery-worker-4dq5k             1/1     Running    0          3m28s
+    node-feature-discovery   node-feature-discovery-worker-57nb8             1/1     Running    0          3m28s
+    node-feature-discovery   node-feature-discovery-worker-b4lkl             1/1     Running    0          3m28s
+    node-feature-discovery   node-feature-discovery-worker-kslst             1/1     Running    0          3m28s
+    node-feature-discovery   node-feature-discovery-worker-ppjtm             1/1     Running    0          3m28s
+    node-feature-discovery   node-feature-discovery-worker-x5bgf             1/1     Running    0          3m28s
+    tigera-operator          tigera-operator-74c4d9cf84-k7css                1/1     Running    0          5m25s
     ```
 
-If you need to, you can [replace an AKS node][aa-replace-node].
+If you need to, you can [replace a node][aa-replace-node].
 
 When ready, you can [delete the cluster][aa-delete].
 
