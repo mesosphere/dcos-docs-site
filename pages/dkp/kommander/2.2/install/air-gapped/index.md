@@ -69,10 +69,10 @@ It is possible to upload new charts as well:
 Or upload a new bundle:
 
   ```bash
-  kommander helmmirror upload bundle [chartsTarball]...
+  kommander helmmirror upload bundle [chartsTarball]
   ```
 
-Please check the built-in help text for each command for more information.
+Check the built-in help text for each command for more information.
 
 ### Use MetalLB
 
@@ -284,7 +284,7 @@ Based on the network latency between the environment of script execution and the
     wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz"
     ```
 
-1. (Optional) Download the [DKP catalog applications][dkp_catalog_applications] chart bundle if you intend on deploying any DKP catalog applications:
+1. Download the [DKP catalog applications][dkp_catalog_applications] chart bundle if you intend on deploying any DKP catalog applications:
 
     ```bash
     wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz"
@@ -298,7 +298,7 @@ Based on the network latency between the environment of script execution and the
     --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz
     ```
 
-    To upload the optional [DKP catalog applications][dkp_catalog_applications] chart bundle, add an additional `--chart-bundle` flag to the `install` command:
+    To upload the optional [DKP catalog applications][dkp_catalog_applications] chart bundle, add `--chart-bundle` flag to the `install` command:
 
     ```bash
     kommander install --installer-config ./install.yaml \
