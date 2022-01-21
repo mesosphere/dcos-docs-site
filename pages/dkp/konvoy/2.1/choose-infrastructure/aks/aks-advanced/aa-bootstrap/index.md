@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: AKS Bootstrap
-title: AKS Bootstrap
+navigationTitle: Bootstrap
+title: Bootstrap
 menuWeight: 15
 excerpt: Prepare to deploy Kubernetes clusters for AKS
 enterprise: false
@@ -78,17 +78,14 @@ Before you begin, you must:
     ```
 
     ```sh
-    NAME                                            AGE
-    aws-ebs-csi                                     5m41s
-    calico-installation-aws                         5m41s
-    calico-installation-azure                       5m41s
-    calico-installation-preprovisioned              5m41s
-    calico-installation-preprovisioned-flatcar      5m41s
-    cluster-autoscaler                              5m41s
-    local-volume-provisioner                        5m41s
-    node-feature-discovery                          5m41s
-    nvidia-feature-discovery                        5m41s
-    tigera-operator                                 5m41s
+    NAME                       AGE
+    aws-ebs-csi                4m57s
+    azure-disk-csi             4m57s
+    cluster-autoscaler         4m57s
+    local-volume-provisioner   4m57s
+    node-feature-discovery     4m57s
+    nvidia-feature-discovery   4m57s
+    tigera-operator            4m57s
     ```
 
     A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.

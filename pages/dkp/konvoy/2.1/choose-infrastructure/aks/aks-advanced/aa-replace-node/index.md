@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Replace an AKS Node
-title: Replace an AKS Node
+navigationTitle: Replace a Node
+title: Replace a Node
 excerpt: Replace an AKS worker node
 beta: false
 menuWeight: 33
@@ -11,7 +11,7 @@ menuWeight: 33
 
 Before you begin, you must:
 
-- [Create an AKS cluster][createnewcluster].
+- [Create a cluster][createnewcluster].
 
 ## Replace a worker node
 
@@ -70,7 +70,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     my-aks-cluster-md-0   ScalingUp   2          1       2         1
     ```
 
-    There are 2 replicas, but only 1 is ready. There is 1 unavailable replica, and the `ScalingUp` phase means a new Machine is being created.
+    You can see there are 2 replicas, but only 1 is ready. There's 1 unavailable replica, and the `ScalingUp` phase means a new Machine is being created.
 
 1.  Identify the replacement Machine using this command:
 
