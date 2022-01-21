@@ -15,6 +15,8 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+<p class="message--warning"><strong>WARNING: </strong>This version includes an update to D2iQ Dispatch that removes Argo CD. Do NOT update the version of Dispatch if you are currently relying on Argo CD that is part of Dispatch. D2iQ Dispatch has been deprecated in favor of Flux. See the <a href="https://d2iq.com/blog/goodbye-dispatch-hello-fluxcd">D2iQ blog post</a> for more information.</p>
+
 ## Release summary
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Konvoy.
