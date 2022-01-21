@@ -168,13 +168,10 @@ Based on the network latency between the environment of script execution and the
     kommander install --init > install.yaml
     ```
 
-1. Adapt the configuration file for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
+1. Adapt the configuration file for the air-gapped deployment by changing the `.apps.kommander` field. Ensure you  use the actual version number everywhere `${VERSION}` appears.:
 
     ```yaml
-    apiVersion: config.kommander.mesosphere.io/v1alpha1
-    kind: Installation
     apps:
-      ...
       kommander:
         values: |
           authorizedlister:
@@ -185,6 +182,9 @@ Based on the network latency between the environment of script execution and the
               manager:
                 image:
                   tag: ${VERSION}-amd64
+          webhook:
+            image:
+              tag: ${VERSION}-amd64
           fluxOperator:
             containers:
               manager:
@@ -202,10 +202,6 @@ Based on the network latency between the environment of script execution and the
           kubetools:
             image:
               tag: ${VERSION}-amd64
-          webhook:
-            image:
-              tag: ${VERSION}-amd64
-    ...
     ```
 
 1. In the same file, adapt the other image tags accordingly and enable air-gapped mode. Replace `${VERSION}` with the actual version number:
