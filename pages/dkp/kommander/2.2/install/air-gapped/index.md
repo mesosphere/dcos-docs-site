@@ -50,27 +50,27 @@ Optionally, specify the output using the `-o` parameter:
 The Kommander charts bundle is uploaded to Kommander's internal Helm repository.
 To inspect the contents:
 
-    ```bash
-    kommander helmmirror get charts
-    ```
+  ```bash
+  kommander helmmirror get charts
+  ```
 
 Individual charts can be removed using:
 
-    ```bash
-    kommander helmmirror delete chart [chartName] [chartVersion]
-    ```
+  ```bash
+  kommander helmmirror delete chart [chartName] [chartVersion]
+  ```
 
 It is possible to upload new charts as well:
 
-    ```bash
-    kommander helmmirror upload chart [chartTarball]
-    ```
+  ```bash
+  kommander helmmirror upload chart [chartTarball]
+  ```
 
 Or upload a new bundle:
 
-    ```bash
-    kommander helmmirror upload bundle [chartsTarball]...
-    ```
+  ```bash
+  kommander helmmirror upload bundle [chartsTarball]...
+  ```
 
 Please check the built-in help text for each command for more information.
 
