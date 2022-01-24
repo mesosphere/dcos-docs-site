@@ -50,29 +50,29 @@ Optionally, specify the output using the `-o` parameter:
 The Kommander charts bundle is uploaded to Kommander's internal Helm repository.
 To inspect the contents:
 
-    ```bash
-    kommander helmmirror get charts
-    ```
+  ```bash
+  kommander helmmirror get charts
+  ```
 
 Individual charts can be removed using:
 
-    ```bash
-    kommander helmmirror delete chart [chartName] [chartVersion]
-    ```
+  ```bash
+  kommander helmmirror delete chart [chartName] [chartVersion]
+  ```
 
 It is possible to upload new charts as well:
 
-    ```bash
-    kommander helmmirror upload chart [chartTarball]
-    ```
+  ```bash
+  kommander helmmirror upload chart [chartTarball]
+  ```
 
 Or upload a new bundle:
 
-    ```bash
-    kommander helmmirror upload bundle [chartsTarball]...
-    ```
+  ```bash
+  kommander helmmirror upload bundle [chartsTarball]
+  ```
 
-Please check the built-in help text for each command for more information.
+Check the built-in help text for each command for more information.
 
 ### Use MetalLB
 
@@ -281,13 +281,30 @@ Based on the network latency between the environment of script execution and the
 1. Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz
+    wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz"
+    ```
+
+1. Download the [DKP catalog applications][dkp_catalog_applications] chart bundle if you intend on deploying any DKP catalog applications:
+
+    ```bash
+    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz"
     ```
 
 1. To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
-    kommander install --installer-config ./install.yaml --kommander-applications-repository kommander-applications_${VERSION}.tar.gz --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz
+    kommander install --installer-config ./install.yaml \
+    --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
+    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz
+    ```
+
+    To upload the optional [DKP catalog applications][dkp_catalog_applications] chart bundle, add `--chart-bundle` flag to the `install` command:
+
+    ```bash
+    kommander install --installer-config ./install.yaml \
+    --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
+    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz \
+    --charts-bundle dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz
     ```
 
 1. [Verify your installation](../networked#verify-installation).
@@ -298,3 +315,4 @@ Based on the network latency between the environment of script execution and the
 [kommander-load-balancing]: ../../networking/load-balancing
 [metallb]: https://metallb.universe.tf/concepts/
 [metallb_config]: https://metallb.universe.tf/configuration/
+[dkp_catalog_applications]: ../../workspaces/applications/catalog-applications/dkp-applications/
