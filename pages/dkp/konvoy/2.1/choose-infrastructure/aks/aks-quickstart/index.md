@@ -102,9 +102,9 @@ CLUSTER_NAME=my-aks-cluster
 ## Create a new AKS Kubernetes cluster
 
 1.  Create a Kubernetes cluster:
-
+    <!---FIXME: remove --kubernetes-version when dkp defaults to a supported version--->
     ```sh
-    dkp create cluster aks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
+    dkp create cluster aks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami) --kubernetes-version=1.21.7
     ```
 
 1.  (Optional) Specify an authorized key file to have SSH access to the machines.
