@@ -106,8 +106,6 @@ Before you start, make sure you have created a workload cluster, as described in
     tigera-operator          tigera-operator-74c4d9cf84-k7css                1/1     Running    0          5m25s
     ```
 
-If you need to, you can [replace a node][aa-replace-node].
-
 When ready, you can [delete the cluster][aa-delete].
 
 [aa-replace-node]: ../aa-replace-node
