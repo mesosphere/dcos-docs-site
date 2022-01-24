@@ -57,7 +57,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mpd56zd created
     ```
 
-   <p class="message--important"><strong>IMPORTANT: </strong>Not all released versions of Kubernetes are available in Azure when creating a Managed Clusters (AKS). Use the Azure portal or CLI to <a href="https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#azure-portal-and-cli-versions">find the versions supported in your cluster's location</a>.</p>
+   <p class="message--important"><strong>IMPORTANT: </strong>Not all released versions of Kubernetes are available in Azure when creating a Managed Cluster (AKS). Use the Azure portal or CLI to <a href="https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#azure-portal-and-cli-versions">find the versions supported in your cluster's location</a>.</p>
 
 1.  Wait for the cluster control-plane to be ready:
 
