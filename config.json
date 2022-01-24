@@ -7,6 +7,9 @@
     ]
   },
   "main": {
-    "DO_NOT_BUILD": []
+    "DO_NOT_BUILD": [
+      "dkp/konvoy/2.1/choose-infrastructure/eks/advanced/replace-node/**",
+      "dkp/konvoy/2.1/choose-infrastructure/aks/aks-advanced/aa-replace-node/**"
+    ]
   }
 }

@@ -77,6 +77,89 @@ The following services and service components have been upgraded to the listed v
 - traefik-forward-auth: 0.3.2
 - velero: 3.1.3
 
+## Known Issues
+
+The following items are known issues with this release.
+
+### Create cert-manager resources on attached clusters with cert-manager pre-installed
+
+If you attach a cluster that already has `cert-manager` installed, you need to manually create the three cert-manager resources, in the yaml file, after attaching your cluster.
+
+For example, [Konvoy-created clusters that are self-managed][konvoy-self-managed] have `cert-manager` already installed to the `cert-manager` namespace.
+
+Verify that your cluster have `cert-manager` installed by:
+
+```bash
+export KUBECONFIG=<kubeconfig-path>
+kubectl get pod -A | grep "cert-manager"
+```
+
+If your cluster does not have `cert-manager` installed, the output will be empty.
+
+If your cluster has `cert-manager` installed, the output resembles this example:
+
+```bash
+cert-manager                        cert-manager-848f547974-crl47                                        1/1     Running   0          5m5s
+cert-manager                        cert-manager-cainjector-54f4cc6b5-wbzvr                              1/1     Running   0          5m5s
+cert-manager                        cert-manager-webhook-7c9588c76-pdxrb                                 1/1     Running   0          5m4s
+```
+
+If your cluster has `cert-manager` installed, then create the following yaml file:
+
+```yaml
+cat << EOF > cert_manager_root-ca.yaml
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: kommander-bootstrap-ca-issuer
+  namespace: $WORKSPACE_NAMESPACE
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kommander-bootstrap-root-certificate
+  namespace: $WORKSPACE_NAMESPACE
+spec:
+  commonName: ca.kommander-bootstrap
+  dnsNames:
+    - ca.kommander-bootstrap
+  duration: 8760h
+  isCA: true
+  issuerRef:
+    name: kommander-bootstrap-ca-issuer
+  secretName: kommander-bootstrap-root-ca
+  subject:
+    organizations:
+      - cert-manager
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: kommander-bootstrap-issuer
+  namespace: $WORKSPACE_NAMESPACE
+spec:
+  ca:
+    secretName: kommander-bootstrap-root-ca
+EOF
+```
+
+Next, apply this file to your cluster you are attaching to Kommander:
+
+```sh
+kubectl apply -f cert_manager_root-ca.yaml
+```
+
+Finally, fix the broken certificates for the attached cluster:
+
+```bash
+kubectl patch certificate -n $WORKSPACE_NAMESPACE kube-oidc-proxy --type='merge' -p '{"spec": {"issuerRef": {"kind": "Issuer", "name": "kommander-bootstrap-issuer"}}}'
+kubectl patch certificate -n $WORKSPACE_NAMESPACE kommander-traefik --type='merge' -p '{"spec": {"issuerRef": {"kind": "Issuer", "name": "kommander-bootstrap-issuer"}}}'
+```
+
+`cert-manager` HelmRelease will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
+
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->

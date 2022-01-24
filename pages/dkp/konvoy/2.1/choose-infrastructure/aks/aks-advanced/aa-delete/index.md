@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Delete AKS Cluster
-title: Delete AKS Cluster
+navigationTitle: Delete Cluster
+title: Delete Cluster
 menuWeight: 40
 excerpt: Delete the AKS cluster and clean up your environment
 enterprise: false

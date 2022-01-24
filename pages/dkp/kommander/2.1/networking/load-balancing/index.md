@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Load Balancing
 title: Load Balancing
-menuWeight: 8
+menuWeight: 20
 beta: false
 enterprise: false
 ---

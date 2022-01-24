@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Configure Ingress for load balancing
 title: Configure Ingress for load balancing
-menuWeight: 21
+menuWeight: 25
 excerpt: Learn how to configure Ingress settings for load balancing (layer-7)
 beta: false
 enterprise: false
