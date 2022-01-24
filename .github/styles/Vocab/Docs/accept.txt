@@ -65,7 +65,7 @@ firewalld
 Flink
 (fluentbit|Fluentbit)
 Fluentd
-GCR
+(gcr|GCR)
 Gitea
 gitops
 (Goboring|goboring)
@@ -127,6 +127,7 @@ LSTM(|s)
 Luigi
 Makefile
 markdownlint
+mcr
 Mesos
 Mesosphere
 mesosphere
