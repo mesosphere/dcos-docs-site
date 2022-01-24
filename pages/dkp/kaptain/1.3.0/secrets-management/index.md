@@ -163,15 +163,18 @@ cat << EOF > config.json -
 EOF
 ```
 
-### Step 3 - Create a `ConfigMap` in the user's namespace
+### Step 3 - Create a `Secret` in the user's namespace
 
 Run:
 
 ```
-kubectl create configmap -n <Kubeflow user's namespace> docker-config --from-file=config.json
+export NAMESPACE=<Kubeflow user's namespace>
+kubectl create secret -n ${NAMESPACE} generic docker-config \
+    --from-file=.dockerconfigjson=config.json \
+    --type=kubernetes.io/dockerconfigjson
 ```
 
-### Step 4 - Create a `PodDefault` object to mount the `ConfigMap`
+### Step 4 - Create a `PodDefault` object to mount the `Secret`
 
 Run:
 
@@ -180,23 +183,26 @@ cat << EOF | kubectl apply -f -
 apiVersion: "kubeflow.org/v1alpha1"
 kind: PodDefault
 metadata:
-  name: docker-credentials
-  namespace: <Kubeflow user's namespace>
+  name: docker-config
+  namespace: ${NAMESPACE}
 spec:
  selector:
   matchLabels:
-    docker-credentials: "true"
- desc: "Docker credentials"
+    docker-config: "true"
+ desc: "Add Docker config"
  volumeMounts:
- - name: docker-credentials
+ - name: docker-config
    mountPath: /home/kubeflow/.docker
  volumes:
- - name: docker-credentials
-   configMap:
-    name: docker-credentials
+  - name: docker-config
+    secret:
+      secretName: docker-config
+      items:
+      - key: ".dockerconfigjson"
+        path: config.json
 EOF
 ```
 
-### Step 5 - Launch Jupyter notebook and select "Docker credentials" from the Configurations drop-down 
+### Step 5 - Launch Jupyter notebook and select "Add Docker config" from the Configurations drop-down 
 
-After successfully deploying the `PodDefault`, select the "Docker credentials" option for injection into the new Jupyter notebook.
+After successfully deploying the `PodDefault`, select the "Add Docker config" option for injection into the new Jupyter notebook.
