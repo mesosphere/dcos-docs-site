@@ -13,6 +13,9 @@ Before you start, make sure you have created a workload cluster, as described in
 
 ## Explore the cluster
 
+<p class="message--note"><strong>NOTE: </strong>If you have not already retrieved the kubeconfig after creating the cluster, use this command before proceeding: <code>dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf</code>
+</p>
+
 Before setting the cluster to manage itself, explore your cluster with this command:
 
    ```sh
@@ -24,7 +27,7 @@ Before setting the cluster to manage itself, explore your cluster with this comm
 
 To edit the installation file, run the command:
 
-   ```sh 
+   ```sh
    kubectl edit installation default --kubeconfig ${CLUSTER_NAME}.conf
    ```
 
