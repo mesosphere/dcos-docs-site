@@ -3,24 +3,24 @@ layout: layout.pug
 navigationTitle: Back up and Restore
 title: Back up and restore
 menuWeight: 210
-excerpt: Back up and restore the Konvoy cluster
+excerpt: Back up and restore clusters
 beta: false
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-For production clusters, regular maintenance should include routine backup operations on a regular basis to ensure data integrity and reduce the risk of data loss due to unexpected events.
+For production clusters, regular maintenance should include routine back up operations to ensure data integrity and reduce the risk of data loss due to unexpected events.
 Back up operations should include the cluster state, application state, and the running configuration of both stateless and stateful applications in the cluster.
 
 # Velero
 
-Konvoy provides the Velero addon by default, to support backup and restore operations for your Kubernetes cluster and persistent volumes.
+DKP provides Velero by default, to support backup and restore operations for your Kubernetes clusters and persistent volumes.
 
-For on-premises deployments, Konvoy deploys Velero integrated with [Minio][minio], operating inside the same cluster.
+For on-premises deployments, DKP deploys Velero integrated with [Minio][minio], operating inside the same cluster.
 
-For production use-cases, it's advisable to provide an *external* storage class for Minio to use.
-With the external storage class, you can configure the Velero addon in `cluster.yaml`  as follows:
+For production use-cases, D2iQ advises to provide an *external* storage class to use with [Minio][minio].
+With the external storage class, you can configure Velero in `cluster.yaml`  as follows:
 
 ```yaml
 - name: velero
@@ -31,7 +31,7 @@ With the external storage class, you can configure the Velero addon in `cluster.
          storageClass: <external storage class name>
 ```
 
-You may also store your backups in Amazon S3 by configuring the Velero addon in `cluster.yaml`  as follows:
+You may also store your backups in Amazon S3 by configuring Velero in `cluster.yaml`  as follows:
 
 ```yaml
 - name: velero
@@ -66,20 +66,20 @@ You may also store your backups in Amazon S3 by configuring the Velero addon in 
 
 ## Install the Velero command-line interface
 
-Although installing the Velero command-line interface is optional and independent of deploying a Konvoy cluster, having access to the command-line interface provides several benefits.
-For example, you can use the Velero command-line interface to back up or restore a cluster on demand, or to modify certain settings without changing the Velero platform service configuration.
+Although installing the Velero command-line interface is optional and independent of deploying a DKP cluster, having access to the command-line interface provides several benefits.
+For example, you can use the Velero command-line interface to back up or restore a cluster on demand, or to modify certain settings without changing the Velero  configuration.
 
 By default, Konvoy sets up Velero to use Minio over TLS using a self-signed certificate.
 Due to this, when using certain commands, you may be asked to use the `--insecure-skip-tls-verify` flag.
 Again, the default setup is not suitable for production use-cases.
 
-Instructions to install the Velero command-line interface can be found [here][velero-cli-install].
+See the instructions to [install the Velero command-line interface][velero-cli-install] for more information.
 
-## Enable or disable the backup addon
+## Enable or disable Velero
 
-<p class="message--note"><strong>NOTE: </strong>Before disabling the Velero addon, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.</p>
+<p class="message--note"><strong>NOTE: </strong>Before disabling Velero, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.</p>
 
-You can enable the `Velero` addon using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
+You can enable Velero using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
 
 ```yaml
 addons:
@@ -88,7 +88,7 @@ addons:
 ...
 ```
 
-If you want to replace the Velero addon with a different backup addon service, you can disable the `velero` addon by modifying the `ClusterConfiguration` section of the `cluster.yaml` file as follows:
+If you want to replace Velero with a different backup service, you can disable `velero` by modifying the `ClusterConfiguration` section of the `cluster.yaml` file as follows:
 
 ```yaml
 addons:
@@ -111,7 +111,7 @@ For production clusters, you should be familiar with the following basic adminis
 
 ### Set a backup schedule
 
-By default, Konvoy configures a regular, automatic backup of the cluster's state in Velero.
+By default, DKP configures a regular, automatic backup of the cluster's state in Velero.
 The default settings do the following:
 
 - create backups on a daily basis
