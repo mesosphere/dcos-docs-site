@@ -17,4 +17,4 @@ The benefits of using a GitOps deployment strategy are:
 
 That said, there are some cases when live debugging is necessary in order to resolve an incident in the minimum amount of time. In such cases, pull-request-based workflow adds precious time to resolution for critical production outages. Kommander's CD strategy supports this scenario by letting you disable the auto sync feature. After auto sync is disabled, Flux will stop synchronizing the cluster state from the GitOps git repository. This lets you use `kubectl`, `helm`, or whichever tool you need to resolve the issue.
 
-To learn more about Flux and GitOps, the [Flux documentation](https://fluxcd.io/docs/) is a very useful resource and full of examples to help you get started.
+To learn more about Flux and GitOps, the [Flux documentation](https://fluxcd.io/docs/) is a useful resource and full of examples to help you get started.
