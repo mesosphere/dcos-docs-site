@@ -14,7 +14,7 @@ After deploying the Kafka operator, create Kafka Clusters by applying a `KafkaCl
 
 ## Example deployment
 
-<p class="message--note"><strong>NOTE: </strong>If you need to manage these custom resources across all clusters in a project, it is recommended you use [Project Deployments](../../../../../project-deployments) which enables you to leverage GitOps to deploy the resources. Otherwise, you will need to create the custom resources manually in each cluster.</p>
+<p class="message--note"><strong>NOTE: </strong>If you need to manage these custom resources across all clusters in a project, it is recommended you use <a href="../../../../../project-deployments">Project Deployments</a> which enables you to leverage GitOps to deploy the resources. Otherwise, you will need to create the custom resources manually in each cluster.</p>
 
 This example deployment walks you through first deploying a ZooKeeper cluster and then a Kafka cluster in a project namespace. The result of this procedure is a running ZooKeeper cluster and Kafka cluster ready for use in your project's namespace.
 
