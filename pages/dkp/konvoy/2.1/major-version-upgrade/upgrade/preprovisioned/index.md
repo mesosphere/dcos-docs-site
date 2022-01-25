@@ -283,7 +283,7 @@ The cluster, control plane, and worker node pool should all show the value `True
 
 ### If the Cluster Never Reaches a Steady State
 
-A race condition where the `Machine` objects are reconciled before the appropriate status is set on the `Cluster` object and it gets "stuck", stopping it from reaching a steady state. If this happens, delete the CAPPP pod and let Kubernetes restart it to trigger a reconcile:
+A race condition where the `Machine` objects are reconciled before the appropriate status is set on the `Cluster` object and it gets *stuck*, stopping it from reaching a steady state. If this happens, delete the CAPPP pod and let Kubernetes restart it to trigger a reconcile:
 
 ```sh
 kubectl --kubeconfig=admin.conf delete pods -n cappp-system -l control-plane=controller-manager
