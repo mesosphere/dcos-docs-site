@@ -13,6 +13,9 @@ Before you start, make sure you have created a workload cluster, as described in
 
 ## Make the new Kubernetes cluster manage itself
 
+<p class="message--note"><strong>NOTE: </strong>If you have not already retrieved the kubeconfig after creating the cluster, use this command before proceeding: <code>dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf</code>
+</p>
+
 1.  Deploy cluster lifecycle services on the workload cluster:
 
     ```sh
