@@ -13,7 +13,7 @@ To run your Spark workloads with Spark Operator, apply the Spark Operator specif
 
 See [Spark Operator API documentation](https://github.com/mesosphere/spark-on-k8s-operator/blob/d2iq-master/docs/api-docs.md) for more details.
 
-<p class="message--note"><strong>NOTE: </strong>The Custom Resources and RBAC resources must be applied to each attached cluster in a project.</p>
+<p class="message--note"><strong>NOTE: </strong>If you need to manage these custom resources and RBAC resources across all clusters in a project, it is recommended you use [Project Deployments](../../../../../project-deployments) which enables you to leverage GitOps to deploy the resources. Otherwise, you will need to create the resources manually in each cluster.</p>
 
 ## Prerequisites
 

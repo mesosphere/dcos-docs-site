@@ -11,6 +11,12 @@ excerpt: Continuous Deployment
 
 After installing Kommander and [configuring your project and its clusters](../../), navigate to the **Continuous Deployment (CD)** tab under your Project. Here you create a GitOps source which is a source code management (SCM) repository hosting the application definition. D2iQ recommends that you create a secret first then create a GitOps source accessed by the secret.
 
+## Create a Git repository
+
+In order to create a GitOps source, first you need a Git repository containing your application definitions and Flux resources. You can find more information about Flux and the supported [custom resources](https://fluxcd.io/docs/concepts/#reconciliation) in the [documentation](https://fluxcd.io/docs/concepts/).
+
+Flux also offers some [suggestions](https://fluxcd.io/docs/guides/repository-structure/) about how to structure your GitOps repository for the best GitOps experience.
+
 ## Set up a secret for accessing GitOps
 
 Create a secret that Kommander uses to deploy the contents of your GitOps repository:
