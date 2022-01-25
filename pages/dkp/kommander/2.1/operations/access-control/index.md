@@ -30,7 +30,7 @@ This approach gives you maximum flexibility over who has access to what resource
 
 In addition to granting a Kommander Role, you must also grant the appropriate dkp role to allow external users and groups into the UI.
 See [RBAC - Kommander Dashboard Authorization][kommander-rbac] for details about the built-in dkp roles.
-Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Kommmander routes:
+Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Kommander routes:
 
 ```yaml
 ---
@@ -141,7 +141,7 @@ subjects:
 Kommander policies, cluster policies and project policies bind a Kommander group to any number of roles.
 All groups that have been defined in the groups tab will be present at the global, workspace, or project level and are ready for you to assign roles to them.
 
-![Cluster Policies](/dkp/kommander/2.1/img/access-control-cluster-policies.png)
+![Cluster Role Bindings](/dkp/kommander/2.1/img/access-control-cluster-role-bindings.png)
 
 ## Related Information
 
