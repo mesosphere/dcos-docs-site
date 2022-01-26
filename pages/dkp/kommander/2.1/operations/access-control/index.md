@@ -22,7 +22,7 @@ Use these two groups of resources to manage access control within 3 levels of sc
 | Workspace | Create namespaced Roles on the management cluster in the workspace namespace. | Federates ClusterRoles on all target clusters in the workspace.                            |
 | Project   | Create namespaced Roles on the management cluster in the project namespace.   | Federates namespaced Roles on all target clusters in the project in the project namespace. |
 
-The role bindings for each level and type create `RoleBindings` or `ClusterRoleBindings` on the clusters that apply to each category.
+The [role bindings][role-bindings] for each level and type create `RoleBindings` or `ClusterRoleBindings` on the clusters that apply to each category.
 
 This approach gives you maximum flexibility over who has access to what resources, conveniently mapped to your existing identity providers' claims.
 
@@ -149,3 +149,4 @@ All groups defined in the **Groups** tab will be present at the global, workspac
 [k8s-rbac-auth]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [kommander-rbac]: rbac#kommander-dashboard-authorization
 [kommander-rbac-tutorial]: rbac
+[role-bindings]: #role-bindings
