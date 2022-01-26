@@ -71,21 +71,17 @@ You can control Kubernetes role-based access control with three different object
 
 ### Groups
 
-You can map group and user claims made by your configured identity providers to Kommander groups by clicking the _Groups_ tab under Administration / Identity providers on the global workspace level.
-
-![Identity Provider Groups](/dkp/kommander/2.1/img/access-control-idp-groups.png)
+You can map group and user claims made by your configured identity providers to Kommander groups by selecting Administration / Identity providers in the left sidebar in the global workspace level, and then selecting the  **Groups** tab.
 
 ### Roles
 
 `ClusterRoles` are named collections of rules defining which verbs can be applied to which resources.
 
 -   Kommander Roles apply specifically to resources on the management cluster.
--   Cluster Roles apply to target clusters within their scope:
-    - at the global level, this is all target clusters in all workspaces,
-    - at the workspace level, this is all target clusters in the workspace,
-    - at the project level, this is all target clusters that have been added to the project.
-
-![Cluster Roles](/dkp/kommander/2.1/img/access-control-cluster-roles.png)
+-   Cluster Roles apply to target clusters within their scope at these levels:
+    - Global level - this is all target clusters in all workspaces,
+    - Workspace level - this is all target clusters in the workspace,
+    - Project level - this is all target clusters that have been added to the project.
 
 ### Propagating Workspace Roles to Projects
 
@@ -142,9 +138,7 @@ subjects:
 ### Role Bindings
 
 Kommander role bindings, cluster role bindings, and project role bindings bind a Kommander group to any number of roles.
-All groups that have been defined in the groups tab will be present at the global, workspace, or project level, and are ready for you to assign roles to them.
-
-![Cluster Role Bindings](/dkp/kommander/2.1/img/access-control-cluster-role-bindings.png)
+All groups defined in the **Groups** tab will be present at the global, workspace, or project level, and are ready for you to assign roles to them.
 
 ## Related Information
 
