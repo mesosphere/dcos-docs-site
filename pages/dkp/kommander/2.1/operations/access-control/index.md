@@ -7,7 +7,7 @@ menuWeight: 10
 excerpt: Centrally manage access across clusters
 ---
 
-You can centrally define role-based authorization within Kommander to control resource access on the management cluster and a set or all of the target clusters. These resources are similar to Kubernetes RBAC but with crucial differences, and they make it possible to define the roles and role bindings once, and have them federated to clusters within a given scope.
+You can centrally define role-based authorization within Kommander to control resource access on the management cluster and a set, or all, of the target clusters. These resources are similar to Kubernetes RBAC but with crucial differences, and they make it possible to define the roles and role bindings once, and have them federated to clusters within a given scope.
 
 Kommander has two conceptual groups of resources that are used to manage access control:
 
