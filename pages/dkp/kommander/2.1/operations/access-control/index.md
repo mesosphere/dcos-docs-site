@@ -67,7 +67,7 @@ subjects:
 
 ## Types of Access Control Objects
 
-Kubernetes role-based access control can be controlled with three different object categories: Groups, Roles, and Role Bindings, as explained in more detail below.
+You can control Kubernetes role-based access control with three different object categories: Groups, Roles, and Role Bindings, as explained in more detail below.
 
 ### Groups
 
