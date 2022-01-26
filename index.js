@@ -52,7 +52,7 @@ MS.metadata({
   dispatchDocsLatest: "1.4",
   kommanderDocsLatest: "2.1",
   konvoyDocsLatest: "2.1",
-  kaptainDocsLatest: "1.2.0",
+  kaptainDocsLatest: "1.3.0",
   Utils,
 });
 MS.use(timer("Init"));
@@ -160,8 +160,8 @@ MS.use(timer("Headings"));
 // Layouts
 MS.use((files, ms, done) => {
   // we want to use pugs cache for the duration of one (re-)build. we need to clear it inbetween to
-  // have changes to layouts propagate directly. unfortunately there's no convenience for that and we
-  // have to reach into pug and consolidate directly for now.
+  // have changes to layouts propagate directly. unfortunately there's no convenience for that and
+  // we have to reach into pug and consolidate directly for now.
   consolidate.clearCache();
   pug.cache = {};
   return layouts({ engine: "pug", cache: true })(files, ms, done);
