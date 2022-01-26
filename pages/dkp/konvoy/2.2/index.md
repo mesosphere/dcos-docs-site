@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Konvoy 2.1
-title: Welcome to Konvoy 2.1
-version: 2.1
+navigationTitle: Konvoy 2.2
+title: Welcome to Konvoy 2.2
+version: 2.2
 menuWeight: 0
 subtree:
   beta: false
