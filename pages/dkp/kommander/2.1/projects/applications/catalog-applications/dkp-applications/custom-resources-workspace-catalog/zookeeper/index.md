@@ -16,7 +16,7 @@ A [Helm chart](https://github.com/pravega/zookeeper-operator/tree/master/charts/
 
 ### Example deployment
 
-<p class="message--note"><strong>NOTE: </strong>The Custom Resources must be applied to each attached cluster in a project.</p>
+<p class="message--note"><strong>NOTE: </strong>If you need to manage these custom resources across all clusters in a project, it is recommended you use <a href="../../../../../project-deployments">Project Deployments</a> which enables you to leverage GitOps to deploy the resources. Otherwise, you will need to create the resources manually in each cluster.</p>
 
 Follow these steps to deploy a ZooKeeper cluster in a project namespace. This procedure results in a running ZooKeeper cluster, ready for use in your project's namespace.
 

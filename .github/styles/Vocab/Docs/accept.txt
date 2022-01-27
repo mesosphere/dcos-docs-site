@@ -41,7 +41,7 @@ Flink
 fluentbit
 GCR
 Gitea
-gitops
+(gitops|GitOps)
 (grafana|Grafana)
 grayscale
 GRU
