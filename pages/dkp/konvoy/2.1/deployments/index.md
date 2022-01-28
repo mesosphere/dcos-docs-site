@@ -3,8 +3,9 @@ layout: layout.pug
 navigationTitle: Workload Deployment
 title: Workload Deployment
 menuWeight: 160
-excerpt: Konvoy Deployment
+excerpt: DKP Deployment
 beta: false
 enterprise: false
 ---
-Konvoy Workload Deployments
+
+DKP Workload Deployments

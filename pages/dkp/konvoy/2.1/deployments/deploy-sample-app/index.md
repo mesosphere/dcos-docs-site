@@ -3,117 +3,115 @@ layout: layout.pug
 navigationTitle: Deploy a sample application
 title: Deploy a sample application
 menuWeight: 5
-excerpt: Learn how to deploy a sample application on the Konvoy cluster
+excerpt: Learn how to deploy a sample application on a DKP cluster
 beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
-
-After you have a basic Konvoy cluster installed and ready to use, you might want to test operations by deploying a simple, sample application.
+After you have a basic DKP cluster installed and ready to use, you might want to test operations by deploying a simple, sample application.
 This task is **optional** and is only intended to demonstrate the basic steps for deploying applications in a production environment.
-If you are configuring the Konvoy cluster for a production deployment, you can use this section to learn the deployment process.
+If you are configuring the DKP cluster for a production deployment, you can use this section to learn the deployment process.
 However, deploying applications on a production cluster typically involves more planning and custom configuration than covered in this example.
 
 This tutorial shows how to deploy a simple application that connects to the `redis` service.
 The sample application used in this tutorial is a condensed form of the Kubernetes sample [guestbook][guestbook] application.
 
-# Before you begin
+## Before you begin
 
-You must have a [Konvoy cluster running][quick-start].
+You must have a [DKP cluster running][choose-infra].
 
-# To deploy the sample application
+Before running the commands below, ensure that your `kubectl` configuration references the DKP cluster on which you want to install the application. You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file’s location.
 
-1. Deploy the Redis pods and service by running the following commands:
+## To deploy the sample application
 
-   ```bash
-   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-leader-deployment.yaml
-   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-leader-service.yaml
-   ```
+1.  Deploy the Redis pods and service by running the following commands:
 
-1. Deploy Redis followers. The leader deployment created above is a single pod. Adding followers (or replicas) makes it highly available to meet greater traffic demands. You must then setup the guestbook application to communicate with the Redis followers to read the data. To do this, set up another service (the `redis-follower-service.yaml` below). Do this by running the following commands:
+    ```bash
+    kubectl apply -f https://k8s.io/examples/application/guestbook/redis-leader-deployment.yaml
+    kubectl apply -f https://k8s.io/examples/application/guestbook/redis-leader-service.yaml
+    ```
 
-   ```bash
-   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-follower-deployment.yaml
-   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-follower-service.yaml
-   ```
+1.  Deploy Redis followers. The leader deployment created above is a single pod. Adding followers (or replicas) makes it highly available to meet greater traffic demands. You must then setup the guestbook application to communicate with the Redis followers to read the data. To do this, set up another service (the `redis-follower-service.yaml` below). Do this by running the following commands:
 
-1. Deploy the web app frontend by running the following command:
+    ```bash
+    kubectl apply -f https://k8s.io/examples/application/guestbook/redis-follower-deployment.yaml
+    kubectl apply -f https://k8s.io/examples/application/guestbook/redis-follower-service.yaml
+    ```
 
-   ```bash
-   kubectl apply -f https://k8s.io/examples/application/guestbook/frontend-deployment.yaml
-   ```
+1.  Deploy the web app frontend by running the following command:
 
-1. Confirm that there are three frontend replicas running:
+    ```bash
+    kubectl apply -f https://k8s.io/examples/application/guestbook/frontend-deployment.yaml
+    ```
 
-   ```bash
-   kubectl get pods -l app=guestbook -l tier=frontend
-   ```
+1.  Confirm that there are three frontend replicas running:
 
-1. Apply the frontend Service:
+    ```bash
+    kubectl get pods -l app=guestbook -l tier=frontend
+    ```
 
-   ```bash
-   kubectl apply -f https://k8s.io/examples/application/guestbook/frontend-service.yaml
-   ```
+1.  Apply the frontend Service:
 
-1. Configure the front end service to use a cloud load balancer:
+    ```bash
+    kubectl apply -f https://k8s.io/examples/application/guestbook/frontend-service.yaml
+    ```
 
-   ```bash
-   cat << EOF | kubectl apply -f -
-   apiVersion: v1
-   kind: Service
-   metadata:
-     name: frontend
-     labels:
-       app: guestbook
-       tier: frontend
-   spec:
-     type: LoadBalancer
-     ports:
-     - port: 80
-     selector:
-       app: guestbook
-       tier: frontend
-   EOF
-   ```
+1.  Configure the front end service to use a cloud load balancer:
 
-1. View the frontend service via the LoadBalancer by running the following command to get the IP address for the frontend Service:
+    ```bash
+    cat << EOF | kubectl apply -f -
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: frontend
+      labels:
+        app: guestbook
+        tier: frontend
+    spec:
+      type: LoadBalancer
+      ports:
+      - port: 80
+      selector:
+        app: guestbook
+        tier: frontend
+    EOF
+    ```
 
-   ```bash
-   kubectl get service frontend
-   ```
+1.  View the frontend service via the LoadBalancer by running the following command to get the IP address for the frontend Service:
 
-1. Copy the external IP address, and load the page in your browser to view your guestbook.
+    ```bash
+    kubectl get service frontend
+    ```
 
-   The service properties provide the name of the load balancer. You can connect to the application by accessing that load balancer address in your web browser.
-   Because this sample deployment creates a **cloud load balancer**,  you should keep in mind that creating the load balancer can take up to a few minutes.
-   You also might experience a slight delay before it is running properly due to DNS propagation and synchronization.
+1.  Copy the external IP address, and load the page in your browser to view your guestbook.
 
-1. Remove the sample application by running the following commands:
+    The service properties provide the name of the load balancer. You can connect to the application by accessing that load balancer address in your web browser.
+    Because this sample deployment creates a **cloud load balancer**,  you should keep in mind that creating the load balancer can take up to a few minutes.
+    You also might experience a slight delay before it is running properly due to DNS propagation and synchronization.
 
-   ```bash
-   kubectl delete deployment -l app=redis
-   kubectl delete service -l app=redis
-   kubectl delete deployment frontend
-   kubectl delete service frontend
-   ```
+1.  Remove the sample application by running the following commands:
 
-   <p class="message--warning"><strong>WARNING: </strong>
-   This step is <b>required</b> because the sample deployment attaches a <b>cloud provider load balancer</b> to the Konvoy cluster.
-   Therefore, you <b>must delete</b> the sample application before tearing down the cluster.
-   </p>
+    ```bash
+    kubectl delete deployment -l app=redis
+    kubectl delete service -l app=redis
+    kubectl delete deployment frontend
+    kubectl delete service frontend
+    ```
 
-1. **Optional:** Tear down the cluster by running the following command:
+    <p class="message--warning"><strong>WARNING: </strong>
+    This step is <b>required</b> because the sample deployment attaches a <b>cloud provider load balancer</b> to the DKP cluster.
+    Therefore, you <b>must delete</b> the sample application before tearing down the cluster.
+    </p>
 
-   ```bash
-   konvoy down
-   ```
+1.  **Optional:** Tear down the cluster. If you want to do this on a [networked AWS environment][aws-env], you can do so by running the commands in the [delete cluster topic][delete-aws].
 
-   This command destroys the Kubernetes cluster and the infrastructure it runs on.
+    This destroys the Kubernetes cluster and the infrastructure it runs on.
 
 ## Related Information
 
 - [Example: Deploying PHP Guestbook application with Redis][guestbook]
 
 [guestbook]: https://kubernetes.io/docs/tutorials/stateless-application/guestbook/
-[quick-start]: ../../quick-start
+[choose-infra]: ../../choose-infrastructure
+[aws-env]: ../../choose-infrastructure/aws
+[delete-aws]: ../../choose-infrastructure/aws/advanced/delete
