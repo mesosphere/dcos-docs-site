@@ -18,7 +18,7 @@ This release provides new features and capabilities that improve user experience
 
 ### Garbage Collection
 
-Kaptain 1.3 supports automatic cleanup of completed and idling workloads. This prevents new workflows or versioned deployments from encountering a lack of resources and unnecessary pressure on controllers. Users will not reach namespace quotas, often set by administrators, as quickly.
+Kaptain 1.3 supports automatic cleanup of completed and idling workloads. This prevents new workflows or versioned deployments from encountering a lack of resources and unnecessary pressure on controllers. Users will not reach namespace quotas, often set by administrators, as quickly. 
 Garbage collection allows users to configure cleanup of Kubeflow Pipeline runs and culling for Jupyter notebooks. Resources are automatically cleaned up when a cell execution is interrupted. Also, using the SDK, users can see how certain resources were created (e.g., by a user or by the SDK).
 For information on what resources are created during each phase of the model development lifecycle and how to use garbage collection, see [SDK](../../sdk/1.0.x/) and [SDK Troubleshooting](../../sdk/1.0.x/troubleshooting/).
 For examples of garbage collection for Katib experiments, see the [Hyperparameter Tutorial](../../tutorials/katib/).
@@ -46,7 +46,7 @@ In DKP 2.1, Kaptain's dependencies are managed through Kommander, the centralize
 * Document how to use `requirements.txt` to add additional python dependencies to notebooks
 
   We updated the tutorial to show how to install custom Python packages to model images (COPS-7045)
-
+ 
 * Fixed installation instructions for DKP 2 (COPS-7061)
 
 * Installation and Upgrade Improvements
@@ -69,3 +69,4 @@ In DKP 2.1, Kaptain's dependencies are managed through Kommander, the centralize
 * Tensorflow 2.5.0
 * CUDA 11.2
 * MXNet 1.9
+

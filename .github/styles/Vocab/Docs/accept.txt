@@ -67,7 +67,7 @@ Flink
 Fluentd
 (gcr|GCR)
 Gitea
-gitops
+(gitops|GitOps)
 (Goboring|goboring)
 golang
 (grafana|Grafana)

@@ -8,11 +8,11 @@ beta: false
 enterprise: false
 ---
 
-# Overview
+# Overview 
 
 Enabling data scientists and machine learning engineers to utilize 3rd-party services that live outside Kubeflow (or even outside the Konvoy cluster on which Kubeflow resides), requires a simple and secure mechanism for distributing usernames, passwords, and other sensitive data. Luckily, Kubeflow administrators can share specific credentials with specific Kubeflow platform tenants in a granular fashion, while tenants can access that sensitive data without exposing it in plain text.
 
-## Manage Secrets with Kubeflow
+## Manage Secrets with Kubeflow 
 
 To expose a Kubernetes Secret to Jupyter notebooks launched from Kubeflow, ensure you have Kubeflow administrator privileges, then go to the Kubernetes cluster that houses the Kubeflow tenant's workspace namespace, create a secret, and deploy a `PodDefault` object.
 
@@ -22,16 +22,16 @@ Then, when a Kubeflow tenant launches a Jupyter notebook, they can select any se
 
 ### Step 1 - Confirm the Kubeflow tenant namespace name
 
-Each Kubeflow tenant receives their own namespace on the shared Konvoy cluster. Although the Kubeflow UI will suggest that the tenant use a namespace name that matches the login from the OIDC provider attached to Konvoy, there is no *requirement* that the tenant do so.
+Each Kubeflow tenant receives their own namespace on the shared Konvoy cluster. Although the Kubeflow UI will suggest that the tenant use a namespace name that matches the login from the OIDC provider attached to Konvoy, there is no *requirement* that the tenant do so. 
 
-As a result, Kubeflow administrators must confirm the name selected by the tenant upon first login.
+As a result, Kubeflow administrators must confirm the name selected by the tenant upon first login. 
 
 Furthermore, as `PodDefault` objects are namespaced, and the tenant's namespace is only created _after_ logging in for the first time, administrators must wait until the tenant logs in for the first time before continuing with the steps below.
 
 The following output shows a Kubeflow tenant who has logged in and named their namespace "alice":
 
 ```bash
-kubectl get namespaces
+kubectl get namespaces                                                                  
 
 NAME              STATUS   AGE
 alice             Active   54m
@@ -52,7 +52,7 @@ kudo-system       Active   64m
 Next, create a `Secret` in the "alice" namespace.
 
 ```bash
-kubectl create secret generic -n alice test-secret --from-literal=foo=bar
+kubectl create secret generic -n alice test-secret --from-literal=foo=bar  
 secret/test-secret created
 ```
 
@@ -86,7 +86,7 @@ EOF
 poddefault.kubeflow.org/test-secret created
 ```
 
-### Step 4 - Launch Jupyter notebook and select test-secret from the Configurations drop-down
+### Step 4 - Launch Jupyter notebook and select test-secret from the Configurations drop-down 
 
 After successfully deploying the `PodDefault`, select the test-secret for injection into the new Jupyter notebook.
 
@@ -97,7 +97,7 @@ After successfully deploying the `PodDefault`, select the test-secret for inject
 To confirm the secret was successfully injected into the new Jupyter notebook pod, first run the below command to confirm the name of the notebook pod launched:
 
 ```bash
-kubectl get pods -n alice
+kubectl get pods -n alice                    
 NAME       READY   STATUS            RESTARTS   AGE
 
 tf-gpu-0   0/2     PodInitializing   0          5m47s
@@ -155,7 +155,7 @@ Run:
 cat << EOF > config.json -
 {
   "auths": {
-    "https://index.docker.io/v1/": {
+    "https://index.docker.io/v1/": { 
       "auth": "${docker_credentials}"
      }
   }
@@ -203,6 +203,6 @@ spec:
 EOF
 ```
 
-### Step 5 - Launch Jupyter notebook and select "Add Docker config" from the Configurations drop-down
+### Step 5 - Launch Jupyter notebook and select "Add Docker config" from the Configurations drop-down 
 
 After successfully deploying the `PodDefault`, select the "Add Docker config" option for injection into the new Jupyter notebook.

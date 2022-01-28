@@ -15,7 +15,7 @@ Upgrade the existing Kaptain installation to a newer version.
 Before you begin, ensure you have:
 
 - Kaptain 1.2.0 installed on a Konvoy cluster.
-- The existing cluster meets the criteria listed in the [installation documentation][install].
+- The existing cluster meets the criteria listed in the [installation documentation][install]. 
 
 ## Upgrade Kaptain
 
@@ -73,7 +73,7 @@ After the upgrade completes, log in to Kaptain:
 * When upgrading from Kaptain version `1.2.0` to `1.3.0` the following workloads do not require stopping and can proceed _without interruption during the upgrade_:
   Jupyter Notebooks, Training Jobs (`TFJob`, `PyTorchJob`, `MXNetJob`), Katib `Experiments` and `Trials`,
   and `SparkApplications`), Kubeflow Pipelines.
-
+  
 [breaking-changes]: #breaking-changes
 [download]: ../download
 [install]: ../install

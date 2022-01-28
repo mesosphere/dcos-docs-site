@@ -77,11 +77,11 @@ You can map group and user claims made by your configured identity providers to 
 
 `ClusterRoles` are named collections of rules defining which verbs can be applied to which resources.
 
-- Kommander Roles apply specifically to resources on the management cluster.
-- Cluster Roles apply to target clusters within their scope at these levels:
-  - Global level - this is all target clusters in all workspaces,
-  - Workspace level - this is all target clusters in the workspace,
-  - Project level - this is all target clusters that have been added to the project.
+-   Kommander Roles apply specifically to resources on the management cluster.
+-   Cluster Roles apply to target clusters within their scope at these levels:
+    - Global level - this is all target clusters in all workspaces,
+    - Workspace level - this is all target clusters in the workspace,
+    - Project level - this is all target clusters that have been added to the project.
 
 ### Propagating Workspace Roles to Projects
 

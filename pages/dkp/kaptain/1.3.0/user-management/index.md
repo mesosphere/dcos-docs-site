@@ -10,7 +10,7 @@ enterprise: false
 
 # Manage Kubeflow Users and Permissions
 
-Prerequisites:
+Prerequisites: 
 - Administrative access to a properly configured Konvoy cluster via `kubectl`
 
 Because a single Kubeflow user needs to interact with Kubernetes resources across their own Kubeflow `Profile` namespace,
@@ -134,14 +134,14 @@ profile.kubeflow.org/<name of profile> created
 
 ## Modifying Permissions of existing Users
 
-### Adding Permissions for a Kubeflow Administrator
+### Adding Permissions for a Kubeflow Administrator     
 
 #### Step 1 - Create the `ClusterRoleBinding` YAML manifest
 
 In your terminal shell, run:
 
 ```bash
-cat << EOF > add-kubeflow-admin.yaml
+cat << EOF > add-kubeflow-admin.yaml                                        
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -159,7 +159,7 @@ EOF
 
 #### Step 2 - Edit `add-kubeflow-admin.yaml` with details for the new user
 
-Edit the `metadata.name` to the name of the user you want to add.
+Edit the `metadata.name` to the name of the user you want to add. 
 
 <p class="message--note"><strong>NOTE: </strong>This name should be globally unique across your Konvoy cluster, otherwise you may overwrite another user's permissions.</p>
 
@@ -176,7 +176,7 @@ kubectl apply -f add-kubeflow-admin.yaml
 Your output should look similar to this:
 
 ```bash
-kubectl apply -f add-kubeflow-admin.yaml
+kubectl apply -f add-kubeflow-admin.yaml                              
 
 clusterrolebinding.rbac.authorization.k8s.io/<name of user> created
 ```
@@ -188,7 +188,7 @@ clusterrolebinding.rbac.authorization.k8s.io/<name of user> created
 In your terminal shell, run:
 
 ```bash
-cat << EOF > add-kubeflow-user.yaml
+cat << EOF > add-kubeflow-user.yaml                                        
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -206,7 +206,7 @@ EOF
 
 #### Step 2 - Edit `add-kubeflow-user.yaml` with details for the new user
 
-Edit the `metadata.name` to the name of the user you want to add.
+Edit the `metadata.name` to the name of the user you want to add. 
 
 <p class="message--note"><strong>NOTE: </strong>This name should be globally unique across your Konvoy cluster, otherwise you may overwrite another user's permissions.</p>
 
@@ -215,7 +215,7 @@ Edit `subjects.apiGroup.name` to match the email address associated with the use
 
 #### Step 3 - Apply `add-kubeflow-user.yaml` to your Konvoy cluster
 
-In your terminal shell, run:
+In your terminal shell, run: 
 
 ```bash
 kubectl apply -f add-kubeflow-user.yaml
@@ -224,7 +224,7 @@ kubectl apply -f add-kubeflow-user.yaml
 Your output should look similar to this:
 
 ```bash
-kubectl apply -f add-kubeflow-user.yaml
+kubectl apply -f add-kubeflow-user.yaml                              
 
 clusterrolebinding.rbac.authorization.k8s.io/<name of user> created
 ```

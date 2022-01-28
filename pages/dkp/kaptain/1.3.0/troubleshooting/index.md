@@ -187,7 +187,7 @@ Most problems could be identified by checking the following, going from higher-l
 #### Errors in job code
 Check if the job is running:
 ```bash
-$ kubectl get tfjob tfjob-example
+$ kubectl get tfjob tfjob-example 
 NAME            STATE     AGE
 tfjob-example   Running   6m47s
 ```
@@ -309,7 +309,7 @@ In the logs above we see the source of the issue - an exception was raised durin
 
 Check if the job is running:
 ```bash
-$ kubectl get tfjob tfjob-example
+$ kubectl get tfjob tfjob-example 
 NAME            STATE     AGE
 tfjob-example   Running   1m47s
 ```
@@ -323,7 +323,7 @@ tfjob-sample-worker-0   0/1     ImagePullBackOff   0          2m32s
 tfjob-sample-worker-1   0/1     ImagePullBackOff   0          2m32s
 ```
 
-The worker pods for the Job have [ImagePullBackOff](https://kubernetes.io/docs/concepts/containers/images/#imagepullbackoff) status.
+The worker pods for the Job have [ImagePullBackOff](https://kubernetes.io/docs/concepts/containers/images/#imagepullbackoff) status. 
 
 We can get more details by describing the TFJob:
 
@@ -399,7 +399,7 @@ Events:
 
 Check if the job is running:
 ```bash
-$ kubectl get tfjob tfjob-example
+$ kubectl get tfjob tfjob-example 
 NAME            STATE     AGE
 tfjob-example   Created   90s
 ```

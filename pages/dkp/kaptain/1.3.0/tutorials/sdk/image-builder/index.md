@@ -63,7 +63,7 @@ pip show d2iq-kaptain
     License: Apache
     Location: /opt/conda/lib/python3.7/site-packages
     Requires: python-dxf, retrying, botocore, kubernetes, types-requests, object-mapper, boto3, torch-model-archiver, kfserving, kubeflow-katib, kubeflow-training, tqdm, humanize, tenacity, typing
-    Required-by:
+    Required-by: 
 
 
 ### Prepare the training code and datasets
@@ -163,7 +163,7 @@ def main():
         metavar="N",
         help="Accelerates SGD in the relevant direction and dampens oscillations (default: 0.1)",
     )
-
+    
     args, _ = parser.parse_known_args()
 
     strategy = tf.distribute.experimental.MultiWorkerMirroredStrategy()
@@ -346,47 +346,47 @@ builder.build_image()
     2021-11-02 14:11:59,918 kaptain-log[INFO]: Waiting for Image Build to start...
     2021-11-02 14:12:03,869 kaptain-log[INFO]: Image Build started in pod: kaniko-ffccde4355a4a541-hz9pl.
     2021-11-02 14:12:05,996 kaptain-log[INFO]: [kaniko-ffccde4355a4a541-hz9pl/kaniko] logs:
-    [0001] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0
-    [0001] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0
-    [0001] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0
-    [0001] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0
-    [0002] Built cross stage deps: map[]
+    [0001] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
+    [0001] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
+    [0001] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
+    [0001] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
+    [0002] Built cross stage deps: map[]                
     2021-11-02 14:12:57,247 kaptain-log[INFO]: [kaniko-ffccde4355a4a541-hz9pl/kaniko] logs:
-    [0002] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0
-    [0002] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0
-    [0003] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0
-    [0003] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0
-    [0004] Executing 0 build triggers
-    [0004] Unpacking rootfs as cmd COPY . /workdir requires it.
-    [0054] Taking snapshot of full filesystem...
+    [0002] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
+    [0002] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
+    [0003] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
+    [0003] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
+    [0004] Executing 0 build triggers                   
+    [0004] Unpacking rootfs as cmd COPY . /workdir requires it. 
+    [0054] Taking snapshot of full filesystem...        
     2021-11-02 14:13:54,353 kaptain-log[INFO]: [kaniko-ffccde4355a4a541-hz9pl/kaniko] logs:
-    [0111] WORKDIR /workdir
+    [0111] WORKDIR /workdir                             
     2021-11-02 14:15:05,258 kaptain-log[INFO]: [kaniko-ffccde4355a4a541-hz9pl/kaniko] logs:
-    [0111] cmd: workdir
-    [0111] Changed working directory to /workdir
-    [0111] Creating directory /workdir
-    [0111] COPY . /workdir
-    [0111] RUN pip install -r requirements.txt
-    [0111] cmd: /bin/bash
-    [0111] args: [-cu pip install -r requirements.txt]
-    [0111] Running: [/bin/bash -cu pip install -r requirements.txt]
+    [0111] cmd: workdir                                 
+    [0111] Changed working directory to /workdir        
+    [0111] Creating directory /workdir                  
+    [0111] COPY . /workdir                              
+    [0111] RUN pip install -r requirements.txt          
+    [0111] cmd: /bin/bash                               
+    [0111] args: [-cu pip install -r requirements.txt]  
+    [0111] Running: [/bin/bash -cu pip install -r requirements.txt] 
     Requirement already satisfied: scikit-learn in /opt/conda/lib/python3.7/site-packages (from -r requirements.txt (line 2)) (0.24.2)
     Requirement already satisfied: numpy in /opt/conda/lib/python3.7/site-packages (from -r requirements.txt (line 3)) (1.19.5)
     Requirement already satisfied: scipy>=0.19.1 in /opt/conda/lib/python3.7/site-packages (from scikit-learn->-r requirements.txt (line 2)) (1.7.1)
     Requirement already satisfied: joblib>=0.11 in /opt/conda/lib/python3.7/site-packages (from scikit-learn->-r requirements.txt (line 2)) (1.0.1)
     Requirement already satisfied: threadpoolctl>=2.0.0 in /opt/conda/lib/python3.7/site-packages (from scikit-learn->-r requirements.txt (line 2)) (2.2.0)
     WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-    [0113] ENTRYPOINT ["python", "-u", "mnist.py"]
-    [0113] LABEL checksum=dd270080d096520306e0cb72857bd859
-    [0113] Applying label checksum=dd270080d096520306e0cb72857bd859
-    [0113] Taking snapshot of full filesystem...
+    [0113] ENTRYPOINT ["python", "-u", "mnist.py"]      
+    [0113] LABEL checksum=dd270080d096520306e0cb72857bd859 
+    [0113] Applying label checksum=dd270080d096520306e0cb72857bd859 
+    [0113] Taking snapshot of full filesystem...        
     2021-11-02 14:15:06,233 kaptain-log[INFO]: Image build completed successfully. Image pushed: mesosphere/kubeflow:kaptain-sdk-mnist-tensorflow-1635862297
     2021-11-02 14:15:06,234 kaptain-log[INFO]: Deleting job kaniko-ffccde4355a4a541 in namespace user1.
     2021-11-02 14:15:06,243 kaptain-log[INFO]: Deleting secret docker-ffccde4355a4a541 in namespace user1.
     2021-11-02 14:15:06,253 kaptain-log[INFO]: Deleting secret context-ffccde4355a4a541 in namespace user1.
 
 
-That's it! Image build has been completed and the image with required packages and files has been pushed to the Docker registry.
+That's it! Image build has been completed and the image with required packages and files has been pushed to the Docker registry. 
 
 ## Option 2: Build-Push-Run
 

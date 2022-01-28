@@ -44,10 +44,10 @@ base64CustomCertificateKey: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJ
 Install Kaptain using the configuration file:
 ```bash
 kubectl kudo install ./kubeflow-1.4.0_1.3.0.tgz \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow \
-                --create-namespace
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow \
+		--create-namespace
 ```
 To update an already installed Kaptain instance, run the following command:
 ```

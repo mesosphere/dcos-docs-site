@@ -16,11 +16,11 @@ Learn how to configure automatic cleanup of completed and idle workloads created
 
 ## Automatically cleanup idle Notebooks
 
-Kaptain Notebooks are the primary interface for end users to interact with the platform. A notebook is a long-running
+Kaptain Notebooks are the primary interface for end users to interact with the platform. A notebook is a long-running 
 application deployed as a Kubernetes StatefulSet with an attached volumes for persisting your working directory.
 Although notebooks are not supposed to be garbage collected, in some cases, they can have significant amounts of cluster resources reserved to run local (in-notebook) training. Once the training is complete, these resources are not available for other workloads to use and should be cleaned up.
 
-The Notebook Controller provides functionality called “notebook culling”  which can scale down idle notebooks. Scaling down notebooks frees up the resources allocated to those notebooks and makes them available to other workloads.
+The Notebook Controller provides functionality called “notebook culling”  which can scale down idle notebooks. Scaling down notebooks frees up the resources allocated to those notebooks and makes them available to other workloads. 
 
 Jupyter Notebook exposes an endpoint reporting the last activity within a notebook; if the last activity exceeds the configured limit, the controller scales the underlying StatefulSet to 0 replicas.
 
@@ -58,7 +58,7 @@ The notebook culling feature is disabled by default. To enable it, set the `note
 kubectl kudo update --instance kaptain --namespace kubeflow -p notebookEnableCulling=true
 ```
 
-See the [Configuration Reference](../../configuration/#kaptain-operator-parameters) for additional parameters for this functionality.
+See the [Configuration Reference](../../configuration/#kaptain-operator-parameters) for additional parameters for this functionality. 
 
 ## Automatic cleanup of completed Pipeline Runs (Workflows)
 ### Overview
@@ -84,7 +84,7 @@ dsl-control-structures-rugqkrh-1-2276733026-3461867059   0/2     Completed   0  
 dsl-control-structures-rugqkrh-1-2276733026-4042755208   0/2     Completed   0          4m1s
 ```
 
-### Using Python DSL for setting Pipeline TTL
+### Using Python DSL for setting Pipeline TTL 
 Kubeflow Pipelines provide a Python Domain Specific Language (DSL) that allows you to specify a time-to-live (TTL) for the submitted Pipeline. Here is an excerpt from the [Pipeline tutorial][pipeline-tutorial]:
 ```python
 @dsl.pipeline(
@@ -104,7 +104,7 @@ def mnist_pipeline(
     dsl.get_pipeline_conf().set_ttl_seconds_after_finished(60 * 60)
 ```
 
-This setting specifies the `ttlSecondsAfterFinished` property in the Argo Workflow definition specifying the amount of time the workflow will persist before it is cleaned up by the dedicated controller.
+This setting specifies the `ttlSecondsAfterFinished` property in the Argo Workflow definition specifying the amount of time the workflow will persist before it is cleaned up by the dedicated controller. 
 
 ### Setting global TTL for completed Pipelines
 

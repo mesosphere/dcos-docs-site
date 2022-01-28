@@ -91,10 +91,10 @@ oidcProviderBase64CaBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS9tLS0tCk1JSUMrVENDQWVH
 Install Kaptain with the provided parameters, by running the following command against the managed cluster:
 ```bash
 kubectl kudo install ./kubeflow-1.4.0_1.3.0.tgz \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow \
-                --create-namespace
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow \
+		--create-namespace
 ```
 To update an already installed Kaptain instance, run the following command on the managed cluster:
 ```

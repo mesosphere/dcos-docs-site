@@ -34,7 +34,7 @@ The installation steps for Kaptain on an air-gapped cluster are as follows:
 
 * Add the Kaptain addon repository to the `cluster.yaml` file and update other addon repositories to use Kaptain's Docker
  image which includes Kaptain specific addons:
-        ```yaml
+	```yaml
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kaptain
       configVersion: stable-1.20-1.4.0
       addonRepository:
@@ -42,7 +42,7 @@ The installation steps for Kaptain on an air-gapped cluster are as follows:
       addonsList:
         - name: knative
           enabled: true
-        ```
+	```
 * Load, re-tag, and push all images to the private registry by using the Konvoy CLI:
     ```bash
     konvoy config images seed

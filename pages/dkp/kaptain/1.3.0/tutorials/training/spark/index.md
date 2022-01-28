@@ -155,7 +155,7 @@ def train_hvd(learning_rate, batch_size, epochs):
         tf.config.experimental.set_memory_growth(gpu, True)
     if gpus:
         tf.config.experimental.set_visible_devices(gpus[hvd.local_rank()], 'GPU')
-
+    
     (x_train, y_train), (x_test, y_test) = get_dataset(hvd.rank(), hvd.size())
     model = get_model()
 
@@ -227,9 +227,9 @@ if __name__ == "__main__":
 
     image_index = 100
     (x_train, y_train), (x_test, y_test) = get_dataset()
-
+    
     print(f"Expected prediction for index {image_index}: {y_test[image_index]}")
-
+    
     # Train model with Horovod on Spark
     model_bytes = horovod.spark.run(train_hvd, args=(args.learning_rate,
                                                      args.batch_size,
@@ -337,7 +337,7 @@ docker push <docker_image_name_with_tag>
 The image is available as `mesosphere/kubeflow:1.3.0-mnist-spark-3.0.0-horovod-0.22.0-tensorflow-2.5.0-gpu` in case you want to skip it for now.
 
 ## How to Create a Distributed `SparkApplication`
-The [KUDO Spark Operator](https://github.com/kudobuilder/operators/tree/master/repository/spark/docs) manages Spark applications in a similar way as the [PyTorch](../pytorch) or [TensorFlow](../tensorflow) operators manage `PyTorchJob`s and `TFJob`s, respectively.
+The [KUDO Spark Operator](https://github.com/kudobuilder/operators/tree/master/repository/spark/docs) manages Spark applications in a similar way as the [PyTorch](../pytorch) or [TensorFlow](../tensorflow) operators manage `PyTorchJob`s and `TFJob`s, respectively. 
 It exposes a resource called `SparkApplication` that you will use to train the model on multiple nodes with Horovod.
 
 <div style="color: #31708f; background-color: #d9edf7; border-color: #bce8f1; padding: 15px; margin-top: 10px; margin-bottom: 10px; border: 1px solid transparent; border-radius: 4px;">
@@ -376,7 +376,7 @@ spec:
   mode: cluster
   pythonVersion: "3"
   image: ${IMAGE}
-  imagePullPolicy: Always
+  imagePullPolicy: Always  
   mainApplicationFile: "local:///mnist.py"
   sparkVersion: "3.0.0"
   restartPolicy:
@@ -399,7 +399,7 @@ spec:
       quantity: ${GPUS}
     labels:
       version: 3.0.0
-      metrics-exposed: "true"
+      metrics-exposed: "true"  
     annotations:
       sidecar.istio.io/inject: "false"
     serviceAccount: default-editor
@@ -412,7 +412,7 @@ spec:
       quantity: ${GPUS}
     labels:
       version: 3.0.0
-      metrics-exposed: "true"
+      metrics-exposed: "true"  
     annotations:
       sidecar.istio.io/inject: "false"
   monitoring:
@@ -536,3 +536,4 @@ kubectl delete ${HVD_JOB}
 ```
 
     sparkapplication.sparkoperator.k8s.io "horovod-mnist" deleted
+

@@ -17,7 +17,7 @@ Kaptain supports installation on an air-gapped (a.k.a. offline or private) Konvo
 ### Prerequisites for DKP 2.x
 
 For DKP 2.x, ensure the following applications are enabled in Kommander:
-* Use the existing Kommander configuration file, or initialize the default one:
+* Use the existing Kommander configuration file, or initialize the default one:  
   ```
   kommander install --init > kommander-config.yaml
   ```
@@ -35,7 +35,7 @@ For DKP 2.x, ensure the following applications are enabled in Kommander:
     minio-operator:
     traefik:
     nvidia:  # to enable GPU support
-    ...
+    ...   
   ```
 * Apply the new configuration to Kommander:
   ```

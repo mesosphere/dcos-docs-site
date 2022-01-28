@@ -63,7 +63,7 @@ For DKP 2.x, ensure the following applications are enabled in Kommander:
     minio-operator:
     traefik:
     nvidia:  # to enable GPU support
-    ...
+    ...   
   ```
 
 ### Install Kaptain

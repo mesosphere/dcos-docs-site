@@ -31,7 +31,7 @@ Couchbase is a registered trademark, and Couchbase Gateway, and Couchbase Server
 
 Crunchbase and ETCD are trademarks or registered trademarks of Crunchbase, Inc.
 
-Datastax, Titan, and TitanDB are registered trademarks of Datastax, Inc. and its subsidiaries in the United States and other countries.
+Datastax, Titan, and TitanDB are registered trademarks of Datastax, Inc. and its subsidiaries in the United States and other countries. 
 
 Dex is an open-source OpenID Connect Identity (OIDC) and OAth 2.0 provider.
 
@@ -87,7 +87,7 @@ REX-ray is a registered trademark of DELL, Inc.
 
 Segment is a trademark or registered trademark of Segment.io, Inc.
 
-Splunk is a registered trademark of Splunk, Inc. in the United States and other countries.
+Splunk is a registered trademark of Splunk, Inc. in the United States and other countries. 
 
 Telegraf is a trademark of InfluxData, Inc.
 

@@ -18,7 +18,7 @@ Kaptain SDK 0.4.0 Release Notes
 * Utilities for ML workloads listing and cleanup:
   * Generic resource utilities: `list_all_resources, delete_resource`
 * Kaptain uses the Kubeflow Training SDK and now uses the `V1beta1` KFServing API (upgraded from `V1alpha2`)
-* `ModelExportUtil().upload_model` gains an additional parameter: `extra_files`
+* `ModelExportUtil().upload_model` gains an additional parameter: `extra_files` 
 * `kaptain.env` now contains helpers for docker builder resource configuration env vars
 * The Kaniko Pod is now cleaned up immediately after the Docker build completion
 * `model.tune()` gains an additional parameter: `delete_experiment`

@@ -869,3 +869,4 @@ credentials between containers.
 **Returns**:
 
 dict of environment variables with associated values
+

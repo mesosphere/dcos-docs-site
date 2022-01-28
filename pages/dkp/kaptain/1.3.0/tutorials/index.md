@@ -14,7 +14,7 @@ It is designed to be a great first experience with Kaptain.
 
 If you prefer to have full control and are familiar and comfortable with Kubeflow SDKs, or YAML specifications in Kubernetes, then we suggest you consult the other tutorials.
 
-Note that everything can be done from within notebooks, thanks to Kaptain's notebooks-first approach to machine learning.
+Note that everything can be done from within notebooks, thanks to Kaptain's notebooks-first approach to machine learning. 
 
 ## How to Navigate the User Interface
 
@@ -42,14 +42,14 @@ The menu on the left has the following entries:
 These are discussed in more detail below.
 
 ## Volumes
-_Volumes_ page shows a list of created persistence volumes in the user's namespace and allows to manage
+_Volumes_ page shows a list of created persistence volumes in the user's namespace and allows to manage 
 (create and delete) them via Volume Manager UI.
 
 ![Volume Manager](./img/volume-manager.png)
 
 ## Tensorboards
-On the _Tensorboards_ page, users can create and configure TensorBoard instances. TensorBoard is a tool for providing the
-measurements and visualizations needed during the machine learning workflow. It enables tracking experiment metrics
+On the _Tensorboards_ page, users can create and configure TensorBoard instances. TensorBoard is a tool for providing the 
+measurements and visualizations needed during the machine learning workflow. It enables tracking experiment metrics 
 like loss and accuracy, visualizing the model graph, displaying images, text, audio data, and much more.
 
 ![Tensorboards](./img/tensorboards.png)
@@ -60,11 +60,11 @@ To set up a new TensorBoard instance, click on "New TensorBoard" at the top righ
 
 Specify a name for the new instance, choose the storage type, and specify the location of log files to be parsed by TensorBoard.
 
-<p class="message--warning"><strong>WARNING: </strong>Object Store configuration via the UI is currently not supported.
-Is it possible to use AWS S3 or MinIO object storage with TensorBoard by setting <code>AWS_ACCESS_KEY_ID</code>,
+<p class="message--warning"><strong>WARNING: </strong>Object Store configuration via the UI is currently not supported. 
+Is it possible to use AWS S3 or MinIO object storage with TensorBoard by setting <code>AWS_ACCESS_KEY_ID</code>, 
 <code>AWS_SECRET_ACCESS_KEY</code> and <code>S3_ENDPOINT</code> environment variables in TensorBoard K8s <code>Deployment</code> resource.<p>
 
-Refer to the [MNIST with TensorFlow](./training/tensorflow) tutorial for more details about integrating a Tensorflow
+Refer to the [MNIST with TensorFlow](./training/tensorflow) tutorial for more details about integrating a Tensorflow 
 application with Tensorboard when running code from a notebook cell or in distributed mode via `TFJob`.
 
 When the instance is ready, clicking "Connect" in the instance list will lead you to the TensorBoard UI:
@@ -142,7 +142,7 @@ Each notebook server receives a number of resources attached to it:
 - GPUs (optional)
 
 These resources are _per pod_. Resource limits can also be configured in _Advanced options_ section.
-The GPU vendor is always NVIDIA, but it must be selected.
+The GPU vendor is always NVIDIA, but it must be selected. 
 
 Code run from within a Jupyter notebook on Kaptain runs on these resources.
 This means that it is possible to restrict the number of resources attached to a particular notebook server even though the cluster may have more resources available for additional workloads or other notebook servers.
@@ -169,7 +169,7 @@ The result is as follows:
 
 ![Notebook Server Setup](./img/notebook-server-setup-3.png)
 
-Please consult Kubeflow's documentation on [setting up notebook servers][kubeflow-docs-notebooks] for additional details.
+Please consult Kubeflow's documentation on [setting up notebook servers][kubeflow-docs-notebooks] for additional details. 
 
 Notebook Servers can be stopped and resumed (in other words, scaled-down or up) to free up allocated resources such as GPU or memory and make them available to other workloads. To stop a notebook server, press the "&#9632;" button on the right side of the notebook list.  Resume the notebook by pressing the "&#9658;" button. It is also possible to configure Kaptain to automatically scale down idle notebooks.  More information is located in the [Auto Cleanup Settings][auto-cleanup-settings].
 

@@ -31,7 +31,7 @@ envs.LOG_TIMEFORMAT = "%Y/%m/%d %H:%M:%S,%f"
 ```
 ### Image build configuration
 
-Use the following environment variables to set resources required for image building jobs:
+Use the following environment variables to set resources required for image building jobs: 
 
 - **DOCKER_BUILDER_CPU_LIMIT**: set `resources.cpu` limit for image building job (default: `1`).
 - **DOCKER_BUILDER_MEM_LIMIT**: set `resources.memory` limit for image building job (default: `1G`).

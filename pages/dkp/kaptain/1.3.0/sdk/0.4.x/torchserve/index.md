@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Serving PyTorch Models
+navigationTitle: Serving PyTorch Models 
 title: Serving PyTorch Models
 beta: false
 menuWeight: 5

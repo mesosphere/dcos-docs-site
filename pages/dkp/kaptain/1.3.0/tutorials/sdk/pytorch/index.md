@@ -537,7 +537,7 @@ model.train(
 The default `gpus` argument is 0, but it is shown here as an explicit option.
 Use `?Model.train` to see all supported arguments.
 
-<p class="message--note"><strong>NOTE: </strong>When resource quotas are set for a namespace, users have to specify <code>cpu</code> and <code>memory</code> explicitly in the SDK.
+<p class="message--note"><strong>NOTE: </strong>When resource quotas are set for a namespace, users have to specify <code>cpu</code> and <code>memory</code> explicitly in the SDK. 
 Otherwise, tasks such as training and tuning will fail with <code>Error creating: pods ... is forbidden: failed quota: kf-resource-quota: must specify cpu,memory</code>.
 These fields are optional when resource quotas are not set.
 In case the issue appears for other types of workloads, it is recommended to configure defaults for the user namespace using the <a href="https://kubernetes.io/docs/concepts/policy/limit-range/">Limit Range</a>.
@@ -599,15 +599,15 @@ hyperparams = {
 }
 
 model.tune(
-    trials=trials,
-    parallel_trials=parallel_trials,
-    workers=workers,
-    gpus=gpus,
+    trials=trials, 
+    parallel_trials=parallel_trials, 
+    workers=workers, 
+    gpus=gpus, 
     cpu=cpu,
     memory=memory,
     args={"--log-interval": "10"},
-    hyperparameters=hyperparams,
-    objectives=["accuracy"],
+    hyperparameters=hyperparams, 
+    objectives=["accuracy"], 
     objective_goal=0.99
 )
 ```

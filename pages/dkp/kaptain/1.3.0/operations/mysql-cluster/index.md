@@ -10,7 +10,7 @@ enterprise: false
 
 Learn how to scale and backup/restore the MySQL cluster with Kaptain. Kaptain provides a consolidated
 MySQL cluster with primary-primary replication for storage of the Pipelines execution history and artifacts,
-and Katib experiment results.
+and Katib experiment results. 
 
 ## Prerequisites
 
@@ -42,18 +42,18 @@ The `datastoreProxyCount` property controls the number of HAProxy replicas which
 To install Kaptain with the provided parameters, run the following command on the cluster:
 ```bash
 kubectl kudo install ./kubeflow-1.4.0_1.3.0.tgz \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow \
-                --create-namespace
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow \
+		--create-namespace
 ```
 
 To update an existing Kaptain instance with the updated properties, run the following command on the cluster:
 ```bash
 kubectl kudo update \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow
 ```
 
 ### Scaling MySQL nodes
@@ -67,18 +67,18 @@ The `datastoreNodeCount` property determines the number of MySQL instances in th
 To install Kaptain with the provided parameters, run the following command on the cluster:
 ```bash
 kubectl kudo install ./kubeflow-1.4.0_1.3.0.tgz \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow \
-                --create-namespace
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow \
+		--create-namespace
 ```
 
 To update an existing Kaptain instance with the provided parameters, run the following command on the cluster:
 ```bash
 kubectl kudo update \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow
 ```
 
 <p class="message--warning"><strong>WARNING: </strong>When scaling the existing database cluster down (i.e. decreasing the number of nodes), it is possible for clients to lose connectivity if the leader node is decommissioned. Once a new leader is elected, the clients will be able to reconnect.</p>
@@ -97,18 +97,18 @@ The `datastoreProxyNodeCPU` and `datastoreProxyNodeMemory` properties set the CP
 To install Kaptain with the provided parameters, run the following command on the cluster:
 ```bash
 kubectl kudo install ./kubeflow-1.4.0_1.3.0.tgz \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow \
-                --create-namespace
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow \
+		--create-namespace
 ```
 
 To update an existing Kaptain instance with the provided parameters, run the following command on the cluster:
 ```bash
 kubectl kudo update \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow
 ```
 
 ### Configuring resources for MySQL nodes
@@ -123,24 +123,24 @@ The `datastoreMySQLNodeCPU` and `datastoreMySQLNodeMemory` properties set the CP
 To install Kaptain with the provided parameters, run the following command on the cluster:
 ```bash
 kubectl kudo install ./kubeflow-1.4.0_1.3.0.tgz \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow \
-                --create-namespace
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow \
+		--create-namespace
 ```
 
 To update an existing Kaptain instance with the provided parameters, run the following command on the cluster:
 ```bash
 kubectl kudo update \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow
 ```
 
 <p class="message--warning"><strong>WARNING: </strong>To update the parameters, the existing database cluster will be restarted in a rolling manner, that is, one node at a time. It is possible for clients to lose connectivity when the leader node is restarted. Once a new leader is elected, clients will be able to reconnect.</p>
 
 ## Creating a backup for the MySQL cluster
-Kaptain provides dedicated KUDO plans for on-demand backup and restore operations for the MySQL cluster. Currently, Kaptain only supports backups to AWS S3.
+Kaptain provides dedicated KUDO plans for on-demand backup and restore operations for the MySQL cluster. Currently, Kaptain only supports backups to AWS S3.  
 
 You must create a Kubernetes `Secret` with AWS access credentials for the backup and then update the Kaptain configuration to enable backup and configure the storage location.
 
@@ -168,18 +168,18 @@ backupEndpointUrl: "<Optionally specify the S3 storage endpoint>"
 To install Kaptain with the provided parameters, run the following command on the cluster:
 ```bash
 kubectl kudo install ./kubeflow-1.4.0_1.3.0.tgz \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow \
-                --create-namespace
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow \
+		--create-namespace
 ```
 
 To update an existing Kaptain instance with the provided properties, run the following command on the cluster:
 ```bash
 kubectl kudo update \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow
 ```
 
 To perform a backup, trigger the Kaptain `backup` plan for the MySQL cluster component:
@@ -225,9 +225,9 @@ Then, update Kaptain using the created file:
 
 ```bash
 kubectl kudo update \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow
 ```
 
 To perform a restore operation, trigger the Kaptain `restore` plan for the MySQL cluster component:
@@ -259,9 +259,9 @@ backupRestoreSource: "s3://kaptain-backup/kaptain-mysql-store-2021-04-05-23:49:5
 Then, update Kaptain using the created file:
 ```bash
 kubectl kudo update \
-                --instance kaptain \
-                -P parameters.yaml \
-                --namespace kubeflow
+		--instance kaptain \
+		-P parameters.yaml \
+		--namespace kubeflow
 ```
 
 To perform the restore operation, trigger the Kaptain `restore` plan for the MySQL cluster component:

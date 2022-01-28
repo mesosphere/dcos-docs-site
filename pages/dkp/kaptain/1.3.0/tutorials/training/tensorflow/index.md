@@ -295,14 +295,14 @@ def main():
         metavar="N",
         help="Accelerates SGD in the relevant direction and dampens oscillations (default: 0.1)",
     )
-
+    
     parser.add_argument(
         "--log-dir",
         default="/home/kubeflow/tf-logs",
         type=str,
         help="the path of the directory where to save the log files to be parsed by TensorBoard",
     )
-
+    
 
     args, _ = parser.parse_known_args()
 
@@ -337,9 +337,9 @@ def main():
         model = compile_model(args=args)
 
     log_dir = args.log_dir + "/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    # setting 'profile_batch' to 0 to disable batch profiling.
+    # setting 'profile_batch' to 0 to disable batch profiling. 
     tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1, profile_batch=0)
-
+    
     # You cannot set `steps_per_epoch = None` with MirroredStrategy
     # See: https://github.com/tensorflow/tensorflow/issues/25254
     model.fit(train_datasets_sharded, epochs=args.epochs, steps_per_epoch=args.steps, callbacks=[tensorboard_callback])
@@ -718,7 +718,7 @@ kubectl delete ${TF_JOB}
 
 ## TensorBoard
 
-TensorBoard is a tool for providing the measurements and visualizations needed during the machine learning workflow.
+TensorBoard is a tool for providing the measurements and visualizations needed during the machine learning workflow. 
 This section shows how to create a TensorBoard instance using the log data from a previously created distributed `TFJob`.
 You can create a new TensorBoard instance by clicking the "Tensorboards" menu item page in the central dashboard or by applying the following resource using the PVC created in the previous step of this tutorial:
 

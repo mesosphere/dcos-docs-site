@@ -244,7 +244,7 @@ The one listed should work, but you may want to try it with your own container r
 <p></p>
 <div class="message--note"><strong>NOTE: </strong>
 Performing hyperparameter tuning on data that is split two ways only is not ideal. For this demonstration it is enough, as you do not check the accuracy of the tuned model on a separate hold-out data set. If you wanted to do that yourself, you could do it as follows:
-
+    
 * Split the data three ways
 * Evaluate the model on both the validation and test data sets
 * Add the model evaluation metric for the test data set as an entry in <code>additionalMetricNames</code>, which may contain multiple metrics of interest
@@ -481,14 +481,14 @@ If an Experiment needs to be deleted, including deleting it from the "Experiment
 
 ```sh
 %%sh
-kubectl delete experiments.kubeflow.org $EXPERIMENT
+kubectl delete experiments.kubeflow.org $EXPERIMENT 
 ```
 
 ## Katib UI
 
 So far, you have created and submitted experiments via the command line or from within Jupyter notebooks.
 Katib provides a user interface which allows you to create, configure, monitor, and delete experiments from a browser.
-The Katib UI can be launched from Kubeflow's central dashboard.
+The Katib UI can be launched from Kubeflow's central dashboard. 
 Select "Experiments (AutoML)" in the navigation menu.
 
 ![Katib](./img/katib-1.png)

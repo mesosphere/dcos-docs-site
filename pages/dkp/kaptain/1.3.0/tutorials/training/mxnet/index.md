@@ -70,7 +70,7 @@ def get_mnist():
     """
     Utility method to load the MNIST dataset stored on disk.
     This is a modification of the original test_utils.get_mnist() function available in MXNet.
-
+    
     Link:
     https://mxnet.apache.org/versions/1.6/api/python/docs/_modules/mxnet/test_utils.html#get_mnist
     """
@@ -87,7 +87,7 @@ def get_mnist():
     path = "datasets/mnist/"
     (train_lbl, train_img) = read_data(path+'train-labels-idx1-ubyte.gz', path+'train-images-idx3-ubyte.gz')
     (test_lbl, test_img) = read_data(path+'t10k-labels-idx1-ubyte.gz', path+'t10k-images-idx3-ubyte.gz')
-
+    
     return {'train_data':train_img, 'train_label':train_lbl, 'test_data':test_img, 'test_label':test_lbl}
 
 
@@ -186,7 +186,7 @@ Since the model will have two such layers, it makes sense to package a single la
     <ul>
         <li style="color: #31708f;">ReLU and its gradient are very cheap to compute;</li>
         <li style="color: #31708f;">Gradients are less likely to vanish, because for (non-)negative values its gradient is constant and therefore does not saturate, which for deep neural networks can <a href="https://dl.acm.org/doi/10.1145/3065386">accelerate convergence</a></li>
-        <li style="color: #31708f;">ReLU has a regularizing effect, because it promotes <a href="https://www.researchgate.net/publication/215616967_Deep_Sparse_Rectifier_Neural_Networks">sparse representations</a> (i.e. some nodes' weights are zero);</li>
+        <li style="color: #31708f;">ReLU has a regularizing effect, because it promotes <a href="https://www.researchgate.net/publication/215616967_Deep_Sparse_Rectifier_Neural_Networks">sparse representations</a> (i.e. some nodes' weights are zero);</li> 
         <li style="color: #31708f;">Empirically it has been found to work well.</li>
     </ul>
     ReLU activation functions can cause neurons to 'die' because a large, negative (learned) bias value causes all inputs to be negative, which in turn leads to a zero output.
@@ -200,7 +200,7 @@ Since the model will have two such layers, it makes sense to package a single la
 def conv_layer(input_layer, kernel, num_filters, activation):
     """
     Defines a CNN layer with `activation` function and 2D max pooling with a kernel and stride of (2, 2)
-
+    
     :param layer: input layer (an MXNet symbol)
     :param kernel: 2D convolutional kernel
     :param filters: number of filters to use in convolution
@@ -224,7 +224,7 @@ def conv_layer(input_layer, kernel, num_filters, activation):
     That is why often the number of filters increases with each additional convolutional layer: to extract more complex patterns.<br><br>
     Convolutional layers are often followed by a pooling layer to down-sample the input.
     This aids in lowering the computational burden as you increase the number of filters.
-    A max pooling layer simply picks the largest value of pixels in a small (rectangular) neighbourhood of a single channel (e.g. RGB).
+    A max pooling layer simply picks the largest value of pixels in a small (rectangular) neighbourhood of a single channel (e.g. RGB). 
     This has the effect of making features <em>locally</em> translation-invariant, which is often desired: whether a feature of interest is on the left or right edge of a pooling window, which is also referred to as a kernel, is largely irrelevant to the problem of image classification.
     Note that this may not always be a desired characteristic and depends on the size of the pooling kernel.
     For instance, the precise location of tissue damage in living organisms or defects on manufactured products may be very significant indeed.
@@ -251,7 +251,7 @@ def ann(input_layer, kernels, filters, activation, hidden_units):
     """
     Defines a neural network with two convolutional layers and two dense layers.
     To train the model it needs to be wrapped in a module.
-
+    
     :param input_layer: input layer (an MXNet symbol)
     :param kernels: a list of 2D convolutional kernels
     :param filters: a list of convolutional filters
@@ -591,7 +591,7 @@ prob[24], prob_relu[24]
       9.99999046e-01 1.08974885e-09 3.25030669e-07 8.28973228e-08
       1.59384072e-07 3.14834097e-07]
      <NDArray 10 @cpu(0)>,
-
+     
      [6.4347176e-08 7.3004806e-08 3.4015596e-08 5.8196594e-09 9.9998724e-01
       1.2476704e-07 1.9580840e-07 3.0599865e-06 1.2806310e-08 9.1640350e-06]
      <NDArray 10 @cpu(0)>)
@@ -611,7 +611,7 @@ np.argmax(prob[24]), np.argmax(prob_relu[24])
     (
      [4.]
      <NDArray 1 @cpu(0)>,
-
+     
      [4.]
      <NDArray 1 @cpu(0)>)
 
@@ -628,3 +628,5 @@ mnist["test_label"][24]
 
 
     4
+
+
