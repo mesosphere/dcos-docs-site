@@ -71,7 +71,7 @@ You can control Kubernetes role-based access control with three different object
 
 ### Groups
 
-You can map group and user claims made by your configured identity providers to Kommander groups by selecting Administration / Identity providers in the left sidebar in the global workspace level, and then selecting the  **Groups** tab.
+You can map group and user claims made by your configured identity providers to Kommander groups by selecting Administration / Identity providers in the left sidebar in the global workspace level, and then selecting the **Groups** tab.
 
 ### Roles
 
