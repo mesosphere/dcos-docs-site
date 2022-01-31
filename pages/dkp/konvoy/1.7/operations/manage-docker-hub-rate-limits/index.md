@@ -69,7 +69,7 @@ For Kommander, to add credentials for Docker Hub, set the options in your `clust
     ...
     ```
 
-<p class="message--note"><strong>NOTE: </strong>You can also do this directly after your cluster is created. Go into the nodes in your cluster directly, and edit your containerd configuration file <code>/etc/containerd/config.toml</code>. Edit your file to apply the changes above and save the file. You will need to do this for all of the nodes in your cluster.</p>
+<p class="message--note"><strong>NOTE: </strong>You can also do this directly after your cluster is created and without running <code>konvoy up</code>. Go into the nodes in your cluster directly, and edit your containerd configuration file <code>/etc/containerd/config.toml</code>. Edit your file to apply the changes above and save the file. You will need to do this for all of the nodes in your cluster.</p>
 
 For more information on configuring `imageRegistries` in the `cluster.yaml`, please refer to [cluster configuration API documentation][cluster-config-api].
 
