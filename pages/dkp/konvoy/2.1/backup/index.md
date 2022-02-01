@@ -8,18 +8,16 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
-
 For production clusters, regular maintenance should include routine back up operations to ensure data integrity and reduce the risk of data loss due to unexpected events.
 Back up operations should include the cluster state, application state, and the running configuration of both stateless and stateful applications in the cluster.
 
-# Velero
+## Velero
 
 DKP provides Velero by default, to support backup and restore operations for your Kubernetes clusters and persistent volumes.
 
-For on-premises deployments, DKP deploys Velero integrated with [Minio][minio], operating inside the same cluster.
+For on-premises deployments, DKP deploys Velero integrated with [MinIO][minio], operating inside the same cluster.
 
-For production use-cases, D2iQ advises to provide an *external* storage class to use with [Minio][minio].
+For production use-cases, D2iQ advises to provide an *external* storage class to use with [MinIO][minio].
 With the external storage class, you can configure Velero in `cluster.yaml`  as follows:
 
 ```yaml
@@ -69,7 +67,7 @@ You may also store your backups in Amazon S3 by configuring Velero in `cluster.y
 Although installing the Velero command-line interface is optional and independent of deploying a DKP cluster, having access to the command-line interface provides several benefits.
 For example, you can use the Velero command-line interface to back up or restore a cluster on demand, or to modify certain settings without changing the Velero  configuration.
 
-By default, Konvoy sets up Velero to use Minio over TLS using a self-signed certificate.
+By default, Konvoy sets up Velero to use MinIO over TLS using a self-signed certificate.
 Due to this, when using certain commands, you may be asked to use the `--insecure-skip-tls-verify` flag.
 Again, the default setup is not suitable for production use-cases.
 
@@ -131,19 +129,19 @@ velero create schedule thrice-daily --schedule="@every 8h"
 
 To change the default backup service settings:
 
-1. Check the backup schedules currently configured for the cluster by running the following command:
+1.  Check the backup schedules currently configured for the cluster by running the following command:
 
     ```bash
     velero get schedules
     ```
 
-1. Delete the `velero-kubeaddons-default` schedule by running the following command:
+1.  Delete the `velero-kubeaddons-default` schedule by running the following command:
 
     ```bash
     velero delete schedule velero-kubeaddons-default
     ```
 
-1. Replace the default schedule with your custom settings by running the following command:
+1.  Replace the default schedule with your custom settings by running the following command:
 
     ```bash
     velero create schedule velero-kubeaddons-default --schedule="@every 24h"
@@ -174,7 +172,9 @@ velero backup create BACKUP_NAME
 
 Before attempting to restore the cluster state using the Velero command-line interface, you should verify the following requirements:
 
-- The backend storage, Minio, is still operational.
+<!-- vale Microsoft.Avoid = NO -->
+- The backend storage, MinIO, is still operational.
+<!-- vale Microsoft.Avoid = YES -->
 - The Velero platform service in the cluster is still operational.
 - The Velero platform service must be set to a `restore-only-mode` to avoid having backups run while restoring.
 
