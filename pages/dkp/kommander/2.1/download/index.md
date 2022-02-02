@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-To download a new version of Kommander, you have 2 options:
+To download a new version of Kommandre, you have 2 options:
 
 ## Download from the support website
 
