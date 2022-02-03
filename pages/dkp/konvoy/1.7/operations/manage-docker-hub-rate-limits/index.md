@@ -8,8 +8,6 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 MD018 MD034 -->
-
 Konvoy customers can configure their cluster to authenticate with registries (such as Docker Hub), and add registries, by defining each in the `ClusterConfiguration` `.spec.imageRegistries` list in the `cluster.yaml` file.
 
 For Konvoy, to add credentials for Docker Hub, set the options in your `cluster.yaml` as follows:
@@ -45,15 +43,15 @@ For Kommander, to add credentials for Docker Hub, set the options in your `clust
           docker-registry-password: <password>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can use environment variables to specify `imageRegistries` values. For example, if your yaml file has `password: ${REGISTRY_PASSWORD}`, `password` is set to the `REGISTRY_PASSWORD` value in your environment.</p>
+<p class="message--note"><strong>NOTE: </strong>You can use environment variables to specify <code>imageRegistries</code> values. For example, if your yaml file has <code>password: ${REGISTRY_PASSWORD}</code>, <code>password</code> is set to the <code>REGISTRY_PASSWORD</code> value in your environment.</p>
 
-1. Apply the changes to your cluster. Enter the following command:
+1.  Apply the changes to your cluster. Enter the following command:
 
     ```bash
     konvoy up
     ```
 
-1. Confirm the changes made to the cluster. Enter the following command to check the contents of the `containerd` configuration file:
+1.  Confirm the changes made to the cluster. Enter the following command to check the contents of the `containerd` configuration file:
 
     ```bash
     $ cat /etc/containerd/config.toml
@@ -71,4 +69,8 @@ For Kommander, to add credentials for Docker Hub, set the options in your `clust
     ...
     ```
 
-For more information on configuring `imageRegistries` in the `cluster.yaml`, please refer to the following documentation: https://docs.d2iq.com/dkp/konvoy/1.6/reference/cluster-configuration/v1beta2/
+<p class="message--note"><strong>NOTE: </strong>You can also do this directly after your cluster is created and without running <code>konvoy up</code>. Go on to the nodes in your cluster directly, and edit your containerd configuration file <code>/etc/containerd/config.toml</code>. Edit your file to apply the changes above and save the file. Restart containerd on your node. You will need to do this for all of the nodes in your cluster.</p>
+
+For more information on configuring `imageRegistries` in the `cluster.yaml`, please refer to [cluster configuration API documentation][cluster-config-api].
+
+[cluster-config-api]: ../../reference/cluster-configuration/v1beta2
