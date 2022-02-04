@@ -1,0 +1,77 @@
+---
+layout: layout.pug
+navigationTitle: Configuration
+title: Configuration
+menuWeight: 30
+excerpt: How to configure a Kommander installation
+beta: false
+enterprise: false
+---
+
+Kommander can be configured during the initial installation and also post-installation using the Kommander CLI.
+
+## Initializing a configuration file
+
+To get started with configuring Kommander, you can run the following command to initialize a default configuration file:
+
+```bash
+kommander install --init > kommander.yaml
+```
+
+## Configuring applications
+
+Once you have a default configuration file, each `app` can be configured either inline **or** by referencing another `yaml` file. The configuration values for each `app` correspond to the Helm Chart values for the application.
+
+### Inline configuration (using values)
+
+In this example, we configure the `centralized-grafana` application with resource limits by defining the Helm Chart values in the Kommander configuration file.
+
+```yaml
+apiVersion: config.kommander.mesosphere.io/v1alpha1
+kind: Installation
+apps:
+  centralized-grafana:
+    values: |
+      resources:
+        limits:
+          cpu: 150m
+          memory: 100Mi
+        requests:
+          cpu: 100m
+          memory: 50Mi
+...
+```
+
+### Referencing another yaml file (using valuesFrom)
+
+Alternatively, we could create another `yaml` file containing the configuration for `centralized-grafana` and reference that using `valuesFrom`. You can point to this file by using either a relative path (from the configuration file location) or by using an absolute path.
+
+```yaml
+cat > centralized-grafana.yaml <<EOF
+grafana:
+  resources:
+    limits:
+      cpu: 150m
+      memory: 100Mi
+    requests:
+      cpu: 100m
+      memory: 50Mi
+EOF
+```
+
+```yaml
+apiVersion: config.kommander.mesosphere.io/v1alpha1
+kind: Installation
+apps:
+  centralized-grafana:
+    valuesFrom: centralized-grafana.yaml
+...
+```
+
+## Install with configuration file
+
+Add the `--installer-config` flag to the `kommander install` command to use a custom configuration file. This same command can also be ran after the initial installation to reconfigure any applications.
+
+```bash
+kommander install --installer-config kommander.yaml
+```
