@@ -9,17 +9,16 @@ model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 
-# Description
+## Description
 The `dcos nifi plan force-complete` command forces complete a specific step in the provided phase. Example uses include the following: Abort a sidecar operation due to observed failure or known required manual preparation that was not performed.
 
-
-# Usage
+## Usage
 
 ```bash
 dcos nifi plan force-complete <plan> <phase> <step> [flags]
 ```
 
-# Options
+## Options
 
 | Name |  Description |
 |---------|-------------|
@@ -27,9 +26,7 @@ dcos nifi plan force-complete <plan> <phase> <step> [flags]
 | `-v, --verbose`   |  Enable extra logging of requests/responses |
 | `--name="nifi"`   |  Name of the service instance to query |
 
-
-
-# Parent command
+## Parent command
 
 | Command | Description |
 |---------|-------------|
