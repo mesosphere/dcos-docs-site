@@ -30,7 +30,7 @@ Connector is the Schema for the connectors API
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| metadata |  | [metav1.ObjectMeta](https://v1-17.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#objectmeta-v1-meta) | false |
+| metadata |  | [metav1.ObjectMeta](https://v1-20.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#objectmeta-v1-meta) | false |
 | spec |  | [ConnectorSpec](#connectorspec) | false |
 
 [Back to TOC](#table-of-contents)
@@ -41,7 +41,7 @@ ConnectorList contains a list of Connector
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| metadata |  | [metav1.ListMeta](https://v1-17.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#listmeta-v1-meta) | false |
+| metadata |  | [metav1.ListMeta](https://v1-20.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#listmeta-v1-meta) | false |
 | items |  | [][Connector](#connector) | true |
 
 [Back to TOC](#table-of-contents)
@@ -174,7 +174,7 @@ Client is the Schema for the clients API
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| metadata |  | [metav1.ObjectMeta](https://v1-17.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#objectmeta-v1-meta) | false |
+| metadata |  | [metav1.ObjectMeta](https://v1-20.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#objectmeta-v1-meta) | false |
 | spec |  | [ClientSpec](#clientspec) | false |
 
 [Back to TOC](#table-of-contents)
@@ -185,7 +185,7 @@ ClientList contains a list of Client
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| metadata |  | [metav1.ListMeta](https://v1-17.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#listmeta-v1-meta) | false |
+| metadata |  | [metav1.ListMeta](https://v1-20.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#listmeta-v1-meta) | false |
 | items |  | [][Client](#client) | true |
 
 [Back to TOC](#table-of-contents)

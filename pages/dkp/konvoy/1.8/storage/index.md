@@ -65,7 +65,7 @@ The Persistent Volume API objects capture the details of the implementation of t
 
 ## Persistent Volume Claim
 
-A PersistentVolumeClaim is a request for storage. For a workload that requires persistent volumes, the workload should use PersistentVolumeClaim (PVC) to express its request on persistent storage. A PersistentVolumeClaim can request specific size and [Access Modes](https://v1-17.docs.kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) (for example, they can be mounted once read/write or many times read-only).
+A PersistentVolumeClaim is a request for storage. For a workload that requires persistent volumes, the workload should use PersistentVolumeClaim (PVC) to express its request on persistent storage. A PersistentVolumeClaim can request specific size and [Access Modes](https://v1-20.docs.kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) (for example, they can be mounted once read/write or many times read-only).
 
 Any workload can specify a PersistentVolumeClaim. For example, a Pod may need a volume that is at least 4Gi large or a volume mounted under `/data` in the container's filesystem. If there is a PersistentVolume (PV) that satisfies the specified requirements in the PersistentVolumeClaim (PVC), it will be bound to the PVC before the Pod starts.
 

@@ -170,7 +170,7 @@ ClusterProvisioner describes provisioner options.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| metadata |  | [metav1.ObjectMeta](https://v1-17.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#objectmeta-v1-meta) | true |
+| metadata |  | [metav1.ObjectMeta](https://v1-20.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#objectmeta-v1-meta) | true |
 | spec |  | [ClusterProvisionerSpec](#clusterprovisionerspec) | false |
 
 [Back to TOC](#table-of-contents)
@@ -624,7 +624,7 @@ ClusterConfiguration describes Kubernetes cluster options.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| metadata |  | [metav1.ObjectMeta](https://v1-17.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#objectmeta-v1-meta) | true |
+| metadata |  | [metav1.ObjectMeta](https://v1-20.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#objectmeta-v1-meta) | true |
 | spec |  | [ClusterConfigurationSpec](#clusterconfigurationspec) | false |
 
 [Back to TOC](#table-of-contents)

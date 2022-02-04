@@ -396,7 +396,7 @@ Similarly to the VPC, you may choose to use these blocks or define any other app
 
 <p class="message--note"><strong>NOTE: </strong>Keep in mind that the default value of <tt>spec.kubernetes.networking.serviceSubnet</tt> is set to <tt>10.0.0.0/18</tt>. The blocks you choose must not overlap with the <tt>serviceSubnet</tt>.</p>
 
-<p class="message--important"><strong>IMPORTANT: </strong>If you are using the Kubernetes <a href="https://v1-17.docs.kubernetes.io/docs/concepts/cluster-administration/cloud-providers/">Cloud Providers feature</a> and creating a cluster spanning multiple availability zones(AZ), you must tag the subnets used by the <code>control-plane</code> nodepool. Kubernetes creates the ELBs for services of type <code>LoadBalancer</code>, in those subnets. Not tagging those subnets can cause the subnets to not receive an ELB and display an <code>Error syncing load balancer, failed to ensure load balancer; could not find any suitable subnets for creating the  ELB.</code> message.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If you are using the Kubernetes <a href="https://v1-20.docs.kubernetes.io/docs/concepts/cluster-administration/cloud-providers/">Cloud Providers feature</a> and creating a cluster spanning multiple availability zones(AZ), you must tag the subnets used by the <code>control-plane</code> nodepool. Kubernetes creates the ELBs for services of type <code>LoadBalancer</code>, in those subnets. Not tagging those subnets can cause the subnets to not receive an ELB and display an <code>Error syncing load balancer, failed to ensure load balancer; could not find any suitable subnets for creating the  ELB.</code> message.</p>
 
 The tags should be as following, where `__CLUSTER_NAME__` corresponds to the `cluster_name` printed after running `konvoy provision`:
 
@@ -689,7 +689,7 @@ To add custom resource files:
 [aws_instance_types]: https://aws.amazon.com/ec2/instance-types/
 [ephemeral_storage]: ../../../storage/
 [ebs_volume_types]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
-[cloud_provider]: https://v1-17.docs.kubernetes.io/docs/concepts/cluster-administration/cloud-providers/
+[cloud_provider]: https://v1-20.docs.kubernetes.io/docs/concepts/cluster-administration/cloud-providers/
 [aws_vpc_endpoints]: https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html
 [sts_assumerole]: https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
 [ebs_encryption]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_key_mgmt
