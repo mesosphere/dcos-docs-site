@@ -22,6 +22,12 @@ Before installing, ensure you have:
   - Management cluster must connect to the attached cluster's API server.
   - Management cluster must connect to load balancers created by some platform services.
 
+- A configuration file that you will adapt to your needs using the steps outlined on this page. Make sure to create that file using the following command:
+
+  ```bash
+  kommander install --init > install.yaml
+  ```
+
 - All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
 
 - [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
@@ -55,33 +61,21 @@ You can configure MetalLB in two modes: Layer2 and BGP.
 
 #### Layer2
 
-The following example illustrates how to enable MetalLB and configure it with the Layer2 mode:
+The following example illustrates how to enable MetalLB and configure it with the Layer2 mode using the `install.yaml` configuration file created above:
 
    ```yaml
-   ---
-   apiVersion: v1
-   kind: ConfigMap
-   metadata:
-     name: metallb-overrides
-   data:
-     values.yaml: |
-       configInline:
-         address-pools:
-         - name: default
-           protocol: layer2
-           addresses:
-           - 10.0.50.25-10.0.50.50
-   ---
-   apiVersion: apps.kommander.d2iq.io/v1alpha2
-   kind: AppDeployment
-   metadata:
-     name: metallb
-   spec:
-     appRef:
-       name: metallb-0.12.2
-       kind: ClusterApp
-     configOverrides:
-       name: metallb-overrides
+   apiVersion: config.kommander.mesosphere.io/v1alpha1
+   kind: Installation
+   apps:
+    ...
+     metallb:
+       values: |
+         configInline:
+           address-pools:
+             - name: default
+               protocol: layer2
+               addresses:
+                 - 10.0.50.25-10.0.50.50
    ```
 
 The number of virtual IP addresses in the reserved range determines the maximum number of `LoadBalancer` service types you can create in the cluster.
@@ -93,22 +87,22 @@ MetalLB in `bgp` mode implements only a subset of the BGP protocol. In particula
 The following example illustrates the BGP configuration in the overrides `ConfigMap`:
 
    ```yaml
-   apiVersion: v1
-   kind: ConfigMap
-   metadata:
-     name: metallb-overrides
-   data:
-     values.yaml: |
-       configInline:
-         peers:
-         - my-asn: 64500
-           peer-asn: 64500
-           peer-address: 172.17.0.4
-         address-pools:
-         - name: my-ip-space
-           protocol: bgp
-           addresses:
-           - 172.40.100.0/24
+   apiVersion: config.kommander.mesosphere.io/v1alpha1
+   kind: Installation
+   apps:
+    ...
+     metallb:
+       values: |
+         configInline:
+           peers:
+             - my-asn: 64500
+               peer-asn: 64500
+               peer-address: 172.17.0.4
+           address-pools:
+             - name: my-ip-space
+               protocol: bgp
+               addresses:
+                 - 172.40.100.0/24
    ```
 
 In the above configuration, `peers` defines the configuration of the BGP peer, such as peer IP address and `autonomous system number` (`asn`).
@@ -159,14 +153,6 @@ export VERSION=v2.1.0
 Based on the network latency between the environment of script execution and the docker registry, this can take a while to upload all the images to your image registry.
 
 ## Install on Konvoy
-
-1. Kommander v2.1 installs with a dedicated CLI.
-
-1. Create an installation configuration file:
-
-    ```bash
-    kommander install --init > install.yaml
-    ```
 
 1. Adapt the configuration file for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
 
