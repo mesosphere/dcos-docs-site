@@ -6,6 +6,7 @@ air gapped environment
 ANN(|s)
 (ansible|Ansible)
 auto-assign
+Auto-IP
 (auto-provisioner|Auto-Provisioner)
 autoscal(e|es|ed|ing)
 autotune
@@ -17,6 +18,7 @@ CNN(|s)
 CNTK
 (component|Component)
 Conda
+configmap
 containerd
 contravariant
 COPS
@@ -83,6 +85,7 @@ linkerd
 liveness
 Logstash
 (loki|Loki)
+(Loopback|loopback)
 LSTM(|s)
 Luigi
 Makefile
