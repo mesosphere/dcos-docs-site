@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Install Kommander networked
 title: Install Kommander in a networked environment
-menuWeight: 10
+menuWeight: 20
 excerpt: Install Kommander in a networked environment
 beta: false
 ---
@@ -53,7 +53,7 @@ kommander install
 
 After the CLI successfully installs the components, you must wait for all `HelmReleases` to deploy.
 
-The Kommander installation is a multi-step process: Flux installs first, then the Git repository spins up permiting Flux to consume further `HelmReleases` from that repository.
+The Kommander installation is a multi-step process: Flux installs first, then the Git repository spins up permitting Flux to consume further `HelmReleases` from that repository.
 
 After running the install command, `HelmReleases` begin to appear on the cluster.
 
