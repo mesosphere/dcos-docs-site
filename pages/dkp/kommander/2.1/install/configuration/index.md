@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Configuration
 title: Configuration
-menuWeight: 30
+menuWeight: 10
 excerpt: How to configure a Kommander installation
 beta: false
 enterprise: false

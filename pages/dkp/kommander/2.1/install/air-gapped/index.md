@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Install Kommander in an air-gapped environment
 title: Install Kommander in an air-gapped environment
-menuWeight: 20
+menuWeight: 30
 excerpt: Install Kommander in an air-gapped environment
 beta: false
 enterprise: false
