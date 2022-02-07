@@ -81,3 +81,5 @@ Add the `--installer-config` flag to the `kommander install` command to use a cu
 ```bash
 kommander install --installer-config kommander.yaml
 ```
+
+When completed, you can [verify your installation](../networked#verify-installation).
