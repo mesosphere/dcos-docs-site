@@ -22,6 +22,12 @@ kommander install --init > kommander.yaml
 
 After you have a default configuration file, you can then configure each `app` either inline **or** by referencing another `yaml` file. The configuration values for each `app` correspond to the Helm Chart values for the application.
 
+You can find the application Helm Charts by checking the `spec.chart.spec.sourceRef` field of the associated `HelmRelease`:
+
+```bash
+kubectl get helmreleases <application> -o yaml -n kommander
+```
+
 ### Inline configuration (using values)
 
 In this example, you configure the `centralized-grafana` application with resource limits by defining the Helm Chart values in the Kommander configuration file.
