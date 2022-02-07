@@ -43,7 +43,7 @@ More information on setting a StorageClass as default can be found at [Changing 
 
 Before running the commands below, ensure that your `kubectl` configuration references the cluster on which you want to install Kommander. You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location.
 
-<p class="message--note"><strong>NOTE:</strong> See the <a href="../configuration">configuration</a> page for details on how to customize a Kommander installation.</p>
+<p class="message--note"><strong>NOTE:</strong> See the <a href="../configuration">configuration</a> page for more details on how to customize a Kommander installation.</p>
 
 ```sh
 kommander install
