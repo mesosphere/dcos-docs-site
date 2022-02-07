@@ -154,7 +154,7 @@ Based on the network latency between the environment of script execution and the
 
 ## Install on Konvoy
 
-1. Adapt the configuration file for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
+1. Adapt the configuration file created from running `kommander install --init > install.yaml` for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
