@@ -18,7 +18,7 @@ CNN(|s)
 CNTK
 (component|Component)
 Conda
-configmap
+(ConfigMap|configmap)
 containerd
 contravariant
 COPS

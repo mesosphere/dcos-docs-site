@@ -154,7 +154,19 @@ Based on the network latency between the environment of script execution and the
 
 ## Install on Konvoy
 
+<<<<<<< HEAD
 1. Adapt the configuration file created from running `kommander install --init > install.yaml` for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
+=======
+1. Kommander v2.1 installs with a dedicated CLI.
+
+1. Create an [installation configuration][kommander-config] file:
+
+    ```bash
+    kommander install --init > install.yaml
+    ```
+
+1. Adapt the configuration file for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
+>>>>>>> a1c101d929 (docs: cleanup and adding link to airgap)
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
@@ -231,6 +243,7 @@ Based on the network latency between the environment of script execution and the
 [air-gap-before-you-begin]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/prerequisites/
 [air-gap-install-metallb]: #use-metallb
 [air-gap-konvoy]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/
+[kommander-config]: ../configuration
 [kommander-load-balancing]: ../../networking/load-balancing
 [metallb]: https://metallb.universe.tf/concepts/
 [metallb_config]: https://metallb.universe.tf/configuration/
