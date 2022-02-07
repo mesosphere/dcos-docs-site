@@ -68,7 +68,7 @@ MetalLB will be deployed to all attached clusters within this workspace.
 export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.status.namespaceRef.name}')
 ```
 
-<p class="message--note"><strong>NOTE:</strong> To deploy MetalLB to the Kommander host cluster, this will be the `kommander` namespace.</p>
+<p class="message--note"><strong>NOTE:</strong> To deploy MetalLB to the Kommander host cluster, this will be the <code>kommander</code> namespace.</p>
 
 Next, create the following resources to deploy MetalLB with custom configuration: 
 
