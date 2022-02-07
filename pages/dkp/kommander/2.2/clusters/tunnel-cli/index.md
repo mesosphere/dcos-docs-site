@@ -279,9 +279,9 @@ do
   kubefed=$(kubectl get kommandercluster -n ${namespace} ${managed} -o jsonpath="{.status.kubefedclusterRef.name}")
 done
 
-kubectl wait --for=condition=ready --timeout=60s kubefedcluster -n kommander ${kubefed}
+kubectl wait --for=condition=ready --timeout=60s kubefedcluster -n kube-federation-system ${kubefed}
 
-kubectl get kubefedcluster -n kommander ${kubefed}
+kubectl get kubefedcluster -n kube-federation-system ${kubefed}
 ```
 
 ## Using a remote cluster
