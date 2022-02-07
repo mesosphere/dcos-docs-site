@@ -22,7 +22,7 @@ Before installing, ensure you have:
   - Management cluster must connect to the attached cluster's API server.
   - Management cluster must connect to load balancers created by some platform services.
 
-- A configuration file that you will adapt to your needs using the steps outlined on this page. Make sure to create that file using the following command:
+- A configuration file that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
 
   ```bash
   kommander install --init > install.yaml
