@@ -22,7 +22,7 @@ Before installing, ensure you have:
   - Management cluster must connect to the attached cluster's API server.
   - Management cluster must connect to load balancers created by some platform services.
 
-- A configuration file that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
+- A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
 
   ```bash
   kommander install --init > install.yaml
@@ -154,19 +154,7 @@ Based on the network latency between the environment of script execution and the
 
 ## Install on Konvoy
 
-<<<<<<< HEAD
-1. Adapt the configuration file created from running `kommander install --init > install.yaml` for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
-=======
-1. Kommander v2.1 installs with a dedicated CLI.
-
-1. Create an [installation configuration][kommander-config] file:
-
-    ```bash
-    kommander install --init > install.yaml
-    ```
-
-1. Adapt the configuration file for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
->>>>>>> a1c101d929 (docs: cleanup and adding link to airgap)
+1. Adapt the [configuration file][kommander-config] created from running `kommander install --init > install.yaml` for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
