@@ -23,7 +23,7 @@ After downloading the image, run the following command to copy the binaries onto
 docker run -it --rm -v $(pwd):/kaptain <container_image_name>
 ```
 
-You will then see the following output:
+You then see the following output:
 
 ```sh
 Kaptain install package placed in the local directory. See install instructions at: https://docs.d2iq.com/dkp/kaptain/
