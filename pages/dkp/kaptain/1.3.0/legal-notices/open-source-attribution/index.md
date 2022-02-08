@@ -9,7 +9,7 @@ render: mustache
 
 The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Kaptain&trade;.
 
-## Software Source
+## Software Sources
 
 The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
 Software that are utilized by D2iQ Kaptain.
