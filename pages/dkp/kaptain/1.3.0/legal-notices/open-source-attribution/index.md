@@ -16,8 +16,6 @@ Software that are utilized by D2iQ Kaptain.
 
 ## Project dependencies
 
-## Project dependencies
-
 | Vendor | Name | Version | License Id |
 | -------|------|---------|------------|
 |  | dash | 1.21.0 | [MIT](https://opensource.org/licenses/MIT) |
