@@ -9,12 +9,14 @@ render: mustache
 
 The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Kaptain&trade;.
 
-## Software Sources
+## Software Source
 
 The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
 Software that are utilized by D2iQ Kaptain.
 
 ## Project dependencies
+
+<!-- vale Vale.Spelling = NO -->
 
 | Vendor | Name | Version | License Id |
 | -------|------|---------|------------|
@@ -56,3 +58,4 @@ Software that are utilized by D2iQ Kaptain.
 |  | kfserving | 0.4.1 | [Apache-2.0](https://opensource.org/licenses/Apache-2.0) |
 |  | google-api-core | 1.22.0 | [Apache-2.0](https://opensource.org/licenses/Apache-2.0) |
 |  | google-auth | 1.19.1 | [Apache-2.0](https://opensource.org/licenses/Apache-2.0) |
+<!-- vale Vale.Spelling = YES -->
