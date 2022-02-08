@@ -7,8 +7,6 @@ excerpt: Learn how to download Kaptain
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD034 -->
-
 Kaptain downloads are only available to licensed customers. To get an evaluation license for Kaptain, contact <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.
 
 If you already have a license, downloads are available in the [Support Portal][support-portal].
