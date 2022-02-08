@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Install Kommander in an air-gapped environment
 title: Install Kommander in an air-gapped environment
-menuWeight: 20
+menuWeight: 30
 excerpt: Install Kommander in an air-gapped environment
 beta: false
 enterprise: false
@@ -22,7 +22,7 @@ Before installing, ensure you have:
   - Management cluster must connect to the attached cluster's API server.
   - Management cluster must connect to load balancers created by some platform services.
 
-- A configuration file that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
+- A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
 
   ```bash
   kommander install --init > install.yaml
@@ -154,7 +154,7 @@ Based on the network latency between the environment of script execution and the
 
 ## Install on Konvoy
 
-1. Adapt the configuration file created from running `kommander install --init > install.yaml` for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
+1. Adapt the [configuration file][kommander-config] created from running `kommander install --init > install.yaml` for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
@@ -231,6 +231,7 @@ Based on the network latency between the environment of script execution and the
 [air-gap-before-you-begin]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/prerequisites/
 [air-gap-install-metallb]: #use-metallb
 [air-gap-konvoy]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/
+[kommander-config]: ../configuration
 [kommander-load-balancing]: ../../networking/load-balancing
 [metallb]: https://metallb.universe.tf/concepts/
 [metallb_config]: https://metallb.universe.tf/configuration/

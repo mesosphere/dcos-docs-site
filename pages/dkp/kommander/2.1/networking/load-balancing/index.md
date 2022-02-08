@@ -59,7 +59,18 @@ If the virtual IP addresses share an interface with the primary IP address of th
 
 MetalLB can be configured in two modes: Layer2 and BGP.
 
-The following example illustrates how to enable MetalLB and configure it with the Layer2 mode:
+The following example illustrates how to enable MetalLB and configure it with the Layer2 mode.
+
+First, set the `WORKSPACE_NAMESPACE` environment variable using the following command to get the name of the workspace's namespace that you would like to deploy MetalLB to.
+MetalLB will be deployed to all attached clusters within this workspace.
+
+```bash
+export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.status.namespaceRef.name}')
+```
+
+<p class="message--note"><strong>NOTE:</strong> To deploy MetalLB to the Kommander host cluster, this will be the <code>kommander</code> namespace.</p>
+
+Next, create the following resources to deploy MetalLB with custom configuration: 
 
 ```yaml
 ---
@@ -67,6 +78,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: metallb-overrides
+  namespace: ${WORKSPACE_NAMESPACE}
 data:
   values.yaml: |
     configInline:
@@ -80,6 +92,7 @@ apiVersion: apps.kommander.d2iq.io/v1alpha2
 kind: AppDeployment
 metadata:
   name: metallb
+  namespace: ${WORKSPACE_NAMESPACE}
 spec:
   appRef:
     name: metallb-0.12.2
@@ -99,6 +112,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: metallb-overrides
+  namespace: ${WORKSPACE_NAMESPACE}
 data:
   values.yaml: |
     configInline:
