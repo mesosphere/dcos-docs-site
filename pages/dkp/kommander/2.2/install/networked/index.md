@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Install Kommander networked
 title: Install Kommander in a networked environment
-menuWeight: 10
+menuWeight: 20
 excerpt: Install Kommander in a networked environment
 beta: false
 ---
