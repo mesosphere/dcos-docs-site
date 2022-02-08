@@ -9,7 +9,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-Kaptain downloads are only available to licensed customers. To obtain an evaluation license for Kaptain, please contact <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.
+Kaptain downloads are only available to licensed customers. To get an evaluation license for Kaptain, contact <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.
 
 If you already have a license, downloads are available in the [Support Portal][support-portal].
 
