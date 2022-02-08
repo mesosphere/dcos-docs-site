@@ -24,6 +24,12 @@ Before installing, ensure you have:
   - Management cluster must connect to the attached cluster's API server.
   - Management cluster must connect to load balancers created by some platform services.
 
+- A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
+
+  ```bash
+  kommander install --init > install.yaml
+  ```
+
 - All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
 
 - [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
@@ -34,43 +40,43 @@ The charts bundle is a gzipped Tar archive containing Helm charts, which are req
 Create the charts bundle with the Kommander CLI or downloaded along with the Kommander CLI.
 Execute this command to create the charts bundle:
 
-    ```bash
-    kommander helmmirror create bundle
-    ```
+   ```bash
+   kommander helmmirror create bundle
+   ```
 
 Kommander creates `charts-bundle.tar.gz`.
 Optionally, specify the output using the `-o` parameter:
 
-    ```bash
-    kommander helmmirror create bundle -o [name of the output file]
-    ```
+   ```bash
+   kommander helmmirror create bundle -o [name of the output file]
+   ```
 
 ### Kommander's internal Helm repository
 
 The Kommander charts bundle is uploaded to Kommander's internal Helm repository.
 To inspect the contents:
 
-  ```bash
-  kommander helmmirror get charts
-  ```
+   ```bash
+   kommander helmmirror get charts
+   ```
 
 Individual charts can be removed using:
 
-  ```bash
-  kommander helmmirror delete chart [chartName] [chartVersion]
-  ```
+   ```bash
+   kommander helmmirror delete chart [chartName] [chartVersion]
+   ```
 
 It is possible to upload new charts as well:
 
-  ```bash
-  kommander helmmirror upload chart [chartTarball]
-  ```
+   ```bash
+   kommander helmmirror upload chart [chartTarball]
+   ```
 
 Or upload a new bundle:
 
-  ```bash
-  kommander helmmirror upload bundle [chartsTarball]
-  ```
+   ```bash
+   kommander helmmirror upload bundle [chartsTarball]
+   ```
 
 Check the built-in help text for each command for more information.
 
@@ -103,33 +109,21 @@ You can configure MetalLB in two modes: Layer2 and BGP.
 
 #### Layer2
 
-The following example illustrates how to enable MetalLB and configure it with the Layer2 mode:
+The following example illustrates how to enable MetalLB and configure it with the Layer2 mode using the `install.yaml` configuration file created above:
 
    ```yaml
-   ---
-   apiVersion: v1
-   kind: ConfigMap
-   metadata:
-     name: metallb-overrides
-   data:
-     values.yaml: |
-       configInline:
-         address-pools:
-         - name: default
-           protocol: layer2
-           addresses:
-           - 10.0.50.25-10.0.50.50
-   ---
-   apiVersion: apps.kommander.d2iq.io/v1alpha2
-   kind: AppDeployment
-   metadata:
-     name: metallb
-   spec:
-     appRef:
-       name: metallb-0.12.2
-       kind: ClusterApp
-     configOverrides:
-       name: metallb-overrides
+   apiVersion: config.kommander.mesosphere.io/v1alpha1
+   kind: Installation
+   apps:
+    ...
+     metallb:
+       values: |
+         configInline:
+           address-pools:
+             - name: default
+               protocol: layer2
+               addresses:
+                 - 10.0.50.25-10.0.50.50
    ```
 
 The number of virtual IP addresses in the reserved range determines the maximum number of `LoadBalancer` service types you can create in the cluster.
@@ -141,22 +135,22 @@ MetalLB in `bgp` mode implements only a subset of the BGP protocol. In particula
 The following example illustrates the BGP configuration in the overrides `ConfigMap`:
 
    ```yaml
-   apiVersion: v1
-   kind: ConfigMap
-   metadata:
-     name: metallb-overrides
-   data:
-     values.yaml: |
-       configInline:
-         peers:
-         - my-asn: 64500
-           peer-asn: 64500
-           peer-address: 172.17.0.4
-         address-pools:
-         - name: my-ip-space
-           protocol: bgp
-           addresses:
-           - 172.40.100.0/24
+   apiVersion: config.kommander.mesosphere.io/v1alpha1
+   kind: Installation
+   apps:
+    ...
+     metallb:
+       values: |
+         configInline:
+           peers:
+             - my-asn: 64500
+               peer-asn: 64500
+               peer-address: 172.17.0.4
+           address-pools:
+             - name: my-ip-space
+               protocol: bgp
+               addresses:
+                 - 172.40.100.0/24
    ```
 
 In the above configuration, `peers` defines the configuration of the BGP peer, such as peer IP address and `autonomous system number` (`asn`).
@@ -208,18 +202,13 @@ Based on the network latency between the environment of script execution and the
 
 ## Install on Konvoy
 
-1. Kommander v2.2 installs with a dedicated CLI.
-
-1. Create an installation configuration file:
-
-    ```bash
-    kommander install --init > install.yaml
-    ```
-
-1. Adapt the configuration file for the air-gapped deployment by changing the `.apps.kommander` field. Ensure you  use the actual version number everywhere `${VERSION}` appears.:
+1. Adapt the [configuration file][kommander-config] created from running `kommander install --init > install.yaml` for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
 
     ```yaml
+    apiVersion: config.kommander.mesosphere.io/v1alpha1
+    kind: Installation
     apps:
+      ...
       kommander:
         values: |
           authorizedlister:
@@ -312,6 +301,7 @@ Based on the network latency between the environment of script execution and the
 [air-gap-before-you-begin]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/prerequisites/
 [air-gap-install-metallb]: #use-metallb
 [air-gap-konvoy]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/
+[kommander-config]: ../configuration
 [kommander-load-balancing]: ../../networking/load-balancing
 [metallb]: https://metallb.universe.tf/concepts/
 [metallb_config]: https://metallb.universe.tf/configuration/
