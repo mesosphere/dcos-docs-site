@@ -10,22 +10,21 @@ enterprise: false
 
 <!-- markdownlint-disable MD024 -->
 
-[Gatekeeper][gatekeeper] is the policy controller for Kubernetes, allowing organizations to enforce configurable policies using the [Open Policy Agent][opa], a policy engine for Cloud Native environments hosted by CNCF as an incubation-level project.
+[Gatekeeper][gatekeeper] is the policy controller for Kubernetes, allowing organizations to enforce configurable policies using the [Open Policy Agent][opa], a policy engine for Cloud Native environments hosted by CNCF as a graduated-level project.
 
-This tutorial demonstrates how to use Gatekeeper to enforce policies by rejecting non-compliant resources. Specifically, this tutorial will demonstrate two constraints as a way to show how to use Gatekeeper as an alternative to [Pod Security Policies][psp]:
+This tutorial describes how to use Gatekeeper to enforce policies by rejecting non-compliant resources. Specifically, this tutorial describes two constraints as a way to show how to use Gatekeeper as an alternative to [Pod Security Policies][psp]:
 
 - [Prevent the running of privileged pods](#prevent-privileged-pods)
 - [Prevent mounting host path volumes](#prevent-host-path-volumes)
 
 ## Before you begin
+Before starting this tutorial, verify the following:
 
-Before starting this tutorial, you should verify the following:
+- You must have access to a Linux, macOS, or Windows computer with a supported operating system version.
 
--   You must have access to a Linux, macOS, or Windows computer with a supported operating system version.
+- You must have a properly deployed and running cluster. For information about deploying Kubernetes with default settings on different types of infrastructures, see the [Choose Infrastructure][choose-infrastructure].
 
--   You must have a properly deployed and running cluster. For information about deploying Kubernetes with default settings on different types of infrastructures, see the [Choose Infrastructure][choose-infrastructure].
-
--   Ensure Gatekeeper is [enabled](../../../install/http-proxy#enable-gatekeeper)
+- Ensure Gatekeeper is [enabled](../../../install/configuration/http-proxy/#enable-gatekeeper)
 
 ## Use Gatekeeper
 
