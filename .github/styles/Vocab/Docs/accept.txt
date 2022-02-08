@@ -5,6 +5,7 @@ air gapped environment
 (Alertmanager|alertmanager)
 ANN(|s)
 (ansible|Ansible)
+archiver
 auto-assign
 Auto-IP
 (auto-provisioner|Auto-Provisioner)
@@ -39,6 +40,7 @@ DKLB
 DSL(|s)
 ECR
 etcd
+fastai
 Flink
 fluentbit
 GCR
@@ -47,6 +49,7 @@ Gitea
 (grafana|Grafana)
 grayscale
 GRU
+gunicorn
 Hashicorp
 Horovod
 hostname
@@ -58,11 +61,13 @@ hyperparameter(|s)
 (json|JSON)
 (kafka|Kafka)
 Kaptain
-Katib
+(Katib|katib)
 Keepalived
 Keras
 keypair
 keyspace
+kfp
+kfserving
 (kiali|Kiali)
 (kibana|Kibana)
 (kind|KIND)
@@ -76,7 +81,7 @@ kubectl
 (kubecost|Kubecost)
 kubefed
 kubelet(|s)
-Kubeflow
+(Kubeflow|kubeflow)
 (kubernetes|Kubernetes)
 kubetunnel
 kustomize
@@ -97,9 +102,11 @@ Metalsmith
 MKE
 ML(|Ops)
 MNIST
+mockito
 MPI
 multitenant
 MXNet
+mypy
 Nagios
 namespac(e|es|ed|ing)
 (nginx|NGINX)
@@ -113,6 +120,7 @@ preprocessor(|s)
 (preprovisioned|Preprovisioned)
 (prometheus|Prometheus)
 Pushgateway
+pytest
 PyTorch
 rebalance
 reloader
@@ -124,6 +132,7 @@ RNN(|s)
 runbooks
 Scala
 scikit-learn
+sd_material_ui
 sed
 serverless
 sigmoidal
@@ -137,6 +146,7 @@ systemd
 TensorFlow
 (thanos|Thanos)
 Toree
+tqdm
 (traefik|Traefik)
 uncordon(|ed)
 unmount(|s|ing|ed)
