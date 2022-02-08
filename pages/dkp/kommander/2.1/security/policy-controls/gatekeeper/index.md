@@ -22,15 +22,15 @@ Before starting this tutorial, verify the following:
 
 - You must have access to a Linux, macOS, or Windows computer with a supported operating system version.
 
-- You must have a properly deployed and running cluster. For information about deploying Kubernetes with default settings on different types of infrastructures, see the [Choose Infrastructure][choose-infrastructure].
+- You must have a properly deployed and running cluster. For information about deploying Kubernetes with default settings on different types of infrastructures, see the [Choose Infrastructure][choose-infrastructure] topic.
 
-- Ensure Gatekeeper is [enabled](../../../install/configuration/http-proxy/#enable-gatekeeper)
+- [Enable](../../../install/configuration/http-proxy/#enable-gatekeeper) Gatekeeper.
 
 ## Use Gatekeeper
 
 Gatekeeper uses the [OPA Constraint Framework][opa-constraints] to describe and enforce policy. Before you can define a constraint, you must first define a `ConstraintTemplate`, which describes both the [`Rego`][opa-rego] (a powerful query language) that enforces the constraint and the schema of the constraint. The schema of the constraint allows an admin to fine-tune the behavior of a constraint, much like arguments to a function.
 
-The Gatekeeper repository includes a [library of policies][gatekeeper-psp] to replace Pod Security Policies which we will use in the following tutorials.
+The Gatekeeper repository includes a [library of policies][gatekeeper-library] to replace Pod Security Policies which we will use in the following tutorials.
 
 ### Prevent privileged pods
 
@@ -39,7 +39,7 @@ The Gatekeeper repository includes a [library of policies][gatekeeper-psp] to re
 Create the privileged pod policy constraint template `k8spspprivilegedcontainer` by running the following command:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/library/pod-security-policy/privileged-containers/template.yaml
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/privileged-containers/template.yaml
 ```
 
 #### Define the Constraint
