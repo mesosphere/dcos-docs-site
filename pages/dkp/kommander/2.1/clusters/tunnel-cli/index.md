@@ -17,7 +17,7 @@ Obtain the hostname and CA certificate for the management cluster:
 
 ```shell
 hostname=$(kubectl get service -n kommander kommander-traefik -o go-template='{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}')
-b64ca_cert=$(kubectl get secret -n kommander kommander-bootstrap-root-ca -o=go-template='{{index .data "tls.crt"}}')
+b64ca_cert=$(kubectl get secret -n cert-manager kommander-ca -o=go-template='{{index .data "tls.crt"}}')
 ```
 
 ### Specify a workspace namespace
