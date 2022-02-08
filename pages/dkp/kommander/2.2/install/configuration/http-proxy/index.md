@@ -47,7 +47,7 @@ Gatekeeper acts as a [Kubernetes mutating webhook](https://kubernetes.io/docs/re
 
 Kommander installs with a dedicated CLI.
 
-1. Create (if necessary) and update the Kommander installation config file. If one does not already exist, then create it using the following commands:
+1.  Create (if necessary) and update the Kommander installation configuration file. If one does not already exist, then create it using the following commands:
 
     ```bash
     ./kommander install --init > install.yaml
@@ -154,13 +154,13 @@ Set the `httpProxy` and `httpsProxy` environment variables to the address of the
   <ul>
       <li>Loopback addresses (<code>127.0.0.1</code> and <code>localhost</code>)</li>
       <li>Kubernetes API Server addresses</li>
-      <li> Kubernetes Pod IPs (e.g. <code>192.168.0.0/16</code>). This comes from two places:
+      <li> Kubernetes Pod IPs (for example, <code>192.168.0.0/16</code>). This comes from two places:
         <ul>
         <li>Calico pod CIDR - Defaults to <code>192.168.0.0/16</code></li>
         <li>The <code>podSubnet</code> is configured in CAPI objects and needs to match above Calico's - Defaults to <code>192.168.0.0/16</code> (same as above)</li>
         </ul>
       </li>
-      <li>Kubernetes Service addresses (e.g., <code>10.96.0.0/12</code>, <code>kubernetes</code>, <code>kubernetes.default</code>, <code>kubernetes.default.svc</code>, <code>kubernetes.default.svc.cluster</code>, <code>kubernetes.default.svc.cluster.local</code>, <code>.svc</code>, <code>.svc.cluster</code>, <code>.svc.cluster.local</code>, <code>.svc.cluster.local.</code>)</li>
+      <li>Kubernetes Service addresses (for example, <code>10.96.0.0/12</code>, <code>kubernetes</code>, <code>kubernetes.default</code>, <code>kubernetes.default.svc</code>, <code>kubernetes.default.svc.cluster</code>, <code>kubernetes.default.svc.cluster.local</code>, <code>.svc</code>, <code>.svc.cluster</code>, <code>.svc.cluster.local</code>, <code>.svc.cluster.local.</code>)</li>
       <li>Auto-IP addresses <code>169.254.169.254,169.254.0.0/24</code></li>
   </ul>
   In addition to above, following are needed when installing on AWS:

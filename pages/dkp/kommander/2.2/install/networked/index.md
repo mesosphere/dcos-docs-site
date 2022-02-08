@@ -43,7 +43,7 @@ More information on setting a StorageClass as default can be found at [Changing 
 
 Before running the commands below, ensure that your `kubectl` configuration references the cluster on which you want to install Kommander. You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location.
 
-To install Kommander with HTTP proxy setting enabled, you need to follow the instructions outlined in [enable Gatekeeper][enable-gatekeeper] section before proceeding further. To enable a Gatekeeper proxy, you must pass the `install.yaml` (or whatever the config file was named) you created to the following command using `--installer-config=install.yaml`
+<p class="message--note"><strong>NOTE:</strong> See the <a href="../configuration">configuration</a> page for more details on how to customize a Kommander installation.</p>
 
 ```sh
 kommander install
@@ -94,7 +94,7 @@ helmrelease.helm.toolkit.fluxcd.io/velero condition met
 
 ## Access Kommander Web UI
 
-When all the `HelmReleases` are ready, use the following command to retrieve the URL to access Kommander's Web interface:
+When all the `HelmReleases` are ready, use the following command to retrieve the URL used for accessing Kommander's Web interface:
 
 ```sh
 kubectl -n kommander get svc kommander-traefik -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}/dkp/kommander/dashboard{{ "\n"}}'
@@ -106,7 +106,4 @@ Use the following command to access the Username and Password stored on the clus
 kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
 ```
 
-[enable-gatekeeper]: ../http-proxy#enable-gatekeeper
-[k8s-change-default-storage-class]: https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/
-
-[download]: ../../download
+[k8s-change-default-storage-class]: https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class
