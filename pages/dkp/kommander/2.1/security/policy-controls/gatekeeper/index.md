@@ -24,7 +24,7 @@ Before starting this tutorial, verify the following:
 
 - You must have a properly deployed and running cluster. For information about deploying Kubernetes with default settings on different types of infrastructures, see the [Choose Infrastructure][choose-infrastructure] topic.
 
-- [Enable](../../../install/configuration/http-proxy/#enable-gatekeeper) Gatekeeper.
+- If you install Kommander with a custom configuration, make sure you enabled gatekeeper.
 
 ## Use Gatekeeper
 
