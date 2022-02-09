@@ -99,6 +99,10 @@ To access the Grafana UI, browse to the landing page and then search for the Gra
 
 Konvoy also allows you to define your own custom dashboards.
 There are a few methods to [import dashboards][grafana_import_dashboards] to Grafana.
+
+One method is to [use ConfigMaps to import dashboards][grafana_sidecar_dashboards].
+Below are steps on how to create a ConfigMap with your dashboard definition.
+
 For simplicity, this section assumes the desired dashboard definition is in `json` format:
 
 ```json
@@ -117,30 +121,36 @@ For simplicity, this section assumes the desired dashboard definition is in `jso
 }
 ```
 
-After you decide how to create your custom dashboard, you can configure it when deploying Prometheus by modifying the `cluster.yaml` file as follows:
+After creating your custom dashboard json, insert it into a ConfigMap and save it as `etcd-custom-dashboard.yaml`:
 
 ```yaml
-- name: prometheus
-  enabled: true
-  values: |
-    grafana:
-      dashboard:
-        default:
-          some-dashboard:
-            etcd.json: |
-              {
-                  "annotations": {
-                      "list": []
-                  },
-                  "description": "etcd sample Grafana dashboard with Prometheus",
-                  "editable": true,
-                  "gnetId": null,
-                  "hideControls": false,
-                  "id": 6,
-                  "links": [],
-                  "refresh": false,
-                  ...
-              }
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: etcd-custom-dashboard
+  labels:
+    grafana_dashboard: "1"
+data:
+  etcd.json: |
+    {
+        "annotations": {
+            "list": []
+        },
+        "description": "etcd sample Grafana dashboard with Prometheus",
+        "editable": true,
+        "gnetId": null,
+        "hideControls": false,
+        "id": 6,
+        "links": [],
+        "refresh": false,
+        ...
+    }
+```
+
+Apply the ConfigMap, which automatically gets imported to Grafana using the [Grafana dashboard sidecar][grafana_sidecar_dashboards]:
+
+```bash
+kubectl apply -f etcd-custom-dashboard.yaml
 ```
 
 ## Configuring alerts using AlertManager
@@ -432,6 +442,7 @@ When defining the requirements of a Konvoy cluster, you can specify the capacity
 ```
 
 [kube_state_exposed_metrics]: https://github.com/kubernetes/kube-state-metrics/tree/master/docs#exposed-metrics
-[grafana_import_dashboards]: https://github.com/mesosphere/charts/tree/master/stable/grafana#import-dashboards
+[grafana_import_dashboards]: https://github.com/grafana/helm-charts/tree/main/charts/grafana#import-dashboards
+[grafana_sidecar_dashboards]: https://github.com/grafana/helm-charts/tree/main/charts/grafana#sidecar-for-dashboards
 [prometheus_rules]: https://github.com/mesosphere/charts/tree/master/staging/prometheus-operator/templates/prometheus/rules
 [alertmanager_config]: https://prometheus.io/docs/alerting/configuration/

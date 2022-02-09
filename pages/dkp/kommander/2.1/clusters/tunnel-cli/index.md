@@ -17,7 +17,7 @@ Obtain the hostname and CA certificate for the management cluster:
 
 ```shell
 hostname=$(kubectl get service -n kommander kommander-traefik -o go-template='{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}')
-b64ca_cert=$(kubectl get secret -n kommander kommander-bootstrap-root-ca -o=go-template='{{index .data "tls.crt"}}')
+b64ca_cert=$(kubectl get secret -n cert-manager kommander-ca -o=go-template='{{index .data "tls.crt"}}')
 ```
 
 ### Specify a workspace namespace
@@ -279,9 +279,9 @@ do
   kubefed=$(kubectl get kommandercluster -n ${namespace} ${managed} -o jsonpath="{.status.kubefedclusterRef.name}")
 done
 
-kubectl wait --for=condition=ready --timeout=60s kubefedcluster -n kommander ${kubefed}
+kubectl wait --for=condition=ready --timeout=60s kubefedcluster -n kube-federation-system ${kubefed}
 
-kubectl get kubefedcluster -n kommander ${kubefed}
+kubectl get kubefedcluster -n kube-federation-system ${kubefed}
 ```
 
 ## Using a remote cluster
