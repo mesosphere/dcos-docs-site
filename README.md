@@ -44,7 +44,7 @@ If you need more control, have a look at the Makefile and the target `docker-liv
 
 D2iQ has various domains for documentation to support different use cases: production, beta, and development. You can modify the config.json file to hide certain directories (that are still unfinished) from being visible on each site.
 
-- https://docs.d2iq.com/ is our production URL and will deploy when the `main` branch is changed. It receives the env variable `DOCS_ENV=production`.
+- https://docs.d2iq.com/ is our production URL and deploys when the `main` branch changes. It has the environment variable `DOCS_ENV=production`.
 - https://beta-docs.d2iq.com/ is our password protected beta URL and will deploy when the `beta` branch is changed. It receives the env variable `DOCS_ENV=beta`.
 - https://dev-docs.d2iq.com/ is a preview domain and will deploy when the `main` branch is changed. It receives the env variable `DOCS_ENV=preview`.
 - `"docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"` domains will deploy on every other branch. They receive the env variable `DOCS_ENV=preview`.
