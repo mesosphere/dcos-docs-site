@@ -20,16 +20,19 @@ DKP provides Velero by default, to support backup and restore operations for you
 For on-premises deployments, DKP deploys Velero integrated with [MinIO][minio], operating inside the same cluster.
 
 For production use-cases, D2iQ advises to provide an *external* storage class to use with [MinIO][minio].
-With the external storage class, you can configure Velero in `cluster.yaml`  as follows:
+To specify an external storageClass for the Minio instances, create a file called  velero-overrides.yaml with the following contents, and then `kubectl apply -f` after the cluster is configured.  You can also add the values below to the Kommander configuration file when installing Kommander.
 
 ```yaml
-- name: velero
-  enabled: true
-  values: |-
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: velero-overrides
+  namespace: kommander
+data:
+  values.yaml: |
      minio:
       persistence:
          storageClass: <external storage class name>
-```
 
 You may also store your backups in Amazon S3 by configuring Velero in `cluster.yaml`  as follows:
 
