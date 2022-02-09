@@ -222,7 +222,7 @@ konvoy deploy addons -y
 Finally, check your deployment to verify that the configuration change was applied correctly:
 
 ```shell
-helm get values velero-kubeaddons
+helm get values -n kommander velero
 ```
 
 To restore cluster data on demand from a selected backup snapshot available in the cluster, run a command similar to the following:
