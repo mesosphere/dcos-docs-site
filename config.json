@@ -7,12 +7,12 @@
     ]
   },
   "preview": {
-    "DO_NOT_BUILD": ["dkp/kommander/2.2/**", "dkp/konvoy/2.2/**"]
+    "DO_NOT_BUILD": []
   },
   "beta": {
     "DO_NOT_BUILD": []
   },
   "production": {
-    "DO_NOT_BUILD": []
+    "DO_NOT_BUILD": ["dkp/kommander/2.2/**", "dkp/konvoy/2.2/**"]
   }
 }
