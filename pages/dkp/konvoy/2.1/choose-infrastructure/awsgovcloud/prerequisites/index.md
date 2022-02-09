@@ -48,18 +48,23 @@ The air-gapped bundle includes the following packages and tooling
 - Cluster initialization script
 - Docker registry image
 
-1.  Download the air-gapped bundle.
-    <p class="message--important"><strong>NOTE: </strong>Enter in the appropriate version in the $VERSION field.</p>
+1.  Define an environment variable for the Kubernetes version that corresponds with Konvoy release you are installing. You can find the correct Kubernetes version by checking the release notes for the release you are installing.
 
-        ```sh
-        curl -O downloads.d2iq.com/konvoy/airgapped/$VERSION.tar.gz
-        curl -O downloads.d2iq.com/konvoy/airgapped/pip-packages.tar.gz
-        ```
+    ```sh
+    export VERSION=1.21.6
+    ```
+
+1.  Download the air-gapped bundle files.
+
+    ```sh
+    curl -O downloads.d2iq.com/konvoy/airgapped/os-packages_$VERSION_x86_64_rpms.tar.gz
+    curl -O downloads.d2iq.com/konvoy/airgapped/pip-packages.tar.gz
+    ```
 
 1.  Expand the air-gapped bundle artifact.
 
     ```sh
-    tar -xvf $VERSION.tar.gz
+    tar -xvf os-packages_$VERSION_x86_64_rpms.tar.gz
     ```
 
 1.  Run setup.
