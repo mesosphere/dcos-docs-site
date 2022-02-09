@@ -51,7 +51,7 @@ D2iQ has various domains for documentation to support different use cases: produ
 
 ### Hiding directories based on DOCS_ENV
 
-To prevent a directory from appearing on the docs site in a specific domain, change the `config.json` like so:
+To prevent a directory from appearing on the docs site in a specific domain, change the `config.json` as follows:
 
 ```json
 {
