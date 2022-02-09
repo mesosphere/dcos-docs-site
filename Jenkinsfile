@@ -30,6 +30,11 @@ pipeline {
     }
 
     stage("Build & Deploy Preview Docs") {
+      when {
+        not {
+          branch 'beta'
+        }
+      }
       environment {
         ALGOLIA_UPDATE = ""
         BUCKET = "docs-d2iq-com-${bucket}"
@@ -59,6 +64,11 @@ pipeline {
     }
 
     stage("Preview Deployment URL") {
+      when {
+        not {
+          branch 'beta'
+        }
+      }
       steps { echo "http://${hostname}" }
     }
 
