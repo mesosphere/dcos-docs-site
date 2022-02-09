@@ -51,7 +51,7 @@ Use the following basic directory structure for your git repository:
 
 - Define the `metadata.yaml` of each application under the `services/<app name>/` directory. For more information, see the [Application Metadata docs][kommander_app_metadata].
 
-See <a href="https://github.com/mesosphere/dkp-catalog-applications">this git repo</a> for an example of how to structure external catalog gitrepos.
+See [the DKP Catalog repository](https://github.com/mesosphere/dkp-catalog-applications) for an example of how to structure custom catalog Git repositories.
 
 <!-- add more details about what each file should contain? insert example yamls of each of these files? link to an example repo? -->
 
