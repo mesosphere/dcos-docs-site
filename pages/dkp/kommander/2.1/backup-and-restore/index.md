@@ -34,7 +34,7 @@ data:
       persistence:
          storageClass: <external storage class name>
 
-You may also store your backups in Amazon S3 by configuring Velero in `cluster.yaml`  as follows:
+You can also store your backups in Amazon S3 by configuring Velero in `cluster.yaml`  as follows:
 
 ```yaml
 - name: velero
