@@ -34,7 +34,7 @@ pipeline {
         ALGOLIA_UPDATE = ""
         BUCKET = "docs-d2iq-com-${bucket}"
         PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Development"
-        REDIR_HOSTNAME = "${prevhostname}"
+        REDIR_HOSTNAME = "${hostname}"
         DOCS_ENV = "preview"
       }
       steps {
