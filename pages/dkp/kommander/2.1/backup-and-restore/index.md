@@ -10,7 +10,7 @@ menuWeight: 14
 For production clusters, regular maintenance should include routine back up operations to ensure data integrity and reduce the risk of data loss due to unexpected events.
 Back up operations should include the cluster state, application state, and the running configuration of both stateless and stateful applications in the cluster.
 
-Kommander stores all data as CRDs in the Kubernetes API and can be backed up and restored using the [standard Konvoy documentation][konvoy-backup].
+Kommander stores all data as CRDs in the Kubernetes API and you can back up and restore it using the [standard Konvoy documentation][konvoy-backup].
 
 <div class="message--note" style="margin-top: 20px;">
 <p style="margin-top: 10px; margin-bottom: 0px;"><strong>NOTE: </strong><code>kubecost</code>, that installs with Kommander, has the following storage requirements:</p>
