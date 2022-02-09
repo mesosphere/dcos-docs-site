@@ -42,7 +42,7 @@ If you need more control, have a look at the Makefile and the target `docker-liv
 
 `main` is the default branch for this repo.
 
-D2iQ has multiple domains for documentation to support various use cases: production, beta, and development. The config.json file can be configured to hide certain directories (that may be a work in progress) from being visible on each site.
+D2iQ has various domains for documentation to support different use cases: production, beta, and development. You can modify the config.json file to hide certain directories (that are still unfinished) from being visible on each site.
 
 - https://docs.d2iq.com/ is our production URL and will deploy when the `main` branch is changed. It receives the env variable `DOCS_ENV=production`.
 - https://beta-docs.d2iq.com/ is our password protected beta URL and will deploy when the `beta` branch is changed. It receives the env variable `DOCS_ENV=beta`.
