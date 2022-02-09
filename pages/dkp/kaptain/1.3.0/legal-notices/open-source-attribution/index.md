@@ -3,9 +3,12 @@ layout: layout.pug
 title: Open Source Attribution
 menuWeight: 100
 beta: false
+notes: Automatically generated, DO NOT EDIT
 excerpt: List of third party open source software provided by Kaptain
 render: mustache
 ---
+
+> This document is automatically generated from the API definition in the code.
 
 The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Kaptain&trade;.
 
