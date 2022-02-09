@@ -190,7 +190,7 @@ triaging
 uncordon(|ed)
 unencrypted
 Unjoin(|ing|ed)
-unmount(|ing|ed)
+unmount(|s|ing|ed)
 unmute
 unpause(|s)
 (URI|URIs)
