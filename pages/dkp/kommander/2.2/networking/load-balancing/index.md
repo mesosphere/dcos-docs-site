@@ -60,7 +60,7 @@ If the virtual IP addresses share an interface with the primary IP address of th
 MetalLB can be configured in two modes: Layer2 and BGP.
 
 First, set the `WORKSPACE_NAMESPACE` environment variable using the following command to get the name of the workspace's namespace that you would like to deploy MetalLB to.
-MetalLB will be deployed to all attached clusters within this workspace.
+MetalLB is deployed to all attached clusters within this workspace.
 
 ```bash
 export WORKSPACE_NAMESPACE=$(kubectl get workspace <type_your_workspace_name> -o jsonpath='{.status.namespaceRef.name}')
