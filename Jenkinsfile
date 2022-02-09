@@ -1,20 +1,13 @@
 #!/usr/bin/env groovy
 
-boolean isProduction = env.BRANCH_NAME == "main"
+boolean isMain = env.BRANCH_NAME == "main"
 boolean isBeta = env.BRANCH_NAME == "beta"
-boolean isPreview = env.BRANCH_NAME == "develop"
 
-def bucket   = isProduction ? "production"
+def bucket   = isMain ? "preview"
              : isBeta ? "staging"
-             : isPreview ? "preview"
              : "pr-${env.CHANGE_ID}"
 
-def creds    = isProduction ? "s3-production"
-             : isBeta ? "s3-staging"
-             : "s3-development"
-def hostname = isProduction ? "docs.d2iq.com"
-             : isBeta ? "beta-docs.d2iq.com"
-             : isPreview ? "dev-docs.d2iq.com"
+def hostname = isMain ? "dev-docs.d2iq.com"
              : "docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"
 
 pipeline {
@@ -22,7 +15,7 @@ pipeline {
   environment {
     DOCKER = credentials('docker-hub-credentials')
     ALGOLIA_PRIVATE_KEY = credentials('algolia_private_key')
-    REDIR_HOSTNAME = "${hostname}"
+    AWS_DEFAULT_REGION = "us-west-2"
   }
   stages {
     stage("Build image") {
@@ -36,26 +29,21 @@ pipeline {
       }
     }
 
-    stage("Push image") {
-      when { branch "main" }
-      steps {
-        sh '''
-          docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
-          docker push mesosphere/docs:latest
-        '''
+    stage("Build & Deploy Preview Docs") {
+      when {
+        not {
+          branch 'beta'
+        }
       }
-    }
-
-    stage("Build & Deploy Docs") {
       environment {
-        ALGOLIA_UPDATE = "${isProduction ? 'true' : ''}"
-        AWS_DEFAULT_REGION = "us-west-2"
+        ALGOLIA_UPDATE = ""
         BUCKET = "docs-d2iq-com-${bucket}"
-        PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-${isProduction ? 'Production' : 'Development'}"
+        PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Development"
         REDIR_HOSTNAME = "${hostname}"
+        DOCS_ENV = "preview"
       }
       steps {
-        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: creds]]) {
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "s3-development"]]) {
         sh '''
           docker run \
             -v "$PWD/pages":/src/pages \
@@ -68,15 +56,95 @@ pipeline {
             -e BUCKET \
             -e PRINCIPAL \
             -e REDIR_HOSTNAME \
+            -e DOCS_ENV \
             mesosphere/docs /src/ci/deploy.sh
           '''
         }
       }
     }
 
+    stage("Preview Deployment URL") {
+      when {
+        not {
+          branch 'beta'
+        }
+      }
+      steps { echo "http://${hostname}" }
+    }
+
+    stage("Build & Deploy Beta Docs") {
+      when { branch "beta" }
+      environment {
+        ALGOLIA_UPDATE = ""
+        BUCKET = "docs-d2iq-com-staging"
+        PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Development"
+        REDIR_HOSTNAME = "beta-docs.d2iq.com"
+        DOCS_ENV = "beta"
+      }
+      steps {
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "s3-staging"]]) {
+        sh '''
+          docker run \
+            -v "$PWD/pages":/src/pages \
+            -e ALGOLIA_PRIVATE_KEY \
+            -e ALGOLIA_UPDATE \
+            -e AWS_ACCESS_KEY_ID \
+            -e AWS_DEFAULT_REGION \
+            -e AWS_SECRET_ACCESS_KEY \
+            -e AWS_SESSION_TOKEN \
+            -e BUCKET \
+            -e PRINCIPAL \
+            -e REDIR_HOSTNAME \
+            -e DOCS_ENV \
+            mesosphere/docs /src/ci/deploy.sh
+          '''
+        }
+      }
+    }
+
+    stage("Build & Deploy Production Docs") {
+      when { branch "main" }
+      environment {
+        ALGOLIA_UPDATE = "true"
+        BUCKET = "docs-d2iq-com-production"
+        PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Production"
+        REDIR_HOSTNAME = "docs.d2iq.com"
+        DOCS_ENV = "production"
+      }
+      steps {
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "s3-production"]]) {
+        sh '''
+          docker run \
+            -v "$PWD/pages":/src/pages \
+            -e ALGOLIA_PRIVATE_KEY \
+            -e ALGOLIA_UPDATE \
+            -e AWS_ACCESS_KEY_ID \
+            -e AWS_DEFAULT_REGION \
+            -e AWS_SECRET_ACCESS_KEY \
+            -e AWS_SESSION_TOKEN \
+            -e BUCKET \
+            -e PRINCIPAL \
+            -e REDIR_HOSTNAME \
+            -e DOCS_ENV \
+            mesosphere/docs /src/ci/deploy.sh
+          '''
+        }
+      }
+    }
+
+    stage("Push image") {
+      when { branch "main" }
+      steps {
+        sh '''
+          docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
+          docker push mesosphere/docs:latest
+        '''
+      }
+    }
+
     stage("Restart dev deployment") {
       agent { label 'docs-site-kubectl' }
-      when { branch "develop" }
+      when { branch "main" }
       steps {
         sh '''
           kubectl -n docs-site rollout restart deployment docs-site-dev
@@ -85,8 +153,6 @@ pipeline {
       }
     }
 
-    stage("Deployment URL") {
-      steps { echo "http://${hostname}" }
-    }
+
   }
 }

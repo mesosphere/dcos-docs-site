@@ -73,7 +73,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ├─ControlPlane - AWSManagedControlPlane/eks-example-control-plane  True                     9m4s
     └─Workers
       └─MachineDeployment/eks-example                                  True                     7m39s
-        └─4 Machines...    
+        └─4 Machines...
     ```
 
      <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use dkp with the workload cluster kubeconfig.</p>

@@ -30,8 +30,8 @@ const configData = fs.readFileSync("config.json");
 const config = JSON.parse(configData);
 
 // Environment Variables
-const GIT_BRANCH = process.env.GIT_BRANCH;
-const METALSMITH_SKIP_SECTIONS = (config[GIT_BRANCH] || {}).DO_NOT_BUILD || [];
+const DOCS_ENV = process.env.DOCS_ENV;
+const METALSMITH_SKIP_SECTIONS = (config[DOCS_ENV] || {}).DO_NOT_BUILD || [];
 
 //
 // Metalsmith

@@ -116,7 +116,7 @@ The kubeconfig file is written to your local directory and you can now explore t
 
 ## Delete the Kubernetes cluster and cleanup your environment
 
-If you no longer need the cluster and want to delete it, you can can do so using the DKP CLI.
+If you no longer need the cluster and want to delete it, you can do so using the DKP CLI.
 
 1.  Update the AWS bootstrap credentials:
 

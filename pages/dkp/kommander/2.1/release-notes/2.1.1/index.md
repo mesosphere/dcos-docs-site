@@ -91,7 +91,7 @@ Verify that your cluster have `cert-manager` installed by:
 
 ```bash
 export KUBECONFIG=<kubeconfig-path>
-kubectl get pod -A | grep "cert-manager" 
+kubectl get pod -A | grep "cert-manager"
 ```
 
 If your cluster does not have `cert-manager` installed, the output will be empty.

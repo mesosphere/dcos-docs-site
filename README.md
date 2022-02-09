@@ -6,11 +6,11 @@ D2iQ's documentation site uses a JavaScript static site generator called Metalsm
 
 ## Prerequisites
 
-1. Install node.js version 12.22.7 (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf) or [nvm-windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows))
 1. Clone the repo
+1. Install node.js version 12.22.7 (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf) or [nvm-windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows))
 1. Windows users will need to [install python2](https://github.com/nodejs/node-gyp/tree/v3.8.0#on-windows) globally
 1. Install dependencies via command `npm i`
-1. Install [vale](https://docs.errata.ai/vale/install) for pre-commit checks.
+1. Install [vale](https://docs.errata.ai/vale/install) (an [ASDF plugin](https://github.com/osg/asdf-vale) is also available).
 
 ## Development
 
@@ -38,34 +38,38 @@ docker run -it --rm -v $MOUNT_SRC:/dcos-docs-site/pages/$MOUNT_DST -p3000:3000 -
 
 If you need more control, have a look at the Makefile and the target `docker-liveedit`.
 
-## Deciding which branch to use as a source
+## Production and preview domains, DOCS_ENV variable
 
-D2iQ has multiple environments for documentation to support various use cases: production, beta, and development. Specific branches contain different content and deploy to different environments.
+`main` is the default branch for this repo.
 
-- `main` is the primary source of truth and will get deployed to the production environment available at https://docs.d2iq.com/. Use this branch only in the case that you need to make a change to the production version of site. Such commits will need to be cherry-picked back to the develop branch, so please coordinate with a docs admin.
-- `develop` is a preview environment and the development branch for upstream doc changes not ready for production. Thus, this is the default branch as most work will be in preparation for a forthcoming release. It deploys to https://dev-docs.d2iq.com/
-- `beta` is the beta branch deployed to https://beta-docs.d2iq.com/. The docs team will promote `develop` to `beta` upon beta releases.
+D2iQ has various domains for documentation to support different use cases: production, beta, and development. You can modify the config.json file to hide certain directories (that are still unfinished) from being visible on each site.
 
-<!-- markdownlint-disable fenced-code-language -->
+- https://docs.d2iq.com/ is our production URL and deploys when the `main` branch changes. It has the environment variable `DOCS_ENV=production`.
+- https://beta-docs.d2iq.com/ is our password protected beta URL and deploys when the `beta` branch changes. It has the environment variable `DOCS_ENV=beta`.
+- https://dev-docs.d2iq.com/ is a preview domain and deploys when the `main` branch changes. It receives the environment variable `DOCS_ENV=preview`.
+- `"docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"` domains deploy on every other branch. They receive the environment variable `DOCS_ENV=preview`.
 
+### Hiding directories based on DOCS_ENV
+
+To prevent a directory from appearing on the docs site in a specific domain, change the `config.json` as follows:
+
+```json
+{
+  "main": {
+    "DO_NOT_BUILD": [
+      "dkp/konvoy/42.0/**"
+    ]
+  }
+}
 ```
-o = commit
 
-develop     ----o----o---o---------
-                 \        \
-                  \        \
-beta        -------o--------\------
-                             \
-main        ------------------o----
-```
-
-<!-- markdownlint-enable fenced-code-language -->
+This code instructs Metalsmith not to build the Konvoy 42.0 section and its child pages.
 
 ## Husky pre-commit hook
 
-This repo validates code before committing. No additionally tooling needs to be installed. It will only lint files that have changed.
+This repo validates code before committing, without the need for additional tooling to run. It will only lint files that have changed.
 
-The Docs team introduced these linters in December 2021 and decided not to retroactively apply them to existing files. Thus, _you will encounter errors on files you have changed that you did not introduce_. Please cheerfully address them as best you can!
+The Docs team introduced these linters in December 2021 and decided not to retroactively apply them to existing files. Thus, **you will encounter errors on files you have changed that you did not introduce**. Please cheerfully address errors as best you can!
 
 - Grammar lint via [vale](https://docs.errata.ai/)
 - Link validation using [remark](https://github.com/remarkjs/remark)
