@@ -63,7 +63,7 @@ To prevent a directory from appearing on the docs site in a specific domain, cha
 }
 ```
 
-This code would tell Metalsmith to not build the Konvoy 42.0 section and its child pages.
+This code instructs Metalsmith not to build the Konvoy 42.0 section and its child pages.
 
 ## Husky pre-commit hook
 
