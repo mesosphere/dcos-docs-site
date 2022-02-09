@@ -84,6 +84,7 @@ hyperparameter(|s)
 io
 (istio|Istio)
 journald
+Jira
 (json|JSON)
 (kafka|Kafka)
 Kaptain
