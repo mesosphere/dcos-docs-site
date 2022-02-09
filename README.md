@@ -38,30 +38,32 @@ docker run -it --rm -v $MOUNT_SRC:/dcos-docs-site/pages/$MOUNT_DST -p3000:3000 -
 
 If you need more control, have a look at the Makefile and the target `docker-liveedit`.
 
-## Deciding which branch to use as a source
+## Production and preview domains, DOCS_ENV variable
 
-D2iQ has multiple environments for documentation to support various use cases: production, beta, and development. Specific branches contain different content and deploy to different environments.
+`main` is the default branch for this repo.
 
-- `main` is the primary source of truth and will get deployed to the production environment available at https://docs.d2iq.com/. Use this branch only in the case that you need to make a change to the production version of site. Such commits will need to be cherry-picked back to the develop branch, so please coordinate with a docs admin.
-- `develop` is a preview environment and the development branch for upstream doc changes not ready for production. Thus, this is the default branch as most work will be in preparation for a forthcoming release. It deploys to https://dev-docs.d2iq.com/
-- `beta` is the beta branch deployed to https://beta-docs.d2iq.com/. The docs team will promote `develop` to `beta` upon beta releases.
+D2iQ has multiple domains for documentation to support various use cases: production, beta, and development. The config.json file can be configured to hide certain directories (that may be a work in progress) from being visible on each site.
 
-**Note:** In most cases, if you are making changes to a yet-to-be-released version of the app and documentation, branch off of `develop`. If you are making changes to an already released version of the app and documentation, branch off of `main`. For example: If Kommander v2.1 is released, and you have a change to a topic in v2.1 - branch off of `main`. If you want to make the same change to the same topic in the upcoming release version Kommander v2.2, only change the files in the `/2.2/` folder in `develop`. The changes in the `/2.1/` version's folder will be added from `main` branch the to `develop` branch on a regular interval.
+- https://docs.d2iq.com/ is our production URL and will deploy when the `main` branch is changed. It receives the env variable `DOCS_ENV=production`.
+- https://beta-docs.d2iq.com/ is our password protected beta URL and will deploy when the `beta` branch is changed. It receives the env variable `DOCS_ENV=beta`.
+- https://dev-docs.d2iq.com/ is a preview domain and will deploy when the `main` branch is changed. It receives the env variable `DOCS_ENV=preview`.
+- `"docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"` domains will deploy on every other branch. They receive the env variable `DOCS_ENV=preview`.
 
-<!-- markdownlint-disable fenced-code-language -->
+### Hiding directories based on DOCS_ENV
 
+To prevent a directory from appearing on the docs site in a specific domain, change the `config.json` like so:
+
+```json
+{
+  "main": {
+    "DO_NOT_BUILD": [
+      "dkp/konvoy/42.0/**"
+    ]
+  }
+}
 ```
-o = commit
 
-develop     ----o----o---o---------
-                 \        \
-                  \        \
-beta        -------o--------\------
-                             \
-main        ------------------o----
-```
-
-<!-- markdownlint-enable fenced-code-language -->
+This code would tell Metalsmith to not build the Konvoy 42.0 section and its child pages.
 
 ## Husky pre-commit hook
 
