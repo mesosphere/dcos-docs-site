@@ -70,6 +70,7 @@
     "npm": "^6.0.0"
   },
   "lint-staged": {
+    "*.js": "eslint --cache --fix",
     "*.md": [
       "vale --config=./.vale.ini",
       "remark --quiet --frail --no-stdout",
