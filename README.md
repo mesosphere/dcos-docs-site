@@ -47,7 +47,7 @@ D2iQ has various domains for documentation to support different use cases: produ
 - https://docs.d2iq.com/ is our production URL and deploys when the `main` branch changes. It has the environment variable `DOCS_ENV=production`.
 - https://beta-docs.d2iq.com/ is our password protected beta URL and deploys when the `beta` branch changes. It has the environment variable `DOCS_ENV=beta`.
 - https://dev-docs.d2iq.com/ is a preview domain and deploys when the `main` branch changes. It receives the environment variable `DOCS_ENV=preview`.
-- `"docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"` domains will deploy on every other branch. They receive the env variable `DOCS_ENV=preview`.
+- `"docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"` domains deploy on every other branch. They receive the environment variable `DOCS_ENV=preview`.
 
 ### Hiding directories based on DOCS_ENV
 
