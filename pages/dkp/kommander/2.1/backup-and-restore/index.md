@@ -77,13 +77,17 @@ data:
 ## Install the Velero command-line interface
 
 Although installing the Velero command-line interface is optional and independent of deploying a DKP cluster, having access to the command-line interface provides several benefits.
-For example, you can use the Velero command-line interface to back up or restore a cluster on demand, or to modify certain settings without changing the Velero  configuration.
+For example, you can use the Velero command-line interface to back up or restore a cluster on demand, or to modify certain settings without changing the Velero configuration.
 
 By default, Konvoy sets up Velero to use MinIO over TLS using a self-signed certificate.
-Due to this, when using certain commands, you may be asked to use the `--insecure-skip-tls-verify` flag.
+As a result, when using certain commands, you may be asked to use the `--insecure-skip-tls-verify` flag.
 Again, the default setup is not suitable for production use-cases.
 
 See the instructions to [install the Velero command-line interface][velero-cli-install] for more information.
+
+In DKP, the Velero platform application is installed in the `kommander` namespace, instead of `velero`.  Thus, after installing the CLI, we recommend that you set the Velero CLI `namespace` config option so that subsequent Velero CLI invocations will use the correct namespace:
+```sh
+velero client config set namespace=kommander
 
 ## Enable or disable Velero
 
@@ -113,7 +117,7 @@ After making changes to your `cluster.yaml`, you must run `konvoy up` to apply t
 
 ## Regular backup operations
 
-For production clusters, you should be familiar with the following basic administrative functions Velero provides:
+For backing up production clusters, you should be familiar with the following basic administrative functions Velero provides:
 
 - [Set a backup schedule][set-schedule]
 - [Run on-demand backups][backup-on-demand]
@@ -124,8 +128,8 @@ For production clusters, you should be familiar with the following basic adminis
 By default, DKP configures a regular, automatic backup of the cluster's state in Velero.
 The default settings do the following:
 
-- create backups on a daily basis
-- save the data from all namespaces
+- Create daily backups
+- Save the data from all namespaces
 
 These default settings take effect after the cluster is created.
 If you install Konvoy with the default platform services deployed, the initial backup starts after the cluster is successfully provisioned and ready for use.
@@ -133,7 +137,7 @@ If you install Konvoy with the default platform services deployed, the initial b
 #### Alternate backup schedules
 
 The Velero CLI provides an easy way to create alternate backup schedules.
-For example:
+For example, you can use a command similar to:
 
 ```bash
 velero create schedule thrice-daily --schedule="@every 8h"
@@ -188,7 +192,7 @@ Before attempting to restore the cluster state using the Velero command-line int
 - The backend storage, MinIO, is still operational.
 <!-- vale Microsoft.Avoid = YES -->
 - The Velero platform service in the cluster is still operational.
-- The Velero platform service must be set to a `restore-only-mode` to avoid having backups run while restoring.
+- The Velero platform service is set to a `restore-only-mode` to avoid having backups run while restoring.
 
 To list the available backup archives for your cluster, run the following command:
 
@@ -209,7 +213,7 @@ addons:
 ...
 ```
 
-Then you may apply the configuration change by running:
+Then you can apply the configuration change by running:
 
 ```shell
 konvoy deploy addons -y
