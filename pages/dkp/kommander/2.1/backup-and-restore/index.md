@@ -33,13 +33,18 @@ data:
      minio:
       persistence:
          storageClass: <external storage class name>
+         ```
 
 You can also store your backups in Amazon S3 by configuring Velero in `cluster.yaml`  as follows:
 
 ```yaml
-- name: velero
-  enabled: true
-  values: |-
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: velero-overrides
+  namespace: kommander
+data:
+  values.yaml: |
     minioBackend: false
     configuration:
       backupStorageLocation:
@@ -50,23 +55,25 @@ You can also store your backups in Amazon S3 by configuring Velero in `cluster.y
           s3ForcePathStyle: "false"
           insecureSkipTLSVerify: "false"
           s3Url: ""
+          # profile should be set to the AWS profile name mentioned in the secretContents below
+          profile: default
     credentials:
       # With the proper IAM permissions with access to the S3 bucket,
-      # you can attach the EC2 instances the IAM Role, OR fill in `existingSecret` OR `secretContents` below.
+      # you can attach the EC2 instances using the IAM Role, OR fill in `existingSecret` OR `secretContents` below.
       #
       # Name of a pre-existing secret (if any) in the Velero namespace
       # that should be used to get IAM account credentials.
       existingSecret:
       # The key must be named `cloud`, and the value corresponds to the entire content of your IAM credentials file.
-      # Here is a list of documentation for plugins maintained by the Velero team:
+      # For more information, consult the documentation for the velero plugin for AWS at:
       # [AWS] https://github.com/vmware-tanzu/velero-plugin-for-aws/blob/main/README.md
-      secretContents: {}
+      secretContents: 
         # cloud: |
         #   [default]
         #   aws_access_key_id=<REDACTED>
         #   aws_secret_access_key=<REDACTED>
-```
-
+        ```
+        
 ## Install the Velero command-line interface
 
 Although installing the Velero command-line interface is optional and independent of deploying a DKP cluster, having access to the command-line interface provides several benefits.
