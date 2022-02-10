@@ -8,7 +8,7 @@ menuWeight: 60
 ---
 
 For production clusters, regular maintenance should include routine backup operations to ensure data integrity and reduce the risk of data loss due to unexpected events.
-Back up operations should include the cluster state, application state, and the running configuration of both stateless and stateful applications in the cluster.
+Backup operations should include the cluster state, application state, and the running configuration of both stateless and stateful applications in the cluster.
 
 Kommander stores all data as CRDs in the Kubernetes API and you can back up and restore it using the [standard Konvoy documentation][konvoy-backup].
 
@@ -89,31 +89,6 @@ In DKP, the Velero platform application is installed in the `kommander` namespac
 ```sh
 velero client config set namespace=kommander
 
-## Enable or disable Velero
-
-<p class="message--note"><strong>NOTE: </strong>Before disabling Velero, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.</p>
-
-You can enable Velero using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
-
-```yaml
-addons:
-- name: velero
-  enabled: true
-...
-```
-
-If you want to replace Velero with a different backup service, you can disable `velero` by modifying the `ClusterConfiguration` section of the `cluster.yaml` file as follows:
-
-```yaml
-addons:
-- name: velero
-  enabled: false
-...
-```
-
-Before disabling the Velero platform service addon, however, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.
-
-After making changes to your `cluster.yaml`, you must run `konvoy up` to apply them to the running cluster.
 
 ## Regular backup operations
 
