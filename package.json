@@ -42,7 +42,7 @@
     "metalsmith-watch": "^1.0.3",
     "mkdirp": "^0.5.1",
     "ngindox": "^0.2.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^7.0.0",
     "patch-package": "6.4.7",
     "postcss-loader": "^2.0.6",
     "pug": "^3.0.1",
