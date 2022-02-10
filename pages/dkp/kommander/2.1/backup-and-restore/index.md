@@ -7,7 +7,7 @@ excerpt: Back up and restore Kommander data and your Konvoy cluster
 menuWeight: 60
 ---
 
-For production clusters, regular maintenance should include routine back up operations to ensure data integrity and reduce the risk of data loss due to unexpected events.
+For production clusters, regular maintenance should include routine backup operations to ensure data integrity and reduce the risk of data loss due to unexpected events.
 Back up operations should include the cluster state, application state, and the running configuration of both stateless and stateful applications in the cluster.
 
 Kommander stores all data as CRDs in the Kubernetes API and you can back up and restore it using the [standard Konvoy documentation][konvoy-backup].
