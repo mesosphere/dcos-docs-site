@@ -30,7 +30,7 @@ Before starting this tutorial, verify the following:
 
 Gatekeeper uses the [OPA Constraint Framework][opa-constraints] to describe and enforce policy. Before you can define a constraint, you must first define a `ConstraintTemplate`, which describes both the [`Rego`][opa-rego] (a powerful query language) that enforces the constraint and the schema of the constraint. The schema of the constraint allows an admin to fine-tune the behavior of a constraint, much like arguments to a function.
 
-The Gatekeeper repository includes a [library of policies][gatekeeper-library] to replace Pod Security Policies which we will use in the following tutorials.
+The Gatekeeper repository includes a [library of policies][gatekeeper-library] to replace Pod Security Policies which you will use in the following tutorials.
 
 ### Prevent privileged pods
 
@@ -44,7 +44,7 @@ kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-
 
 #### Define the Constraint
 
-Constraints are then used to inform Gatekeeper that the admin wants a ConstraintTemplate to be enforced, and how.
+Constraints are then used to inform Gatekeeper that the admin wants to enforce a ConstraintTemplate, and how.
 
 Create the privileged pod policy constraint `psp-privileged-container` by running the following command:
 
@@ -54,7 +54,7 @@ kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-
 
 #### Test that the constraint is enforced
 
-Try to create a privileged pod by running the following command:
+Create a privileged pod by running the following command:
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/privileged-containers/samples/psp-privileged-container/example_disallowed.yaml
@@ -78,7 +78,7 @@ kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-
 
 #### Define the Constraint
 
-Constraints are then used to inform Gatekeeper that the admin wants a ConstraintTemplate to be enforced, and how.
+Constraints are then used to inform Gatekeeper that the admin wants to enforce a ConstraintTemplate, and how.
 
 Create the host path volume policy constraint `psp-host-filesystem` by running the following command to only allow `/foo` to be mounted as a host path volume:
 
@@ -102,7 +102,7 @@ EOF
 
 #### Test that the constraint is enforced
 
-Try to create a pod that mounts a disallowed host path by running the following command:
+Create a privileged pod by running the following command:
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -135,7 +135,7 @@ Error from server ([denied by psp-host-filesystem] HostPath volume {"hostPath": 
 
 #### Test that the constraint allows allowed host paths
 
-Try to create a pod that mounts an allowed host path by running the following command:
+Create a pod that mounts an allowed host path by running the following command:
 
 ```bash
 cat <<EOF | kubectl apply -f -
