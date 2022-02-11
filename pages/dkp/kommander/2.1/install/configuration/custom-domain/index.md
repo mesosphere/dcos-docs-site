@@ -100,7 +100,6 @@ You can use other issuers that support the ACME protocol by configuring the issu
 acme:
   email: <your_email>
   server: https://acme.zerossl.com/v2/DV90
-...
 ```
 
 ### Customize issuer details

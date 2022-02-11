@@ -337,11 +337,11 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
     Paste the following into the YAML document nested in the `spec.chartReference.values` field of the Addon resource:
 
     ```yaml
-        env:
-        - name: KUBERNETES_POD_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
+    env:
+      - name: KUBERNETES_POD_NAMESPACE
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.namespace
     ```
 
     Do **not** change any other values in the Addon resource. The Addon should now look like this. Make sure that the `env` field is vertically aligned with the `image` field.

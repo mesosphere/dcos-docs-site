@@ -54,7 +54,7 @@ CLUSTER_NAME=my-eks-cluster
 
 Tips:
 
-1.  To get a list of names in use in your EKS account, use the `aws` cli tool. For example:
+1.  To get a list of names in use in your EKS account, use the `aws` CLI tool. For example:
 
     ```sh
     aws ec2 describe-vpcs --filter "Name=tag-key,Values=kubernetes.io/cluster" --query "Vpcs[*].Tags[?Key=='kubernetes.io/cluster'].Value | sort(@[*][0])"
@@ -123,7 +123,7 @@ Tips:
     dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>This kubeconfig is temporary and needs to be renewed either by running the above command with updated credentials and rerunning, or by running the aws cli command:</p>
+    <p class="message--note"><strong>NOTE: </strong>This kubeconfig is temporary and needs to be renewed either by running the above command with updated credentials and rerunning, or by running the AWS CLI command:</p>
 
     ```yaml
     aws eks --region us-west-2 update-kubeconfig --name default_<name-of-cluster>-control-plane

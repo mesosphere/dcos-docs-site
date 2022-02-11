@@ -87,7 +87,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     ├─ControlPlane - AWSManagedControlPlane/eks-example-control-plane     True                     9m4s
     └─Workers
       └─MachineDeployment/eks-example-md-0                                True                     7m39s
-        └─4 Machines...                                                   True                     8m24s 
+        └─4 Machines...                                                   True                     8m24s
     ```
 
 1.  As they progress, the controllers also create Events. List the Events using this command:
