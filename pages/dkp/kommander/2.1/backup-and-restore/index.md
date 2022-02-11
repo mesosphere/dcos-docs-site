@@ -79,13 +79,15 @@ data:
 Although installing the Velero command-line interface is optional and independent of deploying a DKP cluster, having access to the command-line interface provides several benefits.
 For example, you can use the Velero command-line interface to back up or restore a cluster on demand, or to modify certain settings without changing the Velero configuration.
 
-By default, Konvoy sets up Velero to use MinIO over TLS using a self-signed certificate.
-As a result, when using certain commands, you may be asked to use the `--insecure-skip-tls-verify` flag.
+- By default, Konvoy sets up Velero to use MinIO over TLS using a self-signed certificate.
+- As a result, when using certain commands, you may be asked to use the `--insecure-skip-tls-verify` flag.
+
 Again, the default setup is not suitable for production use-cases.
 
 See the instructions to [install the Velero command-line interface][velero-cli-install] for more information.
 
 In DKP, the Velero platform application is installed in the `kommander` namespace, instead of `velero`.  Thus, after installing the CLI, we recommend that you set the Velero CLI `namespace` config option so that subsequent Velero CLI invocations will use the correct namespace:
+
 ```sh
 velero client config set namespace=kommander
 
