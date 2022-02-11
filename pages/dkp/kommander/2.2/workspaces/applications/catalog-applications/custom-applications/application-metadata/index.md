@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Application Metadata
 title: Application Metadata
+beta: true 
 menuWeight: 40
 excerpt: To display more information about custom applications in the UI, define a metadata.yaml file for each application in the git repository.
 ---
