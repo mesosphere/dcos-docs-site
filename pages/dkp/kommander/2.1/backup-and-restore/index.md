@@ -35,7 +35,7 @@ data:
          storageClass: <external storage class name>
          ```
 
-You can also store your backups in Amazon S3 by configuring Velero in `cluster.yaml`  as follows:
+You can also store your backups in Amazon S3.    To do so, create a file called velero-overrides.yaml with the following contents, and then `kubectl apply -f` after the cluster is configured.
 
 ```yaml
 apiVersion: v1
