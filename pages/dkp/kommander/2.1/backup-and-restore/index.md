@@ -3,7 +3,7 @@ layout: layout.pug
 beta: false
 navigationTitle: Back up and restore
 title: Back up and restore
-excerpt: Back up and restore Kommander data and your Konvoy cluster
+excerpt: Back up and restore Kommander data and your DKP cluster
 menuWeight: 60
 ---
 
