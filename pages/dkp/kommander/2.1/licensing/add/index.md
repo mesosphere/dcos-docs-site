@@ -45,7 +45,7 @@ You can add a license acquired from D2iQ directly using `kubectl`.
 
     ```bash
     kubectl create secret generic my-license-secret --from-literal=jwt=MY_LICENSE -n kommander
-    kubectl label secret my-license-secret kommanderType=license -n kommander
+    kubectl label secret my-license-secret kommanderType=License -n kommander
     ```
 
 1.  Create a license object:
