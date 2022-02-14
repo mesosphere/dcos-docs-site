@@ -12,8 +12,6 @@ enterprise: false
 
 This topic describes how to prepare your environment and install Konvoy on VMWare vSphere. This installation is similar to deploying the entire Kubernetes cluster onto vSphere Infrastructure as a Service (IaaS).
 
-<p class="message--warning"><strong>WARNING:</strong> Installing Konvoy 1.8.x on VMWare vSphere in an air-gapped environment is not currently supported.</p>
-
 ## Before you Begin
 
 Before installing, verify that your environment meets the following basic requirements:

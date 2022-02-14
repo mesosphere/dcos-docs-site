@@ -53,6 +53,8 @@ This release provides new features and enhancements to improve the user experien
 
 -  Prometheus addon upgrades fail due to a missing alertmanager CRD. To work around this issue, manually apply the missing CRD to the cluster prior to upgrading by running: `kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.47.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml`
 
+-  vSphere provisioning in an air-gapped environment is not supported in this version; however, we will add this functionality to a future release. Refer to the most current release documentation for more information.
+
 ### Component versions
 
 - Ansible 2.9.16.0
