@@ -38,13 +38,14 @@ kind: Installation
 apps:
   centralized-grafana:
     values: |
-      resources:
-        limits:
-          cpu: 150m
-          memory: 100Mi
-        requests:
-          cpu: 100m
-          memory: 50Mi
+      grafana:
+        resources:
+          limits:
+            cpu: 150m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 50Mi
 ...
 ```
 
