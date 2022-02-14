@@ -14,12 +14,12 @@ Kommander stores all data as CRDs in the Kubernetes API and you can back up and 
 
 ## Velero
 
-DKP provides Velero by default, to support backup and restore operations for your Kubernetes clusters and persistent volumes.
+DKP provides [Velero][velero] by default, to support backup and restore operations for your Kubernetes clusters and persistent volumes.
 
-For on-premises deployments, DKP deploys Velero integrated with [MinIO][minio], operating inside the same cluster.
+For on-premises deployments, DKP deploys [Velero integrated with MinIO][minio-with-velero], operating inside the same cluster.
 
-For production use-cases, D2iQ advises to provide an *external* storage class to use with [MinIO][minio-with-velero].
-To specify an external storageClass for the Minio instances, create a file called  velero-overrides.yaml with the following contents, and then `kubectl apply -f` after the cluster is configured. You can also add the values below to the Kommander configuration file when installing Kommander.
+For production use-cases, D2iQ advises to provide an *external* storage class to use with [MinIO][minio].
+To specify an external storageClass for the MinIO instances, create a file called `velero-overrides.yaml` with the following contents, and then `kubectl apply -f` after the cluster is configured. You can also add the values below to the [Kommander configuration file when installing Kommander][kommander-install-config].
 
 ```yaml
 apiVersion: v1
@@ -34,7 +34,7 @@ data:
          storageClass: <external storage class name>
 ```
 
-You can also store your backups in Amazon S3.    To do so, create a file called velero-overrides.yaml with the following contents, and then `kubectl apply -f` after the cluster is configured.
+You can also store your backups in Amazon S3.    To do so, create a file called `velero-overrides.yaml` with the following contents, and then `kubectl apply -f` after the cluster is configured.
 
 ```yaml
 apiVersion: v1
@@ -78,7 +78,7 @@ data:
 Although installing the Velero command-line interface is optional and independent of deploying a DKP cluster, having access to the command-line interface provides several benefits.
 For example, you can use the Velero command-line interface to back up or restore a cluster on demand, or to modify certain settings without changing the Velero configuration.
 
-- By default, Konvoy sets up Velero to use MinIO over TLS using a self-signed certificate.
+- By default, DKP sets up Velero to use MinIO over TLS using a self-signed certificate.
 - As a result, when using certain commands, you may be asked to use the `--insecure-skip-tls-verify` flag.
 
 Again, the default setup is not suitable for production use-cases.
@@ -108,7 +108,7 @@ The default settings do the following:
 - Save the data from all namespaces
 
 These default settings take effect after the cluster is created.
-If you install Konvoy with the default platform services deployed, the initial backup starts after the cluster is successfully provisioned and ready for use.
+If you install Kommander with the default platform services deployed, the initial backup starts after the cluster is successfully provisioned and ready for use.
 
 #### Alternate backup schedules
 
@@ -127,16 +127,16 @@ To change the default backup service settings:
     velero get schedules
     ```
 
-1.  Delete the `velero-kubeaddons-default` schedule by running the following command:
+1.  Delete the `velero-default` schedule by running the following command:
 
     ```sh
-    velero delete schedule velero-kubeaddons-default
+    velero delete schedule velero-default
     ```
 
 1.  Replace the default schedule with your custom settings by running the following command:
 
     ```sh
-    velero create schedule velero-kubeaddons-default --schedule="@every 24h"
+    velero create schedule velero-default --schedule="@every 24h"
     ```
 
 You can also create backup schedules for specific namespaces.
@@ -144,7 +144,7 @@ Creating a backup for a specific namespace can be useful for clusters running mu
 For example:
 
 ```sh
-velero create schedule system-critical --include-namespaces=kube-system,kube-public,kubeaddons --schedule="@every 24h"
+velero create schedule system-critical --include-namespaces=kube-system,kube-public,kommander --schedule="@every 24h"
 ```
 
 The Velero command line interface provides many more options worth exploring. You can also find tutorials for [disaster recovery][velero-dr] and [cluster migration][velero-cm] on the Velero community site.
@@ -157,7 +157,7 @@ For example, if you are preparing to upgrade any components or modify your clust
 Create a backup by running the following command:
 
 ```sh
-velero backup create BACKUP_NAME
+velero backup create BACKUP-NAME
 ```
 
 ### Restore a cluster
@@ -166,9 +166,9 @@ Before attempting to restore the cluster state using the Velero command-line int
 
 <!-- vale Microsoft.Avoid = NO -->
 - The backend storage, MinIO, is still operational.
-<!-- vale Microsoft.Avoid = YES -->
 - The Velero platform service in the cluster is still operational.
 - The Velero platform service is set to a `restore-only-mode` to avoid having backups run while restoring.
+<!-- vale Microsoft.Avoid = YES -->
 
 To list the available backup archives for your cluster, run the following command:
 
@@ -176,24 +176,14 @@ To list the available backup archives for your cluster, run the following comman
 velero backup get
 ```
 
-To set Velero to a `restore-only-mode`, modify the Velero addon in the `ClusterConfiguration` of the `cluster.yaml` file:
+To set Velero to a `restore-only-mode`, run the following command:
 
 ```yaml
-addons:
-...
-- name: velero
-  enabled: true
-  values: |-
-    configuration:
-      restoreOnlyMode: true
-...
+velero server --restore-only=true
 ```
 
-Then you can apply the configuration change by running:
-
-```sh
-konvoy deploy addons -y
-```
+<p class="message--note"><strong>NOTE: </strong>This mode is being deprecated and will be removed in Velero in Velero v2.0. Use read-only backup storage locations instead.
+</p>
 
 Finally, check your deployment to verify that the configuration change was applied correctly:
 
@@ -204,18 +194,18 @@ helm get values -n kommander velero
 To restore cluster data on demand from a selected backup snapshot available in the cluster, run a command similar to the following:
 
 ```sh
-velero restore create --from-backup BACKUP_NAME
+velero restore create --from-backup BACKUP-NAME
 ```
 
 ## Backup service diagnostics
 
-You can check whether the Velero service is currently running on your cluster through the operations portal, or by running the following `kubectl` command:
+You can check whether the Velero service is currently running on your cluster through the Kubernetes dashboard (accessible via the Kommander UI on the Kommander Management Cluster), or by running the following `kubectl` command:
 
 ```sh
-kubectl get all -n velero
+kubectl get all -A | grep velero
 ```
 
-If the Velero platform service addon is currently running, you can generate diagnostic information about Velero backup and restore operations.
+If the Velero platform service application is currently running, you can generate diagnostic information about Velero backup and restore operations.
 For example, you can run the following commands to retrieve, back up, and restore information that you can use to assess the overall health of Velero in your cluster:
 
 ```sh
@@ -227,10 +217,12 @@ velero get snapshot-locations
 ```
 
 [backup-on-demand]: #back-up-on-demand
+[kommander-install-config]: ../install/configuration/
 [minio]: https://docs.min.io/
 [minio-with-velero]: https://velero.io/docs/v1.0.0/get-started/
 [restore-a-cluster]: #restore-a-cluster
 [set-schedule]: #set-a-backup-schedule
+[velero]: https://velero.io/
 [velero-cli-install]: https://velero.io/docs/v1.5/basic-install/#install-the-cli
 [velero-cm]: https://velero.io/docs/v0.11.0/migration-case
 [velero-dr]: https://velero.io/docs/v0.11.0/disaster-case
