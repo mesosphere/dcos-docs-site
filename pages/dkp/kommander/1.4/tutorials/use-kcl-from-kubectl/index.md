@@ -18,11 +18,13 @@ This tutorial covers the following topics:
 
 You must have `kubectl` connected to your Kommander Management cluster using the Token flow.
 
-Ensure KCL pods are running.
+Ensure Kommander Cluster Lifecycle API (**KCL**) pods are running.
 
-```
+```sh
 kubectl -n kommander get pods
+```
 
+```sh
 NAME                                                              READY   STATUS    RESTARTS   AGE
 kommander-federation-authorizedlister-5556c8b658-djxn4            1/1     Running   0          5m35s
 kommander-federation-cm-798d697c54-2wh95                          2/2     Running   0          5m36s
@@ -47,13 +49,13 @@ kubefed-controller-manager-6bc8cbd6d7-wt9bk                       1/1     Runnin
 
 ## Viewing KCL Logs
 
-```
+```sh
 kubectl -n kommander logs -l control-plane=kommander-federation-cm -c controller-manager
 ```
 
 ### Viewing KCL Webhook Logs
 
-```
+```sh
 kubectl -n kommander logs -l control-plane=kommander-federation-webhook
 ```
 
@@ -63,37 +65,43 @@ Learn more about [Workspaces][kommander_workspaces] in Kommander.
 
 ### Show the list of the Workspaces
 
-```
+```sh
 kubectl get workspaces
+```
 
+```sh
 NAME                     DISPLAY NAME             WORKSPACE NAMESPACE            AGE
 default-workspace        Default Workspace        default-workspace-4clss        77m
 ```
 
 ### Creating a new Workspace
 
-```
+```sh
 cat - << EOF | kubectl apply -f -
 apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
 kind: Workspace
 metadata:
   name: workspacetest
+  annotations:
+    kommander.mesosphere.io/display-name: workspacetest
 EOF
 ```
 
 List workspaces again to get the Workspace namespace. We are going to need it further.
 
-```
+```sh
 kubectl get workspaces
+```
 
+```sh
 NAME                     DISPLAY NAME             WORKSPACE NAMESPACE            AGE
 default-workspace        Default Workspace        default-workspace-4clss        95m
-workspacetest                                     workspacetest-r69q2            77s
+workspacetest            workspacetest            workspacetest-r69q2            77s
 ```
 
 Save the namespace of the workspace in a variable so we can reuse it later:
 
-```
+```sh
 export WORKSPACE_NS=$(kubectl get workspaces workspacetest -ojsonpath='{.status.namespaceRef.name}')
 ```
 
@@ -103,11 +111,12 @@ export WORKSPACE_NS=$(kubectl get workspaces workspacetest -ojsonpath='{.status.
 
 In this tutorial we are using AWS Provider, but you can use any other supported [infrastructure provider][infrastructure_provider].
 
-<p class="message--note"><strong>NOTE: </strong>Assuming you logged in with aws-cli
+<p class="message--note"><strong>NOTE: </strong>This example assumes you logged in with <code>aws-cli</code>.
 </p>
+
 To create a cluster you must setup the secret with the AWS credentials and a CloudProviderAccount.
 
-```
+```sh
 BASE64_ARGS="-w 0"
 if [ "$(uname)" == "Darwin" ]; then
   BASE64_ARGS=
@@ -146,7 +155,7 @@ EOF
 
 To create a cluster using KCL means you create a KonvoyCluster CRD in the Workspace namespace. You must reference the CloudProviderAccount with the AWS credentials you created in the previous step.
 
-```
+```sh
 cat - << EOF | kubectl apply -f -
 apiVersion: kommander.mesosphere.io/v1beta1
 kind: KonvoyCluster
@@ -156,7 +165,7 @@ metadata:
 spec:
   cluster:
     kubernetes:
-      version: 1.18.10
+      version: 1.20.13
   provisioner:
     provider: aws
   cloudProviderAccountRef:
@@ -166,43 +175,52 @@ EOF
 
 You can check the KCL controller manager logs to verify cluster provisioning started.
 
-```
+```sh
 kubectl -n kommander logs -l control-plane=kommander-federation-cm -c controller-manager
 ```
 
 To provision a cluster KCL uses Kubernetes Jobs.
 
-```
+```sh
 kubectl get jobs -n $WORKSPACE_NS
 ```
 
 To access logs of the job we must check its pod.
 
-```
+```sh
 kubectl get pods -n $WORKSPACE_NS
+```
 
+```sh
 NAME                               READY   STATUS    RESTARTS   AGE
 sample-kubernetes-tutorial-z9hqw   1/1     Running   0          47s
 ```
 
-When we know the pod name we can check the logs.
+When we know the pod name we can check the logs, make sure to change the `sample-kubernetes-tutorial` pod namespace below to the one on your cluster.
 
-```
+```sh
 kubectl -n $WORKSPACE_NS logs sample-kubernetes-tutorial-z9hqw -f
 ```
 
-Waiting for the cluster to be provisioned.
+Run the following command to wait for the cluster to be provisioned.
 
-```
+```sh
 kubectl -n $WORKSPACE_NS get konvoycluster -w
+```
 
+```sh
 NAME                         DISPLAY NAME   STATUS         PROVIDER   AGE
 sample-kubernetes-tutorial                  Provisioning   aws        5m48s
 ```
 
-The kubeconfig to access the new cluster is stored in a secret. Save that for later use.
+This will return with a status of `Provisioned` with complete.
 
-```
+The kubeconfig to access the new cluster is stored in a secret. Run the following command to save for later use.
+
+<p class="message--note"><strong>NOTE: </strong>You will need this kuebconfig for commands featured later in this topic.
+</p>
+
+```sh
 kubectl -n $WORKSPACE_NS get secret --field-selector type=kommander.mesosphere.io/kubeconfig -o=jsonpath="{.items[0].data.kubeconfig}" | base64 -d > sample-kubernetes-tutorial.kubeconfig
 ```
 
@@ -212,7 +230,7 @@ Learn more about [Projects][kommander_projects] in Kommander.
 
 ### Create a new Project
 
-```
+```sh
 cat - << EOF | kubectl apply -f -
 apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
 kind: Project
@@ -230,18 +248,22 @@ EOF
 
 Get the Project data.
 
-```
+```sh
 kubectl get projects -A
+```
 
+```sh
 NAMESPACE                   NAME              DISPLAY NAME      PROJECT NAMESPACE       AGE
 workspacetest-r69q2         projecttest                         projecttest-5r55h       56s
 ```
 
 Ensure the Project's namespace is federated to the target cluster.
 
-```
+```sh
 kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig get namespaces
+```
 
+```sh
 NAME                    STATUS   AGE
 ***                     ***      ***
 projecttest-5r55h       Active   12m
@@ -250,15 +272,17 @@ projecttest-5r55h       Active   12m
 
 Save the project namespace in a variable for later use.
 
-```
+```sh
 export PROJECT_NS=$(kubectl -n $WORKSPACE_NS get project projecttest -ojsonpath='{.status.namespaceRef.name}')
 ```
 
 Check default Project roles in the target cluster.
 
-```
+```sh
 kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n $PROJECT_NS get roles
+```
 
+```sh
 NAME                           AGE
 project-app-deployer-gl4d4     14m
 project-auditor-xrvj8          14m
@@ -267,7 +291,7 @@ project-config-manager-fv5sz   14m
 
 #### Create a custom Project Role
 
-```
+```sh
 cat - << EOF | kubectl apply -f -
 apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
 kind: ProjectRole
@@ -284,23 +308,25 @@ EOF
 
 Ensure the role is properly federated to the target cluster.
 
-```
+```sh
 kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n $PROJECT_NS get roles -w
+```
 
+```sh
 NAME                           AGE
-***                            ***
+...                            ...
 projectrole-podreader-wbwzv    15s
 ```
 
-Check the project role's yaml.
+Check the project role's yaml, changing the `projectrole-podreader` name to match the output from above.
 
-```
+```sh
 kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n $PROJECT_NS get roles projectrole-podreader-wbwzv -o yaml
 ```
 
 #### Delete the custom Project Role
 
-```
+```sh
 kubectl -n $PROJECT_NS delete projectrole projectrole-podreader
 ```
 
@@ -308,7 +334,7 @@ kubectl -n $PROJECT_NS delete projectrole projectrole-podreader
 
 It may take a few minutes to delete all the resources in the target cluster.
 
-```
+```sh
 cat - << EOF | kubectl delete -f -
 apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
 kind: Project
@@ -326,13 +352,13 @@ EOF
 
 Ensure the Project's namespace is deleted in the target cluster.
 
-```
+```sh
 kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig get namespaces
 ```
 
 ## Delete the cluster
 
-```
+```sh
 kubectl -n $WORKSPACE_NS delete konvoycluster sample-kubernetes-tutorial
 ```
 
