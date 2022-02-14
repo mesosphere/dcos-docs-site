@@ -15,7 +15,8 @@ Konvoy supports the following base Operating Systems.
 ## Amazon Web Services (AWS)
 
 <!-- vale Vale.Spelling = NO -->
-| Operating System      | Kernel                      | Default Config | FIPS | Air Gapped | FIPS with Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> |
+<!-- vale Vale.Terms = NO -->
+| Operating System      | Kernel                      | Default Config | FIPS | Air Gapped | FIPS with Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> <!-- vale Vale.Terms = YES --> |
 |-----------------------|-----------------------------|----------------|------|------------|----------------------|-------------|
 | [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64      | Yes            | Yes  | Yes        | Yes                  | Yes         |
 | [RHEL 7.9][rhel_7_9]  | 3.10.0-1160.el7.x86_64      | Yes            | Yes  | Yes        |                      | Yes         |
@@ -28,12 +29,20 @@ Konvoy supports the following base Operating Systems.
 ## Pre-Provisioned/On Premises
 
 <!-- vale Vale.Spelling = NO -->
-| Operating System         | Kernel | Default Config | FIPS | Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> |
+<!-- vale Vale.Terms = NO -->
+| Operating System         | Kernel | Default Config | FIPS | Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> <!-- vale Vale.Terms = YES --> |
 |--------------------------|--------|----------------|------|------------|-------------|
 | [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64 |   |      | Yes        |             |
 | [Flatcar][flatcar] | 2905.2.1 | | GPU workloads are not currently supported |
 | [Oracle Linux RHCK 7.9][RHCK] | kernel-3.10.0-1160.el7 |  Yes |   Yes   |   Yes         |                      |         |
 
+## Azure
+
+<!-- vale Vale.Spelling = NO -->
+<!-- vale Vale.Terms = NO -->
+| Operating System                        | Kernel | Default Config | FIPS | Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> <!-- vale Vale.Terms = YES --> |
+|-----------------------------------------|--------|----------------|------|------------|-------------|
+| [Ubuntu 20.04 (Focal Fossa)][ubuntu_20] |        | Yes            |      |            |             |
 
 [centos7]: https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS7.2003
 [centos8]: https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS8.2004
