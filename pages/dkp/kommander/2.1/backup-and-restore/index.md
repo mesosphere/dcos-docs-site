@@ -227,15 +227,10 @@ velero get snapshot-locations
 ```
 
 [backup-on-demand]: #back-up-on-demand
-[kubeaddons]: https://github.com/mesosphere/kubernetes-base-addons
 [minio]: https://docs.min.io/
 [minio-with-velero]: https://velero.io/docs/v1.0.0/get-started/
-[releases]: https://github.com/heptio/velero/releases
 [restore-a-cluster]: #restore-a-cluster
 [set-schedule]: #set-a-backup-schedule
 [velero-cli-install]: https://velero.io/docs/v1.5/basic-install/#install-the-cli
 [velero-cm]: https://velero.io/docs/v0.11.0/migration-case
 [velero-dr]: https://velero.io/docs/v0.11.0/disaster-case
-[velero-get-started]: https://velero.io/docs/v0.11.0/get-started
-[velero-troubleshooting]: https://velero.io/docs/v0.11.0/debugging-install
-[konvoy-backup]: /dkp/konvoy/latest/backup/
