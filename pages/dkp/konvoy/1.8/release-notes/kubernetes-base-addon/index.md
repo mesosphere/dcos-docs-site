@@ -14,6 +14,25 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
+February 17, 2022
+
+[stable-1.20-4.4.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.3.0)
+
+-   kube-oidc-proxy:
+    - Bumps kube-oidc-proxy to 0.3.0 to resolve "kubectl log" latency issues (COPS-7123)
+
+-   Nvidia
+    - Fixes Nvidia GPU platform service placement constraints (COPS-7142)
+    - Updates Nvidia DCGM exporter to 2.2.9 to fix metrics (COPS-7132)
+
+-   Prometheus
+    - Alertmanager CRD is now properly upgraded (COPS-6842)
+    - Adds concurrency policy Replace configuration to the Grafana home dashboard CronJob to avoid potentially creating an unbound number of pods (COPS-7105)
+    - Pins Grafana image to 7.5.6 and bumps kubectl image to 1.20.6 (COPS-6963)
+
+-   Traefik
+    - Brings back the in-cluster storage feature.
+
 December 3, 2021
 
 [stable-1.20-4.3.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.3.0)
