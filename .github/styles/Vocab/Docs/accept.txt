@@ -11,15 +11,18 @@ Auto-IP
 (auto-provisioner|Auto-Provisioner)
 autoscal(e|es|ed|ing)
 autotune
+(AWS|aws)
 awscsiprovisioner
 backend
 backoff
 bool
 bootup
+calicoctl
 Cassandra
 CentOS
 checkpoint(|s|ed|ing)
 (chronos|Chronos)
+Chrony
 clusterawsadm
 CNN(|s)
 CNTK
@@ -30,7 +33,7 @@ config
 (Containerd|containerd)
 contravariant
 COPS
-coredns
+(CoreDNS|coredns)
 Couchbase
 covariant
 covariate
@@ -48,10 +51,11 @@ DC/OS
 dcos
 declaratively
 (dex|Dex)
-Dispatch
+(dispatch|Dispatch)
+distroless
 (dkp|DKP)
-Dockerfile
 DKLB
+Dockerfile
 DSL(|s)
 ECR
 (Elasticsearch|elasticsearch)
@@ -84,6 +88,7 @@ hotfix(|es)
 hyperparameter(|s)
 (http|HTTP)
 (https|HTTPS)
+(Imagefs|imagefs)
 io
 (istio|Istio)
 journald
@@ -142,6 +147,7 @@ Metalsmith
 middleware
 misconfiguration
 misconfigured
+Mitogen
 MKE
 ML(|Ops)
 MNIST
@@ -200,6 +206,7 @@ Toree
 tqdm
 (traefik|Traefik)
 triaging
+typha
 (uid|UID)
 uncordon(|ed)
 unencrypted
@@ -210,7 +217,7 @@ unpause(|s)
 (URI|URIs)
 (Velero|velero)
 (WebSocket|Websocket|websocket)
-vnet
+(VNET|vnet)
 XGBoost
 xlarge
 yakcl

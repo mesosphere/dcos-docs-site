@@ -8,6 +8,8 @@ beta: false
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD024 -->
+
 ## Granting Access to External Users
 
 Users and groups from an external identity provider initially have no access to kubernetes resources. Privileges must be granted explicitly by interacting with the RBAC API. This section provides some basic examples for general usage. More information about the RBAC API can be found in the [Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
@@ -83,7 +85,7 @@ subjects:
 EOF
 ```
 
-One important distinction from adding users is that all external groups are prefixed with `oidc:`. So our group name becomes `oidc:devops`. This is needed to prevent collision with locally defined groups.
+One important distinction from adding users is that all external groups are prefixed with `oidc:`. Therefore, our group name becomes `oidc:devops`. This is needed to prevent collision with locally defined groups.
 
 ## Portal Authorization
 
@@ -93,8 +95,10 @@ The Operations Portal, and other HTTP applications protected by Konvoy forward a
 
 Roles have been created for granting access to the operations portal and select addons which expose an HTTP server through the ingress controller. The `cluster-admin` role is actually a system role that defines grants permission to all actions (verbs) on any resource; including non-resource URLs. The default operations portal user is bound to this role.
 
-<p class="message--note"><strong>NOTE: </strong>Granting user `admin` privileges on `/ops/portal/*` grants `admin` privileges to all sub-resources, even if bindings exist for sub-resources with less privileges</p>
+<p class="message--note"><strong>NOTE: </strong>Granting user <code>admin</code> privileges on <code>/ops/portal/*</code> grants <code>admin</code> privileges to all sub-resources, even if bindings exist for sub-resources with less privileges</p>
 
+<!-- vale Vale.Terms = NO -->
+<!-- vale Vale.Spelling = NO -->
 | App          | Role                         | Path                        | access              |
 | ------------ | ---------------------------- | --------------------------- | ------------------- |
 | \*           | cluster-admin                | \*                          | read, write, delete |
@@ -119,6 +123,8 @@ Roles have been created for granting access to the operations portal and select 
 | traefik      | opsportal-traefik-view       | /ops/portal/traefik/\*      | read                |
 | traefik      | opsportal-traefik-edit       | /ops/portal/traefik/\*      | read, edit          |
 | traefik      | opsportal-traefik-admin      | /ops/portal/traefik/\*      | read, edit, delete  |
+<!-- vale Vale.Terms = YES -->
+<!-- vale Vale.Spelling = YES -->
 
 This section provides a few examples of binding subjects to the default roles defined for the operations portal endpoints.
 
@@ -171,7 +177,7 @@ PolicyRule:
 
 The user can now use the HTTP verbs HEAD, GET, DELETE, POST, and PUT when accessing any URL at or under `/ops/portal`. Provided the downstream application follows REST conventions, this effectively allows read, edit, and delete privileges.
 
-<p class="message--note"><strong>NOTE: </strong>In order to allow users to access the Kommander UI, ensure they are granted the appropriate `opsportal-kommander-` role in addition to the Kommander roles granted in the Kommander UI. In future versions of Kommander, this capability may be added to all built in Kommander roles. For more information, see the [Access Control section of the Kommander documentation](/dkp/kommander/1.2/operations/access-control/).</p>
+<p class="message--note"><strong>NOTE: </strong>In order to allow users to access the Kommander UI, ensure they are granted the appropriate <code>opsportal-kommander-</code> role in addition to the Kommander roles granted in the Kommander UI. In future versions of Kommander, this capability may be added to all built in Kommander roles. For more information, see the <a href="/dkp/kommander/1.4/operations/access-control/">Access Control section of the Kommander documentation</a>.</p>
 
 ## Groups
 

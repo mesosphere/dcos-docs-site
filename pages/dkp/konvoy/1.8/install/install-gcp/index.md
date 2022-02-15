@@ -32,7 +32,7 @@ This requires the following configurations and background:
 
 ## Set the GCP Default Region
 
-By default, Konvoy will be deployed on GCP `us-west1` region, on three zones (a, b, c). To avoid any region conflict, update your GCP config setting to align with `us-west1` region. For specific region deployment, see advanced section [here][customize_region].
+By default, Konvoy will be deployed on GCP `us-west1` region, on three zones (a, b, c). To avoid any region conflict, update your GCP config setting to align with `us-west1` region. For specific region deployment, see the [advanced section][customize_region].
 
   ```bash
   # set config and login with default config
@@ -262,7 +262,8 @@ By default, Konvoy will be deployed on GCP `us-west1` region, on three zones (a,
   - servicemanagement.services.update
   ```
 
-# Create a role using the GCP SDK commands
+## Create a role using the GCP SDK commands
+
 <p class="message--note"><strong>NOTE: </strong>Create or update the role with the command, if the role is not in your project.</p>
 
   ```bash
@@ -298,12 +299,13 @@ Specifically, the `konvoy up --provisioner gcp` command does the following:
   * Reloader
   * Default Storage Class Protection
   * Gatekeeper
-  * Kudo
-  * Konvoy Config
+  * KUDO
+  * Konvoy config
 
 The default configuration options are recommended for a small cluster (about 10 worker nodes).
 
 ## Modifying the cluster name
+
 By default, the cluster name is the name of the folder where the `konvoy` command is run. The cluster name is used to tag the provisioned infrastructure and the context when applying the kubeconfig file. To customize the cluster name, run the following command:
 
   ```bash
@@ -381,7 +383,7 @@ When the `konvoy up --provisioner gcp` completes its setup operations, the follo
 [install_gcloud]: https://cloud.google.com/sdk/install
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
-[kommander_clusters]: https://docs.d2iq.com/dkp/kommander/latest/clusters/attach-cluster/
+[kommander_clusters]: /dkp/kommander/1.4/clusters/attach-cluster/
 [konvoy_download]: ../../download
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [kubectl]: ../../access-authentication/access-konvoy#using-kubectl

@@ -141,7 +141,7 @@ parameters:
 
 In an on premises situation, accessible storage can be used for PV and PVCs. Using the Kubernetes CSI and third party drivers, you can use your local volumes and other storage devices in your data center. Possible storage and third party driver options are:
 
-#include /dkp/konvoy/1.6/include/konvoy-csi-options-vendors.tmpl
+#include /dkp/konvoy/1.8/include/konvoy-csi-options-vendors.tmpl
 
 <p class="message--note"><strong>NOTE: </strong>Support licenses are available for the Portworx and Purestorage products. Refer to their company support sites for more information.</p>
 

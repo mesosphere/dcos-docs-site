@@ -73,14 +73,14 @@ spec:
 
 ## Instance types
 
-For each [node pool][node_pools], the user can customize the instance type for instances in that node pool (i.e., `type` field).
+For each [node pool][node_pools], the user can customize the instance type for instances in that node pool (that is, `type` field).
 
-All the available virtual machine sizes can be found [here][virtual_machine_sizes].
+All the available virtual machine sizes can be found [in the Microsoft Azure documentation][virtual_machine_sizes].
 
 ## Instance volumes
 
 For each [node pool][node_pools], the user can customize the instance volumes attached to the instances in that node pool.
-There are two types of instance volumes:
+These are the two types of instance volumes:
 
 * Root volume: this is the root disk for providing [ephemeral storage][ephemeral_storage] for the Kubernetes node (except container images if imagefs volume is enabled).
 * Imagefs volume: this is the dedicated disk for providing storage for container image layers.
@@ -152,6 +152,7 @@ To add custom resource files for provisioning:
     This output in this example indicates that Terraform has successfully merged content from the `backend.tf` resource file and will store the state file in an Azure Storage Account.
 
 ## VNET
+
 It is possible to use an existing VNET if so desired.
 To do so, you must modify the `cluster.yaml` file and change the `ProvisionerConfig` in the following way:
 
@@ -226,6 +227,7 @@ spec:
 ```
 
 ### Subnets
+
 An existing VNET may already contain `subnets` for use, you may define them in the following way:
 
 ```yaml
@@ -282,10 +284,10 @@ spec:
 ...
 ```
 
-Failure to define any subnets will mean that Konvoy will attempt to create subnets to cover missing nodepools.
-That could lead to collisions in CIDR blocks and failure to deploy; in that case we recommend a full list of subnets be known along with the nodepools desired.
+Failure to define any subnets will mean that Konvoy will attempt to create subnets to cover missing node pools.
+That could lead to collisions in CIDR blocks and failure to deploy; in that case we recommend a full list of subnets be known along with the node pools desired.
 
-For the most part the nodepools created should exist in a private network configuration, which is Konvoy's default approach.
+For the most part the node pools created should exist in a private network configuration, which is Konvoy's default approach.
 Bastion hosts allow for secure access to your cluster, but since they do need to be accessed externally they should be deployed with a subnet where public IPs are created.
 
 The default Subnet CIDR that is created by Konvoy is `10.0.64.0/18`
@@ -310,7 +312,7 @@ To add custom resource files:
 
 1. Run the `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes` command.
 
-    After the `[Deploying Kubernetes]` and `[Adding Node Labels and Taints]` phases, a phase will run that will deploy all the resource files provided in `extras/kubernetes/:
+    After the `[Deploying Kubernetes]` and `[Adding Node Labels and Taints]` phases, a phase will run that will deploy all the resource files provided in `extras/kubernetes/`:
 
     ```bash
     STAGE [Deploying Additional Kubernetes Resources]

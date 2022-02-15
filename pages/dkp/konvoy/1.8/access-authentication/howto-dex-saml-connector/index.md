@@ -12,7 +12,7 @@ enterprise: false
 
 This guide shows how to configure your Konvoy cluster to use SAML to connect to an identity provider (IdP).
 
-Step 1: [Create a Konvoy cluster](/mesosphere/dcos/2.0/administering-clusters/locate-public-agent/).
+Step 1: [Create a Konvoy cluster](../../quick-start).
 
 Step 2: Configure the IdP
 

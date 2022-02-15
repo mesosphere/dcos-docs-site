@@ -33,7 +33,7 @@ This release provides new features and enhancements to improve the user experien
 
 - Do not fail but print a warning when SELinux is enabled.
 
-#### Air gapped
+#### Air-gapped environment
 
 - Konvoy 1.8.1 was failing to deploy in an air-gapped cluster running in FIPS mode. (COPS-6992, COPS-6998)
 - Include typha container image in the air-gap bundle. (COPS-6967)
@@ -53,6 +53,8 @@ This release provides new features and enhancements to improve the user experien
 
 ### Component versions
 
+<!-- vale Vale.Terms = NO -->
+
 - Ansible 2.9.16.0
 - Calico 3.17.3
 - Cluster-autoscaler v0.5.0
@@ -69,11 +71,8 @@ This release provides new features and enhancements to improve the user experien
 - Terraform Azure plugin ~> 2.31
 - Terraform GCP plugin ~> 3.42
 
+<!-- vale Vale.Terms = YES -->
+
 ## Additional resources
 
 For information about working with native Kubernetes, see the [Kubernetes documentation](https://kubernetes.io/docs/home/).
-
-[kubernetes-doc](https://kubernetes.io/docs/home/)
-[konvoy-vsphere](/../../install/install-vsphere)
-[konvoy-ccontrol-plane-certificates](/../../networking/control-plane-certificates/)
-[security-groups-configuration](/../../install/install-aws/advanced-provisioning#security-groups)

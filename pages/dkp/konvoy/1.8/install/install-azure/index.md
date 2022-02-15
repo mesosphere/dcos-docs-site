@@ -93,7 +93,7 @@ The output should look like this:
   Created configuration file successfully!
   ```
 
-If you don't want to have the cluster name generated based on the working directory, you can run the following command to customize the cluster name:
+If you do not want to have the cluster name generated based on the working directory, you can run the following command to customize the cluster name:
 
   ```bash
   konvoy up --provisioner azure --cluster-name <YOUR_SPECIFIED_NAME>
@@ -111,6 +111,7 @@ Here is a summary of the default cluster deployment:
 * Provisions six `Standard_D8S_v3` virtual machines as Kubernetes worker nodes
 * Deploys a Kubernetes cluster with an auto generated name
 * Deploys all the following default addons:
+  <!-- vale Vale.Terms = NO -->
   * dashboard
   * konvoyconfig
   * reloader
@@ -134,6 +135,7 @@ Here is a summary of the default cluster deployment:
   * kube-oidc-proxy
   * kommander
   * kibana
+  <!-- vale Vale.Terms = YES -->
 
 Enter the following command to list all the Azure infrastructure (VMs, networking, etc.) being provisioned:
 
@@ -253,7 +255,7 @@ As mentioned in the [Preparing the Cluster Configurations][preparing_cluster_con
 [install_docker]: https://www.docker.com/products/docker-desktop
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
-[kommander_clusters]: https://docs.d2iq.com/dkp/kommander/latest/clusters/attach-cluster/
+[kommander_clusters]: /dkp/kommander/1.4/clusters/attach-cluster/
 [konvoy_download]: ../../download
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [kubectl]: ../../access-authentication/access-konvoy#using-kubectl

@@ -13,6 +13,7 @@ enterprise: false
 This procedure shows how to configure a Workload to use a Persistent Volume Claim (PVC) to access your NFS shared storage.
 
 ## Before you begin
+
 The following items and configurations are required for this procedure:
 
 - Kubernetes version 1.15.x or higher
@@ -56,7 +57,7 @@ If a workload does not claim a Persistent Volume Claim it stays in a `Pending` s
 
     - Configure the `mountPath` with the path in the container that maps to your NFS Share. You can change this to any path in your container.
 
-    - Configure the `claimName' with the name of the Persistent Volume Claim you want to use.
+    - Configure the `claimName` with the name of the Persistent Volume Claim you want to use.
 
 1.  Next, apply the file.
 

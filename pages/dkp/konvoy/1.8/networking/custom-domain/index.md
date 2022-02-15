@@ -11,7 +11,7 @@ beta: false
 
 To configure a custom domain, update the `konvoyconfig` addon in `cluster.yaml` and apply the changes using `konvoy up`:
 
-The hostname, eg `mycluster.domain.dom` in these examples, must be resolvable from the client (your browser) and from the cluster.
+The hostname, for example `mycluster.domain.dom` in these examples, must be resolvable from the client (your browser) and from the cluster.
 
 ```yaml
 - name: konvoyconfig
@@ -48,11 +48,11 @@ In AWS, the `external-dns` can be configured as:
     - domain.dom
 ```
 
-<p class="message--note"><strong>NOTE: </strong>The AWS account must have permissions to update `route 53`. More details can be found <a href="https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md">here</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>The AWS account must have permissions to update <code>route 53</code>. More details can be found <a href="https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md">in this documentation</a>.</p>
 
-##### RFC2136 (eg BIND and Windows DNS)
+##### RFC2136 (for example, BIND and Windows DNS)
 
-In many on-premises environments, dns entries may be updated using the `external-dns` RFC2136 provider.
+In many on-premises environments, DNS entries may be updated using the `external-dns` RFC2136 provider.
 
 ```yaml
 - name: external-dns
