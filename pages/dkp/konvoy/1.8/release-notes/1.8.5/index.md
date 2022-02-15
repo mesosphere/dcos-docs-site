@@ -33,8 +33,6 @@ This release provides new features and enhancements to improve the user experien
 
 - CentOS 8 has been removed from build tooling and testing as it has reached end of life (EOL).
 
-#### CentOS 8 EOL
-
 #### Update Logic
 
 - Changes to the Kubernetes or Image Registry configuration are now applied to control plane machines.
