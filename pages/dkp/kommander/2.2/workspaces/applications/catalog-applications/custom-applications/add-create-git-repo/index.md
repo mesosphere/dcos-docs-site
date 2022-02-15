@@ -4,7 +4,7 @@ navigationTitle: Create a Git Repository
 title: Create a Git Repository
 menuWeight: 10
 beta: true
-excerpt: Create a Git Repository in the Project namespace
+excerpt: Create a Git Repository in the Workspace namespace
 ---
 
 Use the CLI to create the GitRepository resource and add a new repository to your Project.

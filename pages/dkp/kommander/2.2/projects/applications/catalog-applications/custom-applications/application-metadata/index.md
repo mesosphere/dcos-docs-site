@@ -17,7 +17,7 @@ You can define the following fields:
 | category    | general              | 1 or more categories for this application. Categories are used to group applications in the UI. |
 | overview    |                      | Markdown overview used on the application detail page in the UI.                                |
 | icon        |                      | Base64 encoded icon SVG file used for application logos in the UI.                              |
-| scope       |                      |                                                                                                 |
+| scope       | workspace            | List of scopes, can be workspace and/or project currently.                                                                                               |
 
 None of these fields are required for the application to display in the UI.
 

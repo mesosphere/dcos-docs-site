@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle: Deploy a Custom Application from the Project Catalog
 title: Deploy a Custom Application from the Project Catalog
 menuWeight: 50
+beta: true
 excerpt: Deploy a Custom Application from the Project Catalog
 ---
 <!-- markdownlint-disable MD030 -->
