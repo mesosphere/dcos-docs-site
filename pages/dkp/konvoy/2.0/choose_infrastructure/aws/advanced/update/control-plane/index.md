@@ -54,7 +54,7 @@ The control plane is described by a KubeadmControlPlane resource. This reference
     ```sh
     export KUBEADMCONTROLPLANE_NAME=$(kubectl get kubeadmcontrolplanes --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
     export CURRENT_TEMPLATE_NAME=$(kubectl get kubeadmcontrolplanes ${KUBEADMCONTROLPLANE_NAME} -ojsonpath='{.spec.machineTemplate.infrastructureRef.name}')
-    export NEW_TEMPLATE_NAME=${KUBEADMCONTROLPLANE_NAME}-$(cat /proc/sys/kernel/random/uuid | head -c4)
+    export NEW_TEMPLATE_NAME=${KUBEADMCONTROLPLANE_NAME}-$(([[ $OSTYPE == 'darwin'* ]] && uuidgen || cat /proc/sys/kernel/random/uuid) | head -c4 | tr "[:upper:]" "[:lower:]")
     ```
 
 1.  Prepare the patch files.
