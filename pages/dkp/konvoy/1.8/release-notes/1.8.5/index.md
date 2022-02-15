@@ -41,7 +41,7 @@ This release provides new features and enhancements to improve the user experien
 
 #### TFA
 
-- Updated TFA image version to 3.1.0
+- Updated TFA image version to 3.1.0. (COPS-7145)
 
 ### Known Issues
 
