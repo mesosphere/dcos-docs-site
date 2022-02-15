@@ -198,25 +198,25 @@ Create a pod that will write to the newly created volume.
 
 1. Create a new file called `cloned-pod.yaml`.
 
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: cloned-pvc-consumer
-spec:
-  containers:
-  - name: ubuntu
-    image: ubuntu:latest
-    command: [ "/bin/bash", "-c", "--" ]
-    args: [ "ls -lah /mnt/azuredisk/file; cat /mnt/azuredisk/file; while true; do sleep 30; done;" ]
-    volumeMounts:
-      - name: cloned-pvc
-        mountPath: "/mnt/azuredisk"
-  volumes:
-    - name: cloned-pvc
-      persistentVolumeClaim:
-        claimName: cloned-pvc
-```
+   ```yaml
+   apiVersion: v1
+   kind: Pod
+   metadata:
+     name: cloned-pvc-consumer
+   spec:
+     containers:
+     - name: ubuntu
+       image: ubuntu:latest
+       command: [ "/bin/bash", "-c", "--" ]
+       args: [ "ls -lah /mnt/azuredisk/file; cat /mnt/azuredisk/file; while true; do sleep 30; done;" ]
+       volumeMounts:
+         - name: cloned-pvc
+           mountPath: "/mnt/azuredisk"
+     volumes:
+       - name: cloned-pvc
+         persistentVolumeClaim:
+           claimName: cloned-pvc
+   ```
 
 1. Apply the new pod configuration.
 

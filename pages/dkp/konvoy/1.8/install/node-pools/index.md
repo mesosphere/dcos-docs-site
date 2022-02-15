@@ -13,13 +13,13 @@ enterprise: false
 In this section, you will learn how to configure multiple node pools for a Konvoy cluster.
 Node pools allow the cluster administrator to use different configurations for different sets of worker nodes in a heterogeneous environment.
 
-<p class="message--important"><strong>IMPORTANT: </strong> Do not change the configuration of a deployed node pool. Changing the configuration of a deployed node pool, and running  `konvoy provision` or `konvoy up`, destroys and re-creates the machines, disrupting your workloads on these machines. To change the configuration of a node pool, see <a href="../../operations/managing-nodes#changing-nodes-in-an-aws-azure-cluster">Changing Nodes in an AWS / Azure Cluster</a>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong> Do not change the configuration of a deployed node pool. Changing the configuration of a deployed node pool, and running  <code>konvoy provision</code> or <code>konvoy up</code>, destroys and re-creates the machines, disrupting your workloads on these machines. To change the configuration of a node pool, see <a href="../../operations/managing-nodes#changing-nodes-in-an-aws-azure-cluster">Changing Nodes in an AWS / Azure Cluster</a>.</p>
 
 ## Configure multiple node pools for an on-premises cluster
 
 The following example will show you how to configure multiple node pools for an on-premises Konvoy cluster.
 
-Assume that the cluster administrator wants to have a dedicated host for the monitoring pipeline (such as Prometheus), because it is very critical to the entire cluster and should not be interfered with by any other pods.
+Assume that the cluster administrator wants to have a dedicated host for the monitoring pipeline (such as Prometheus), because it is critical to the entire cluster and should not be interfered with by any other pods.
 
 Since this is an on-premises deployment, you need to specify the [Ansible][ansible] inventory file (such as `inventory.yaml`) manually, as in the following:
 

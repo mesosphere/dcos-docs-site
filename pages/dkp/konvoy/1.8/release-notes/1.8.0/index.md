@@ -84,11 +84,13 @@ Custom Resource Definitions (CRD) of KUDO Spark Operator versions prior to 3.0.0
 Perform these steps before upgrading or installing Konvoy to prevent or mitigate disruption of currently-running Spark jobs and invalidating Spark CRDs:
 
 1. Wait for the KUDO Spark Operator jobs to finish, or terminate the running jobs.
-1. [Uninstall the KUDO Spark Operator](/dkp/kommander/latest/projects/platform-services/platform-services-catalog/kudo-spark/#uninstalling-the-spark-operator).
-1. [Install the new KUDO Spark version](/dkp/kommander/latest/projects/platform-services/platform-services-catalog/kudo-spark/#installation).
+1. [Uninstall the KUDO Spark Operator](/dkp/kommander/1.4/projects/platform-services/platform-services-catalog/kudo-spark/#uninstalling-the-spark-operator).
+1. [Install the new KUDO Spark version](/dkp/kommander/1.4/projects/platform-services/platform-services-catalog/kudo-spark/#installation).
 1. [Upgrade](../../upgrade) or [install](../../install) Konvoy.
 
 ### Component versions
+
+<!-- vale Vale.Terms = NO -->
 
 - Ansible 2.9.16.0
 - Calico 3.17.3
@@ -116,6 +118,8 @@ Perform these steps before upgrading or installing Konvoy to prevent or mitigate
 - Terraform Azure plugin ~> 2.31
 - Terraform GCP plugin ~> 3.42
 - Velero >= 1.5
+
+<!-- vale Vale.Terms = YES -->
 
 ## Additional resources
 

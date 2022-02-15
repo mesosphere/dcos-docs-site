@@ -192,7 +192,7 @@ If using an existing set of Security Groups (which requires using an existing VP
 After verifying your [prerequisites][prerequisites], you can create an AWS Kubernetes cluster by running `konvoy up`.
 This command creates your [Amazon EC2][amazon_ec2]</a> instances, installs Kubernetes, and installs default addons to support your Kubernetes cluster.
 
-<p class="message--note"><strong>NOTE: </strong>If you want to customize your installation, you can do so by running the command `konvoy init` and then editing the `cluster.yaml` file that was created.</p>
+<p class="message--note"><strong>NOTE: </strong>If you want to customize your installation, you can do so by running the command <code>konvoy init</code> and then editing the <code>cluster.yaml</code> file that was created.</p>
 
 Specifically, the `konvoy up` command does the following:
 
@@ -228,7 +228,7 @@ To customize the cluster name, run the following command:
 konvoy up --cluster-name <YOUR_SPECIFIED_NAME>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: `a-z, 0-9, . - and _`.</p>
+<p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _</code>.</p>
 
 ## Show planned infrastructure changes
 
@@ -242,7 +242,7 @@ $ konvoy provision --plan-only
 Plan: 41 to add, 0 to change, 0 to destroy.
 ```
 
-<p class="message--note"><strong>NOTE: </strong>This command can be run before the initial provisioning or at any point after modifications are made to the `cluster.yaml` file.</p>
+<p class="message--note"><strong>NOTE: </strong>This command can be run before the initial provisioning or at any point after modifications are made to the <code>cluster.yaml</code> file.</p>
 
 ## Control plane and worker nodes
 
@@ -284,9 +284,9 @@ For example, you should see information similar to this:
 ```text
 Kubernetes cluster and addons deployed successfully!
 
-Run `./konvoy apply kubeconfig` to update kubectl credentials.
+Run `konvoy apply kubeconfig` to update kubectl credentials.
 
-Run `./konvoy check` to verify that the cluster has reached a steady state and all deployments have finished.
+Run `konvoy check` to verify that the cluster has reached a steady state and all deployments have finished.
 
 Navigate to the URL below to access various services running in the cluster.
   https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/landing

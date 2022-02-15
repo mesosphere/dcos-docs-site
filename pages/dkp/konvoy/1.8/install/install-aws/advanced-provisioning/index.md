@@ -12,11 +12,11 @@ enterprise: false
 
 This section describes advanced provisioning and configuration options for Konvoy when deploying on AWS.
 
-# Customize CA bundle
+## Customize CA bundle
 
 When using the Konvoy CLI, the AWS SDK and Terraform uses the default certificate authority (CA) built into the Konvoy docker image. In certain AWS environments, you may want Konvoy to use a different CA when communicating to the AWS API. Set the `AWS_CA_BUNDLE` environment variable to a valid path of the specific CA bundle.
 
-# Customize VPC CIDR block
+## Customize VPC CIDR block
 
 The default virtual private clouds (VPC) classless inter-domain routing (CIDR) block created by Konvoy is `10.0.0.0/16`. You can use a different block by setting `spec.aws.vpc.cidr` to a different value:
 
@@ -33,7 +33,7 @@ spec:
       cidr: "10.1.0.0/26"
 ```
 
-# Customize region and availability zones
+## Customize region and availability zones
 
 In Konvoy you can provision hosts across multiple availability zones in an AWS region.
 For example, the following configuration file provisions hosts across the three zones in the `us-west-2` region.
@@ -53,7 +53,7 @@ spec:
     - us-west-2c
 ```
 
-# Customize instance types, volumes and Amazon Machine Images
+## Customize instance types, volumes and Amazon Machine Images
 
 In your Konvoy clusters you can customize the following:
 
@@ -105,15 +105,15 @@ spec:
       imageID: ami-12345
 ```
 
-1. **Instance types:** For each [node pool][node_pools], you can customize the instance type (`type:`) for instances in that node pool. All instances in a single node pool must have the same instance type. Available instance types can be found [here][aws_instance_types].
+1.  **Instance types:** For each [node pool][node_pools], you can customize the instance type (`type:`) for instances in that node pool. All instances in a single node pool must have the same instance type. Available instance types can be found [in the AWS documentation][aws_instance_types].
 
-1. **Instance volumes:** For each [node pool][node_pools], you can customize the instance volumes attached to the instances in that node pool. There are two instance volume types:
+1.  **Instance volumes:** For each [node pool][node_pools], you can customize the instance volumes attached to the instances in that node pool. These are the two instance volume types:
 
-* Root volume: The root disk for providing [ephemeral storage][ephemeral_storage] for the Kubernetes node (except container images if `imagefs` volume is enabled).
+    * Root volume: The root disk for providing [ephemeral storage][ephemeral_storage] for the Kubernetes node (except container images if `imagefs` volume is enabled).
 
-* `imagefs` volume: The dedicated disk for providing storage for container image layers. `imagefs` volume is optional. If disabled, the root volume is used to store container image layers. You can customize the sizes (in GB) and [volume types][ebs_volume_types] (use API Name) of those volumes.
+    * `imagefs` volume: The dedicated disk for providing storage for container image layers. `imagefs` volume is optional. If disabled, the root volume is used to store container image layers. You can customize the sizes (in GB) and [volume types][ebs_volume_types] (use API Name) of those volumes.
 
-1. **AMI:** In AWS, different regions use unique AMI identifiers for the same operating system image. Depending on the region and operating system combination, you may need to specify an image identifier for the `ClusterProvisioner` setting before provisioning. The regions and corresponding Amazon Machine Image (AMI) identifiers that are predefined for Konvoy cluster deployments include the following:
+1.  **AMI:** In AWS, different regions use unique AMI identifiers for the same operating system image. Depending on the region and operating system combination, you may need to specify an image identifier for the `ClusterProvisioner` setting before provisioning. The regions and corresponding Amazon Machine Image (AMI) identifiers that are predefined for Konvoy cluster deployments include the following:
 
 | Region | AMI Id|
 | -------------- | --------------------- |
@@ -136,19 +136,19 @@ spec:
 
 If you deploy Konvoy to a region not in the identifiers list, you must specify the appropriate region-specific CentOS 7 or Red Hat Enterprise Linux 7 `imageID` in the `cluster.yaml` file. Konvoy is tested with the operating systems listed on the [Operating Systems](../../supported-operating-systems) page.
 
-# Add custom Terraform resources for provisioning
+## Add custom Terraform resources for provisioning
 
 You can create custom `*.tf` resource files to use with the default `*.tf` resource files during the provisioning process.
 
 To add custom resource files for provisioning:
 
-1. Create a new directory named `extras/provisioner/` to contain your custom resource files.
+1.  Create a new directory named `extras/provisioner/` to contain your custom resource files.
 
     ```bash
     mkdir -p extras/provisioner
     ```
 
-1. Create a file in the `extras/provisioner/` directory to include your custom backend settings.
+1.  Create a file in the `extras/provisioner/` directory to include your custom backend settings.
 
     ```bash
     cat <<EOF > extras/provisioner/backend.tf
@@ -162,13 +162,13 @@ To add custom resource files for provisioning:
     EOF
     ```
 
-<p class="message--note"><strong>NOTE: </strong>During the provisioning process Konvoy merges the files in the <tt>extras/provisioner</tt> directory with the default <tt>*.tf</tt> resource files. If a file in the <tt>extras/provisioner</tt> directory already exists in the default <tt>*.tf</tt> resource files, this custom file overrides the contents of the default <tt>*.tf</tt> resource file.</p>
+    <p class="message--note"><strong>NOTE: </strong>During the provisioning process Konvoy merges the files in the <tt>extras/provisioner</tt> directory with the default <tt>*.tf</tt> resource files. If a file in the <tt>extras/provisioner</tt> directory already exists in the default <tt>*.tf</tt> resource files, this custom file overrides the contents of the default <tt>*.tf</tt> resource file.</p>
 
-<p class="message--note"><strong>NOTE: </strong>Configuring the Terraform backend to store the Terraform state in S3 is not compatible with the <a href="../../../autoscaling">Autoscaling</a> feature. If you use the Terraform backend, then Autoscaling cannot be used and will result in errors if you attempt to use it. Because autoscaling stores the Terraform state in the cluster, you can instead use the <tt>konvoy pull</tt> command to access it after the cluster is deployed.</p>
+    <p class="message--note"><strong>NOTE: </strong>Configuring the Terraform backend to store the Terraform state in S3 is not compatible with the <a href="../../../autoscaling">Autoscaling</a> feature. If you use the Terraform backend, then Autoscaling cannot be used and will result in errors if you attempt to use it. Because autoscaling stores the Terraform state in the cluster, you can instead use the <tt>konvoy pull</tt> command to access it after the cluster is deployed.</p>
 
-1. Run the `konvoy up` command.
+1.  Run the `konvoy up` command.
 
-   As the command runs, Terraform merges the resource files and produces output similar to the following:
+    As the command runs, Terraform merges the resource files and produces output similar to the following:
 
     ```text
     Successfully configured the backend "s3"! Terraform will automatically
@@ -177,7 +177,7 @@ To add custom resource files for provisioning:
 
     The output in this example shows that Terraform has successfully merged content from the `backend.tf` resource file and stores the state file in an S3 bucket.
 
-# Use security token service AssumeRole credentials
+## Use security token service AssumeRole credentials
 
 To use AWS security token service (STS) AssumeRole Credentials, which [allows sharing credentials across AWS Accounts][sts_assumerole], you must add additional fields to the terraform AWS provider by adding a file `extras/provisioner/main_override.tf` in the working directory:
 
@@ -201,11 +201,11 @@ credential_source = Ec2InstanceMetadata
 region = us-west-2
 ```
 
-# Use existing infrastructure
+## Use existing infrastructure
 
 <p class="message--note"><strong>NOTE: </strong> The following steps require the creation of a <tt>cluster.yaml</tt> configuration file. If the file does not already exist you can create it by running <tt>konvoy init</tt>.</p>
 
-## VPC
+### VPC
 
 To use an existing VPC you must modify the `cluster.yaml` file and change the `ClusterProvisioner` configuration file:
 
@@ -287,7 +287,7 @@ spec:
     ...
 ```
 
-## VPC Endpoints
+### VPC Endpoints
 
 Konvoy can automatically provision [AWS VPC Endpoints][aws_vpc_endpoints] for `ebs` and `elasticloadbalancing` services.
 This allows for the Kubernetes AWS cloud-provider and AWS EBS CSI driver to function without needing access to the Internet.
@@ -307,9 +307,9 @@ spec:
 ...
 ```
 
-<p class="message--note"><strong>NOTE: </strong>When using a custom VPC with these endpoints already present, you should leave the <code>enableVPCEndpoints: false</code> value set. Otherwise, Konvoy modifies existing resources which could prevent other workloads from accessing the AWS api.</p>
+<p class="message--note"><strong>NOTE: </strong>When using a custom VPC with these endpoints already present, you should leave the <code>enableVPCEndpoints: false</code> value set. Otherwise, Konvoy modifies existing resources which could prevent other workloads from accessing the AWS API.</p>
 
-## Subnets
+### Subnets
 
 An existing VPC may already contain `subnets` for use. You may define them in the following way:
 
@@ -380,10 +380,10 @@ spec:
 The number of `ID`s in each subnet type must match the number of `aws.availabilityZones` defined and must be listed in the same order as the `aws.availabilityZones`.
 The public subnet must be set to automatically set up public IPs on launch.
 
-Failure to define any subnets will mean that Konvoy will attempt to create subnets to cover missing nodepools.
-That could lead to collisions in CIDR blocks and failure to deploy. If this happens, we recommend that a full list of subnets be known along with the nodepools desired.
+Failure to define any subnets will mean that Konvoy will attempt to create subnets to cover missing node pools.
+That could lead to collisions in CIDR blocks and failure to deploy. If this happens, we recommend that a full list of subnets be known along with the node pools desired.
 
-For the most part the nodepools created should exist in a private network configuration, which is Konvoy's default approach.
+For the most part the node pools created should exist in a private network configuration, which is Konvoy's default approach.
 Bastion hosts allow for secure access to your cluster, but since they do need to be accessed externally they should be deployed with a subnet where public IPs are created.
 
 The default Subnet CIDR blocks that are created by Konvoy are as follows:
@@ -396,7 +396,7 @@ Similarly to the VPC, you may choose to use these blocks or define any other app
 
 <p class="message--note"><strong>NOTE: </strong>Keep in mind that the default value of <tt>spec.kubernetes.networking.serviceSubnet</tt> is set to <tt>10.0.0.0/18</tt>. The blocks you choose must not overlap with the <tt>serviceSubnet</tt>.</p>
 
-<p class="message--important"><strong>IMPORTANT: </strong>If you are using the Kubernetes <a href="https://v1-17.docs.kubernetes.io/docs/concepts/cluster-administration/cloud-providers/">Cloud Providers feature</a> and creating a cluster spanning multiple availability zones(AZ), you must tag the subnets used by the <code>control-plane</code> nodepool. Kubernetes creates the ELBs for services of type <code>LoadBalancer</code>, in those subnets. Not tagging those subnets can cause the subnets to not receive an ELB and display an <code>Error syncing load balancer, failed to ensure load balancer; could not find any suitable subnets for creating the  ELB.</code> message.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If you are using the Kubernetes <a href="https://kubernetes.io/docs/setup/best-practices/multiple-zones/">Cloud Providers feature</a> and creating a cluster spanning multiple availability zones(AZ), you must tag the subnets used by the <code>control-plane</code> node pool. Kubernetes creates the ELBs for services of type <code>LoadBalancer</code>, in those subnets. Not tagging those subnets can cause the subnets to not receive an ELB and display an <code>Error syncing load balancer, failed to ensure load balancer; could not find any suitable subnets for creating the  ELB.</code> message.</p>
 
 The tags should be as following, where `__CLUSTER_NAME__` corresponds to the `cluster_name` printed after running `konvoy provision`:
 
@@ -405,7 +405,7 @@ kubernetes.io/cluster = __CLUSTER_NAME__
 kubernetes.io/cluster/__CLUSTER_NAME__ = owned
 ```
 
-If the subnet will be used for external and/or internal ELBs, ensure that the following tag is added to the subnet:
+If the subnet will be used for external and, or internal ELBs, ensure that the following tag is added to the subnet:
 
 ```text
 kubernetes.io/role/elb = 1
@@ -417,7 +417,7 @@ Alternatively, if the subnet will only be used for internal ELBs, ensure that th
 kubernetes.io/role/internal-elb = 1
 ```
 
-## Security Groups
+### Security Groups
 
 An existing VPC may already contain `security-groups` for use. You may define them in the following way:
 
@@ -578,7 +578,8 @@ ids from `konvoy_private` and `konvoy_egress` added to their list.
 If not using a bastion, worker `nodePool`s should have the security
 group ids from `konvoy_private`, `konvoy_ssh`, and `konvoy_egress`
 
-## IAM Instance Profiles
+### IAM Instance Profiles
+
 An existing IAM instance profile can be used, provided that the right policies must be set:
 
 ```yaml
@@ -617,7 +618,7 @@ spec:
 ...
 ```
 
-## EBS Volume Encryption
+### EBS Volume Encryption
 
 You can configure the AWS CSI driver, installed by Konvoy, to create encrypted EBS volumes.
 Modify the `awsebscsiprovisioner` addon values in the following way:
@@ -655,11 +656,11 @@ spec:
           kmsKeyId: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 ```
 
-<p class="message--note"><strong>NOTE: </strong>If you specify a value for <tt>kmsKeyId</tt>, you must add the IAM role used by the Konvoy worker nodepools to the KMS key's <tt>Key users</tt> before the CSI driver is able to use the key.</p>
+<p class="message--note"><strong>NOTE: </strong>If you specify a value for <tt>kmsKeyId</tt>, you must add the IAM role used by the Konvoy worker node pools to the KMS key's <tt>Key users</tt> before the CSI driver is able to use the key.</p>
 
 You can read more about EBS encryption in the official [AWS documentation][ebs_encryption].
 
-# Deploying Additional Kubernetes Resources
+## Deploying Additional Kubernetes Resources
 
 You can also provide additional Kubernetes resources that are deployed after the base cluster is provisioned, but before any of the addons are deployed.
 
@@ -675,7 +676,7 @@ To add custom resource files:
 
 1. Run the `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes` command.
 
-    After `[Deploying Kubernetes]` and `[Adding Node Labels and Taints]` phases, a phase will run that will deploy all the resource files provided in `extras/kubernetes/:
+    After `[Deploying Kubernetes]` and `[Adding Node Labels and Taints]` phases, a phase will run that will deploy all the resource files provided in `extras/kubernetes/`:
 
     ```bash
     STAGE [Deploying Additional Kubernetes Resources]
@@ -689,7 +690,6 @@ To add custom resource files:
 [aws_instance_types]: https://aws.amazon.com/ec2/instance-types/
 [ephemeral_storage]: ../../../storage/
 [ebs_volume_types]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
-[cloud_provider]: https://v1-17.docs.kubernetes.io/docs/concepts/cluster-administration/cloud-providers/
 [aws_vpc_endpoints]: https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html
 [sts_assumerole]: https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
 [ebs_encryption]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_key_mgmt

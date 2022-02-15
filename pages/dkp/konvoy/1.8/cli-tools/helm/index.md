@@ -67,25 +67,27 @@ helm repo add stable https://mesosphere.github.io/charts/stable/
 
 After adding the repo, you can install your first Helm chart.
 
-1. Update local information about the available charts. Enter the following command:
+1.  Update local information about the available charts. Enter the following command:
 
-```bash
-helm repo update
-```
+    ```bash
+    helm repo update
+    ```
 
-1. As an example, you can install a MySQL chart creating a _Release_. A _Release_ is an instance of a chart running in a cluster. This release is named _mydb_. Enter the following command:
+    <!-- vale Vale.Spelling = NO -->
+1.  As an example, you can install a MySQL chart creating a _Release_. A _Release_ is an instance of a chart running in a cluster. This release is named _mydb_. Enter the following command:
+    <!-- vale Vale.Spelling = YES -->
 
-```bash
-helm install mydb stable/mysql
-```
+    ```bash
+    helm install mydb stable/mysql
+    ```
 
-1. List all installed charts and check their status. Enter the following command:
+1.  List all installed charts and check their status. Enter the following command:
 
-```bash
-$ helm ls
-NAME    NAMESPACE    REVISION    UPDATED                                 STATUS      CHART          APP VERSION
-mydb    default      1           2020-10-06 18:06:24.41517 +0200 CEST    deployed    mysql-1.6.7    5.7.30
-```
+    ```bash
+    $ helm ls
+    NAME    NAMESPACE    REVISION    UPDATED                                 STATUS      CHART          APP VERSION
+    mydb    default      1           2020-10-06 18:06:24.41517 +0200 CEST    deployed    mysql-1.6.7    5.7.30
+    ```
 
 ## Related information
 

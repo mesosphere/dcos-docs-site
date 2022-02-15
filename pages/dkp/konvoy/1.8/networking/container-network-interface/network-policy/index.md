@@ -28,4 +28,4 @@ For more information, see:
 
 [calico_policy]: https://docs.projectcalico.org/security/kubernetes-network-policy
 [calico_security]: https://docs.projectcalico.org/security/
-[calicoctl]: https://docs.projectcalico.org/getting-started/clis/calicoctl/install
+[calicoctl]: https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart

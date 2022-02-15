@@ -170,7 +170,7 @@ bastion:
     ansible_port: 22
 ```
 
-<p class="message--note"><strong>NOTE: </strong>There is a known issue if you are using the Bastion host feature, setting <a href="../../reference/cluster-configuration">aws.elb.internal: true</a> in the `ClusterConfiguration` section of `cluster.yaml`, and deploying from a machine outside the network of the cluster. If you face a message similar to the example error below, follow the workaround described in this page.</p>
+<p class="message--note"><strong>NOTE: </strong>A known issue exists if you are using the Bastion host feature, setting <a href="../../reference/cluster-configuration">aws.elb.internal: true</a> in the <code>ClusterConfiguration</code> section of <code>cluster.yaml</code>, and deploying from a machine outside the network of the cluster. If you face a message similar to the example error below, follow the workaround described in this page.</p>
 
 ```bash
 STAGE [Deploying Enabled Addons]

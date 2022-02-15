@@ -67,7 +67,7 @@ EOF
 
 ### GCP
 
-Refer to the GCP CSI documentation[gcp-snapshots].
+Refer to the GCP CSI [documentation][gcp-snapshots].
 
 ```yaml
 cat << EOF | kubectl apply -f -
@@ -164,7 +164,7 @@ EOF
    kubectl delete pod app && kubectl delete pvc snapshot-claim
    ```
 
-1. Restore a volume from the snapshot with a `PersistentVolumeClaim` referencing the `VolumeSnapshot` in its dataSource:
+1. Restore a volume from the snapshot with a `PersistentVolumeClaim` referencing the `VolumeSnapshot` in its `dataSource`:
 
     ```yaml
     cat << EOF | kubectl apply -f -
