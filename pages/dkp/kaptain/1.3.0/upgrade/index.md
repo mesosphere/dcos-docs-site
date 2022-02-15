@@ -45,7 +45,7 @@ Before you begin:
   
 ## Upgrade Kaptain 
 
-1. Perform the upgrade:
+Run the upgrade according to your Konvoy version:
 
 ### For Konvoy 1.x: 
 
