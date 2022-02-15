@@ -11,7 +11,7 @@ excerpt: Use a previously deployed Konvoy cluster to deploy a new Konvoy cluster
 
 You must have a `cluster.yaml` file and an `inventory.yaml` file for the cluster you are going to launch.
 
-<p class="message--note"><strong>NOTE: </strong>If you don't have a `cluster.yaml` you can run `konvoy init` to generate one.
+<p class="message--note"><strong>NOTE: </strong>If you do not have a <code>cluster.yaml</code> you can run <code>konvoy init</code> to generate one.
 </p>
 
 ### Inventory file
@@ -20,7 +20,7 @@ Inventory file is an [Ansible inventory file](https://docs.ansible.com/ansible/l
 
 Example:
 
-```
+```yaml
 control-plane:
   hosts:
     10.0.0.1:
@@ -61,15 +61,15 @@ all:
 
 Once you have both `cluster.yaml` file and `inventory.yaml` file, you must add a provisioner for your provider. Follow these steps:
 
-Make sure you have selected a workspace - for example the "Default Workspace".
+Make sure you have selected a workspace - for example the "Default Workspace."
 
-- Go to **Administration / Infrastructure Providers**.
+-   Go to **Administration / Infrastructure Providers**.
 
-- Select the **Add Infrastructure Provider** button.
+-   Select the **Add Infrastructure Provider** button.
 
-- Select **On Premise**.
+-   Select **On Premise**.
 
-- Enter a name for your provider and insert the full contents of your private ssh key, then select **Verify** and **Save**.
+-   Enter a name for your provider and insert the full contents of your private ssh key, then select **Verify** and **Save**.
 
 ![On Premise Provider Form with values](/dkp/kommander/1.4/img/On-prem-provider-with-values.png)
 
@@ -87,11 +87,11 @@ Select **Upload YAML** to create a cluster.
 
 #### Fill out the form
 
-- Enter a unique name for your cluster.
+-   Enter a unique name for your cluster.
 
-- At the top of the `cluster.yaml` text field, enter the following information:
+-   At the top of the `cluster.yaml` text field, enter the following information:
 
-```
+```yaml
 kind: ClusterProvisioner
 apiVersion: Konvoy.mesosphere.io/v1beta1
 metadata:
@@ -107,7 +107,7 @@ spec:
 
 - Ensure the Kommander addon is disabled with `enabled: false`.
 
-```
+```yaml
 spec:
   addons:
     addonsList:
@@ -115,10 +115,10 @@ spec:
       enabled: false
 ```
 
-- Select your **On Premise Provider** created in the previous step.
+-   Select your **On Premise Provider** created in the previous step.
 
-- Paste the contents of your `inventory.yaml` file into the inventory field.
+-   Paste the contents of your `inventory.yaml` file into the inventory field.
 
-- Select **Continue**.
+-   Select **Continue**.
 
-At this point Provisioning of your cluster should start. You can track the deployment progress with Kibana or `kubectl`as you normaly would in Kommander.
+At this point Provisioning of your cluster should start. You can track the deployment progress with Kibana or `kubectl`as you normally would in Kommander.

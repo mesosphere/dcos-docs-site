@@ -15,4 +15,4 @@ The default minimum threshold to show an alert is 15% being used, and the maximu
 
 ![Resource charts in a cluster card](/dkp/kommander/1.4/img/resource-warning-settings.png)
 
-[kommander-access-control]: /dkp/kommander/latest/operations/access-control/
+[kommander-access-control]: /dkp/kommander/1.4/operations/access-control/
