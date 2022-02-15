@@ -12,14 +12,13 @@ Upgrade the existing Kaptain installation to a newer version.
 
 ## Prerequisites
 
-Before you begin, ensure you have:
+Before you begin:
 
-- Kaptain 1.2.0 installed on a Konvoy cluster.
-- The existing cluster meets the criteria listed in the [installation documentation][install]. 
-
-## Upgrade Kaptain
-
-* Ensure the following base addons that are needed by Kaptain are enabled in your Konvoy cluster:
+- Install Kaptain 1.2.0 on a Konvoy cluster.
+- Ensure the existing cluster meets the criteria listed in the [installation documentation][install]. 
+- [Download][download] the `kubeflow-1.4.0_1.3.0.tgz` tarball from the support website.
+- Ensure the following base addons that are needed by Kaptain are enabled in your Konvoy cluster:
+    
     ```yaml
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
       configVersion: stable-1.20-4.3.0
@@ -34,7 +33,8 @@ Before you begin, ensure you have:
           enabled: true
     ```
 
-* Ensure the Kaptain addon repository is present in your Konvoy `cluster.yaml`:
+- Ensure the Kaptain addon repository is present in your Konvoy `cluster.yaml`:
+  
   ```yaml
       - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
         configVersion: stable-1.20-1.4.0
@@ -42,32 +42,62 @@ Before you begin, ensure you have:
           - name: knative
             enabled: true
   ```
+  
+## Upgrade Kaptain 
 
-* [Download][download] the `kubeflow-1.4.0_1.3.0.tgz` tarball from the support website.
-* Upgrade Kaptain:
+1. Perform the upgrade:
+
+### For Konvoy 1.x: 
+
+Add the following properties to your `params.yaml` file: 
+
+  ```bash
+  dkpPlatformVersion: "1" 
+  installMinioOperator: "true"
+  ```
+
+And upgrade Kaptain: 
+
+  ```bash
+  kubectl kudo upgrade --instance kaptain --namespace kubeflow ./kubeflow-1.4.0_1.3.0.tgz -P params.yaml
+  ```
+  
+### For Konvoy 2.x:
+
+Upgrade Kaptain:
+
   ```bash
   kubectl kudo upgrade --instance kaptain --namespace kubeflow ./kubeflow-1.4.0_1.3.0.tgz
   ```
-* Monitor the upgrade process by running:
+
+2. Monitor the upgrade process by running:
+  
   ```bash
   kubectl kudo plan status --instance kaptain --namespace kubeflow
   ```
 
-After the upgrade completes, log in to Kaptain:
+3. After the upgrade completes, log in to Kaptain.
 
-* Discover the cluster endpoint and copy it to the clipboard.
+1. Discover the cluster endpoint and copy it to the clipboard.
+  
   If you are running Kaptain _on-premises_, use this command:
+
   ```bash
   kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].ip}") && echo "https://${kf_uri}"
   ```
-  Or if you are running Kaptain on _AWS_, use this command:
+
+  If you are running Kaptain on _AWS_, use this command:
+  
   ```bash
   kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}") && echo "https://${kf_uri}"
   ```
-* Get the login credentials from Konvoy to authenticate:
+
+5. Get the login credentials from Konvoy to authenticate:
+  
   ```bash
   konvoy get ops-portal
   ```
+  
 
 ## Workloads behavior during the upgrades
 * When upgrading from Kaptain version `1.2.0` to `1.3.0` the following workloads do not require stopping and can proceed _without interruption during the upgrade_:
