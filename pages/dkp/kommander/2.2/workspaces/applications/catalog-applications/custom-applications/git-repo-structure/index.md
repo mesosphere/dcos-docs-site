@@ -79,8 +79,8 @@ Some [substitution variables][kustomization_variable_substitution] are provided.
 <!-- add more background and context on subst vars -->
 
 - `${releaseName}`: For each App deployment, this variable is set to the `AppDeployment` name. Use this variable to prefix the names of any resources that are defined in the application directory in the Git repository so that multiple instances of the same application can be deployed. If you create resources without using the `releaseName` prefix (or suffix) in the name field, there can be conflicts if the same named resource is created in that same namespace.
-- `${releaseNamespace}`: The namespace of the Project.
-- `${workspaceNamespace}`: The namespace of the Workspace that the Project belongs to.
+- `${releaseNamespace}`: The namespace of the Workspace.
+- `${workspaceNamespace}`: The namespace of the Workspace that the Workspace belongs to.
 
 ## Related Information
 

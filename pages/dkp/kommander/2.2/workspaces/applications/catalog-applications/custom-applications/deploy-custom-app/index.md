@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Deploy a Custom Application from the Project Catalog
-title: Deploy a Custom Application from the Project Catalog
+navigationTitle: Deploy a Custom Application from the Workspace Catalog
+title: Deploy a Custom Application from the Workspace Catalog
 menuWeight: 50
 beta: true
-excerpt: Deploy a Custom Application from the Project Catalog
+excerpt: Deploy a Custom Application from the Workspace Catalog
 ---
 <!-- markdownlint-disable MD030 -->
 
@@ -14,15 +14,15 @@ After creating a GitRepository, you can either use the Kommander UI or the CLI t
 
 Go to the Kommander UI to deploy your custom applications:
 
-1. Select **Workspace** > **Project**
+1. Select **Workspace** > **Workspace**
 
-1. Select your project from the list.
+1. Select your workspace from the list.
 
 1. Select **Applications** on the top navigation bar to browse the available applications from your configured repositories.
 
 1. Select your desired application.
 
-1. Select the version you'd like to deploy from the version drop-down, and then select Deploy. The `Deploy Project Custom Application` page is displayed.
+1. Select the version you'd like to deploy from the version drop-down, and then select Deploy. The `Deploy Workspace Custom Application` page is displayed.
 
 1. (Optional) If you want to override the default configuration values, copy your values content into the text editor under **Configure Service** or just upload your yaml file that contains the values:
 
@@ -38,16 +38,16 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
 
 ## Deploy the application using the CLI
 
-1. Set the `PROJECT_NAMESPACE` environment variable to the name of the project's namespace:
+1. Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace's namespace:
 
     ```sh
-    export PROJECT_NAMESPACE=<project_namespace>
+    export WORKSPACE_NAMESPACE=<workspace_namespace>
     ```
 
 1. Get the list of available applications to deploy using the following command:
 
    ```sh
-   kubectl get apps -n ${PROJECT_NAMESPACE}
+   kubectl get apps -n ${WORKSPACE_NAMESPACE}
    ```
 
 1. Deploy one of the supported applications from the list with an `AppDeployment` resource.
@@ -60,7 +60,7 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
    kind: AppDeployment
    metadata:
      name: my-custom-app
-     namespace: ${PROJECT_NAMESPACE}
+     namespace: ${WORKSPACE_NAMESPACE}
    spec:
      appRef:
        name: custom-app-0.0.1
@@ -79,7 +79,7 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
    kind: AppDeployment
    metadata:
      name: my-custom-app
-     namespace: ${PROJECT_NAMESPACE}
+     namespace: ${WORKSPACE_NAMESPACE}
    spec:
      appRef:
        name: custom-app-0.0.1
@@ -96,7 +96,7 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
    apiVersion: v1
    kind: ConfigMap
    metadata:
-     namespace: ${PROJECT_NAMESPACE}
+     namespace: ${WORKSPACE_NAMESPACE}
      name: my-custom-app-overrides
    data:
      values.yaml: |
@@ -104,15 +104,15 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
    EOF
    ```
 
-Kommander waits for the `ConfigMap` to be present before deploying the `AppDeployment` to the attached clusters in the Project.
+Kommander waits for the `ConfigMap` to be present before deploying the `AppDeployment` to the attached clusters in the Workspace.
 
 ## Verify applications
 
 After completing the previous steps, your applications are deployed. Connect to the attached cluster and check the `HelmReleases` to verify the deployments:
 
 ```bash
-kubectl get helmreleases -n ${PROJECT_NAMESPACE}
+kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
 
 NAMESPACE               NAME            READY   STATUS                             AGE
-project-test-vjsfq      my-custom-app   True    Release reconciliation succeeded   7m3s
+workspace-test-vjsfq      my-custom-app   True    Release reconciliation succeeded   7m3s
 ```

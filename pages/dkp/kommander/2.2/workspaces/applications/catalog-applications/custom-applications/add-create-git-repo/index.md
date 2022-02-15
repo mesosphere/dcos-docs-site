@@ -7,14 +7,14 @@ beta: true
 excerpt: Create a Git Repository in the Workspace namespace
 ---
 
-Use the CLI to create the GitRepository resource and add a new repository to your Project.
+Use the CLI to create the GitRepository resource and add a new repository to your Workspace.
 
 1.  Refer to [air-gapped environment setup instructions](../../../../../install/air-gapped/catalog), if you are running in air-gapped environment.
 
-1.  Set the `PROJECT_NAMESPACE` environment variable to the name of your project's namespace:
+1.  Set the `WORKSPACE_NAMESPACE` environment variable to the name of your workspace's namespace:
 
     ```sh
-    export PROJECT_NAMESPACE=<project_namespace>
+    export WORKSPACE_NAMESPACE=<workspace_namespace>
     ```
 
 1.  Adapt the URL of your Git repository.
@@ -25,7 +25,7 @@ Use the CLI to create the GitRepository resource and add a new repository to you
     kind: GitRepository
     metadata:
       name: example-repo
-      namespace: ${PROJECT_NAMESPACE}
+      namespace: ${WORKSPACE_NAMESPACE}
     spec:
       interval: 1m0s
       ref:
@@ -38,7 +38,7 @@ Use the CLI to create the GitRepository resource and add a new repository to you
 1.  Ensure the status of the `GitRepository` signals a ready state:
 
     ```sh
-    kubectl get gitrepository example-repo -n ${PROJECT_NAMESPACE}
+    kubectl get gitrepository example-repo -n ${WORKSPACE_NAMESPACE}
     ```
 
 The repository commit also displays the ready state:
