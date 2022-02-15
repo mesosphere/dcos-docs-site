@@ -8,13 +8,15 @@ excerpt: Kibana Day 2 Operations
 beta: false
 ---
 
+<!-- markdownlint-disable MD018 -->
+
 ### Kibana overview
 
-[Kibana](https://www.elastic.co/what-is/kibana) is an free and open frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Commonly known as the charting tool for the Elastic Stack (previously referred to as the ELK Stack after Elasticsearch, Logstash, and Kibana), Kibana also acts as the user interface for monitoring, managing, and securing an Elastic Stack cluster — as well as the centralized hub for built-in solutions developed on the Elastic Stack.
+[Kibana](https://www.elastic.co/what-is/kibana) is an free and open frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Commonly known as the charting tool for the Elastic Stack (previously referred to as the ELK Stack after Elasticsearch, Logstash, and Kibana), Kibana also acts as the user interface for monitoring, managing, and securing an Elastic Stack cluster, and as the centralized hub for built-in solutions developed on the Elastic Stack.
 
 ### Kommander catalog
 
-Kommander catalog adds integration for Elasticsearch in [Helm-based drivers](https://docs.d2iq.com/dkp/kommander/1.4/projects/platform-services/helm-based/)
+Kommander catalog adds integration for Elasticsearch in [Helm-based drivers](/dkp/kommander/1.4/projects/platform-services/helm-based/)
 
 To access the catalog:
 #include /dkp/kommander/1.4/include/kommander-catalog-drilldown.tmpl
@@ -30,7 +32,8 @@ The Kommander UI should resemble the following image. The dialog is populated wi
 - The **kibana.elasticsearchHosts** should point to the Elasticsearch client node.
 
 You will see the following pods under the project namespace on the Kubernetes cluster (assuming elasticsearch service is already running):
-```
+
+```sh
 $ kubectl get pods
 NAME                                                              READY   STATUS    RESTARTS   AGE
 elasticsearch-oss-client-0                                        1/1     Running   0          21m
@@ -44,6 +47,7 @@ kibana-kubeaddons-kibana-65f88487c8-t28td                         1/1     Runnin
 ```
 
 ### Parameters
+
 The Kommander Catalog Kibana Platform Service creates an ensemble of the upstream [Kibana Helm Chart](https://github.com/elastic/helm-charts/tree/master/kibana)
 
 Full list of [Configuration Parameters](https://github.com/elastic/helm-charts/tree/master/kibana#configuration) that can be applied to Kibana Platform Service.
@@ -53,7 +57,8 @@ The current set of default parameters applied can be found [in this file](https:
 ### Services Exposed
 
 The following services are exposed by Elasticsearch and Kibana.
-```
+
+```sh
 $ kubectl get svc
 NAME                                                       TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)             AGE
 elasticsearch-oss-client                                   ClusterIP   10.0.50.166   <none>        9200/TCP,9300/TCP   33m

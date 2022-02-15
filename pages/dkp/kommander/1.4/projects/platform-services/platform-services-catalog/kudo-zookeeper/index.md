@@ -9,9 +9,10 @@ beta: false
 ---
 
 <!-- markdownlint-disable MD018 -->
+
 ## KUDO Zookeeper
 
-Kommander Catalog adds integration for [KUDO Zookeeper Operator](https://github.com/kudobuilder/operators/tree/master/repository/zookeeper), which simplifies day 2 operations of [Apache Zookeeper](https://zookeeper.apache.org/). 
+Kommander Catalog adds integration for [KUDO Zookeeper Operator](https://github.com/kudobuilder/operators/tree/master/repository/zookeeper), which simplifies day 2 operations of [Apache Zookeeper](https://zookeeper.apache.org/).
 
 #include /dkp/kommander/1.4/include/kudo-intro.tmpl
 
@@ -23,6 +24,7 @@ KUDO Zookeeper is located in the Kommander Catalog.
 #include /dkp/kommander/1.4/include/kommander-catalog-drilldown.tmpl
 
 ### Installation
+
 From the [Project Catalog](/dkp/kommander/1.4/projects/platform-services/), select the desired version of Zookeeper and click Deploy.
 
 Here is an example of what should appear in the Kommander UI, the dialog is populated with appropriate defaults:
@@ -52,20 +54,22 @@ At this point it is useful to have an understanding of [KUDO Operator Plans](htt
 
 #include /dkp/kommander/1.4/include/kudo-zookeeper-plans.tmpl
 
- - A `deploy` plan status of `COMPLETE` indicates that KUDO Zookeeper has deployed successfully and is healthy.
+- A `deploy` plan status of `COMPLETE` indicates that KUDO Zookeeper has deployed successfully and is healthy.
 
-If any issues are encountered during the above, refer to the [Troubleshooting](#Troubleshooting) section.
+If any issues are encountered during the above, refer to the [Troubleshooting](#troubleshooting) section.
 
 ### Available Parameters
 
 The complete list of KUDO Zookeeper Parameters can be found under [detailed parameter descriptions](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/params.yaml).
 
 The current parameters set can be retrieved using the kubectl command with the two additional tools:
+
 - [jq](https://stedolan.github.io/jq)
 - [yq](https://mikefarah.gitbook.io/yq)
 
 To retrieve the current parameters, use the following command in the terminal with appropriate `INSTANCE` value set:
-```
+
+```sh
 INSTANCE=zookeeper;
 kubectl -n test-project-zc6tc get instances -o json | jq ".items[] | select(.metadata.name == \"$INSTANCE\") | .spec.parameters" | yq -e --yaml-output '.' > zookeeper-params.yml
 ```
@@ -73,22 +77,30 @@ kubectl -n test-project-zc6tc get instances -o json | jq ".items[] | select(.met
 The above command generates a file called `zookeeper-params.yml` with the current values of all the parameters in effect for the `zookeeper` instance.
 
 ### Updating Parameters
+
 Parameters can be updated using arguments to the KUDO CLI.
 
 **Example**: Increasing Zookeeper node counts
+
 - Increase the number of nodes using the KUDO CLI:
+
 **NOTE**: As mentioned in the [ZooKeeper Getting Started Guide](), a minimum of three servers are required for a fault tolerant clustered setup, and it is strongly recommended that you have an odd number of servers.
-```
+
+```sh
 kubectl kudo update --instance zookeeper -p NODE_COUNT=5 -n test-project-zc6tc
 ```
+
 - Monitor the KUDO Zookeeper deployment plan:
-```
+
+```sh
 kubectl kudo plan status --instance zookeeper -n test-project-zc6tc
 ```
+
 - Wait for the deployment plan to have a status of `COMPLETE`
 
 When the deployment plan is `COMPLETE`, there should be 5 nodes as seen by the number of pods running:
-```
+
+```sh
 $ kubectl get pods -n test-project-zc6tc
 NAME                    READY   STATUS    RESTARTS   AGE
 zookeeper-zookeeper-0   1/1     Running   0          37s
@@ -105,14 +117,17 @@ To update multiple parameters at once, it is recommended to submit the updated p
 See [Available Parameters](#available-parameters) to get the full list of current parameters as a file.
 
 Apply the desired updates in `zookeeper-params.yml` using the KUDO CLI:
-```
+
+```sh
 kubectl kudo update -n test-project-zc6tc --instance=zookeeper -P zookeeper-params.yml 
 ```
+
 Wait for the deployment plan to `COMPLETE` as shown in the node counts example.
 
 ### Limitations
 
 The following parameters are treated as immutable by the operator after an instance has been deployed; any modifications to them will trigger the `not-allowed` plan:
+
 - `DISK_SIZE`
 - `STORAGE_CLASS`
 
@@ -122,6 +137,7 @@ Switching between persistent & ephemeral storage classes is not supported for `S
 ### External Access
 
 KUDO Zookeeper creates two Kubernetes Services:
+
 - [Client Service (CS)](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/templates/services.yaml#L20-L34)
     - This service is intended for clients to connect to the Zookeeper service.
     - The port used is set by the `CLIENT_PORT` parameter which defaults to `2181`
@@ -135,7 +151,8 @@ KUDO Zookeeper creates two Kubernetes Services:
 Below, we demonstrate how to connect a client to KUDO Zookeeper, the reader will need to have `zkCli` installed from [Apache Zookeeper](https://zookeeper.apache.org/releases.html)
 
 List the available services in the project namespace created by Kommander:
-```
+
+```sh
 $ kubectl -n test-project-zc6tc get services
 NAME           TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)             AGE
 zookeeper-cs   ClusterIP   10.0.38.117   <none>        2181/TCP            8m52s
@@ -143,14 +160,16 @@ zookeeper-hs   ClusterIP   None          <none>        2888/TCP,3888/TCP   8m52s
 ```
 
 Port-forward the `zookeeper-cs` service:
-```
+
+```sh
 $ kubectl port-forward service/zookeeper-cs 2181:2181 -n test-project-zc6tc
 Forwarding from 127.0.0.1:2181 -> 2181
 Forwarding from [::1]:2181 -> 2181
 ```
 
 Connect to the KUDO Zookeeper via `zkCli`
-```
+
+```sh
 $ bin/zkCli.sh -server 127.0.0.1:2181
 [...output omitted...]
 Welcome to ZooKeeper!
@@ -169,23 +188,28 @@ WatchedEvent state:SyncConnected type:None path:null
 ```
 
 ### Troubleshooting
+
 KUDO provides the ability to collect logs and other [diagnostics data](https://kudo.dev/docs/cli/examples.html#collecting-diagnostic-data) for debugging and for bug-reports.
-```
+
+```sh
 kubectl kudo diagnostics collect --instance zookeeper -n test-project-zc6tc
 ```
 
 The diagnostics data contains the following:
 
 KUDO Environment
+
 - Installed Manager and its logs.
 - Service account and services.
 
 Data for the specified Operator
+
 - The Operator, OperatorVersion and Instance resources.
 - Deployed resources from the operator.
 - Logs from deployed pods
 
-To monitor all the events occurring in the namespace, it's helpful to look at event log:
-```
+To monitor all the events occurring in the namespace, it is helpful to look at event log:
+
+```sh
 kubectl get events -w -n test-project-zc6tc
 ```
