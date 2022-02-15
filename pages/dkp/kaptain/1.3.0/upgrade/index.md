@@ -56,7 +56,7 @@ Run the upgrade according to your Konvoy version:
   installMinioOperator: "true"
   ```
 
-And upgrade Kaptain: 
+1.  Upgrade Kaptain: 
 
   ```bash
   kubectl kudo upgrade --instance kaptain --namespace kubeflow ./kubeflow-1.4.0_1.3.0.tgz -P params.yaml
@@ -64,21 +64,21 @@ And upgrade Kaptain:
   
 ### For Konvoy 2.x:
 
-Upgrade Kaptain:
+1.  Upgrade Kaptain:
 
   ```bash
   kubectl kudo upgrade --instance kaptain --namespace kubeflow ./kubeflow-1.4.0_1.3.0.tgz
   ```
 
-2. Monitor the upgrade process by running:
+1.  Monitor the upgrade process by running:
   
   ```bash
   kubectl kudo plan status --instance kaptain --namespace kubeflow
   ```
 
-3. After the upgrade completes, log in to Kaptain.
+1.  Log in to Kaptain after the upgrade completes.
 
-1. Discover the cluster endpoint and copy it to the clipboard.
+1.  Locate the cluster endpoint and copy it to your clipboard.
   
   If you are running Kaptain _on-premises_, use this command:
 
@@ -86,13 +86,13 @@ Upgrade Kaptain:
   kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].ip}") && echo "https://${kf_uri}"
   ```
 
-  If you are running Kaptain on _AWS_, use this command:
+  **OR** If you are running Kaptain on _AWS_, use this command:
   
   ```bash
   kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}") && echo "https://${kf_uri}"
   ```
 
-5. Get the login credentials from Konvoy to authenticate:
+1.  Obtain the login credentials from Konvoy to authenticate:
   
   ```bash
   konvoy get ops-portal
