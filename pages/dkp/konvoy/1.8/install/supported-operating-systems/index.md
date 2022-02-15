@@ -19,7 +19,6 @@ Konvoy supports the following base Operating Systems.
 | [CentOS 7.7][centos7] | 3.10.0-1062.12.1.el7.x86_64 | |
 | [CentOS 7.8][centos7] | 3.10.0-1127.el7.x86_64      | |
 | [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64      | |
-| [CentOS 8.2][centos8] | 4.18.0-193.6.3.el8_2.x86_64 | GPU workloads are not currently supported |
 
 ## RHEL
 
@@ -79,7 +78,6 @@ spec:
 
 [ansible_vars]: https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html
 [centos7]: https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS7.2003
-[centos8]: https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS8.2004
 [rhel_7_7]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.7_release_notes/index
 [rhel_7_8]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.8_release_notes/index
 [rhel_7_9]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.9_release_notes/index
