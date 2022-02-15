@@ -49,7 +49,7 @@ Run the upgrade according to your Konvoy version:
 
 ### For Konvoy 1.x: 
 
-Add the following properties to your `params.yaml` file: 
+1.  Add these properties to your `params.yaml` file:
 
   ```bash
   dkpPlatformVersion: "1" 
