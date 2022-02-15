@@ -31,7 +31,7 @@ This release provides new features and enhancements to improve the user experien
 
 #### CentOS 8 EOL
 
-- CentOS 8 has been removed from build tooling and testing as it has reached end of life (EOL). CentOS 8 have been replaced with Alma Linux 8 when building RHEL 8.x images.
+- CentOS 8 has reached end of life (EOL), and thus is no longer supported by Konvoy.
 
 #### Update Logic
 
