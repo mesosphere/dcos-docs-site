@@ -35,7 +35,7 @@ The following components provide Nvidia GPU support on Konvoy:
 
 1.  Nvidia driver must be running on each GPU host node. Nvidia driver version `450.51.06-1` is recommended. Follow the official [Nvidia Driver Installation Guide][nvidia_driver_installation_guide] to setup the driver on the host. For example,
 
-<p class="message--important"><strong>IMPORTANT: </strong>For Konvoy versions v1.8.0, 1.8.1, and v1.8.2, Nvidia driver version 450.51.06-1 is recommended. For Konvoy versions v1.8.5-rc.2, Nvidia driver version 460.73.01 is recommended.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>For Konvoy versions v1.8.0, 1.8.1, and v1.8.2, Nvidia driver version 450.51.06-1 is recommended. For Konvoy versions v1.8.5, Nvidia driver version 460.73.01 is recommended.</p>
 
 * Centos 7
 
