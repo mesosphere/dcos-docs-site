@@ -109,7 +109,7 @@ Konvoy
 konvoy
 konvoy-image
 (Kubeadm|kubeadm)
-kubectl
+(Kubectl|kubectl)
 (kubelet|Kubelet)
 (kubeconfig|Kubeconfig)
 (kubecost|Kubecost)
@@ -155,6 +155,7 @@ namespac(e|es|ed|ing)
 (nginx|NGINX)
 (nvidia|Nvidia|NVIDIA)
 onboarding
+(OpsPortal|opsportal)
 overfit(|s|ted|ting)
 Papermill
 Percona
@@ -199,6 +200,7 @@ Toree
 tqdm
 (traefik|Traefik)
 triaging
+(uid|UID)
 uncordon(|ed)
 unencrypted
 Unjoin(|ing|ed)

@@ -146,7 +146,7 @@ Make sure to also add a correct [trust relationship][iam_roles] to the created r
 This example allows everyone within the same account to `AssumeRole` with the created role.
 `YOURACCOUNTRESTRICTION` must be replaced with the AWS Account ID you would like to `AssumeRole` from.
 
-<p class="message--important"><strong>IMPORTANT: </strong>Never add a `*` / wildcard. This opens your account for the whole world.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Never add a <code>*/</code> wildcard. This opens your account for the whole world.</p>
 
 ```json
 {
@@ -209,27 +209,27 @@ EOF
 
 ## Create Infrastructure Provider
 
-1. In Kommander, select the Workspace associated with the credentials you are adding.
+1.  In Kommander, select the Workspace associated with the credentials you are adding.
 
-1. Go to **Administration > Infrastructure Providers** and select the **Add Infrastructure Provider** button.
+1.  Go to **Administration > Infrastructure Providers** and select the **Add Infrastructure Provider** button.
 
-   ![Adding an Infrastructure Provider](/dkp/kommander/1.4/img/empty-infrastructure-providers.png)
+    ![Adding an Infrastructure Provider](/dkp/kommander/1.4/img/empty-infrastructure-providers.png)
 
-   ![Add Infrastructure Provider Form](/dkp/kommander/1.4/img/add-infrastructure-provider.png)
+    ![Add Infrastructure Provider Form](/dkp/kommander/1.4/img/add-infrastructure-provider.png)
 
-1. Select the **Amazon Web Services (AWS)** option.
+1.  Select the **Amazon Web Services (AWS)** option.
 
-   ![AWS Role Infrastructure Provider Form](/dkp/kommander/1.4/img/infrastructure-provider-form-aws-role.png)
+    ![AWS Role Infrastructure Provider Form](/dkp/kommander/1.4/img/infrastructure-provider-form-aws-role.png)
 
-1. Ensure **Role** is selected as the **Authentication Method**.
+1.  Ensure **Role** is selected as the **Authentication Method**.
 
-1. Enter a name for your infrastructure provider. Select a name that matches the AWS user.
+1.  Enter a name for your infrastructure provider. Select a name that matches the AWS user.
 
-1. Enter the **Role ARN**.
+1.  Enter the **Role ARN**.
 
-1. You can add an **External ID** if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Here you can read more about External IDs][external_id].
+1.  You can add an **External ID** if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [You can read more about External IDs in the AWS documentation][external_id].
 
-1. Select **Verify and Save** to verify the credentials are valid and to save your provider.
+1.  Select **Verify and Save** to verify the credentials are valid and to save your provider.
 
 After the provider is created, the display name or role can be updated.
 

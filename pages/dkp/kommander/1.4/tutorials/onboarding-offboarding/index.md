@@ -39,6 +39,6 @@ Once a member is part of a group, you can login to the clusters targeted by the 
 - [Installing and configuring Kommander](/dkp/kommander/1.4/install/)
 - [Identity Providers in Kommander](/dkp/kommander/1.4/operations/identity-providers/)
 - [Configuring a GitHub Identity Provider in Kommander](/dkp/kommander/1.4/tutorials/authorize-all-users/)
-- [Granting access to Kubernetes resources in the CLI](/dkp/konvoy/1.4/security/external-idps/rbac/)
+- [Granting access to Kubernetes resources in the CLI](/dkp/konvoy/1.8/access-authentication/install-rbac/)
 - [Access control in Kommander](/dkp/kommander/1.4/operations/access-control/)
 - [Kubernetes RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)

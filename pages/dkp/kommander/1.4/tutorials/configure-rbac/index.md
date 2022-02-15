@@ -7,6 +7,8 @@ menuWeight: 1
 excerpt: Configure role-based access control for Kubernetes resources in Kommander
 ---
 
+<!-- markdownlint-disable MD024 -->
+
 ## Before you begin
 
 This procedure requires the following configurations and background:
@@ -110,7 +112,7 @@ You have now created role bindings that associate the Global Viewer group with t
 
 #### Using kubectl
 
-Assuming you have `kubectl` on your your Kommander cluster and you have a `VirtualGroup` named `global-viewer`. You can apply these two `VirtualGroupKommanderClusterRoleBinding` to link the group to roles:
+Assuming you have `kubectl` on your Kommander cluster and you have a `VirtualGroup` named `global-viewer`. You can apply these two `VirtualGroupKommanderClusterRoleBinding` to link the group to roles:
 
 ```yaml
 apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
@@ -239,6 +241,6 @@ You have customized the access level of the four examples using default roles pr
 - [Installing and configuring Kommander](/dkp/kommander/1.4/install/)
 - [Identity Providers in Kommander](/dkp/kommander/1.4/operations/identity-providers/)
 - [Configuring a GitHub Identity Provider in Kommander](/dkp/kommander/1.4/tutorials/authorize-all-users/)
-- [Granting access to Kubernetes resources in the CLI](/dkp/konvoy/1.4/security/external-idps/rbac/)
+- [Granting access to Kubernetes resources in the CLI](/dkp/konvoy/1.8/access-authentication/install-rbac/)
 - [Access control in Kommander](/dkp/kommander/1.4/operations/access-control/)
 - [Kubernetes RBAC (Role-Based Access Control) authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)

@@ -28,12 +28,12 @@ The policies for each level and type create RoleBindings or ClusterRoleBindings 
 
 This approach gives you maximum flexibility over who has access to what resources, conveniently mapped to your existing identity providers' claims.
 
-### Special Limitation for Opsportal and Kommander Roles
+### Special Limitation for opsportal and Kommander Roles
 
 In addition to granting a Kommander Role, you must also grant the appropriate opsportal role to allow external users and groups into the UI.
-See [Konvoy RBAC - OpsPortal](/dkp/konvoy/1.6/access-authentication/rbac/#portal-authorization) for details about the built-in opsportal roles.
+See [Konvoy RBAC - OpsPortal](/dkp/konvoy/1.8/access-authentication/rbac/#portal-authorization) for details about the built-in opsportal roles.
 This role may be automatically added to Kommander role binding subjects in future versions of Kommander.
-Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Opsportal and Kommmander routes:
+Here are examples of ClusterRoleBindings that grant an IDP group admin access to the opsportal and Kommander routes:
 
 ```yaml
 ---
@@ -93,7 +93,7 @@ ClusterRoles are named collections of rules defining which verbs can be applied 
 By default, users granted the Kommander Workspace Admin, Edit, or View roles will also be granted the equivalent Kommander Project Admin, Edit, or View role for any project created in the workspace.
 Other workspace roles are not automatically propagated to the equivalent role for a project in the workspace.
 
-Each workspace has roles defined using `KommanderWorkspaceRole` resources. 
+Each workspace has roles defined using `KommanderWorkspaceRole` resources.
 Automatic propagation is controlled using the annotation `"workspace.kommander.mesosphere.io/sync-to-project": "true"` on a `KommanderWorkspaceRole` resource.
 You can manage this only by using the CLI.
 
@@ -106,11 +106,13 @@ kommander-workspace-view    Kommander Workspace View Role    2m18s
 ```
 
 To prevent propagation of the `kommander-workspace-view` role, remove this annotation from the `KommanderWorkspaceRole` resource.
+
 ```shell
 kubectl annotate kommanderworkspacerole -n test-qznrn-6sz52 kommander-workspace-view workspace.kommander.mesosphere.io/sync-to-project-
 ```
 
 To enable propagation of the role, add this annotation to the relevant `KommanderWorkspaceRole` resource.
+
 ```shell
 kubectl annotate kommanderworkspacerole -n test-qznrn-6sz52 kommander-workspace-view workspace.kommander.mesosphere.io/sync-to-project=true
 ```
@@ -124,6 +126,6 @@ All groups that have been defined in the groups tab will be present at the globa
 
 ## Related Information
 
-- [Konvoy RBAC - OpsPortal](/dkp/konvoy/1.6/access-authentication/rbac/#portal-authorization)
+- [Konvoy RBAC - OpsPortal](/dkp/konvoy/1.8/access-authentication/rbac/#portal-authorization)
 - [Kommander RBAC Tutorial](/dkp/kommander/1.4/tutorials/configure-rbac/)
 - [Kubernetes RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)

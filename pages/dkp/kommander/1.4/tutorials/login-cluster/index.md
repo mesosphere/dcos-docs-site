@@ -22,21 +22,21 @@ If your group can access a cluster managed by Kommander, you can connect to that
 
 In this example, the Kommander cluster has two managed clusters on Azure but, as a user, you can only access the management cluster. In a different scenario, if you do have access to the other clusters, follow these steps to create a kubectl token for the desired attached or managed cluster.
 
-1. Go to the landing page provided by an administrator, and select **Generate Kubectl Token**.
+1.  Go to the landing page provided by an administrator, and select **Generate Kubectl Token**.
 
-   ![Konvoy Landing Page](/dkp/kommander/1.4/img/konvoy-landing-page.png)
+    ![Konvoy Landing Page](/dkp/kommander/1.4/img/konvoy-landing-page.png)
 
-1. Select the cluster you want to log into.
+1.  Select the cluster you want to log into.
 
-   ![Generate Kubernetes Token](/dkp/kommander/1.4/img/generate-kubernetes-token.png)
+    ![Generate Kubernetes Token](/dkp/kommander/1.4/img/generate-kubernetes-token.png)
 
-1. Login using an identity provider.
+1.  Login using an identity provider.
 
-   ![Login Identity Provider](/dkp/kommander/1.4/img/login-identity-provider.png)
+    ![Login Identity Provider](/dkp/kommander/1.4/img/login-identity-provider.png)
 
-1. Attach `kubectl` to the cluster using the instructions provided in the UI.
+1.  Attach `kubectl` to the cluster using the instructions provided in the UI.
 
-   ![Connection Instructions](/dkp/kommander/1.4/img/kubectl-connection-instructions.png)
+    ![Connection Instructions](/dkp/kommander/1.4/img/kubectl-connection-instructions.png)
 
 Your local `kubectl` can now communicate with the cluster.
 Depending on your rights, you can view and edit different api-resources.
@@ -53,7 +53,7 @@ The [Access a Cluster][access-cluster] instructions work for any clusters (manag
 
 The difference is that, once you have attached the cluster, none of the `kubectl` commands will succeed as the user does not have access:
 
-```
+```sh
 $ kubectl get pods -A
 Error from server (Forbidden): pods is forbidden: User "user@yourcompany.com" cannot list resource "pods" in API group "" at the cluster scope
 ```
@@ -92,4 +92,4 @@ If you select the **Download kubeconfig** from the UI and Kommander presents a m
 [k8s-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [kommander-install]: /dkp/kommander/1.4/install
 [kubectx]: https://github.com/ahmetb/kubectx
-[rbac]: /dkp/konvoy/1.4/security/external-idps/rbac/
+[rbac]: /dkp/konvoy/1.8/access-authentication/install-rbac/
