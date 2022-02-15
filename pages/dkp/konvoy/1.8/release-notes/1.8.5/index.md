@@ -35,7 +35,7 @@ This release provides new features and enhancements to improve the user experien
 
 #### Update Logic
 
-- Changes to the Kubernetes or Image Registry configuration are now applied to control plane machines.
+- Changes to the Kubernetes or Image Registry configuration are now applied to control plane machines. (COPS-7088)
 
 ### Bug Fixes
 
