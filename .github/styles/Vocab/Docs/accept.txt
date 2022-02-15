@@ -89,6 +89,7 @@ io
 journald
 Jira
 (json|JSON)
+jq
 (kafka|Kafka)
 Kaptain
 (Katib|katib)
@@ -211,4 +212,5 @@ vnet
 XGBoost
 xlarge
 yakcl
+yq
 (zookeeper|Zookeeper|ZooKeeper)

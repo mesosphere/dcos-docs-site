@@ -8,13 +8,15 @@ excerpt: Elasticsearch Exporter Day 2 Operations
 beta: false
 ---
 
+<!-- markdownlint-disable MD018 -->
+
 ### Elasticsearch Exporter overview
 
 [Elasticsearch Exporter](https://github.com/justwatchcom/elasticsearch_exporter) is a prometheus exporter for various metrics about ElasticSearch.
 
 ### Kommander catalog
 
-Kommander catalog adds integration for Elasticsearch Exporter in [Helm-based drivers](https://docs.d2iq.com/dkp/kommander/1.4/projects/platform-services/helm-based/)
+Kommander catalog adds integration for Elasticsearch Exporter in [Helm-based drivers](/dkp/kommander/1.4/projects/platform-services/helm-based/)
 
 To access the catalog:
 #include /dkp/kommander/1.4/include/kommander-catalog-drilldown.tmpl
@@ -30,7 +32,8 @@ The Kommander UI should resemble the following image. The dialog is populated wi
 - The **es.uri** field above should refer to the Elasticsearch client.
 
 You will see the following pods under the project namespace on the Kubernetes cluster (assuming Elasticsearch is already running):
-```
+
+```sh
 $ kubectl get pods
 NAME                                                              READY   STATUS    RESTARTS   AGE
 elasticsearch-oss-client-0                                        1/1     Running   0          111s
@@ -44,13 +47,14 @@ es-exporter-kubeaddons-prometheus-elasticsearch-exporter-6nlv8g   1/1     Runnin
 ```
 
 ### Parameters
-Full list of [Configuration Parameters](https://github.com/mesosphere/charts/tree/master/stable/elasticsearch-exporter#configuration) that can be applied to Elasticsearch Exporter Platform service. The current set of default parameters applied can be found [in this file](https://github.com/mesosphere/charts/blob/master/stable/elasticsearch-exporter/values.yaml).
 
+Full list of [Configuration Parameters](https://github.com/mesosphere/charts/tree/master/stable/elasticsearch-exporter#configuration) that can be applied to Elasticsearch Exporter Platform service. The current set of default parameters applied can be found [in this file](https://github.com/mesosphere/charts/blob/master/stable/elasticsearch-exporter/values.yaml).
 
 ### Services Exposed
 
 The following services are exposed by Elasticsearch and Elasticsearch exporter.
-```
+
+```sh
 $ kubectl get svc
 NAME                                                       TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)             AGE
 elasticsearch-oss-client                                   ClusterIP   10.0.50.166   <none>        9200/TCP,9300/TCP   33m

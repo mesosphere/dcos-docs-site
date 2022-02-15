@@ -9,9 +9,10 @@ beta: false
 ---
 
 <!-- markdownlint-disable MD018 -->
+
 ## KUDO Kafka
 
-Kommander Catalog adds integration for [KUDO Kafka Operator](https://github.com/mesosphere/kudo-kafka-operator/), which simplifies day 2 operations of [Apache Kafka](https://kafka.apache.org/). 
+Kommander Catalog adds integration for [KUDO Kafka Operator](https://github.com/mesosphere/kudo-kafka-operator/), which simplifies day 2 operations of [Apache Kafka](https://kafka.apache.org/).
 
 #include /dkp/kommander/1.4/include/kudo-intro.tmpl
 
@@ -19,7 +20,7 @@ It is **strongly recommended** to view the [KUDO Kafka Documentation](https://ku
 
 ### Kommander Catalog
 
-KUDO Kafka is located in the Kommander Catalog. To access the catalog: 
+KUDO Kafka is located in the Kommander Catalog. To access the catalog:
 #include /dkp/kommander/1.4/include/kommander-catalog-drilldown.tmpl
 
 ### Zookeeper
@@ -27,10 +28,12 @@ KUDO Kafka is located in the Kommander Catalog. To access the catalog:
 Apache Kafka has a dependency on [Apache Zookeeper](https://zookeeper.apache.org/). The Kommander Catalog includes [KUDO Zookeeper](/dkp/kommander/1.4/projects/platform-services/platform-services-catalog/kudo-zookeeper/) to be used in conjunction with KUDO Kafka.
 
 The `ZOOKEEPER_URI` parameter configures which Zookeeper cluster to use.
+
 - KUDO Zookeeper uses the following format: `<id>-cs.<namespace>:<client_port>`
 - With `zookeeper` launched in the namespace `test-project-zc6tc` we have this as the `ZOOKEEPER_URI`: `zookeeper-cs.test-project-zc6tc:2181`
 
 The `ZOOKEEPER_PATH` parameter configures the zNode path within the Zookeeper Cluster to use.
+
 - When unspecified the zNode defaults to the id of the current Kafka instance being launched.
 - When specified a mandatory leading slash is needed i.e `/kafka`
 
@@ -67,18 +70,20 @@ At this point, it is useful to have an understanding of [KUDO Operator Plans](ht
 
 - A `deploy` plan status of `COMPLETE` indicates that KUDO Kafka has deployed successfully and is healthy.
 
-If any issues are encountered during the above, refer to the [Troubleshooting](#Troubleshooting) section.
+If any issues are encountered during the above, refer to the [Troubleshooting](#troubleshooting) section.
 
 ### Available Parameters
 
 The complete list of KUDO Kafka Parameters can be found under [detailed parameter descriptions](https://github.com/kudobuilder/operators/blob/master/repository/kafka/operator/params.yaml).
 
 The current parameter set can be retrieved using the kubectl command in conjunction with two additional tools:
+
 - [jq](https://stedolan.github.io/jq)
 - [yq](https://mikefarah.gitbook.io/yq)
 
 To retrieve the current parameters, issue the following command in the terminal with appropriate `INSTANCE` value set:
-```
+
+```sh
 INSTANCE=kafka;
 kubectl get instances -o json | jq ".items[] | select(.metadata.name == \"$INSTANCE\") | .spec.parameters" | yq -e --yaml-output '.' > kafka-params.yml
 ```
@@ -90,19 +95,24 @@ The above command generates a file called `kafka-params.yml` with the current va
 Parameters can be updated using arguments to the KUDO CLI.
 
 **Example**: Increasing Kafka broker counts
+
 - Increase the number of nodes using the KUDO CLI:
-```
+
+```sh
 kubectl kudo update --instance kafka -p BROKER_COUNT=4 -n test-project-zc6tc
 ```
+
 - Monitor the KUDO Cassandra deployment plan:
-```
+
+```sh
 kubectl kudo plan status --instance kafka -n test-project-zc6tc
 ```
+
 - Wait for the deployment plan to have a status of `COMPLETE`
 
-
 When the deployment plan is `COMPLETE` there should be 4 nodes as seen by the number of pods running:
-```
+
+```sh
 $ kubectl get pods -n test-project-zc6tc
 NAME                    READY   STATUS    RESTARTS   AGE
 kafka-kafka-0           2/2     Running   0          12m
@@ -121,11 +131,12 @@ To update multiple parameters at once, it is recommended to submit the updated p
 See [Available Parameters](#available-parameters) to get the full list of current parameters as a file.
 
 Apply the desired updates in `kafka-params.yml` using the KUDO CLI:
-```
+
+```sh
 kubectl kudo update -n test-project-zc6tc --instance=kafka -P kafka-params.yml 
 ```
-Wait for the deployment plan to `COMPLETE` as shown in the Kafka broker counts example.
 
+Wait for the deployment plan to `COMPLETE` as shown in the Kafka broker counts example.
 
 ### Upgrades
 
@@ -134,7 +145,7 @@ KUDO Kafka versions can be upgraded using the KUDO CLI.
 **Example** Upgrade KUDO Kafka from `v2.5.0-1.3.1` to `v2.5.1-1.3.3`:
 When upgrading, you should understand the mapping between Kafka versions and operator versions. For more information, see the table at the end of the [Kafka operator](https://github.com/mesosphere/kudo-kafka-operator/tree/master/docs) repository.
 
-```
+```sh
 kubectl kudo upgrade kafka --instance kafka --operator-version 1.3.3
 ```
 
@@ -145,9 +156,11 @@ Wait and monitor the deployment plan to become `COMPLETE`.
 Kommander includes Prometheus and Grafana as part of the federated [Workspace Platform Services](/dkp/kommander/1.4/workspaces/workspace-platform-services) along with [Centralized Monitoring](/dkp/kommander/1.4/centralized-monitoring/).
 
 KUDO Kafka operator can export metrics to Prometheus, to do so set the `METRICS_ENABLED` parameter to `true`:
-```
+
+```sh
 kubectl kudo update -p METRICS_ENABLED=true --instance kafka -n test-project-zc6tc
 ```
+
 - Each broker bootstraps with the JMX Exporter java agent exposing the metrics at `9094/metrics`, along with a Prometheus Node Exporter sidecar exposing container metrics at `9096/metrics`.
 - Adds a port named `metrics` and `ne-metrics` to the Kafka Service.
 - Adds a label `kudo.dev/servicemonitor: "true"` for the service monitor discovery.
@@ -155,10 +168,9 @@ kubectl kudo update -p METRICS_ENABLED=true --instance kafka -n test-project-zc6
 
 Sample Grafana Dashboards can be found in the [monitoring directory](https://github.com/mesosphere/kudo-kafka-operator/blob/master/benchmarks/mwt/setup/03-dashboard-install/dashboard-cm.yaml#L12-L3046).
 
-Grafana dashboards can be [imported](https://grafana.com/docs/grafana/latest/dashboards/export-import/) or recurring dashboards can be defined inline for Kommander to import through [adding custom dashboards](/dkp/kommander/1.4/centralized-monitoring/#adding-custom-dashboards). 
+Grafana dashboards can be [imported](https://grafana.com/docs/grafana/latest/dashboards/export-import/) or recurring dashboards can be defined inline for Kommander to import through [adding custom dashboards](/dkp/kommander/1.4/centralized-monitoring/#adding-custom-dashboards).
 
 ![KUDO Kafka Monitoring](/dkp/kommander/1.4/img/platform-services-kafka-monitoring.png)
-
 
 ### Kafka MirrorMaker
 
@@ -192,22 +204,26 @@ The [Kafka Operator docs](https://github.com/kudobuilder/operators/blob/master/r
 ### Troubleshooting
 
 KUDO provides the ability to collect logs and other [diagnostics data](https://kudo.dev/docs/cli/examples.html#collecting-diagnostic-data) for debugging and for bug-reports.
-```
+
+```sh
 kubectl kudo diagnostics collect --instance kafka -n test-project-zc6tc
 ```
 
 The diagnostics data contains the following:
 
 KUDO Environment
+
 - Installed Manager and its logs.
 - Service account and services.
 
 Data for the specified Operator
+
 - The Operator, OperatorVersion and Instance resources.
 - Deployed resources from the operator.
 - Logs from the deployed pods.
 
 To monitor all the events occurring in the namespace, its helpful to look at event log:
-```
+
+```sh
 kubectl get events -w -n test-project-zc6tc
 ```
