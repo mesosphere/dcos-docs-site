@@ -12,7 +12,7 @@ beta: false
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
 
-[Download](../../download/) and [install](../../install/) the latest version to get started.
+[Download](../download/) and [install](../install/) the latest version to get started.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download Kommander. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.</p>
 
@@ -20,7 +20,7 @@ beta: false
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in DKP.
 
-This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using Kommander 2.1 must be running a Kubernetes version in that range. 
+This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using Kommander 2.2 must be running a Kubernetes version in that range.
 
 ### New features and capabilities
 
@@ -28,7 +28,7 @@ This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster
 
 This version allows for provisioning and managing of Kubernetes clusters, making it easier than ever to get your infrastructure up and running quickly.
 
-For more information on provisioning, see [Managing Clusters](../../clusters/).
+For more information on provisioning, see [Managing Clusters](../clusters/).
 
 #### Feature 1, 2, etc.
 
@@ -53,6 +53,4 @@ You can purchase a license for DKP through the AWS Marketplace. Add your license
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
-[attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
 [konvoy-self-managed]: /dkp/konvoy/2.2/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
-[project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
