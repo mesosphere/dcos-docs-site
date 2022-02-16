@@ -36,7 +36,7 @@ For more information on provisioning, see [Managing Clusters](../../clusters/).
 
 #### Licensing through Amazon Marketplace
 
-You can purchase a license for DKP through the AWS Marketplace. In the UI, you can see information such as the license status (valid or expired), the license capacity (number of cores or clusters), and expiration date.
+You can purchase a license for DKP through the AWS Marketplace. After adding the license in the UI, you can see information such as the license status, the license capacity, and expiration date.
 
 ### Component updates
 
