@@ -32,7 +32,7 @@ For more information on planning your upgrade, see the [DKP Major Version upgrad
 
 #### Provision Kubernetes Infrastructure from DKP
 
-Version 2.2 allows for provisioning and managing of Kubernetes clusters, making it easier than ever to get your infrastructure up and running quickly.
+This version allows for provisioning and managing of Kubernetes clusters, making it easier than ever to get your infrastructure up and running quickly.
 
 For more information on provisioning, see [Managing Clusters](../../clusters/).
 
