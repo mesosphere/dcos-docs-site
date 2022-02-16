@@ -33,7 +33,7 @@ This version allows for provisioning and managing of Kubernetes clusters, making
 
 For more information on provisioning, see [Managing Clusters](../../clusters/).
 
-#### Continuous deployment
+#### Feature 1, 2, etc.
 
 Version 2.2 supports continuous delivery/deployment using Flux, which is designed for Kubernetes and supports multi-cluster and multi-tenant use cases. Configure Projects with GitOps-based Continuous Deployments using FluxCD, which enables canary and A/B deployments, as well as roll-back. DKP now uses a completely declarative approach, where what you define for production is what you get, without the need to monitor and manually intervene when something goes wrong.
 
