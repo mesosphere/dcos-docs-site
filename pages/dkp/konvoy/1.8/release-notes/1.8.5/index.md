@@ -2,14 +2,15 @@
 layout: layout.pug
 navigationTitle: Release Notes Konvoy 1.8.5
 title: Release Notes Konvoy 1.8.5
-menuWeight: 50
+menuWeight: 60
 excerpt: View release-specific information for Konvoy 1.8.5
 beta: false
 enterprise: false
 ---
-<!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.5 was released on February 17th, 2022**
+<!-- markdownlint-disable MD036 -->
+
+**D2iQ&reg; Konvoy&reg; version 1.8.5 was released on February 18, 2022**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
@@ -23,9 +24,9 @@ This release provides new features and enhancements to improve the user experien
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-| **Minimum**  | 1.18.x  |
-| **Maximum**  | 1.20.x  |
-| **Default**  | 1.20.15  |
+| **Minimum**  | 1.18.x   |
+| **Maximum**  | 1.20.x   |
+| **Default**  | 1.20.13  |
 
 ### New features and capabilities
 
@@ -45,9 +46,16 @@ This release provides new features and enhancements to improve the user experien
 
 ### Known Issues
 
--  Prometheus addon upgrades fail due to a missing alertmanager CRD. To work around this issue, manually apply the missing CRD to the cluster prior to upgrading by running: `kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.47.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml`
+- Prometheus addon upgrades fail due to a missing alertmanager CRD. To work around this issue, manually apply the missing CRD to the cluster prior to upgrading by running:
+
+```sh
+kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.47.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
+```
 
 ### Component versions
+
+<!-- vale Vale.Terms = NO -->
+<!-- vale Vale.Spelling = NO -->
 
 - Ansible 2.9.16.0
 - Calico 3.20.2
@@ -65,6 +73,8 @@ This release provides new features and enhancements to improve the user experien
 - Terraform Azure plugin ~> 2.31
 - Terraform GCP plugin ~> 3.42
 
+<!-- vale Vale.Terms = YES -->
+<!-- vale Vale.Spelling = YES -->
 
 ## Additional resources
 
