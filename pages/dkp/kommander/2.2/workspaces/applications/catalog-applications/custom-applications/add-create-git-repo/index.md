@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Create a Git Repository
 title: Create a Git Repository
 menuWeight: 10
-beta: true
+beta: false
 excerpt: Create a Git Repository in the Workspace namespace
 ---
 

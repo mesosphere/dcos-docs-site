@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Git repository structure
 title: Git repository structure
-beta: true
+beta: false
 menuWeight: 20
 excerpt: Git repositories must be structured in a specific manner for defined applications to be processed by Kommander.
 ---

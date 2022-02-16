@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Deploy a Custom Application from the Workspace Catalog
 title: Deploy a Custom Application from the Workspace Catalog
 menuWeight: 50
-beta: true
+beta: false
 excerpt: Deploy a Custom Application from the Workspace Catalog
 ---
 <!-- markdownlint-disable MD030 -->
