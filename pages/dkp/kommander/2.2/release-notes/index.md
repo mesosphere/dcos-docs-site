@@ -24,9 +24,6 @@ Kommander 2.2 supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluste
 
 ### New features and capabilities
 
-
-
-
 #### Provision Kubernetes Infrastructure from DKP
 
 This version allows for provisioning and managing of Kubernetes clusters, making it easier than ever to get your infrastructure up and running quickly.
