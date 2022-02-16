@@ -16,7 +16,7 @@ For instructions on how to apply KBA updates, see [Introduction to KBAs](../../a
 
 February 17, 2022
 
-[stable-1.20-4.4.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.3.0)
+[stable-1.20-4.4.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.4.0)
 
 -   kube-oidc-proxy:
     - Bumps kube-oidc-proxy to 0.3.0 to resolve "kubectl log" latency issues (COPS-7123)
