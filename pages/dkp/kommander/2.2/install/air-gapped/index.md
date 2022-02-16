@@ -27,7 +27,7 @@ Before installing, ensure you have:
 - A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
 
   ```bash
-  kommander install --init > install.yaml
+  kommander install --init --airgapped > install.yaml
   ```
 
 - All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
@@ -202,11 +202,15 @@ Based on the network latency between the environment of script execution and the
 
 ## Install on Konvoy
 
-1. Adapt the [configuration file][kommander-config] created from running `kommander install --init > install.yaml` for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
+1. Create the [configuration file][kommander-config] by running `kommander install --init --airgapped > install.yaml` for the air-gapped deployment. Open the `install.yaml` file and review that it looks like the following, with `${VERSION}` replaced with the actual version number:
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
     kind: Installation
+    airgapped:
+      enabled: true
+      helmMirrorImageTag: ${VERSION}-amd64
+    appManagementImageTag: ${VERSION}-amd64
     apps:
       ...
       kommander:
@@ -239,15 +243,6 @@ Based on the network latency between the environment of script execution and the
           kubetools:
             image:
               tag: ${VERSION}-amd64
-    ```
-
-1. In the same file, adapt the other image tags accordingly and enable air-gapped mode. Replace `${VERSION}` with the actual version number:
-
-    ```yaml
-    appManagementImageTag: "${VERSION}-amd64"
-    airgapped:
-      enabled: true
-      helmMirrorImageTag: "${VERSION}-amd64"
     ```
 
 1. In the same file, if you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by setting the following:
