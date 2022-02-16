@@ -8,31 +8,30 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD018 MD025 MD007 MD030 MD032-->
 This topic shows how to run Kommander on top of an [air-gapped Konvoy cluster][air-gap-konvoy] installation.
 
 ## Prerequisites
 
 Before installing, ensure you have:
 
-- A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander-image-bundle.tar` tarball has the required artifacts.
+-   A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander-image-bundle.tar` tarball has the required artifacts.
 
-- A charts bundle file containing all Helm charts that Kommander installation needs.
+-   A charts bundle file containing all Helm charts that Kommander installation needs.
 
-- Connectivity with clusters attaching to the management cluster:
-  - Both management and attached clusters must connect to the Docker registry.
-  - Management cluster must connect to the attached cluster's API server.
-  - Management cluster must connect to load balancers created by some platform services.
+-   Connectivity with clusters attaching to the management cluster:
+    - Both management and attached clusters must connect to the Docker registry.
+    - Management cluster must connect to the attached cluster's API server.
+    - Management cluster must connect to load balancers created by some platform services.
 
-- A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
+-   A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
 
   ```bash
   kommander install --init --airgapped > install.yaml
   ```
 
-- All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
+-   All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
 
-- [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
+-   [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
 
 ### Kommander charts bundle
 
@@ -170,15 +169,15 @@ export VERSION=v2.2.0
 
 ### Load the Docker images into your Docker registry
 
-1. Download the image bundle file:
+1.  Download the image bundle file:
 
     ```bash
     wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O kommander-image-bundle.tar
     ```
 
-1. Place the bundle in a location where you can load and push the images to your private Docker registry.
+1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 
-1. Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
+1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
 
     ```bash
     #!/usr/bin/env bash
@@ -202,7 +201,7 @@ Based on the network latency between the environment of script execution and the
 
 ## Install on Konvoy
 
-1. Create the [configuration file][kommander-config] by running `kommander install --init --airgapped > install.yaml` for the air-gapped deployment. Open the `install.yaml` file and review that it looks like the following, with `${VERSION}` replaced with the actual version number:
+1.  Create the [configuration file][kommander-config] by running `kommander install --init --airgapped > install.yaml` for the air-gapped deployment. Open the `install.yaml` file and review that it looks like the following, with `${VERSION}` replaced with the actual version number:
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
@@ -245,7 +244,7 @@ Based on the network latency between the environment of script execution and the
               tag: ${VERSION}-amd64
     ```
 
-1. In the same file, if you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by setting the following:
+1.  In the same file, if you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by setting the following:
 
     ```yaml
     apps:
@@ -256,25 +255,25 @@ Based on the network latency between the environment of script execution and the
               service.beta.kubernetes.io/aws-load-balancer-internal: "true"
     ```
 
-1. Download the Kommander application definitions:
+1.  Download the Kommander application definitions:
 
     ```bash
     wget "https://downloads.mesosphere.com/dkp/kommander-applications_${VERSION}.tar.gz"
     ```
 
-1. Download the Kommander charts bundle:
+1.  Download the Kommander charts bundle:
 
     ```bash
     wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz"
     ```
 
-1. Download the [DKP catalog applications][dkp_catalog_applications] chart bundle if you intend on deploying any DKP catalog applications:
+1.  Download the [DKP catalog applications][dkp_catalog_applications] chart bundle if you intend on deploying any DKP catalog applications:
 
     ```bash
     wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz"
     ```
 
-1. To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
+1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
     kommander install --installer-config ./install.yaml \
@@ -291,7 +290,7 @@ Based on the network latency between the environment of script execution and the
     --charts-bundle dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz
     ```
 
-1. [Verify your installation](../networked#verify-installation).
+1.  [Verify your installation](../networked#verify-installation).
 
 [air-gap-before-you-begin]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/prerequisites/
 [air-gap-install-metallb]: #use-metallb
