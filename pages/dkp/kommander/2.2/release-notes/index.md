@@ -20,7 +20,7 @@ beta: false
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in DKP.
 
-Kommander 2.2 supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using Kommander 2.1 must be running a Kubernetes version in that range. 
+This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using Kommander 2.1 must be running a Kubernetes version in that range. 
 
 ### New features and capabilities
 
@@ -44,94 +44,7 @@ You can purchase a license for DKP through the AWS Marketplace. In the UI, you c
 
 ## Known issues
 
-### Extra step to install applications to the Kommander Host Management Cluster
 
-When you create a new cluster with 2.2 installed, you need to select Deploy on the Foundational Applications section if you want to install applications to the Kommander Host Management Cluster through the UI.
-
-From the UI, click on the Global Workspace nav at the top of the page, and select **Management Cluster Workspace**.
-
-Then select **Applications** in the left sidebar.
-
-Scroll down to the **Foundational** section, and select the "Deploy" button.
-
-After this, you can deploy different applications through the UI.
-
-### Create Custom Catalog GitRepositories on attached clusters
-
-To add custom catalog applications to a Project, a GitRepository pointing to the catalog Git repository **must be also created on each attached cluster in the Project**. Follow the steps on the [Create a Git Repository][project-custom-applications-git-repo] page, but apply the same commands on each attached cluster that is in the Project.
-
-```sh
-kubectl apply -f - <<EOF
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: GitRepository
-metadata:
-  name: example-repo
-  namespace: <project-namespace>
-spec:
-  interval: 1m0s
-  ref:
-    branch: <your-target-branch-name> # e.g., main
-  timeout: 20s
-  url: https://github.com/<example-org>/<example-repo>
-EOF
-```
-
-### Create cert-manager resources on clusters with cert-manager pre-installed prior to attaching them
-
-If you are attaching a cluster that already has `cert-manager` installed, you need to manually create some cert-manager resources prior to attaching your cluster.
-
-For example, [Konvoy-created clusters that are self-managed][konvoy-self-managed] have `cert-manager` already installed to the `cert-manager` namespace.
-
-Create the following yaml file:
-
-```yaml
-cat << EOF > cert_manager_root-ca.yaml
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: kommander-bootstrap-ca-issuer
-  namespace: cert-manager
-spec:
-  selfSigned: {}
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: kommander-bootstrap-root-certificate
-  namespace: cert-manager
-spec:
-  commonName: ca.kommander-bootstrap
-  dnsNames:
-    - ca.kommander-bootstrap
-  duration: 8760h
-  isCA: true
-  issuerRef:
-    name: kommander-bootstrap-ca-issuer
-  secretName: kommander-bootstrap-root-ca
-  subject:
-    organizations:
-      - cert-manager
----
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: kommander-bootstrap-issuer
-  namespace: cert-manager
-spec:
-  ca:
-    secretName: kommander-bootstrap-root-ca
-EOF
-```
-
-Then, apply this file to your cluster:
-
-```sh
-kubectl apply -f cert_manager_root-ca.yaml
-```
-
-Once complete, continue to [attach your cluster][attach-cluster].
-
-You should expect to see that cert-manager will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
 
 ### Additional resources
 
