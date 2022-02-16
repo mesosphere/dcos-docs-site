@@ -26,7 +26,6 @@ Kommander 2.2 supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluste
 
 
 
-For more information on planning your upgrade, see the [DKP Major Version upgrade](/dkp/konvoy/2.2/major-version-upgrade/) guide.
 
 #### Provision Kubernetes Infrastructure from DKP
 
