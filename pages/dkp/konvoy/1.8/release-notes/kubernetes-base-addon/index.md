@@ -30,8 +30,8 @@ February 17, 2022
     - Adds concurrency policy Replace configuration to the Grafana home dashboard CronJob to avoid potentially creating an unbound number of pods (COPS-7105)
     - Pins Grafana image to 7.5.6 and bumps kubectl image to 1.20.6 (COPS-6963)
 
--   Traefik
-    - Brings back the in-cluster storage feature.
+-   Traefik-Forward-Auth (TFA)
+    - Restores the in-cluster storage feature. (COPS-7145)
 
 December 3, 2021
 
