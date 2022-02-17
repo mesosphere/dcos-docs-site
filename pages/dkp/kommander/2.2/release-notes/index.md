@@ -8,7 +8,7 @@ enterprise: false
 beta: false
 ---
 
-**D2iQ&reg; Kommander&reg; (DKP&reg;) version 2.2 was released on March 16, 2022.**
+**D2iQ&reg; Kommander&reg; (DKP&reg;) version 2.2 was released on April 6, 2022.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
 
@@ -24,19 +24,8 @@ This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster
 
 ### New features and capabilities
 
-#### Provision Kubernetes Infrastructure from DKP
-
-This version allows for provisioning and managing of Kubernetes clusters, making it easier than ever to get your infrastructure up and running quickly.
-
-For more information on provisioning, see [Managing Clusters](../clusters/).
-
 #### Feature 1, 2, etc.
 
-
-
-#### Licensing through Amazon Marketplace
-
-You can purchase a license for DKP through the AWS Marketplace. Add your license in the UI, and you will see information such as the license status, the license capacity, and expiration date.
 
 ### Component updates
 
@@ -53,4 +42,3 @@ You can purchase a license for DKP through the AWS Marketplace. Add your license
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
-[konvoy-self-managed]: /dkp/konvoy/2.2/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
