@@ -36,7 +36,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 - Replace has been added as a concurrency policy to the Grafana dashboard CronJob to prevent the unintended creation of an unbound number of pods.
 
-### Component Versions
+### Component versions
 
 <!-- vale Vale.Terms = NO -->
 
