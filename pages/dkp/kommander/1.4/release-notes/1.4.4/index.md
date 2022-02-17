@@ -30,7 +30,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 ## Features/Improvements
 
-- Size of air-gapped bundles have been reduced by updating federated addons and images to those used in Kubernetes Base Addons (KBA)
+- Size of air-gapped bundles have been reduced by updating federated addons and images to those used in Kubernetes Base Addons (KBA) (COPS-6963)
 
 ### Bug fixes
 
