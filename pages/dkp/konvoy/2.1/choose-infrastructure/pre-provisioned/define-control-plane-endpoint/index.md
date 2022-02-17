@@ -34,7 +34,7 @@ If an external load balancer is not available, use the built-in virtual IP. The 
 
 A control plane with one node can use its single node as the endpoint; neither an external load balancer, nor the built-in virtual IP, needs to be used.
 
-<p class="message--note"><strong>NOTE: </strong> A single node control plane configuration should not be used in production. Additionally, it is not possible to upgrade the control plane if you only have one node because CAPI does not perform in-situ upgrades, it instead replaces machines. If you wish to upgrade your cluster in the future, use the default `--control-plane-replicas` setting of 3.</p>
+<p class="message--note"><strong>NOTE: </strong> A single node control plane configuration should not be used in production. Additionally, it is not possible to upgrade the control plane if you only have one node because CAPI does not perform in-situ upgrades, it instead replaces machines. If you wish to upgrade your cluster in the future, use the default <code>--control-plane-replicas</code> setting of 3.</p>
 
 When the API server endpoints are defined, you can [create the cluster][create-cluster].
 
