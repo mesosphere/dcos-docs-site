@@ -27,7 +27,7 @@ February 17, 2022
 
 -   Prometheus
     - Alertmanager CRD is now properly upgraded (COPS-6842)
-    - Adds concurrency policy Replace configuration to the Grafana home dashboard CronJob to avoid potentially creating an unbound number of pods (COPS-7105)
+    - A concurrency policy has been added to the Grafana dashboard CronJob to prevent the unintended creation of an unbound number of pods. (COPS-7105)
     - Pins Grafana image to 7.5.6 and bumps kubectl image to 1.20.6 (COPS-6963)
 
 -   Traefik-Forward-Auth (TFA)
