@@ -37,6 +37,11 @@ For more information, see [DKP catalog applications](../../workspaces/applicatio
 - Fixed an issue where the `dkp delete` command could fail with a SIGSEGV when attempting to delete a DKP cluster from AWS where you have permanent credentials. (COPS-7109)
 - Fixed an issue where the AWS `--region` or Azure `--location` installer flags were not being enforced in the target cluster. (COPS-7101)
 - Corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
+- When Kommander installation is complete, you can open the Kommander dashboard and access the username and password credentials by running:
+
+```sh
+kommander open dashboard
+```
 
 ## Component updates
 

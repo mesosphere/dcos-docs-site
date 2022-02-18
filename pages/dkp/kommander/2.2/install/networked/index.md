@@ -100,15 +100,15 @@ When all the `HelmReleases` are ready, use the following command to open the Kom
 kommander open dashboard
 ```
 
-This command will open your default browser and go to the URL of the Kommander web interface, and also print the username and password in the CLI.
+This command opens the URL of the Kommander web interface in your default browser, and prints the username and password in the CLI.
 
-If you prefer not to open your browser immediately, you can also use the following command to retrieve the URL used for accessing Kommander's Web interface:
+If you prefer not to open your browser, run this command to retrieve the URL used for accessing Kommander's web interface:
 
 ```sh
 kubectl -n kommander get svc kommander-traefik -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}/dkp/kommander/dashboard{{ "\n"}}'
 ```
 
-And, use the following command to access the Username and Password stored on the cluster:
+And, use the following command to access the username and password stored on the cluster:
 
 ```sh
 kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
