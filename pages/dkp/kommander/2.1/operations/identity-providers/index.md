@@ -7,8 +7,6 @@ menuWeight: 20
 excerpt: Grant access to users in your organization
 ---
 
-<!--- markdownlint-disable MD030 --->
-
 ## Log in with Username and Password
 
 By default, you can log in to Kommander with the credentials given by the following command to access the Username and Password stored on the cluster:

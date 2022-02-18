@@ -94,13 +94,21 @@ helmrelease.helm.toolkit.fluxcd.io/velero condition met
 
 ## Access Kommander Web UI
 
-When all the `HelmReleases` are ready, use the following command to retrieve the URL used for accessing Kommander's Web interface:
+When all the `HelmReleases` are ready, use the following command to open the Kommander dashboard in your browser:
+
+```sh
+kommander open dashboard
+```
+
+This command opens the URL of the Kommander web interface in your default browser, and prints the username and password in the CLI.
+
+If you prefer not to open your browser, run this command to retrieve the URL used for accessing Kommander's web interface:
 
 ```sh
 kubectl -n kommander get svc kommander-traefik -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}/dkp/kommander/dashboard{{ "\n"}}'
 ```
 
-Use the following command to access the Username and Password stored on the cluster:
+And, use the following command to access the username and password stored on the cluster:
 
 ```sh
 kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
