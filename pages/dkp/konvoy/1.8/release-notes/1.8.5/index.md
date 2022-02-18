@@ -44,7 +44,7 @@ This release provides new features and enhancements to improve the user experien
 
 - Updated TFA image version to 3.1.0. (COPS-7145)
 
-### Known Issues
+### Known issues
 
 - Prometheus addon upgrades fail due to a missing alertmanager CRD. To work around this issue, manually apply the missing CRD to the cluster prior to upgrading by running:
 
