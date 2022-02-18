@@ -34,7 +34,7 @@ This release provides new features and enhancements to improve the user experien
 
 - CentOS 8 has reached end of life (EOL), and thus is no longer supported by Konvoy.
 
-#### Update Logic
+#### Update logic
 
 - Changes to the Kubernetes or Image Registry configuration are now applied to control plane machines. (COPS-7088)
 
