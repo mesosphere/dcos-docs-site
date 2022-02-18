@@ -44,13 +44,9 @@ This release provides new features and enhancements to improve the user experien
 
 - Updated TFA image version to 3.1.0. (COPS-7145)
 
-### Known issues
+#### Docker
 
-- Prometheus addon upgrades fail due to a missing alertmanager CRD. To work around this issue, manually apply the missing CRD to the cluster prior to upgrading by running:
-
-```sh
-kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.47.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
-```
+The latest tag for the defaultstorageclassprotection addon's Docker image has been removed and replaced with the v0.0.1 tag. (COPS-7184)
 
 ### Component versions
 
