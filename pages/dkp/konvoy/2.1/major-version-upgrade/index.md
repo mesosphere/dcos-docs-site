@@ -16,7 +16,7 @@ Moving from Konvoy 1.8.x to DKP 2.1.x is not just an upgrade - you are enhancing
 
 The overall process for upgrading the major version to DKP 2.1 has the following high-level steps:
 
--   Upgrade all clusters to [Konvoy 1.8.3](/dkp/konvoy/1.8/release-notes/1.8.3/) or  [Konvoy 1.8.4](/dkp/konvoy/1.8/release-notes/1.8.4/)
+-   Upgrade all clusters to [Konvoy 1.8.3](/dkp/konvoy/1.8/release-notes/1.8.3/), [Konvoy 1.8.4](/dkp/konvoy/1.8/release-notes/1.8.4/), or [Konvoy 1.8.5](/dkp/konvoy/1.8/release-notes/1.8.5/)
 
 -   [Download and install DKP 2.1.0 or 2.1.1](../download)
 

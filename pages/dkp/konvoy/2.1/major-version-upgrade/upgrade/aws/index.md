@@ -16,7 +16,7 @@ Follow these steps only if you are upgrading an AWS cluster.
 
 After adopting the cluster, you use this AMI to scale up, or replace a failed instance in the control plane and worker node pools.
 
-<p class="message--note"><strong>NOTE: </strong>Konvoy v1.8.4 uses Kubernetes version 1.20.13 by default. If upgrading from Konvoy v1.8.3, use Kubernetes version 1.20.11 for the below commands.</p>
+<p class="message--note"><strong>NOTE: </strong>Konvoy v1.8.4 and v1.8.5 uses Kubernetes version 1.20.13 by default. If upgrading from Konvoy v1.8.3, use Kubernetes version 1.20.11 for the below commands.</p>
 
 1.  Create the AMI using [Konvoy Image Builder][kib] (you can [download the newest release on GitHub][kib-releases]):
 

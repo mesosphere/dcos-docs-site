@@ -8,8 +8,6 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
-
 For production clusters, you might want to automatically scale your clusters on demand.
 Konvoy provides an autoscaling feature that works at the node pool level.
 Node pools can be configured to define autoscaling properties such as the maximum size
@@ -61,7 +59,7 @@ spec:
     count: 3
     machine:
       type: m5.xlarge
-  version: v1.8.4
+  version: v1.8.5
 ```
 
 The worker pool scales up to a maximum of 4 machines and scales down
@@ -75,7 +73,7 @@ Ensure, before the next step, that you define the `AWS_PROFILE` environment vari
 export AWS_PROFILE=default
 ```
 
-When deploying the cluster for the first time using `konvoy up`, **you must ensure the initial cluster size satisfies the resource requirements of your addons**. The autoscaler will not scale up the cluster if `konvoy up` did not succeed. For instance, this can happen when you create an underprovisioned cluster where the addons won't fit in the cluster, and thereby the installation will fail. A possible workaround could be to firstly run `konvoy deploy kubernetes` to deploy the autoscaler, and then run `konvoy deploy addons`. Following this approach would allow the cluster to autoscale in order to satisfy the requirements of the selected addons.
+When deploying the cluster for the first time using `konvoy up`, **you must ensure the initial cluster size satisfies the resource requirements of your addons**. The autoscaler will not scale up the cluster if `konvoy up` did not succeed. For instance, this can happen when you create an underprovisioned cluster where the addons will not fit in the cluster, and thereby the installation will fail. A possible workaround could be to first run `konvoy deploy kubernetes` to deploy the autoscaler, and then run `konvoy deploy addons`. Following this approach would allow the cluster to autoscale in order to satisfy the requirements of the selected addons.
 
 <p class="message--note"><strong>NOTE: </strong> Autoscaling is not enabled for control-plane and bastion node pools.</p>
 
@@ -96,7 +94,7 @@ This keeps the cluster state up-to-date for any change triggered by the autoscal
 
 The following files are stored in Kubernetes when using the autoscaling feature:
 
-* `cluster.yaml`: the cluster specification is stored in Kubernetes in the
+-   `cluster.yaml`: the cluster specification is stored in Kubernetes in the
 `konvoy` namespace as part of the resource `KonvoyCluster` resource:
 
 ```shell
@@ -131,24 +129,24 @@ status:
     name: ...kubeconfig to access the installed cluster...
 ```
 
-* `ssh-keys`: your ssh credentials are stored in a Kubernetes `Secret` in namespace `konvoy`
+-   `ssh-keys`: your ssh credentials are stored in a Kubernetes `Secret` in namespace `konvoy`
 with the name `<CLUSTER_NAME>-kubeconfig`.
 
-* `admin.conf`: your kubeconfig file, while present in your working directory,
+-   `admin.conf`: your kubeconfig file, while present in your working directory,
 is also stored in the cluster, but present in the current working directory,
 as `<CLUSTER_NAME>-kubeconfig` in the `konvoy` namespace.
 
-* `terraform.tfstate`: this Terraform file stores the state of the cluster, and is crucial for
+-   `terraform.tfstate`: this Terraform file stores the state of the cluster, and is crucial for
 keeping the infrastructure configuration up-to-date.
 Konvoy autoscaler pushes this file to Kubernetes, like it does `cluster.yaml`
 and other files, to keep the Terraform state up-to-date, for when the Konvoy autoscaler
 triggers scaling actions.
 
-* `extras/provisioner`: all the Terraform extra files are stored in a Kubernetes `ConfigMap`
+-   `extras/provisioner`: all the Terraform extra files are stored in a Kubernetes `ConfigMap`
 in the `konvoy` namespace, if present in the working directory.
 
 When all the cluster states are stored in Kubernetes, users can find all their configurations
-under the `konvoy` namespace, e.g. `kubectl get all -n konvoy`.
+under the `konvoy` namespace, for example `kubectl get all -n konvoy`.
 
 The Konvoy autoscaler deploys two pods.
 
@@ -328,33 +326,33 @@ In an air-gapped cluster, you need to specify some additional configurations for
 
 Configuring auto-provisioning with a local Docker registry is mandatory and explained in the [air-gapped installation documentation][airgapped-autoscaling].
 
-<p class="message--note"><strong>NOTE: </strong> There is a limitation when using the autoscaler in an air-gapped AWS environment. You must use existing <a href="../install/install-aws/advanced-provisioning#iam-instance-profiles">IAM Instance Profiles</a>, otherwise the the process will timeout trying to access https://iam.amazonaws.com.</p>
+<p class="message--note"><strong>NOTE: </strong> A limitation exists when using the autoscaler in an air-gapped AWS environment. You must use existing <a href="../install/install-aws/advanced-provisioning#iam-instance-profiles">IAM Instance Profiles</a>, otherwise the process will timeout trying to access <code>https://iam.amazonaws.com</code>.</p>
 
 ## Autoscaler scaling decision making
 
 The Konvoy autoscaler scales clusters based on the following conditions:
 
-* there are pods that failed to run in the cluster due to insufficient resources.
-* there are nodes in the cluster that have been underutilized for an extended period of time and their pods can be placed on other existing nodes.
+- pods that failed to run in the cluster due to insufficient resources
+- nodes in the cluster that have been underutilized for an extended period of time and their pods can be placed on other existing nodes
 
 Likewise Konvoy autoscale does **not** scale clusters under the following conditions:
 
-* All the pods in the `candidate` node to be deleted are:
-  * Pods with restrictive PodDisruptionBudget.
-  * `Kube-system` pods that:
-    * are not run on the node by default, *
-    * don't have a [pod disruption budget][pod-disruption-budget] set or their PDB is too restrictive.
-  * Pods that are not backed by a controller object (so not created by deployment, replica set, job, stateful set etc). *
-  * Pods with local storage. *
-  * Pods with the `priorityClassName: system-cluster-critical` property set on the pod spec, (to prevent your pod from being evicted).
-  * Pods that cannot be moved elsewhere due to various constraints (lack of resources, non-matching node selectors or affinity, matching anti-affinity, etc).
-  * Pods that have the following annotation set:
+-   All the pods in the `candidate` node to be deleted are:
+    -   Pods with restrictive PodDisruptionBudget.
+    -   `Kube-system` pods that:
+        - are not run on the node by default, *
+        - do not have a [pod disruption budget][pod-disruption-budget] set or their PDB is too restrictive.
+    -   Pods that are not backed by a controller object (so not created by deployment, replica set, job, stateful set etc). *
+    -   Pods with local storage. *
+    -   Pods with the `priorityClassName: system-cluster-critical` property set on the pod spec, (to prevent your pod from being evicted).
+    -   Pods that cannot be moved elsewhere due to various constraints (lack of resources, non-matching node selectors or affinity, matching anti-affinity, etc).
+    -   Pods that have the following annotation set:
 
-```yaml
-"cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
-```
+    ```yaml
+    "cluster-autoscaler.kubernetes.io/safe-to-evict": "false"
+    ```
 
-* the Konvoy machine specification does not provide enough resources to schedule the pending applications.
+-   the Konvoy machine specification does not provide enough resources to schedule the pending applications.
 
 To disable the autoscaling of a node pool, remove the `autoscaling` property
 from the node pool.
