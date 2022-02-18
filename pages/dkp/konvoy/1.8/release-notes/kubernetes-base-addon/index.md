@@ -18,6 +18,9 @@ February 17, 2022
 
 [stable-1.20-4.4.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.20-4.4.0)
 
+-   defaultstorageclass-protection
+    - Add a version tag to the chart and image, instead of using :latest. (COPS-7184)
+
 -   kube-oidc-proxy:
     - Bumps kube-oidc-proxy to 0.3.0 to resolve "kubectl log" latency issues (COPS-7123)
 
