@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Kommander 2.1 Release Notes
-title: Kommander 2.1 Release Notes
+navigationTitle: FAKE FAKE FAKE
+title: FAKE FAKE FAKEFAKE FAKE FAKE
 menuWeight: 0
-excerpt: View release-specific information for Kommander 2.1
+excerpt: FAKE FAKE FAKEFAKE FAKE FAKEFAKE FAKE FAKEFAKE FAKE FAKEFAKE FAKE FAKE
 enterprise: false
 beta: false
 ---
