@@ -1,6 +1,7 @@
 ad hoc
 (Addon|addon)
 Airflow
+air gapped bundle
 air gapped environment
 (Alertmanager|alertmanager)
 ANN(|s)
@@ -9,6 +10,7 @@ archiver
 auto-assign
 Auto-IP
 (auto-provisioner|Auto-Provisioner)
+auto-provisioning
 autoscal(e|es|ed|ing)
 autotune
 (AWS|aws)
@@ -22,7 +24,7 @@ Cassandra
 CentOS
 checkpoint(|s|ed|ing)
 (chronos|Chronos)
-Chrony
+(Chrony|chrony)
 clusterawsadm
 CNN(|s)
 CNTK
@@ -30,6 +32,7 @@ CNTK
 Conda
 config
 (ConfigMap|configmap|configMap)
+conntrack
 (Containerd|containerd)
 contravariant
 COPS
@@ -41,6 +44,8 @@ cpu
 CPU
 CRD
 Crunchbase
+cthelper
+cttimeout
 datacenter
 datasource
 D2iQ
@@ -57,12 +62,15 @@ distroless
 DKLB
 Dockerfile
 DSL(|s)
+ebtables
 ECR
 (Elasticsearch|elasticsearch)
 elasticsearchexporter
 (ETCD|etcd)
+ethtool
 fastai
 felix
+Fermie
 finalizer(|s)
 fips
 FIPS
@@ -88,8 +96,11 @@ hotfix(|es)
 hyperparameter(|s)
 (http|HTTP)
 (https|HTTPS)
+IAM
 (Imagefs|imagefs)
 io
+iproute
+iptables
 (istio|Istio)
 journald
 Jira
@@ -128,6 +139,9 @@ kustomize
 KUDO
 Kustomization
 (Kustomize|kustomize)
+libblkid
+libnetfilter
+libseccomp
 licensors
 linkerd
 liveness
@@ -159,8 +173,10 @@ mypy
 Nagios
 namespac(e|es|ed|ing)
 (nginx|NGINX)
+Nouveau
 (nvidia|Nvidia|NVIDIA)
 onboarding
+openssl
 (OpsPortal|opsportal)
 overfit(|s|ted|ting)
 Papermill
@@ -175,14 +191,16 @@ Purestorage
 Pushgateway
 pytest
 PyTorch
+rpcbind
 rebalance
-Reloader
-reloader
-repo
 (reloader|Reloader)
+repo
+retags
 RGB
+(rhel|RHEL)
 RNN(|s)
 runbook(|s)
+runc
 Scala
 scikit-learn
 sd_material_ui
@@ -190,6 +208,7 @@ sed
 serverless
 sigmoidal
 Snapshotter
+socat
 softmax
 Splunk
 stdout
@@ -218,6 +237,7 @@ unpause(|s)
 (Velero|velero)
 (WebSocket|Websocket|websocket)
 (VNET|vnet)
+xfsprogs
 XGBoost
 xlarge
 yakcl

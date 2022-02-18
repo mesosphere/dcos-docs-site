@@ -8,11 +8,9 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
-
 This section describes the Nvidia GPU support on Konvoy. This document assumes familiarity with Kubernetes GPU support. The AMD GPU is currently not supported.
 
-# Konvoy GPU Overview
+## Konvoy GPU Overview
 
 GPU support on Konvoy is achieved by using the [nvidia-container-runtime][nvidia_container_runtime].
 With the Nvidia GPU turned on, Konvoy configures the container runtime, for running GPU containers, and installs all the necessary items to power up the Nvidia GPU devices.
@@ -22,22 +20,22 @@ Konvoy runs every Nvidia GPU dependent component as daemonsets, making it easier
 
 The following components provide Nvidia GPU support on Konvoy:
 
-* [libnvidia-container][libnvidia_container] and [nvidia-container-runtime][nvidia_container_runtime]: Konvoy uses containerd as kubernetes container runtime by default. [libnvidia-container][libnvidia_container] and [nvidia-container-runtime][nvidia_container_runtime] shim between containerd and runc, which simplifies the container runtime integration with GPU support. Another benefit is this avoids using [nvidia-docker2][nvidia_docker].
-* [Nvidia Device Plugin][nvidia_k8s_device_plugin]: Konvoy makes use of Nvidia GPUs via this Kubernetes device plugin. It enables running GPU enabled containers on Kubernetes, tracks the number of available GPUs on each node and their health.
-* [NVIDIA Data Center GPU Manager][nvidia_dcgm]: Contains a Prometheus exporter that provides Nvidia GPU metrics.
+- [libnvidia-container][libnvidia_container] and [nvidia-container-runtime][nvidia_container_runtime]: Konvoy uses containerd as kubernetes container runtime by default. [libnvidia-container][libnvidia_container] and [nvidia-container-runtime][nvidia_container_runtime] shim between containerd and runc, which simplifies the container runtime integration with GPU support. Another benefit is this avoids using [nvidia-docker2][nvidia_docker].
+- [Nvidia Device Plugin][nvidia_k8s_device_plugin]: Konvoy makes use of Nvidia GPUs via this Kubernetes device plugin. It enables running GPU enabled containers on Kubernetes, tracks the number of available GPUs on each node and their health.
+- [NVIDIA Data Center GPU Manager][nvidia_dcgm]: Contains a Prometheus exporter that provides Nvidia GPU metrics.
 
-## Requirements
+### Requirements
 
-1.  Centos 7 or Ubuntu 16.04/18.04 with the IPMI driver enabled and the Nouveau driver disabled.
+1.  CentOS 7 or Ubuntu 16.04/18.04 with the IPMI driver enabled and the Nouveau driver disabled.
     <!-- If you are running Ubuntu 18.04 with an AWS kernal, you also need to enable the i2c_core kernel module. -->
 
 1.  NVIDIA GPU with Fermie architecture version 2.1 or greater.
 
 1.  Nvidia driver must be running on each GPU host node. Nvidia driver version `450.51.06-1` is recommended. Follow the official [Nvidia Driver Installation Guide][nvidia_driver_installation_guide] to setup the driver on the host. For example,
 
-<p class="message--important"><strong>IMPORTANT: </strong>For Konvoy versions v1.8.0, 1.8.1, and v1.8.2, Nvidia driver version 450.51.06-1 is recommended. For Konvoy versions v1.8.4, Nvidia driver version 460.73.01 is recommended.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>For Konvoy versions v1.8.0, 1.8.1, and v1.8.2, Nvidia driver version 450.51.06-1 is recommended. For Konvoy versions v1.8.4 and above, Nvidia driver version 460.73.01 is recommended.</p>
 
-* Centos 7
+- CentOS 7
 
 ```bash
 sudo yum update -y
@@ -58,7 +56,7 @@ sudo yum clean expire-cache
 sudo yum install -y nvidia-driver-latest-dkms-3:450.51.06-1.el7.x86_64
 ```
 
-* Ubuntu 16.04/18.04 LTS
+- Ubuntu 16.04/18.04 LTS
 
 ```bash
 sudo apt-get install linux-headers-$(uname -r)
@@ -74,7 +72,7 @@ sudo apt-get update
 sudo apt-get -y install cuda-drivers-460
 ```
 
-* Verify the Nvidia driver is running on the host
+- Verify the Nvidia driver is running on the host
 
 ```bash
 [centos@ip-10-0-130-28 ~]$ nvidia-smi
@@ -100,9 +98,9 @@ Fri Jun 11 09:05:31 2021
 +-----------------------------------------------------------------------------+
 ```
 
-## Configuration
+### Configuration
 
-### Enable Nvidia GPU on Konvoy
+#### Enable Nvidia GPU on Konvoy
 
 To enable Nvidia GPU support on Konvoy, add the Nvidia GPU `nodePools` in ClusterProvisioner and ClusterConfiguration, then enable the `nvidia` addon. Here is an example of the `cluster.yaml`:
 
@@ -138,7 +136,7 @@ spec:
       enabled: true
 ```
 
-### How to prevent other workloads from running on GPU nodes
+#### How to prevent other workloads from running on GPU nodes
 
 Use Kubernetes taints to ensure only dedicated workloads are deployed on GPU machines. You must add tolerations to your GPU workloads to deploy on the dedicated GPU nodes. See [Kubernetes Taints and Tolerations][k8s_taints_and_tolerations] for details.
 
@@ -203,11 +201,11 @@ spec:
 ......
 ```
 
-## Nvidia GPU Monitoring
+### Nvidia GPU Monitoring
 
 Konvoy uses the [NVIDIA Data Center GPU Manager][nvidia_dcgm] to export GPU metrics towards Prometheus. By default, Konvoy has a Grafana dashboard called `NVIDIA DCGM Exporter Dashboard` to monitor GPU metrics. This GPU dashboard is shown in Konvoy's Grafana UI.
 
-## Upgrade
+### Upgrade
 
 Konvoy is capable of automatically upgrading the Nvidia GPU addon. However, GPU workload needs to be drained if the Nvidia addon is being upgraded.
 
@@ -219,7 +217,7 @@ Konvoy is capable of automatically upgrading the Nvidia GPU addon. However, GPU 
     kubectl delete clusteraddon nvidia
     ```
 
-1. Wait for all Nvidia-related resources in the `Terminating` state to be cleaned up. You can check pod status with:
+1.  Wait for all Nvidia-related resources in the `Terminating` state to be cleaned up. You can check pod status with:
 
     ```bash
     kubectl get pod -A | grep nvidia
@@ -231,7 +229,7 @@ Konvoy is capable of automatically upgrading the Nvidia GPU addon. However, GPU 
     konvoy deploy addons
     ```
 
-## Debugging
+### Debugging
 
 1.  Determine if all Nvidia pods are in `Running` state, as expected:
 
