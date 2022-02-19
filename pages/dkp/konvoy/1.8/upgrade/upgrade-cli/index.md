@@ -61,7 +61,7 @@ The version of Kubernetes Base Addons changed if you use KBA, so you need to cha
 
 If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.20-1.4.4` for kind: ClusterConfiguration.
 
-If you have Dispatch enabled, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-dispatch` to be `configVersion: stable-1.20-1.4.6` for of kind: ClusterConfiguration
+If you have Dispatch enabled, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-dispatch` to be `configVersion: stable-1.20-1.4.6` for kind: ClusterConfiguration
 
 The version of Konvoy is now `v1.8.5`, set `spec.version: v1.8.5` for both of kind: ClusterProvisioner and of kind: ClusterConfiguration.
 
