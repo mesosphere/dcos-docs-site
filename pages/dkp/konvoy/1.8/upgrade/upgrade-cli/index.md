@@ -59,7 +59,7 @@ The version of Calico was bumped in Konvoy v1.8.4, from Calico v3.17.3 to v3.20.
 
 The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.20-4.4.0` for of kind: ClusterConfiguration.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.20-1.4.4` for of kind: ClusterConfiguration.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.20-1.4.4` for kind: ClusterConfiguration.
 
 If you have Dispatch enabled, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-dispatch` to be `configVersion: stable-1.20-1.4.6` for of kind: ClusterConfiguration
 
