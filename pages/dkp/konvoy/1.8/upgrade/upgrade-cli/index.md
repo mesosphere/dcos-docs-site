@@ -63,7 +63,7 @@ If you use Kommander, you need to change the `configVersion` for your `configRep
 
 If you have Dispatch enabled, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-dispatch` to be `configVersion: stable-1.20-1.4.6` for kind: ClusterConfiguration
 
-The version of Konvoy is now `v1.8.5`, set `spec.version: v1.8.5` for both of kind: ClusterProvisioner and of kind: ClusterConfiguration.
+The version of Konvoy is now `v1.8.5`, set `spec.version: v1.8.5` for both kind: ClusterProvisioner and kind: ClusterConfiguration.
 
 ```yaml
 kind: ClusterProvisioner
