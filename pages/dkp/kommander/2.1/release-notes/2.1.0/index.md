@@ -170,7 +170,7 @@ kubectl apply -f cert_manager_root-ca.yaml
 
 Once complete, continue to [attach your cluster][attach-cluster] to Kommander.
 
-You should expect to see that cert-manager will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
+Your cert-manager will fail to deploy due to your existing `cert-manager` installation. This behavior is expected and can be ignored.
 
 ### Kommander Cluster with custom SSL certificate
 
