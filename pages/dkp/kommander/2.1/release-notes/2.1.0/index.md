@@ -175,16 +175,16 @@ You should expect to see that cert-manager will fail to deploy due to your exist
 ### Kommander Cluster with custom SSL certificate
 
 When attaching a cluster, it is expected that the managed cluster was deploying apps as federated by the management cluster.
-If the management cluster was initialised using a custom SSL certificate, the managed cluster may fail cloning the managers’ service repository. You may need to check the status of the federated GIT repository resource to see the error;
+If the management cluster was initialised using a custom SSL certificate, the managed cluster will fail cloning the managers’ service repository. Check the status of the federated git repository resource to see the error:
 
 ```
-kubectl get gitrepo -A --kubeconfig MANAGED-KUBECONFIG
+kubectl get gitrepo -n kommander-flux management --kubeconfig MANAGED-KUBECONFIG
 [..]
 unable to clone 'https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander': Get "https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander/info/refs?service=git-upload-pack": x509: certificate signed by unknown authority
 [..]
 ```
 
-The deployment fails because the managed cluster uses the wrong CA certificate to verify access to the management clusters’ GIT repository. For working around this issue we need to patch the `gitserver-ca` secret within the `kommander-flux` namespace on the managed cluster with the CA certificate as stored in the `kommander-traefik-certificate` secret within the `kommander`namespace on the management cluster.
+The deployment fails because the managed cluster uses the wrong CA certificate to verify access to the management clusters’ git repository. Solve this issue by patching the `gitserver-ca` secret within the `kommander-flux` namespace on the managed cluster with the CA certificate stored in the `kommander-traefik-certificate` secret within the `kommander`namespace on the management cluster.
 
 ```
 kubectl --kubeconfig=MANAGED_KUBECONFIG patch secret -n kommander-flux gitserver-ca -p '{"data":{"caFile":"'$(kubectl --kubeconfig=MANAGER_KUBECONFIG get secret -n kommander kommander-traefik-certificate -o go-template='{{index .data "ca.crt"}}')'"}}'
