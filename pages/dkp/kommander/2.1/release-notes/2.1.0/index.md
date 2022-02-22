@@ -10,7 +10,7 @@ beta: false
 
 **D2iQ&reg; Kommander&reg; version 2.1.0 was released on November 19, 2021.**
 
-[button color="purple" href="https://support.d2iq.com/hc/en-ucs/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
+[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
 
 To get started with Kommander, [download](../../download/) and [install](../../install/) the latest version of Kommander.
 
