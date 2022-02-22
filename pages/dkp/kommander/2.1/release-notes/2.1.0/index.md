@@ -208,6 +208,6 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
-[konvoy-self-managed]: /../../choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
+[konvoy-self-managed]: ../../choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
 [project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
 [flux-cli]: https://fluxcd.io/docs/installation/
