@@ -10,7 +10,7 @@ beta: false
 
 **D2iQ&reg; Kommander&reg; version 2.1.0 was released on November 19, 2021.**
 
-[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
+[button color="purple" href="https://support.d2iq.com/hc/en-ucs/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
 
 To get started with Kommander, [download](../../download/) and [install](../../install/) the latest version of Kommander.
 
@@ -36,7 +36,7 @@ For more information on provisioning from Kommander, see [Managing Clusters](../
 
 #### Kommander Continuous Deployment
 
-Kommander 2.1 now supports continuous delivery/deployment using Flux, which is designed for Kubernetes and supports multi-cluster and multi-tenant use cases. Configure Kommander Projects with GitOps-based Continuous Deployments using FluxCD, which enables canary and A/B deployments, as well as roll-back. Kommander now uses a completely declarative approach, where what you define for production is what you get, without the need to monitor and manually intervene when something goes wrong.
+Kommander 2.1 now supports continuous delivery/deployment using Flux, which is designed for Kubernetes and supports multi-cluster and multi-tenant use cases. Configure Kommander Projects with GitOps-based Continuous Deployments using FluxCD, which enables canary and A/B deployments, and roll-back. Kommander now uses a completely declarative approach, where what you define for production is what you get, without the need to monitor and manually intervene when something goes wrong.
 
 For more information on setting up continuous deployment using Flux, see [Continuous Deployment](../../projects/project-deployments/continuous-delivery).
 
@@ -175,24 +175,24 @@ Your cert-manager will fail to deploy due to your existing `cert-manager` instal
 ### Kommander Cluster with custom SSL certificate
 
 When attaching a cluster, it is expected that the managed cluster was deploying apps as federated by the management cluster.
-If the management cluster was initialised using a custom SSL certificate, the managed cluster will fail cloning the managers’ service repository. Check the status of the federated git repository resource to see the error:
+If the management cluster was initialised using a custom SSL certificate, the managed cluster will fail cloning the manager's service repository. Check the status of the federated git repository resource to see the error:
 
-```
+```sh
 kubectl get gitrepo -n kommander-flux management --kubeconfig MANAGED-KUBECONFIG
 [..]
 unable to clone 'https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander': Get "https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander/info/refs?service=git-upload-pack": x509: certificate signed by unknown authority
 [..]
 ```
 
-The deployment fails because the managed cluster uses the wrong CA certificate to verify access to the management clusters’ git repository. Solve this issue by patching the `gitserver-ca` secret within the `kommander-flux` namespace on the managed cluster with the CA certificate stored in the `kommander-traefik-certificate` secret within the `kommander`namespace on the management cluster.
+The deployment fails because the managed cluster uses the wrong CA certificate to verify access to the management cluster's git repository. Solve this issue by patching the `gitserver-ca` secret within the `kommander-flux` namespace on the managed cluster with the CA certificate stored in the `kommander-traefik-certificate` secret within the `kommander` namespace on the management cluster.
 
-```
+```sh
 kubectl --kubeconfig=MANAGED_KUBECONFIG patch secret -n kommander-flux gitserver-ca -p '{"data":{"caFile":"'$(kubectl --kubeconfig=MANAGER_KUBECONFIG get secret -n kommander kommander-traefik-certificate -o go-template='{{index .data "ca.crt"}}')'"}}'
 ```
 
 You may need to trigger a reconciliation of the flux controller on the managed cluster if you do not want to wait for its regular interval to occur. Use the [`flux` CLI utility][flux-cli]:
 
-```
+```sh
 flux reconcile -n kommander-flux source git management --kubeconfig MANAGED_KUBECONFIG
 ► annotating GitRepository management in kommander-flux namespace
 ✔ GitRepository annotated
