@@ -175,7 +175,7 @@ Your cert-manager will fail to deploy due to your existing `cert-manager` instal
 ### Kommander Cluster with custom SSL certificate
 
 When attaching a cluster, it is expected that the managed cluster was deploying apps as federated by the management cluster.
-If the management cluster was initialised using a custom SSL certificate, the managed cluster will fail cloning the manager's service repository. Check the status of the federated git repository resource to see the error:
+If the management cluster was initialized using a custom SSL certificate, the managed cluster will fail cloning the manager's service repository. Check the status of the federated git repository resource to see the error:
 
 ```sh
 kubectl get gitrepo -n kommander-flux management --kubeconfig MANAGED-KUBECONFIG
