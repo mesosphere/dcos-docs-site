@@ -165,6 +165,33 @@ kubectl patch certificate -n $WORKSPACE_NAMESPACE kommander-traefik --type='merg
 
 `cert-manager` HelmRelease will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
 
+### Kommander Cluster with custom SSL certificate
+
+When attaching a cluster, it is expected that the managed cluster was deploying apps as federated by the management cluster.
+If the management cluster was initialised using a custom SSL certificate, the managed cluster may fail cloning the managers’ service repository. You may need to check the status of the federated GIT repository resource to see the error;
+
+```
+kubectl get gitrepo -A --kubeconfig MANAGED-KUBECONFIG
+[..]
+unable to clone 'https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander': Get "https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander/info/refs?service=git-upload-pack": x509: certificate signed by unknown authority
+[..]
+```
+
+The deployment fails because the managed cluster uses the wrong CA certificate to verify access to the management clusters’ GIT repository. For working around this issue we need to patch the `gitserver-ca` secret within the `kommander-flux` namespace on the managed cluster with the CA certificate as stored in the kommander-traefik-certificate` secret within the `kommander`namespace on the management cluster.
+
+```
+kubectl --kubeconfig=MANAGED_KUBECONFIG patch secret -n kommander-flux gitserver-ca -p '{"data":{"caFile":"'$(kubectl --kubeconfig=MANAGER_KUBECONFIG get secret -n kommander kommander-traefik-certificate -o go-template='{{index .data "ca.crt"}}')'"}}'
+```
+
+You may need to trigger a reconciliation of the flux controller on the managed cluster if you do not want to wait for its regular interval to occur. Use the `flux` CLI utility -  https://fluxcd.io/docs/installation/ ;
+```
+flux reconcile -n kommander-flux source git management --kubeconfig MANAGED_KUBECONFIG
+► annotating GitRepository management in kommander-flux namespace
+✔ GitRepository annotated
+◎ waiting for GitRepository reconciliation
+✔ fetched revision main/GIT_HASH
+```
+
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->
@@ -175,3 +202,4 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 [attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
 [project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
+[flux-cli]: https://fluxcd.io/docs/installation/
