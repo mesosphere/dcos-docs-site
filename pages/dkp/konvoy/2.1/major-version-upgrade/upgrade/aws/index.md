@@ -27,7 +27,7 @@ After adopting the cluster, you use this AMI to scale up, or replace a failed in
 
     The output appears similar to this:
 
-    ```
+    ```bash
     writing new packer configuration to work/centos-7-1637107496-rPzRE
     starting packer build
     centos-7: output will be in this color.
@@ -229,7 +229,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
     export CLUSTER_NAME=<your cluster name>
     ```
 
-	Then, verify that your environment has the cluster name:
+    Then, verify that your environment has the cluster name:
 
     ```bash
     echo $CLUSTER_NAME
@@ -237,7 +237,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
     The output should be your cluster name, for example:
 
-    ```
+    ```sh
     konvoy-migration
     ```
 
@@ -283,7 +283,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
     The output appears similar to this:
 
-    ```
+    ```bash
     release "auto-provisioning" uninstalled
     ```
 
@@ -295,7 +295,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
     The output appears similar to this:
 
-    ```
+    ```bash
     namespace "konvoy" deleted
     ```
 
@@ -309,7 +309,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
     The output appears similar to this:
 
-    ```
+    ```bash
     daemonset.apps/calico-node patched
     ```
 
@@ -321,7 +321,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
     The output appears similar to this:
 
-    ```
+    ```sh
     Waiting for daemon set "calico-node" rollout to finish: 1 out of 7 new pods have been updated...
     Waiting for daemon set "calico-node" rollout to finish: 2 out of 7 new pods have been updated...
     Waiting for daemon set "calico-node" rollout to finish: 3 out of 7 new pods have been updated...
@@ -351,7 +351,7 @@ dkp --kubeconfig=admin.conf adopt cluster aws
 
 The output appears similar to this:
 
-```
+```sh
 INFO[2021-11-17T17:29:04-05:00] patched KubeadmConfig default/konvoy-migration-control-plane-0 with an ownerReference  src="patch/ownerreferences.go:54"
 INFO[2021-11-17T17:29:04-05:00] patched KubeadmConfig default/konvoy-migration-control-plane-1 with an ownerReference  src="patch/ownerreferences.go:54"
 INFO[2021-11-17T17:29:04-05:00] patched KubeadmConfig default/konvoy-migration-control-plane-2 with an ownerReference  src="patch/ownerreferences.go:54"
@@ -379,10 +379,10 @@ dkp --kubeconfig=admin.conf describe cluster --cluster-name $CLUSTER_NAME
 
 The output appears similar to this:
 
-```
+```sh
 NAME                                                                 READY  SEVERITY  REASON  SINCE  MESSAGE
 /konvoy-migration                                                    True                     62s
-├─ClusterInfrastructure - AWSCluster/konvoy-migration				 True					  62s
+├─ClusterInfrastructure - AWSCluster/konvoy-migration                True                     62s
 ├─ControlPlane - KubeadmControlPlane/konvoy-migration-control-plane  True                     62s
 │ └─3 Machines...                                                    True                     66s    See konvoy-migration-control-plane-0, konvoy-migration-control-plane-1, ...
 └─Workers
@@ -402,7 +402,7 @@ kubectl --kubeconfig=admin.conf -n calico-system get daemonset/calico-node
 
 The output appears similar to this:
 
-```
+```sh
 NAME          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
 calico-node   7         7         7       7            7           kubernetes.io/os=linux   4h42m
 ```
@@ -419,7 +419,7 @@ kubectl --kubeconfig=admin.conf delete pods -n capi-system -l cluster.x-k8s.io/p
 
 The output appears similar to this:
 
-```
+```sh
 pod "capi-controller-manager-d4b9c7c4c-hkqfl" deleted
 ```
 
@@ -436,7 +436,7 @@ You use this AMI to update the cluster Kubernetes version to v1.21.6.
 
     The output appears similar to this:
 
-    ```
+    ```sh
     writing new packer configuration to work/centos-7-1637107496-rPzRE
     starting packer build
     centos-7: output will be in this color.
@@ -516,7 +516,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     The output should be the ID of the Kubernetes v1.21.6 AMI you created, for example:
 
-    ```
+    ```sh
     ami-0e7253eeb699eddca
     ```
 
@@ -559,7 +559,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     The output appears similar to this:
 
-    ```
+    ```sh
     awsmachinetemplate.infrastructure.cluster.x-k8s.io/konvoy-migrate-control-plane-v1.21.6 created
     ```
 
@@ -576,7 +576,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     The output appears similar to this:
 
-    ```
+    ```sh
     kubeadmcontrolplane.controlplane.cluster.x-k8s.io/konvoy-migrate-control-plane configured
     ```
 
@@ -602,7 +602,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     The output should be the ID of the Kubernetes v1.21.6 AMI you created earlier, for this example:
 
-    ```
+    ```sh
     ami-0e7253eeb699eddca
     ```
 
@@ -647,7 +647,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     The output appears similar to this:
 
-    ```
+    ```sh
     awsmachinetemplate.infrastructure.cluster.x-k8s.io/konvoy-migrate-worker-v1.21.6 created
     ```
 
@@ -664,7 +664,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     The output appears similar to this:
 
-    ```
+    ```sh
     machinedeployment.cluster.x-k8s.io/konvoy-migration-worker configured
     ```
 
@@ -674,7 +674,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     <!-- NOTE: `kubectl wait` is the preferred solution, but cannot be used with MachineDeployment, because it does not yet have Conditions (https://github.com/kubernetes-sigs/cluster-api/pull/4625) -->
 
-    ```sh
+    ```bash
     timeout 10m bash -c \
       "until [[ $(kubectl --kubeconfig=admin.conf get machinedeployment ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.status.replicas}') \
                 == \
