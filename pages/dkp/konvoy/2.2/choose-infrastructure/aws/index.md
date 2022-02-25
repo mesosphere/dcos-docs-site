@@ -12,7 +12,7 @@ The following diagrams show the two different ways you can implement Konvoy on A
 
 This diagram shows the granular detail of a single Kubernetes cluster running in AWS Cloud:
 
-![DKP Essential](/dkp/konvoy/2.2/img/DKP_essentials.png)
+![DKP Essential](/dkp/konvoy/2.2/img/DKP_essential.png)
 
 This diagram shows a higher-level view of DKP Enterprise, and assumes a multi-cluster environment, where each cluster might look like the single cluster example above:
 
