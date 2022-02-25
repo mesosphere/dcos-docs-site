@@ -174,7 +174,6 @@ Your cert-manager will fail to deploy due to your existing `cert-manager` instal
 
 ### Kommander Cluster with custom SSL certificate
 
-After attaching a cluster, the management cluster should deploy apps to managed clusters.
 If the management cluster was initialized using a custom SSL certificate, the managed cluster will fail cloning the manager's service repository. Check the status of the federated git repository resource to see the error:
 
 ```sh
