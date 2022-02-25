@@ -89,7 +89,7 @@ Configure the AWS EBS CSI plugin so that it runs only on the control plane machi
 
 First, configure the EBS CSI controller by running this command:
 
-```sh
+```bash
 kubectl --kubeconfig=admin.conf -n kube-system patch statefulset ebs-csi-controller --patch '{"spec":{"template":{"spec":{"nodeSelector":{"node-role.kubernetes.io/control-plane":""},"tolerations":[{"effect":"NoExecute","operator": "Exists","tolerationSeconds":300},{"effect":"NoSchedule","key":"node-role.kubernetes.io/master","operator":"Exists"},{"key":"CriticalAddonsOnly","operator":"Exists"}]}}}}'
 ```
 
@@ -99,7 +99,7 @@ statefulset.apps/ebs-csi-controller patched
 
 Then, configure the EBS CSI Snapshot controller by running this command:
 
-```sh
+```bash
 kubectl --kubeconfig=admin.conf -n kube-system patch statefulset ebs-csi-snapshot-controller --patch '{"spec":{"template":{"spec":{"nodeSelector":{"node-role.kubernetes.io/control-plane":""},"tolerations":[{"key":"CriticalAddonsOnly","operator":"Exists"},{"effect":"NoExecute","operator":"Exists","tolerationSeconds":300},{"effect":"NoSchedule","key":"node-role.kubernetes.io/master","operator":"Exists"}]}}}}'
 ```
 
@@ -111,8 +111,9 @@ statefulset.apps/ebs-csi-snapshot-controller patched
 
 For the cluster adoption to be successful, the control-plane and worker machines must have the expected IAM roles. See [Configure IAM Policies](../../../choose-infrastructure/aws/iam-policies) for more on how to create these IAM Roles and policies. After you've created the IAM resources, you must modify the existing EC2 instances.
 
-1. Modify the IAM Role of every control plane machine to `control-plane.cluster-api-provider-aws.sigs.k8s.io`.
-2. Modify the IAM Role of every worker node pool machine to `nodes.cluster-api-provider-aws.sigs.k8s.io`.
+1.  Modify the IAM Role of every control plane machine to `control-plane.cluster-api-provider-aws.sigs.k8s.io`.
+
+1.  Modify the IAM Role of every worker node pool machine to `nodes.cluster-api-provider-aws.sigs.k8s.io`.
 
 ## Modify Subnets so that new instances are assigned a public IPv4 Address
 
@@ -142,7 +143,7 @@ You must configure the adopted cluster as self-managed. The bootstrap controller
 
 CAPA controllers gain access to the AWS APIs from the policies you attach to the IAM instance profile in a later step. The bootstrap credentials can expire, so the controllers on the cluster should not use them.
 
-```sh
+```bash
 dkp --kubeconfig=admin.conf create bootstrap controllers --with-aws-bootstrap-credentials=false
 ```
 
@@ -171,7 +172,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Create the Konvoy 2.1 configuration with the command:
 
-    ```sh
+    ```bash
     dkp --kubeconfig=admin.conf prepare-to-adopt cluster aws
     ```
 
@@ -257,7 +258,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Add the Pod subnet to the `kubeadm-config` ConfigMap by copying the field from the cluster configuration and pasting it into the ConfigMap:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf -n kube-system edit configmap kubeadm-config
     ```
 
@@ -283,7 +284,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
     The output appears similar to this:
 
-    ```bash
+    ```sh
     release "auto-provisioning" uninstalled
     ```
 
@@ -295,7 +296,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
     The output appears similar to this:
 
-    ```bash
+    ```sh
     namespace "konvoy" deleted
     ```
 
@@ -309,7 +310,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
     The output appears similar to this:
 
-    ```bash
+    ```sh
     daemonset.apps/calico-node patched
     ```
 
