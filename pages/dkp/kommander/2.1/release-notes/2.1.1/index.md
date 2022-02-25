@@ -39,7 +39,7 @@ For more information, see [DKP catalog applications](../../workspaces/applicatio
 - Corrected an issue where the `PreprovisionedInventory` object and SSH key secret were not moved to the target cluster when making the cluster self-managing.(COPS-7079)
 - When Kommander installation is complete, you can open the Kommander dashboard and access the username and password credentials by running:
 
-```sh
+```bash
 kommander open dashboard
 ```
 
@@ -103,7 +103,7 @@ If your cluster does not have `cert-manager` installed, the output will be empty
 
 If your cluster has `cert-manager` installed, the output resembles this example:
 
-```bash
+```sh
 cert-manager                        cert-manager-848f547974-crl47                                        1/1     Running   0          5m5s
 cert-manager                        cert-manager-cainjector-54f4cc6b5-wbzvr                              1/1     Running   0          5m5s
 cert-manager                        cert-manager-webhook-7c9588c76-pdxrb                                 1/1     Running   0          5m4s
@@ -152,7 +152,7 @@ EOF
 
 Next, apply this file to your cluster you are attaching to Kommander:
 
-```sh
+```bash
 kubectl apply -f cert_manager_root-ca.yaml
 ```
 
@@ -170,7 +170,7 @@ kubectl patch certificate -n $WORKSPACE_NAMESPACE kommander-traefik --type='merg
 After attaching a cluster, the management cluster should deploy apps to managed clusters.
 If the management cluster was initialized using a custom SSL certificate, the managed cluster will fail cloning the manager's service repository. Check the status of the federated git repository resource to see the error:
 
-```sh
+```bash
 kubectl get gitrepo -n kommander-flux management --kubeconfig MANAGED-KUBECONFIG
 [..]
 unable to clone 'https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander': Get "https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander/info/refs?service=git-upload-pack": x509: certificate signed by unknown authority
@@ -179,7 +179,7 @@ unable to clone 'https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kom
 
 The deployment fails because the managed cluster uses the wrong CA certificate to verify access to the management cluster's git repository. Solve this issue by patching the `gitserver-ca` secret within the `kommander-flux` namespace on the managed cluster with the CA certificate stored in the `kommander-traefik-certificate` secret within the `kommander` namespace on the management cluster.
 
-```sh
+```bash
 kubectl --kubeconfig=MANAGED_KUBECONFIG patch secret -n kommander-flux gitserver-ca -p '{"data":{"caFile":"'$(kubectl --kubeconfig=MANAGER_KUBECONFIG get secret -n kommander kommander-traefik-certificate -o go-template='{{index .data "ca.crt"}}')'"}}'
 ```
 
@@ -201,6 +201,6 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
-[konvoy-self-managed]: ../../choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
+[konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
 [project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
 [flux-cli]: https://fluxcd.io/docs/installation/
