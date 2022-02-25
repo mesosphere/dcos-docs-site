@@ -8,11 +8,11 @@ beta: false
 enterprise: false
 ---
 
-The following diagrams show the two different ways you can implement Konvoy on AWS, DKP Essentials and DKP Enterprise.
+The following diagrams show the two different ways you can implement Konvoy on AWS, DKP Essential and DKP Enterprise.
 
 This diagram shows the granular detail of a single Kubernetes cluster running in AWS Cloud:
 
-![DKP Essentials](/dkp/konvoy/2.2/img/DKP_essentials.png)
+![DKP Essential](/dkp/konvoy/2.2/img/DKP_essentials.png)
 
 This diagram shows a higher-level view of DKP Enterprise, and assumes a multi-cluster environment, where each cluster might look like the single cluster example above:
 
