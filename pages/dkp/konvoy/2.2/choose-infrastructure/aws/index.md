@@ -18,13 +18,13 @@ This diagram shows a higher-level view of DKP Enterprise, and assumes a multi-cl
 
 ![DKP Enterprise](/dkp/konvoy/2.2/img/DKP_enterprise.png)
 
-## AWS Pricing considerations
+## AWS pricing considerations
 
-Deploying AWS services can incur you cost, depending on how and what you deploy. For more information, see the [AWS Pricing Calculator](https://calculator.aws/#/).
+Deploying AWS services can incur costs to your organization, depending on how and what you deploy. For more information, see the [AWS Pricing Calculator](https://calculator.aws/#/).
 
-## AWS Service limits
+## AWS service limits
 
-When using DKP on AWS, you need to be aware of the possibility of errors due to AWS service limits. For more information, see  the [AWS Service Limits](https://aws.amazon.com/premiumsupport/knowledge-center/manage-service-limits/).
+When using DKP on AWS, you need to be aware of the possibility of errors due to AWS service limits. For more information, see the [AWS Service Limits](https://aws.amazon.com/premiumsupport/knowledge-center/manage-service-limits/).
 
 ## Configuration types
 
