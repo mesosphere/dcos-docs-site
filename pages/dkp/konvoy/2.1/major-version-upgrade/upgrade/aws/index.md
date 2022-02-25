@@ -229,7 +229,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
     export CLUSTER_NAME=<your cluster name>
     ```
 
-    Then, verify that your environment has the cluster name:
+1.  Then, verify that your environment has the cluster name:
 
     ```bash
     echo $CLUSTER_NAME
@@ -594,7 +594,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
     export WORKER_AMI_ID=<your ami ID>
     ```
 
-    Then, verify that your environment has the AMI ID:
+1.  Then, verify that your environment has the AMI ID:
 
     ```bash
     echo $WORKER_AMI_ID
