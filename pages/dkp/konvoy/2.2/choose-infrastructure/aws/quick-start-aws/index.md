@@ -48,6 +48,8 @@ Before starting the Konvoy installation, verify that you have:
 
 ## Create a new AWS Kubernetes cluster
 
+If you create a cluster on AWS using DKP's default settings without any edits to any configuration files or additional flags, your cluster will be deployed on a [CentOS 7 operating system image][supported-systems] with 3 control plane nodes and 4 worker nodes.
+
 1.  Create a Kubernetes cluster:
 
     ```sh
@@ -167,3 +169,4 @@ To understand how this process works step by step, you can follow the workflow i
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.htm
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+[supported-systems]: ../../../supported-operating-systems

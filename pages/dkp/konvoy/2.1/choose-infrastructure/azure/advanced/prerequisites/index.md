@@ -19,6 +19,8 @@ Before you begin using Konvoy, you must have:
 
 <p class="message--note"><strong>NOTE: </strong>On macOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
 
+If you create a cluster on Azure using DKP's default settings without any edits to any configuration files or additional flags, your cluster will be deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes and 4 worker nodes.
+
 ## Azure prerequisites
 
 Before you begin using Konvoy with Azure, you must:
@@ -81,6 +83,7 @@ Before you begin using Konvoy with Azure, you must:
 When you completed, move on to the [Bootstrap][bootstrap] section.
 
 [bootstrap]: ../bootstrap
+[azure_credentials]: https://github.com/kubernetes-sigs/cluster-api-provider-azure/blob/master/docs/book/src/topics/getting-started.md#prerequisites
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
-[azure_credentials]: https://github.com/kubernetes-sigs/cluster-api-provider-azure/blob/master/docs/book/src/topics/getting-started.md#prerequisites
+[supported-systems]: ../../../../supported-operating-systems

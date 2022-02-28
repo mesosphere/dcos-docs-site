@@ -19,6 +19,8 @@ Before you begin using Konvoy, you must have:
 
 <p class="message--note"><strong>NOTE: </strong>On macOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
 
+If you create a cluster on AWS using DKP's default settings without any edits to any configuration files or additional flags, your cluster will be deployed on a [CentOS 7 operating system image][supported-systems] with 3 control plane nodes and 4 worker nodes.
+
 ## AWS prerequisites
 
 Before you begin using Konvoy with AWS, you must:
@@ -37,7 +39,8 @@ Before you begin using Konvoy with AWS, you must:
     export AWS_PROFILE=<profile>
     ```
 
-[install_docker]: https://docs.docker.com/get-docker/
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [iampolicies]: ../../iam-policies
+[install_docker]: https://docs.docker.com/get-docker/
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+[supported-systems]: ../../../../supported-operating-systems
