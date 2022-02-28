@@ -115,7 +115,7 @@ If your cluster has `cert-manager` installed, set the namespace for the workspac
 export WORKSPACE_NAMESPACE=<workspace-name-abcd>
 ```
 
-Then create the following yaml file:
+Then, create the following yaml file:
 
 ```yaml
 cat << EOF > cert_manager_root-ca.yaml
