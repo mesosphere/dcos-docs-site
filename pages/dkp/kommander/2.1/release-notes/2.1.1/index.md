@@ -109,7 +109,13 @@ cert-manager                        cert-manager-cainjector-54f4cc6b5-wbzvr     
 cert-manager                        cert-manager-webhook-7c9588c76-pdxrb                                 1/1     Running   0          5m4s
 ```
 
-If your cluster has `cert-manager` installed, then create the following yaml file:
+If your cluster has `cert-manager` installed, set the namespace for the workspace you attached the cluster in:
+
+```bash
+export WORKSPACE_NAMESPACE=<workspace-name-abcd>
+```
+
+Then create the following yaml file:
 
 ```yaml
 cat << EOF > cert_manager_root-ca.yaml
