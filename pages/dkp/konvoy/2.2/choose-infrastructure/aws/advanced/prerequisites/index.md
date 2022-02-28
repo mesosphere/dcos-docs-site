@@ -19,7 +19,7 @@ Before you begin using Konvoy, you must have:
 
 <p class="message--note"><strong>NOTE: </strong>On macOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
 
-If you create a cluster on AWS using DKP's default settings without any edits to any configuration files or additional flags, your cluster will be deployed on a [CentOS 7 operating system image][supported-systems] with 3 control plane nodes and 4 worker nodes.
+If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on a [CentOS 7 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
 
 ## AWS prerequisites
 
