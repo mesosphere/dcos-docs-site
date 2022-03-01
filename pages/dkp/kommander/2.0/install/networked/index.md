@@ -66,9 +66,11 @@ If you are installing Kommander on kind, you must know the following:
     ```
 -->
 
-## Install on Konvoy
+## Install Kommander on Konvoy
 
-Before running the commands below make sure that your `kubectl` configuration is pointing to the cluster you want to install Kommander on by setting the `KUBECONFIG` environment variable to the respective kubeconfig file's location.
+Before running the commands below, ensure that your `kubectl` configuration **references the cluster on which you want to install Kommander**, otherwise it will install on the bootstrap cluster. You can do this by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file's location][k8s-access-to-clusters].
+
+<p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable as stated earlier is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
 
 To install Kommander with http proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper](../http-proxy#enable-gatekeeper) section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`
 
@@ -132,3 +134,4 @@ kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.dat
 
 [konvoy_self_managing]: /dkp/konvoy/2.0/install/advanced/self-managing/
 [bootstrap_cluster]: /dkp/konvoy/2.0/install/advanced/bootstrap/
+[k8s-access-to-clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
