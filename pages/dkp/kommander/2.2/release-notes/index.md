@@ -24,8 +24,9 @@ This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster
 
 ### New features and capabilities
 
-#### Feature 1, 2, etc.
+#### Upgrade catalog application via CLI and UI
 
+You can use either the CLI<link> or the UI<link> to upgrade your catalog applications.
 
 ### Component updates
 
