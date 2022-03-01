@@ -30,8 +30,8 @@ dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
 
 ### Confirming `calico` installation
 
-Before exploring the new cluster further, you will want to confirm your `calico` installation is correct.
-In the default case, Calico will automatically detect the IP to use for each node using the `first-found` [method][calico-method]. This may not be appropriate in our particular nodes and you will need to modify Calico's configuration to use a different method.
+Before exploring the new cluster, confirm your `calico` installation is correct.
+By default, Calico automatically detects the IP to use for each node using the `first-found` [method][calico-method]. This may not be appropriate in your particular nodes, and you must modify Calico's configuration to use a different method.
 One approach is to use the `interface` method by providing the interface ID to use. For example, let's assume that all your cluster nodes use `ens192` as the interface name, follow the steps outlined in this section to modify Calico configuration.
 
 Get the pods running on your cluster with this command:
