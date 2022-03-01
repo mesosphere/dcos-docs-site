@@ -28,6 +28,37 @@ Depending on the cluster size, it will take a few minutes to be created. After t
 dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
 ```
 
+### Confirming `calico` installation
+
+Before exploring the new cluster further, you will want to confirm your `calico` installation is correct.
+
+Get the pods running on your cluster with this command:
+
+   ```bash
+   kubectl get pods -A --kubeconfig ${CLUSTER_NAME}.conf
+   ```
+
+<p class="message--note"><strong>NOTE: </strong>If you see a <code>calico-node</code> pod not ready on your cluster, you need to edit the <code>installation</code> file.
+</p>
+
+To edit the installation file, run the command:
+
+   ```bash
+   kubectl edit installation default --kubeconfig ${CLUSTER_NAME}.conf
+   ```
+
+Change the value for `spec.calicoNetwork.nodeAddressAutodetectionV4` to `interface: ens192`, and save the file:
+
+   ```yaml
+   spec:
+     calicoNetwork:
+     ...
+       nodeAddressAutodetectionV4:
+         interface: ens192
+   ```
+
+After saving the file, you may need to delete the node feature discovery worker pod in the `node-feature-discovery` namespace, if it failed. After you delete it, Kubernetes replaces the pod as part of its normal reconciliation.
+
 ## Use the built-in Virtual IP
 
 As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. To use the virtual IP, add these flags to the `create cluster` command:
@@ -46,6 +77,8 @@ dkp create cluster preprovisioned \
     --virtual-ip-interface eth1
 ```
 
+You will want to confirm your [`calico` installation is correct][calico-install].
+
 ## Provision on the Flatcar Linux OS
 
 When provisioning onto the Flatcar Container Linux distribution, you must instruct the bootstrap cluster to make some changes related to the installation paths. To accomplish this, add the `--os-hint flatcar` flag to the above `create cluster` command.
@@ -57,6 +90,8 @@ dkp create cluster preprovisioned \
     --cluster-name ${CLUSTER_NAME} \
     --os-hint flatcar
 ```
+
+You will want to confirm your [`calico` installation is correct][calico-install].
 
 ## Use an HTTP Proxy
 
@@ -84,6 +119,8 @@ dkp create cluster preprovisioned \
     --worker-no-proxy "127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
 ```
 
+You will want to confirm your [`calico` installation is correct][calico-install].
+
 ## Use an alternative mirror
 
 To apply Docker registry configurations during the create operation, add the appropriate flags to the `create cluster` command:
@@ -105,6 +142,8 @@ dkp create cluster preprovisioned \
     --registry-mirror-cacert /tmp/registry.pem \
     --registry-mirror-url https://registry.example.com
 ```
+
+You will want to confirm your [`calico` installation is correct][calico-install].
 
 ## Use alternate pod or service subnets
 
@@ -164,5 +203,8 @@ In Konvoy, the default pod subnet is 192.168.0.0/16, and the default service sub
 
 When you provision the cluster, the configured pod and service subnets will be applied.
 
-[define-control-plane-endpoint]: ../define-control-plane-endpoint
+You will want to confirm your [`calico` installation is correct][calico-install].
+
+[calico-install]: #confirming-calico-installation
 [create-secrets-and-overrides]: ../create-secrets-and-overrides
+[define-control-plane-endpoint]: ../define-control-plane-endpoint
