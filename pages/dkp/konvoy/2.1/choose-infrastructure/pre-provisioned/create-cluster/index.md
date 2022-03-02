@@ -28,11 +28,11 @@ Depending on the cluster size, it will take a few minutes to be created. After t
 dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
 ```
 
-### Confirming `calico` installation
+### Verify your Calico installation
 
 Before exploring the new cluster, confirm your `calico` installation is correct.
-By default, Calico automatically detects the IP to use for each node using the `first-found` [method][calico-method]. This may not be appropriate in your particular nodes, and you must modify Calico's configuration to use a different method.
-One approach is to use the `interface` method by providing the interface ID to use. For example, let's assume that all your cluster nodes use `ens192` as the interface name, follow the steps outlined in this section to modify Calico configuration.
+By default, Calico automatically detects the IP to use for each node using the `first-found` [method][calico-method]. This is not always appropriate for your particular nodes. In that case, you must modify Calico's configuration to use a different method.
+An alternative is to use the `interface` method by providing the interface ID to use. Follow the steps outlined in this section to modify Calico's configuration. In this example, all cluster nodes use `ens192` as the interface name.
 
 Get the pods running on your cluster with this command:
 
@@ -40,7 +40,7 @@ Get the pods running on your cluster with this command:
    kubectl get pods -A --kubeconfig ${CLUSTER_NAME}.conf
    ```
 
-<p class="message--note"><strong>NOTE: </strong>If you see a <code>calico-node</code> pod not ready on your cluster, you need to edit the <code>installation</code> file.
+<p class="message--note"><strong>NOTE: </strong>If a <code>calico-node</code> pod is not ready on your cluster, you must edit the <code>installation</code> file.
 </p>
 
 To edit the installation file, run the command:
@@ -59,7 +59,7 @@ Change the value for `spec.calicoNetwork.nodeAddressAutodetectionV4` to `interfa
          interface: ens192
    ```
 
-After saving the file, you may need to delete the node feature discovery worker pod in the `node-feature-discovery` namespace, if it failed. After you delete it, Kubernetes replaces the pod as part of its normal reconciliation.
+Save this file. You may need to delete the node feature discovery worker pod in the `node-feature-discovery` namespace if that pod has failed. After you delete it, Kubernetes replaces the pod as part of its normal reconciliation.
 
 ## Use the built-in Virtual IP
 
@@ -79,7 +79,7 @@ dkp create cluster preprovisioned \
     --virtual-ip-interface eth1
 ```
 
-You will want to confirm your [`calico` installation is correct][calico-install].
+Confirm that your [Calico installation is correct][calico-install].
 
 ## Provision on the Flatcar Linux OS
 
@@ -93,7 +93,7 @@ dkp create cluster preprovisioned \
     --os-hint flatcar
 ```
 
-You will want to confirm your [`calico` installation is correct][calico-install].
+Confirm that your [Calico installation is correct][calico-install].
 
 ## Use an HTTP Proxy
 
@@ -121,7 +121,7 @@ dkp create cluster preprovisioned \
     --worker-no-proxy "127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
 ```
 
-You will want to confirm your [`calico` installation is correct][calico-install].
+Confirm that your [Calico installation is correct][calico-install].
 
 ## Use an alternative mirror
 
@@ -145,7 +145,7 @@ dkp create cluster preprovisioned \
     --registry-mirror-url https://registry.example.com
 ```
 
-You will want to confirm your [`calico` installation is correct][calico-install].
+Confirm that your [Calico installation is correct][calico-install].
 
 ## Use alternate pod or service subnets
 
@@ -205,9 +205,9 @@ In Konvoy, the default pod subnet is 192.168.0.0/16, and the default service sub
 
 When you provision the cluster, the configured pod and service subnets will be applied.
 
-You will want to confirm your [`calico` installation is correct][calico-install].
+Confirm that your [Calico installation is correct][calico-install].
 
-[calico-install]: #confirming-calico-installation
+[calico-install]: #verify-your-calico-installation
 [calico-method]: https://projectcalico.docs.tigera.io/reference/node/configuration#ip-autodetection-methods
 [create-secrets-and-overrides]: ../create-secrets-and-overrides
 [define-control-plane-endpoint]: ../define-control-plane-endpoint
