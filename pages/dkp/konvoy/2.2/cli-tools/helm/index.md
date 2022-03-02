@@ -33,16 +33,16 @@ You need certain software configurations and settings before you start this proc
 
 Every Helm [release][helm-release] provides binaries for a variety of operating systems. These binary versions can be manually downloaded and installed.
 
-1.  Download and unpack the [latest][helm-release-latest] release. Here is an example for the version [3.3.4][helm-3.3.4].
+1.  Download and unpack the [latest][helm-release-latest] release. Here is an example for the version [3.8.0][helm-3.8.0].
 
     ```bash
-    wget -c https://get.helm.sh/helm-v3.3.4-linux-arm64.tar.gz -O - | tar -xz
+    wget -c https://get.helm.sh/helm-v3.8.0-linux-amd64.tar.gz -O - | tar -xz
     ```
 
 1.  Add the binary to your path:
 
     ```bash
-    mv linux-arm64/helm /usr/local/bin/
+    mv linux-amd64/helm /usr/local/bin/
     ```
 
 1.  Check if everything is working as expected:
@@ -60,7 +60,7 @@ The Helm community also contributes and maintains packages to several package ma
 After installing a Helm binary, add a Helm chart repository. To add and access the official Helm chart repository, enter the following command:
 
 ```bash
-helm repo add stable https://mesosphere.github.io/charts/stable/
+helm repo add bitnami https://charts.bitnami.com/bitnami
 ```
 
 ## Install a Helm Chart
@@ -78,7 +78,7 @@ After adding the repo, you can install your first Helm chart.
     <!-- vale Vale.Spelling = YES -->
 
     ```bash
-    helm install mydb stable/mysql
+    helm install mydb bitnami/mysql
     ```
 
 1.  List all installed charts and check their status. Enter the following command:
@@ -86,7 +86,7 @@ After adding the repo, you can install your first Helm chart.
     ```bash
     $ helm ls
     NAME    NAMESPACE    REVISION    UPDATED                                 STATUS      CHART          APP VERSION
-    mydb    default      1           2020-10-06 18:06:24.41517 +0200 CEST    deployed    mysql-1.6.7    5.7.30
+    mydb    default      1           2022-02-06 18:06:24.41517 +0200 CEST    deployed    mysql-8.8.25    8.0.28
     ```
 
 ## Related information
