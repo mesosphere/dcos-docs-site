@@ -64,7 +64,7 @@ spec:
         vrid: 51           # optional
 ```
 
-<p class="message--note"><strong>NOTE: </strong>If you run multiple clusters on the same L2 network, you must specify a unique VRID value for each cluster to prevent network issues. In the above example, only use 51 one time, and then choose another value for each additional clusters.</p>
+<p class="message--note"><strong>NOTE: </strong>If you run multiple clusters on the same L2 network, you must specify a unique VRID value for each cluster to prevent network issues. In the above example, only use 51 one time, and then choose another value for each additional cluster.</p>
 
 The IP address specified in `spec.kubernetes.controlPlane.controlPlaneEndpointOverride` is used for the Keepalived VIP. This value is optional if it is already specified in `inventory.yaml` as part of `all.vars.control_plane_endpoint`. You can set `spec.kubernetes.controlPlane.keepalived.interface` to specify the network interface for the Keepalived VIP. This field is optional. If not set, Konvoy automatically detects the network interface to use based on the route to the VIP.
 
