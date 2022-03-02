@@ -26,7 +26,7 @@ This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster
 
 #### Upgrade catalog application via CLI and UI
 
-You can use either the CLI or the UI to [upgrade your catalog applications](..\projects\applications\catalog-applications\index.md).
+You can use either the CLI or the UI to [upgrade your catalog applications](/projects/applications/catalog-applications/#upgrade-catalog-applications).
 
 ### Component updates
 

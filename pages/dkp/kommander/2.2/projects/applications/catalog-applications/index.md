@@ -9,7 +9,10 @@ Catalog applications are any third-party or open source applications that appear
 
 ## Upgrade catalog applications
 
-Before upgrading your catalog applications, verify the current and supported versions of the application:
+Before upgrading your catalog applications, verify the current and supported versions of the application.
+
+<p class="message--note"><strong>NOTE: Catalog applications must be upgraded to the latest version BEFORE upgrading the Kubernetes version (or Konvoy version for managed Konvoy clusters) on attached clusters, due to the previous versions' incompatibility with Kubernetes 1.22.</p>
+
 
 ### Upgrade with UI
 
