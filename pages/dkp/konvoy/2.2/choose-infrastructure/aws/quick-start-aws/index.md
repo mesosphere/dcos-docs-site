@@ -50,6 +50,11 @@ Before starting the Konvoy installation, verify that you have:
 
 If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on a [CentOS 7 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
 
+<p class="message--note"><strong>NOTE: </strong>
+Using these default images work, but due to missing optimizations, the created cluster will have certain limits.
+We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builder to create a custom AMI</a> to take advantage of enhanced cluster operations, and to explore the <a href="../advanced">advanced AWS installation</a> topics for more options.
+</p>
+
 1.  Create a Kubernetes cluster:
 
     ```sh
@@ -166,7 +171,9 @@ To understand how this process works step by step, you can follow the workflow i
 
 [advanced]: ../advanced/
 [advanced_delete]: ../advanced/delete/
+[aws_advanced]: ../advanced
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.htm
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+[kib_create_ami]: ../../../image-builder/create-ami
 [supported-systems]: ../../../supported-operating-systems
