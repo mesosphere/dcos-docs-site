@@ -61,6 +61,7 @@ For cloud installations, scaling out can be limited by resource quotas.
           - name: knative
             enabled: true
     ```
+* For GPU deployment, follow the instructions in [Konvoy GPU documentation][konvoy-gpu].
 
 * Then follow the [Konvoy documentation][konvoy_deploy_addons] to deploy the addons.
 
@@ -87,6 +88,8 @@ For DKP 2.x, ensure the following applications are enabled in Kommander:
     nvidia:  # to enable GPU support
     ...   
   ```
+* For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu]. 
+
 * Apply the new configuration to Kommander:
   ```
   kommander install --installer-config kommander-config.yaml
@@ -181,5 +184,7 @@ Once all components have been deployed, you can log in to Kaptain:
 [install-spark-dkp2]: /dkp/kommander/2.1/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
 [install-spark-konvoy1]: /dkp/kommander/1.4/projects/platform-services/platform-services-catalog/kudo-spark/
 [kommander-install]: /dkp/kommander/latest/install/
+[kommander-gpu]: /dkp/kommander/latest/gpu/
+[konvoy-gpu]: /dkp/konvoy/1.8/gpu/
 [konvoy_deploy_addons]: /dkp/konvoy/1.8/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
 [kudo_cli]: https://kudo.dev/#get-kudo
