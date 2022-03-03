@@ -68,7 +68,7 @@ If you are installing Kommander on kind, you must know the following:
 
 ## Install Kommander on Konvoy
 
-Before running the commands below, ensure that your `kubectl` configuration **references the cluster on which you want to install Kommander**, otherwise it will install on the bootstrap cluster. You can do this by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file's location][k8s-access-to-clusters].
+Before running these commands, ensure that your `kubectl` configuration **references the cluster where you want to install Kommander**, otherwise it installs on the bootstrap cluster. Do this by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file's location][k8s-access-to-clusters].
 
 <p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable as stated earlier is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
 
