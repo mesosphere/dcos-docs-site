@@ -53,11 +53,11 @@ Every Helm [release][helm-release] provides binaries for a variety of operating 
 
 ## Install Helm from a Package Manager
 
-The Helm community also contributes and maintains packages to several package managers. These are not officially supported, but are generally up-to-date. Here is how to install Helm using [Homebrew (MacOS)][homebrew-helm-mac], [Chocolatey (Windows)][homebrew-helm-windows], and [Apt (Debian/Ubuntu)][homebrew-helm-ubuntu].
+The Helm community also contributes and maintains packages to several package managers. These are not officially supported, but are generally up-to-date. Here is how to install Helm using [Homebrew (macOS)][homebrew-helm-mac], [Chocolatey (Windows)][homebrew-helm-windows], and [Apt (Debian/Ubuntu)][homebrew-helm-ubuntu].
 
 ## Add a Helm Chart Repository
 
-After installing a Helm binary, add a Helm chart repository. To add and access the official Helm chart repository, enter the following command:
+After installing Helm, add a Helm chart repository. To add and access the official Helm chart repository, enter the following command:
 
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
