@@ -84,7 +84,10 @@ After adding the repo, you can install your first Helm chart.
 1.  List all installed charts and check their status. Enter the following command:
 
     ```bash
-    $ helm ls
+    helm ls
+    ```
+
+    ```sh
     NAME    NAMESPACE    REVISION    UPDATED                                 STATUS      CHART          APP VERSION
     mydb    default      1           2022-02-06 18:06:24.41517 +0200 CEST    deployed    mysql-8.8.25    8.0.28
     ```
@@ -99,7 +102,7 @@ For information on Helm, refer to the following:
 - [Helm repository management][helm-management]
 - [Creating your own charts][helm-create-charts]
 
-[helm-3.3.4]: https://github.com/helm/helm/releases/tag/v3.3.4
+[helm-3.8.0]: https://github.com/helm/helm/releases/tag/v3.8.0
 [helm-create-charts]: https://helm.sh/docs/intro/using_helm/#creating-your-own-charts
 [helm-custom-chart]: https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing
 [helm-management]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
