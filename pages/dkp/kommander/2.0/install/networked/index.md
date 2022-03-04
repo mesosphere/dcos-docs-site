@@ -66,9 +66,11 @@ If you are installing Kommander on kind, you must know the following:
     ```
 -->
 
-## Install on Konvoy
+## Install Kommander on Konvoy
 
-Before running the commands below make sure that your `kubectl` configuration is pointing to the cluster you want to install Kommander on by setting the `KUBECONFIG` environment variable to the respective kubeconfig file's location.
+Before running these commands, ensure that your `kubectl` configuration **references the cluster where you want to install Kommander**, otherwise it installs on the bootstrap cluster. Do this by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file's location][k8s-access-to-clusters].
+
+<p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable as stated earlier is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
 
 To install Kommander with http proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper](../http-proxy#enable-gatekeeper) section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`
 
@@ -118,7 +120,7 @@ helmrelease.helm.toolkit.fluxcd.io/velero condition met
 
 ## Access Kommander Web UI
 
-When all the `HelmReleases` are ready, use the following command to retrieve the URL for accessing Kommander's Web interface:
+When all the `HelmReleases` are ready, use the following command to retrieve the URL to access Kommander's Web interface:
 
 ```sh
 kubectl -n kommander get svc kommander-traefik -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}/dkp/kommander/dashboard{{ "\n"}}'
@@ -132,3 +134,4 @@ kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.dat
 
 [konvoy_self_managing]: /dkp/konvoy/2.0/install/advanced/self-managing/
 [bootstrap_cluster]: /dkp/konvoy/2.0/install/advanced/bootstrap/
+[k8s-access-to-clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/

@@ -41,9 +41,11 @@ More information on setting a StorageClass as default can be found at [Changing 
 
 ## Install Kommander on Konvoy
 
-Before running the commands below, ensure that your `kubectl` configuration references the cluster on which you want to install Kommander. You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location.
+To customize a Kommander installation, see the [configuration page][configuration-kommander] for more details.
 
-<p class="message--note"><strong>NOTE:</strong> See the <a href="../configuration">configuration</a> page for more details on how to customize a Kommander installation.</p>
+Before running the commands below, ensure that your `kubectl` configuration **references the cluster on which you want to install Kommander**, otherwise it will install on the bootstrap cluster. You can do this by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file's location][k8s-access-to-clusters].
+
+<p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable as stated earlier is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
 
 ```sh
 kommander install
@@ -115,3 +117,5 @@ kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.dat
 ```
 
 [k8s-change-default-storage-class]: https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class
+[k8s-access-to-clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
+[configuration-kommander]: ../configuration/
