@@ -89,6 +89,6 @@ Ubuntu and Canonical are registered trademarks of Canonical Ltd.
 
 UNIX is registered trademark of The Open Group in the United States and other countries.
 
-VMware ESXi and VMware are registered trademarks of VMware, Inc. in the UNited States and other countries.
+VMware, VMware ESXi, VMware Cloud Provider, vCenter, and VMware vSphere are registered trademarks of VMware, Inc. in the United States and other countries.
 
 All other trademarks, trade names, service marks, and companies referenced herein belong to their respective companies, foundations, or development communities.
