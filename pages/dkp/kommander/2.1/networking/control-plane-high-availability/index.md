@@ -99,7 +99,7 @@ When creating an external 3rd party load balancer, D2iQ recommends the following
 - Create a TCP port 6443 front-end to target the TCP 6443 back-end.
 - Create a health probe with the following:
   - Checks via HTTPS
-  - Interval 5 mins
+  - Interval 5 minutes
   - Report unhealthy after 2 tries
   - URL `/healthz`
   - Allows for TLS certificates installed on the control planes.
