@@ -44,6 +44,10 @@ cves.filter-unmitigated: ## Filters out unmitigated CVEs from assets/cves.json f
 		jq -c -r '[ .[] | select((.mitigations | length) > 0) ]' > $$CVETMP && \
 		mv $$CVETMP assets/cves.json
 
+.PHONY: update-dkp-cli-docs
+update-dkp-cli-docs: ## Update the CLI command documentation
+	ci/update-dkp-cli-docs.sh
+
 #
 # Help
 #
