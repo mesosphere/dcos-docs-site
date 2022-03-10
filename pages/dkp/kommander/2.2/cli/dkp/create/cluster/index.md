@@ -29,7 +29,7 @@ Create a Kubernetes cluster, one of [aks, aws, azure, eks, preprovisioned]
 
 ### SEE ALSO
 
-* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, workspace, bootstrap, cluster, nodepool]
+* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [bootstrap, cluster, nodepool, appdeployment, workspace]
 * [dkp create cluster aks](/dkp/kommander/2.2/cli/dkp/create/cluster/aks/)	 - Create a Konvoy cluster in AKS
 * [dkp create cluster aws](/dkp/kommander/2.2/cli/dkp/create/cluster/aws/)	 - Create a Konvoy cluster in AWS
 * [dkp create cluster azure](/dkp/kommander/2.2/cli/dkp/create/cluster/azure/)	 - Create a Konvoy cluster in Azure

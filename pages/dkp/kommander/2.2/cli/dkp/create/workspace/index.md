@@ -40,5 +40,5 @@ dkp create workspace WORKSPACE_NAME [flags]
 
 ### SEE ALSO
 
-* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, workspace, bootstrap, cluster, nodepool]
+* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [bootstrap, cluster, nodepool, appdeployment, workspace]
 
