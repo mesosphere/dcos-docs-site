@@ -29,7 +29,7 @@ beta: false
 * [dkp check](/dkp/kommander/2.2/cli/dkp/check/)	 - Check, one of [cluster]
 * [dkp completion](/dkp/kommander/2.2/cli/dkp/completion/)	 - Generate the autocompletion script for the specified shell
 * [dkp config](/dkp/kommander/2.2/cli/dkp/config/)	 - Modify kommander's configuration
-* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, workspace, bootstrap, cluster, nodepool]
+* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [bootstrap, cluster, nodepool, appdeployment, workspace]
 * [dkp delete](/dkp/kommander/2.2/cli/dkp/delete/)	 - Delete one of [bootstrap (resources), cluster, nodepool]
 * [dkp describe](/dkp/kommander/2.2/cli/dkp/describe/)	 - Describe one of [cluster]
 * [dkp detach](/dkp/kommander/2.2/cli/dkp/detach/)	 - Detach one of [cluster]

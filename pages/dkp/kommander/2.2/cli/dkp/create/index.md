@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp create
 title:  dkp create
 menuWeight: 10
-excerpt: Create one of [appdeployment, workspace, bootstrap, cluster, nodepool]
+excerpt: Create one of [bootstrap, cluster, nodepool, appdeployment, workspace]
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp create
 
-Create one of [appdeployment, workspace, bootstrap, cluster, nodepool]
+Create one of [bootstrap, cluster, nodepool, appdeployment, workspace]
 
 ### Options
 

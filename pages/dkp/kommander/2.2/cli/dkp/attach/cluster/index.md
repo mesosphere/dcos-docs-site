@@ -16,15 +16,16 @@ beta: false
 Attach a cluster
 
 ```
-dkp attach cluster -n NAME --kubeconfig FILENAME [flags]
+dkp attach cluster -n NAME --attached-kubeconfig FILENAME [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help               help for cluster
-  -n, --name string        Desired name of the attached cluster
-  -w, --workspace string   Name of the workspace of the attached cluster
+      --attached-kubeconfig string   Path of the kubeconfig file of the cluster to be attached
+  -h, --help                         help for cluster
+  -n, --name string                  Desired name of the attached cluster
+  -w, --workspace string             Name of the workspace of the attached cluster
 ```
 
 ### Options inherited from parent commands
