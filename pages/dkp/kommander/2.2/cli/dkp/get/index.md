@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp get
 title:  dkp get
 menuWeight: 10
-excerpt: Get one of [clusters, workspaces, kubeconfig, nodepools, appdeployments]
+excerpt: Get one of [appdeployments, clusters, kubeconfig, nodepools, workspaces]
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp get
 
-Get one of [clusters, workspaces, kubeconfig, nodepools, appdeployments]
+Get one of [appdeployments, clusters, kubeconfig, nodepools, workspaces]
 
 ### Options
 

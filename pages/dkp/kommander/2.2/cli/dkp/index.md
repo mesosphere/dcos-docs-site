@@ -29,12 +29,12 @@ beta: false
 * [dkp check](/dkp/kommander/2.2/cli/dkp/check/)	 - Check, one of [cluster]
 * [dkp completion](/dkp/kommander/2.2/cli/dkp/completion/)	 - Generate the autocompletion script for the specified shell
 * [dkp config](/dkp/kommander/2.2/cli/dkp/config/)	 - Modify kommander's configuration
-* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [bootstrap, cluster, nodepool, appdeployment, workspace]
+* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, cluster, nodepool, workspace]
 * [dkp delete](/dkp/kommander/2.2/cli/dkp/delete/)	 - Delete one of [bootstrap (resources), cluster, nodepool]
 * [dkp describe](/dkp/kommander/2.2/cli/dkp/describe/)	 - Describe one of [cluster]
 * [dkp detach](/dkp/kommander/2.2/cli/dkp/detach/)	 - Detach one of [cluster]
 * [dkp diagnose](/dkp/kommander/2.2/cli/dkp/diagnose/)	 - Generate a support bundle
-* [dkp get](/dkp/kommander/2.2/cli/dkp/get/)	 - Get one of [clusters, workspaces, kubeconfig, nodepools, appdeployments]
+* [dkp get](/dkp/kommander/2.2/cli/dkp/get/)	 - Get one of [appdeployments, clusters, kubeconfig, nodepools, workspaces]
 * [dkp helmmirror](/dkp/kommander/2.2/cli/dkp/helmmirror/)	 - Commands related to Kommander's internal helm mirror
 * [dkp install](/dkp/kommander/2.2/cli/dkp/install/)	 - Install one of [kommander]
 * [dkp move](/dkp/kommander/2.2/cli/dkp/move/)	 - Move controllers and objects from one cluster to the other
