@@ -15,13 +15,13 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
 1.  Export these environment variables:
 
     ```bash
-    export CONTROL_PLANE_1_ADDRESS="control-plane-address-1"
-    export CONTROL_PLANE_2_ADDRESS="control-plane-address-2"
-    export CONTROL_PLANE_3_ADDRESS="control-plane-address-3"
-    export WORKER_1_ADDRESS="worker-address-1"
-    export WORKER_2_ADDRESS="worker-address-2"
-    export WORKER_3_ADDRESS="worker-address-3"
-    export WORKER_4_ADDRESS="worker-address-4"
+    export CONTROL_PLANE_1_ADDRESS="<control-plane-address-1>"
+    export CONTROL_PLANE_2_ADDRESS="<control-plane-address-2>"
+    export CONTROL_PLANE_3_ADDRESS="<control-plane-address-3>"
+    export WORKER_1_ADDRESS="<worker-address-1>"
+    export WORKER_2_ADDRESS="<worker-address-2>"
+    export WORKER_3_ADDRESS="<worker-address-3>"
+    export WORKER_4_ADDRESS="<worker-address-4>"
     export SSH_USER="<ssh-user>"
     export SSH_PRIVATE_KEY_SECRET_NAME="$CLUSTER_NAME-ssh-key"
     ```
