@@ -34,14 +34,14 @@ echo $CLUSTER_NAME
 my-preprovisioned-cluster-pf4a3
 ```
 
-See [this section](#name-your-cluster) about naming your cluster.
+## Create a secret
 
-1.  Create a secret that contains the SSH key with these commands:
+Create a secret that contains the SSH key with these commands:
 
-    ```bash
-    kubectl create secret generic $CLUSTER_NAME-ssh-key --from-file=ssh-privatekey=<path-to-ssh-private-key>
-    kubectl label secret $CLUSTER_NAME-ssh-key clusterctl.cluster.x-k8s.io/move=
-    ```
+```bash
+kubectl create secret generic $CLUSTER_NAME-ssh-key --from-file=ssh-privatekey=<path-to-ssh-private-key>
+kubectl label secret $CLUSTER_NAME-ssh-key clusterctl.cluster.x-k8s.io/move=
+```
 
 ## Create overrides
 
