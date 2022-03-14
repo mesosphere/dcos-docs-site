@@ -12,20 +12,36 @@ Konvoy needs SSH access to your infrastructure with superuser privileges. You mu
 
 Populate this key and create the required secret, on your bootstrap cluster using the following procedure.
 
-1.  Set the $CLUSTER_NAME environment variable to the name you assigned this cluster:
+## Name your cluster
 
-    ```sh
-    CLUSTER_NAME=my-preprovisioned-cluster
-    ```
+Give your cluster a unique name suitable for your environment.
 
-    See [define infrastructure](../define-infrastructure#name-your-cluster) about naming your cluster.
+Set the environment variable to be used throughout this procedure:
 
-1.  Create a secret that contains the SSH key with these commands:
+```bash
+export CLUSTER_NAME=my-preprovisioned-cluster
+```
 
-    ```shell
-    kubectl create secret generic $CLUSTER_NAME-ssh-key --from-file=ssh-privatekey=<path-to-ssh-private-key>
-    kubectl label secret $CLUSTER_NAME-ssh-key clusterctl.cluster.x-k8s.io/move=
-    ```
+(Optional) If you want to create a unique cluster name, use this command.
+This creates a unique name every time you run it, so use it carefully.
+
+```bash
+export CLUSTER_NAME=my-preprovisioned-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+echo $CLUSTER_NAME
+```
+
+```sh
+my-preprovisioned-cluster-pf4a3
+```
+
+## Create a secret
+
+Create a secret that contains the SSH key with these commands:
+
+```shell
+kubectl create secret generic $CLUSTER_NAME-ssh-key --from-file=ssh-privatekey=<path-to-ssh-private-key>
+kubectl label secret $CLUSTER_NAME-ssh-key clusterctl.cluster.x-k8s.io/move=
+```
 
 ## Create overrides
 
