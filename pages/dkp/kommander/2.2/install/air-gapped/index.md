@@ -172,76 +172,28 @@ export VERSION=v2.2.0
 1.  Download the image bundle file:
 
     ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O kommander-image-bundle.tar
+    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 
-1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
+1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
-    #!/usr/bin/env bash
-    set -euo pipefail
-    IFS=$'\n\t'
-
-    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kommander-image-bundle.tar"}
-    readonly REGISTRY_URL=${REGISTRY_URL?"Need to set REGISTRY_URL. E.g: 10.23.45.67:5000"}
-
-    docker load <"${AIRGAPPED_TAR_FILE}"
-
-    while read -r IMAGE; do
-        echo "Processing ${IMAGE}"
-        REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker).io@${REGISTRY_URL}@")"
-        docker tag "${IMAGE}" "${REGISTRY_IMAGE}"
-        docker push "${REGISTRY_IMAGE}"
-    done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
+    dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
     ```
 
 Based on the network latency between the environment of script execution and the docker registry, this can take a while to upload all the images to your image registry.
 
 ## Install on Konvoy
 
-1.  Create the [configuration file][kommander-config] by running `kommander install --init --airgapped > install.yaml` for the air-gapped deployment. Open the `install.yaml` file and review that it looks like the following, with `${VERSION}` replaced with the actual version number:
+1.  Create the [configuration file][kommander-config] by running `kommander install --init --airgapped > install.yaml` for the air-gapped deployment. Open the `install.yaml` file and review that it looks like the following:
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
     kind: Installation
     airgapped:
       enabled: true
-      helmMirrorImageTag: ${VERSION}-amd64
-    appManagementImageTag: ${VERSION}-amd64
-    apps:
-      ...
-      kommander:
-        values: |
-          authorizedlister:
-            image:
-              tag: ${VERSION}-amd64
-          controller:
-            containers:
-              manager:
-                image:
-                  tag: ${VERSION}-amd64
-          webhook:
-            image:
-              tag: ${VERSION}-amd64
-          fluxOperator:
-            containers:
-              manager:
-                image:
-                  tag: ${VERSION}-amd64
-          kommander-licensing:
-            controller:
-              containers:
-                manager:
-                  image:
-                    tag: ${VERSION}-amd64
-            webhook:
-              image:
-                tag: ${VERSION}-amd64
-          kubetools:
-            image:
-              tag: ${VERSION}-amd64
     ```
 
 1.  In the same file, if you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by setting the following:
