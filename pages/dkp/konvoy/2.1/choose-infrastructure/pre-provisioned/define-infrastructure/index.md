@@ -94,6 +94,8 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
 
 ## Prepare your machines
 
+For DKP to install completely, you must turn off memory swap.
+
 For DKP to install completely, you must stop `firewalld`, if enabled.
 
 Verify `firewalld` is running before you deploy DKP. Use SSH to access each of the machines onto which you are deploying DKP, and check to see if 'firewalld' is running, using the command:
