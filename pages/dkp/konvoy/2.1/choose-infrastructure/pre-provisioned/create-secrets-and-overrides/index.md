@@ -34,7 +34,7 @@ echo $CLUSTER_NAME
 my-preprovisioned-cluster-pf4a3
 ```
 
-    See [define infrastructure](../define-infrastructure#name-your-cluster) about naming your cluster.
+See [this section](#name-your-cluster) about naming your cluster.
 
 1.  Create a secret that contains the SSH key with these commands:
 

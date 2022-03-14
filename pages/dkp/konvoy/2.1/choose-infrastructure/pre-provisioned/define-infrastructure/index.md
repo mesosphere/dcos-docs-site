@@ -86,13 +86,11 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
     ```bash
     envsubst < preprovisioned_inventory.yaml | kubectl apply -f -
     ```
+
     ```sh
     preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/my-preprovisioned-cluster-control-plane created
     preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/my-preprovisioned-cluster-md-0 created
     ```
-
-
-
 
 ## Prepare your machines
 
