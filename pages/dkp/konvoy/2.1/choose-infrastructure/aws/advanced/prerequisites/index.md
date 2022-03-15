@@ -22,7 +22,7 @@ Before you begin using Konvoy, you must have:
 If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on a [CentOS 7 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
 
 <p class="message--note"><strong>NOTE: </strong>
-The AMI images used in the default configuration work, but they are not recommended for production workloads.  We suggest using the <a href="../../../../image-builder/create-ami/">Konvoy Image Builder to create a custom AMI</a> for production workloads.
+The AMI images used in the default configuration work, but they are not recommended for production workloads. We suggest using the <a href="../../../../image-builder/create-ami/">Konvoy Image Builder to create a custom AMI</a> for production workloads.
 </p>
 
 ## AWS prerequisites
