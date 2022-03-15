@@ -12,6 +12,8 @@ The following table describes the list of applications that can be deployed to a
 Review the [project application service resource requirements](./platform-application-requirements/) to ensure that the attached clusters have sufficient resources.
 -->
 
+When deploying and upgrading applications, platform applications come as a bundle; they are tested as a single unit and you must deploy or upgrade them in a single process, for each workspace. This means all clusters in a workspace have the same set and version of platform applications deployed.
+
 ### Deploy applications in a project
 
 You can select which applications to deploy in a project by going to the **Applications** tab of the project.

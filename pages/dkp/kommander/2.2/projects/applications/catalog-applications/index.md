@@ -25,4 +25,4 @@ Follow these steps to upgrade an application from the DKP Dashboard:
 
 ### Upgrade with CLI
 
-<need to add instuctions>
+<!-- need to add instuctions and command -->
