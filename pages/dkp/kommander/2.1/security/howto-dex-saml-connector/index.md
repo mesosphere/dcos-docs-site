@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: SAML
 title: SAML connector
 menuWeight: 33
-excerpt: Connect your Kommander cluster to an Idp using SAML
+excerpt: Connect your Kommander cluster to an IdP using SAML
 beta: false
 enterprise: false
 ---
@@ -53,7 +53,7 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
     - username attribute name in SAML response -> `usernameAttr`
     - email attribute name in SAML response -> `emailAttr`
 
-    From step 2 you need:
+    From above you need:
 
     - issuer URL -> `entityIssuer`
     - callback URL -> `redirectURI`
