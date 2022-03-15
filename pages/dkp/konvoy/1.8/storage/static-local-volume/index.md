@@ -102,6 +102,8 @@ This distinction between provisioning and deployment is important because some a
     NAME            STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS             AGE
     example-claim   Bound    local-pv-4c7fc8ba   3986Mi     RWO            localvolumeprovisioner   78s
     ```
+	
+1.  Verify the persistent volume by running the following command:
 
     ```bash
     kubectl get pv --kubeconfig=admin.conf
