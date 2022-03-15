@@ -31,39 +31,25 @@ Before starting this tutorial, you should verify the following:
 
 ## Provision the cluster and a volume
 
-1. Provision the Kubernetes cluster without deploying addons by running the following command:
-
-    ```bash
-    konvoy provision
-    ```
-
 1. Provision the local volume provisioner to watch for mounts in `/mnt/disks` on each host.
 
     For example, mount a `tmpfs` volume with `ansible` using the `inventory.yaml` provided by `konvoy` by running the following command:
 
     ```bash
-    ansible -i inventory.yaml node -m shell -a "mkdir -p /mnt/disks/example-volume && mount -t tmpfs example-volume /mnt/disks/example-volume"
+    ANSIBLE_HOST_KEY_CHECKING=False ansible -i inventory.yaml node -m shell -b -a "mkdir -p /mnt/disks/example-volume && mount -t tmpfs example-volume /mnt/disks/example-volume"
     ```
-
-1. Deploy the `konvoy` cluster with addons by running the following command:
-
-    ```bash
-    konvoy up
-    ```
-
-    When you run this command, the local volume provisioned detects the `example-volume` volume and adds it as a persistent volume to the `localvolumeprovisioner` storage class.
 
 1. Verify the persistent volume by running the following command:
 
     ```bash
-    kubectl get pv
+    kubectl get pv --kubeconfig=admin.conf
     ```
 
     The command displays output similar to the following:
 
-    ```bash
-    NAME                CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS             REASON   AGE
-    local-pv-4c7fc8ba   3986Mi     RWO            Delete           Available           localvolumeprovisioner            2s
+    ```sh
+	NAME                 CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                                              STORAGECLASS           REASON   AGE
+    local-pv-4c7fc8ba    30Gi       RWO            Delete           Bound    kubeaddons/data-elasticsearch-kubeaddons-data-3                    localvolumeprovisioner            4m9s
     ```
 
 1. Claim the persistent volume using PersistentVolumeClaim settings by running the following command:
@@ -109,15 +95,20 @@ Before starting this tutorial, you should verify the following:
 1. Verify the persistent volume claim by running the following command:
 
     ```bash
-    kubectl get pvc
+    kubectl get pvc --kubeconfig=admin.conf
     ```
 
     The command displays output similar to the following:
 
-    ```bash
+    ```sh
     NAME            STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS             AGE
     example-claim   Bound    local-pv-4c7fc8ba   3986Mi     RWO            localvolumeprovisioner   78s
-    $ kubectl get pv
+	```
+	
+	```bash
+    kubectl get pv --kubeconfig=admin.conf
+    ```
+	```sh
     NAME                CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                   STORAGECLASS             REASON   AGE
     local-pv-4c7fc8ba   3986Mi     RWO            Delete           Bound       default/example-claim   localvolumeprovisioner            15m
     ```
