@@ -95,6 +95,7 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
     apiVersion: config.kommander.mesosphere.io/v1alpha1
     kind: Installation
     apps:
+    ...
       traefik-forward-auth-mgmt:
         values: |
           traefikForwardAuth:
@@ -103,10 +104,10 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
                 secretKeyRef: null
             whitelist:
             - < allowed email addresses >
-    [...]
+
     ```
 
-1.  Run `kommander install` to deploy modified `dex`.
+1.  Run `kommander install --installer-config kommander.yaml` to deploy modified `dex`.
 
 1.  Visit `https://<your-cluster-host>/dkp/kommander/dashboard` to login to the Kommander dashboard.
 
