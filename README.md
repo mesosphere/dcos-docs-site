@@ -2,7 +2,7 @@
 
 # D2iQ documentation
 
-D2IQ's documentation is created based on a *docs as code* approach or methodology. In other words, content creators use the same processes and tools as developers. Therefore, there are a few steps you need to follow to be able to contribute to documentation. 
+D2iQ's documentation is created based on a *docs as code* approach or methodology. In other words, content creators use the same processes and tools as developers. Therefore, there are a few steps you need to follow to be able to contribute to documentation. 
 
 D2iQ's documentation site uses a JavaScript static site generator called Metalsmith. Here is how you can get started running the repo. Please also read the [contributing guidelines](./CONTRIBUTING.md) for instructions on how to make edits to docs.
 
