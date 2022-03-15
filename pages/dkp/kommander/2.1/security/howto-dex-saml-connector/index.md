@@ -32,7 +32,7 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
     https://<your-cluster-host>/dex/callback
     ```
 
-    Depending on the IdP, you might be asked to provide the configuration in some form of an XML snippet - see the following example:
+    Depending on the IdP, you might be asked to provide the configuration in some form of an XML snippet. See the following example, making sure to replace `<your-cluster-host>` with your URL:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -64,20 +64,20 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
     LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tC[...]
     ```
 
-    You can add the configuration as the values field in the `dex` application. An example `dex` configuration provided to the Kommander CLI’s install command should look similar to:
+    You can add the configuration as the values field in the `dex` application. An example `dex` configuration provided to the [Kommander CLI’s install command][kommander-install] should look similar to:
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
     kind: Installation
     apps:
-        dex:
+      dex:
         values: |
-            config:
-            connectors:
-            - type: saml
-                id: saml
-                name: SAML
-                config:
+          config:
+          connectors:
+          - type: saml
+              id: saml
+              name: SAML
+              config:
                 ssoURL: < url for POST request >
                 caData: < base64 PEM encoded CA for the IdP server >
                 redirectURI: https://<your-cluster-host>/dex/callback
@@ -95,11 +95,11 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
     apiVersion: config.kommander.mesosphere.io/v1alpha1
     kind: Installation
     apps:
-        traefik-forward-auth-mgmt:
+      traefik-forward-auth-mgmt:
         values: |
-            traefikForwardAuth:
+          traefikForwardAuth:
             allowedUser:
-                valueFrom:
+              valueFrom:
                 secretKeyRef: null
             whitelist:
             - < allowed email addresses >
@@ -111,3 +111,5 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
 1.  Visit `https://<your-cluster-host>/dkp/kommander/dashboard` to login to the Kommander dashboard.
 
 1.  Select `Launch Console` and follow the authentication steps to complete the procedure.
+
+[kommander-install]: ../../install/configuration/
