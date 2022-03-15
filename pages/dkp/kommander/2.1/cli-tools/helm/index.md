@@ -14,7 +14,7 @@ You may encounter some situations where you need to use an older version of Helm
 
 ## What Is Helm
 
-Helm is a tool that streamlines installing and managing Kubernetes applications. It provides managed packages called _charts_, which is a collection of related Kubernetes resources. Helm allows for customization, installation, upgrades, and rollback of packages.
+If you want to know more about Helm - the package manager for Kubernetes - have a look at their [website][helm-website].
 
 ### Key Features
 
@@ -102,6 +102,7 @@ For information on Helm, refer to the following:
 - [Helm repository management][helm-management]
 - [Creating your own charts][helm-create-charts]
 
+[helm-website]: https://helm.sh/
 [helm-3.8.0]: https://github.com/helm/helm/releases/tag/v3.8.0
 [helm-create-charts]: https://helm.sh/docs/intro/using_helm/#creating-your-own-charts
 [helm-custom-chart]: https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing
