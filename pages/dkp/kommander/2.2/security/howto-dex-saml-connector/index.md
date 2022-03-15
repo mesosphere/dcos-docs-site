@@ -104,7 +104,6 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
                 secretKeyRef: null
             whitelist:
             - < allowed email addresses >
-
     ```
 
 1.  Run `kommander install --installer-config kommander.yaml` to deploy modified `dex`.
