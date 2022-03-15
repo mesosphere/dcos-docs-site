@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-The `localvolumeprovisioner` addon uses the [local volume static provisioner][localstorage] to manage persistent volumes for pre-allocated disks.
+The `localvolumeprovisioner` component uses the [local volume static provisioner][localstorage] to manage persistent volumes for pre-allocated disks.
 It does this by watching the `/mnt/disks` folder on each host and creating persistent volumes in the `localvolumeprovisioner` storage class for each disk that it discovers in this folder.
 
 -   Persistent volumes with a 'Filesystem' volume-mode are discovered if they are mounted under `/mnt/disks`.
@@ -21,35 +21,25 @@ Before starting this tutorial, verify the following:
 
 -   You have access to a Linux, macOS, or Windows computer with a supported operating system version.
 
--   You have a provisioned `konvoy` cluster that uses the `localvolumeprovisioner` addon, but have not added any other addons to the cluster yet.
+-   You have a provisioned `konvoy` cluster that uses the `localvolumeprovisioner` component, but have not added any other Kommander applications to the cluster yet.
 
-  For this tutorial, you **do not deploy** using all the default settings as described in the [Quick start guide][quickstart].
+For this tutorial, you **do not deploy** using all the default settings as described in the [Quick start guide][quickstart].
 
-  This distinction between provisioning and deployment is important because some addons depend on the storage class provided by the `localvolumeprovisioner` addon and can fail to start if it is not configured yet.
+This distinction between provisioning and deployment is important because some applications depend on the storage class provided by the `localvolumeprovisioner` component and can fail to start if it is not configured yet.
 
 ### Provision the cluster and a volume
 
-1.  Provision the Kubernetes cluster without deploying addons by running the following command:
+1.  Create a pre-provisioned cluster by following the steps outlined [in the choose pre-provisioned infrastructure topic][preprovision].
+
+    Whenever volumes are create on the node machines, the local volume provisioned detects the volume in `/mnt/disks` and adds it as a persistent volume with the `localvolumeprovisioner` storage class.
+
+1.  Create some volumes in `/mnt/disks` on each host.
+
+    For example, mount a `tmpfs` volume:
 
     ```bash
-    konvoy provision
+    mkdir -p /mnt/disks/example-volume && mount -t tmpfs example-volume /mnt/disks/example-volume
     ```
-
-1.  Provision the local volume provisioner to watch for mounts in `/mnt/disks` on each host.
-
-    For example, mount a `tmpfs` volume with `ansible` using the `inventory.yaml` provided by `konvoy` by running the following command:
-
-    ```bash
-    ansible -i inventory.yaml node -m shell -a "mkdir -p /mnt/disks/example-volume && mount -t tmpfs example-volume /mnt/disks/example-volume"
-    ```
-
-1.  Deploy the `konvoy` cluster with addons by running the following command:
-
-    ```bash
-    konvoy up
-    ```
-
-    When you run this command, the local volume provisioned detects the `example-volume` volume and adds it as a persistent volume to the `localvolumeprovisioner` storage class.
 
 1.  Verify the persistent volume by running the following command:
 
@@ -123,4 +113,5 @@ Before starting this tutorial, verify the following:
 Upon deletion of the persistent volume claim, the corresponding persistent volume resource deletes (mandated by the "Delete" reclaim policy), which removes all data on the volume.
 
 [localstorage]:https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
+[preprovision]: ../../choose-infrastructure/pre-provisioned
 [quickstart]:../../choose-infrastructure/aws/quick-start-aws/
