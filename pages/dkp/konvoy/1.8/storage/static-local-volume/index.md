@@ -25,7 +25,7 @@ Before starting this tutorial, you should verify the following:
 
 For this tutorial, **do not deploy** using all of the default settings as described in the [Quick start][quickstart].
 
-This distinction between provisioning and deployment is important because some addons might depend on the storage class provided by the `localvolumeprovisioner` addon and might fail to start if it is not configured yet.
+This distinction between provisioning and deployment is important because some addons depend on the storage class provided by the `localvolumeprovisioner` addon and fail to start if it is not configured yet.
 
 ### Provision the cluster and a volume
 
