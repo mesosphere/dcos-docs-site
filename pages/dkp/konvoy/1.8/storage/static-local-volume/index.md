@@ -118,4 +118,5 @@ This distinction between provisioning and deployment is important because some a
 As soon as the persistent volume claim is deleted, the corresponding persistent volume resource is deleted (mandated by the "Delete" reclaim policy), causing all data on the volume to be removed.
 
 [localstorage]:https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
+[preprovision]: ../../install/install-onprem/
 [quickstart]:../../quick-start/
