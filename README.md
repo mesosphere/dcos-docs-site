@@ -9,7 +9,7 @@ D2iQ's documentation site uses a JavaScript static site generator called Metalsm
 ## Prerequisites
 
 1. Download and install a source code editor like VSC. Note: use a package manager such as Homebrew to install new software.
-1. Create an account on GitHub and activate the 2FA process for added security. Or use your personal account and ensure 2FA is active.
+1. Create an account on GitHub and activate the 2FA process for added security, or use your personal account and ensure 2FA is active.
 1. Install the GitHub extension (in VSC: https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 1. Clone the repo (in VSC: select *Clone repo*, enter *mesosphere/dcos-docs-site* in the search bar and save a copy of the repo locally).
 1. Install node.js version 12.22.7 (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf) or [nvm-windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows))
