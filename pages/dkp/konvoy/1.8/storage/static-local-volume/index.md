@@ -28,6 +28,7 @@ For this tutorial, **do not deploy** using all of the default settings as descri
 This distinction between provisioning and deployment is important because some addons depend on the storage class provided by the `localvolumeprovisioner` addon and fail to start if it is not configured yet.
 
 ### Provision the cluster and a volume
+1.  Create a pre-provisioned cluster by following the steps outlined [in the choose pre-provisioned infrastructure topic][preprovision].
 
 1.  Provision the local volume provisioner to watch for mounts in `/mnt/disks` on each host.
 
