@@ -13,7 +13,7 @@ It does this by watching the `/mnt/disks` folder on each host and creating persi
 
 -   Persistent volumes with a 'Filesystem' volume-mode are discovered if you mount them under `/mnt/disks`.
 
--   Persistent volumes with a 'Block' volume-mode are discovered if you create a symbolic link to the block device is created in `/mnt/disks`.
+-   Persistent volumes with a 'Block' volume-mode are discovered if you create a symbolic link to the block device in `/mnt/disks`.
 
 ## Before you begin
 
@@ -31,7 +31,7 @@ This distinction between provisioning and deployment is important because some a
 
 1.  Create a pre-provisioned cluster by following the steps outlined [in the choose pre-provisioned infrastructure topic][preprovision].
 
-    Whenever volumes are created on the machines, the `localvolumeprovisioner` detects the volume in `/mnt/disks` and adds it as a persistent volume with the `localvolumeprovisioner` storage class.
+    As volumes are created/mounted on the nodes, the local volume provisioner detects each volume in the `/mnt/disks` directory and adds it as a persistent volume with the `localvolumeprovisioner` storage class.
 
 1.  Create at least one volume in `/mnt/disks` on each host.
 
