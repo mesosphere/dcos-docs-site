@@ -31,9 +31,9 @@ This distinction between provisioning and deployment is important because some a
 
 1.  Create a pre-provisioned cluster by following the steps outlined [in the choose pre-provisioned infrastructure topic][preprovision].
 
-    Whenever volumes are create on the node machines, the local volume provisioned detects the volume in `/mnt/disks` and adds it as a persistent volume with the `localvolumeprovisioner` storage class.
+    Whenever volumes are created on the machines, the `localvolumeprovisioner` detects the volume in `/mnt/disks` and adds it as a persistent volume with the `localvolumeprovisioner` storage class.
 
-1.  Create some volumes in `/mnt/disks` on each host.
+1.  Create at least one volume in `/mnt/disks` on each host.
 
     For example, mount a `tmpfs` volume:
 
