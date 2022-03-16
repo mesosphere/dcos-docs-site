@@ -11,9 +11,9 @@ enterprise: false
 The `localvolumeprovisioner` component uses the [local volume static provisioner][localstorage] to manage persistent volumes for pre-allocated disks.
 It does this by watching the `/mnt/disks` folder on each host and creating persistent volumes in the `localvolumeprovisioner` storage class for each disk that it discovers in this folder.
 
--   Persistent volumes with a 'Filesystem' volume-mode are discovered if they are mounted under `/mnt/disks`.
+-   Persistent volumes with a 'Filesystem' volume-mode are discovered if you mount them under `/mnt/disks`.
 
--   Persistent volumes with a 'Block' volume-mode are discovered if a symbolic link to the block device is created in `/mnt/disks`.
+-   Persistent volumes with a 'Block' volume-mode are discovered if you create a symbolic link to the block device is created in `/mnt/disks`.
 
 ## Before you begin
 
@@ -21,7 +21,7 @@ Before starting this tutorial, verify the following:
 
 -   You have access to a Linux, macOS, or Windows computer with a supported operating system version.
 
--   You have a provisioned `konvoy` cluster that uses the `localvolumeprovisioner` component, but have not added any other Kommander applications to the cluster yet.
+-   You have a provisioned `konvoy` cluster that uses the `localvolumeprovisioner` platform application, but have not added any other Kommander applications to the cluster yet.
 
 For this tutorial, you **do not deploy** using all the default settings as described in the [Quick start guide][quickstart].
 
@@ -54,7 +54,7 @@ This distinction between provisioning and deployment is important because some a
     local-pv-4c7fc8ba   3986Mi     RWO            Delete           Available           localvolumeprovisioner            2s
     ```
 
-1.  Claim the persistent volume using PersistentVolumeClaim settings by running the following command:
+1.  Claim the persistent volume using a PersistentVolumeClaim, by running the following command:
 
     ```yaml
     cat <<EOF | kubectl create -f -
@@ -72,7 +72,7 @@ This distinction between provisioning and deployment is important because some a
     EOF
     ```
 
-1.  Reference the persistent volume claim in pods by running the following command:
+1.  Reference the persistent volume claim in a pod by running the following command:
 
     ```yaml
     cat <<EOF | kubectl create -f -
@@ -110,7 +110,7 @@ This distinction between provisioning and deployment is important because some a
     local-pv-4c7fc8ba   3986Mi     RWO            Delete           Bound       default/example-claim   localvolumeprovisioner            15m
     ```
 
-Upon deletion of the persistent volume claim, the corresponding persistent volume resource deletes (mandated by the "Delete" reclaim policy), which removes all data on the volume.
+Upon deletion of the persistent volume claim, the corresponding persistent volume resource uses the "Delete" reclaim policy, which removes all data on the volume.
 
 [localstorage]:https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [preprovision]: ../../choose-infrastructure/pre-provisioned
