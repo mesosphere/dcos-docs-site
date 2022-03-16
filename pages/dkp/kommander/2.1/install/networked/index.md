@@ -15,7 +15,7 @@ Before you begin using Kommander, you must:
 - Install `cert-manager` prior to installing Kommander. (Konvoy does this as part of its install process).
 - Install Kommander before executing any `kommander` commands. Ensure you have the version of the CLI that matches the Kommander version you want to install.
 
-<p class="message--note"><strong>NOTE:</strong> For an on-prem installation it is important to configure and setup Metal-LB before continuing. If you have not done so yet, see this topic for more information: [Load Balancing](/dkp/konvoy/2.1/networking/load-balancing/#on-premises/).</p>
+<p class="message--note"><strong>NOTE:</strong> For an on-prem installation it is important to configure and setup Metal-LB before continuing. If you have not done so yet, see this topic for more information: <a href="../../networking/load-balancing/#on-premises">Load Balancing</a>.</p>
 
 ### Default StorageClass
 
