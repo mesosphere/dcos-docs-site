@@ -50,7 +50,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 1.  Create the cluster from the objects.
 
     ```sh
-    kubectl apply -f ${CLUSTER_NAME}.yaml
+    kubectl create -f ${CLUSTER_NAME}.yaml
     ```
 
     ```sh

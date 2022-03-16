@@ -91,7 +91,7 @@ enterprise: false
 1.  Apply the cluster configuration.
 
     ```sh
-    kubectl apply -f cluster-sbx.yaml
+    kubectl create -f cluster-sbx.yaml
     ```
 
 1.  Monitor the Kubernetes cluster deployment.
