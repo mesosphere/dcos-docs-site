@@ -43,6 +43,6 @@ dkp create bootstrap [flags]
 
 ### SEE ALSO
 
-* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, cluster, nodepool, workspace]
+* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, cluster, image-bundle, nodepool, workspace]
 * [dkp create bootstrap controllers](/dkp/kommander/2.2/cli/dkp/create/bootstrap/controllers/)	 - Create management controllers
 

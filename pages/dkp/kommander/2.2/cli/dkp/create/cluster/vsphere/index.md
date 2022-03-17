@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp create cluster aks
-title:  dkp create cluster aks
+navigationTitle:  dkp create cluster vsphere
+title:  dkp create cluster vsphere
 menuWeight: 10
-excerpt: Create a Konvoy cluster in AKS
+excerpt: Create a Konvoy cluster in VSphere
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,12 +11,12 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp create cluster aks
+## dkp create cluster vsphere
 
-Create a Konvoy cluster in AKS
+Create a Konvoy cluster in VSphere
 
 ```
-dkp create cluster aks [flags]
+dkp create cluster vsphere [flags]
 ```
 
 ### Options
@@ -27,41 +27,50 @@ dkp create cluster aks [flags]
       --aws-service-endpoints string          Custom AWS service endpoints in a semi-colon separated format: ${SigningRegion1}:${ServiceID1}=${URL},${ServiceID2}=${URL};${SigningRegion2}...
       --certificate-renew-interval int        The interval number of days Kubernetes managed PKI certificates are renewed. For example, an Interval value of 30 means the certificates will be refreshed every 30 days. A value of 0 disables the feature. (default 0)
   -c, --cluster-name name                     Name used to prefix the cluster and all the created resources.
+      --control-plane-endpoint-host string    The control plane endpoint address. To use an external load balancer, set to its IP or hostname. To use the built-in virtual IP, set to a static IPv4 address in the Layer 2 network of the control plane machines. [Not for production use: To use a single-machine control plane, set to the IP or hostname of the machine.]
+      --control-plane-endpoint-port int       The control plane endpoint port. To use an external load balancer, set to its listening port.
       --control-plane-http-proxy string       HTTP proxy for control plane machines
       --control-plane-https-proxy string      HTTPS proxy for control plane machines
-      --control-plane-machine-size string     Control Plane machine size (ex. 'Standard_D4s_v3')
       --control-plane-no-proxy strings        No Proxy list for control plane machines
       --control-plane-replicas int            Number of control plane replicas
+      --data-center string                    The vSphere datacenter to deploy the management cluster on.
+      --data-store string                     The vSphere datastore to deploy the management cluster on.
       --dry-run                               Only print the objects that would be created, without creating them.
       --etcd-image-repository string          The image repository to use for pulling the etcd image
       --etcd-version string                   The version of etcd to use
       --extra-sans strings                    A comma separated list of additional Subject Alternative Names for the API Server signing cert
-  -h, --help                                  help for aks
+      --folder string                         The VM folder for your VMs. Set to "" to use the root vSphere folder
+  -h, --help                                  help for vsphere
       --kind-cluster-image string             Kind node image for the bootstrap cluster
       --kind-cluster-name string              Kind cluster name for the bootstrap cluster
       --kubeconfig string                     Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string    The image repository to use for pulling kubernetes images
       --kubernetes-version string             Kubernetes version
-      --location string                       Azure location to deploy cluster to
       --management-plane-http-proxy string    HTTP proxy for management plane
       --management-plane-https-proxy string   HTTPS proxy for management plane
       --management-plane-no-proxy strings     No Proxy list for management plane
   -n, --namespace string                      If present, the namespace scope for this CLI request.
+      --network string                        The VM network to deploy the management cluster on.
   -o, --output string                         Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
       --registry-mirror-cacert file           CA certificate chain to use while communicating with the registry mirror using TLS
       --registry-mirror-password string       Password to authenticate to the registry mirror with
       --registry-mirror-url string            URL of a container registry to use as a mirror in the cluster
       --registry-mirror-username string       Username to authenticate to the registry mirror with
+      --resource-pool string                  The vSphere resource pool for your VMs.
+      --self-managed                          When set to true, the required prerequisites are created before creating the cluster and the resulting cluster has all necessary components deployed onto itself, so it can manage its own cluster lifecycle. When set to false, a management cluster is used.(default false)
+      --server string                         The vCenter server IP or FQDN.
       --show-managed-fields                   If true, keep the managedFields when printing objects in JSON or YAML format.
       --ssh-public-key-file string            Path to the authorized SSH key for the user
       --ssh-username string                   Name of the user to create on the instance
+      --storage-policy string                 This is the vSphere storage policy. Set it to "" if you don't want to use a storage policy.
       --template string                       Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
       --timeout duration                      The length of time to wait before giving up. Zero means wait forever.
+      --tls-thumb-print string                sha1 thumbprint of the vcenter certificate: openssl x509 -sha1 -fingerprint -in ca.crt -noout
+      --vm-template string                    The VM vmTemplate to use for your management cluster.
       --wait                                  If true, wait for operations to complete before returning.
       --with-aws-bootstrap-credentials        Set false to skip deploying AWS bootstrap credentials from your environment. The instance profiles of the node where the CAPA controller is scheduled on will be used instead.
       --worker-http-proxy string              HTTP proxy for worker machines
       --worker-https-proxy string             HTTPS proxy for worker machines
-      --worker-machine-size string            Worker machine size (ex. 'Standard_D8s_v3')
       --worker-no-proxy strings               No Proxy list for worker machines
       --worker-replicas int                   Number of workers
 ```
