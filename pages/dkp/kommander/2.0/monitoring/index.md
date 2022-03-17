@@ -8,8 +8,6 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
-
 Using DKP you can monitor the state of the cluster and the health and availability of the processes running on the cluster.
 By default, Kommander provides monitoring services using a pre-configured monitoring stack based on the Prometheus open-source project and its broader ecosystem.
 
@@ -34,8 +32,8 @@ The `kube-prometheus-stack`is deployed by default on the management cluster and 
 - grafana: monitors and visualizes metrics.
 - service monitors: collects internal Kubernetes components.
 
-A detailed description of the exposed metrics can be found [here][kube_state_exposed_metrics].
-The `service-monitors` collect internal Kubernetes components but can also be extended to monitor customer apps as explained [here](#monitor-applications).
+A detailed description of the exposed metrics can be found [in the `kube-state-metrics` documentation][kube_state_exposed_metrics].
+The `service-monitors` collect internal Kubernetes components but can also be extended to [monitor customer apps](#monitor-applications).
 
 ## Grafana Dashboards
 
@@ -48,7 +46,7 @@ Kommander ships with a set of default dashboards including:
 - Etcd
 - Prometheus
 
-Find the complete list of default enabled dashboards [here][grafana_default_dashboards].
+Find the complete list of default enabled dashboards [in this public GitHub repository][grafana_default_dashboards].
 
 To disable all of the default dashboards, follow these steps to define an overrides ConfigMap:
 
@@ -92,7 +90,7 @@ To access the Grafana UI, browse to the landing page and then search for the Gra
 
 ### Add custom dashboards
 
-In Kommander you can define your own custom dashboards. There are a few methods to [import dashboards][grafana_import_dashboards] to Grafana.
+In Kommander you can define your own custom dashboards. You can use a few methods to [import dashboards][grafana_import_dashboards] to Grafana.
 
 One method is to [use ConfigMaps to import dashboards][grafana_sidecar_dashboards].
 Below are steps on how to create a ConfigMap with your dashboard definition.
@@ -168,7 +166,7 @@ Some examples of the alerts currently available are:
 - CoreDNSDown
 - KubeVersionMismatch
 
-A complete list with all the pre-defined alerts can be found [here][prometheus_rules].
+A complete list with all the pre-defined alerts can be found [in this public GitHub repository][prometheus_rules].
 
 ### Use overrides configMaps to configure alert rules
 
@@ -372,9 +370,9 @@ By default, the `kube-prometheus-stack` provides the following service monitors 
 
 The operator is in charge of iterating over all of these `ServiceMonitor` objects and collecting the metrics from these defined components.
 
-The following example illustrates how to retrieve application metrics. In this example:
+The following example illustrates how to retrieve application metrics. In this example, there are:
 
-- There are three instances of a simple app named `my-app`
+- Three instances of a simple app named `my-app`
 - The sample app listens and exposes metrics on port 8080
 - The app is assumed to already be running
 
@@ -400,7 +398,7 @@ spec:
 
 This service object is discovered by a `ServiceMonitor`, which defines the selector to match the labels with those defined in the service. The app label must have the value `my-app`.
 
-In this example, in order for `kube-prometheus-stack` to discover this `ServiceMonitor`, add a specific label `prometheus.kommander.d2iq.io/select: "true"` in the `yaml`:
+In this example, in order for `kube-prometheus-stack` to discover this `ServiceMonitor`, you must add a specific label `release: kube-prometheus-stack` in the `yaml`:
 
 ```yaml
 apiVersion: monitoring.coreos.com/v1
@@ -409,7 +407,7 @@ metadata:
   name: my-app-service-monitor
   namespace: my-namespace
   labels:
-    prometheus.kommander.d2iq.io/select: "true"
+    release: kube-prometheus-stack
 spec:
   selector:
     matchLabels:
@@ -443,7 +441,7 @@ data:
               interval: 30s
 ```
 
-Official documentation about using a `ServiceMonitor` to monitor an app with the Prometheus-operator on Kubernetes can be found [here](https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md#related-resources).
+Official documentation about using a `ServiceMonitor` to monitor an app with the Prometheus-operator on Kubernetes can be found [in this public GitHub repository](https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md#related-resources).
 
 ## Set a specific storage capacity for Prometheus
 
