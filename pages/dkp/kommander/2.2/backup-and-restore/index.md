@@ -197,6 +197,46 @@ To restore cluster data on demand from a selected backup snapshot available in t
 velero restore create --from-backup BACKUP-NAME
 ```
 
+#### Restore your Kommander Management Cluster
+
+<p class="message--note"><strong>NOTE: </strong>When restoring a backup to the Kommander Management Cluster, you must adjust configuration to avoid restore errors.
+</p>
+
+Before restoring a backup, ensure the following `ResourceQuota` setup is not configured on your cluster:
+
+```bash
+kubectl -n kommander delete resourcequota one-kommandercluster-per-kommander-workspace
+```
+
+When completed, the manually removed `ResourceQuota` named `one-kommandercluster-per-kommander-workspace` restores automatically.
+
+Turn off the `Workspace` validation webhooks. Otherwise, you will not restore Workspaces with pre-configured namespaces. If the validation webhook named `kommander-validating` is present, it must be modified with the command:
+
+```bash
+kubectl patch validatingwebhookconfigurations kommander-validating \
+  --type json \
+  --patch '[
+    {
+      "op": "remove",
+      "path": "/webhooks/0/rules/3/operations/0"
+    }
+  ]'
+```
+
+When the backup completes, re-add the removed `CREATE` webhook rule operation with:
+
+```bash
+kubectl patch validatingwebhookconfigurations kommander-validating \
+  --type json \
+  --patch '[
+    {
+      "op": "add",
+      "path": "/webhooks/0/rules/3/operations/0",
+      "value": "CREATE"
+    }
+  ]'
+```
+
 ## Backup service diagnostics
 
 You can check whether the Velero service is currently running on your cluster through the Kubernetes dashboard (accessible via the Kommander UI on the Kommander Management Cluster), or by running the following `kubectl` command:
