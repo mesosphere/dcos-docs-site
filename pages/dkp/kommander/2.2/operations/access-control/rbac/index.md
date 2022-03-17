@@ -104,18 +104,18 @@ Roles have been created for granting access to the dashboard and select applicat
 | kommander-dashboard | dkp-kommander-view                           | /dkp/kommander/dashboard/\*          | read                |
 | kommander-dashboard | dkp-kommander-edit                           | /dkp/kommander/dashboard/\*          | read, write         |
 | kommander-dashboard | dkp-kommander-admin                          | /dkp/kommander/dashboard/\*          | read, write, delete |
-| alertmanager        | kube-prometheus-stack-dkp-alertmanager-view  | /dkp/alertmanager/\*                 | read                |
-| alertmanager        | kube-prometheus-stack-dkp-alertmanager-edit  | /dkp/alertmanager/\*                 | read, write         |
-| alertmanager        | kube-prometheus-stack-dkp-alertmanager-admin | /dkp/alertmanager/\*                 | read, write, delete |
-| centralized-grafana | centralized-grafana-dkp-grafana-view  | /dkp/kommander/monitoring/grafana/\* | read                |
-| centralized-grafana | centralized-grafana-dkp-grafana-edit  | /dkp/kommander/monitoring/grafana/\* | read, write         |
-| centralized-grafana | centralized-grafana-dkp-grafana-admin | /dkp/kommander/monitoring/grafana/\* | read, write, delete |
+| alertmanager        | dkp-kube-prometheus-stack-alertmanager-view  | /dkp/alertmanager/\*                 | read                |
+| alertmanager        | dkp-kube-prometheus-stack-alertmanager-edit  | /dkp/alertmanager/\*                 | read, write         |
+| alertmanager        | dkp-kube-prometheus-stack-alertmanager-admin | /dkp/alertmanager/\*                 | read, write, delete |
+| centralized-grafana | dkp-centralized-grafana-grafana-view  | /dkp/kommander/monitoring/grafana/\* | read                |
+| centralized-grafana | dkp-centralized-grafana-grafana-edit  | /dkp/kommander/monitoring/grafana/\* | read, write         |
+| centralized-grafana | dkp-centralized-grafana-grafana-admin | /dkp/kommander/monitoring/grafana/\* | read, write, delete |
 | centralized-kubecost | dkp-centralized-kubecost-view  | /dkp/kommander/kubecost/\* | read                |
 | centralized-kubecost | dkp-centralized-kubecost-edit  | /dkp/kommander/kubecost/\* | read, write         |
 | centralized-kubecost | dkp-centralized-kubecost-admin | /dkp/kommander/kubecost/\* | read, write, delete |
-| grafana             | kube-prometheus-stack-dkp-grafana-view       | /dkp/grafana/\*                      | read                |
-| grafana             | kube-prometheus-stack-dkp-grafana-edit       | /dkp/grafana/\*                      | read, write         |
-| grafana             | kube-prometheus-stack-dkp-grafana-admin      | /dkp/grafana/\*                      | read, write, delete |
+| grafana             | dkp-kube-prometheus-stack-grafana-view       | /dkp/grafana/\*                      | read                |
+| grafana             | dkp-kube-prometheus-stack-grafana-edit       | /dkp/grafana/\*                      | read, write         |
+| grafana             | dkp-kube-prometheus-stack-grafana-admin      | /dkp/grafana/\*                      | read, write, delete |
 | grafana-logging     | dkp-grafana-logging-view                             | /dkp/logging/grafana/\*              | read                |
 | grafana-logging     | dkp-grafana-logging-edit                             | /dkp/logging/grafana/\*              | read, write         |
 | grafana-logging     | dkp-grafana-logging-admin                            | /dkp/logging/grafana/\*              | read, write, delete |
@@ -125,9 +125,9 @@ Roles have been created for granting access to the dashboard and select applicat
 | kubernetes-dashboard | dkp-kubernetes-dashboard-view       | /dkp/kubernetes/\*                      | read                |
 | kubernetes-dashboard | dkp-kubernetes-dashboard-edit       | /dkp/kubernetes/\*                      | read, write         |
 | kubernetes-dashboard | dkp-kubernetes-dashboard-admin      | /dkp/kubernetes/\*                      | read, write, delete |
-| prometheus          | kube-prometheus-stack-dkp-prometheus-view    | /dkp/prometheus/\*                   | read                |
-| prometheus          | kube-prometheus-stack-dkp-prometheus-edit    | /dkp/prometheus/\*                   | read, write         |
-| prometheus          | kube-prometheus-stack-dkp-prometheus-admin   | /dkp/prometheus/\*                   | read, write, edit   |
+| prometheus          | dkp-kube-prometheus-stack-prometheus-view    | /dkp/prometheus/\*                   | read                |
+| prometheus          | dkp-kube-prometheus-stack-prometheus-edit    | /dkp/prometheus/\*                   | read, write         |
+| prometheus          | dkp-kube-prometheus-stack-prometheus-admin   | /dkp/prometheus/\*                   | read, write, edit   |
 | traefik             | dkp-traefik-view                             | /dkp/traefik/\*                      | read                |
 | traefik             | dkp-traefik-edit                             | /dkp/traefik/\*                      | read, edit          |
 | traefik             | dkp-traefik-admin                            | /dkp/traefik/\*                      | read, edit, delete  |
