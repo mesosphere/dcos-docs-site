@@ -39,4 +39,4 @@ dkp upgrade kommander
 [Azure]: /dkp/konvoy/2.2/choose-infrastructure/azure/advanced/update/
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
 [pre-provisioned]: /dkp/konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
-[platform-application]: ../../../workspaces/applications/catalog-applications/
+[platform-application]: ../../workspaces/applications/catalog-applications/
