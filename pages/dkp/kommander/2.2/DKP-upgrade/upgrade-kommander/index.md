@@ -17,7 +17,7 @@ This section automatically upgrades your Kommander cluster and all its Platform 
 - [Download][download-binary] and install the latest DKP CLI binary on your computer.
 - Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
 - If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre-provisioned] documentation. [enterprise type="inline" size="small"/]
-- Review the [Platform Application version updates][Platform-apps] that are part of this upgrade.
+- Review the [Platform Application version updates][platform-apps] that are part of this upgrade.
 
 ## Upgrade Kommander
 
@@ -39,3 +39,4 @@ dkp upgrade kommander
 [Azure]: /dkp/konvoy/2.2/choose-infrastructure/azure/advanced/update/
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
 [pre-provisioned]: /dkp/konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
+[platform-application]: ../../../workspaces/applications/catalog-applications/
