@@ -400,7 +400,7 @@ spec:
 
 This service object is discovered by a `ServiceMonitor`, which defines the selector to match the labels with those defined in the service. The app label must have the value `my-app`.
 
-In this example, in order for `kube-prometheus-stack` to discover this `ServiceMonitor`, you must add a specific label `prometheus.kommander.d2iq.io/select: "true"` in the `yaml`:
+In this example, in order for `kube-prometheus-stack` to discover this `ServiceMonitor`, add a specific label `prometheus.kommander.d2iq.io/select: "true"` in the `yaml`:
 
 ```yaml
 apiVersion: monitoring.coreos.com/v1
