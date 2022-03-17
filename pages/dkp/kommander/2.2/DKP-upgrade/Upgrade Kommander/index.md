@@ -35,7 +35,7 @@ dkp upgrade kommander
 
 [download-binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
-[AWS]: /dkp/konvoy/2.2/choose-infrastructure/aws/advanced/update/
-[Azure]: /dkp/konvoy/2.2/choose-infrastructure/azure/advanced/update/
+[AWS]: ../dkp/konvoy/2.2/choose-infrastructure/aws/advanced/update/
+[Azure]: ../dkp/konvoy/2.2/choose-infrastructure/azure/advanced/update/
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
-[pre-provisioned]: /dkp/konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
+[pre-provisioned]: ../dkp/konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
