@@ -107,9 +107,9 @@ Roles have been created for granting access to the dashboard and select applicat
 | alertmanager        | kube-prometheus-stack-dkp-alertmanager-view  | /dkp/alertmanager/\*                 | read                |
 | alertmanager        | kube-prometheus-stack-dkp-alertmanager-edit  | /dkp/alertmanager/\*                 | read, write         |
 | alertmanager        | kube-prometheus-stack-dkp-alertmanager-admin | /dkp/alertmanager/\*                 | read, write, delete |
-| centralized-grafana | dkp-centralized-grafana-view  | /dkp/kommander/monitoring/grafana/\* | read                |
-| centralized-grafana | dkp-centralized-grafana-edit  | /dkp/kommander/monitoring/grafana/\* | read, write         |
-| centralized-grafana | dkp-centralized-grafana-admin | /dkp/kommander/monitoring/grafana/\* | read, write, delete |
+| centralized-grafana | centralized-grafana-dkp-grafana-view  | /dkp/kommander/monitoring/grafana/\* | read                |
+| centralized-grafana | centralized-grafana-dkp-grafana-edit  | /dkp/kommander/monitoring/grafana/\* | read, write         |
+| centralized-grafana | centralized-grafana-dkp-grafana-admin | /dkp/kommander/monitoring/grafana/\* | read, write, delete |
 | centralized-kubecost | dkp-centralized-kubecost-view  | /dkp/kommander/kubecost/\* | read                |
 | centralized-kubecost | dkp-centralized-kubecost-edit  | /dkp/kommander/kubecost/\* | read, write         |
 | centralized-kubecost | dkp-centralized-kubecost-admin | /dkp/kommander/kubecost/\* | read, write, delete |
