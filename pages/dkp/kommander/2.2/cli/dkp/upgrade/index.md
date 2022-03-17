@@ -34,5 +34,6 @@ Upgrade a specific DKP component running on the cluster
 ### SEE ALSO
 
 * [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
+* [dkp upgrade appdeployment](/dkp/kommander/2.2/cli/dkp/upgrade/appdeployment/)	 - Upgrade an AppDeployment to a newer version
 * [dkp upgrade kommander](/dkp/kommander/2.2/cli/dkp/upgrade/kommander/)	 - Upgrade the Kommander version of the targeted cluster
 

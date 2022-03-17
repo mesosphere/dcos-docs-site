@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp create cluster
 title:  dkp create cluster
 menuWeight: 10
-excerpt: Create a Kubernetes cluster, one of [aks, aws, azure, eks, preprovisioned]
+excerpt: Create a Kubernetes cluster, one of [aks, aws, azure, eks, preprovisioned, vsphere]
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp create cluster
 
-Create a Kubernetes cluster, one of [aks, aws, azure, eks, preprovisioned]
+Create a Kubernetes cluster, one of [aks, aws, azure, eks, preprovisioned, vsphere]
 
 ### Options
 
@@ -29,10 +29,11 @@ Create a Kubernetes cluster, one of [aks, aws, azure, eks, preprovisioned]
 
 ### SEE ALSO
 
-* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, cluster, nodepool, workspace]
+* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, cluster, image-bundle, nodepool, workspace]
 * [dkp create cluster aks](/dkp/kommander/2.2/cli/dkp/create/cluster/aks/)	 - Create a Konvoy cluster in AKS
 * [dkp create cluster aws](/dkp/kommander/2.2/cli/dkp/create/cluster/aws/)	 - Create a Konvoy cluster in AWS
 * [dkp create cluster azure](/dkp/kommander/2.2/cli/dkp/create/cluster/azure/)	 - Create a Konvoy cluster in Azure
 * [dkp create cluster eks](/dkp/kommander/2.2/cli/dkp/create/cluster/eks/)	 - Create a Konvoy cluster in EKS
 * [dkp create cluster preprovisioned](/dkp/kommander/2.2/cli/dkp/create/cluster/preprovisioned/)	 - Create a Konvoy cluster on pre-provisioned infrastructure
+* [dkp create cluster vsphere](/dkp/kommander/2.2/cli/dkp/create/cluster/vsphere/)	 - Create a Konvoy cluster in VSphere
 
