@@ -112,7 +112,7 @@ enterprise: false
 1.  Create the cluster from the objects.
 
     ```sh
-    kubectl apply -f ${CLUSTER_NAME}.yaml
+    kubectl create -f ${CLUSTER_NAME}.yaml
     ```
 
     ```sh
