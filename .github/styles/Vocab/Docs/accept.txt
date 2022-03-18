@@ -188,6 +188,7 @@ preconfigure(|d)
 preprocessor(|s)
 (preprovisioned|Preprovisioned)
 (prometheus|Prometheus)
+proxying
 Purestorage
 Pushgateway
 pytest

@@ -39,9 +39,11 @@ Select `Deploy` to install Spark.
 - KUDO will then install Spark in the Project namespace created using Kommander.
 - The deployment progression can be viewed by looking at the `deploy` plan.
 
-```sh
+```bash
 kubectl kudo plan status --instance spark-instance --namespace test-project
+```
 
+```sh
 Plan(s) for "spark-instance" in namespace "spark":
 .
 └── spark-instance (Operator-Version: "spark-1.1.0" Active-Plan: "deploy")
@@ -73,28 +75,30 @@ Check existing [limitations](https://github.com/mesosphere/kudo-spark-operator/b
 
 Create a namespace for the operator:
 
-```sh
+```bash
 kubectl create ns spark
 ```
 
 Install a new instance of Spark operator from the official repository, use the following command:
 
-```sh
+```bash
 kubectl kudo install spark --namespace spark
 ```
 
 This will install a Spark operator instance with the name `spark-instance` to the provided namespace.
 You can also specify a different instance name using the `--instance` parameter:
 
-```sh
+```bash
 kubectl kudo install spark --instance spark-operator --namespace spark
 ```
 
 Verify if the deploy plan for `--instance spark-instance` is complete:
 
-```sh
+```bash
 kubectl kudo plan status --instance spark-instance --namespace spark
+```
 
+```sh
 Plan(s) for "spark-instance" in namespace "spark":
 .
 └── spark-instance (Operator-Version: "spark-1.1.0" Active-Plan: "deploy")
@@ -126,20 +130,20 @@ To completely remove KUDO Spark Operator from a Kubernetes cluster:
 
 1.  Wait for the running jobs to complete or terminate them
 
-    ```sh
+    ```bash
     kubectl delete sparkapplications --all
     kubectl delete scheduledsparkapplications --all
     ```
 
 1.  Uninstall each KUDO Spark Operator instance:
 
-    ```sh
+    ```bash
     kubectl kudo uninstall --instance spark-instance --namespace spark
     ```
 
 1.  Remove Spark Applications CRDs:
 
-    ```sh
+    ```bash
     kubectl delete crds sparkapplications.sparkoperator.k8s.io scheduledsparkapplications.sparkoperator.k8s.io
     ```
 
@@ -147,11 +151,11 @@ To completely remove KUDO Spark Operator from a Kubernetes cluster:
 
 Optionally, create dedicated namespaces for installing KUDO Spark instances(for example, `spark-operator-1` and `spark-operator-2` in this example):
 
-```sh
+```bash
 kubectl create ns spark-operator-1 && kubectl create ns spark-operator-2
 ```
 
-```sh
+```bash
 kubectl kudo install spark --instance=spark-1 --namespace spark-operator-1 -p sparkJobNamespace=spark-operator-1
 kubectl kudo install spark --instance=spark-2 --namespace spark-operator-2 -p sparkJobNamespace=spark-operator-2
 ```
@@ -219,15 +223,17 @@ The format for the service account name is `{spark-operator name}-spark-service-
 
 Submit Spark Application to the operator:
 
-```sh
+```bash
 kubectl create -f spark-pi.yaml
 ```
 
 List all Spark applications:
 
-```sh
-$ kubectl get sparkapplications -n spark
+```bash
+kubectl get sparkapplications -n spark
+```
 
+```sh
 NAME       AGE
 spark-pi   1m
 ```
@@ -235,13 +241,16 @@ spark-pi   1m
 Describe the `spark-pi` application:
 
 ```bash
-$ kubectl describe sparkapplications spark-pi -n spark
+kubectl describe sparkapplications spark-pi -n spark
 ```
 
 Verify that the application has been created and is currently running:
 
+```bash
+kubectl get pods -n spark | grep spark-pi
+```
+
 ```sh
-$ kubectl get pods -n spark | grep spark-pi
 NAME                                  READY   STATUS      RESTARTS   AGE
 spark-pi-1571911449587-exec-1         1/1     Running     0          4s
 spark-pi-1571911449587-exec-2         1/1     Running     0          4s
@@ -252,8 +261,11 @@ Three spark-pi application pods running: one driver and two executors.
 
 Verify the driver pod has completed successfully:
 
+```bash
+kubectl logs --tail=20 spark-pi-driver -n spark | grep 'Pi is'
+```
+
 ```sh
-$ kubectl logs --tail=20 spark-pi-driver -n spark | grep 'Pi is'
 Pi is roughly 3.141644502283289
 ```
 
@@ -264,8 +276,11 @@ Spark Operator provides a mechanism for mounting Spark configuration files via K
 
 1.  Create a `ConfigMap` using the following `log4j.properties` as an example:
 
+    ```bash
+    cat <<'EOF'>> log4j.properties
+    ```
+
     ```sh
-    $ cat <<'EOF'>> log4j.properties
     log4j.rootCategory=DEBUG, console
     log4j.appender.console=org.apache.log4j.ConsoleAppender
     log4j.appender.console.target=System.err
@@ -274,8 +289,8 @@ Spark Operator provides a mechanism for mounting Spark configuration files via K
     EOF
     ```
 
-    ```sh
-    $ kubectl create configmap spark-conf-map --from-file log4j.properties
+    ```bash
+    kubectl create configmap spark-conf-map --from-file log4j.properties
     ```
 
 1.  Add the following lines to `SparkApplication` spec:
@@ -304,14 +319,17 @@ To do so, you need to modify the spec file and update the value of `spec.worker.
 
 Save the changes and apply the updated spec:
 
-```sh
+```bash
 kubectl apply -f spark-pi.yaml -n spark
 ```
 
 Verify the number of executors has changed:
 
-```sh
-$ kubectl get pods -n spark | grep spark-pi             
+```bash
+kubectl get pods -n spark | grep spark-pi
+```
+
+```sh             
 spark-pi-1571999377454-exec-1         1/1     Running     0          118s
 spark-pi-1571999377454-exec-2         1/1     Running     0          118s
 spark-pi-1571999377454-exec-3         1/1     Running     0          117s
@@ -321,7 +339,7 @@ spark-pi-driver                       1/1     Running     0          2m4s
 
 Delete the application with the following command:
 
-```sh
+```bash
 kubectl delete sparkapplication spark-pi -n spark
 ```
 
@@ -333,9 +351,11 @@ The are a few ways to expose Spark UI for you application.
 
 When an application is submitted to Kubernetes, the operator automatically creates a `Service` with default type `ClusterIP`, which can be used to access Spark UI externally.
 
-```sh
-$ kubectl get svc -n spark --field-selector metadata.name=spark-pi-ui-svc
+```bash
+kubectl get svc -n spark --field-selector metadata.name=spark-pi-ui-svc
+```
 
+```sh
 NAME                                  TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)             AGE
 spark-pi-ui-svc                       ClusterIP   10.0.5.197    <none>        4041/TCP            7s
 ```
@@ -346,17 +366,19 @@ Port forwarding works in a way that connections made to a local port are forward
 
 Command example:
 
-```sh
-$ kubectl port-forward <resource-name> <local-port>:<container-port>
+```bash
+kubectl port-forward <resource-name> <local-port>:<container-port>
 ```
 
 In case with `spark-pi` application, the command will look like the following:
 
+```bash
+kubectl port-forward spark-pi-driver 4040:4041 -n spark
+```
+
 ```sh
-$ kubectl port-forward spark-pi-driver 4040:4041 -n spark
 Forwarding from 127.0.0.1:4040 -> 4041
 Forwarding from [::1]:4040 -> 4041
-
 ```
 
 After that the Spark UI should be available via URL:  `localhost:4040`
@@ -390,8 +412,11 @@ Create the service using `kubectl create -f spark-pi-service.yaml -n spark`.
 
 Verify `spark-pi-loadbalancer` service is having an `EXTERNAL-IP` assigned:
 
+```bash
+kubectl get svc -n spark --field-selector metadata.name=spark-pi-loadbalancer
+```
+
 ```sh
-$ kubectl get svc -n spark --field-selector metadata.name=spark-pi-loadbalancer
 NAME                    TYPE           CLUSTER-IP   EXTERNAL-IP                                                               PORT(S)        AGE
 spark-pi-loadbalancer   LoadBalancer   10.0.3.19    a55f8bba6615346149d96bf438d87438-1803869262.us-west-2.elb.amazonaws.com   80:31917/TCP   10m
 ```
@@ -413,7 +438,7 @@ The current parameter set can be retrieved using the kubectl command in conjunct
 
 To retrieve the current parameters, issue the following command in the terminal with appropriate `INSTANCE` value set:
 
-```sh
+```bash
 INSTANCE=spark-instance;
 kubectl get instances -o json | jq ".items[] | select(.metadata.name == \"$INSTANCE\") | .spec.parameters" | yq eval -P > spark-params.yml
 ```
@@ -430,13 +455,13 @@ Parameters can be updated using arguments to the KUDO CLI.
 
 - Enabling [Spark History Server](https://github.com/mesosphere/kudo-spark-operator/blob/master/kudo-spark-operator/docs/latest/history-server.md) using the KUDO CLI:
 
-```sh
+```bash
 kubectl kudo update --instance spark-instance -p enableHistoryServer=true -p historyServerFsLogDirectory=file:///tmp/ -n spark
 ```
 
 - Monitor the KUDO Spark deployment plan:
 
-```sh
+```bash
 kubectl kudo plan status --instance spark-instance -n spark
 ```
 
@@ -444,8 +469,11 @@ kubectl kudo plan status --instance spark-instance -n spark
 
 When the deployment plan is `COMPLETE` there should be Spark History Server pod running:
 
-```sh
+```bash
 kubectl get pod -l app.kubernetes.io/name=spark-history-server -n spark
+```
+
+```sh
 NAME                                             READY   STATUS    RESTARTS   AGE
 spark-instance-history-server-68f5645c57-5h2g4   1/1     Running   0          31s
 ```
@@ -458,7 +486,7 @@ See [Available Parameters](#available-operator-parameters) to get the full list 
 
 Apply the desired updates in `spark-params.yml` using the KUDO CLI:
 
-```sh
+```bash
 kubectl kudo update --instance=spark-instance -P spark-params.yml -n spark
 ```
 
@@ -495,8 +523,8 @@ when monitoring is enabled.
 
 Metrics reporting is disabled by default and can be enabled by passing the following parameter to `kudo install`:
 
-```sh
-$ kubectl kudo install spark --instance=spark -p enableMetrics=true
+```bash
+kubectl kudo install spark --instance=spark -p enableMetrics=true
 ```
 
 Service endpoints and ServiceMonitor resources are configured to work with Prometheus Operator

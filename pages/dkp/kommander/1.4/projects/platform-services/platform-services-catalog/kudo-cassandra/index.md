@@ -69,7 +69,7 @@ The current parameter set can be retrieved using the kubectl command in conjunct
 
 To retrieve the current parameters, issue the following command in the terminal with appropriate `INSTANCE` value set:
 
-```sh
+```bash
 INSTANCE=cassandra;
 kubectl get instances -o json | jq ".items[] | select(.metadata.name == \"$INSTANCE\") | .spec.parameters" | yq -e --yaml-output '.' > cassandra-params.yml
 ```
@@ -84,13 +84,13 @@ Parameters can be updated using arguments to the KUDO CLI.
 
 - Increase the number of nodes using the KUDO CLI:
 
-```sh
+```bash
 kubectl -n test-project-zc6tc kudo update --instance cassandra -p NODE_COUNT=4
 ```
 
 - Monitor the KUDO Cassandra deployment plan:
 
-```sh
+```bash
 kubectl kudo plan status --instance cassandra -n test-project-zc6tc
 ```
 
@@ -98,8 +98,11 @@ kubectl kudo plan status --instance cassandra -n test-project-zc6tc
 
 When the deployment plan is `COMPLETE` there should be 4 nodes as seen by the number of pods running:
 
-```sh
+```bash
 kubectl get pods -n test-project-zc6tc
+```
+
+```sh
 NAME               READY   STATUS    RESTARTS   AGE
 cassandra-node-0   1/1     Running   0          62m
 cassandra-node-1   1/1     Running   0          62m
@@ -115,7 +118,7 @@ See [Available Parameters](#available-parameters) to get the full list of curren
 
 Apply the desired updates in `cassandra-params.yml` using the KUDO CLI:
 
-```sh
+```bash
 kubectl kudo update -n test-project-zc6tc --instance=cassandra -P cassandra-params.yml 
 ```
 
@@ -136,7 +139,7 @@ Kommander includes Prometheus and Grafana as part of the federated [Workspace Pl
 
 KUDO Cassandra operator can export metrics to Prometheus, to do so set the `PROMETHEUS_EXPORTER_ENABLED` parameter to `true`:
 
-```sh
+```bash
 kubectl kudo update -p PROMETHEUS_EXPORTER_ENABLED=true --instance cassandra -n test-project-zc6tc
 ```
 
@@ -154,7 +157,7 @@ Grafana dashboards can be [imported](https://grafana.com/docs/grafana/latest/das
 
 The KUDO Cassandra operator supports creation of a service that opens up ports to access Cassandra from outside the cluster. To enable this, you have to set one or more of the following variables:
 
-```sh
+```bash
 kubectl kudo update cassandra -n test-project-zc6tc -p EXTERNAL_NATIVE_TRANSPORT=true
 ```
 
@@ -192,7 +195,7 @@ We can only decommission `cassandra-node-3` as it has the highest pod ordinal in
 
 Decommission the node
 
-```sh
+```bash
 kubectl exec -it pod/cassandra-node-3 \
         -n test-project-zc6tc \
         -c cassandra \
@@ -202,7 +205,7 @@ kubectl exec -it pod/cassandra-node-3 \
 
 Once the operation is completed, we can update the KUDO Cassandra Instance
 
-```sh
+```bash
 kubectl kudo update -p NODE_COUNT=3 --instance cassandra -n test-project-zc6tc
 ```
 
@@ -212,7 +215,7 @@ Once the update plan is complete, you should delete (or clean) the PVC that was 
 
 KUDO provides the ability to collect logs and other [diagnostics data](https://kudo.dev/docs/cli/examples.html#collecting-diagnostic-data) for debugging and for bug-reports.
 
-```sh
+```bash
 kubectl kudo diagnostics collect --instance cassandra -n test-project-zc6tc
 ```
 
@@ -229,6 +232,6 @@ Data for the specified Operator
 
 To monitor all the events occurring in the namespace, its helpful to look at event log:
 
-```sh
+```bash
 kubectl get events -w -n test-project-zc6tc
 ```
