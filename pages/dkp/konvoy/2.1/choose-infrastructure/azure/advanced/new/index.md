@@ -37,31 +37,26 @@ Be sure also that you review the [known limitations section](../new#known-limita
 1.  Set the environment variable:
 
     ```sh
-    CLUSTER_NAME=my-azure-cluster
+    export CLUSTER_NAME=azure-example
     ```
 
 ### Naming Tips and Tricks
 
 1.  To create a cluster name that is unique, use the following command:
 
-    ```sh
-    CLUSTER_NAME=$(whoami)-azure-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+    ```bash
+    export CLUSTER_NAME=azure-example-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 
     The output appears similar to:
 
-    ```text
-    hunter-azure-cluster-pf4a3
+    ```sh
+    azure-example-cluster-pf4a3
     ```
 
     This command creates a unique name every time you run it, so use it carefully.
 
-1.  Set the environment variable to the name you assigned this cluster:
-
-    ```sh
-    CLUSTER_NAME=my-azure-cluster
-    ```
 
 ## Create new Azure Kubernetes cluster objects
 
@@ -71,7 +66,7 @@ When creating the basic Azure Kubernetes cluster objects, you need to first cons
 
 1.  Generate the basic Kubernetes cluster objects:
 
-    ```sh
+    ```bash
     dkp create cluster azure --cluster-name=${CLUSTER_NAME} \
     --dry-run \
     --output=yaml \
@@ -86,7 +81,7 @@ To configure the Control Plane and Worker nodes to use an HTTP proxy:
 
 1.  Copy the commands in the following code block to an editor and apply the list of edits that follows to customize them, then execute them from the command line:
 
-    ```sh
+    ```bash
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
     export CONTROL_PLANE_HTTPS_PROXY=http://example.org:8080
     export CONTROL_PLANE_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.cloudapp.azure.com"
@@ -107,7 +102,7 @@ To configure the Control Plane and Worker nodes to use an HTTP proxy:
 
 1.  Copy and run the following command to create a Kubernetes cluster with HTTP proxy configured. (This step assumes you did not already create a cluster in the previous procedure.)
 
-    ```sh
+    ```bash
     dkp create cluster azure --cluster-name=${CLUSTER_NAME} \
     --control-plane-http-proxy="${CONTROL_PLANE_HTTP_PROXY}" \
     --control-plane-https-proxy="${CONTROL_PLANE_HTTPS_PROXY}" \
@@ -157,12 +152,12 @@ As part of inspecting and editing your cluster objects, you can also configure i
     metadata:
       creationTimestamp: "2021-12-17T20:25:12Z"
       generation: 1
-      name: my-azure-cluster
+      name: azure-example
       namespace: default
       uid: 64851501-f658-4b40-84a7-6a9f7c871629
     spec:
       additionalTags:
-        konvoy.d2iq.io_cluster-name: my-azure-cluster
+        konvoy.d2iq.io_cluster-name: azure-example
         konvoy.d2iq.io_version: v2.1.0
       azureEnvironment: AzurePublicCloud
       bastionSpec: {}
@@ -173,51 +168,51 @@ As part of inspecting and editing your cluster objects, you can also configure i
       networkSpec:
         apiServerLB:
           frontendIPs:
-          - name: my-azure-cluster-public-lb-frontEnd
+          - name: azure-example-public-lb-frontEnd
             publicIP:
-              name: pip-my-azure-cluster-apiserver
+              name: pip-azure-example-apiserver
           idleTimeoutInMinutes: 4
-          name: my-azure-cluster-public-lb
+          name: azure-example-public-lb
           sku: Standard
           type: Public
         nodeOutboundLB:
           frontendIPs:
-          - name: my-azure-cluster-frontEnd
+          - name: azure-example-frontEnd
             publicIP:
-              name: pip-my-azure-cluster-node-outbound
+              name: pip-azure-example-node-outbound
           frontendIPsCount: 1
           idleTimeoutInMinutes: 4
-          name: my-azure-cluster
+          name: azure-example
           sku: Standard
           type: Public
         subnets:
         - cidrBlocks:
           - 10.0.0.0/16
-          name: my-azure-cluster-controlplane-subnet
+          name: azure-example-controlplane-subnet
           natGateway:
             ip:
               name: ""
           role: control-plane
           routeTable: {}
           securityGroup:
-            name: my-azure-cluster-controlplane-nsg
+            name: azure-example-controlplane-nsg
         - cidrBlocks:
           - 10.1.0.0/16
-          name: my-azure-cluster-node-subnet
+          name: azure-example-node-subnet
           natGateway:
             ip:
               name: ""
           role: node
           routeTable:
-            name: my-azure-cluster-node-routetable
+            name: azure-example-node-routetable
           securityGroup:
-            name: my-azure-cluster-node-nsg
+            name: azure-example-node-nsg
         vnet:
           cidrBlocks:
           - 10.0.0.0/8
-          name: my-azure-cluster-vnet
-          resourceGroup: my-azure-cluster
-      resourceGroup: my-azure-cluster
+          name: azure-example-vnet
+          resourceGroup: azure-example
+      resourceGroup: azure-example
     ```
 
     After you make and verify changes in these areas, save the file and go to the "create the actual cluster" procedure.
@@ -228,60 +223,60 @@ Use this procedure to create the Azure Kubernetes cluster when you finish your i
 
 1.  Create the cluster from the generated, and any modified, YAML objects using the command:
 
-    ```sh
+    ```bash
     kubectl apply -f ${CLUSTER_NAME}.yaml
     ```
 
     The output appears similar to:
 
     ```sh
-    cluster.cluster.x-k8s.io/my-azure-cluster created
-    azurecluster.infrastructure.cluster.x-k8s.io/my-azure-cluster created
-    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/my-azure-cluster-control-plane created
-    azuremachinetemplate.infrastructure.cluster.x-k8s.io/my-azure-cluster-control-plane created
-    clusterresourceset.addons.cluster.x-k8s.io/calico-installation-my-azure-cluster created
-    configmap/calico-cni-my-azure-cluster created
-    machinedeployment.cluster.x-k8s.io/my-azure-cluster-md-0 created
-    azuremachinetemplate.infrastructure.cluster.x-k8s.io/my-azure-cluster-md-0 created
-    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/my-azure-cluster-md-0 created
+    cluster.cluster.x-k8s.io/azure-example created
+    azurecluster.infrastructure.cluster.x-k8s.io/azure-example created
+    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/azure-example-control-plane created
+    azuremachinetemplate.infrastructure.cluster.x-k8s.io/azure-example-control-plane created
+    clusterresourceset.addons.cluster.x-k8s.io/calico-installation-azure-example created
+    configmap/calico-cni-azure-example created
+    machinedeployment.cluster.x-k8s.io/azure-example-md-0 created
+    azuremachinetemplate.infrastructure.cluster.x-k8s.io/azure-example-md-0 created
+    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/azure-example-md-0 created
     ```
 
 1.  Wait for the cluster's control-plane Status to be Ready:
 
-    ```sh
+    ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
     When the control plane status is Ready, the output is similar to:
 
-    ```text
-    cluster.cluster.x-k8s.io/my-azure-cluster condition met
+    ```sh
+    cluster.cluster.x-k8s.io/azure-example condition met
     ```
 
     After DKP creates the objects on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines, and as they progress, they update the Status of each object.
 
 1.  Run the DKP Konvoy command to describe the current status of the cluster:
 
-    ```sh
+    ```bash
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
     The output is similar to:
 
-    ```text
-    NAME                                                                 READY  SEVERITY  REASON  SINCE  MESSAGE
-    /my-azure-cluster                                                    True                     6m37s
-    ├─ClusterInfrastructure - AzureCluster/my-azure-cluster              True                     13m
-    ├─ControlPlane - KubeadmControlPlane/my-azure-cluster-control-plane  True                     6m37s
-    │ └─3 Machines...                                                    True                     10m    See my-azure-cluster-control-plane-bmc9b, my-azure-cluster-control-plane-msftd, ...
+    ```sh
+    NAME                                                              READY  SEVERITY  REASON  SINCE  MESSAGE
+    /azure-example                                                    True                     6m37s
+    ├─ClusterInfrastructure - AzureCluster/azure-example              True                     13m
+    ├─ControlPlane - KubeadmControlPlane/azure-example-control-plane  True                     6m37s
+    │ └─3 Machines...                                                 True                     10m    See azure-example-control-plane-bmc9b, azure-example-control-plane-msftd, ...
     └─Workers
-    └─MachineDeployment/my-azure-cluster-md-0                            True                     7m58s
-    └─4 Machines...                                                      True                     8m10s  See my-azure-cluster-md-0-84bd8b5f5b-b8cnq, my-azure-cluster-md-0-84bd8b5f5b-j8ldg, ...
+    └─MachineDeployment/azure-example-md-0                            True                     7m58s
+    └─4 Machines...                                                   True                     8m10s  See azure-example-md-0-84bd8b5f5b-b8cnq, azure-example-md-0-84bd8b5f5b-j8ldg, ...
     ```
 
 1.  As they progress, the controllers also create Events. List the Events using the command:
 
-    ```sh
+    ```bash
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 
@@ -289,30 +284,30 @@ Use this procedure to create the Azure Kubernetes cluster when you finish your i
 
     The output is similar to:
 
-    ```text
-    15m         Normal    AzureClusterObjectNotFound                  azurecluster                                          AzureCluster object default/my-azure-cluster not found
-    15m         Normal    AzureManagedControlPlaneObjectNotFound      azuremanagedcontrolplane                              AzureManagedControlPlane object default/my-azure-cluster not found
-    15m         Normal    AzureClusterObjectNotFound                  azurecluster                                          AzureCluster.infrastructure.cluster.x-k8s.io "my-azure-cluster" not found
-    8m22s       Normal    SuccessfulSetNodeRef                        machine/my-azure-cluster-control-plane-bmc9b          my-azure-cluster-control-plane-fdvnm
-    10m         Normal    Machine controller dependency not yet met   azuremachine/my-azure-cluster-control-plane-fdvnm     Machine Controller has not yet set OwnerRef
-    12m         Normal    SuccessfulSetNodeRef                        machine/my-azure-cluster-control-plane-msftd          my-azure-cluster-control-plane-z9q45
-    10m         Normal    SuccessfulSetNodeRef                        machine/my-azure-cluster-control-plane-nrvff          my-azure-cluster-control-plane-vmqwx
-    12m         Normal    Machine controller dependency not yet met   azuremachine/my-azure-cluster-control-plane-vmqwx     Machine Controller has not yet set OwnerRef
-    14m         Normal    Machine controller dependency not yet met   azuremachine/my-azure-cluster-control-plane-z9q45     Machine Controller has not yet set OwnerRef
-    14m         Warning   VMIdentityNone                              azuremachinetemplate/my-azure-cluster-control-plane   You are using Service Principal authentication for Cloud Provider Azure which is less secure than Managed Identity. Your Service Principal credentials will be written to a file on the disk of each VM in order to be accessible by Cloud Provider. To learn more, see https://capz.sigs.k8s.io/topics/identities-use-cases.html#azure-host-identity
-    12m         Warning   ControlPlaneUnhealthy                       kubeadmcontrolplane/my-azure-cluster-control-plane    Waiting for control plane to pass preflight checks to continue reconciliation: [machine my-azure-cluster-control-plane-msftd does not have APIServerPodHealthy condition, machine my-azure-cluster-control-plane-msftd does not have ControllerManagerPodHealthy condition, machine my-azure-cluster-control-plane-msftd does not have SchedulerPodHealthy condition, machine my-azure-cluster-control-plane-msftd does not have EtcdPodHealthy condition, machine my-azure-cluster-control-plane-msftd does not have EtcdMemberHealthy condition]
-    11m         Warning   ControlPlaneUnhealthy                       kubeadmcontrolplane/my-azure-cluster-control-plane    Waiting for control plane to pass preflight checks to continue reconciliation: [machine my-azure-cluster-control-plane-nrvff does not have APIServerPodHealthy condition, machine my-azure-cluster-control-plane-nrvff does not have ControllerManagerPodHealthy condition, machine my-azure-cluster-control-plane-nrvff does not have SchedulerPodHealthy condition, machine my-azure-cluster-control-plane-nrvff does not have EtcdPodHealthy condition, machine my-azure-cluster-control-plane-nrvff does not have EtcdMemberHealthy condition]
-    9m52s       Normal    SuccessfulSetNodeRef                        machine/my-azure-cluster-md-0-84bd8b5f5b-b8cnq        my-azure-cluster-md-0-bsc82
-    9m53s       Normal    SuccessfulSetNodeRef                        machine/my-azure-cluster-md-0-84bd8b5f5b-j8ldg        my-azure-cluster-md-0-mjcbn
-    9m52s       Normal    SuccessfulSetNodeRef                        machine/my-azure-cluster-md-0-84bd8b5f5b-lx89f        my-azure-cluster-md-0-pmq8f
-    10m         Normal    SuccessfulSetNodeRef                        machine/my-azure-cluster-md-0-84bd8b5f5b-pcv7q        my-azure-cluster-md-0-vzprf
-    15m         Normal    SuccessfulCreate                            machineset/my-azure-cluster-md-0-84bd8b5f5b           Created machine "my-azure-cluster-md-0-84bd8b5f5b-j8ldg"
-    15m         Normal    SuccessfulCreate                            machineset/my-azure-cluster-md-0-84bd8b5f5b           Created machine "my-azure-cluster-md-0-84bd8b5f5b-lx89f"
-    15m         Normal    SuccessfulCreate                            machineset/my-azure-cluster-md-0-84bd8b5f5b           Created machine "my-azure-cluster-md-0-84bd8b5f5b-pcv7q"
-    15m         Normal    SuccessfulCreate                            machineset/my-azure-cluster-md-0-84bd8b5f5b           Created machine "my-azure-cluster-md-0-84bd8b5f5b-b8cnq"
-    15m         Normal    Machine controller dependency not yet met   azuremachine/my-azure-cluster-md-0-bsc82              Machine Controller has not yet set OwnerRef
-    15m         Normal    Machine controller dependency not yet met   azuremachine/my-azure-cluster-md-0-mjcbn              Machine Controller has not yet set OwnerRef
-    15m         Normal    Machine controller dependency not yet met   azuremachine/my-azure-cluster-md-0-pmq8f              Machine Controller has not yet set OwnerRef
+    ```sh
+    15m         Normal    AzureClusterObjectNotFound                  azurecluster                                          AzureCluster object default/azure-example not found
+    15m         Normal    AzureManagedControlPlaneObjectNotFound      azuremanagedcontrolplane                              AzureManagedControlPlane object default/azure-example not found
+    15m         Normal    AzureClusterObjectNotFound                  azurecluster                                          AzureCluster.infrastructure.cluster.x-k8s.io "azure-example" not found
+    8m22s       Normal    SuccessfulSetNodeRef                        machine/azure-example-control-plane-bmc9b          azure-example-control-plane-fdvnm
+    10m         Normal    Machine controller dependency not yet met   azuremachine/azure-example-control-plane-fdvnm     Machine Controller has not yet set OwnerRef
+    12m         Normal    SuccessfulSetNodeRef                        machine/azure-example-control-plane-msftd          azure-example-control-plane-z9q45
+    10m         Normal    SuccessfulSetNodeRef                        machine/azure-example-control-plane-nrvff          azure-example-control-plane-vmqwx
+    12m         Normal    Machine controller dependency not yet met   azuremachine/azure-example-control-plane-vmqwx     Machine Controller has not yet set OwnerRef
+    14m         Normal    Machine controller dependency not yet met   azuremachine/azure-example-control-plane-z9q45     Machine Controller has not yet set OwnerRef
+    14m         Warning   VMIdentityNone                              azuremachinetemplate/azure-example-control-plane   You are using Service Principal authentication for Cloud Provider Azure which is less secure than Managed Identity. Your Service Principal credentials will be written to a file on the disk of each VM in order to be accessible by Cloud Provider. To learn more, see https://capz.sigs.k8s.io/topics/identities-use-cases.html#azure-host-identity
+    12m         Warning   ControlPlaneUnhealthy                       kubeadmcontrolplane/azure-example-control-plane    Waiting for control plane to pass preflight checks to continue reconciliation: [machine azure-example-control-plane-msftd does not have APIServerPodHealthy condition, machine azure-example-control-plane-msftd does not have ControllerManagerPodHealthy condition, machine azure-example-control-plane-msftd does not have SchedulerPodHealthy condition, machine azure-example-control-plane-msftd does not have EtcdPodHealthy condition, machine azure-example-control-plane-msftd does not have EtcdMemberHealthy condition]
+    11m         Warning   ControlPlaneUnhealthy                       kubeadmcontrolplane/azure-example-control-plane    Waiting for control plane to pass preflight checks to continue reconciliation: [machine azure-example-control-plane-nrvff does not have APIServerPodHealthy condition, machine azure-example-control-plane-nrvff does not have ControllerManagerPodHealthy condition, machine azure-example-control-plane-nrvff does not have SchedulerPodHealthy condition, machine azure-example-control-plane-nrvff does not have EtcdPodHealthy condition, machine azure-example-control-plane-nrvff does not have EtcdMemberHealthy condition]
+    9m52s       Normal    SuccessfulSetNodeRef                        machine/azure-example-md-0-84bd8b5f5b-b8cnq        azure-example-md-0-bsc82
+    9m53s       Normal    SuccessfulSetNodeRef                        machine/azure-example-md-0-84bd8b5f5b-j8ldg        azure-example-md-0-mjcbn
+    9m52s       Normal    SuccessfulSetNodeRef                        machine/azure-example-md-0-84bd8b5f5b-lx89f        azure-example-md-0-pmq8f
+    10m         Normal    SuccessfulSetNodeRef                        machine/azure-example-md-0-84bd8b5f5b-pcv7q        azure-example-md-0-vzprf
+    15m         Normal    SuccessfulCreate                            machineset/azure-example-md-0-84bd8b5f5b           Created machine "azure-example-md-0-84bd8b5f5b-j8ldg"
+    15m         Normal    SuccessfulCreate                            machineset/azure-example-md-0-84bd8b5f5b           Created machine "azure-example-md-0-84bd8b5f5b-lx89f"
+    15m         Normal    SuccessfulCreate                            machineset/azure-example-md-0-84bd8b5f5b           Created machine "azure-example-md-0-84bd8b5f5b-pcv7q"
+    15m         Normal    SuccessfulCreate                            machineset/azure-example-md-0-84bd8b5f5b           Created machine "azure-example-md-0-84bd8b5f5b-b8cnq"
+    15m         Normal    Machine controller dependency not yet met   azuremachine/azure-example-md-0-bsc82              Machine Controller has not yet set OwnerRef
+    15m         Normal    Machine controller dependency not yet met   azuremachine/azure-example-md-0-mjcbn              Machine Controller has not yet set OwnerRef
+    15m         Normal    Machine controller dependency not yet met   azuremachine/azure-example-md-0-pmq8f              Machine Controller has not yet set OwnerRef
     ```
 
 ## Known Limitations

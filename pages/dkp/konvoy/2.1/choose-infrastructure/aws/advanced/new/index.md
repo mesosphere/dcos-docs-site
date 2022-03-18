@@ -20,7 +20,7 @@ enterprise: false
 1.  Set the environment variable:
 
     ```bash
-    export CLUSTER_NAME=my-aws-cluster
+    export CLUSTER_NAME=aws-example
     ```
 
 ## Tips and Tricks
@@ -33,20 +33,20 @@ enterprise: false
 
     ```json
     [
-        "alex-aws-cluster-afe98",
-        "sam-aws-cluster-8if9q"
+        "example1-aws-cluster-afe98",
+        "example2-aws-cluster-8if9q"
     ]
     ```
 
 1.  To create a cluster name that is unique, use the following command:
 
     ```bash
-    export CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+    export CLUSTER_NAME=aws-example-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 
     ```sh
-    hunter-aws-cluster-pf4a3
+    aws-example-cluster-pf4a3
     ```
 
     This will create a unique name every time you run it, so use it with forethought.

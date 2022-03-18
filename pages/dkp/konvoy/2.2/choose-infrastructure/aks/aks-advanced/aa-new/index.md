@@ -13,8 +13,8 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Set the environment variable to a name for this cluster.
 
-    ```sh
-    CLUSTER_NAME=aks-example
+    ```bash
+    export CLUSTER_NAME=aks-example
     ```
 
     See [Get Started with AKS](../../aks-quickstart) for information on naming your cluster.
@@ -41,29 +41,38 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Create the cluster from the objects.
 
-    ```sh
+    ```bash
     dkp create cluster aks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
     ```
 
     ```sh
-    cluster.cluster.x-k8s.io/aks-example created
-    azuremanagedcontrolplane.infrastructure.cluster.x-k8s.io/aks-example created
-    azuremanagedcluster.infrastructure.cluster.x-k8s.io/aks-example created
-    machinepool.cluster.x-k8s.io/aks-example created
-    azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/cpphgw4 created
-    clusterresourceset.addons.cluster.x-k8s.io/calico-installation-aks-example created
-    configmap/calico-cni-aks-example created
-    machinepool.cluster.x-k8s.io/aks-example-md-0 created
-    azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mpd56zd created
+	Generating cluster resources
+	cluster.cluster.x-k8s.io/aks-example created
+	azuremanagedcontrolplane.infrastructure.cluster.x-k8s.io/aks-example created
+	azuremanagedcluster.infrastructure.cluster.x-k8s.io/aks-example created
+	machinepool.cluster.x-k8s.io/aks-example created
+	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/cp8j69b created
+	machinepool.cluster.x-k8s.io/aks-example-md-0 created
+	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mpqm2d8 created
+	clusterresourceset.addons.cluster.x-k8s.io/calico-installation-aks-example created
+	configmap/calico-cni-aks-example created
+	clusterresourceset.addons.cluster.x-k8s.io/tigera-operator-aks-example created
+	configmap/tigera-operator-aks-example created
+	clusterresourceset.addons.cluster.x-k8s.io/cluster-autoscaler-aks-example created
+	configmap/cluster-autoscaler-aks-example created
+	clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-aks-example created
+	configmap/node-feature-discovery-aks-example created
+	clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-aks-example created
+	configmap/nvidia-feature-discovery-aks-example created
     ```
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
-    ```text
+    ```sh
     cluster.cluster.x-k8s.io/aks-example condition met
     ```
 
@@ -71,11 +80,11 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Once the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
 
-    ```sh
+    ```bash
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
-    ```text
+    ```sh
     NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
     /aks-example                                                    True                     35s
     ├─ClusterInfrastructure - AzureManagedCluster/aks-example
@@ -84,13 +93,13 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  As they progress, the controllers also create Events. List the Events using this command:
 
-    ```sh
+    ```bash
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 
     For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AKSCluster"` and `kubectl get events --field-selector involvedObject.kind="AKSMachine"`.
 
-    ```text
+    ```sh
     7m26s       Normal    SuccessfulSetNodeRef                            machine/aws-example-control-plane-2wb9q      ip-10-0-182-218.us-west-2.compute.internal
     11m         Normal    SuccessfulCreate                                awsmachine/aws-example-control-plane-vcjkr   Created new control-plane instance with id "i-0dde024e80ae3de7a"
     11m         Normal    SuccessfulAttachControlPlaneELB                 awsmachine/aws-example-control-plane-vcjkr   Control plane instance "i-0dde024e80ae3de7a" is registered with load balancer

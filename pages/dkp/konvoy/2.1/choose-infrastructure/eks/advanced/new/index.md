@@ -13,15 +13,15 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Set the environment variable to the name you assigned this cluster.
 
-    ```sh
-    CLUSTER_NAME=my-eks-cluster
+    ```bash
+    export CLUSTER_NAME=eks-example
     ```
 
     See [Get Started with EKS](../../quick-start) for information on naming your cluster.
 
 1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
 
-    ```sh
+    ```bash
     dkp update bootstrap credentials aws
     ```
 
@@ -49,7 +49,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Create the cluster from the objects.
 
-    ```sh
+    ```bash
     dkp create cluster eks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
     ```
 
@@ -65,11 +65,11 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
-    ```text
+    ```sh
     cluster.cluster.x-k8s.io/eks-example condition met
     ```
 
@@ -77,7 +77,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Once the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
 
-    ```sh
+    ```bash
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
@@ -92,13 +92,13 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  As they progress, the controllers also create Events. List the Events using this command:
 
-    ```sh
+    ```bash
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 
     For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AWSCluster"` and `kubectl get events --field-selector involvedObject.kind="AWSMachine"`.
 
-    ```text
+    ```sh
     24m         Normal   SuccessfulCreateVPC                             awsmanagedcontrolplane/eks-example-control-plane   Created new managed VPC "vpc-0d5f41c645c7c6b98"
     24m         Normal   SuccessfulSetVPCAttributes                      awsmanagedcontrolplane/eks-example-control-plane   Set managed VPC attributes for "vpc-0d5f41c645c7c6b98"
     24m         Normal   SuccessfulCreateSubnet                          awsmanagedcontrolplane/eks-example-control-plane   Created new managed Subnet "subnet-08d795f7f61b4c45c"
