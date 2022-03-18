@@ -12,13 +12,13 @@ Use the CLI to create the GitRepository resource and add a new repository to you
 
 1.  Set the `PROJECT_NAMESPACE` environment variable to the name of your project's namespace:
 
-    ```sh
+    ```bash
     export PROJECT_NAMESPACE=<project_namespace>
     ```
 
 1.  Adapt the URL of your Git repository.
 
-    ```sh
+    ```yaml
     kubectl apply -f - <<EOF
     apiVersion: source.toolkit.fluxcd.io/v1beta1
     kind: GitRepository
@@ -36,7 +36,7 @@ Use the CLI to create the GitRepository resource and add a new repository to you
 
 1.  Ensure the status of the `GitRepository` signals a ready state:
 
-    ```sh
+    ```bash
     kubectl get gitrepository example-repo -n ${PROJECT_NAMESPACE}
     ```
 
@@ -53,12 +53,12 @@ For more information on the GitRepository resource fields and how to make Flux a
 
 To troubleshoot issues with adding the GitRepository, review the following logs:
 
-```sh
-$ kubectl -n kommander-flux logs -l app=source-controller
+```bash
+kubectl -n kommander-flux logs -l app=source-controller
 [...]
-$ kubectl -n kommander-flux logs -l app=kustomize-controller
+kubectl -n kommander-flux logs -l app=kustomize-controller
 [...]
-$ kubectl -n kommander-flux logs -l app=helm-controller
+kubectl -n kommander-flux logs -l app=helm-controller
 [...]
 ```
 
