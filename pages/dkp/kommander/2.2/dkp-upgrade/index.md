@@ -8,4 +8,4 @@ beta: false
 enterprise: true
 ---
 
-This section describes how to upgrade you Kommander 2.x cluster to the newest version of Kommander.
+This section describes how to upgrade your Kommander 2.x cluster to the newest version of Kommander.
