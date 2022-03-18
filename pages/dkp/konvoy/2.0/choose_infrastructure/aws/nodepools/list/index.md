@@ -13,7 +13,7 @@ Use this command to list the node pools of a given cluster. This returns specifi
 
 To list all node pools for a managed cluster, run:
 
-```sh
+```bash
 dkp get nodepools --cluster-name=${CLUSTER_NAME} --kubeconfig=${CLUSTER_NAME}.conf
 ```
 
