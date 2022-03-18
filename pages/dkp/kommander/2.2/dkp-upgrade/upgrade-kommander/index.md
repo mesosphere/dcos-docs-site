@@ -23,9 +23,9 @@ This section automatically upgrades your Kommander cluster and all its Platform 
 
 1.  In DKP CLI, use this command to upgrade Kommander and all Platform Applications in the Management cluster:
 
-```bash
-dkp upgrade kommander
-```
+    ```bash
+    dkp upgrade kommander
+    ```
 
 <A confirmation message appears once upgrade is complete.>
 
