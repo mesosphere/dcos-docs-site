@@ -13,7 +13,7 @@ Kommander uses Flux to manage services deployed from an internal Git repository.
 
 To access a cluster attached to Kommander using kubectl, save the cluster's kubeconfig from Kommander. The following example commands save the kubeconfig file from the cluster 'cluster1' to the workspace 'example-workspace':
 
-```sh
+```bash
 # get the workspace's namespace
 WORKSPACE_NAMESPACE=$(kubectl get workspace "example-workspace" -o jsonpath='{.status.namespaceRef.name})
 
@@ -28,7 +28,7 @@ kubectl -n "${WORKSPACE_NAMESPACE}" get secret "${SECRET}" -o go-template='{{.da
 
 To connect Flux to a Git repository for GitOps, create a GitRepository and a Kustomization object on a cluster, then adapt the URL to your needs:
 
-```sh
+```yaml
 kubectl apply -f - <<EOF
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
@@ -45,7 +45,7 @@ EOF
 
 For more information on the GitRepository resource fields and how to make Flux aware of credentials required to access a private Git repository, see the [Flux documentation][flux_gitrepo]. Now that Flux is aware of the Git repository, use it to create resources from a specified path in the Git repository:
 
-```sh
+```yaml
 kubectl apply -f - <<EOF
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
@@ -63,7 +63,7 @@ EOF
 
 Flux then picks up all resources from /clusters/c1/ directory in the Git repository and creates them on the cluster. For more information on Flux Kustomization, see the [Flux documentation][flux_kustomization].
 
-```sh
+```bash
 kubectl get gitrepository example-repo
 ```
 
@@ -76,7 +76,7 @@ example-repo https://github.com/example-org/example-repo                True    
 
 The same goes for the Kustomization object:
 
-```sh
+```bash
 kubectl get kustomization c1
 ```
 
@@ -87,7 +87,7 @@ NAME   READY   STATUS                                                           
 c1     True    Applied revision: main/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   8s
 ```
 
-The examples above create the GitRepository and Kustomization in the default namespace. You can create them in any namespace because Flux as installed by Kommander is configured to watch all namespaces.  Deployment of a sample application can be found [here][podinfo_app_deployment].
+The examples above create the GitRepository and Kustomization in the default namespace. You can create them in any namespace because Flux as installed by Kommander is configured to watch all namespaces. Deployment of a sample application can be found [in this public GitHub repository][podinfo_app_deployment].
 
 For more information on how to get started with Flux, see [getting started guide][flux_get_started].
 
@@ -95,12 +95,12 @@ For more information on how to get started with Flux, see [getting started guide
 
 If you run into any issues using a 3rd-party repository, there are mainly 3 Flux pods to review logs:
 
-```sh
-$ kubectl -n kommander-flux logs -l app=source-controller
+```bash
+kubectl -n kommander-flux logs -l app=source-controller
 [...]
-$ kubectl -n kommander-flux logs -l app=kustomize-controller
+kubectl -n kommander-flux logs -l app=kustomize-controller
 [...]
-$ kubectl -n kommander-flux logs -l app=helm-controller
+kubectl -n kommander-flux logs -l app=helm-controller
 [...]
 ```
 

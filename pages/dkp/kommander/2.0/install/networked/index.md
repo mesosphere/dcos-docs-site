@@ -13,13 +13,13 @@ Prior to installing Kommander, you must know the version you'd like to install, 
 
 Set the `VERSION` environment variable to the version of Kommander you would like to install, for example:
 
-```sh
+```bash
 export VERSION=v2.0.0
 ```
 
 Kommander ships in a Helm chart, so prior to installing Kommander, make Helm aware of the Helm repository providing the Kommander chart:
 
-```sh
+```bash
 helm repo add kommander https://mesosphere.github.io/kommander/charts
 helm repo update
 ```
@@ -28,7 +28,7 @@ helm repo update
 
 To ensure the Git repository shipped with Kommander deploys successfully, the cluster you install Kommander on must have a default `StorageClass` configured. Run the following command:
 
-```sh
+```bash
 kubectl get sc
 ```
 
@@ -41,7 +41,7 @@ ebs-sc (default)   ebs.csi.aws.com   Delete          WaitForFirstConsumer   fals
 
 If the `StorageClass` is not set as default, add the following annotation to the `StorageClass` manifest:
 
-```sh
+```yaml
 annotations:
   storageclass.kubernetes.io/is-default-class: "true"
 ```
@@ -55,13 +55,13 @@ If you are installing Kommander on kind, you must know the following:
 
 - The Docker network that kind is using to configuring the MetalLB load balancer. Run this command to find this information:
 
-    ```sh
+    ```docker
     docker network inspect kind -f '{{with index .IPAM.Config 0}}{{.Subnet}}{{end}}'
     ```
 
     The subnet is usually `172.18.0.0/16`. Type your subnet into the the following command to install Kommander:
 
-    ```sh
+    ```bash
     helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --devel --version=${VERSION} --set services.metallb.enabled=true,services.metallb.addresses=172.18.255.200-172.18.255.250,services.metallb.existingConfigMap=metallb-dev-config
     ```
 -->
@@ -74,7 +74,7 @@ Before running these commands, ensure that your `kubectl` configuration **refere
 
 To install Kommander with http proxy setting enabled, you need to follow the instructions outlined in [enable gatekeeper](../http-proxy#enable-gatekeeper) section before proceeding further. To enable a gatekeeper proxy, you must pass the `values.yaml` you created to the following commands using `--values=values.yaml`
 
-```sh
+```bash
 helm install -n kommander --create-namespace kommander-bootstrap kommander/kommander-bootstrap --version=${VERSION} --set certManager=$(kubectl get ns cert-manager > /dev/null 2>&1 && echo "false" || echo "true")
 ```
 
@@ -86,13 +86,13 @@ The Kommander installation is a two-step process: Flux and cert-manager install 
 
 After running `helm install`, the cert-manager `HelmRelease` is ready and, after additional time,  `HelmReleases` appear on the cluster.
 
-```sh
+```bash
 kubectl -n kommander wait --for condition=Released helmreleases --all --timeout 15m
 ```
 
 This will wait for each of the helm charts to reach their `Released` condition, eventually resulting in:
 
-```text
+```sh
 helmrelease.helm.toolkit.fluxcd.io/centralized-grafana condition met
 helmrelease.helm.toolkit.fluxcd.io/dex condition met
 helmrelease.helm.toolkit.fluxcd.io/dex-k8s-authenticator condition met
@@ -122,13 +122,13 @@ helmrelease.helm.toolkit.fluxcd.io/velero condition met
 
 When all the `HelmReleases` are ready, use the following command to retrieve the URL to access Kommander's Web interface:
 
-```sh
+```bash
 kubectl -n kommander get svc kommander-traefik -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}/dkp/kommander/dashboard{{ "\n"}}'
 ```
 
 Use the following command to access the Username and Password stored on the cluster:
 
-```sh
+```bash
 kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
 ```
 
