@@ -27,7 +27,7 @@ Prerequisite:
 
 To enable the automated certificate renewal, create a Konvoy cluster using the `certificate-renew-interval` flag:
 
-```sh
+```bash
 dkp create cluster azure --certificate-renew-interval=60 --cluster-name=long-running
 ```
 
@@ -58,7 +58,7 @@ The renewal processing only occurs when the PKI certificates are older than the 
 
 To debug the automatic certificate renewal feature, a cluster administrator can look at several different components to see if the certificates were renewed. For example, an administrator might start with a look at the control plane pod definition to check the last reset time. To determine if a scheduler pod was properly reset, run the command:
 
-```sh
+```bash
 kubectl get pod -n kube-system kube-scheduler-ip-10-0-xx-xx.us-west-2.compute.internal -o yaml
 ```
 
@@ -76,19 +76,19 @@ Administrators who want more details on the execution of the `systemd` service c
 
 To check the status of the timers, when they last ran, and when they are scheduled to run next, use the command:
 
-```sh
+```bash
 systemctl list-timers
 ```
 
 To check the status of the `renew-certs` service, use the command:
 
-```sh
+```bash
 systemctl status renew-certs
 ```
 
 To get the logs of the last run of the service, use the command:
 
-```sh
+```bash
 journalctl logs -u renew-certs
 ```
 

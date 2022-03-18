@@ -25,19 +25,19 @@ You need to download an appropriate, signed signature file before you run valida
 
 To validate that specific components and services are FIPS-compliant, run the command:
 
-```shell
+```bash
 dkp check cluster fips --signature-file=manifest.asc --signature-configmap=signatures --output-configmap=output
 ```
 
 The full command usage and flags include:
 
-```shell
+```bash
 dkp check cluster fips [flags]
 ```
 
 Flags:
 
-```shell
+```sh
 -h, --help                     help for fips
   -n, --namespace string         If present, the namespace scope for this CLI request. (default "default")
   --output-configmap string      ConfigMap with fips signature data to verify. [required]
@@ -51,7 +51,7 @@ Upon successful completion, the command's output displays details about the depl
 
 For example, to validate FIPS-mode operation with the signature file, `manifest-rhel8.json.asc`, you would run the following command:
 
-```shell
+```bash
 dkp check cluster fips \
  --signature-file manifest-rhel8.json.asc \
  --signature-configmap prod-rhel8-fips-signatures \
@@ -62,7 +62,7 @@ dkp check cluster fips \
 
 If you already have a signature ConfigMap, you can omit the `signature-file` flag, as in the following sample command:
 
-```shell
+```bash
 dkp check cluster fips \
  --signature-configmap prod-rhel8-fips-signatures \
  --output-configmap prod-rhel8-fips-validation

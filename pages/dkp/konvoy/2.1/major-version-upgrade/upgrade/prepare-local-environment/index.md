@@ -20,7 +20,7 @@ enterprise: false
 
     Run this script in your Konvoy 1.8 cluster directory.
 
-    ```shell=sh
+    ```yaml
     cat <<EOF > fetch.yaml
     ---
     - hosts: control-plane[0]
@@ -64,13 +64,13 @@ enterprise: false
 
     Run this command:
 
-    ```shell=sh
+    ```bash
     konvoy run playbook fetch.yaml -y
     ```
 
     The output of the command will be similar to the following:
 
-    ```shell=sh
+    ```sh
     Running custom playbook "fetch.yaml"
 
     STAGE [Running Custom Playbook]
@@ -103,11 +103,11 @@ enterprise: false
 
     Run this command:
 
-    ```shell=sh
+    ```bash
     ls -1 cluster-artifacts/
     ```
 
-    ```shell=sh
+    ```sh
     ca.crt
     ca.key
     etcd-ca.crt

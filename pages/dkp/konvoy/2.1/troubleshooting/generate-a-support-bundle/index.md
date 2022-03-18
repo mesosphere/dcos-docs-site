@@ -25,25 +25,25 @@ Before generating a support bundle, verify that you have:
 
     For Linux:
 
-    ```sh
+    ```bash
     mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.4.1_linux_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
     ```
 
     For macOS:
 
-    ```sh
+    ```bash
     mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.4.1_darwin_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
     ```
 
 1.  Add the binary to your PATH:
 
-    ```sh
+    ```bash
     export PATH=./dkp-diagnose/:$PATH
     ```
 
 1.  Verify the binary works:
 
-    ```sh
+    ```bash
     dkp-diagnose version
     ```
 
@@ -75,7 +75,7 @@ To generate the support bundle, perform the following steps:
 
 1.  Run the `dkp-diagnose` command by running the default collectors configuration.
 
-    ```sh
+    ```bash
     dkp-diagnose
     ```
 
@@ -87,13 +87,13 @@ To generate the support bundle, perform the following steps:
 
 1.  To view the bundle contents, extract the bundle (replacing `support-bundle-2021-08-13T14_44_23.tar.gz` with the location from the previous step):
 
-    ```sh
+    ```bash
     tar -xzvf support-bundle-2021-08-13T14_44_23.tar.gz
     ```
 
 1.  A new directory named `support-bundle-<date-created>`is created. This directory contains the files specified:
 
-    ```sh
+    ```bash
     ls support-bundle-2021-08-13T14_44_23
     ```
 
@@ -115,7 +115,7 @@ Note that the bootstrap cluster diagnostics are independent of the configuration
 
 1. Run the `dkp-diagnose` command with bootstrap bundle configuration.
 
-```sh
+```bash
     dkp-diagnose bundle.yaml
 ```
 
@@ -123,7 +123,7 @@ Note that the bootstrap cluster diagnostics are independent of the configuration
 
 To print the default collectors configuration, run the following command:
 
-```sh
+```bash
 dkp-diagnose default-config > bundle.yaml
 ```
 
@@ -139,7 +139,7 @@ To get node level information from your cluster using SSH access, perform the fo
 
 1. Enter the following command:
 
-```sh
+```bash
 dkp-diagnose ssh <path/to/ansible-inventory.yaml>
 ```
 

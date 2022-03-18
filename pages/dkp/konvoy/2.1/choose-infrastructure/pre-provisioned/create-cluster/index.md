@@ -12,19 +12,19 @@ With the inventory, and the control plane endpoint defined, use the `dkp` binary
 
 <p class="message--note"><strong>NOTE: </strong>When specifying the <code>cluster-name</code>, you must use the same <code>cluster-name</code> as used when defining your inventory objects.</p>
 
-```shell
+```bash
 dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443>
 ```
 
 <p class="message--note"><strong>NOTE: </strong>If you have <a href="../create-secrets-and-overrides">overrides for your clusters</a>, you must specify the secret as part of the create cluster command. If these are not specified, the overrides for your nodes will not be applied. </p>
 
-```shell
+```bash
 dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443> --override-secret-name=$CLUSTER_NAME-user-overrides
 ```
 
 Depending on the cluster size, it will take a few minutes to be created. After the creation, use this command to get the Kubernetes kubeconfig for the new cluster and begin deploying workloads:
 
-```shell
+```bash
 dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
 ```
 
@@ -72,7 +72,7 @@ As explained in [Define the Control Plane Endpoint][define-control-plane-endpoin
 
 ### Virtual IP Example
 
-```shell
+```bash
 dkp create cluster preprovisioned \
     --cluster-name ${CLUSTER_NAME} \
     --control-plane-endpoint-host 196.168.1.10 \
@@ -87,7 +87,7 @@ When provisioning onto the Flatcar Container Linux distribution, you must instru
 
 ### Flatcar Linux Example
 
-```shell
+```bash
 dkp create cluster preprovisioned \
     --cluster-name ${CLUSTER_NAME} \
     --os-hint flatcar
@@ -110,7 +110,7 @@ If you require HTTP proxy configurations, you can apply them during the `create`
 
 ### HTTP Proxy Example
 
-```shell
+```bash
 dkp create cluster preprovisioned \
     --cluster-name ${CLUSTER_NAME} \
     --control-plane-http-proxy http://proxy.example.com:8080 \
@@ -138,7 +138,7 @@ When the cluster is up and running, you can deploy and test workloads.
 
 ### Alternative Mirror Example
 
-```shell
+```bash
 dkp create cluster preprovisioned \
     --cluster-name ${CLUSTER_NAME} \
     --registry-mirror-cacert /tmp/registry.pem \
@@ -153,7 +153,7 @@ In Konvoy, the default pod subnet is 192.168.0.0/16, and the default service sub
 
 1.  Generate the yaml manifests for the cluster using the `--dry-run` and `-o yaml` flags, along with the desired `dkp cluster create` command:
 
-    ```shell
+    ```bash
     dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443> --dry-run -o yaml > cluster.yaml
     ```
 

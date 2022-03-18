@@ -22,7 +22,7 @@ You can collect host level information other than copying host level files. (Thi
 
 The data written into the diagnostics bundle follows this format:
 
-```sh
+```bash
 <collector-name> / <node-name> / data / (file1|file2|...)
 ```
 

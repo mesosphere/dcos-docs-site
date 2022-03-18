@@ -26,7 +26,7 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Export the AWS Profile with the credentials that you want to use to create the Kubernetes cluster:
 
-    ```sh
+    ```bash
     export AWS_PROFILE=<profile>
     ```
 
@@ -36,7 +36,7 @@ Before starting the Konvoy installation, verify that you have:
 
     Set the environment variable to be used throughout this documentation:
 
-    ```sh
+    ```bash
     export CLUSTER_NAME=my-aws-cluster
     ```
 
@@ -51,7 +51,7 @@ We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builde
 
 1.  Create a Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp create cluster aws \
     --cluster-name=${CLUSTER_NAME} \
     --additional-tags=owner=$(whoami) \
@@ -85,7 +85,7 @@ The kubeconfig file is written to your local directory and you can now explore t
 
 1.  List the Nodes with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
@@ -104,7 +104,7 @@ The kubeconfig file is written to your local directory and you can now explore t
 
 1.  List the Pods with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
     ```
 
@@ -127,13 +127,13 @@ If you no longer need the cluster and want to delete it, you can do so using the
 
 1.  Update the AWS bootstrap credentials:
 
-    ```sh
+    ```bash
     dkp update bootstrap credentials aws --kubeconfig=${CLUSTER_NAME}.conf
     ```
 
 1.  Delete the provisioned Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp delete cluster \
     --cluster-name=${CLUSTER_NAME} \
     --kubeconfig=${CLUSTER_NAME}.conf \

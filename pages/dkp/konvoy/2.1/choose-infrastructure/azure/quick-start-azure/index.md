@@ -24,8 +24,11 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Log in to Azure:
 
+    ```bash
+    az login
+    ```
+
     ```sh
-    $ az login
     [
       {
         "cloudName": "AzureCloud",
@@ -48,8 +51,11 @@ Before starting the Konvoy installation, verify that you have:
 
     <p class="message--note"><strong>NOTE: </strong>If an SP with the name exists, this command will rotate the password.</p>
 
+    ```bash
+    az ad sp create-for-rbac --role contributor --name "$(whoami)-konvoy"
+    ```
+
     ```sh
-    $ az ad sp create-for-rbac --role contributor --name "$(whoami)-konvoy"
     {
       "appId": "7654321a-1a23-567b-b789-0987b6543a21",
       "displayName": "azure-cli-2021-03-09-23-17-06",
@@ -61,7 +67,7 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Set the required environment variables:
 
-    ```sh
+    ```bash
     export AZURE_SUBSCRIPTION_ID=<id> # b1234567-abcd-11a1-a0a0-1234a5678b90
     export AZURE_TENANT_ID="<tenant>" # a1234567-b132-1234-1a11-1234a5678b90
     export AZURE_CLIENT_ID="<appId>"  # 7654321a-1a23-567b-b789-0987b6543a21
@@ -70,7 +76,7 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Base64 encode those same environment variables:
 
-    ```sh
+    ```bash
     export AZURE_SUBSCRIPTION_ID_B64="$(echo -n "${AZURE_SUBSCRIPTION_ID}" | base64 | tr -d '\n')"
     export AZURE_TENANT_ID_B64="$(echo -n "${AZURE_TENANT_ID}" | base64 | tr -d '\n')"
     export AZURE_CLIENT_ID_B64="$(echo -n "${AZURE_CLIENT_ID}" | base64 | tr -d '\n')"
@@ -83,12 +89,12 @@ If you use these instructions to create a cluster on Azure using the DKP default
 
 1.  Give your cluster a name suitable for your environment:
 
-    ```sh
+    ```bash
     CLUSTER_NAME=my-azure-cluster
 
 1.  Create a Kubernetes cluster, with the command:
 
-    ```sh
+    ```bash
     dkp create cluster azure \
     --cluster-name=${CLUSTER_NAME} \
     --additional-tags=owner=$(whoami) \
@@ -120,7 +126,7 @@ The kubeconfig file is written to your local directory and you can now explore t
 
 1.  List the cluster's Nodes with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
@@ -139,13 +145,13 @@ The kubeconfig file is written to your local directory and you can now explore t
 
 1.  List the Pods with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
     ```
 
     The output appears similar to:
 
-    ```text
+    ```sh
     NAMESPACE                           NAME                                                                 READY   STATUS    RESTARTS   AGE
     calico-system                       calico-typha-665d976df-rf7jg                                         1/1     Running   0          60m
     capa-system                         capa-controller-manager-697b7df888-vhcbj                             2/2     Running   0          57m
@@ -160,7 +166,7 @@ The kubeconfig file is written to your local directory and you can now explore t
 
 1.  Delete the provisioned Kubernetes cluster and wait a few minutes for the processing to complete:
 
-    ```sh
+    ```bash
     dkp delete cluster \
     --cluster-name=${CLUSTER_NAME} \
     --kubeconfig=${CLUSTER_NAME}.conf \

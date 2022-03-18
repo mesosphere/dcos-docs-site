@@ -11,13 +11,13 @@ enterprise: false
 
 When using GPU nodes, it is important they have the proper label identifying them as Nvidia GPU nodes. Node feature discovery (NFD), by default labels PCI hardware as:
 
-```shell
+```yaml
 "feature.node.kubernetes.io/pci-<device label>.present": "true"
 ```
 
 where `<device label>` is by default:
 
-```shell
+```bash
 < class > _ < vendor >
 ```
 

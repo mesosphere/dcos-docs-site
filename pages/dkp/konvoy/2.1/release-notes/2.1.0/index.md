@@ -79,25 +79,25 @@ If you are deploying to CentOS using the [pre-provisioned provider](../../choose
 
 1.  Check your `/etc/fstab` file:
 
-    ```sh
+    ```bash
     cat /etc/fstab
     ```
 
 1.  Search for this line:
 
-    ```sh
+    ```bash
     /dev/mapper/centos-swap swap                    swap    defaults        0 0
     ```
 
 1.  Comment out the line, if it exists:
 
-    ```sh
+    ```bash
     # /dev/mapper/centos-swap swap                    swap    defaults        0 0
     ```
 
 1.  Run this command to complete the process:
 
-    ```sh
+    ```bash
     swapoff /dev/mapper/centos-swap
     ```
 
