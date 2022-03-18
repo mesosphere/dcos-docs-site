@@ -28,6 +28,14 @@ This release provides new features and enhancements to improve the user experien
 |**Maximum** | 1.22.x |
 |**Default** | 1.22.8 |
 
+### Deprecations
+
+<p class="message--warning"><strong>WARNING: </strong>Read the deprecations section before upgrading.</p>
+
+#### Flag default changes
+
+The default value for flag `--with-aws-bootstrap-credentials` will be changing from `true` to `false` in version v2.3.0.
+
 ### New features and capabilities
 
 #### Updated Cluster API providers to latest available versions
