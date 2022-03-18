@@ -22,7 +22,7 @@ Before you begin, you must have:
 
 Set the `PROJECT_NAMESPACE` environment variable to the name of the project's namespace where the cluster is attached:
 
-```sh
+```bash
 export PROJECT_NAMESPACE=<project_namespace>
 ```
 

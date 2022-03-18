@@ -24,7 +24,7 @@ Follow the instructions on AWS console to download the container image.
 
 After downloading the image, run the following command to copy the binaries onto your host.
 
-```sh
+```docker
 docker run -it --rm -u $(id -u):$(id -g) -v $(pwd):/dkp $CONTAINER_IMAGES
 ```
 
