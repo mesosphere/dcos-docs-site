@@ -87,7 +87,7 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
     [...]
     ```
 
-1.  Modify the `traefik-foward-auth-mgmt` configuration and add a whitelist:
+1.  Edit the `traefik-foward-auth-mgmt` configuration and add a whitelist:
 
     This step is required to give access to a user to the DKP UI. For each user, you must [give access to Kubernetes resources](../../operations/access-control/rbac) and add an entry in the `whitelist` below.
 
