@@ -58,7 +58,7 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
     - issuer URL -> `entityIssuer`
     - callback URL -> `redirectURI`
 
-    Ensure you base64 encode the contents of the PEM file. As an example, the prefix of the contents will result into this exact base64 prefix:
+    Ensure you base64 encode the contents of the PEM file. As an example, because all certificates start with the same string, the prefix of the contents will result in this exact base64 prefix:
 
     ```text
     LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tC[...]
