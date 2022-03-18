@@ -36,7 +36,7 @@ All you need is this notebook.
 Before proceeding, check you are using the correct notebook image, that is, [MXNet](https://mxnet.apache.org/api/python/docs/api/) is available:
 
 
-```sh
+```bash
 %%sh
 pip list | grep mxnet
 ```

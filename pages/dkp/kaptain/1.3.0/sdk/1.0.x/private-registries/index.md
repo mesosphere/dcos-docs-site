@@ -66,7 +66,7 @@ In this example, we used a namespace named 'user'.
 
 Verify the `Secret` is created:
 
-```shell
+```bash
 kubectl get secret docker-secret -o yaml
 
 # the output should look like this:
@@ -84,13 +84,13 @@ type: Opaque
 To create a `Secret` from the certificate file `certificate.crt` run the
 following command:
 
-```shell
+```bash
 kubectl create secret generic docker-registry-certificate -n <kaptain_namespace> --from-file=certificate.crt=certificate.crt
 ```
 
 Verify the `Secret` is created:
 
-```shell
+```bash
 kubectl get secret -n <kaptain_namespace> docker-registry-certificate -o yaml
 
 # the output should look like this:
@@ -153,7 +153,7 @@ mounting <code>Secrets</code> to <code>Pods</code>.
 
 Create a `PodDefault` resource from file using the following command:
 
-```shell
+```bash
 kubectl create -f pod-defaults.yaml
 ```
 

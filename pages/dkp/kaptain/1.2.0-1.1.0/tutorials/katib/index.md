@@ -383,7 +383,7 @@ The cell magic grabs the output of the `kubectl` command and stores it in an obj
 To see the status, run:
 
 
-```sh
+```bash
 %%sh
 kubectl describe experiment.kubeflow.org $EXPERIMENT
 ```
@@ -391,7 +391,7 @@ kubectl describe experiment.kubeflow.org $EXPERIMENT
 To get the list of created trials, use the following command:
 
 
-```sh
+```bash
 %%sh
 kubectl get trials.kubeflow.org -l experiment=$EXPERIMENT
 ```
@@ -405,7 +405,7 @@ kubectl get trials.kubeflow.org -l experiment=$EXPERIMENT
 After the experiment is completed, use `describe` to get the best trial results:
 
 
-```sh
+```bash
 %%sh
 kubectl describe experiment.kubeflow.org $EXPERIMENT
 ```

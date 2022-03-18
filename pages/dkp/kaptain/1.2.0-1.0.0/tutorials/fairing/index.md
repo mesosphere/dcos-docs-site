@@ -49,7 +49,7 @@ Please note that this notebook is interactive!
 Kubeflow Fairing must be installed:
 
 
-```sh
+```bash
 %%sh
 pip show kubeflow-fairing
 ```
@@ -62,7 +62,7 @@ or [MNIST with PyTorch](../training/pytorch) tutorials and can be reused here. R
 ##### TensorFlow
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 jq -j '.cells[] | select (.metadata.tags[]? | contains("trainer_code")) | .source[]' tensorflow-tutorial/MNIST\ with\ TensorFlow.ipynb | sed '1d' > mnist.py
@@ -72,7 +72,7 @@ cp -R tensorflow-tutorial/datasets .
 ##### PyTorch
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 jq -j '.cells[] | select (.metadata.tags[]? | contains("trainer_code")) | .source[]' pytorch-tutorial/MNIST\ with\ PyTorch.ipynb | sed '1d' > mnist.py
@@ -123,7 +123,7 @@ js = {"auths": {"https://index.docker.io/v1/": {"auth": docker_credentials}}}
 ```
 
 
-```sh
+```bash
 %%sh
 kubectl create configmap docker-config --from-file=config.json
 ```
