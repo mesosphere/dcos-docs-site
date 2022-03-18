@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: How to upgrade DKP
+navigationTitle: DKP upgrade
 title: How to upgrade DKP
 menuWeight: 8
 excerpt: Upgrade Kommander and Konvoy to the latest versions and benefit from the full DKP experience
