@@ -12,7 +12,7 @@ A control plane should have three, five, or seven nodes, so that it can remain a
 
 In addition, the control plane should have an endpoint that remains available if some nodes fail.
 
-```text
+```sh
                             -------- cp1.example.com:6443
                             |
       lb.example.com:6443 ---------- cp2.example.com:6443

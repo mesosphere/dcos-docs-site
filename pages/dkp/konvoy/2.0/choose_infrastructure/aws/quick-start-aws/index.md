@@ -26,13 +26,13 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Export the AWS region where you want to deploy the cluster:
 
-    ```sh
+    ```bash
     export AWS_REGION=us-west-2
     ```
 
 1.  Export the AWS Profile with the credentials that you want to use to create the Kubernetes cluster:
 
-    ```sh
+    ```bash
     export AWS_PROFILE=<profile>
     ```
 
@@ -40,7 +40,7 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Create a bootstrap cluster:
 
-    ```sh
+    ```bash
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
@@ -48,19 +48,19 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Give your cluster a name suitable for your environment:
 
-    ```sh
+    ```bash
     export CLUSTER_NAME=$(whoami)-aws-cluster
     ```
 
 1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
 
-    ```sh
+    ```bash
     dkp update bootstrap credentials aws
     ```
 
 1.  Create a Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
     ```
 
@@ -70,19 +70,19 @@ Before starting the Konvoy installation, verify that you have:
 
     You can use the `.pub` file that complements your private ssh key. For example, use the public key that complements your RSA private key:
 
-    ```sh
+    ```bash
     --ssh-public-key-file=${HOME}/.ssh/id_rsa.pub
     ```
 
     The default username for SSH access is `konvoy`. For example, use your own username:
 
-    ```sh
+    ```bash
     --ssh-username=$(whoami)
     ```
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
@@ -90,13 +90,13 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Fetch the kubeconfig file:
 
-    ```sh
+    ```bash
     dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
 1.  List the Nodes with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
@@ -104,7 +104,7 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  List the Pods with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
     ```
 
@@ -112,13 +112,13 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Deploy CAPI controllers on the worker cluster:
 
-    ```sh
+    ```bash
     dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
 1.  Issue the move command:
 
-    ```sh
+    ```bash
     dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -133,7 +133,7 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Remove the bootstrap cluster, as the worker cluster is now self-managing:
 
-    ```sh
+    ```bash
     dkp delete bootstrap --kubeconfig $HOME/.kube/config
     ```
 
@@ -141,13 +141,13 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Create a bootstrap cluster:
 
-    ```sh
+    ```bash
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
 1.  Issue the move command:
 
-    ```sh
+    ```bash
     dkp move --from-kubeconfig ${CLUSTER_NAME}.conf --to-kubeconfig $HOME/.kube/config
     ```
 
@@ -155,13 +155,13 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Delete the provisioned Kubernetes cluster and wait a few minutes:
 
-    ```sh
+    ```bash
     dkp delete cluster --cluster-name=${CLUSTER_NAME}
     ```
 
 1.  Delete the `kind` Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp delete bootstrap --kubeconfig $HOME/.kube/config
     ```
 

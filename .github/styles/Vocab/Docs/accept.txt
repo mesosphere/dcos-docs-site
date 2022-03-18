@@ -78,6 +78,7 @@ firewalld
 Flink
 (fluentbit|Fluentbit)
 Fluentd
+(Frontmatter|frontmatter)
 (gcr|GCR)
 Gitea
 (gitops|GitOps)
@@ -187,6 +188,7 @@ preconfigure(|d)
 preprocessor(|s)
 (preprovisioned|Preprovisioned)
 (prometheus|Prometheus)
+proxying
 Purestorage
 Pushgateway
 pytest

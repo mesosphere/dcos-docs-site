@@ -25,12 +25,12 @@ To get a great comprehensive overview of markdown syntax, please visit [this che
 ### Adding code blocks
 
 Code blocks are formatted and presented to the user on the docs site with a copy icon in the upper right corner. Users can click on this icon and copy the entire code to their clipboard, rather than have to type all the code in.
-Code block formatting is 3 backtics on separate lines at start and end. Do not put in the leading shell prompt `$` for any commands to be run, as this will block the user from copy-pasting.
+Code block formatting is 3 backticks on separate lines at start and end. Do not put in the leading shell prompt `$` for any commands to be run, as this will block the user from copy-pasting.
 
 Code ex.:
 
 ````
-```
+```bash
 cd /var/lib/dcos/pki/tls/certs/
 ```
 ````
@@ -50,6 +50,27 @@ $ openssl x509 -hash -noout -in ca.crt
 ```
 
 For the same usability as removing the shell prompt, always separate input blocks from output blocks so that users can copy the commands.
+
+You should also specify a language when you use code blocks (common examples: yaml, bash, sh, json).
+
+**Note:** We have added styling so that if you use the `sh` for the code language, it will not display the copy icon in the code block on the docs site. `sh` should be reserved for output that is printed, and not something that anybody would want to copy/paste as a command.
+
+For example, use this for a command line code block that a user would want to copy/paste into their terminal:
+
+````
+```bash
+kubectl version
+```
+````
+
+For example, use this for a code block to show the output of a command, and not something that a user would ever want to copy into their terminal, as the copy icon will not show:
+
+
+````
+```sh
+Client Version: version.Info{Major:"1", Minor:"21", GitVersion:"v1.21.2", GitCommit:"092fbfbf53427de67cac1e9fa54aaa09a28371d7", GitTreeState:"clean", BuildDate:"2021-06-16T12:52:14Z", GoVersion:"go1.16.5", Compiler:"gc", Platform:"darwin/amd64"}
+```
+````
 
 ### Adding line highlights
 
@@ -106,7 +127,7 @@ Images are currently stored in an `img` folder at the version level. Running a p
 
 ### Using includes files for reusable content
 
-"Include" files are content partials stored in a folder called "include", which can be at any level of the content. are inserted on build time. Especially when created with mustache variable rendering, can be incredibly useful when re-using content across products or versions.
+"Include" files are content partials stored in a folder called `include`, which can be at any level of the content. are inserted on build time. Especially when created with mustache variable rendering, can be incredibly useful when re-using content across products or versions.
 
 Using an `include` file
 To use an include file in a Markdown document, insert the word "#include" at the beginning of a line, followed by a space, followed by the path name of the file you wish to include:
@@ -168,7 +189,7 @@ Figure 1 - Folder Structure Example
 
 ### Add required Metadata
 
-Our markdown comes with metadata - also called "frontmatter". Here are the special variables that you might want to set in a pages' frontmatter:
+Our markdown comes with metadata - also called "frontmatter." Here are the special variables that you might want to set in a pages' frontmatter:
 
 #### Required Parameters
 
@@ -176,11 +197,11 @@ Our markdown comes with metadata - also called "frontmatter". Here are the speci
 - **navigationTitle**: short title that shows up in 300px wide left hand nav
 - **title**: longer title that shows up at top of content page
 - **excerpt**: presented below the title at the top of the content page, sometimes used in topic cards. This could be a sub-title.
-- **menuWeight**: this determines ordering within the nav structure, all numerical values except -1 accepted and sorted
+- **menuWeight**: this determines ordering within the nav structure, all numerical values except –1 accepted and sorted
 
 #### Additional metadata
 
-- **subtree**: This propagates its values down to all ancestor-pages. E.g. to hide a page tree, you set this on the topmost page you want to hide:
+- **subtree**: This propagates its values down to all ancestor-pages. For example, to hide a page tree, you set this on the topmost page you want to hide:
   ```
   ------------------
   title: Konvoy 42.0 beta

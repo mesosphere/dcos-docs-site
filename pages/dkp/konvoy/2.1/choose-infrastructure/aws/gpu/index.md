@@ -31,13 +31,13 @@ Using the [Konvoy Image Builder](../../../image-builder), you can build an image
 
 1. Build your image using the following Konvoy image builder commands:
 
-    ```shell
+    ```bash
     konvoy-image build --region us-west-2 --source-ami=ami-12345abcdef images/ami/centos-7.yaml --overrides overrides/nvidia.yaml
     ```
 
     By default, your image builds in the `us-west-2` region. To specify another region, set the `--region` flag:
 
-    ```sh
+    ```bash
     konvoy-image build --region us-east-1 --overrides override-source-ami.yaml --overrides override-images.yaml images/ami/<Your OS>.yaml
     ```
 
@@ -47,6 +47,6 @@ Using the [Konvoy Image Builder](../../../image-builder), you can build an image
 
     To use the built `ami` with Konvoy, specify it with the `--ami` flag when calling cluster create.
 
-    ```sh
+    ```bash
     dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --region us-west-2 --ami <ami>
     ```

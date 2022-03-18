@@ -115,7 +115,7 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 
 Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
 
-```sh
+```bash
 export VERSION=v2.1.0
 ```
 

@@ -99,7 +99,7 @@ After this, you can deploy different applications through the UI.
 
 To add custom catalog applications to a Project, a GitRepository pointing to the catalog Git repository **must be also created on each attached cluster in the Project**. Follow the steps on the [Create a Git Repository][project-custom-applications-git-repo] page, but apply the same commands on each attached cluster that is in the Project.
 
-```sh
+```yaml
 kubectl apply -f - <<EOF
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
@@ -164,7 +164,7 @@ EOF
 
 Then, apply this file to your cluster:
 
-```sh
+```bash
 kubectl apply -f cert_manager_root-ca.yaml
 ```
 
@@ -176,7 +176,7 @@ Your cert-manager will fail to deploy due to your existing `cert-manager` instal
 
 If the management cluster was initialized using a custom SSL certificate, the managed cluster will fail cloning the manager's service repository. Check the status of the federated git repository resource to see the error:
 
-```sh
+```bash
 kubectl get gitrepo -n kommander-flux management --kubeconfig MANAGED-KUBECONFIG
 [..]
 unable to clone 'https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander': Get "https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander/info/refs?service=git-upload-pack": x509: certificate signed by unknown authority
@@ -185,14 +185,17 @@ unable to clone 'https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kom
 
 The deployment fails because the managed cluster uses the wrong CA certificate to verify access to the management cluster's git repository. Solve this issue by patching the `gitserver-ca` secret within the `kommander-flux` namespace on the managed cluster with the CA certificate stored in the `kommander-traefik-certificate` secret within the `kommander` namespace on the management cluster.
 
-```sh
+```bash
 kubectl --kubeconfig=MANAGED_KUBECONFIG patch secret -n kommander-flux gitserver-ca -p '{"data":{"caFile":"'$(kubectl --kubeconfig=MANAGER_KUBECONFIG get secret -n kommander kommander-traefik-certificate -o go-template='{{index .data "ca.crt"}}')'"}}'
 ```
 
 You may need to trigger a reconciliation of the flux controller on the managed cluster if you do not want to wait for its regular interval to occur. Use the [`flux` CLI utility][flux-cli]:
 
-```sh
+```bash
 flux reconcile -n kommander-flux source git management --kubeconfig MANAGED_KUBECONFIG
+```
+
+```sh
 ► annotating GitRepository management in kommander-flux namespace
 ✔ GitRepository annotated
 ◎ waiting for GitRepository reconciliation
@@ -207,6 +210,6 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
-[konvoy-self-managed]: ../../choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
+[konvoy-self-managed]: ../../choose-infrastructure/aws/quick-start-aws/#optional-move-controllers-to-the-newly-created-cluster
 [project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
 [flux-cli]: https://fluxcd.io/docs/installation/

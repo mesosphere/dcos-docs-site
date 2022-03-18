@@ -21,7 +21,7 @@ docker run -p 5000:5000 -it mesosphere/archived_docs
 
 After running this command, you will see:
 
-```shell
+```sh
    │   Serving!                                     │
    │                                                │
    │   - Local:            http://0.0.0.0:5000      │

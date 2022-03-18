@@ -13,7 +13,7 @@ excerpt: Grant access to users in your organization
 
 By default, you can log in to Kommander with the credentials given by the following command to access the Username and Password stored on the cluster:
 
-```sh
+```bash
 kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
 ```
 
@@ -43,11 +43,11 @@ Identity Providers
 
 ### Limit who has access
 
-- The Github provider allows you to specify which organizations and teams are eligible for access.
+- The GitHub provider allows you to specify which organizations and teams are eligible for access.
 
-![Github Form](../../img/Identity-provider-Github.png)
+![GitHub Form](../../img/Identity-provider-Github.png)
 
-Github Form
+GitHub Form
 
 - The LDAP provider allows you to configure search filters for either users or groups.
 
@@ -77,7 +77,7 @@ Identity Provider Table Row Action Menu
 
 ## Groups
 
-Access control groups are configured in the Groups tab of the Identity Providers page. Refer to [Access Control](../../../operations/access-control/) for an overview of groups in Kommander.
+Access control groups are configured in the Groups tab of the Identity Providers page. Refer to [Access Control](../access-control/) for an overview of groups in Kommander.
 
 ![Identity Provider Groups](../../img/access-control-idp-groups.png)
 

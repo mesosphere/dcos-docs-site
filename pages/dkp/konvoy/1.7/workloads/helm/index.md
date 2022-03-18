@@ -31,23 +31,29 @@ With helm installed, you will need to know the chart you are looking to install.
 
 For a simple nginx workload, [search on artifacthub.io][artifact-nginx] shows a number of results with the top result being from ORG: Bitnami and REPO: Bitnami. Selecting that option shows a [detailed page][artifact-nginx-detail] which includes how to install and uninstall this chart. The details on the page include the following which can be used to install nginx.
 
-```shell
+```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install my-release bitnami/nginx
 ```
 
 The phrase `my-release` is the name of the service which this workload will be known. For this example, it can be confirmed by executing:
 
-```shell
-❯ kubectl get deploy
+```bash
+kubectl get deploy
+```
+
+```sh
 NAME         READY   UP-TO-DATE   AVAILABLE   AGE
 my-release   1/1     1            1           57s
 ```
 
 or you can use helm
 
-```shell
- ❯ helm ls
+```bash
+helm ls
+```
+
+```sh
 NAME        NAMESPACE   REVISION    UPDATED                                 STATUS      CHART          APP VERSION
 my-release  default     1           2020-10-06 15:12:44.917119 -0500 CDT    deployed    nginx-7.1.3    1.19.3
 ```
@@ -56,7 +62,7 @@ my-release  default     1           2020-10-06 15:12:44.917119 -0500 CDT    depl
 
 One of the great features of helm is the ability to have variables in the chart allowing for customization at installation. This enables the ability to set values by using the `--set` flag as part of the install command or by providing a value file using the `-f` flag. Consulting the artifacthub page for nginx, it indicates that `replicaCount` is a deployment parameter with a default of 1. Let's set that value to 2.
 
-```shell
+```bash
 helm install --set replicaCount=2 my-release bitnami/nginx
 
 ## if you run into issues installing you may change the name "my-release" or uninstall the original deployment
@@ -70,7 +76,7 @@ helm delete my-release
 
 It is useful to know that you do not need to get charts from a repository. You can install from the file system if you prefer. To do so, specify the folder location as the final argument to `helm install`. For example:
 
-```shell
+```bash
 helm install --set replicaCount=2 my-release bitnami/nginx ./nginx
 ```
 

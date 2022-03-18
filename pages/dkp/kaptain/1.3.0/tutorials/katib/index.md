@@ -411,7 +411,7 @@ The cell magic grabs the output of the `kubectl` command and stores it in an obj
 To see the status, run:
 
 
-```sh
+```bash
 %%sh
 kubectl describe experiment.kubeflow.org $EXPERIMENT
 ```
@@ -419,7 +419,7 @@ kubectl describe experiment.kubeflow.org $EXPERIMENT
 To see experiment suggestions:
 
 
-```sh
+```bash
 %%sh
 kubectl describe suggestions.kubeflow.org $EXPERIMENT
 ```
@@ -427,7 +427,7 @@ kubectl describe suggestions.kubeflow.org $EXPERIMENT
 To get the list of created trials, use the following command:
 
 
-```sh
+```bash
 %%sh
 kubectl get trials.kubeflow.org -l katib.kubeflow.org/experiment=$EXPERIMENT
 ```
@@ -441,7 +441,7 @@ kubectl get trials.kubeflow.org -l katib.kubeflow.org/experiment=$EXPERIMENT
 To fetch the logs of a particular trial, use the following command:
 
 
-```sh
+```bash
 %%sh
 kubectl logs -l job-name=<trial-name> --all-containers --prefix=true
 ```
@@ -449,7 +449,7 @@ kubectl logs -l job-name=<trial-name> --all-containers --prefix=true
 After the experiment is completed, use `describe` to get the best trial results:
 
 
-```sh
+```bash
 %%sh
 kubectl describe experiment.kubeflow.org $EXPERIMENT
 ```
@@ -479,7 +479,7 @@ Status:
 If an Experiment needs to be deleted, including deleting it from the "Experiments (AutoML)" page:
 
 
-```sh
+```bash
 %%sh
 kubectl delete experiments.kubeflow.org $EXPERIMENT 
 ```

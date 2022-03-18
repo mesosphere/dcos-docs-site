@@ -28,7 +28,7 @@ Before installing, ensure you have:
 
 Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
 
-```sh
+```bash
 export VERSION=v2.0.0
 ```
 
@@ -68,13 +68,13 @@ Based on the network latency between the environment of script execution and the
 
 1. Kommander v2.0 ships in a Helm chart. Prior to installing Kommander, ensure the helm charts for an air-gapped deployment are available locally. To get the latest chart:
 
-    ```sh
+    ```bash
     wget "https://mesosphere.github.io/kommander/charts/kommander-bootstrap-${VERSION}.tgz"
     ```
 
 1. Create the following `values.yaml` file that can be used for installing Kommander in your air-gapped environment:
 
-    ```bash
+    ```yaml
     export GOARCH=amd64
     export CERT_MANAGER=$(kubectl get ns cert-manager > /dev/null 2>&1 && echo "false" || echo "true")
     cat <<EOF > values-airgapped.yaml

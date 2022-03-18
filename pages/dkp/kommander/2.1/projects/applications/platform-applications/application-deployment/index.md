@@ -22,13 +22,13 @@ Before you begin, you must have:
 
 Set the `PROJECT_NAMESPACE` environment variable to the name of the project's namespace where the cluster is attached:
 
-```sh
+```bash
 export PROJECT_NAMESPACE=<project_namespace>
 ```
 
 ## Deploy the application
 
-The list of available applications that can be deployed on the attached cluster can be found [here](../../platform-applications#platform-applications).
+The list of available applications that can be deployed on the attached cluster can be found [in this topic](../../platform-applications#platform-applications).
 
 1.  Deploy one of the supported applications to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 

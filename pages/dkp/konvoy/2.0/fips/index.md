@@ -33,7 +33,7 @@ Before provisioning Konvoy, ensure that your OS or OS Images are [prepared for o
 
 Konvoy image builder can produce images containing FIPS-140 compliant binaries. To do so, use the `fips.yaml` [override file](../image-builder/override-files/) provided with the konvoy-image bundle. For example:
 
-```shell
+```bash
 konvoy-image build --overrides overrides/fips.yaml images/ami/centos-8.yaml
 ```
 
@@ -41,13 +41,13 @@ konvoy-image build --overrides overrides/fips.yaml images/ami/centos-8.yaml
 
 If you are targeting [pre-provisioned infrastructure](../choose_infrastructure/pre-provisioned/), use konvoy-image builder to install the FIPS binaries for you. For example:
 
-```shell
+```bash
 konvoy-image provision --overrides overrides/fips.yaml images/generic/centos-8.yaml
 ```
 
 ### Validating infrastructure
 
-After deployment use the the `dkp-fips-tool` to validated your nodes are running D2IQs FIPS-140 compliant builds. To do so, download the following fips tool and appropriate signed manifest file to the nodes you wish to verify:
+After deployment use the `dkp-fips-tool` to validated your nodes are running D2IQs FIPS-140 compliant builds. To do so, download the following fips tool and appropriate signed manifest file to the nodes you wish to verify:
 
 [dkp-fips-tool](https://kubernetes-fips.s3.us-east-2.amazonaws.com/tool/dkp-fips-tool)
 

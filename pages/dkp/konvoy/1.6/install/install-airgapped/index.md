@@ -312,7 +312,7 @@ spec:
 ```
 
 The above assumes that the certificate used by `myregistry` is signed by a trusted authority.
-If you are using a self-signed certificate, you must add that trusted root certificate to all the Kubernete hosts before running `konvoy up`.
+If you are using a self-signed certificate, you must add that trusted root certificate to all the Kubernetes hosts before running `konvoy up`.
 
 - On Centos/RHEL:
 

@@ -59,20 +59,23 @@ The following items and configurations are required for this procedure:
 
 1. Apply the configuration to create the PVC.
 
-    ```shell
+    ```bash
     kubectl apply -f original-pvc.yaml
     ```
 
 1. After the PVC is created, verify its status.
 
-    ```shell
+    ```bash
     kubectl describe pvc/original-pvc
     ```
 
     Check that the PVC was created and is in pending state:
 
-    ```shell
+    ```bash
     kubectl describe pvc/original-pvc
+    ```
+
+    ```sh
     Name:          original-pvc
     Namespace:     default
     StorageClass:  azurediskprovisioner
@@ -117,15 +120,16 @@ Create a pod that will write to the newly created volume.
 
 1. Apply the configuration to create the pod.
 
-    ```shell
+    ```bash
     kubectl apply -f original-pod.yaml
     ```
 
 1. Check the pod is running, its underlying Persistent Volume (PV) storage for
    the `original-pvc` was provisioned and that it was bound to the PVC.
 
-    ```shell
+    ```bash
     kubectl get pod
+    ```
     NAME                    READY   STATUS    RESTARTS   AGE
     original-pvc-consumer   1/1     Running   0          6m52s
 
@@ -181,14 +185,17 @@ Create a pod that will write to the newly created volume.
 
 1. Apply the new configuration.
 
-    ```shell
+    ```bash
     kubectl apply -f cloned-pvc.yaml
     ```
 
 1. Check the PVC was created and is in pending state, waiting for its consumer.
 
-    ```shell
+    ```bash
     kubectl get pvc
+    ```
+
+    ```sh
     NAME           STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS           AGE
     cloned-pvc     Pending                                                                        azurediskprovisioner   18s
     original-pvc   Bound     pvc-466daf5d-ff57-4fe0-959b-f0553fa74d93   1Gi        RWO            azurediskprovisioner   26m
@@ -220,14 +227,17 @@ spec:
 
 1. Apply the new pod configuration.
 
-    ```shell
+    ```bash
     kubectl apply -f cloned-pod.yaml
     ```
 
 1. Check that the new PVC has been provisioned.
 
-    ```shell
+    ```bash
     kubectl get pvc
+    ```
+
+    ```sh
     NAME           STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS           AGE
     cloned-pvc     Pending                                                                        azurediskprovisioner   7m15s
     original-pvc   Bound     pvc-466daf5d-ff57-4fe0-959b-f0553fa74d93   1Gi        RWO            azurediskprovisioner   33m
@@ -240,8 +250,11 @@ spec:
 
 1. Check the logs output of the new pod and verify that the file is present in the filesystem.
 
-    ```shell
+    ```bash
     kubectl logs cloned-pvc-consumer
+    ```
+
+    ```sh
     -rw-r--r--. 1 root root 5 Aug 13 09:06 /mnt/azuredisk/file
     test
     ```

@@ -125,7 +125,7 @@ If none of the conditions apply to your cluster, then you can skip to next secti
 
 To adapt your existing platform applications to Kommander enter the following command:
 
-```sh
+```bash
 kommander migrate -y
 ```
 

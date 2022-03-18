@@ -28,6 +28,6 @@ If the default prefix does not work for you, change it by following these steps:
 1.  Run `konvoy deploy addons`, or `konvoy up`, if you have not deployed the cluster.
 1.  If you ran `konvoy deploy addons`, restart the `kube-oidc-proxy` pod to load the updated config.
 
-    ```shell
+    ```bash
     kubectl delete pods --namespace kubeaddons --selector=app.kubernetes.io/name=kube-oidc-proxy
     ```

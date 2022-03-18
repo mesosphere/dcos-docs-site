@@ -301,7 +301,7 @@ For example on `Ubuntu 18.04`, you must replace the following Deb packages and t
 
 The airgapped bundle contains package archives for both EL7 and EL8. The installer, however, is configured to copy only one set of packages, and it defaults to the EL7 packages. If you are using EL8 (centos 8 or rhel 8), copy the EL8 package archive to the default location:
 
-```shell
+```bash
 # backup the centos 7 archive (optional)
 cp konvoy_<konvoy-version>_x86_64_rpms.tar.gz konvoy_<konvoy-version>_el7_x86_64_rpms.tar.gz
 
@@ -346,7 +346,7 @@ spec:
 ```
 
 The above assumes that the certificate used by `myregistry` is signed by a trusted authority.
-If you are using a self-signed certificate, you must add that trusted root certificate to all the Kubernete hosts before running `konvoy up`.
+If you are using a self-signed certificate, you must add that trusted root certificate to all the Kubernetes hosts before running `konvoy up`.
 
 - On Centos/RHEL:
 

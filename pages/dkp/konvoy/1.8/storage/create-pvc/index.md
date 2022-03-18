@@ -54,13 +54,13 @@ Create a Persistent Volume Claim to access your NFS share storage.
 
 1.  After configuration, apply the PVC to request the NFS Volume.
 
-    ```shell
+    ```bash
     kubectl apply -f nfs-share.yaml
     ```
 
 1.  You should receive a return value of `persistentvolumeclaim/nfs-share created`. After the PVC is deployed, validate the status is `Pending`.
 
-    ```shell
+    ```bash
     kubectl get pv nfs-share
     ```
 
