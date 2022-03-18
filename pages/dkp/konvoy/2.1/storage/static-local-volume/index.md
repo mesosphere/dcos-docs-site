@@ -21,7 +21,7 @@ Before starting this tutorial, verify the following:
 
 -   You have access to a Linux, macOS, or Windows computer with a supported operating system version.
 
--   You have a provisioned `konvoy` cluster that uses the `localvolumeprovisioner` platform application, but have not added any other Kommander applications to the cluster yet.
+-   You have a provisioned `dkp` cluster that uses the `localvolumeprovisioner` platform application, but have not added any other Kommander applications to the cluster yet.
 
 For this tutorial, you **do not deploy** using all the default settings as described in the [Quick start guide][quickstart].
 
