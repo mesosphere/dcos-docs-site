@@ -21,7 +21,7 @@ Before starting this tutorial, you should verify the following:
 
 -   You have access to a Linux, macOS, or Windows computer with a supported operating system version.
 
--   You have a provisioned `konvoy` cluster that is configured to use the `localvolumeprovisioner` addon, but have not any addons to the cluster.
+-   You have a provisioned `konvoy` cluster that is configured to use the `localvolumeprovisioner` addon, but have not added any addons to the cluster.
 
 For this tutorial, **do not deploy** using all of the default settings as described in the [Quick start][quickstart].
 
