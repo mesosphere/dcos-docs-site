@@ -46,7 +46,7 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
 
 1.  Modify the `dex` configuration:
 
-    For this step, obtain the following from your IdP:
+    For this step, get the following from your IdP:
 
     - single sign-on URL or SAML URL -> `ssoURL`
     - base64 encoded, PEM encoded CA certificate -> `caData`
