@@ -9,7 +9,7 @@ beta: false
  
 <!-- markdownlint-disable MD0013 MD030 MD034 -->
 
-Upgrading to DKP 2.2 adapts your Platform Applications to the following versions:
+Upgrading to the latest version of DKP adapts your Platform Applications to the following versions:
 
 | Platform Application in 2.x | Platform Application in 2.2 |
 | --- | --- |
