@@ -21,13 +21,13 @@ To get started, ensure you have [kubectl](https://kubernetes.io/docs/tasks/tools
 
 First, create the necessary service account:
 
-```shell
+```bash
 kubectl -n kube-system create serviceaccount kommander-cluster-admin
 ```
 
 Next, configure the new service account for `cluster-admin` permissions:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
@@ -46,7 +46,7 @@ EOF
 
 Next, setup the following environment variables with access data needed for producing a new kubeconfig file.
 
-```shell
+```bash
 export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')
 export USER_TOKEN_VALUE=$(kubectl -n kube-system get secret/${USER_TOKEN_NAME} -o=go-template='{{.data.token}}' | base64 --decode)
 export CURRENT_CONTEXT=$(kubectl config current-context)
@@ -57,7 +57,7 @@ export CLUSTER_SERVER=$(kubectl config view --raw -o=go-template='{{range .clust
 
 Now you can generate the kubeconfig file with these values:
 
-```shell
+```yaml
 cat << EOF > kommander-cluster-admin-config
 apiVersion: v1
 kind: Config
@@ -84,7 +84,7 @@ This produces a file in your current working directory called `kommander-cluster
 
 Before importing this configuration, you can verify it is functional by running the following command:
 
-```shell
+```bash
 kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespaces
 ```
 
