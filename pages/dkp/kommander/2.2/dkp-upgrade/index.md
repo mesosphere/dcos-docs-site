@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Upgrade Kommander
-title: Upgrade Kommander
-menuWeight: 4
-excerpt: Steps to upgrade Kommander via CLI
+navigationTitle: How to upgrade DKP
+title: How to upgrade DKP
+menuWeight: 8
+excerpt: Upgrade Kommander and Konvoy to the latest versions and benefit from the full DKP experience
 beta: false
-enterprise: true
 ---
 
-This section describes how to upgrade your Kommander 2.x cluster to the newest version of Kommander.
+This section describes how to upgrade your environment to the latest version of DKP.
