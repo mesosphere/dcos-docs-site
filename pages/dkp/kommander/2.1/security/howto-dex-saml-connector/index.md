@@ -44,7 +44,7 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
     </EntityDescriptor>
     ```
 
-1.  Modify the `dex` configuration:
+1.  Edit the `dex` configuration:
 
    Get the following from your IdP:
 
