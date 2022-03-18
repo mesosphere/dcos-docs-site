@@ -14,6 +14,6 @@ enterprise: false
 
 Konvoy stores Dex config in the `dex-kubeaddons` secret in the kubeaddons namespace. To view the current settings run the following kubectl command.
 
-```shell
+```bash
 kubectl get --namespace kubeaddons secrets dex-kubeaddons --output=jsonpath='{.data.config\.yaml}' | base64 --decode
 ```

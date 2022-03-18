@@ -71,7 +71,7 @@ and requested resources, as detailed below.
 
 Ensure, before the next step, that you define the `AWS_PROFILE` environment variable, according to your ~/.aws/credentials. For example:
 
-```shell
+```bash
 export AWS_PROFILE=default
 ```
 
@@ -92,8 +92,11 @@ The following files are stored in Kubernetes when using the autoscaling feature:
 * `cluster.yaml`: the cluster specification is stored in Kubernetes in the
 `konvoy` namespace as part of the resource `KonvoyCluster` resource:
 
-```shell
+```bash
 kubectl get konvoycluster -n konvoy
+```
+
+```sh
 NAMESPACE                    NAME           DISPLAY NAME   STATUS        PROVIDER   AGE    PROVISIONING PAUSED
 konvoy                       mycluster      New Cluster    Provisioned   aws        6d2h
 ```
@@ -145,8 +148,11 @@ under the `konvoy` namespace, e.g. `kubectl get all -n konvoy`.
 
 The Konvoy autoscaler deploys two pods.
 
-```shell
+```bash
 kubectl get pods -n konvoy
+```
+
+```sh
 NAME                                                              READY   STATUS    RESTARTS   AGE
 mycluster-kbk4w                                                  1/1     Running   0          5s
 mycluster-kubeaddons-konvoy-cluster-autoscaler-55f48c876dp2z9h   1/1     Running   0          98m
@@ -155,8 +161,11 @@ mycluster-kubeaddons-konvoy-cluster-autoscaler-55f48c876dp2z9h   1/1     Running
 To make any future change to the configuration of the Konvoy cluster,
 you must use the `konvoy pull` command to fetch the required files in your working directory.
 
-```shell
+```bash
 konvoy pull -h
+```
+
+```sh
 Pull cluster state
 
 Usage:
@@ -168,9 +177,11 @@ Flags:
       --verbose               enable debug level logging
 ```
 
-```shell
+```bash
 konvoy pull
+```
 
+```sh
 Kubernetes cluster state pulled successfully!
 ```
 
@@ -183,8 +194,11 @@ working directory and the cluster state in Kubernetes.
 In addition to `konvoy pull`, Konvoy provides a new command to store the cluster
 state in Kubernetes, `konvoy push`:
 
-```shell
+```bash
 konvoy push -h
+```
+
+```sh
 Push cluster state
 
 Usage:
@@ -201,9 +215,11 @@ This `push` command stores the cluster state, on demand, in Kubernetes.
 It allows users to specify certain cloud provider credentials that might differ
 from those used during the cluster bootstrap operation. This is especially important when using temporary credentials when bootstrapping the cluster.
 
-```shell
+```bash
 konvoy push --cloud-provider-account-name=my-specific-aws-cloudaccount
+```
 
+```sh
 Kubernetes cluster state pushed successfully!
 ```
 
@@ -366,7 +382,7 @@ Whenever a scaling decision is triggered successfully, a new event is registered
 in our respective `KonvoyCluster` resource in Kubernetes. These are the two events representing
 scaling up and down decisions, as shown below:
 
-```shell
+```sh
 Events:
   Type    Reason                  Age    From                Message
   ----    ------                  ----   ----                -------
