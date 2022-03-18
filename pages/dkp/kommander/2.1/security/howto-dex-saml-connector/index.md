@@ -32,7 +32,7 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
     https://<your-cluster-host>/dex/callback
     ```
 
-    Depending on the IdP, you might be asked to provide the configuration in some form of an XML snippet. See the following example, making sure to replace `<your-cluster-host>` with your URL:
+    Depending on the IdP, you may need to provide the configuration in an XML snippet. See the following example, making sure to replace `<your-cluster-host>` with your URL:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
