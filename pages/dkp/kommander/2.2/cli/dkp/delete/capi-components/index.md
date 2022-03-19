@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp delete nodepool
-title:  dkp delete nodepool
+navigationTitle:  dkp delete capi-components
+title:  dkp delete capi-components
 menuWeight: 10
-excerpt: Delete a nodepool for a given cluster
+excerpt: Delete the CAPI components from the cluster
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,22 +11,21 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp delete nodepool
+## dkp delete capi-components
 
-Delete a nodepool for a given cluster
+Delete the CAPI components from the cluster
 
 ```
-dkp delete nodepool name [flags]
+dkp delete capi-components [flags]
 ```
 
 ### Options
 
 ```
-  -c, --cluster-name name   Name used to prefix the cluster and all the created resources.
-      --dry-run             Only print the objects that would be created, without creating them.
-  -h, --help                help for nodepool
+  -h, --help                help for capi-components
       --kubeconfig string   Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-  -n, --namespace string    If present, the namespace scope for this CLI request.
+      --timeout duration    The length of time to wait before giving up. Zero means wait forever.
+      --wait                If true, wait for operations to complete before returning.
 ```
 
 ### Options inherited from parent commands

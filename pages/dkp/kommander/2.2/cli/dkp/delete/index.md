@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp delete
 title:  dkp delete
 menuWeight: 10
-excerpt: Delete one of [bootstrap (resources), cluster, nodepool]
+excerpt: Delete one of [bootstrap (cluster), capi-components, cluster, nodepool]
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp delete
 
-Delete one of [bootstrap (resources), cluster, nodepool]
+Delete one of [bootstrap (cluster), capi-components, cluster, nodepool]
 
 ### Options
 
@@ -31,6 +31,7 @@ Delete one of [bootstrap (resources), cluster, nodepool]
 
 * [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
 * [dkp delete bootstrap](/dkp/kommander/2.2/cli/dkp/delete/bootstrap/)	 - Delete bootstrap cluster
+* [dkp delete capi-components](/dkp/kommander/2.2/cli/dkp/delete/capi-components/)	 - Delete the CAPI components from the cluster
 * [dkp delete cluster](/dkp/kommander/2.2/cli/dkp/delete/cluster/)	 - Delete a Kubernetes cluster
 * [dkp delete nodepool](/dkp/kommander/2.2/cli/dkp/delete/nodepool/)	 - Delete a nodepool for a given cluster
 

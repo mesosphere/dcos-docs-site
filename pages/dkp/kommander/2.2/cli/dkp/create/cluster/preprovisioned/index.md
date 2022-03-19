@@ -38,15 +38,15 @@ dkp create cluster preprovisioned [flags]
       --etcd-version string                     The version of etcd to use
       --extra-sans strings                      A comma separated list of additional Subject Alternative Names for the API Server signing cert
   -h, --help                                    help for preprovisioned
+      --http-proxy string                       HTTP proxy for CAPI controllers
+      --https-proxy string                      HTTPS proxy for CAPI controllers
       --kind-cluster-image string               Kind node image for the bootstrap cluster
       --kind-cluster-name string                Kind cluster name for the bootstrap cluster
       --kubeconfig string                       Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string      The image repository to use for pulling kubernetes images
       --kubernetes-version string               Kubernetes version
-      --management-plane-http-proxy string      HTTP proxy for management plane
-      --management-plane-https-proxy string     HTTPS proxy for management plane
-      --management-plane-no-proxy strings       No Proxy list for management plane
   -n, --namespace string                        If present, the namespace scope for this CLI request.
+      --no-proxy strings                        No Proxy list for CAPI controllers
       --os-hint flatcar                         A hint which will allow the installer to generate appropriate configurations for a target OS. Presently, only the hint for flatcar is supported.
   -o, --output string                           Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
       --override-secret-name string             Name of the secret for any provided overrides on a preprovisioned cluster.All overrides defined at provisioning should be present in this secret.

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp create
 title:  dkp create
 menuWeight: 10
-excerpt: Create one of [appdeployment, bootstrap, cluster, image-bundle, nodepool, workspace]
+excerpt: Create one of [appdeployment, bootstrap, capi-components, cluster, image-bundle, nodepool, workspace]
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp create
 
-Create one of [appdeployment, bootstrap, cluster, image-bundle, nodepool, workspace]
+Create one of [appdeployment, bootstrap, capi-components, cluster, image-bundle, nodepool, workspace]
 
 ### Options
 
@@ -32,6 +32,7 @@ Create one of [appdeployment, bootstrap, cluster, image-bundle, nodepool, worksp
 * [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
 * [dkp create appdeployment](/dkp/kommander/2.2/cli/dkp/create/appdeployment/)	 - Create an AppDeployment
 * [dkp create bootstrap](/dkp/kommander/2.2/cli/dkp/create/bootstrap/)	 - Create bootstrap cluster
+* [dkp create capi-components](/dkp/kommander/2.2/cli/dkp/create/capi-components/)	 - Create the CAPI components in the cluster
 * [dkp create cluster](/dkp/kommander/2.2/cli/dkp/create/cluster/)	 - Create a Kubernetes cluster, one of [aks, aws, azure, eks, preprovisioned, vsphere]
 * [dkp create image-bundle](/dkp/kommander/2.2/cli/dkp/create/image-bundle/)	 - Create a tar.gz image bundle
 * [dkp create nodepool](/dkp/kommander/2.2/cli/dkp/create/nodepool/)	 - Create a nodepool, one of [aks, aws, azure]
