@@ -382,7 +382,8 @@ dkp get kubeconfig -c cluster-sbx > cluster-sbx.conf
 1.  Add the ClusterAPI controllers to the cluster
 
     ```bash
-    ./dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig cluster-sbx.conf
+dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig cluster-sbx.conf
+
     ```
 
 1.  When the workload cluster is ready, move the cluster lifecycle services to the workload cluster.
