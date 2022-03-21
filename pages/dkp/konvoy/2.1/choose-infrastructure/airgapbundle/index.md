@@ -357,7 +357,7 @@ When ready, begin configuring the control plane.
 1.  Get the kubeconfig file.
 
     ```bash
-    ./dkp get kubeconfig -c cluster-sbx > cluster-sbx.conf
+dkp get kubeconfig -c cluster-sbx > cluster-sbx.conf
     ```
 
 1.  Verify the nodes are ‘Ready’.
