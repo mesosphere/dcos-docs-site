@@ -61,16 +61,14 @@ The Resources graphs on a cluster card show you a cluster's resource requests, l
 
 For more detailed information, see the [Kubernetes documentation][k8s_docs] about resources.
 
-<!--
-## Platform services
+## Platform applications
 
-Platform services, formerly called Addons, are services that the management cluster installs. You can visit a cluster's detail page to see which platform services are enabled under the "Platform Services" section.
+Platform applications, formerly called Addons, are services that the management cluster installs. You can visit a cluster's detail page to see which platform applications are enabled under the "Platform Applications" section.
 
 ![Cluster Detail Page](/dkp/kommander/2.1/img/cluster-detail-page.png)
 Figure 1. Cluster detail page
 
-Review the [workspace platform service resource requirements][platform_service_req] to ensure that the attached clusters have sufficient resources. For more information on platform services and how to customize them, see [workspace platform services][workspace_platform_services].
--->
+Review the [workspace platform service resource requirements][platform_applications_req] to ensure that the attached clusters have sufficient resources. For more information on platform applications and how to customize them, see [workspace platform services][workspace_platform_applications].
 
 ## Edit a cluster
 
@@ -88,5 +86,5 @@ For an attached cluster, you can only edit labels assigned to that cluster.
 
 [k8s_docs]: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 
-<!--[workspace_platform_services]: ../workspaces/workspace-platform-services/
-[platform_service_req]: ../workspaces/workspace-platform-services/platform-service-requirements/-->
+[workspace_platform_applications]: ../workspaces/applications/platform-applications/
+[platform_applications_req]: ../workspaces/applications/platform-applications/platform-service-requirements/

@@ -105,4 +105,4 @@ NAMESPACE               NAME        READY   STATUS                             A
 workspace-test-vjsfq    metallb     True    Release reconciliation succeeded   7m3s
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Some of the supported applications have dependencies on other applications. See <a href="../platform-service-dependencies">Workspace Platform Application Dependencies</a> for that table.</p>
+<p class="message--note"><strong>NOTE: </strong>Some of the supported applications have dependencies on other applications. See <a href="../platform-application-dependencies">Workspace Platform Application Dependencies</a> for that table.</p>
