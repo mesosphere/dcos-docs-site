@@ -388,7 +388,8 @@ dkp get kubeconfig -c cluster-sbx > cluster-sbx.conf
 1.  When the workload cluster is ready, move the cluster lifecycle services to the workload cluster.
 
     ```bash
-    ./dkp move --to-kubeconfig cluster-sbx.conf
+dkp move --to-kubeconfig cluster-sbx.conf
+
     ```
 
 1.  Wait for the cluster control-plane to be ready
