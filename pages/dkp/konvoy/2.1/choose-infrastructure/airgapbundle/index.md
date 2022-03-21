@@ -56,7 +56,9 @@ The air-gapped bundle includes the following packages and tooling:
 
 1.  Expand the air-gapped bundle artifact.
 
-    ```sh
+
+```bash
+
     tar -xvf dkp_airgapped_bundle_v2.1.1_linux_amd64.tar.gz
     ```
 1.  Move into the created directory.
