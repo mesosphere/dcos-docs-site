@@ -24,13 +24,13 @@ Before you begin, you must have:
 
 1.  Export the AWS region where you want to deploy the cluster:
 
-    ```sh
+    ```bash
     export AWS_REGION=us-west-2
     ```
 
 1.  Export the AWS profile with the credentials you want to use to create the Kubernetes cluster:
 
-     ```sh
+     ```bash
      export AWS_PROFILE=<profile>
      ```
 

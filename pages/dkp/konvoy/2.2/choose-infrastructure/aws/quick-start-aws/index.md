@@ -66,7 +66,7 @@ We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builde
 
     You will see output similar to the following:
 
-    ```text
+    ```sh
     INFO[2021-11-16T12:27:38-06:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
     INFO[2021-11-16T12:28:53-06:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:94"
     INFO[2021-11-16T12:30:22-06:00] Created bootstrap controllers                 src="bootstrap/controllers.go:106"

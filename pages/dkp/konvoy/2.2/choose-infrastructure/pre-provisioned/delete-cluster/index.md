@@ -14,7 +14,7 @@ If you have a need to remove the Kubernetes cluster, such as for environment cle
 
 1.  Delete the provisioned Kubernetes cluster with the command:
 
-    ```sh
+    ```bash
     dkp delete cluster --cluster-name=${CLUSTER_NAME}
     ```
 
@@ -26,6 +26,6 @@ After you have moved the workload resources back to a bootstrap cluster and dele
 
 1.  Delete the `kind` Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp delete bootstrap
     ```

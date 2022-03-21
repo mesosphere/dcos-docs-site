@@ -8,8 +8,6 @@ enterprise: false
 menuWeight: 20
 ---
 
-<!-- markdownlint-disable MD018 -->
-
 When deploying Konvoy using a supported cloud provisioner (AWS), Konvoy automatically configures native storage drivers for the target platform. In addition, Konvoy deploys a default [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for [dynamic persistent volume (PV)](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) creation. The table below lists the driver and default StorageClass for each supported cloud provisioner.
 
 | Cloud Provisioner |  Driver              | Default Storage Class        |
