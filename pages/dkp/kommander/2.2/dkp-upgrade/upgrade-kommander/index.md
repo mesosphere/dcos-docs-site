@@ -16,7 +16,7 @@ This section describes how to upgrade your Kommander cluster and all its Platfor
 
 - [Download][download-binary] and install the latest DKP CLI binary on your computer.
 - Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
-- If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre-provisioned] documentation. [enterprise type="inline" size="small"/]
+- If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre-provisioned] documentation.
 - Review the [Platform Application version updates][platform-apps] that are part of this upgrade.
 
 ## Upgrade Kommander
