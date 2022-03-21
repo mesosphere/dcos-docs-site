@@ -78,7 +78,7 @@ Run the setup command in order to load the bootstrap:
     ```sh
     sudo ./setup
     ```
-<p class="message--note"><strong>NOTE: </strong>This setup process will take around fifteen minutes, so stretch your legs a bit.</p></strong>
+<p class="message--note"><strong>NOTE: </strong>This setup process will take around fifteen minutes.</p></strong>
 
 1.  Once setup has completed, refresh your group membership.
 
