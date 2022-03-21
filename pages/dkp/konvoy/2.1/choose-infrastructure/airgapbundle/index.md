@@ -411,7 +411,7 @@ Then, generate the Kommander install values.
 1. 	Generate the Kommander install values YAML file.
 
 	```bash
-	./kommander install --init > values.yaml
+kommander install --init > values.yaml
 	```
 1.	Override the defaults with the following values.
 
