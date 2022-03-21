@@ -88,7 +88,15 @@ Run the setup command in order to load the bootstrap:
 
     // Login
     ssh user@x.x.x.x
-    ```
+ Logout:  
+ ```bash
+ exit
+ ```
+ Login:
+ ```bash
+ ssh user@x.x.x.x
+ ```
+ ```
 
 1.  Verify the contents of the expanded air-gapped bundle.
 
