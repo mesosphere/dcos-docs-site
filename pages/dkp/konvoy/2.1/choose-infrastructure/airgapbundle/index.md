@@ -10,7 +10,7 @@ enterprise: false
 
 ## Review the air-gapped bundle contents
 
-The air-gapped bundle provided contains the necessary OS dependencies and images required to set up a DKP Essential installation in an air-gapped environment. The download and installation of these bundles is agnostic to a specific environment, and is compatible wiht any of the environments listed in the table below:
+The air-gapped bundle contains the necessary OS dependencies and images required to set up a DKP Essential installation in an air-gapped environment. The download and installation of these bundles is agnostic to a specific environment, and is compatible with any of the environments listed in the table below:
 
 | Operating System      | Kernel                      | Air-Gapped     |
 |-----------------------|-----------------------------|----------------|
