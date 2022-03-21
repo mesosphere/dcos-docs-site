@@ -17,20 +17,20 @@ enterprise: false
 
 1.  Set the environment variable:
 
-    ```sh
+    ```bash
     CLUSTER_NAME=my-azure-cluster
     ```
 
 ## Tips and Tricks
 
-1.  To create a cluster name that's unique, use the following command:
+1.  To create a cluster name that is unique, use the following command:
 
-    ```sh
+    ```bash
     CLUSTER_NAME=$(whoami)-azure-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 
-    ```text
+    ```sh
     hunter-azure-cluster-pf4a3
     ```
 
@@ -38,7 +38,7 @@ enterprise: false
 
 1.  Set the environment variable to the name you assigned this cluster:
 
-    ```sh
+    ```bash
     CLUSTER_NAME=my-azure-cluster
     ```
 
@@ -46,7 +46,7 @@ enterprise: false
 
 1.  Generate the Kubernetes cluster objects:
 
-    ```sh
+    ```bash
     dkp create cluster azure --cluster-name=${CLUSTER_NAME} \
     --dry-run \
     --output=yaml \
@@ -55,7 +55,7 @@ enterprise: false
 
 1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy:
 
-    ```sh
+    ```bash
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
     export CONTROL_PLANE_HTTPS_PROXY=http://example.org:8080
     export CONTROL_PLANE_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.cloudapp.azure.com"
@@ -66,17 +66,17 @@ enterprise: false
     ```
 
     - Replace `example.org,example.com,example.net` with your internal addresses
-    - `localhost` and `127.0.0.1` addesses should not use the proxy
+    - `localhost` and `127.0.0.1` addresses should not use the proxy
     - `10.96.0.0/12` is the default Kubernetes service subnet
     - `192.168.0.0/16` is the default Kubernetes pod subnet
     - `kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local` is the internal Kubernetes kube-apiserver service
     - `.svc,.svc.cluster,.svc.cluster.local` is the internal Kubernetes services
     - `169.254.169.254` is the Azure metadata server
-    - `.cloudapp.azure.com` is for the worker nodes to allow them to communicate directly to the kube-apiserver loadbalancer
+    - `.cloudapp.azure.com` is for the worker nodes to allow them to communicate directly to the kube-apiserver load balancer
 
 1.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
 
-    ```sh
+    ```bash
     dkp create cluster azure --cluster-name=${CLUSTER_NAME} \
     --control-plane-http-proxy="${CONTROL_PLANE_HTTP_PROXY}" \
     --control-plane-https-proxy="${CONTROL_PLANE_HTTPS_PROXY}" \
@@ -105,13 +105,13 @@ enterprise: false
 
     1.  Node Pool
 
-        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (e.g., kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and an _AzureMachineTemplate_ object, which describes the instance type, the type of disk used, the size of the disk, among other properties.
+        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (for example, kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and an _AzureMachineTemplate_ object, which describes the instance type, the type of disk used, the size of the disk, among other properties.
 
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
 1.  Create the cluster from the objects.
 
-    ```sh
+    ```bash
     kubectl create -f ${CLUSTER_NAME}.yaml
     ```
 
@@ -129,21 +129,21 @@ enterprise: false
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
-    ```text
+    ```sh
     cluster.cluster.x-k8s.io/my-azure-cluster condition met
     ```
 
 1.  After the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
 
-    ```sh
+    ```bash
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
-    ```text
+    ```sh
     NAME                                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
     /my-azure-cluster                                                    True                     6m37s
     ├─ClusterInfrastructure - AzureCluster/my-azure-cluster              True                     13m
@@ -156,13 +156,13 @@ enterprise: false
 
 1.  As they progress, the controllers also create Events. List the Events using this command:
 
-    ```sh
+    ```bash
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 
     For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AzureCluster"` and `kubectl get events --field-selector involvedObject.kind="AzureMachine"`.
 
-    ```text
+    ```sh
     15m         Normal    AzureClusterObjectNotFound                  azurecluster                                          AzureCluster object default/my-azure-cluster not found
     15m         Normal    AzureManagedControlPlaneObjectNotFound      azuremanagedcontrolplane                              AzureManagedControlPlane object default/my-azure-cluster not found
     15m         Normal    AzureClusterObjectNotFound                  azurecluster                                          AzureCluster.infrastructure.cluster.x-k8s.io "my-azure-cluster" not found

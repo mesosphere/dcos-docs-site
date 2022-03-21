@@ -38,7 +38,7 @@ my-preprovisioned-cluster-pf4a3
 
 Create a secret that contains the SSH key with these commands:
 
-```shell
+```bash
 kubectl create secret generic $CLUSTER_NAME-ssh-key --from-file=ssh-privatekey=<path-to-ssh-private-key>
 kubectl label secret $CLUSTER_NAME-ssh-key clusterctl.cluster.x-k8s.io/move=
 ```
@@ -61,7 +61,7 @@ epel_centos_7_rpm: https://my-rpm-repostory.org/epel/epel-release-latest-7.noarc
 
 You can then create the related secret by running the following command:
 
-```shell
+```bash
 kubectl create secret generic $CLUSTER_NAME-user-overrides --from-file=overrides.yaml=overrides.yaml
 kubectl label secret $CLUSTER_NAME-user-overrides clusterctl.cluster.x-k8s.io/move=
 ```

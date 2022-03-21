@@ -15,7 +15,7 @@ While you can run [Cluster Autoscaler](../cluster-autoscaler), you can also manu
 
 To scale up a node pool in a cluster, run:
 
-```sh
+```bash
 dkp scale nodepools ${NODEPOOL_NAME} --replicas=5 --cluster-name=${CLUSTER_NAME}
 ```
 
@@ -28,7 +28,7 @@ INFO[2021-07-26T08:54:35-07:00] Nodepool example scaled to 5 replicas  clusterNa
 
 After a few minutes you can list the node pools to:
 
-```sh
+```bash
 dkp get nodepools --cluster-name=${CLUSTER_NAME} --kubeconfig=${CLUSTER_NAME}.conf
 ```
 
@@ -44,7 +44,7 @@ demo-cluster-md-0               4                     4                   v1.21.
 
 To scale down a node pool, run:
 
-```sh
+```bash
 dkp scale nodepools ${NODEPOOL_NAME} --replicas=4 --cluster-name=${CLUSTER_NAME}
 ```
 
@@ -58,7 +58,7 @@ In a default cluster, the nodes to delete are selected at random. This behavior 
 To do this, set the flag `--nodes-to-delete` with a list of nodes as below.
 This adds an annotation `cluster.x-k8s.io/delete-machine=yes` to the matching Machine object that contain `status.NodeRef` with the node names from `--nodes-to-delete`.
 
-```sh
+```bash
 dkp scale nodepools ${NODEPOOL_NAME} --replicas=3 --nodes-to-delete=<> --cluster-name=${CLUSTER_NAME}
 ```
 
@@ -73,14 +73,14 @@ If you [configured the cluster autoscaler](../cluster-autoscaler) for the `demo-
 
 For example, assuming you have the these annotations:
 
-```sh
+```bash
 kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${NODEPOOL_NAME} cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size=2
 kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${NODEPOOL_NAME} cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size=6
 ```
 
 Try to scale the node pool to 7 replicas with the command:
 
-```sh
+```bash
 dkp scale nodepools ${NODEPOOL_NAME} --replicas=7 -c demo-cluster
 ```
 

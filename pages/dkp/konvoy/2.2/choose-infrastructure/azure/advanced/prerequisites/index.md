@@ -27,8 +27,11 @@ Before you begin using Konvoy with Azure, you must:
 
 1.  Log in to Azure:
 
+    ```bash
+    az login
+    ```
+
     ```sh
-    $ az login
     [
       {
         "cloudName": "AzureCloud",
@@ -51,8 +54,11 @@ Before you begin using Konvoy with Azure, you must:
 
     <p class="message--note"><strong>NOTE: </strong>If an SP with the name exists, this command will rotate the password.</p>
 
+    ```bash
+    az ad sp create-for-rbac --role contributor --name "$(whoami)-konvoy"
+    ```
+
     ```sh
-    $ az ad sp create-for-rbac --role contributor --name "$(whoami)-konvoy"
     {
       "appId": "7654321a-1a23-567b-b789-0987b6543a21",
       "displayName": "azure-cli-2021-03-09-23-17-06",
@@ -64,7 +70,7 @@ Before you begin using Konvoy with Azure, you must:
 
 1.  Set the required environment variables:
 
-    ```sh
+    ```bash
     export AZURE_SUBSCRIPTION_ID=<id> # b1234567-abcd-11a1-a0a0-1234a5678b90
     export AZURE_TENANT_ID="<tenant>" # a1234567-b132-1234-1a11-1234a5678b90
     export AZURE_CLIENT_ID="<appId>"  # 7654321a-1a23-567b-b789-0987b6543a21
@@ -73,7 +79,7 @@ Before you begin using Konvoy with Azure, you must:
 
 1.  Base64 encode the same environment variables:
 
-    ```sh
+    ```bash
     export AZURE_SUBSCRIPTION_ID_B64="$(echo -n "${AZURE_SUBSCRIPTION_ID}" | base64 | tr -d '\n')"
     export AZURE_TENANT_ID_B64="$(echo -n "${AZURE_TENANT_ID}" | base64 | tr -d '\n')"
     export AZURE_CLIENT_ID_B64="$(echo -n "${AZURE_CLIENT_ID}" | base64 | tr -d '\n')"

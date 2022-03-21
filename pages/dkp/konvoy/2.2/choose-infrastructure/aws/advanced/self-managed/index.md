@@ -17,7 +17,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
     By default, `create bootstrap controllers` configures the Cluster API controllers to use the AWS credentials from your environment. We recommend you use the `--with-aws-bootstrap-credentials=false` flag to configure the Cluster API controllers of your self-managed AWS cluster to use AWS IAM Instance Profiles, instead of the AWS credentials from your environment.
 
-    ```sh
+    ```bash
     dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -38,11 +38,11 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
     The cluster lifecycle services on the workload cluster are ready, but the workload cluster configuration is on the bootstrap cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the bootstrap to the workload cluster. This process is also called a [Pivot][pivot].
 
-    ```sh
+    ```bash
     dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
-    ```sh
+    ```bash
     INFO[2021-08-11T12:09:36-07:00] Pivot operation complete.                     src="move/move.go:154"
     INFO[2021-08-11T12:09:36-07:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/clusteradmin/.kube/config get nodes  src="move/move.go:155"
     ```
@@ -51,7 +51,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
@@ -63,7 +63,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use Konvoy with the workload cluster kubeconfig.</p>
 
-    ```sh
+    ```bash
     dkp describe cluster --kubeconfig ${CLUSTER_NAME}.conf -c ${CLUSTER_NAME}
     ```
 
@@ -79,7 +79,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
 1.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
 
-    ```sh
+    ```bash
     dkp delete bootstrap
     ```
 

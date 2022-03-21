@@ -22,13 +22,13 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     List the nodes:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes
     ```
 
     The output from this command resembles the following:
 
-    ```text
+    ```sh
     NAME                                         STATUS   ROLES                  AGE   VERSION
     ip-10-0-102-60.us-west-2.compute.internal    Ready    control-plane,master   36m   v1.21.6
     ip-10-0-118-168.us-west-2.compute.internal   Ready    <none>                 42m   v1.21.6
@@ -41,18 +41,18 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     This example uses the name `ip-10-0-118-168.us-west-2.compute.internal`.
 
-    ```sh
+    ```bash
     export NAME_NODE_TO_DELETE="ip-10-0-118-168.us-west-2.compute.internal"
     ```
 
 1.  Delete the Machine resource
 
-    ```sh
+    ```bash
     NAME_MACHINE_TO_DELETE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machine -ojsonpath="{.items[?(@.status.nodeRef.name==\"$NAME_NODE_TO_DELETE\")].metadata.name}")
     kubectl --kubeconfig ${CLUSTER_NAME}.conf delete machine "$NAME_MACHINE_TO_DELETE"
     ```
 
-    ```text
+    ```sh
     machine.cluster.x-k8s.io "aws-example-md-0-7fbfb98fcf-4xcv9" deleted
     ```
 
@@ -62,7 +62,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
 1.  Observe that the Machine resource is being replaced using this command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf get machinedeployment
     ```
 
@@ -71,11 +71,11 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     aws-example-md-0   ScalingUp   2          1       2         1
     ```
 
-    There are 2 replicas, but only 1 is ready. There is 1 unavailable replica, and the `ScalingUp` phase means a new Machine is being created.
+    In this example, there are two replicas, but only 1 is ready. One replica is unavailable, and the `ScalingUp` phase means a new Machine is being created.
 
 1.  Identify the replacement Machine using this command:
 
-    ```sh
+    ```bash
     export NAME_NEW_MACHINE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machines \
         -l=cluster.x-k8s.io/deployment-name=${CLUSTER_NAME}-md-0 \
         -ojsonpath='{.items[?(@.status.phase=="Provisioning")].metadata.name}{"\n"}')
@@ -86,12 +86,12 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
 1.  Identify the replacement Node using this command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes \
         -o=jsonpath="{.items[?(@.metadata.annotations.cluster\.x-k8s\.io/machine==\"$NAME_NEW_MACHINE\")].metadata.name}"
     ```
 
-    ```text
+    ```sh
     ip-10-0-85-101.us-west-2.compute.internal
     ```
 

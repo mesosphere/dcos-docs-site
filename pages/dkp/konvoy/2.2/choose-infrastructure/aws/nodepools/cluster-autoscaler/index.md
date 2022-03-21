@@ -20,7 +20,7 @@ cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size
 cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size
 ```
 
-The full list of command line arguments to the Cluster Autoscaler controller is found [here](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca).
+The full list of command line arguments to the Cluster Autoscaler controller is [on the Kubernetes public GitHub repository](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca).
 
 For more information about how Cluster Autoscaler works, see these documents:
 
@@ -45,13 +45,13 @@ Run the following steps to enable Cluster Autoscaler:
 
 1.  Ensure the Cluster Autoscaler controller is up and running (no restarts and no errors in the logs)
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf logs deployments/cluster-autoscaler cluster-autoscaler -n kube-system -f
     ```
 
 1.  Enable Cluster Autoscaler by setting the min & max ranges
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${NODEPOOL_NAME} cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size=2
     kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${NODEPOOL_NAME} cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size=6
     ```
@@ -59,7 +59,7 @@ Run the following steps to enable Cluster Autoscaler:
 1.  The Cluster Autoscaler logs will show that the worker nodes are associated with node-groups and that pending pods are being watched.
 1.  To demonstrate that it is working properly, create a large deployment which will trigger pending pods (For this example we used AWS m5.2xlarge worker nodes. If you have larger worker-nodes, you should scale up the number of replicas accordingly).
 
-    ```sh
+    ```yaml
     cat <<EOF | kubectl --kubeconfig=${CLUSTER_NAME}.conf apply -f -
     apiVersion: apps/v1
     kind: Deployment
@@ -91,7 +91,7 @@ Run the following steps to enable Cluster Autoscaler:
 1.  Cluster Autoscaler will scale up the number of Worker Nodes until there are no pending pods.
 1.  Scale down the number of replicas for `busybox-deployment`.
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf scale --replicas=30 deployment/busybox-deployment
     ```
 
