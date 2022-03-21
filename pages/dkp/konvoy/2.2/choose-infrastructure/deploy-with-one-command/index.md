@@ -11,13 +11,13 @@ You can use a single command line entry to create a Kubernetes cluster on any of
 
 The basic DKP deploy command structure is:
 
-```shell
+```bash
 dkp create cluster <provider> --cluster-name=clustername --self-managed --flag1=value --flag2=value ... --flagn=value
 ```
 
 For a complete list of supported providers, enter the command:
 
-```shell
+```bash
 dkp create cluster --help
 ```
 
@@ -33,10 +33,8 @@ When you execute it, this command:
 
 ## Infrastructure-specific flags
 
-Additional flags are available to enable needed features on supported cluster providers, as well as for on-premises and pre-provisioned clusters. You can view additional provider-specific flags and their descriptions with one of the following commands:
+Additional flags are available to enable needed features on supported cluster providers, and for on-premises and pre-provisioned clusters. You can view additional provider-specific flags and their descriptions with one of the following commands:
 
-```shell
+```bash
 dkp create cluster <provider> --help
 ```
-
-[set-env-variables][https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-environment-variables-in-linux/]

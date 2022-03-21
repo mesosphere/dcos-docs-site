@@ -12,33 +12,34 @@ enterprise: false
 
 1.  Get the kubeconfig file.
 
-    ```sh
+    ```bash
     ./dkp get kubeconfig -c cluster-sbx > cluster-sbx.conf
     ```
 
 1.  Verify the nodes are ‘Ready’.
 
-    ```sh
+    ```bash
     kubectl --kubeconfig cluster-sbx.conf get nodes
     ```
 
 1.  Add the ClusterAPI controllers to the cluster
 
-    ```sh
+    ```bash
     ./dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig cluster-sbx.conf
     ```
 
 1.  When the workload cluster is ready, move the cluster lifecycle services to the workload cluster.
 
-    ```sh
+    ```bash
     ./dkp move --to-kubeconfig cluster-sbx.conf
     ```
 
 1.  Wait for the cluster control-plane to be ready
 
-    ```sh
+    ```bash
     kubectl --kubeconfig cluster-sbx.conf wait --for=condition=ControlPlaneReady "clusters/cluster-sbx" --timeout=20m
+    ```
 
-    // Output
+    ```sh
     cluster.cluster.x-k8s.io/aws-example condition met
     ```
