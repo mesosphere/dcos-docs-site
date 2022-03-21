@@ -265,7 +265,8 @@ Use Konvoy Image Builder to create an Amazon Machine Image (AMI) based on the de
     ```
 
     ```bash
-    ./konvoy-image build --ami-regions us-west-1,us-east-1 --region us-east-1 --source-ami ami-092e75227e47facfc --overrides overrides/custom.yaml --overrides overrides/images.yaml images/ami/centos-7.yaml
+konvoy-image build --ami-regions us-west-1,us-east-1 --region us-east-1 --source-ami ami-092e75227e47facfc --overrides overrides/custom.yaml --overrides overrides/images.yaml images/ami/centos-7.yaml
+
     ```
 
 Then, generate the cluster configuration file.
