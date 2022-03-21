@@ -61,7 +61,9 @@ The air-gapped bundle includes the following packages and tooling:
     ```
 1.  Move into the created directory.
 
-    ```sh
+
+  ```bash
+
     cd dkp-v2.1.1
     ```
 ## Prepare the bootstrap node and environment
