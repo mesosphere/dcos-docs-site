@@ -29,7 +29,7 @@ Create a nodepool, one of [aks, aws, azure]
 
 ### SEE ALSO
 
-* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, cluster, image-bundle, nodepool, workspace]
+* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, capi-components, cluster, image-bundle, nodepool, workspace]
 * [dkp create nodepool aks](/dkp/kommander/2.2/cli/dkp/create/nodepool/aks/)	 - Create a nodepool in AKS
 * [dkp create nodepool aws](/dkp/kommander/2.2/cli/dkp/create/nodepool/aws/)	 - Create a nodepool in AWS
 * [dkp create nodepool azure](/dkp/kommander/2.2/cli/dkp/create/nodepool/azure/)	 - Create a nodepool in Azure

@@ -37,6 +37,5 @@ dkp delete bootstrap [flags]
 
 ### SEE ALSO
 
-* [dkp delete](/dkp/kommander/2.2/cli/dkp/delete/)	 - Delete one of [bootstrap (resources), cluster, nodepool]
-* [dkp delete bootstrap controllers](/dkp/kommander/2.2/cli/dkp/delete/bootstrap/controllers/)	 - Delete management controllers
+* [dkp delete](/dkp/kommander/2.2/cli/dkp/delete/)	 - Delete one of [bootstrap (cluster), capi-components, cluster, nodepool]
 

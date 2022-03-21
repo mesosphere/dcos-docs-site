@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp update
 title:  dkp update
 menuWeight: 10
-excerpt: Update one of [bootstrap (resources)]
+excerpt: Update one of [bootstrap (cluster)]
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp update
 
-Update one of [bootstrap (resources)]
+Update one of [bootstrap (cluster)]
 
 ### Options
 
@@ -31,4 +31,6 @@ Update one of [bootstrap (resources)]
 
 * [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
 * [dkp update bootstrap](/dkp/kommander/2.2/cli/dkp/update/bootstrap/)	 - Update bootstrap cluster
+* [dkp update controlplane](/dkp/kommander/2.2/cli/dkp/update/controlplane/)	 - Update a Kubernetes cluster control plane, one of [aws, azure, preprovisioned]
+* [dkp update nodepool](/dkp/kommander/2.2/cli/dkp/update/nodepool/)	 - Upate a Kubernetes cluster node pool, one of [aws, azure, preprovisioned]
 
