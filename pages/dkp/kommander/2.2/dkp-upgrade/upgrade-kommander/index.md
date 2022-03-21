@@ -21,7 +21,7 @@ This section describes how to upgrade your Kommander cluster and all its Platfor
 
 ## Upgrade Kommander
 
-1.  In DKP CLI, use this command to upgrade Kommander and all Platform Applications in the Management cluster:
+1.  Use the DKP CLI to upgrade Kommander and all the Platform Applications in the Management cluster:
 
     ```bash
     dkp upgrade kommander
