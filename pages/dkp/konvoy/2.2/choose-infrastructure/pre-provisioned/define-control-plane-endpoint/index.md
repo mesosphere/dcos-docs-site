@@ -12,7 +12,7 @@ A control plane should have three, five, or seven nodes, so it can remain availa
 
 In addition, the control plane should have an endpoint that remains available if some nodes fail.
 
-```text
+```sh
                             -------- cp1.example.com:6443
                             |
       lb.example.com:6443 ---------- cp2.example.com:6443
@@ -28,7 +28,7 @@ It is recommended that an external load balancer be the control plane endpoint. 
 
 ## Built-in virtual IP
 
-If an external load balancer is not available, use the [built-in virtual IP](../create-cluster/#use-the-built-in-virtual-ip). The virtual IP is _not_ a load balancer; it does not distribute request load among the control plane machines. However, if the machine receiving requests does not respond to them, the virtual IP automatically moves to another machine.
+If an external load balancer is not available, use the [built-in virtual IP](../create-cluster#use-the-built-in-virtual-ip). The virtual IP is _not_ a load balancer; it does not distribute request load among the control plane machines. However, if the machine receiving requests does not respond to them, the virtual IP automatically moves to another machine.
 
 ## Single-Node control plane
 

@@ -24,21 +24,21 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
 1.  Set the environment variable to the name you assigned this cluster.
 
-    ```sh
+    ```bash
     CLUSTER_NAME=my-preprovisioned-cluster
     ```
 
-    See [define infrastructure](../../define-infrastructure#name-your-cluster) for information on naming your cluster.
+    See [define infrastructure](../../create-secrets-and-overrides#name-your-cluster) for information on naming your cluster.
 
 1.  **If your workload cluster is self-managed,** as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster. **If it is not self-managed, skip this step.**
 
-    ```sh
+    ```bash
     export KUBECONFIG=${CLUSTER_NAME}.conf
     ```
 
 1.  Verify that the control plane is already updated.
 
-    ```sh
+    ```bash
     kubectl get kubeadmcontrolplane ${CLUSTER_NAME}-control-plane
     ```
 
@@ -51,19 +51,19 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
 1.  Define the names of the resources.
 
-    ```sh
+    ```bash
     export MACHINEDEPLOYMENT_NAME=$(kubectl get machinedeployments --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
     ```
 
 1.  Define the name of your worker template.
 
-    ```sh
+    ```bash
     export WORKER_TEMPLATE=$(kubectl get PreprovisionedMachineTemplate ${CLUSTER_NAME}-md-0 -ojsonpath='{.metadata.name}')
     ```
 
 1.  Prepare the patch files.
 
-    ```sh
+    ```bash
     echo '{}' > md-kubernetes-version-patch.yaml
     ```
 
@@ -75,13 +75,13 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
 1.  Define the Kubernetes version. Use the letter `v` followed by `major.minor.patch` version.
 
-    ```sh
+    ```bash
     export KUBERNETES_VERSION=v1.21.6
     ```
 
 1.  Create a patch file.
 
-    ```sh
+    ```yaml
     cat <<EOF > md-kubernetes-version-patch.yaml
     apiVersion: cluster.x-k8s.io/v1alpha4
     kind: MachineDeployment
@@ -104,7 +104,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
     The MachineDeployment is patched to use a new Kubernetes version.
 
-    ```sh
+    ```bash
     kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME} --output=yaml \
       | kubectl patch --local=true -f- --patch="{\"spec\": {\"template\": {\"spec\": {\"infrastructureRef\": {\"name\": \"$WORKER_TEMPLATE\"} } } } }" --type=merge --output=yaml \
       | kubectl patch --local=true -f- --patch-file=md-kubernetes-version-patch.yaml --type=merge --output=yaml \
@@ -120,7 +120,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
     <!-- NOTE: `kubectl wait` is the preferred solution, but cannot be used with MachineDeployment, because it does not yet have Conditions (https://github.com/kubernetes-sigs/cluster-api/pull/4625) -->
 
-    ```sh
+    ```bash
     kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME}
     ```
 

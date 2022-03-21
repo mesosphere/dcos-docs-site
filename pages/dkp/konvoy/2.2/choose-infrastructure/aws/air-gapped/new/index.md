@@ -47,7 +47,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
     The tags should be set as follows, where `<CLUSTER_NAME>` corresponds to the name set in `CLUSTER_NAME` environment variable:
 
-    ```text
+    ```bash
     kubernetes.io/cluster = <CLUSTER_NAME>
     kubernetes.io/cluster/CLUSTER_NAME = owned
     kubernetes.io/role/internal-elb = 1

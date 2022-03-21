@@ -19,7 +19,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
     <p class="message--note"><strong>NOTE: </strong>To avoid using the wrong kubeconfig, the following steps use explicit kubeconfig paths and contexts.</p>
 
-    ```sh
+    ```bash
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
@@ -47,7 +47,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 1.  Move the Cluster API objects from the workload to the bootstrap cluster:
     The cluster lifecycle services on the bootstrap cluster are ready, but the workload cluster configuration is on the workload cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the workload to the bootstrap cluster. This process is also called a [Pivot][pivot].
 
-    ```sh
+    ```bash
     dkp move \
         --from-kubeconfig ${CLUSTER_NAME}.conf \
         --from-context konvoy-${CLUSTER_NAME}-admin@konvoy-${CLUSTER_NAME} \
@@ -63,11 +63,11 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
 1.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:
 
-    ```sh
+    ```bash
     dkp describe cluster --kubeconfig $HOME/.kube/config -c ${CLUSTER_NAME}
     ```
 
-    ```text
+    ```sh
     NAME                                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
     /my-azure-cluster                                                    True                     6m37s
     ├─ClusterInfrastructure - AzureCluster/my-azure-cluster              True                     13m
@@ -84,7 +84,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig $HOME/.kube/config wait --for=condition=controlplaneready "clusters/${CLUSTER_NAME}" --timeout=60m
     ```
 
@@ -96,7 +96,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
 1.  Make sure your Azure credentials are up to date. Refresh the credentials using this command:
 
-    ```sh
+    ```bash
     dkp update bootstrap credentials azure --kubeconfig $HOME/.kube/config
     ```
 
@@ -105,7 +105,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     Before deleting the cluster, dkp deletes all Services of type LoadBalancer on the cluster.
     To skip this step, use the flag `--delete-kubernetes-resources=false`.
 
-    ```sh
+    ```bash
     dkp delete cluster --cluster-name=${CLUSTER_NAME} --kubeconfig $HOME/.kube/config
     ```
 
@@ -119,7 +119,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
 ## Delete the bootstrap cluster
 
-```sh
+```bash
 dkp delete bootstrap --kubeconfig $HOME/.kube/config
 ```
 

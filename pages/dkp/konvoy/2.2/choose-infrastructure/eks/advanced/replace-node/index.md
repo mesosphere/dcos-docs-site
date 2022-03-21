@@ -52,7 +52,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     kubectl --kubeconfig ${CLUSTER_NAME}.conf delete machine "$NAME_MACHINE_TO_DELETE"
     ```
 
-    ```text
+    ```sh
     machine.cluster.x-k8s.io "aws-example-md-0-7fbfb98fcf-4xcv9" deleted
     ```
 
