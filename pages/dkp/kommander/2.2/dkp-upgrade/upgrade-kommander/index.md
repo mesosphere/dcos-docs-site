@@ -8,7 +8,7 @@ beta: false
 enterprise: true
 ---
  
-This section automatically upgrades your Kommander cluster and all its Platform Applications to the latest versions. Kommander is installed on your Management cluster and upgrading it must be the first step you take when upgrading DKP, as it will prevent compatibility issues.
+This section describes how to upgrade your Kommander cluster and all its Platform Applications to the latest versions. Kommander is installed on your Management cluster and upgrading it must be the first step you take when upgrading DKP, to prevent compatibility issues.
 
 <p class="message--note"><strong>NOTE: </strong>It is important that you upgrade Kommander before upgrading Konvoy and Kubernetes. Kommander 2.1 does not support Kubernetes 1.22, and upgrading Kubernetes to 1.22 will be part of the Konvoy upgrade.</p>
 
