@@ -40,41 +40,41 @@ Create the charts bundle with the Kommander CLI or downloaded along with the Kom
 Execute this command to create the charts bundle:
 
    ```bash
-   kommander helmmirror create bundle
+   kommander create chart-bundle
    ```
 
 Kommander creates `charts-bundle.tar.gz`.
 Optionally, specify the output using the `-o` parameter:
 
    ```bash
-   kommander helmmirror create bundle -o [name of the output file]
+   kommander create chart-bundle -o [name of the output file]
    ```
 
 ### Kommander's internal Helm repository
 
-The Kommander charts bundle is uploaded to Kommander's internal Helm repository.
+The Kommander charts bundle is pushed to Kommander's internal Helm repository.
 To inspect the contents:
 
    ```bash
-   kommander helmmirror get charts
+   kommander get charts
    ```
 
 Individual charts can be removed using:
 
    ```bash
-   kommander helmmirror delete chart [chartName] [chartVersion]
+   kommander delete chart [chartName] [chartVersion]
    ```
 
-It is possible to upload new charts as well:
+It is possible to push new charts as well:
 
    ```bash
-   kommander helmmirror upload chart [chartTarball]
+   kommander push chart [chartTarball]
    ```
 
-Or upload a new bundle:
+Or push a new bundle:
 
    ```bash
-   kommander helmmirror upload bundle [chartsTarball]
+   kommander push chart-bundle [chartsTarball]
    ```
 
 Check the built-in help text for each command for more information.
@@ -197,7 +197,7 @@ export VERSION=v2.2.0
     done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
     ```
 
-Based on the network latency between the environment of script execution and the docker registry, this can take a while to upload all the images to your image registry.
+Based on the network latency between the environment of script execution and the docker registry, this can take a while to push all the images to your image registry.
 
 ## Install on Konvoy
 
