@@ -21,13 +21,19 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 ## Upgrade Kommander
 
+1.  Set the `WORKSPACE_NAMESPACE` environment variable to the name of your workspace’s namespace:
+
+    ```
+    export WORKSPACE_NAMESPACE=<workspace_namespace>
+    ```
+
 1.  Use the DKP CLI to upgrade Kommander and all the Platform Applications in the Management cluster:
 
     ```bash
     dkp upgrade kommander
     ```
 
-<A confirmation message appears once upgrade is complete.>
+    <A confirmation message appears once upgrade is complete.>
 
 1.  <Pending step: if confirmation message cannot be added on time, document a way to check the status of the upgrade in Management cluster.>
 
