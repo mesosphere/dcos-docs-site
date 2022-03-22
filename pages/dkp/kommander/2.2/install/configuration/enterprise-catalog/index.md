@@ -44,6 +44,8 @@ Review the meaning of each label:
 | `kommander.d2iq.io/workspace-default-catalog-repository`  | Indicates this acts as a Catalog Repository in all workspaces  |
 | `kommander.d2iq.io/gitapps-gitrepository-type`  |  Indicates this Catalog Repository (and all its Applications) are certified to run on DKP |
 
+### Air-gapped Catalog Configuration
+
 When running in air-gapped environments, update the configuration by replacing `gitRepositorySpec` with the `path` field pointing to a local path of the catalog git repository folder, for example:
 
 ```bash
