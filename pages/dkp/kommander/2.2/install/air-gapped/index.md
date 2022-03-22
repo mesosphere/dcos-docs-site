@@ -175,7 +175,7 @@ export VERSION=v2.2.0
     wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
-1.  Place the bundle(s) in a location where you can load and push the images to your private Docker registry.
+1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 
 1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
