@@ -81,7 +81,7 @@ Tips:
     echo $CLUSTER_NAME
     ```
 
-    ```bash
+    ```sh
     hunter-aws-cluster-pf4a3
     ```
 
