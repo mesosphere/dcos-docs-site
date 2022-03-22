@@ -20,9 +20,10 @@ Before installing, ensure you have:
 -   A charts bundle file containing all Helm charts that Kommander installation needs, including the [DKP catalog applications][dkp_catalog_applications] charts.
 
 -   Connectivity with clusters attaching to the management cluster:
-    - Both management and attached clusters must connect to the Docker registry.
-    - Management cluster must connect to the attached cluster's API server.
-    - Management cluster must connect to load balancers created by some platform services.
+    - See more details about attaching air-gapped clusters in the [Managing Clusters](../../../clusters/attach-cluster/cluster-with-network-restrictions/) documentation.
+    - Both management and attached clusters must be able to connect to the Docker registry.
+    - The management cluster must be able to connect to all attached cluster's API servers.
+    - The management cluster must be able to connect to any load balancers created for platform services on the management cluster.
 
 -   A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
 
@@ -191,7 +192,7 @@ export VERSION=v2.2.0
     dkp push image-bundle --image-bundle catalog-applications-image-bundle.tar.gz --to-registry <REGISTRY_URL>
     ```
 
-Based on the network latency between the environment of script execution and the docker registry, this can take a while to push all the images to your image registry.
+It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the docker registry.
 
 ## Install on Konvoy
 
