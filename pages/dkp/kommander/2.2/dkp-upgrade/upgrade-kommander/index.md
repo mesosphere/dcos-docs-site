@@ -35,7 +35,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
 1.  <Pending step: if confirmation message cannot be added on time, document a way to check the status of the upgrade in Management cluster.>
 
-1.  If your environment has additional Workspaces (Managed and Attached clusters), upgrade your [Workspaces and their Platform applications][upgrade-workspaces] on a per-Workspace basis. If you only have a Management cluster, proceed with [Konvoy Upgrade][konvoy-upgrade].
+1.  Upgrade your [Workspaces and their Platform applications][upgrade-workspaces] on a per-Workspace basis, if your environment has additional Workspaces (with Managed and Attached clusters). Otherwise, proceed with the [Konvoy Upgrade][konvoy-upgrade].
 
 [download-binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
