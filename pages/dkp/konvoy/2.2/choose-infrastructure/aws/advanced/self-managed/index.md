@@ -42,7 +42,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
-    ```bash
+    ```sh
     INFO[2021-08-11T12:09:36-07:00] Pivot operation complete.                     src="move/move.go:154"
     INFO[2021-08-11T12:09:36-07:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/clusteradmin/.kube/config get nodes  src="move/move.go:155"
     ```
