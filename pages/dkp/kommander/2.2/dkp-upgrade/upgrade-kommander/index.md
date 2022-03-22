@@ -21,11 +21,9 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 ## Upgrade Kommander
 
-1.  Set the `WORKSPACE_NAMESPACE` environment variable to the name of your workspace’s namespace:
+1.  Before running the commands below, ensure that your `dkp` configuration **references the cluster on which you want to install Kommander**, otherwise it will install on the bootstrap cluster. You can do this by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file's location][k8s-access-to-clusters].
 
-    ```
-    export WORKSPACE_NAMESPACE=<workspace_namespace>
-    ```
+    <p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable as stated earlier is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
 
 1.  Use the DKP CLI to upgrade Kommander and all the Platform Applications in the Management cluster:
 
@@ -45,4 +43,5 @@ This section describes how to upgrade your Kommander Management cluster and all 
 [Azure]: /dkp/konvoy/2.2/choose-infrastructure/azure/advanced/update/
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
 [pre-provisioned]: /dkp/konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
+[k8s-access-to-clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [platform-apps]: ../../workspaces/applications/catalog-applications/
