@@ -22,7 +22,7 @@ dkp import image-bundle [flags]
 ### Options
 
 ```
-      --containerd-namespace string   Containerd namespace to import images into
+      --containerd-namespace string   Containerd namespace to import images into (default "k8s.io")
   -h, --help                          help for image-bundle
       --image-bundle string           Tarball containing list of images to push
 ```

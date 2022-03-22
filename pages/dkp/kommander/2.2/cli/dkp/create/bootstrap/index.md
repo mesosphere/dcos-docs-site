@@ -26,13 +26,13 @@ dkp create bootstrap [flags]
   -h, --help                             help for bootstrap
       --http-proxy string                HTTP proxy for CAPI controllers
       --https-proxy string               HTTPS proxy for CAPI controllers
-      --kind-cluster-image string        Kind node image for the bootstrap cluster
-      --kind-cluster-name string         Kind cluster name for the bootstrap cluster
+      --kind-cluster-image string        Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v0.0.0-dev.0")
+      --kind-cluster-name string         Kind cluster name for the bootstrap cluster (default "konvoy-capi-bootstrapper")
       --kubeconfig string                Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --no-proxy strings                 No Proxy list for CAPI controllers
-      --timeout duration                 The length of time to wait before giving up. Zero means wait forever.
-      --wait                             If true, wait for operations to complete before returning.
-      --with-aws-bootstrap-credentials   Set false to skip deploying AWS bootstrap credentials from your environment. The instance profiles of the node where the CAPA controller is scheduled on will be used instead.
+      --no-proxy strings                 No Proxy list for CAPI controllers (default [])
+      --timeout duration                 The length of time to wait before giving up. Zero means wait forever. (default 10m0s)
+      --wait                             If true, wait for operations to complete before returning. (default true)
+      --with-aws-bootstrap-credentials   Set false to skip deploying AWS bootstrap credentials from your environment. The instance profiles of the node where the CAPA controller is scheduled on will be used instead. (default true)
 ```
 
 ### Options inherited from parent commands

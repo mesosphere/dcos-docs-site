@@ -22,9 +22,9 @@ dkp create cluster eks [flags]
 ### Options
 
 ```
-      --additional-security-group-ids strings   A comma separated list of existing security group IDs to use for the worker nodes in addition to those created automatically
-      --additional-tags stringToString          Tags to apply to the provisioned infrastructure
-      --allow-missing-template-keys             If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats.
+      --additional-security-group-ids strings   A comma separated list of existing security group IDs to use for the worker nodes in addition to those created automatically (default [])
+      --additional-tags stringToString          Tags to apply to the provisioned infrastructure (default [])
+      --allow-missing-template-keys             If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
       --ami string                              AMI ID to use for worker nodes
       --ami-base-os string                      Base OS for Lookup search (ex. 'centos-7', 'ubuntu-18.04', 'ubuntu-20.04')
       --ami-format string                       Lookup Format string to generate AMI search name from
@@ -37,25 +37,25 @@ dkp create cluster eks [flags]
   -h, --help                                    help for eks
       --http-proxy string                       HTTP proxy for CAPI controllers
       --https-proxy string                      HTTPS proxy for CAPI controllers
-      --kind-cluster-image string               Kind node image for the bootstrap cluster
-      --kind-cluster-name string                Kind cluster name for the bootstrap cluster
+      --kind-cluster-image string               Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v0.0.0-dev.0")
+      --kind-cluster-name string                Kind cluster name for the bootstrap cluster (default "konvoy-capi-bootstrapper")
       --kubeconfig string                       Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string      The image repository to use for pulling kubernetes images
-      --kubernetes-version string               Kubernetes version
-  -n, --namespace string                        If present, the namespace scope for this CLI request.
-      --no-proxy strings                        No Proxy list for CAPI controllers
+      --kubernetes-version string               Kubernetes version (default "1.21.6")
+  -n, --namespace string                        If present, the namespace scope for this CLI request. (default "default")
+      --no-proxy strings                        No Proxy list for CAPI controllers (default [])
   -o, --output string                           Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
-      --region string                           AWS region to deploy cluster to
+      --region string                           AWS region to deploy cluster to (default "us-west-2")
       --show-managed-fields                     If true, keep the managedFields when printing objects in JSON or YAML format.
-      --subnet-ids strings                      A comma separated list of existing subnet IDs to use for the kube-apiserver ELB and all control-plane and worker nodes
+      --subnet-ids strings                      A comma separated list of existing subnet IDs to use for the kube-apiserver ELB and all control-plane and worker nodes (default [])
       --template string                         Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --timeout duration                        The length of time to wait before giving up. Zero means wait forever.
+      --timeout duration                        The length of time to wait before giving up. Zero means wait forever. (default 10m0s)
       --vpc-id string                           Existing VPC ID to use for the cluster
-      --wait                                    If true, wait for operations to complete before returning.
-      --with-aws-bootstrap-credentials          Set false to skip deploying AWS bootstrap credentials from your environment. The instance profiles of the node where the CAPA controller is scheduled on will be used instead.
-      --worker-iam-instance-profile string      Name of the IAM instance profile to assign to worker machines.
-      --worker-instance-type string             Worker machine instance type (ex. 't3.large')
-      --worker-replicas int                     Number of workers
+      --wait                                    If true, wait for operations to complete before returning. (default true)
+      --with-aws-bootstrap-credentials          Set false to skip deploying AWS bootstrap credentials from your environment. The instance profiles of the node where the CAPA controller is scheduled on will be used instead. (default true)
+      --worker-iam-instance-profile string      Name of the IAM instance profile to assign to worker machines. (default "nodes.cluster-api-provider-aws.sigs.k8s.io")
+      --worker-instance-type string             Worker machine instance type (ex. 't3.large') (default "m5.2xlarge")
+      --worker-replicas int                     Number of workers (default 4)
 ```
 
 ### Options inherited from parent commands

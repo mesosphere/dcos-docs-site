@@ -48,11 +48,11 @@ dkp check cluster fips [flags]
 ```
   -h, --help                         help for fips
       --kubeconfig string            Path to the kubeconfig file for the fips cluster. If unspecified, default discovery rules apply.
-  -n, --namespace string             If present, the namespace scope for this CLI request.
+  -n, --namespace string             If present, the namespace scope for this CLI request. (default "default")
       --output-configmap string      ConfigMap with fips signature data to verify. [required]
       --signature-configmap string   ConfigMap with fips signature data to verify. [required]
       --signature-file string        File containing fips signature data.
-      --timeout duration             The length of time to wait before giving up. Zero means wait forever.
+      --timeout duration             The length of time to wait before giving up. Zero means wait forever. (default 20m0s)
 ```
 
 ### Options inherited from parent commands

@@ -24,7 +24,7 @@ dkp serve image-bundle [flags]
 ```
   -h, --help                          help for image-bundle
       --image-bundle string           Tarball containing list of images to push
-      --listen-address string         Address to list on
+      --listen-address string         Address to list on (default "localhost")
       --listen-port uint16            Port to listen on (0 means use any free port)
       --tls-cert-file string          TLS certificate file
       --tls-private-key-file string   TLS private key file

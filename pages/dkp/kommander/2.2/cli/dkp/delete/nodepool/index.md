@@ -26,7 +26,7 @@ dkp delete nodepool name [flags]
       --dry-run             Only print the objects that would be created, without creating them.
   -h, --help                help for nodepool
       --kubeconfig string   Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-  -n, --namespace string    If present, the namespace scope for this CLI request.
+  -n, --namespace string    If present, the namespace scope for this CLI request. (default "default")
 ```
 
 ### Options inherited from parent commands

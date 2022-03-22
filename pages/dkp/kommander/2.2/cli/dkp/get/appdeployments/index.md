@@ -23,7 +23,7 @@ dkp get appdeployments [APPDEPLOYMENT_NAME] [flags]
 
 ```
   -A, --all-namespaces           If present, list the requested object(s) across all namespaces.
-      --config string            Config file to use
+      --config string            Config file to use (default "/root/.kommander/config")
       --context string           The name of the kubeconfig context to use
   -h, --help                     help for appdeployments
       --kubeconfig string        Path to the kubeconfig file to use for CLI requests.

@@ -24,9 +24,9 @@ dkp create image-bundle [flags]
 ```
   -h, --help                     help for image-bundle
       --images-file string       File containing list of images to create bundle from, either as YAML configuration or a simple list of images
-      --output-file string       Output file to write image bundle to
+      --output-file string       Output file to write image bundle to (default "images.tar.gz")
       --overwrite                Overwrite image bundle file if it already exists
-      --platform platformSlice   platforms to download images (required format: <os>/<arch>[/<variant>])
+      --platform platformSlice   platforms to download images (required format: <os>/<arch>[/<variant>]) (default [linux/amd64])
 ```
 
 ### Options inherited from parent commands
