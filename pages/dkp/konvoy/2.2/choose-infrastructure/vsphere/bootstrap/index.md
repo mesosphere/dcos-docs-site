@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Bootstrap
 title: Bootstrap
-menuWeight: 15
+menuWeight: 50
 excerpt: Prepare to deploy Kubernetes clusters
 enterprise: false
 ---

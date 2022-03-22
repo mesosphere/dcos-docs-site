@@ -3,17 +3,17 @@ layout: layout.pug
 navigationTitle: vSphere
 title: vSphere
 menuWeight: 10
-excerpt: vSphere
+excerpt: Creating DKP clusters in a VMware vSphere environment
 beta: true
 enterprise: false
 ---
 
-The following diagrams show the two different ways you can implement Konvoy on vSphere, DKP Essential and DKP Enterprise.
+## Overview of the Process
 
-This diagram shows the granular detail of a single Kubernetes cluster running in vSphere: _%%% need to create a vSphere version of these diagrams!_
+This diagram illustrates the overall process:
 
-![DKP Essential](/dkp/konvoy/2.2/img/DKP_essential.png)
+![vSphere Image Creation](/dkp/konvoy/2.2/img/build-vsphere-ova.png)
 
-This diagram shows a higher-level view of DKP Enterprise, and assumes a multi-cluster environment, where each cluster might look like the single cluster example above:
+The workflow on the left shows the creation of a base OS image in the vCenter vSphere client using inputs from Packer. The workflow on the right shows how DKP uses that same base OS image to create CAPI-enabled VM images for your cluster.
 
-![DKP Enterprise](/dkp/konvoy/2.2/img/DKP_enterprise.png)
+After creating the base image, the DKP image builder uses it to create a CAPI-enabled image. You can that resulting image with the DKP `create cluster` command to create the VM nodes in your cluster. From that point, you can use DKP to provision and manage your cluster.
