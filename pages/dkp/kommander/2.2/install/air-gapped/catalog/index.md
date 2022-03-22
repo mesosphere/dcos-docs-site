@@ -192,7 +192,7 @@ export VERSION=v2.2.0
     dkp push image-bundle --image-bundle catalog-applications-image-bundle.tar.gz --to-registry <REGISTRY_URL>
     ```
 
-It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the docker registry.
+It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
 
 ## Install on Konvoy
 
