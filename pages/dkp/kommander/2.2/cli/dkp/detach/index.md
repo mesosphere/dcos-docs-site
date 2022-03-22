@@ -18,7 +18,7 @@ Detach one of [cluster]
 ### Options
 
 ```
-      --config string            Config file to use
+      --config string            Config file to use (default "/root/.kommander/config")
       --context string           The name of the kubeconfig context to use
   -h, --help                     help for detach
       --kubeconfig string        Path to the kubeconfig file to use for CLI requests.

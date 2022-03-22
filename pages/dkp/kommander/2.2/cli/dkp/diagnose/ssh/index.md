@@ -23,8 +23,8 @@ dkp diagnose ssh path/to/inventory-file.yaml [flags]
 
 ```
   -h, --help                help for ssh
-      --redactors strings   Names of the additional redactors to use
-      --timeout duration    Timeout for collecting bundle per node
+      --redactors strings   Names of the additional redactors to use (default [])
+      --timeout duration    Timeout for collecting bundle per node (default 5m0s)
 ```
 
 ### Options inherited from parent commands

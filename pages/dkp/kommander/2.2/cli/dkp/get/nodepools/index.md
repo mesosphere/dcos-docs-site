@@ -25,7 +25,7 @@ dkp get nodepools [flags]
   -c, --cluster-name name   Name used to prefix the cluster and all the created resources.
   -h, --help                help for nodepools
       --kubeconfig string   Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-  -n, --namespace string    If present, the namespace scope for this CLI request.
+  -n, --namespace string    If present, the namespace scope for this CLI request. (default "default")
 ```
 
 ### Options inherited from parent commands

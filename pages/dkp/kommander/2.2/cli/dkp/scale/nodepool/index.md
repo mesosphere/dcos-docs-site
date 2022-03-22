@@ -25,8 +25,8 @@ dkp scale nodepool name [flags]
   -c, --cluster-name name         Name used to prefix the cluster and all the created resources.
   -h, --help                      help for nodepool
       --kubeconfig string         Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-  -n, --namespace string          If present, the namespace scope for this CLI request.
-      --nodes-to-delete strings   A list of node names to mark for deletion when scaling down a node pool. If left empty, the nodes to delete will be selected at random.
+  -n, --namespace string          If present, the namespace scope for this CLI request. (default "default")
+      --nodes-to-delete strings   A list of node names to mark for deletion when scaling down a node pool. If left empty, the nodes to delete will be selected at random. (default [])
       --replicas int              The new desired number of replicas.
 ```
 

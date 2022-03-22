@@ -24,8 +24,8 @@ dkp delete capi-components [flags]
 ```
   -h, --help                help for capi-components
       --kubeconfig string   Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --timeout duration    The length of time to wait before giving up. Zero means wait forever.
-      --wait                If true, wait for operations to complete before returning.
+      --timeout duration    The length of time to wait before giving up. Zero means wait forever. (default 5m0s)
+      --wait                If true, wait for operations to complete before returning. (default true)
 ```
 
 ### Options inherited from parent commands
