@@ -8,80 +8,114 @@ enterprise: false
 menuWeight: 10
 ---
 
-This guide provides instructions for getting started with DKP&reg; to get your Kubernetes cluster up and running with basic configuration requirements on a VMware vSphere&reg; public cloud instances. If you want to customize your vSphere environment, see [Install vSphere Advanced][advanced].
+This section provides instructions for getting started with DKP&reg; to get your Kubernetes cluster up and running with basic configuration requirements on a VMware&reg; vSphere&reg; public cloud instance.
 
-## DKP Prerequisites
+### Set the Environment Variables for vSphere
 
-Before you begin using DKP, you must have:
+Set the vSphere environment variables on the machine where you are running DKP.
 
-- An x86_64-based Linux&reg; or macOS&reg; machine.
-- The `dkp` binary for Linux, or macOS.
-- [Docker&reg;][install_docker] version 18.09.2 or later installed.
-  You must have Docker installed on the host where the DKP Konvoy CLI runs. For example, if you are installing Konvoy on your laptop, ensure the laptop has a supported version of Docker.
-- [kubectl][install_kubectl] 1.21.6 for interacting with the running cluster.
-  To enable interaction with the running cluster, you must have `kubectl` installed on the host where the DKP Konvoy command line interface (CLI) runs.
-- A valid VMware vSphere account with credentials configured.
+<p class="message--note"><strong>NOTE: </strong>Use a valid vSphere server URL without including the http:// or https:// prefix.</p>
 
-<p class="message--note"><strong>NOTE: </strong>On macOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
+Use the following command to set the environment variables for vSphere:
 
-## VMware vSphere Prerequisites
+   ```bash
+   VSPHERE_SERVER=example.vsphere.url
+   VSPHERE_USERNAME=user@example.vsphere.url
+   VSPHERE_PASSWORD=example_password
+   ```
 
-Before installing, verify that your VMware vSphere environment meets the following basic requirements:
+### Set the Environment Variables for RedHat subscription
 
-- vCenter version v6.7.x with Update 3
+Use the following command to set environment variables to use your Red Hat credentials on the machine you are using to access vSphere:
 
-  vCenter provides the vSphere APIs that Konvoy uses to create the cluster VMs. You must be able to reach the API endpoint from where the Konvoy command line interface (CLI) runs.
+   ```bash
+   RHSM_USER=example_user
+   RHSM_PASS=example_password
+   ```
 
-- vSphere account with [credentials configured][credentials_configured]
+#### Set Hashicorp Packer variables for vSphere
 
-  DKP uses the account to access vCenter APIs. This account must have administrator privileges.
+Packer requires the following variables to create vSphere VM images. Add this configuration in the `image.yaml` file, substituting in the valid values for your environment.
 
-- A vSphere command-line utility, such as [govc][govc_link]
+   ```yaml
+   packer:
+     cluster: "example_zone"
+     datacenter: "example_datacenter"
+     datastore: "example_datastore"
+     folder: "example_folder"
+     insecure_connection: "false"
+     network: "example_network"
+     resource_pool: "example_resource_pool"
+     template: "example_base_OS_template_name"
+     vsphere_guest_os_type: "example_rhel7_64Guest"
+     guest_os_type: "example_rhel7-64"
+     #goss params
+     distribution: "example_RHEL"
+     distribution_version: "example_7.9"
+   ```
 
-   This discusses the vSphere roles and permissions needed to work with DKP clusters.
+#### Create a template image on vSphere
 
-- Valid vCenter API server URL
+The input for DKP to create the CAPI-enabled VM images for your cluster is the base OS image you created earlier in the vSphere client.
 
-- Valid vSphere Datacenter name
+1. Copy the base OS image from the vSphere client to a directory on your machine.
 
-- Valid vSphere Datastore name
+1. Use the DKP image builder to create the VM image using this command:
 
-- Resource Pools
-  You need two resource pools, one named Users and one named konvoy2
+   ```bash
+   konvoy-image build path/to/image.yaml
+   ```
 
-- Clusterctl version 1.0.2
+### Create a DKP Booststrap cluster
 
-- A Bastion node for air-gapped clusters
+To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) controllers. These controllers run on a Kubernetes cluster. To get started, you need a _bootstrap_ cluster. By default, Konvoy creates a bootstrap cluster for you in a Docker container using the Kubernetes-in-Docker ([KIND][kind]) tool.
 
-## Install DKP on vSphere
+1.  Create a bootstrap cluster:
 
-To install DKP on vSphere, perform the following tasks: _%%% will we need to rewrite this in some way for DKP?_
 
-* Set the vSphere environment variables
-* Create roles using govc - permissions
-* Configure prerequisites cloud-provider user
-* Configure tags for Datacenters and Zones _%%% what are these tags?_
-* Verify that your VM templates exist
-* Install DKP
-* Modify the Cluster Name (optional)
-* Show planned infrastructure changes
+    ```sh
+    dkp create bootstrap --kubeconfig $HOME/.kube/config
+    ```
 
-### Set the vSphere environment variables
+   ```text
+   %%% some text here for the output
+   ```
 
-Set the following environment variables:
+Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
 
-  ```bash
-  # export of settings
-  export VSPHERE_SERVER=_YOUR_VCENTER_URL
-  export VSPHERE_USER=_YOUR_VCENTER_USERNAME
-  export VSPHERE_PASSWORD=_YOUR_VCENTER_PASSWORD
-  export VSPHERE_ALLOW_UNVERIFIED_SSL=true
-  export VSPHERE_PERSIST_SESSION=true
-  ```
+- [Core Provider][capi]
+- [AWS Infrastructure Provider][capa]
+- vSphere Provider
+- [Kubeadm Bootstrap Provider][cabpk]
+- [Kubeadm ControlPlane Provider][kcp]
+
+### Create vSphere Cluster in a non-airgapped environment
+
+Use the DKP create cluster command to create a cluster image template. Use a fixed IP address for the `--control-plane-endpoint-host` value, such as 141.95.21.150. When using air-gapped or VM network, you can use any private IP.
+
+<p class="message--note"><strong>NOTE: </strong>The following command uses a pre-created image template, konvoy-ova-vsphere-rhel-84-1.21.6-1646938922, as an example. You can replace it with the template you created in a previous step.</p>
+
+   ```
+   konvoy create cluster vsphere \
+   --cluster-name=e2e-d2iq-test \
+   --network=Public \
+   --control-plane-endpoint-host=141.95.21.150 \
+   --data-center=dc1 \
+   --data-store=ovh-nfs \
+   --folder=cluster-api \
+   --server=vcenter.ca1.ksphere-platform.xyzcorp.cloud \
+   --ssh-public-key-file=<PATH TO SSH KEY> \
+   --resource-pool=cluster-api \
+   --vm-template=konvoy-ova-vsphere-rhel-84-1.21.6-1646938922
+   ```
+
+get kubeconfig, move, delete are the same as any other cloud provider... %%% John, copy these in from a likely source
+
+
 
 ### Create roles using govc
 
-%%% they need some kind of CLI for vSphere, ann to have permissions set up, however they want
+%%% they need some kind of CLI for vSphere, and to have permissions set up, however they want
 
 Ensure the following roles are set:
 
@@ -100,23 +134,6 @@ Ensure the following roles are set:
   govc role.create CNS-SEARCH-AND-SPBM Cns.Searchable StorageProfile.View
   ```
 
-### Create a cloud-provider user and assign it to the roles on hierarchical levels
-
-<p class="message--note"><strong>NOTE: </strong>You must only do this once or you do it per cluster, if you want to add cloud-provider users per cluster. You also can reuse cloud-provider user for Kubernetes CPI and CSI for several Konvoy setups.</p>
-
-The cloud-provider user is used for CPI and CSI, to get the full advantage of running a Konvoy cluster on vSphere.
-
-- Assign the role `CNS-DATASTORE` to your cloud-provider user at all to use `Datastores`.
-- Assign the role `CNS-HOST-CONFIG-STORAGE` to your cloud-provider user at all to use vSAN clusters.
-- Assign the role `CNS-VM` to your cloud-provider user **propagated** at the folder in which your VMs start. We recommend you create an extra VM Folder for this purpose and avoid using the root (/) folder.
-- Assign the role `CNS-SEARCH-AND-SPBM` to your cloud-provider user at the root level of the vCenter Server.
-- Assign the role `ReadOnly` to your cloud-provider user at all `Datacenters`.
-- Assign the role `ReadOnly` to your cloud-provider user **propagated** at all `Clusters`.
-
-More details about setting the roles to the correct vSphere level can be found at the [CSI Driver prerequisites][csi_driver_prerequisites].
-
-### Create tags for Datacenters and Zones
-To use the cloud-provider CSI, refer to the [Set Up Zones in the vSphere CNS Environment][zones_setup] guide. Keep the categories named `k8s-region` and `k8s-zone`, the tags can and should match your `Datacenter` and `Cluster` names.
 
 ### Verify VM Templates
 <p class="message--note"><strong>NOTE: </strong>Default VM Template name is centos7.</p>
@@ -127,81 +144,6 @@ You must have a VM Template registered in your `Datacenters` storage. The follow
 - [cloud-init-vmware-guestinfo][cloud_init_vmware_guestinfo]
 - open-vm-tools (or VMWare provided version)
 
-### Install DKP
-
-_%%% this section has to change for 2.1_
-
-1. After verifying your prerequisites, create a vSphere Kubernetes cluster.yaml file by running `konvoy init --provisioner vsphere` %%% should be `dkp create cluster --<flags galore>`. This command creates your `cluster.yaml` for vSphere, installs Kubernetes and default addons to support your Kubernetes cluster.
-
-2. Edit your `cluster.yaml` file and define the empty set values in `spec.vsphere`. If you want to configure a multi `Datacenter` setup, define the lists with all needed values.
-For example, the `cluster.yaml` content can look similar to the following:
-
-```yaml
-vsphere:
-  server: vcenter.hw.ca1.ksphere-platform.d2iq.cloud
-  port: 443
-  datacenters:
-    - name: dc1
-      cluster: zone1
-      network: VMs
-      datastore: vsanDatastore
-      # This is a VM folder you pre-created in your cluster, as mentioned for the CNS-VM role.
-      vmFolder: D2iQ
-  username: _YOUR_CLOUD_PROVIDER_USER_NAME_
-  password: _YOUR_CLOUD_PROVIDER_USER_PASSWORD_
-```
-
-If you do not want to insert the CSI username and password directly you can write instead:
-
-```yaml
-  username: ${KONVOY_VSPHERE_CSI_USERNAME}
-  password: ${KONVOY_VSPHERE_CSI_PASSWORD}
-```
-
-In this case you need to make sure to set `KONVOY_VSPHERE_CSI_USERNAME` and `KONVOY_VSPHERE_CSI_PASSWORD`
-environment variables.
-
-Change the addon `metallb` to be `enabled: true` and set the `addresses` you like to provide
-as `ServiceType: LoadBalancer` in your network.
-More details about [Load balancing for external traffic here][load_balancing_for_external_traffic].
-
-Specifically, the `konvoy up` command, for a preconfigured `cluster.yaml`, does the following:
-
-* Provisions three `xlarge` virtual machines as Kubernetes master nodes. Definition is 4 CPUs, 16GB RAM.
-* Provisions four `2xlarge` virtual machines as Kubernetes worker nodes. Definition is 8 CPUs, 32GB RAM.
-* Deploys all of the following default addons:
-  * Calico
-  * Cert-Manager
-  * CoreDNS
-  * Helm
-  * vSphere CSI driver
-  * Elasticsearch (including Elasticsearch Exporter)
-  * Fluent Bit
-  * Kibana
-  * Prometheus operator (including Grafana, AlertManager and Prometheus Adapter)
-  * Traefik
-  * Kubernetes dashboard
-  * Operations portal
-  * Velero
-  * Dex identity service
-  * Dex Kubernetes client authenticator
-  * Traefik forward authorization proxy
-  * Kommander
-  * Reloader
-  * Default Storage Class Protection
-  * Gatekeeper
-  * Konvoy Config
-
-The default configuration options are recommended for a small cluster (about 10 worker nodes).
-
-### Modify the cluster name
-By default, the cluster name is the name of the folder where the `konvoy` command is run. The cluster name is used to tag the provisioned infrastructure and the context when applying the kubeconfig file. To change the cluster name, run the following command:
-
-  ```bash
-  konvoy init --provisioner vsphere --cluster-name <YOUR_SPECIFIED_NAME>
-  ```
-
-<p class="message--note"><strong>NOTE: </strong>The cluster name can only contain the following characters: <code>a-z, 0-9, . - and _</code>.</p>
 
 ### Show planned infrastructure changes
 
@@ -281,3 +223,9 @@ When the `konvoy up --provisioner vsphere` completes setup operations, the follo
 [cloud_init_vmware_guestinfo]: https://github.com/vmware/cloud-init-vmware-guestinfo
 [load_balancing_for_external_traffic]: ../../networking/load-balancing#On-premises
 [govc_link]: https://github.com/vmware/govmomi/tree/master/govc
+[capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
+[kind]: https://github.com/kubernetes-sigs/kind
+[capi_book]: https://cluster-api.sigs.k8s.io/
+[capi]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/
+[kcp]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/controlplane/kubeadm
+[cabpk]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/bootstrap/kubeadm
