@@ -175,24 +175,12 @@ export VERSION=v2.2.0
     wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
-1.  Download the [DKP catalog applications][dkp_catalog_applications] image bundle if you intend on deploying any DKP catalog applications:
-
-    ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/catalog_applications_image_bundle_${VERSION}_linux_amd64.tar.gz" -O catalog-applications-image-bundle.tar.gz
-    ```
-
 1.  Place the bundle(s) in a location where you can load and push the images to your private Docker registry.
 
 1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
     dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
-    ```
-
-    To upload the optional [DKP catalog applications][dkp_catalog_applications] image bundle:
-
-    ```bash
-    dkp push image-bundle --image-bundle catalog-applications-image-bundle.tar.gz --to-registry <REGISTRY_URL>
     ```
 
 Based on the network latency between the environment of script execution and the docker registry, this can take a while to push all the images to your image registry.
@@ -231,27 +219,12 @@ Based on the network latency between the environment of script execution and the
     wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz"
     ```
 
-1.  Download the [DKP catalog applications][dkp_catalog_applications] chart bundle if you intend on deploying any DKP catalog applications:
-
-    ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz"
-    ```
-
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
     kommander install --installer-config ./install.yaml \
     --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
     --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz
-    ```
-
-    To upload the optional [DKP catalog applications][dkp_catalog_applications] chart bundle, add `--chart-bundle` flag to the `install` command:
-
-    ```bash
-    kommander install --installer-config ./install.yaml \
-    --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
-    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz \
-    --charts-bundle dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz
     ```
 
 1.  [Verify your installation](../networked#verify-installation).
