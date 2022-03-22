@@ -8,15 +8,15 @@ beta: false
 enterprise: true
 ---
  
-This section describes how to upgrade your Kommander Management cluster and all its Platform Applications to the latest versions. Kommander is installed on your Management cluster and upgrading it must be the first step you take when upgrading DKP, to prevent compatibility issues.
+This section describes how to upgrade your Kommander Management cluster and all Platform Applications to their latest versions. To prevent compatibility issues, you must first upgrade Kommander on your Management Cluster before upgrading to DKP.
 
-<p class="message--note"><strong>NOTE: </strong>It is important to upgrade Kommander BEFORE upgrading the Kubernetes version (or Konvoy version for Managed Konvoy clusters) in attached clusters, due to the previous versions' incompatibility with 1.22.</p>
+<p class="message--note"><strong>NOTE: </strong>It is important you upgrade Kommander BEFORE upgrading the Kubernetes version (or Konvoy version for Managed Konvoy clusters) in attached clusters, due to the previous versions' incompatibility with 1.22.</p>
 
 ## Prerequisites
 
 - [Download][download-binary] and install the latest DKP CLI binary on your computer.
 - Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
-- If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre-provisioned] documentation.
+- If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre-provisioned].
 - Review the [Platform Application version updates][platform-apps] that are part of this upgrade.
 
 ## Upgrade Kommander
