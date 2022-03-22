@@ -8,7 +8,7 @@ enterprise: false
 menuWeight: 10
 ---
 
-Follow thse instructions to generate a support bundle with data collected for the last 48 hours of the life of the cluster.
+Follow these instructions to generate a support bundle with data collected for the last 48 hours of the life of the cluster.
 
 ## Prerequisites
 
@@ -24,25 +24,25 @@ Before generating a support bundle, verify that you have:
 
     For Linux:
 
-    ```sh
+    ```bash
     mkdir support-bundle && curl -sL https://github.com/replicatedhq/troubleshoot/releases/download/v0.13.7/support-bundle_linux_amd64.tar.gz | tar -xz -C ./support-bundle/
     ```
 
     For MacOS:
 
-    ```sh
+    ```bash
     mkdir support-bundle && curl -sL https://github.com/replicatedhq/troubleshoot/releases/download/v0.13.7/support-bundle_darwin_amd64.tar.gz | tar -xz -C ./support-bundle/
     ```
 
 1.  Add the binary to your PATH:
 
-    ```sh
+    ```bash
     export PATH=./support-bundle/:$PATH
     ```
 
 1.  Verify the binary works:
 
-    ```sh
+    ```bash
     support-bundle version
     ```
 
@@ -67,7 +67,7 @@ The bundle uses the following collectors:
 If you have not yet created a Kubernetes cluster and are trying to collect information from the bootstrap cluster,
 run the following command to generate `bundle.yaml` that defines the resources to collect.
 
-```sh
+```yaml
 cat > bundle.yaml <<EOF
 apiVersion: troubleshoot.sh/v1beta2
 kind: SupportBundle
@@ -164,10 +164,10 @@ EOF
 
 ### Collect information from a workload cluster
 
-If you have created a Kubernetes cluster and have access to its Kuberntes API Server,
+If you have created a Kubernetes cluster and have access to its Kubernetes API Server,
 run the following command to generate `bundle.yaml` that defines the resources to collect.
 
-```sh
+```yaml
 cat > bundle.yaml <<EOF
 apiVersion: troubleshoot.sh/v1beta2
 kind: SupportBundle
@@ -309,11 +309,11 @@ To generate the support bundle:
 
 1.  Run the `support-bundle` command with the `SupportBundle` spec file from the previous step.
 
-    ```sh
+    ```bash
     support-bundle bundle.yaml
     ```
 
-    ```sh
+    ```bash
     Collecting support bundle ...
 
     support-bundle-2021-08-13T14_44_23.tar.gz --redact=false
@@ -321,13 +321,13 @@ To generate the support bundle:
 
 1.  To view its contents extract the bundle (replacing `support-bundle-2021-08-13T14_44_23.tar.gz` with the location from the previous step):
 
-    ```sh
+    ```bash
     tar -xzvf support-bundle-2021-08-13T14_44_23.tar.gz
     ```
 
 1.  You will see a new directory support-bundle-... that contains the files as specified in `bundle.yaml`:
 
-    ```sh
+    ```bash
     ls support-bundle-2021-08-13T14_44_23
     ```
 
@@ -340,7 +340,7 @@ To generate the support bundle:
 `troubleshoot.sh` does not support collection of custom resources. To collect these, run the following command
 (depending on the cluster size and the running workloads, this operation may take up to 5 minutes):
 
-```sh
+```bash
 echo $(#!/usr/bin/env bash
 set -euo pipefail
 

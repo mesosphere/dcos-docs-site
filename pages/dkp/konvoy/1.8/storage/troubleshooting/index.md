@@ -34,8 +34,11 @@ Driver installations include their own `StorageClass` (SC) resources that provid
 
 For instance the `aws-ebs-csi-driver` provides the following information:
 
-```shell
+```bash
 kubectl get storageclass
+```
+
+```sh
 NAME                             PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 awsebscsiprovisioner (default)   ebs.csi.aws.com   Delete          WaitForFirstConsumer   true                   17s
 ```
@@ -44,14 +47,14 @@ awsebscsiprovisioner (default)   ebs.csi.aws.com   Delete          WaitForFirstC
 
 When investigating storage issues you can verify which SC is actually in use for a pod by looking at the corresponding volume definitions (using an example pod):
 
-```shell
+```bash
 kubectl get pod nginx-stateful-5bdc6968df-gxhgq -o=go-template='{{range .spec.volumes}}{{.persistentVolumeClaim.claimName}}{{"\n"}}{{end}}' |grep -v 'no value'
 nginx-data
 ```
 
 For each entry this output produces (you can have an arbitrary number of volumes associated with a pod, and they can each use a different SC) you can view the SC in use with:
 
-```shell
+```bash
 kubectl get pvc nginx-data -o=go-template='{{.spec.storageClassName}}{{"\n"}}'
 awsebscsiprovisioner
 ```
@@ -64,8 +67,11 @@ The storage driver controller watches for new PVC resources deployed to the clus
 
 It is helpful to first look for the controller pod, itself, and see the pods related to the controller at a glance. Using the AWS driver as an example:
 
-```shell
+```bash
 kubectl -n kube-system get pods | egrep 'ebs-csi-*controller'
+```
+
+```sh
 ebs-csi-controller-0                                                 6/6     Running   0          21m
 ebs-csi-snapshot-controller-0                                        1/1     Running   0          21m
 ```
@@ -77,8 +83,11 @@ In the above example you see two controllers with two different purposes:
 
 When creating a PVC, you can view its events to see which controller performs actions on it:
 
-```shell
+```bash
 kubectl describe pvc nginx-data
+```
+
+```sh
 Events:
   Type    Reason                 Age   From                                                                       Message
   ----    ------                 ----  ----                                                                       -------
@@ -91,7 +100,7 @@ From the last line in the example above, the controller `ebs-csi-controller-0` h
 
 When it completes, it displays an event that declares a `Reason` for the event (such as `ProvisioningSucceeded`) and a message about the event:
 
-```shell
+```sh
 Normal  ProvisioningSucceeded  21m   ebs.csi.aws.com_ebs-csi-controller-0_3f916a6a-2845-4377-8987-9cea1062c02d  Successfully provisioned volume pvc-a53be984-d4a3-4c8f-b257-99201df5de74
 ```
 
@@ -103,7 +112,7 @@ Controllers are responsible for setting up workflows and reporting information a
 
 [Kubernetes Nodes][kubernetesnodes] are often important to storage drivers as the node is where the `csi-plugin` creates and connects the remote (or local) filesystems and storage devices.
 
-Sometimes, the controller has done it's job but the underlying storage is still not working properly. The answers may be in the underlying system the Kubernetes components are running on.
+Sometimes, the controller has done its job but the underlying storage is still not working properly. The answers may be in the underlying system the Kubernetes components are running on.
 
 Failures at this level, for example, the Linux device level, or the cloud storage provider level, can grow far beyond the scope of this document. If you deployed Konvoy using `AWS`, `GCP` or `Azure` storage drivers, refer to the cloud storage provider's documentation to debug these issues further:
 
@@ -126,14 +135,20 @@ These are generally implemented as [Daemonsets][kubernetesdaemonsets] which depl
 
 In this section we provide an overview of the AWS Driver's node plugin pods, starting with a look at the underlying pods running on each node:
 
-```shell
+```bash
 kubectl -n kube-system get daemonsets
+```
+
+```sh
 NAME           DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 ebs-csi-node   7         7         7       7            7           beta.kubernetes.io/os=linux   21m
 ```
 
-```shell
+```bash
 kubectl -n kube-system get pods | grep ebs-csi-node
+```
+
+```sh
 ebs-csi-node-2t4b6                                                   3/3     Running   0          21m
 ebs-csi-node-46bql                                                   3/3     Running   0          21m
 ebs-csi-node-5p82m                                                   3/3     Running   0          21m
@@ -145,7 +160,7 @@ ebs-csi-node-wqx59                                                   3/3     Run
 
 These pods consist of three containers, which run on the node, that coordinate the connection of storage to pods which are scheduled to that node, and have volume claims:
 
-```shell
+```bash
 kubectl -n kube-system get pods ebs-csi-node-2dmp5 -o=go-template='{{range .spec.containers}}{{.name}}{{"\n"}}{{end}}'
 ebs-plugin
 node-driver-registrar
@@ -160,8 +175,11 @@ The purpose of these containers running on each node are:
 
 When troubleshooting problems in this part of the driver stack (see the "Examples" section below for additional context) problems that arise because of EBS API errors generally show up in the logs for the `ebs-plugin` container. For example:
 
-```shell
+```bash
 kubectl -n kube-system logs ebs-csi-node-2dmp5 ebs-plugin
+```
+
+```sh
 I0811 20:39:19.763926       1 driver.go:62] Driver: ebs.csi.aws.com Version: v0.5.0
 I0811 20:39:19.772867       1 mount_linux.go:163] Cannot run systemd-run, assuming non-systemd OS
 I0811 20:39:19.772887       1 mount_linux.go:164] systemd-run failed with: exit status 1

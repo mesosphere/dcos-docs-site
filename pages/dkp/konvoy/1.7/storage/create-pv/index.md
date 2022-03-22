@@ -57,7 +57,7 @@ Create a Persistent Volume using NFS as an example.
 
 1.  Apply the file to create an NFS Persistent Volume (PV).
 
-    ```shell
+    ```bash
     kubectl apply -f nfs-share.yaml
     ```
 
@@ -65,13 +65,13 @@ Create a Persistent Volume using NFS as an example.
 
 1.  Validate the PV is available.
 
-    ```shell
+    ```bash
     kubectl get pv nfs-share
     ```
 
     Output, similar to this below, shows that the cluster has accepted your Persistent Volume and is in **status available**:
 
-    ```shell
+    ```sh
     NAME        CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS  CLAIM   STORAGECLASS   REASON   AGE
     nfs-share   5Gi        RWX            Retain           Bound
     ```

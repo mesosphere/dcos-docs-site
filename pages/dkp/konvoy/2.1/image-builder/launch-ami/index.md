@@ -14,7 +14,7 @@ Follow these steps to launch your AMIs.
 
 To use the built `ami` with Konvoy, specify it with the `--ami` flag when calling cluster create.
 
-```sh
+```bash
 dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --ami ami-0123456789
 ```
 
@@ -22,7 +22,7 @@ dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --ami ami-0123456789
 
 By default `konvoy-image` will name the AMI in such a way that `dkp` can discover the latest AMI for a base OS and Kubernetes version. To create a cluster that will use the latest AMI, specify the `--ami-format`, `--ami-base-os` and `--ami-owner` flags:
 
-```sh
+```bash
 dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --ami-format "konvoy-ami-{{.BaseOS}}-?{{.K8sVersion}}-*" --ami-base-os centos-7 --ami-owner 123456789012
 ```
 

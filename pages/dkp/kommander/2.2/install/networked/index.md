@@ -19,7 +19,7 @@ Before you begin using Kommander, you must:
 
 To ensure the Git repository that Kommander ships with deploys successfully, the cluster where Kommander is installed must have a default `StorageClass` configured. Run the following command:
 
-```sh
+```bash
 kubectl get sc
 ```
 
@@ -32,7 +32,7 @@ ebs-sc (default)   ebs.csi.aws.com   Delete          WaitForFirstConsumer   fals
 
 If the `StorageClass` is not set as default, add the following annotation to the `StorageClass` manifest:
 
-```sh
+```yaml
 annotations:
   storageclass.kubernetes.io/is-default-class: "true"
 ```
@@ -47,7 +47,7 @@ Before running the commands below, ensure that your `kubectl` configuration **re
 
 <p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable as stated earlier is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
 
-```sh
+```bash
 kommander install
 ```
 
@@ -59,7 +59,7 @@ The Kommander installation is a multi-step process: Flux installs first, then th
 
 After running the install command, `HelmReleases` begin to appear on the cluster.
 
-```sh
+```bash
 kubectl -n kommander wait --for condition=Released helmreleases --all --timeout 15m
 ```
 
@@ -98,7 +98,7 @@ helmrelease.helm.toolkit.fluxcd.io/velero condition met
 
 When all the `HelmReleases` are ready, use the following command to open the Kommander dashboard in your browser:
 
-```sh
+```bash
 kommander open dashboard
 ```
 
@@ -106,13 +106,13 @@ This command opens the URL of the Kommander web interface in your default browse
 
 If you prefer not to open your browser, run this command to retrieve the URL used for accessing Kommander's web interface:
 
-```sh
+```bash
 kubectl -n kommander get svc kommander-traefik -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}/dkp/kommander/dashboard{{ "\n"}}'
 ```
 
 And, use the following command to access the username and password stored on the cluster:
 
-```sh
+```bash
 kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
 ```
 

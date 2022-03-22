@@ -305,7 +305,7 @@ For example on `Ubuntu 18.04`, you must replace the following Deb packages and t
 The air gapped bundle contains package archives for both EL7 and EL8. The installer, however, is configured to copy only one set of packages, and it defaults to the EL7 packages. If you are using EL8 (CentOS 8 or RHEL 8), copy the EL8 package archive to the default location:
 <!-- vale Vale.Spelling = YES -->
 
-```shell
+```bash
 # backup the centos 7 archive (optional)
 cp konvoy_<konvoy-version>_x86_64_rpms.tar.gz konvoy_<konvoy-version>_el7_x86_64_rpms.tar.gz
 

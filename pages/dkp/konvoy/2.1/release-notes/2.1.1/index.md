@@ -63,6 +63,10 @@ The following components are upgraded to the listed version:
 - Cluster API Preprovisioned Provider v0.4.0
 - Konvoy Image Builder v1.5.0
 
+### Known Issues
+
+- For clusters that were installed with existing infrastructure/VPC, upgrading from Konvoy 1.8.x to 2.1.1 is NOT supported. This applies when Konvoy 1.8.x was installed before an existing infrastructure/VPC was installed. A fix for this issue is in development for the next patch release.
+
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->

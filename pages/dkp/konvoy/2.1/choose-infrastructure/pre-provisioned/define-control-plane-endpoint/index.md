@@ -7,12 +7,11 @@ excerpt: Define the Control Plane Endpoint for your cluster
 beta: false
 enterprise: false
 ---
-
 A control plane should have three, five, or seven nodes, so that it can remain available if one, two, or three nodes fail. A control plane with one node should not be used in production.
 
 In addition, the control plane should have an endpoint that remains available if some nodes fail.
 
-```text
+```sh
                             -------- cp1.example.com:6443
                             |
       lb.example.com:6443 ---------- cp2.example.com:6443
@@ -28,11 +27,11 @@ It is recommended that an external load balancer be the control plane endpoint. 
 
 ## Built-in virtual IP
 
-If an external load balancer is not available, use the built-in virtual IP. The virtual IP is _not_ a load balancer; it does not distribute request load among the control plane machines. However, if the machine receiving requests does not respond to them, the virtual IP automatically moves to another machine.
+If an external load balancer is not available, use the [built-in virtual IP](../create-cluster/#use-the-built-in-virtual-ip). The virtual IP is _not_ a load balancer; it does not distribute request load among the control plane machines. However, if the machine receiving requests does not respond to them, the virtual IP automatically moves to another machine.
 
 ## Single-Node control plane
 
-A control plane with one node can use its single node as the endpoint, so you will not require an external load balancer, or a built-in virtual IP. However, do not use a single-node control plane configuration in production, as it is not possible to upgrade the control plane if you only have one node. This is due to the fact that CAPI does not perform in-situ upgrades, instead, it replaces machines. If you want to upgrade your cluster, use the default <code>--control-plane-replicas</code> setting of 3.
+A control plane with one node can use its single node as the endpoint, so you will not require an external load balancer, or a built-in virtual IP. However, do not use a single-node control plane configuration in production, as it is impossible to upgrade the control plane if you only have one node. This is because CAPI does not perform in-situ upgrades, instead, it replaces machines. If you want to upgrade your cluster, use the default `<code>`--control-plane-replicas`</code>` setting of 3.
 
 When the API server endpoints are defined, you can [create the cluster][create-cluster].
 

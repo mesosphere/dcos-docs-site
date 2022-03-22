@@ -40,13 +40,13 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
 
 1. Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace's namespace:
 
-    ```sh
+    ```bash
     export WORKSPACE_NAMESPACE=<workspace_namespace>
     ```
 
 1. Get the list of available applications to deploy using the following command:
 
-   ```sh
+   ```bash
    kubectl get apps -n ${WORKSPACE_NAMESPACE}
    ```
 

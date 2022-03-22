@@ -54,16 +54,19 @@ spec:
 
 If this manifest file was named `nginx.yaml`, to deploy this workload, use the `kubectl create` command as follows:
 
-```shell
-❯ kubectl create -f nginx.yaml
+```bash
+kubectl create -f nginx.yaml
 ```
 
 <p class="message--note"><strong>NOTE: </strong>Make sure you are in the correct namespace or specify the namespace with <code>-n &lt;ns&gt;</code> as part of the command.</p>
 
 This creates a Kubernetes Pod and Service. It takes time for the workload to start running. This includes getting scheduled, pulling the image, and executing the service. In the case of a pod, you can check its status by `get`ting the pods or watching the pods. An example:
 
-```shell
-❯ kubectl get pod
+```bash
+kubectl get pod
+```
+
+```sh
 NAME    READY   STATUS    RESTARTS   AGE
 nginx   1/1     Running   0          5m15s
 ```
@@ -72,8 +75,11 @@ nginx   1/1     Running   0          5m15s
 
 All the events for pod workloads are recorded as Kubernetes `events` and provide good insight to understanding any challenges that might be present. Run `kubectl get events` to retrieve these events. This data expires by default after 1 hour.
 
-```shell
-❯ kubectl get events
+```bash
+kubectl get events
+```
+
+```sh
 LAST SEEN   TYPE     REASON      OBJECT      MESSAGE
 67s         Normal   Scheduled   pod/nginx   Successfully assigned default/nginx to kind-control-plane
 67s         Normal   Pulled      pod/nginx   Container image "nginx:1.19.3" already present on machine
@@ -85,16 +91,22 @@ LAST SEEN   TYPE     REASON      OBJECT      MESSAGE
 
 The previous example is a successful case. The following example shows a pod that is `pending`.
 
-```shell
-❯ kubectl get pod
+```bash
+kubectl get pod
+```
+
+```sh
 NAME    READY   STATUS    RESTARTS   AGE
 nginx   0/1     Pending   0          104s
 ```
 
 The events show:
 
-```shell
-❯ kubectl get events
+```bash
+kubectl get events
+```
+
+```sh
 LAST SEEN   TYPE      REASON             OBJECT      MESSAGE
 8s          Warning   FailedScheduling   pod/nginx   0/1 nodes are available: 1 Insufficient cpu.
 ```

@@ -10,7 +10,7 @@ render: mustache
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 ## Access archived versions of Konvoy documentation
 
-In accordance with our [version policy][policy], we regularly archive older, unsupported versions of our Konvoy documentation. At this time, this includes documentation for Konvoy 1.5 and below. You can still access older versions of Konvoy documentation on our [public github repo][repo], or by locally running a Docker image (experimental):
+In accordance with our [version policy][policy], we regularly archive older, unsupported versions of our Konvoy documentation. At this time, this includes documentation for Konvoy 1.5 and below. You can still access older versions of Konvoy documentation on our [public GitHub repo][repo], or by locally running a Docker image (experimental):
 
 On your local machine, run:
 
@@ -20,7 +20,7 @@ docker run -p 5000:5000 -it mesosphere/archived_docs
 
 After running this command, you will see:
 
-```shell
+```sh
    │   Serving!                                     │
    │                                                │
    │   - Local:            http://0.0.0.0:5000      │

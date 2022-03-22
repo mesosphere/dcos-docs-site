@@ -61,7 +61,7 @@ If a workload does not claim a Persistent Volume Claim it stays in a `Pending` s
 
 1.  Next, apply the file.
 
-    ```shell
+    ```bash
     kubectl apply -f nfs-app.yaml
     ```
 
@@ -69,20 +69,20 @@ If a workload does not claim a Persistent Volume Claim it stays in a `Pending` s
 
 1.  Ensure that it is fully deployed.
 
-    ```shell
+    ```bash
      kubectl get pod pod-nfs
     ```
 
     When the container is fully running and the `READY STATUS` is `Running`, you should see output similar to the following:
 
-    ```shell
+    ```bash
     NAME        READY  STATUS RESTARTS AGE
     pod-nfs 1/1 Running 0     2m27s
     ```
 
 1.  Use the following command to validate that the PVC has mounted the volume to your container `pod-nfs`:
 
-    ```shell
+    ```bash
     kubectl describe pod pod-nfs
     ```
 
@@ -100,13 +100,13 @@ If a workload does not claim a Persistent Volume Claim it stays in a `Pending` s
 
 1.  Enter the following command to validate that, inside the container, we can access the volume and write data:
 
-    ```shell
+    ```bash
     kubectl exec -it pod-nfs sh
     ```
 
 1.  This is where the `mountPath: /var/nfs` was labeled in the `pod-nfs.yaml`.  If you change the value, `cd to your path`.
 
-    ```shell
+    ```bash
     cd /var/nfs
     ```
 
@@ -114,7 +114,7 @@ If a workload does not claim a Persistent Volume Claim it stays in a `Pending` s
 
 1.  Enter the following command to create a file in the directory and list all files in that same directory.
 
-    ```shell
+    ```bash
     touch nfs.txt && ls
     ```
 

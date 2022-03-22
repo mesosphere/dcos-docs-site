@@ -39,8 +39,11 @@ With the included defaults, an Elasticsearch cluster with the following topology
 
 You will see the following pods under the project namespace on the Kubernetes cluster:
 
+```bash
+kubectl get pods
+```
+
 ```sh
-$ kubectl get pods
 NAME                         READY   STATUS    RESTARTS   AGE
 elasticsearch-oss-client-0   1/1     Running   0          69m
 elasticsearch-oss-data-0     1/1     Running   0          69m
@@ -75,7 +78,7 @@ Update parameters by directly modifying them in the Kommander Catalog UI:
 1.  Select `Edit Service` for the selected Elasticsearch instance.
 1.  Modify `elasticsearch-data` to include the updated `replicas` count, as seen below:
 
-    ```sh
+    ```bash
     elasticsearch-data:
     # It is suggested that this match the catalog addon name.
     clusterName: "elasticsearch-oss"
@@ -88,8 +91,11 @@ Update parameters by directly modifying them in the Kommander Catalog UI:
 
     The output below shows that we now have 4 data nodes.
 
+    ```bash
+    kubectl get pods
+    ```
+
     ```sh
-    $ kubectl get pods
     NAME                         READY   STATUS    RESTARTS   AGE
     elasticsearch-oss-client-0   1/1     Running   0          70m
     elasticsearch-oss-data-0     1/1     Running   0          70m
@@ -113,8 +119,11 @@ The Kommander Catalog includes [Kibana](/dkp/kommander/1.4/projects/platform-ser
 
 The following services are exposed by Elasticsearch:
 
+```bash
+kubectl get services
+```
+
 ```sh
-$ kubectl get services
 NAME                                TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)             AGE
 elasticsearch-oss-client            ClusterIP   10.0.30.140   <none>        9200/TCP,9300/TCP   91m
 elasticsearch-oss-client-headless   ClusterIP   None          <none>        9200/TCP,9300/TCP   91m
@@ -132,8 +141,11 @@ The following example shows how to query the Elasticsearch REST API:
 
 1.  Port-forward the elasticsearch-client service:
 
+    ```bash
+    kubectl port-forward service/elasticsearch-oss-client 9200:9200 &
+    ```
+
     ```sh
-    $ kubectl port-forward service/elasticsearch-oss-client 9200:9200 &
     Forwarding from 127.0.0.1:9200 -> 9200
     Forwarding from [::1]:9200 -> 9200
     Handling connection for 9200
@@ -141,7 +153,7 @@ The following example shows how to query the Elasticsearch REST API:
 
 1.  Elasticsearch should be ready to receive requests:
 
-    ```sh
+    ```json
     $ curl -s http://127.0.0.1:9200 | jq
     {
     "name": "elasticsearch-oss-client-0",
@@ -164,7 +176,7 @@ The following example shows how to query the Elasticsearch REST API:
 
 1.  As an example, query the [Cluster REST API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster.html)
 
-    ```sh
+    ```json
     curl -s http://127.0.0.1:9200/_nodes/_master | jq
     {
     "_nodes": {
@@ -185,7 +197,6 @@ The following example shows how to query the Elasticsearch REST API:
             }
         }
     }
-
     ```
 
 ### Troubleshooting
@@ -195,12 +206,12 @@ To troubleshoot deployments, look for issues in the following:
 1.  Ensure `clusterName` and `masterService` fields are consistent across all node-roles.
 1.  Look for crash-looping pods and inspect their logs.
 
-    ```sh
+    ```bash
     watch kubectl get pods
     ```
 
 1.  Monitor all the events occurring in the namespace, this can help detect common issues such as insufficient resources on the cluster to start various pods.
 
-    ```sh
+    ```bash
     kubectl get events -w -n <namespace>
     ```

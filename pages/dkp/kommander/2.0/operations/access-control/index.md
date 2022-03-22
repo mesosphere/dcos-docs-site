@@ -30,7 +30,7 @@ This approach gives you maximum flexibility over who has access to what resource
 
 In addition to granting a Kommander Role, you must also grant the appropriate dkp role to allow external users and groups into the UI.
 See [RBAC - Kommander Dashboard Authorization](/dkp/kommander/2.0/operations/access-control/rbac/#kommander-dashboard-authorization) for details about the built-in dkp roles.
-Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Kommmander routes:
+Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Kommander routes:
 
 ```yaml
 ---
@@ -93,8 +93,11 @@ Each workspace has roles defined using `KommanderWorkspaceRole` resources.
 Automatic propagation is controlled using the annotation `"workspace.kommander.mesosphere.io/sync-to-project": "true"` on a `KommanderWorkspaceRole` resource.
 You can manage this only by using the CLI.
 
-```shell
+```bash
 kubectl get kommanderworkspaceroles -n test-qznrn-6sz52
+```
+
+```sh
 NAME                        DISPLAY NAME                     AGE
 kommander-workspace-admin   Kommander Workspace Admin Role   2m18s
 kommander-workspace-edit    Kommander Workspace Edit Role    2m18s
@@ -103,13 +106,13 @@ kommander-workspace-view    Kommander Workspace View Role    2m18s
 
 To prevent propagation of the `kommander-workspace-view` role, remove this annotation from the `KommanderWorkspaceRole` resource.
 
-```shell
+```bash
 kubectl annotate kommanderworkspacerole -n test-qznrn-6sz52 kommander-workspace-view workspace.kommander.mesosphere.io/sync-to-project-
 ```
 
 To enable propagation of the role, add this annotation to the relevant `KommanderWorkspaceRole` resource.
 
-```shell
+```bash
 kubectl annotate kommanderworkspacerole -n test-qznrn-6sz52 kommander-workspace-view workspace.kommander.mesosphere.io/sync-to-project=true
 ```
 

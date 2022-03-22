@@ -18,7 +18,7 @@ Before you begin, you must have:
 
 Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace's namespace the attached cluster exists in:
 
-```sh
+```bash
 export WORKSPACE_NAMESPACE=<workspace_namespace>
 ```
 
@@ -50,7 +50,7 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
 
 ## Deploy the application using the CLI
 
-See [workspace catalog applications](../../catalog-applications#workspace-catalog-applications) for the list of available applications that you can deploy on the attached cluster.
+See [workspace catalog applications](../../catalog-applications/#workspace-catalog-applications) for the list of available applications that you can deploy on the attached cluster.
 
 1.  Deploy a supported application to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 

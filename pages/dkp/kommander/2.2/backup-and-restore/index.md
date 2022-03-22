@@ -87,7 +87,7 @@ See the instructions to [install the Velero command-line interface][velero-cli-i
 
 In DKP, the Velero platform application is installed in the `kommander` namespace, instead of `velero`.  Thus, after installing the CLI, we recommend that you set the Velero CLI `namespace` config option so that subsequent Velero CLI invocations will use the correct namespace:
 
-```sh
+```bash
 velero client config set namespace=kommander
 ```
 
@@ -123,19 +123,19 @@ To change the default backup service settings:
 
 1.  Check the backup schedules currently configured for the cluster by running the following command:
 
-    ```sh
+    ```bash
     velero get schedules
     ```
 
 1.  Delete the `velero-default` schedule by running the following command:
 
-    ```sh
+    ```bash
     velero delete schedule velero-default
     ```
 
 1.  Replace the default schedule with your custom settings by running the following command:
 
-    ```sh
+    ```bash
     velero create schedule velero-default --schedule="@every 24h"
     ```
 
@@ -143,7 +143,7 @@ You can also create backup schedules for specific namespaces.
 Creating a backup for a specific namespace can be useful for clusters running multiple apps operated by multiple teams.
 For example:
 
-```sh
+```bash
 velero create schedule system-critical --include-namespaces=kube-system,kube-public,kommander --schedule="@every 24h"
 ```
 
@@ -156,7 +156,7 @@ For example, if you are preparing to upgrade any components or modify your clust
 
 Create a backup by running the following command:
 
-```sh
+```bash
 velero backup create BACKUP-NAME
 ```
 
@@ -187,28 +187,68 @@ velero server --restore-only=true
 
 Finally, check your deployment to verify that the configuration change was applied correctly:
 
-```sh
+```bash
 helm get values -n kommander velero
 ```
 
 To restore cluster data on demand from a selected backup snapshot available in the cluster, run a command similar to the following:
 
-```sh
+```bash
 velero restore create --from-backup BACKUP-NAME
+```
+
+#### Restore your Kommander Management Cluster
+
+<p class="message--note"><strong>NOTE: </strong>When restoring a backup to the Kommander Management Cluster, you must adjust configuration to avoid restore errors.
+</p>
+
+Before restoring a backup, ensure the following `ResourceQuota` setup is not configured on your cluster:
+
+```bash
+kubectl -n kommander delete resourcequota one-kommandercluster-per-kommander-workspace
+```
+
+When completed, the manually removed `ResourceQuota` named `one-kommandercluster-per-kommander-workspace` restores automatically.
+
+Turn off the `Workspace` validation webhooks. Otherwise, you will not restore Workspaces with pre-configured namespaces. If the validation webhook named `kommander-validating` is present, it must be modified with the command:
+
+```bash
+kubectl patch validatingwebhookconfigurations kommander-validating \
+  --type json \
+  --patch '[
+    {
+      "op": "remove",
+      "path": "/webhooks/0/rules/3/operations/0"
+    }
+  ]'
+```
+
+When the backup completes, re-add the removed `CREATE` webhook rule operation with:
+
+```bash
+kubectl patch validatingwebhookconfigurations kommander-validating \
+  --type json \
+  --patch '[
+    {
+      "op": "add",
+      "path": "/webhooks/0/rules/3/operations/0",
+      "value": "CREATE"
+    }
+  ]'
 ```
 
 ## Backup service diagnostics
 
 You can check whether the Velero service is currently running on your cluster through the Kubernetes dashboard (accessible via the Kommander UI on the Kommander Management Cluster), or by running the following `kubectl` command:
 
-```sh
+```bash
 kubectl get all -A | grep velero
 ```
 
 If the Velero platform service application is currently running, you can generate diagnostic information about Velero backup and restore operations.
 For example, you can run the following commands to retrieve, back up, and restore information that you can use to assess the overall health of Velero in your cluster:
 
-```sh
+```bash
 velero get schedules
 velero get backups
 velero get restores

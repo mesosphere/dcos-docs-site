@@ -33,8 +33,11 @@ The Kommander UI should resemble the following image. The dialog is populated wi
 
 You will see the following pods under the project namespace on the Kubernetes cluster (assuming elasticsearch service is already running):
 
+```bash
+kubectl get pods
+```
+
 ```sh
-$ kubectl get pods
 NAME                                                              READY   STATUS    RESTARTS   AGE
 elasticsearch-oss-client-0                                        1/1     Running   0          21m
 elasticsearch-oss-data-0                                          1/1     Running   0          21m
@@ -58,8 +61,11 @@ The current set of default parameters applied can be found [in this file](https:
 
 The following services are exposed by Elasticsearch and Kibana.
 
+```bash
+kubectl get svc
+```
+
 ```sh
-$ kubectl get svc
 NAME                                                       TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)             AGE
 elasticsearch-oss-client                                   ClusterIP   10.0.50.166   <none>        9200/TCP,9300/TCP   33m
 elasticsearch-oss-client-headless                          ClusterIP   None          <none>        9200/TCP,9300/TCP   33m

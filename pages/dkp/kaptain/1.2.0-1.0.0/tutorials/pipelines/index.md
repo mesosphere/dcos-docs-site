@@ -64,7 +64,7 @@ This notebook.
 Ensure Kubeflow Pipelines is available:
 
 
-```sh
+```bash
 %%sh
 pip show kfp
 ```
@@ -116,7 +116,7 @@ secrets:
 
 
 
-```sh
+```bash
 %%sh
 kubectl apply -f minio_secret.yaml
 ```
@@ -130,7 +130,7 @@ kubectl apply -f minio_secret.yaml
 First, configure credentials for `mc`, the MinIO command line client.
 
 
-```sh
+```bash
 %%sh
 mc --no-color alias set minio http://minio-service.kubeflow:9000 minio minio123
 ```
@@ -156,7 +156,7 @@ EXPORT_BUCKET = "pipelines-tutorial-model"
 ```
 
 
-```sh
+```bash
 %%sh
 mc --no-color mb "minio/${INPUT_BUCKET}"
 ```
@@ -165,7 +165,7 @@ mc --no-color mb "minio/${INPUT_BUCKET}"
 
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 tar --dereference -czf datasets.tar.gz ./datasets
@@ -657,7 +657,7 @@ with open("input.json", "w") as json_file:
 ```
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 model="mnist"
@@ -672,7 +672,7 @@ curl --fail -L "${url}" -d@input.json -o output.json
 
 
 
-```sh
+```bash
 %%sh
 jq -M . output.json
 ```
@@ -699,7 +699,7 @@ The probabilities for each class (0-9) are shown in the `predictions` response.
 The model believes the image shows a "9", which indeed it does!
 
 
-```sh
+```bash
 %%sh
 jq -M --exit-status '.predictions[0] | indices(max)[0] == 9' output.json
 ```

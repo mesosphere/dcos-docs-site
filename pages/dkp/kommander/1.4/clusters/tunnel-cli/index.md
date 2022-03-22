@@ -12,7 +12,7 @@ excerpt: Using the CLI to attach a Kubernetes Cluster using a Tunnel
 ### Identify the management cluster endpoint
 
 Obtain the IP or hostname and CA certificate for the management cluster:
-```shell
+```bash
 hostname=$(kubectl get service -n kubeaddons traefik-kubeaddons -o go-template='{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}')
 b64ca_cert=$(kubectl get secret -n cert-manager kubernetes-root-ca -o=go-template='{{index .data "tls.crt"}}')
 ```
@@ -20,12 +20,12 @@ b64ca_cert=$(kubectl get secret -n cert-manager kubernetes-root-ca -o=go-templat
 ### Specify a workspace namespace
 
 Obtain the desired workspace namespace on the management cluster for the tunnel gateway:
-```shell
+```bash
 namespace=$(kubectl get workspace default-workspace -o jsonpath="{.status.namespaceRef.name}")
 ```
 
 Alternatively, if you wish to create a new workspace instead of using an existing workspace:
-```shell
+```yaml
 workspace=sample
 namespace=${workspace}
 
@@ -46,7 +46,7 @@ kubectl apply -f workspace.yaml
 ### Create a tunnel gateway
 
 Create a [tunnel gateway](api-reference#tunnelgateway) on the management cluster to listen for tunnel agents on remote clusters:
-```shell
+```yaml
 cacert_secret=kubetunnel-ca
 gateway=sample-gateway
 
@@ -82,7 +82,7 @@ kubectl apply -f gateway.yaml
 ```
 
 You can verify the gateway exists using:
-```shell
+```bash
 kubectl get tunnelgateway -n ${namespace} ${gateway}
 ```
 
@@ -91,7 +91,7 @@ kubectl get tunnelgateway -n ${namespace} ${gateway}
 ### Create a tunnel connector
 
 Create a [tunnel connector](api-reference#tunnelconnector) on the management cluster for the remote cluster:
-```shell
+```yaml
 connector=sample-connector
 
 cat > connector.yaml <<EOF
@@ -108,13 +108,14 @@ EOF
 kubectl apply -f connector.yaml
 ```
 You can verify the connector exists using:
-```shell
+
+```bash
 kubectl get tunnelconnector -n ${namespace} ${connector}
 ```
 
 Wait for the tunnel connector to reach `Listening` state and then export the agent manifest:
 
-```shell
+```bash
 while [ "$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath="{.status.state}")" != "Listening" ]
 do
   sleep 5
@@ -136,7 +137,7 @@ This step is optional, but improves security by restricting which remote hosts c
 
 Apply a network policy that restricts access to the tunnel to specific namespaces and IP blocks. The following example permits connections from pods running in the `kommander-federation`, `kommander`, and `kubeaddons` namespaces, from pods running in namespaces with a label `kubetunnel.d2iq.io/networkpolicy` matching the tunnel name and namespace, and to remote clusters with IP addresses in the ranges 192.0.2.0 to 192.0.2.255 and 203.0.113.0 to 203.0.113.255:
 
-```shell
+```yaml
 cat > net.yaml <<EOF
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -194,12 +195,13 @@ kubectl apply -f net.yaml
 
 Copy the `manifest.yaml` file to the managed cluster and deploy the tunnel agent:
 
-```shell
+```bash
 kubectl apply --context managed -f manifest.yaml
 ```
 
 You can check the status of the created pods using:
-```shell
+
+```bash
 kubectl get pods --context managed -n kubetunnel
 ```
 
@@ -215,7 +217,7 @@ tunnel-agent-f8d9f4cb4-thx8h   0/1     Running     0          14m
 
 On the management cluster, wait for the tunnel to be connected by the tunnel agent:
 
-```shell
+```bash
 while [ "$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath="{.status.state}")" != "Connected" ]
 do
   sleep 5
@@ -223,7 +225,7 @@ done
 ```
 
 Add the cluster into Kommander:
-```shell
+```yaml
 managed=private-cluster
 display_name=${managed}
 
@@ -244,7 +246,7 @@ kubectl apply -f kommander.yaml
 ```
 
 Wait for the managed cluster to join the Kommander cluster:
-```shell
+```bash
 while [ "$(kubectl get kommandercluster -n ${namespace} ${managed} -o jsonpath='{.status.phase}')" != "Joined" ]
 do
   sleep 5
@@ -278,7 +280,7 @@ These sections require a service to run on the managed cluster.
 
 As an example, start the following service:
 
-```shell
+```yaml
 service_namespace=test
 service_name=webserver
 service_port=8888
@@ -333,7 +335,7 @@ kubectl rollout status deploy -n ${service_namespace} nginx-deployment
 ```
 
 On the managed cluster, a client Job can access this service using:
-```shell
+```yaml
 cat > curl.yaml <<EOF
 apiVersion: batch/v1
 kind: Job
@@ -393,12 +395,14 @@ Commercial support is available at
 This is primarily useful for running `kubectl` commands on the management cluster to monitor the managed cluster.
 
 On the management cluster, a `kubeconfig` file for the managed cluster configured to use the tunnel proxy is available as a Secret. The Secret's name can be identified using:
-```shell
+
+```bash
 kubeconfig_secret=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='{.status.kubeconfigRef.name}')
 ```
 
 After setting `service_namespace` and `service_name` to the managed service resource, on the management cluster run:
-```shell
+
+```yaml
 cat > get-service.yaml <<EOF
 apiVersion: batch/v1
 kind: Job
@@ -437,7 +441,7 @@ kubectl logs -n ${namespace} ${podname}
 ### Direct use of SOCKS5 proxy
 
 To use the SOCKS5 proxy directly, obtain the SOCKS5 proxy endpoint using:
-```shell
+```bash
 proxy_service=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='{.status.tunnelServer.serviceRef.name}')
 
 socks_proxy=$(kubectl get service -n ${namespace} "${proxy_service}" -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[?(@.name=="proxy")].port}')
@@ -446,7 +450,8 @@ socks_proxy=$(kubectl get service -n ${namespace} "${proxy_service}" -o jsonpath
 Provide the value of `${socks_proxy}` as the SOCKS5 proxy to your client.
 
 For example, since `curl` supports SOCKS5 proxies, the managed service started above can be accessed from the management cluster by adding the SOCKS5 proxy to the `curl` command. After setting `service_endpoint` to the service endpoint, on the management cluster run:
-```shell
+
+```yaml
 cat > curl.yaml <<EOF
 apiVersion: batch/v1
 kind: Job
@@ -478,7 +483,8 @@ The final command returns the same output as for the job on the managed cluster,
 ### Use of deployed proxy on management cluster
 
 To deploy a proxy on the management cluster, obtain the SOCKS5 proxy endpoint using:
-```shell
+
+```bash
 proxy_service=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='{.status.tunnelServer.serviceRef.name}')
 
 socks_proxy=$(kubectl get service -n ${namespace} "${proxy_service}" -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[?(@.name=="proxy")].port}')
@@ -486,7 +492,7 @@ socks_proxy=$(kubectl get service -n ${namespace} "${proxy_service}" -o jsonpath
 
 Provide the value of `${socks_proxy}` as the SOCKS5 proxy to a proxy deployed on the management cluster. After setting `service_endpoint` to the service endpoint, on the management cluster run:
 
-```shell
+```yaml
 cat > nginx-proxy.yaml <<EOF
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -563,7 +569,8 @@ proxy_port=$(kubectl get service -n ${namespace} nginx-proxy-service -o jsonpath
 ```
 
 Any client running on the management cluster can now access the service running on the managed cluster using the proxy service endpoint. Note in the following that the `curl` job runs in the same namespace as the proxy, to provide access to the CA certificate secret.
-```shell
+
+```yaml
 cat > curl.yaml <<EOF
 apiVersion: batch/v1
 kind: Job

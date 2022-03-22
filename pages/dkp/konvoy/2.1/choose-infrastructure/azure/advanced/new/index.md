@@ -36,7 +36,7 @@ Be sure also that you review the [known limitations section](../new#known-limita
 
 1.  Set the environment variable:
 
-    ```sh
+    ```bash
     export CLUSTER_NAME=azure-example
     ```
 

@@ -26,7 +26,7 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 
 1.  Set the environment variable to the name you assigned this cluster.
 
-    ```sh
+    ```bash
     CLUSTER_NAME=my-preprovisioned-cluster
     ```
 
@@ -34,13 +34,13 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 
 1.  **If your workload cluster is self-managed,** as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster. **If it is not self-managed, skip this step.**
 
-    ```sh
+    ```bash
     export KUBECONFIG=${CLUSTER_NAME}.conf
     ```
 
 1.  Verify that the control plane is ready to be updated.
 
-    ```sh
+    ```bash
     kubectl get kubeadmcontrolplane ${CLUSTER_NAME}-control-plane
     ```
 
@@ -53,13 +53,13 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 
 1.  Define the names of the resources.
 
-    ```sh
+    ```bash
     export KUBEADMCONTROLPLANE_NAME=$(kubectl get kubeadmcontrolplanes --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
     ```
 
 1.  Prepare the patch files.
 
-    ```sh
+    ```bash
     echo '{}' > control-plane-kubernetes-version-patch.yaml
     ```
 
@@ -69,13 +69,13 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 
 1.  Define the Kubernetes version. Use the letter `v` followed by `major.minor.patch` version.
 
-    ```sh
+    ```bash
     export KUBERNETES_VERSION=v1.21.6
     ```
 
 1.  Create a patch file.
 
-    ```sh
+    ```yaml
     cat <<EOF > control-plane-kubernetes-version-patch.yaml
     apiVersion: controlplane.cluster.x-k8s.io/v1alpha4
     kind: KubeadmControlPlane
@@ -97,7 +97,7 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 
     <p class="message--note"><strong>NOTE: </strong>Patching the KubeadmControlPlane starts the control plane update. The control plane nodes will be drained and then cordoned from the cluster. Once this is complete, a job running Konvoy Image Builder will update the Kubernetes version for the Control Plane node in place. Finally once the update is complete, the node will rejoin the cluster with the updated version.</p>
 
-    ```sh
+    ```bash
     kubectl get kubeadmcontrolplane ${KUBEADMCONTROLPLANE_NAME} --output=yaml \
       | kubectl patch --local=true -f- --patch-file=control-plane-kubernetes-version-patch.yaml --type=merge --output=yaml \
       | kubectl apply -f-
@@ -111,7 +111,7 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 
     When the condition `Ready` is true, the update is complete.
 
-    ```sh
+    ```bash
     kubectl wait --timeout=30m kubeadmcontrolplane ${KUBEADMCONTROLPLANE_NAME} --for=condition=Ready
     ```
 

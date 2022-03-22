@@ -81,7 +81,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
-    ```text
+    ```sh
     NAME                                                                  READY  SEVERITY  REASON  SINCE  MESSAGE
     /eks-example                                                          True                     9m4s
     ├─ControlPlane - AWSManagedControlPlane/eks-example-control-plane     True                     9m4s

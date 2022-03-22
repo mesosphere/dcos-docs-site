@@ -31,14 +31,14 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a NAT
 
 1. If you have not attached this cluster before, you must create a new secret in the **Root CA Certificate** drop down menu. To do this, go to your Konvoy management cluster, and enter:
 
-   ```shell
+   ```bash
    hostname=$(kubectl get service -n kubeaddons traefik-kubeaddons -o jsonpath="{.status.loadBalancer.ingress[0].hostname}")
    b64ca_cert=$(kubectl get secret -n cert-manager kubernetes-root-ca -o=go-template='{{index .data "tls.crt"}}')
    ```
 
    To view your base64 encoded Kubernetes secret value to copy and paste into the **Root CA Certificate** field, run:
 
-   ```shell
+   ```bash
    echo $(kubectl get secret -n cert-manager kubernetes-root-ca -o=go-template='{{index .data "tls.crt"}}')
    ```
 

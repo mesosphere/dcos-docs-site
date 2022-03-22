@@ -22,7 +22,7 @@ Follow these steps to install the DKP catalog from the CLI.
 
 1.  Create the `GitRepository`:
 
-    ```sh
+    ```yaml
     kubectl apply -f - <<EOF
     apiVersion: source.toolkit.fluxcd.io/v1beta1
     kind: GitRepository

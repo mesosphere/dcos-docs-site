@@ -13,19 +13,19 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Give your cluster a name suitable for your environment:
 
-    ```sh
+    ```bash
     export CLUSTER_NAME=$(whoami)-aws-cluster
     ```
 
 1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
 
-    ```sh
+    ```bash
     dkp update bootstrap credentials aws
     ```
 
 1.  Generate the Kubernetes cluster objects:
 
-    ```sh
+    ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
     --dry-run \
     --output=yaml \
@@ -34,7 +34,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  (Optional) The Control Plane and Worker nodes can be configured to use an HTTP proxy:
 
-    ```sh
+    ```bash
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
     export CONTROL_PLANE_HTTPS_PROXY=http://example.org:8080
     export CONTROL_PLANE_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.elb.amazonaws.com"
@@ -45,7 +45,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     ```
 
     - Replace `example.org,example.com,example.net` with you internal addresses
-    - `localhost` and `127.0.0.1` addesses should not use the proxy
+    - `localhost` and `127.0.0.1` addresses should not use the proxy
     - `10.96.0.0/12` is the default Kubernetes service subnet
     - `192.168.0.0/16` is the default Kubernetes pod subnet
     - `kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local` is the internal Kubernetes kube-apiserver service
@@ -55,7 +55,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
 
-    ```sh
+    ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
     --control-plane-http-proxy="${CONTROL_PLANE_HTTP_PROXY}" \
     --control-plane-https-proxy="${CONTROL_PLANE_HTTPS_PROXY}" \
@@ -92,7 +92,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Create the cluster from the objects.
 
-    ```sh
+    ```bash
     kubectl apply -f ${CLUSTER_NAME}.yaml
     ```
 
@@ -108,11 +108,11 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
-    ```text
+    ```sh
     cluster.cluster.x-k8s.io/aws-example condition met
     ```
 
@@ -120,11 +120,11 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Once the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
 
-    ```sh
+    ```bash
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
-    ```text
+    ```sh
     NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
     /aws-example                                                    True                     35s
     ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
@@ -136,7 +136,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  As they progress, the controllers also create Events. List the Events using this command:
 
-    ```sh
+    ```bash
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 

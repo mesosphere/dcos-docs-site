@@ -12,13 +12,13 @@ enterprise: false
 
 1.  Fetch the kubeconfig file with the command:
 
-    ```sh
+    ```bash
     dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
 1.  List the Nodes with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
@@ -26,7 +26,7 @@ enterprise: false
 
 1.  List the Pods with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
     ```
 

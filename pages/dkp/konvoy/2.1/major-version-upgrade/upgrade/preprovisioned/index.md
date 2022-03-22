@@ -14,13 +14,13 @@ If `keepalived` is enabled, update Konvoy 1.8 Configuration with the interface u
 
 1.  Run the following command on any of the control-plane machines to get the interface being used, replacing `<control plane endpoint>` with the cluster's IP.
 
-    ```shell=sh
+    ```bash
     ip route get "<control plane endpoint>" | grep -Po '(?<=(dev )).*(?= src| proto)'
     ```
 
     The output appears similar to this:
 
-    ```shell=sh
+    ```sh
     ens192
     ```
 
@@ -43,7 +43,7 @@ If `keepalived` is enabled, update Konvoy 1.8 Configuration with the interface u
 
 You must configure the adopted cluster as self-managed. The bootstrap controllers must successfully deploy on the cluster for it to become self-managed. Do not begin the other adoption steps until this is successful.
 
-```sh
+```bash
 dkp --kubeconfig=admin.conf create bootstrap controllers
 ```
 
@@ -72,7 +72,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Create Konvoy 2.1 Configuration
 
-    ```sh
+    ```bash
     dkp --kubeconfig=admin.conf prepare-to-adopt cluster preprovisioned
     ```
 
@@ -136,7 +136,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
     Then, verify that your environment has the cluster name:
 
-    ```sh
+    ```bash
     echo $CLUSTER_NAME
     ```
 
@@ -150,25 +150,25 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Delete the auto-provisioner helm Chart using the helm CLI (version 3):
 
-    ```shell=sh
+    ```bash
     helm --kubeconfig=admin.conf --namespace konvoy uninstall auto-provisioning
     ```
 
     The output appears similar to this:
 
-    ```shell=sh
+    ```sh
     release "auto-provisioning" uninstalled
     ```
 
 1.  Remove the `konvoy` namespace.
 
-    ```shell=sh
+    ```sh
     kubectl --kubeconfig=admin.conf delete namespace konvoy
     ```
 
     The output appears similar to this:
 
-    ```shell=sh
+    ```sh
     namespace "konvoy" deleted
     ```
 
@@ -176,7 +176,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Patch the `calico-node` DaemonSet to trigger a rolling update of the calico-node pods.
 
-    ```shell=sh
+    ```sh
     kubectl patch -n kube-system daemonset/calico-node --kubeconfig=admin.conf -p '{"spec":{"template":{"spec":{"$setElementOrder/containers":[{"name":"calico-node"},{"name":"bird-metrics"}],"affinity":null,"containers":[{"$setElementOrder/env":[{"name":"DATASTORE_TYPE"},{"name":"WAIT_FOR_DATASTORE"},{"name":"NODENAME"},{"name":"CALICO_NETWORKING_BACKEND"},{"name":"CLUSTER_TYPE"},{"name":"CALICO_IPV4POOL_IPIP"},{"name":"FELIX_IPINIPMTU"},{"name":"CALICO_IPV4POOL_CIDR"},{"name":"CALICO_DISABLE_FILE_LOGGING"},{"name":"FELIX_DEFAULTENDPOINTTOHOSTACTION"},{"name":"FELIX_IPV6SUPPORT"},{"name":"FELIX_LOGSEVERITYSCREEN"},{"name":"FELIX_HEALTHENABLED"},{"name":"FELIX_PROMETHEUSMETRICSENABLED"},{"name":"FELIX_PROMETHEUSMETRICSPORT"}],"env":[{"$patch":"delete","name":"IP"}],"name":"calico-node"}]}}}}'
     ```
 
@@ -188,7 +188,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Wait for the new pods to be rolled out:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf -n kube-system rollout status daemonset/calico-node
     ```
 
@@ -212,7 +212,7 @@ The CSI Local Volume Provisioner provides persistent storage for cluster applica
 
 Remove the Addon, so that Konvoy 2.1 can deploy the provisioner, by running this command:
 
-```sh
+```bash
 kubectl delete clusteraddon/localvolumeprovisioner --kubeconfig=admin.conf
 ```
 
@@ -234,7 +234,7 @@ DKP machines are already bootstrapped and also create the KubeadmConfigs and the
 
 This command also stops the pause on the Cluster object, which then starts the reconcile process:
 
-```sh
+```bash
 dkp --kubeconfig=admin.conf adopt cluster preprovisioned
 ```
 
@@ -262,13 +262,13 @@ INFO[2021-11-17T17:29:04-05:00] unpaused reconciliation of the cluster (konvoy-m
 
 Describe the cluster with the command:
 
-```sh
+```bash
 dkp --kubeconfig=admin.conf describe cluster --cluster-name $CLUSTER_NAME
 ```
 
 The output appears similar to this:
 
-```shell=sh
+```sh
 NAME                                                                 READY  SEVERITY  REASON  SINCE  MESSAGE
 /konvoy-migration                                                    True                     62s
 ├─ClusterInfrastructure - PreprovisionedCluster/konvoy-migration
@@ -285,7 +285,7 @@ The cluster, control plane, and worker node pool should all show the value `True
 
 A race condition where the `Machine` objects are reconciled before the appropriate status is set on the `Cluster` object and it gets *stuck*, stopping it from reaching a steady state. If this happens, delete the CAPPP pod and let Kubernetes restart it to trigger a reconcile:
 
-```sh
+```bash
 kubectl --kubeconfig=admin.conf delete pods -n cappp-system -l control-plane=controller-manager
 ```
 
@@ -299,7 +299,7 @@ pod "cappp-controller-manager-56fcf85446-66z87" deleted
 
 Confirm that the `calico-node` DaemonSet is running in the `calico-system` namespace.
 
-```sh
+```bash
 kubectl --kubeconfig=admin.conf -n calico-system get daemonset/calico-node
 ```
 
@@ -316,7 +316,7 @@ If the number of up-to-date replicas is equal to the number of nodes in the clus
 
 It may take some time before the DaemonSet is running. If you see that the process is not creating any Calico pods in the new namespace, trigger the DaemonSet to run using this command:
 
-```sh
+```bash
 kubectl delete pods -n capi-system -l cluster.x-k8s.io/provider=cluster-api
 ```
 
@@ -330,7 +330,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 1.  Edit the Dex configuration
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf edit -n kubeaddons addon dex
     ```
 
@@ -374,7 +374,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 1.  Prepare a patch with the Kubernetes version.
 
-    ```sh
+    ```yaml
     cat <<EOF > control-plane-kubernetes-version-patch.yaml
     apiVersion: controlplane.cluster.x-k8s.io/v1alpha4
     kind: KubeadmControlPlane
@@ -392,7 +392,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     <p class="message--note"><strong>NOTE: </strong>Patching the KubeadmControlPlane starts the control plane update. The process updates machines with updated properties, and deletes machines with out-of-date properties, in a "rolling" update. New machines replace old machines one at a time. The update waits for each new machine to join the control plane successfully. Regardless of the specified replica count, the update works in the same way.
 
-    ```sh
+    ```bash
     KUBEADMCONTROLPLANE_NAME=$(set -o nounset -o pipefail; kubectl --kubeconfig=admin.conf get kubeadmcontrolplanes --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
 
     kubectl --kubeconfig=admin.conf get kubeadmcontrolplane ${KUBEADMCONTROLPLANE_NAME} --output=yaml \
@@ -408,7 +408,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 1.  Wait for the update to complete. When the condition `Ready` is true, the update is complete.
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf wait --timeout=10m kubeadmcontrolplane ${KUBEADMCONTROLPLANE_NAME} --for=condition=Ready
     ```
 
@@ -416,7 +416,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 1.  Prepare a patch with the Kubernetes version.
 
-    ```sh
+    ```yaml
     cat <<EOF > node-pool-kubernetes-version-patch.yaml
     apiVersion: cluster.x-k8s.io/v1alpha4
     kind: MachineDeployment
@@ -437,7 +437,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     <p class="message--note"><strong>NOTE: </strong>Patching the MachineDeployment starts the worker node pool update. This process creates machines with updated properties, and deletes machines with out-of-date properties, in a "rolling" update. New machines replace old machines one at a time. The update waits for each new machine to join the cluster successfully.</p>
 
-    ```sh
+    ```bash
     MACHINEDEPLOYMENT_NAME=$(set -o nounset -o pipefail; kubectl --kubeconfig=admin.conf get machinedeployments --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
 
     kubectl --kubeconfig=admin.conf get machinedeployment ${MACHINEDEPLOYMENT_NAME} --output=yaml \
@@ -457,7 +457,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     <!-- NOTE: `kubectl wait` is the preferred solution, but cannot be used with MachineDeployment, because it does not yet have Conditions (https://github.com/kubernetes-sigs/cluster-api/pull/4625) -->
 
-    ```sh
+    ```bash
     timeout 10m bash -c \
       "until [[ $(kubectl --kubeconfig=admin.conf get machinedeployment ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.status.replicas}') \
                 == \

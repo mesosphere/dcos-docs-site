@@ -22,13 +22,13 @@ Kommander can also access [GPU](https://docs.d2iq.com/dkp/kommander/2.0/gpu/) re
 
 Node feature discovery, (NFD), by default labels PCI hardware as:
 
-```shell
+```yaml
 "feature.node.kubernetes.io/pci-<device label>.present": "true"
 ```
 
 where `<device label>` is by default:
 
-```shell
+```bash
 < class > _ < vendor >
 ```
 
@@ -58,13 +58,13 @@ Using the [Konvoy Image Builder](../image-builder), you can build an image that 
 
 1. Use the following Konvoy image builder command to build your image:
 
-    ```shell
+    ```bash
     konvoy-image build --region us-west-2 --source-ami=ami-12345abcdef images/ami/centos-7.yaml --overrides overrides/nvidia.yaml
     ```
 
     By default it builds in the `us-west-2` region. To specify another region set the `--region` flag:
 
-    ```sh
+    ```bash
     konvoy-image build --region us-east-1 --overrides override-source-ami.yaml --overrides override-images.yaml images/ami/centos-7.yaml
     ```
 
@@ -72,6 +72,6 @@ Using the [Konvoy Image Builder](../image-builder), you can build an image that 
 
     To use the built `ami` with Konvoy, specify it with the `--ami` flag when calling cluster create.
 
-    ```sh
+    ```bash
     dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --region us-west-2 --ami ami-0123456789
     ```

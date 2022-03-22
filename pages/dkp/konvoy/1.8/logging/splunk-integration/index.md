@@ -91,9 +91,11 @@ Start your Konvoy cluster. Konvoy starts and uses your updated configuration.
 
 Ensure the Fluentbit pods are running successfully.
 
-```shell
+```bash
 kubectl get pods -n kubeaddons |grep fluent
+```
 
+```sh
 fluentbit-kubeaddons-fluent-bit-cbbgj                             1/1     Running       0          23m
 fluentbit-kubeaddons-fluent-bit-cln4p                             1/1     Running       0          20m
 fluentbit-kubeaddons-fluent-bit-fqffj                             1/1     Running       0          4s
@@ -104,9 +106,11 @@ fluentbit-kubeaddons-fluent-bit-z8fbp                             1/1     Runnin
 
 ## Examine the logs for the Fluentbit container
 
-```shell
+```bash
 kubectl logs -n kubeaddons fluentbit-kubeaddons-fluent-bit-fqffj
+```
 
+```sh
 Fluent Bit v1.6.10
 * Copyright (C) 2019-2020 The Fluent Bit Authors
 * Copyright (C) 2015-2018 Treasure Data
@@ -120,7 +124,7 @@ Fluent Bit v1.6.10
 
 Go to the Splunk user console to do a search. Use the index name you associated with your HTTP Event Collector. Enter the search string:
 
-```shell
+```bash
 index=“konvoy_logs” *
 ```
 
@@ -130,7 +134,7 @@ When this integration is complete your Konvoy logs display in your Splunk consol
 
 ## References
 
-Splunk Operator Github:
+Splunk Operator GitHub:
 [https://splunk.github.io/splunk-operator/](https://splunk.github.io/splunk-operator/)
 
 Fluentbit Docs:

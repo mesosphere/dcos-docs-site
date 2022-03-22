@@ -18,7 +18,7 @@ Kubernetes does not provide an identity database for standard users. Users and g
 
 As an example, if we wanted to make `mary@example.com` a cluster administrator, we would bind her username to the `cluster-admin` default role:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -41,7 +41,7 @@ This user now has the highest level of access which can be achieved. Use the `cl
 
 A more common example would be to grant a user access to a specific namespace. This is done by creating a RoleBinding (RoleBindings are namespaced scoped). For example, to make the user `bob@example.com` a _reader_ of the `baz` namespace, bind the user to the `view` role:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -65,7 +65,7 @@ The user can now perform non-destructive operations targeting resources in the `
 
 If your external identity provider supports group claims, you can also bind groups to roles. To make the `devops` LDAP group administrators of the `production` namespace bind the group to the `admin` role:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -126,7 +126,7 @@ This section provides a few examples of binding subjects to the default roles de
 
 To grant the user `mary@example.com` administrative access to all operations portal resources, bind the user to the `opsportal-admin` role:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -146,9 +146,12 @@ EOF
 
 If we inspect the role, we can see what access has been granted:
 
-```shell
-$ kubectl describe clusterroles opsportal-admin
+```bash
+kubectl describe clusterroles opsportal-admin
 describe clusterroles opsportal-admin
+```
+
+```sh
 Name:         opsportal-admin
 Labels:       app.kubernetes.io/instance=opsportal-kubeaddons
               app.kubernetes.io/managed-by=Tiller
@@ -177,7 +180,7 @@ The user can now use the HTTP verbs HEAD, GET, DELETE, POST, and PUT when access
 
 In order to grant view access to the `/ops/portal/*` endpoints and edit access to the kibana endpoint to group `kibana-ops`, create the following ClusterRoleBindings:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 ---
 apiVersion: rbac.authorization.k8s.io/v1

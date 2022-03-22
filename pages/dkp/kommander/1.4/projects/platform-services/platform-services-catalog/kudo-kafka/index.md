@@ -83,7 +83,7 @@ The current parameter set can be retrieved using the kubectl command in conjunct
 
 To retrieve the current parameters, issue the following command in the terminal with appropriate `INSTANCE` value set:
 
-```sh
+```bash
 INSTANCE=kafka;
 kubectl get instances -o json | jq ".items[] | select(.metadata.name == \"$INSTANCE\") | .spec.parameters" | yq -e --yaml-output '.' > kafka-params.yml
 ```
@@ -98,13 +98,13 @@ Parameters can be updated using arguments to the KUDO CLI.
 
 - Increase the number of nodes using the KUDO CLI:
 
-```sh
+```bash
 kubectl kudo update --instance kafka -p BROKER_COUNT=4 -n test-project-zc6tc
 ```
 
 - Monitor the KUDO Cassandra deployment plan:
 
-```sh
+```bash
 kubectl kudo plan status --instance kafka -n test-project-zc6tc
 ```
 
@@ -112,8 +112,11 @@ kubectl kudo plan status --instance kafka -n test-project-zc6tc
 
 When the deployment plan is `COMPLETE` there should be 4 nodes as seen by the number of pods running:
 
+```bash
+kubectl get pods -n test-project-zc6tc
+```
+
 ```sh
-$ kubectl get pods -n test-project-zc6tc
 NAME                    READY   STATUS    RESTARTS   AGE
 kafka-kafka-0           2/2     Running   0          12m
 kafka-kafka-1           2/2     Running   0          11m
@@ -132,7 +135,7 @@ See [Available Parameters](#available-parameters) to get the full list of curren
 
 Apply the desired updates in `kafka-params.yml` using the KUDO CLI:
 
-```sh
+```bash
 kubectl kudo update -n test-project-zc6tc --instance=kafka -P kafka-params.yml 
 ```
 
@@ -145,7 +148,7 @@ KUDO Kafka versions can be upgraded using the KUDO CLI.
 **Example** Upgrade KUDO Kafka from `v2.5.0-1.3.1` to `v2.5.1-1.3.3`:
 When upgrading, you should understand the mapping between Kafka versions and operator versions. For more information, see the table at the end of the [Kafka operator](https://github.com/mesosphere/kudo-kafka-operator/tree/master/docs) repository.
 
-```sh
+```bash
 kubectl kudo upgrade kafka --instance kafka --operator-version 1.3.3
 ```
 
@@ -157,7 +160,7 @@ Kommander includes Prometheus and Grafana as part of the federated [Workspace Pl
 
 KUDO Kafka operator can export metrics to Prometheus, to do so set the `METRICS_ENABLED` parameter to `true`:
 
-```sh
+```bash
 kubectl kudo update -p METRICS_ENABLED=true --instance kafka -n test-project-zc6tc
 ```
 
@@ -205,7 +208,7 @@ The [Kafka Operator docs](https://github.com/kudobuilder/operators/blob/master/r
 
 KUDO provides the ability to collect logs and other [diagnostics data](https://kudo.dev/docs/cli/examples.html#collecting-diagnostic-data) for debugging and for bug-reports.
 
-```sh
+```bash
 kubectl kudo diagnostics collect --instance kafka -n test-project-zc6tc
 ```
 
@@ -224,6 +227,6 @@ Data for the specified Operator
 
 To monitor all the events occurring in the namespace, its helpful to look at event log:
 
-```sh
+```bash
 kubectl get events -w -n test-project-zc6tc
 ```

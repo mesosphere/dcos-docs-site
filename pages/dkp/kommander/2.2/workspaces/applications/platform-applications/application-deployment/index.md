@@ -23,7 +23,7 @@ Before you begin, you must have:
 
 Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace's namespace where the cluster is attached:
 
-```sh
+```bash
 export WORKSPACE_NAMESPACE=<workspace_namespace>
 ```
 

@@ -43,16 +43,16 @@ dkp create cluster aws [flags]
       --etcd-version string                         The version of etcd to use
       --extra-sans strings                          A comma separated list of additional Subject Alternative Names for the API Server signing cert
   -h, --help                                        help for aws
+      --http-proxy string                           HTTP proxy for CAPI controllers
+      --https-proxy string                          HTTPS proxy for CAPI controllers
       --internal-load-balancer                      Make the control plane load balancer internal, i.e., reachable only within the VPC.
       --kind-cluster-image string                   Kind node image for the bootstrap cluster
       --kind-cluster-name string                    Kind cluster name for the bootstrap cluster
       --kubeconfig string                           Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string          The image repository to use for pulling kubernetes images
       --kubernetes-version string                   Kubernetes version
-      --management-plane-http-proxy string          HTTP proxy for management plane
-      --management-plane-https-proxy string         HTTPS proxy for management plane
-      --management-plane-no-proxy strings           No Proxy list for management plane
   -n, --namespace string                            If present, the namespace scope for this CLI request.
+      --no-proxy strings                            No Proxy list for CAPI controllers
   -o, --output string                               Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
       --region string                               AWS region to deploy cluster to
       --registry-mirror-cacert file                 CA certificate chain to use while communicating with the registry mirror using TLS

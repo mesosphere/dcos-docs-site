@@ -13,7 +13,7 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which depl
 
 1.  Pull the bootstrap Docker image and save it as tar.gz locally. The image version should correspond to the version of Konvoy as returned by `dkp version`:
 
-    ```sh
+    ```docker
     docker pull mesosphere/konvoy-bootstrap:<version> && docker save mesosphere/konvoy-bootstrap:<version> -o mesosphere_konvoy-bootstrap:<version>.tar.gz
     ```
 
@@ -21,19 +21,19 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which depl
 
 1.  Load the bootstrap Docker image. The image version should correspond to the version of Konvoy as returned by `dkp version`:
 
-    ```sh
+    ```docker
     docker load -i <path to mesosphere/konvoy-bootstrap image>
     ```
 
 1.  Create a bootstrap cluster:
 
-    ```sh
+    ```bash
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
 1.  (Optional) Refresh the credentials used by the AWS provider at any time, using the command:
 
-    ```sh
+    ```bash
     dkp update bootstrap credentials aws
     ```
 

@@ -40,6 +40,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
 1.  Create the cluster from the objects.
+
     <!---FIXME: remove --kubernetes-version when dkp defaults to a supported version--->
     ```bash
     dkp create cluster aks --cluster-name=${CLUSTER_NAME} --kubernetes-version=1.21.7 --additional-tags=owner=$(whoami)
