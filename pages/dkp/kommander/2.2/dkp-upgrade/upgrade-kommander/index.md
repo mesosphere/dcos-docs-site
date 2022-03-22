@@ -8,9 +8,9 @@ beta: false
 enterprise: true
 ---
  
-This section describes how to upgrade your Kommander cluster and all its Platform Applications to the latest versions. Kommander is installed on your Management cluster and upgrading it must be the first step you take when upgrading DKP, to prevent compatibility issues.
+This section describes how to upgrade your Kommander Management cluster and all its Platform Applications to the latest versions. Kommander is installed on your Management cluster and upgrading it must be the first step you take when upgrading DKP, to prevent compatibility issues.
 
-<p class="message--note"><strong>NOTE: </strong>It is important that you upgrade Kommander before upgrading Konvoy and Kubernetes. Kommander 2.1 does not support Kubernetes 1.22, and upgrading Kubernetes to 1.22 will be part of the Konvoy upgrade.</p>
+<p class="message--note"><strong>NOTE: </strong>It is important to upgrade Kommander BEFORE upgrading the Kubernetes version (or Konvoy version for Managed Konvoy clusters) in attached clusters, due to the previous versions' incompatibility with 1.22.</p>
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ This section describes how to upgrade your Kommander cluster and all its Platfor
 
 1.  <Pending step: if confirmation message cannot be added on time, document a way to check the status of the upgrade in Management cluster.>
 
-1.  If your environment has additional Workspaces (Managed and Attached clusters), upgrade your [Workspaces and their Platform applications][upgrade-workspaces] on a per-Workspace basis. If you only have one cluster, proceed with [Konvoy Upgrade][konvoy-upgrade].
+1.  If your environment has additional Workspaces (Managed and Attached clusters), upgrade your [Workspaces and their Platform applications][upgrade-workspaces] on a per-Workspace basis. If you only have a Management cluster, proceed with [Konvoy Upgrade][konvoy-upgrade].
 
 [download-binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
