@@ -19,7 +19,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 - Review the [Platform Application version updates][release-notes] that are part of this upgrade.
 - Download the following air-gapped bundles: [images bundle][images-bundle], [charts bundle][charts-bundle] and [Catalog Application charts bundle][cat-apps-bundle]. **Skip this if you are not running in an air-gapped environment**.  
 
-### Load the Docker images into your Docker registry (skip this section if you are running in an **air-gapped environment**)
+### Load the Docker images into your Docker registry (skip this section if you are running in an air-gapped environment)
 
 1.  Download the image bundle file:
 
