@@ -59,4 +59,5 @@ done
 # copy to the destination directory
 TARGET_DIR=pages$TARGET_PATH
 mkdir -p $TARGET_DIR
+rm -rf $TARGET_DIR/dkp/
 cp -a $TMP_DIR/docs/* $TARGET_DIR/
