@@ -12,9 +12,7 @@ The following table describes the list of platform applications that are deploye
 
 Currently, the monitoring stack is deployed by default. The logging stack is not.
 
-<!-- # This page not yet updated
-Review the [workspace platform service resource requirements](./platform-service-requirements/) to ensure that the attached clusters have sufficient resources.
--->
+Review the [workspace platform application resource requirements](./platform-application-requirements/) to ensure that the attached clusters have sufficient resources.
 
 ### Customize a workspace's applications
 
@@ -24,7 +22,7 @@ This takes you to the **Applications** page which displays all applications that
 
 To use the CLI to deploy or uninstall applications, see [Application Deployment](./application-deployment)
 
-<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the applications, which are listed <a href="./platform-service-dependencies/">in the workspace platform application dependencies</a> documentation. Review them carefully prior to customizing to ensure that the applications are deployed successfully.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the applications, which are listed <a href="./platform-application-dependencies/">in the workspace platform application dependencies</a> documentation. Review them carefully prior to customizing to ensure that the applications are deployed successfully.</p>
 
 ## Workspace platform applications
 

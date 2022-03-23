@@ -14,5 +14,5 @@ Applications, formerly called Platform Services and Addons, are installed by the
 
 Review the [workspace application resource requirements][application_req] to ensure that the attached clusters have sufficient resources. For more information on applications and how to customize them, see [workspace applications][workspace_applications].
 
-[workspace_applications]: ../../workspaces/workspace-platform-services/
-[application_req]: ../../workspaces/workspace-platform-services/platform-service-requirements/
+[workspace_applications]: ../../workspaces/applications/platform-applications/
+[application_req]: ../../workspaces/applications/platform-applications/platform-application-requirements/
