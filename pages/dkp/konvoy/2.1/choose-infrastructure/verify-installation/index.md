@@ -12,7 +12,7 @@ How to verify a Konvoy installation.
 
 ## Check the cluster infrastructure and nodes
 
-DKP ships with some default diagnosis tools to check your cluster (such as the `describe` command).
+DKP ships with some default diagnosis tools to check your cluster, such as the `describe` command.
 You can use those tools to validate your installation.
 
 If you have not done so already, set the environment variable for your cluster name, substituting `my-dkp-cluster` with the name of your cluster:
