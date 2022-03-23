@@ -8,7 +8,7 @@ enterprise: false
 beta: false
 ---
 
-In this section, we show you how to verify a Konvoy installation.
+How to verify a Konvoy installation.
 
 ## Check the cluster infrastructure and nodes
 
