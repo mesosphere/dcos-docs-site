@@ -20,27 +20,42 @@ enterprise: false
 1.  Set the environment variable:
 
     ```sh
-    CLUSTER_NAME=my-vsphere-cluster
+    export CLUSTER_NAME=my-vsphere-cluster
     ```
 
-## Create a new AWS Kubernetes cluster
+## Create a new vSphere Kubernetes cluster
 
-1.  Ensure your vSphere credentials are up-to-date, by refreshing the credentials with the command: %%% does this command or its equivalent exist?
+1. Use the following command to set the environment variables for vSphere:
+
+   ```bash
+   export VSPHERE_SERVER=example.vsphere.url
+   export VSPHERE_USERNAME=user@example.vsphere.url
+   export VSPHERE_PASSWORD=example_password
+   ```
+
+1.  Ensure your vSphere credentials are up-to-date, by refreshing the credentials with the command:
 
     ```bash
     dkp update bootstrap credentials vsphere
     ```
 
-1.  Generate the Kubernetes cluster objects:
+1.  Generate the Kubernetes cluster objects: %%% John, make these generic and note that the template is from a previous proc
 
     ```bash
-    dkp create cluster vsphere --cluster-name=${CLUSTER_NAME} \
-    --dry-run \
-    --output=yaml \
-    > ${CLUSTER_NAME}.yaml
+    konvoy create cluster vsphere \
+      --cluster-name vsphere-konvoy \
+      --network VMs \
+      --control-plane-endpoint-host 10.128.2.230 \
+      --data-center dc1 \
+      --data-store datastore1 \
+      --folder cluster-api  \
+      --server vcenter.ca1.ksphere-platform.d2iq.cloud \
+      --ssh-authorized-key "<SSH_KEY>" \
+      --resource-pool Users \
+      --vm-template konvoy-ova-vsphere-rhel-84-1.21.6-1645833616
     ```
 
-1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy: %%% is this even possible in vSphere?
+<!--- 1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy: %%% is this even possible in vSphere?
 
     ```bash
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
@@ -109,7 +124,7 @@ enterprise: false
     kubeadmcontrolplane.controlplane.cluster.x-k8s.io/aws-example-control-plane created
     machinedeployment.cluster.x-k8s.io/aws-example-mp-0 created
     kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-mp-0 created
-    ```
+    ``` --->
 
 1.  Wait for the cluster control-plane to be ready:
 
@@ -118,13 +133,14 @@ enterprise: false
     ```
 
     ```sh
-    %%% need vSphere specific output
-    cluster.cluster.x-k8s.io/aws-example condition met
+    cluster.cluster.x-k8s.io/${CLUSTER_NAME} condition met
     ```
 
     The `READY` status becomes `True` after the cluster control-plane becomes ready in one of the following steps.
 
-1.  After the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. DKP Konvoy provides a command to describe the current status of the cluster:
+    After the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object.
+
+1. Run the DKP command to describe the current status of the cluster:
 
     ```bash
     dkp describe cluster -c ${CLUSTER_NAME}
@@ -141,7 +157,7 @@ enterprise: false
         └─MachineDeployment/aws-example-md-0
     ```
 
-1.  As they progress, the controllers also create Events. List the Events using this command:
+1.  As they progress, the controllers also create Events. You can list the Events using this command:
 
     ```bash
     kubectl get events | grep ${CLUSTER_NAME}
@@ -161,7 +177,7 @@ enterprise: false
 
 ## Known Limitations
 
-<p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of Konvoy.</p>
+<p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of DKP Konvoy.</p>
 
 - The Konvoy version used to create a bootstrap cluster must match the Konvoy version used to create a workload cluster.
 
