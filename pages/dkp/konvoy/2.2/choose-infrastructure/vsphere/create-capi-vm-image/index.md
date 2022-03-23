@@ -7,7 +7,7 @@ excerpt: Create a CAPI VM image using the DKP image builder
 enterprise: false
 ---
 
-%%% Need some text here describing what we are doing and why...
+%%% Need some text here describing what we are doing and why... add in "DKP creates the new vSphere template directly on the vCenter server."
 
 1. Set the following vSphere environment variables on the same machine where DKP is running:
 
@@ -20,7 +20,7 @@ enterprise: false
 
 1. Copy the base OS image file created in the vSphere Client to a location on the DKP host machine and make a note of the path and file name.
 
-1. Set the following Packer variables for vSphere in the `image.yaml` file:
+1. Create an `image.yaml` file and add the following variables for vSphere:
 
    ```yaml
    packer:
@@ -39,12 +39,14 @@ enterprise: false
      distribution_version: "example_7.9"
    ```
 
-1. Create the CAPI VM image with the  following command:
+   DKP uses this file and its variables in the next step.
+
+1. Create the vSphere VM template with the following command:
 
    ```bash
    konvoy-image build path/to/image.yaml
    ```
 
-   The DKP image builder uses the values in the environment variables and the input base OS image to create an OVA template that contains the required Kubernetes objects. Give the file a suitable name using this suggested naming convention: `creator-ova-vsphere-OS-ver-k8sver-unique_identifier`. As an example, the filename might be `konvoy-ova-vsphere-rhel-84-1.21.6-1646938922`.
+   The DKP image builder uses the values in `image.yaml` and the input base OS image to create a vSphere template that contains the required Kubernetes objects. Give the file a suitable name using this suggested naming convention: `creator-ova-vsphere-OS-ver-k8sver-unique_identifier`. As an example, the filename might resemble `konvoy-ova-vsphere-rhel-84-1.21.6-1646938922`.
 
-1. Copy the resulting OVA image file back to the vSphere Client, placing it under the Templates tab. DKP uses this OVA image later when creating the cluster.
+   DKP creates the new vSphere template directly on the vCenter server.

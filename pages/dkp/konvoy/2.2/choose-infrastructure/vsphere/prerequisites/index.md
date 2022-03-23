@@ -44,8 +44,6 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 
 - vSphere account with credentials configured - this account must have Administrator privileges.
 
-- Clusterctl version 1.0.2
-
 - A RedHat&reg; subscription with user name and password for downloading DVD ISOs
 
 - Valid vSphere values for the following:
@@ -54,7 +52,7 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 
   - Datacenter name
 
-  - Zone name that contains ESXi VMs to host your cluster's nodes
+  - Zone name that contains ESXi hosts for your cluster's nodes
 
   - Datastore name for the disk to be used for the VMs in the cluster
 
@@ -64,7 +62,7 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 
   - Name of a Virtual Network that has DHCP enabled for both air-gapped and non air-gapped environments
 
-  - Resource Pools - at least one resource pool needed, with every host in the pool haaving access to shared storage, such as VSAN
+  - Resource Pools - at least one resource pool needed, with every host in the pool having access to shared storage, such as VSAN
 
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
