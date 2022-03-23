@@ -8,7 +8,7 @@ beta: false
 enterprise: true
 ---
 
-Kommander supports configuring default catalog(s) for clusters with Enterprise license.
+Kommander supports configuring default catalogs for clusters with Enterprise license.
 
 ## Configure a default Enterprise catalog
 
@@ -36,7 +36,7 @@ Use this configuration when installing or reconfiguring Kommander by passing it 
 kommander install --installer-config <config_file.yaml>
 ```
 
-Review the meaning of each label:
+The following section describes each label:
 
 | Label  |  Description |
 |---|---|
