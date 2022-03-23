@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp attach cluster
-title:  dkp attach cluster
+navigationTitle:  dkp config get default-workspace
+title:  dkp config get default-workspace
 menuWeight: 10
-excerpt: Attach a cluster
+excerpt: Displays the name of the configured default Workspace
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,21 +11,18 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp attach cluster
+## dkp config get default-workspace
 
-Attach a cluster
+Displays the name of the configured default Workspace
 
 ```
-dkp attach cluster -n NAME --attached-kubeconfig FILENAME [flags]
+dkp config get default-workspace [flags]
 ```
 
 ### Options
 
 ```
-      --attached-kubeconfig string   Path of the kubeconfig file of the cluster to be attached
-  -h, --help                         help for cluster
-  -n, --name string                  Desired name of the attached cluster
-  -w, --workspace string             Name of the workspace of the attached cluster
+  -h, --help   help for default-workspace
 ```
 
 ### Options inherited from parent commands
@@ -40,5 +37,5 @@ dkp attach cluster -n NAME --attached-kubeconfig FILENAME [flags]
 
 ### SEE ALSO
 
-* [dkp attach](/dkp/kommander/2.2/cli/dkp/attach/)	 - Attach one of [cluster]
+* [dkp config get](/dkp/kommander/2.2/cli/dkp/config/get/)	 - Retrieve DKP Kommander's configuration
 

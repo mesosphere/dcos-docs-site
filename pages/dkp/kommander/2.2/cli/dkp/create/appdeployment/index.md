@@ -42,5 +42,5 @@ dkp create appdeployment APPDEPLOYMENT_NAME --app NAME [flags]
 
 ### SEE ALSO
 
-* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, capi-components, cluster, image-bundle, nodepool, workspace]
+* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, capi-components, chart-bundle, cluster, image-bundle, nodepool, workspace]
 
