@@ -47,5 +47,5 @@ dkp upgrade kommander [flags]
 
 ### SEE ALSO
 
-* [dkp upgrade](/dkp/kommander/2.2/cli/dkp/upgrade/)	 - Upgrade one of [appdeployment, capi-components, kommander]
+* [dkp upgrade](/dkp/kommander/2.2/cli/dkp/upgrade/)	 - Upgrade one of [capi-components, catalogapp, kommander]
 

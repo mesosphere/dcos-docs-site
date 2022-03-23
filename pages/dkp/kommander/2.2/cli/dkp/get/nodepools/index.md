@@ -36,5 +36,5 @@ dkp get nodepools [flags]
 
 ### SEE ALSO
 
-* [dkp get](/dkp/kommander/2.2/cli/dkp/get/)	 - Get one of [appdeployments, clusters, kubeconfig, nodepools, workspaces]
+* [dkp get](/dkp/kommander/2.2/cli/dkp/get/)	 - Get one of [appdeployments, chart, clusters, kubeconfig, nodepools, workspaces]
 

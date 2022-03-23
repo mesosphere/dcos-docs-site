@@ -22,6 +22,7 @@ dkp push image-bundle [flags]
 ### Options
 
 ```
+      --ecr-lifecycle-policy-file string       File containing ECR lifecycle policy for newly created repositories (only applies if target registry is hosted on ECR, ignored otherwise)
   -h, --help                                   help for image-bundle
       --image-bundle string                    Tarball containing list of images to push
       --to-registry string                     Registry to push images to
@@ -38,5 +39,5 @@ dkp push image-bundle [flags]
 
 ### SEE ALSO
 
-* [dkp push](/dkp/kommander/2.2/cli/dkp/push/)	 - Push images from an image bundle into an existing image registry
+* [dkp push](/dkp/kommander/2.2/cli/dkp/push/)	 - Push one of [chart, chart-bundle, image-bundle]
 
