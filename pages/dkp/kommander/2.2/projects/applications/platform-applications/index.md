@@ -32,6 +32,10 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 
 ## Upgrade Platform applications from the CLI
 
-Platform applications are deployed and upgraded as a set for each cluster or workspace. For the management cluster or workspace, Platform applications are automatically upgraded with the [DKP upgrade](../../../../dkp-upgrade) procedure; no other steps are necessary for the management cluster or workspace. For attached/managed clusters or workspaces, you MUST manually upgrade Platform applications bundle with this command/procedure:
+Platform applications are deployed and upgraded as a set for each cluster or workspace. For the management cluster or workspace, Platform applications are automatically upgraded with the [DKP upgrade](../../../../dkp-upgrade) procedure; no other steps are necessary for the management cluster or workspace. For attached/managed clusters or workspaces, you MUST manually upgrade Platform applications bundle.
 
-<insert CLI command/procedure>
+Upgrade all platform applications in the given workspace and its projects to the same version as platform applications running on the management cluster with this command:
+
+```
+dkp upgrade workspace WORKSPACE_NAME [--dry-run] [flags]
+```
