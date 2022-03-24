@@ -41,7 +41,7 @@ The status list includes these values:
 | Unjoining      | Kubefed is cleaning up after itself, removing all installed resources on the target cluster.                                                                                                                |
 | Unjoined       | The cluster has been disconnected from the management cluster.                                                                                                                                              |
 | Unjoin Failed  | The Unjoin from kubefed failed or there is some other error with deleting or disconnecting.                                                                                                                 |
-| Unattached\*   | The cluster was manually created and the infrastructure is created and configured. But the cluster not attached, review the [manually attach cluster][manually_attach_cluster] page to resolve this status. |
+| Unattached\*   | The cluster was created manually and the infrastructure has been created and configured. However, the cluster is not attached. Review the [Manually attach a CLI-created cluster][manually_attach_cluster] page to resolve this status. |
 
 <p class="message--note"><strong>*</strong>These statuses only appear on Managed clusters.</p>
 
