@@ -11,7 +11,7 @@ This section describes how to upgrade your environment to the latest version of 
 
 The upgrade process represents an important step of your environment's lifecycle, as it ensures that you benefit from the latest improvements, enhanced management of clusters, and better performance.
 
-When upgrading DKP, you must follow several steps that differ depending on your setup. The following indications specify which steps to follow if you are running a stand-alone cluster (Management cluster) or a multi-cluster environment (Management Cluster with Attached or Managed Clusters).
+When upgrading DKP, you must follow several steps that differ depending on your setup. The following indications specify which steps to follow if you are running a stand-alone cluster (Management cluster only) or a multi-cluster environment (Management Cluster with Attached or Managed Clusters).
 
 <p class="message--warning"><strong>WARNING: </strong>Upgrade your Platform and Catalog Applications before upgrading Konvoy and Kubernetes. Some applications of the previous release do not support Kubernetes 1.22, and upgrading Kubernetes to 1.22 is be part of the Konvoy upgrade.
 </p>
