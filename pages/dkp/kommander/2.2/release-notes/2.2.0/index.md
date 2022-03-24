@@ -20,9 +20,9 @@ beta: false
 
 Welcome to D2iQ Kubernetes Platform (DKP) 2.2! This release continues our tradition of customer-led development making DKP even easier to deploy, supporting more platforms and applications, and includes our AI/ML solution, Kaptain, added as a catalog application. In this release, we are beginning the process of combining our two flagship products, Konvoy and Kommander, into a single DKP product with two service level options: DKP Enterprise for multi-cluster environments, and DKP Essentials for single-cluster environments.
 
-For this release, we are maintaining the legacy Konvoy and Kommander documentation sets, while publishing some combined DKP documentation.
+For this release, we are maintaining the legacy Konvoy and Kommander documentation sets, while publishing some combined DKP documentation for processes, such as Upgrading DKP version.
 
-This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using Kommander 2.2 must be running a Kubernetes version in that range.
+This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using Kommander 2.2 must be running a Kubernetes version in this range.
 
 ## New features and capabilities
 
@@ -36,23 +36,23 @@ You can use either the CLI or the UI to [upgrade your catalog applications](../p
 
 ### Better integration with VMware vSphere
 
-Ability to use CAPI vSphere Provider while provisioning DKP cluster on vSphere. An Infrastructure Ops Manager can manage bootstrapping of VMs on a DKP cluster, which enables better productivity and speed of deploying VMs on DKP in a VMWare environment, including FIPS builds and air-gapped deployments.
+You can use CAPI vSphere Provider while provisioning a DKP cluster on vSphere, which allows you to manage bootstrapping of VMs on a DKP cluster. This gives you improved productivity and speed of deploying VMs on DKP in a VMWare environment, including FIPS builds and air-gapped deployments.
 
-### Zero downtime upgrades for air-gapped deployments.
+### Zero downtime upgrades for air-gapped deployments
 
-Kubernetes Operators and other IT operations team members can use their laptops or USB drive to transfer pre-created bundles including OS dependencies and DKP binaries into an air gapped environment with no external connectivity. This improves availability of the DKP air-gapped deployment and productivity of the IT operations team. 
+Kubernetes Operators and other IT operations team members can use your laptop or USB drive to transfer pre-created bundles, including OS dependencies and DKP binaries into an air-gapped environment with no external connectivity. This improves the availability of the DKP air-gapped deployment and productivity of your IT operations team.
 
 ### Unified user interfaces
 
-Provides a smooth experience independent of where the customer starts their journey. A DKP Essential customer can just update their license to avail DKP Enterprise features without having to learn another interface.
+This provides a smooth experience independent of where you start your journey. A DKP Essential customer can simply update your license to access DKP Enterprise features without having to learn another interface.
 
 ### Kaptain AI/ML, D2iQ’s AI/ML offering
 
-You can easily launch this feature as a catalog application, for better integrated with DKP 2.2 as well as support other platforms such as Amazon AWS AKS and Microsoft Azure EKS. This extends D2iQ’s openness to support Kubernetes platforms beyond DKP with Kaptain. Kaptain enables an organization to develop, deploy, and run entire ML workloads in production at scale with consistency and reliability.
+For better integrated with DKP 2.2 you can easily launch this feature as a catalog application, as well as support other platforms such as Amazon AWS, AKS, and Microsoft Azure EKS. This extends D2iQ’s openness to support Kubernetes platforms beyond DKP with Kaptain. Kaptain enables an organization to develop, deploy, and run entire ML workloads in production, at scale, with consistency and reliability.
 
 ### DKP Insights
 
-A new predictive analytics capability that provides greater support productivity, speed, and reduced cost. An Insights module integrated into DKP, collects configuration, logs, events, and metrics from DKP deployments and generates predictive insights on potential issues of varying critical levels so that an Infrastructure Ops. Manager can quickly identify and resolve issues that would save a lot of time and money by not escalating to D2IQ's support. An Infrastructure Ops. Manager can filter the insight summary cards by one or many insight categories for a selected cluster and project
+This new predictive analytics tool provides greater support productivity, speed, and reduced costs. An Insights module integrated into DKP collects configuration, logs, events, and metrics from DKP deployments and generates predictive insights on potential issues of varying critical levels. This enables you to quickly identify and resolve issues that would save a lot of time and money by not escalating to D2IQ's support. You can filter the insight summary cards by one or many insight categories for a selected cluster and project.
 
 ## Component updates
 
