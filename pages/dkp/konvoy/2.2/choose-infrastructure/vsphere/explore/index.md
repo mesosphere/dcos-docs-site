@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Explore New Cluster
 title: Explore New Cluster
-menuWeight: 25
+menuWeight: 70
 excerpt: Learn to interact with your Kubernetes cluster
 enterprise: false
 ---
@@ -19,13 +19,13 @@ Before you start, make sure you have created a workload cluster.
 
     Get the kubeconfig from the _Secret_, and write it to a file using this command:
 
-    ```sh
+    ```bash
     dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
-1.  List the Nodes using this command: %%% need some sample putplut data from a vSphere run, please
+1.  List the Nodes using this command: %%% need some sample output data from a vSphere run
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
@@ -37,9 +37,9 @@ Before you start, make sure you have created a workload cluster.
 
     <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Nodes' Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>
 
-1.  List the Pods using this command:  %%% need some sample putplut data from a vSphere run, please
+1.  List the Pods using this command:  %%% need some sample output data from a vSphere run
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get --all-namespaces pods
     ```
 
@@ -54,5 +54,4 @@ Before you start, make sure you have created a workload cluster.
 [install_docker]: https://docs.docker.com/get-docker/
 [install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-%%% is there a relevant vSphere link we need to locate?
 [createnewcluster]: ../new

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Make New Cluster Self-Managed
 title: Make the New Cluster Self-Managed
-menuWeight: 25
+menuWeight: 75
 excerpt: Make the new Kubernetes cluster manage itself
 enterprise: false
 ---
@@ -19,7 +19,7 @@ _%%% we need vSphere-specific steps for this procedure if it is supported_
 
     By default, `create bootstrap controllers` configures the Cluster API controllers to use the AWS credentials from your environment. We recommend you use the `--with-aws-bootstrap-credentials=false` flag to configure the Cluster API controllers of your self-managed AWS cluster to use AWS IAM Instance Profiles, instead of the AWS credentials from your environment.
 
-    ```sh
+    ```bash
     dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -40,7 +40,7 @@ _%%% we need vSphere-specific steps for this procedure if it is supported_
 
     The cluster lifecycle services on the workload cluster are ready, but the workload cluster configuration is on the bootstrap cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the bootstrap to the workload cluster. This process is also called a [Pivot][pivot].
 
-    ```sh
+    ```bash
     dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -53,7 +53,7 @@ _%%% we need vSphere-specific steps for this procedure if it is supported_
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
@@ -65,7 +65,7 @@ _%%% we need vSphere-specific steps for this procedure if it is supported_
 
     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use Konvoy with the workload cluster kubeconfig.</p>
 
-    ```sh
+    ```bash
     dkp describe cluster --kubeconfig ${CLUSTER_NAME}.conf -c ${CLUSTER_NAME}
     ```
 
@@ -81,7 +81,7 @@ _%%% we need vSphere-specific steps for this procedure if it is supported_
 
 1.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
 
-    ```sh
+    ```bash
     dkp delete bootstrap
     ```
 
@@ -91,13 +91,14 @@ _%%% we need vSphere-specific steps for this procedure if it is supported_
 
 ## Known Limitations
 
-<p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of Konvoy.</p>
+<p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of DKP Konvoy.</p>
 
-- Before making a workload cluster self-managed, be sure that its control plane nodes have sufficient permissions for running Cluster API controllers. See [IAM Policy Configuration][iampolicies].
-- Konvoy supports moving only one set of cluster objects from the bootstrap cluster to the workload cluster, or vice-versa.
-- Konvoy only supports moving all namespaces in the cluster; Konvoy does not support migration of individual namespaces.
+- Before making a workload cluster self-managed, be sure that its control plane nodes have sufficient permissions for running Cluster API controllers. 
+
+- DKP Konvoy supports moving only one set of cluster objects from the bootstrap cluster to the workload cluster, or vice-versa.
+
+- DKP Konvoy only supports moving all namespaces in the cluster; DKP does not support migration of individual namespaces.
 
 [bootstrap]: ../bootstrap
 [pivot]: https://cluster-api.sigs.k8s.io/reference/glossary.html?highlight=pivot#pivot
-[iampolicies]: ../../iam-policies
 [createnewcluster]: ../new

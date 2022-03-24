@@ -15,44 +15,42 @@ enterprise: false
 
 1.  Give your cluster a unique name suitable for your environment.
 
-    In vSphere it is critical that the name is unique, as no two clusters in the same vSphere account can have the same name.
+1.  Set the CLUSTER_NAME environment variable with the command:
 
-1.  Set the environment variable:
-
-    ```sh
+    ```bash
     export CLUSTER_NAME=my-vsphere-cluster
     ```
 
 ## Create a new vSphere Kubernetes cluster
 
-1. Use the following command to set the environment variables for vSphere:
+1.  Use the following command to set the environment variables for vSphere:
 
-   ```bash
-   export VSPHERE_SERVER=example.vsphere.url
-   export VSPHERE_USERNAME=user@example.vsphere.url
-   export VSPHERE_PASSWORD=example_password
-   ```
+    ```bash
+    export VSPHERE_SERVER=example.vsphere.url
+    export VSPHERE_USERNAME=user@example.vsphere.url
+    export VSPHERE_PASSWORD=example_password
+    ```
 
-1.  Ensure your vSphere credentials are up-to-date, by refreshing the credentials with the command:
+1.  Ensure your vSphere credentials are up-to-date by refreshing the credentials with the command:
 
     ```bash
     dkp update bootstrap credentials vsphere
     ```
 
-1.  Generate the Kubernetes cluster objects: %%% John, make these generic and note that the template is from a previous proc
+1.  Generate the Kubernetes cluster objects by copying and editing this command to include the correct values, including the VM template name you assigned in the previous procedure:
 
     ```bash
     konvoy create cluster vsphere \
-      --cluster-name vsphere-konvoy \
-      --network VMs \
-      --control-plane-endpoint-host 10.128.2.230 \
-      --data-center dc1 \
-      --data-store datastore1 \
-      --folder cluster-api  \
-      --server vcenter.ca1.ksphere-platform.d2iq.cloud \
+      --cluster-name your-cluster-name \
+      --network network-name \
+      --control-plane-endpoint-host xxx.yyy.zzz.000 \
+      --data-center data-ceneter-name \
+      --data-store datastore-name \
+      --folder folder-name  \
+      --server vcenter-api-server-url \
       --ssh-authorized-key "<SSH_KEY>" \
-      --resource-pool Users \
-      --vm-template konvoy-ova-vsphere-rhel-84-1.21.6-1645833616
+      --resource-pool resource-pool-name \
+      --vm-template template-name
     ```
 
 <!--- 1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy: %%% is this even possible in vSphere?
@@ -126,7 +124,7 @@ enterprise: false
     kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-mp-0 created
     ``` --->
 
-1.  Wait for the cluster control-plane to be ready:
+1.  Use the wait command to monitor the cluster control-plane readiness:
 
     ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
@@ -136,11 +134,11 @@ enterprise: false
     cluster.cluster.x-k8s.io/${CLUSTER_NAME} condition met
     ```
 
-    The `READY` status becomes `True` after the cluster control-plane becomes ready in one of the following steps.
+    The `READY` status becomes `True` after the cluster control-plane becomes Ready in one of the following steps.
 
-    After the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object.
+    After DKP creates the objects on the API server, the Cluster API controllers reconcile them, creating infrastructure and machines. As the controllers progress, they update the Status of each object.
 
-1. Run the DKP command to describe the current status of the cluster:
+1.  Run the DKP describe command to monitor the current status of the cluster:
 
     ```bash
     dkp describe cluster -c ${CLUSTER_NAME}
@@ -150,42 +148,36 @@ enterprise: false
     %%% need Vsphere specific output
     NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
     /vsphere-example                                                True                     35s
-    ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
-    ├─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     36s
+    ├─ClusterInfrastructure - vSphereCluster/vsphere-example        True                     4m47s
+    ├─ControlPlane - KubeadmControlPlane/vm-example-control-plane   True                     36s
     │   └─3 Machine...                                              True                     4m20s
     └─Workers
-        └─MachineDeployment/aws-example-md-0
+        └─MachineDeployment/vsphere-example-md-0
     ```
 
-1.  As they progress, the controllers also create Events. You can list the Events using this command:
+1.  As they progress, the controllers also create Events, which you can list using the command:
 
     ```bash
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 
-    For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AWSCluster"` and `kubectl get events --field-selector involvedObject.kind="AWSMachine"`.
+    For brevity, this example uses `grep`. You can also use separate commands to get Events for specific objects, such as `kubectl get events --field-selector involvedObject.kind="AWSCluster"` and `kubectl get events --field-selector involvedObject.kind="AWSMachine"`.
 
     ```sh
     %%% need a (shorter?) vSphere specific output
-    7m26s       Normal    SuccessfulSetNodeRef                            machine/aws-example-control-plane-2wb9q      ip-10-0-182-218.us-west-2.compute.internal
-    11m         Normal    SuccessfulCreate                                awsmachine/aws-example-control-plane-vcjkr   Created new control-plane instance with id "i-0dde024e80ae3de7a"
-    11m         Normal    SuccessfulAttachControlPlaneELB                 awsmachine/aws-example-control-plane-vcjkr   Control plane instance "i-0dde024e80ae3de7a" is registered with load balancer
-    7m25s       Normal    SuccessfulDeleteEncryptedBootstrapDataSecrets   awsmachine/aws-example-control-plane-vcjkr   AWS Secret entries containing userdata deleted
-    7m6s        Normal    FailedDescribeInstances                         awsmachinepool/aws-example-mp-0              No Auto Scaling Groups with aws-example-mp-0 found
-    7m3s        Warning   FailedLaunchTemplateReconcile                   awsmachinepool/aws-example-mp-0              Failed to reconcile launch template: 
     ```
 
 ## Known Limitations
 
 <p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of DKP Konvoy.</p>
 
-- The Konvoy version used to create a bootstrap cluster must match the Konvoy version used to create a workload cluster.
+- The DKP Konvoy version used to create a bootstrap cluster must match the DKP Konvoy version used to create a workload cluster.
 
-- Konvoy supports deploying one workload cluster.
+- DKP Konvoy supports deploying one workload cluster.
 
-- Konvoy generates a set of objects for one Node Pool.
+- DKP Konvoy generates a set of objects for one Node Pool.
 
-- Konvoy does not validate edits to cluster objects.
+- DKP Konvoy does not validate edits to cluster objects.
 
 [bootstrap]: ../bootstrap
 [capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html

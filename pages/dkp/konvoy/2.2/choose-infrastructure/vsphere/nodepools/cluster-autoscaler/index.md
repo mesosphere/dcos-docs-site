@@ -9,7 +9,7 @@ enterprise: false
 
 ## Cluster Autoscaler
 
-_%%% can use autoscaler with vSphere?_
+_%%% can we use autoscaler with vSphere?_
 
 [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/clusterapi) provides the ability to automatically scale-up or scale-down the number of worker nodes in a cluster, based on the number of pending pods to be scheduled. Running the Cluster Autoscaler is optional.
 
@@ -47,13 +47,13 @@ Run the following steps to enable Cluster Autoscaler:
 
 1.  Ensure the Cluster Autoscaler controller is up and running (no restarts and no errors in the logs)
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf logs deployments/cluster-autoscaler cluster-autoscaler -n kube-system -f
     ```
 
 1.  Enable Cluster Autoscaler by setting the min & max ranges
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${NODEPOOL_NAME} cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size=2
     kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${NODEPOOL_NAME} cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size=6
     ```
@@ -62,7 +62,7 @@ Run the following steps to enable Cluster Autoscaler:
 
 1.  To demonstrate that it is working properly, create a large deployment which will trigger pending pods (For this example we used AWS m5.2xlarge worker nodes. If you have larger worker-nodes, you should scale up the number of replicas accordingly). _%%% we'll want a vSphere-specific example, if there is one_
 
-    ```sh
+    ```bash
     cat <<EOF | kubectl --kubeconfig=${CLUSTER_NAME}.conf apply -f -
     apiVersion: apps/v1
     kind: Deployment
@@ -91,10 +91,11 @@ Run the following steps to enable Cluster Autoscaler:
     EOF
     ```
 
-1.  Cluster Autoscaler will scale up the number of Worker Nodes until there are no pending pods.
-1.  Scale down the number of replicas for `busybox-deployment`.
+    Cluster Autoscaler scales up the number of Worker Nodes until there are no pending pods.
 
-    ```sh
+1.  Scale down the number of replicas for `busybox-deployment` with the command:
+
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf scale --replicas=30 deployment/busybox-deployment
     ```
 
