@@ -9,7 +9,7 @@ beta: false
 
 This section describes how to upgrade your environment to the latest version of DKP.
 
-The upgrade process represents an important step of your environment's lifecycle, as it ensures that you benefit from the latest improvements, enhanced management of clusters and better performance.
+The upgrade process represents an important step of your environment's lifecycle, as it ensures that you benefit from the latest improvements, enhanced management of clusters, and better performance.
 
 When upgrading DKP, you must follow several steps that differ depending on your setup. The following indications specify which steps to follow if you are running a stand-alone cluster (Management cluster) or a multi-cluster environment (Management Cluster with Attached or Managed Clusters).
 
