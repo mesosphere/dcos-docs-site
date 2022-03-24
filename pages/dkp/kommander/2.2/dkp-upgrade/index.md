@@ -32,7 +32,7 @@ The overall process for upgrading to the latest version of DKP has the following
     - **Upgrade the Core Addons**. This upgrades multiple addons such as CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. If you are running other clusters than the Management cluster, upgrade the core addons on each additional cluster as well.
     - **Upgrade the Kubernetes version**. This upgrades your cluster’s control plane & node pools. If you are running other clusters than the Management cluster, upgrade the Kubernetes version on each additional cluster as well.
 
-[upgrade-kommander]: /dkp/kommander/2.2/dkp-upgrade/upgrade-kommander/
-[upgrade-workspaces]:
-[catalog-apps]: ../workspaces/applications/catalog-applications/
-[upgrade-konvoy]:
+[upgrade_kommander]: /dkp/kommander/2.2/dkp-upgrade/upgrade-kommander/
+[upgrade_workspaces]:
+[catalog_apps]: ../workspaces/applications/catalog-applications/
+[upgrade_konvoy]:
