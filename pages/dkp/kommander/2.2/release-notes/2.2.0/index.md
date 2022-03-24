@@ -58,42 +58,42 @@ This new predictive analytics tool provides greater support productivity, speed,
 
 The following services and service components have been upgraded to the listed version:
 
-<This is from 2.1.1, so we need to review and update. Grace has a good idea for an more user-friendly table here, to account for all versions and which versions of DKP everything synchs with. Will be easier to maintain here in the RN than buried in the full doc sets.>
-
-- centralized-grafana: 18.1.1
-- centralized-kubecost: 0.20.0
-- cert-manager: 0.2.7
-- dex: 2.9.10
-- external-dns: 2.20.5
-- fluent-bit: 0.16.2
-- gatekeeper: 0.6.8
-- grafana-logging: 6.16.14
-- grafana-loki: 0.33.1
-- istio: 1.9.1
-- jaeger: 2.21.0
-- karma: 2.0.0
-- kiali: 1.29.1
-- knative: 0.18.3
-- kube-oidc-proxy: 0.2.5
-- kube-prometheus-stack: 18.1.1
-- kubecost: 0.20.0
-- kubefed: 0.9.0
-- kubernetes-dashboard: 5.0.2
-- kubetunnel: 0.0.8
-- logging-operator: 3.15.0
-- metallb: 0.12.2
-- minio-operator: 4.1.7
-- nfs-server-provisioner: 0.6.0
-- nvidia: 0.4.3
-- project-grafana-logging: 6.16.14
-- project-grafana-loki: 0.33.1
-- project-logging: 1.0.0
-- prometheus-adapter: 2.11.1
-- reloader: 0.0.99
-- thanos: 0.4.5
-- traefik: 10.3.0
-- traefik-forward-auth: 0.3.2
-- velero: 3.1.3
+| Platform Application                           | Version | Component Versions                                                                                                        |
+|------------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------|
+| [kube-prometheus-stack][kube-prometheus-stack] | 33.1.4  | chart: 33.1.4- <br>prometheus-operator: 0.57.0<br>prometheus: 2.33.4<br>prometheus alertmanager: 0.23.0<br>grafana: 8.3.6 |
+| centralized-kubecost                           | 0.20.0  |                                                                                                                           |
+| cert-manager                                   | 0.2.7   |                                                                                                                           |
+| dex                                            | 2.9.10  |                                                                                                                           |
+| external-dns                                   | 2.20.5  |                                                                                                                           |
+| fluent-bit                                     | 0.16.2  |                                                                                                                           |
+| gatekeeper                                     | 0.6.8   |                                                                                                                           |
+| grafana-logging                                | 6.16.14 |                                                                                                                           |
+| grafana-loki                                   | 0.33.1  |                                                                                                                           |
+| istio                                          | 1.9.1   |                                                                                                                           |
+| jaeger                                         | 2.21.0  |                                                                                                                           |
+| karma                                          | 2.0.0   |                                                                                                                           |
+| kiali                                          | 1.29.1  |                                                                                                                           |
+| knative                                        | 0.18.3  |                                                                                                                           |
+| kube-oidc-proxy                                | 0.2.5   |                                                                                                                           |
+| kube-prometheus-stack                          | 18.1.1  |                                                                                                                           |
+| kubecost                                       | 0.20.0  |                                                                                                                           |
+| kubefed                                        | 0.9.0   |                                                                                                                           |
+| kubernetes-dashboard                           | 5.0.2   |                                                                                                                           |
+| kubetunnel                                     | 0.0.8   |                                                                                                                           |
+| logging-operator                               | 3.15.0  |                                                                                                                           |
+| metallb                                        | 0.12.2  |                                                                                                                           |
+| minio-operator                                 | 4.1.7   |                                                                                                                           |
+| nfs-server-provisioner                         | 0.6.0   |                                                                                                                           |
+| nvidia                                         | 0.4.3   |                                                                                                                           |
+| project-grafana-logging                        | 6.16.14 |                                                                                                                           |
+| project-grafana-loki                           | 0.33.1  |                                                                                                                           |
+| project-logging                                | 1.0.0   |                                                                                                                           |
+| prometheus-adapter                             | 2.11.1  |                                                                                                                           |
+| reloader                                       | 0.0.99  |                                                                                                                           |
+| thanos                                         | 0.4.5   |                                                                                                                           |
+| traefik                                        | 10.3.0  |                                                                                                                           |
+| traefik-forward-auth                           | 0.3.2   |                                                                                                                           |
+| velero                                         | 3.1.1   |                                                                                                                           |
 
 ## Known issues
 
