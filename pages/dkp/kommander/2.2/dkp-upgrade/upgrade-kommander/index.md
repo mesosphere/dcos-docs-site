@@ -36,7 +36,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
     set -euo pipefail
     IFS=$'\n\t'
 
-    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kommander-image-bundle.tar"}
+    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kommander-image-bundle.tar.gz"}
     readonly REGISTRY_URL=${REGISTRY_URL?"Need to set REGISTRY_URL. E.g: 10.23.45.67:5000"}
 
     docker load <"${AIRGAPPED_TAR_FILE}"
