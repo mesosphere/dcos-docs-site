@@ -24,7 +24,7 @@ The overall process for upgrading to the latest version of DKP has the following
 
 1.  [Upgrade your Workspaces][upgrade-workspaces] on a per-Workspace basis, if your environment has additional Workspaces (with Managed or Attached clusters).
 
-1.  [Upgrade your Catalog applications][catalog-apps], if your environment has additional Workspaces (with Managed and Attached clusters).
+1.  [Upgrade all DKP Catalog applications][catalog_apps] that may be deployed to any Workspaces or Projects.
 
 1.  [Upgrade Konvoy][upgrade_konvoy]:
 
