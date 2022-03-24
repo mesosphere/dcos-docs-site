@@ -118,4 +118,4 @@ project-test-vjsfq      my-custom-app   True    Release reconciliation succeeded
 
 ## Upgrade custom applications
 
-You must maintain your custom applications manually. When upgrading DKP, ensure you validate any custom applications against the current version of Kubernetes for compatibility issues. When you are able, we recommend upgrading to the latest supported versions.
+You must maintain your custom applications manually. When upgrading DKP, ensure you validate for compatibility issues any custom applications you run against the current version of Kubernetes. We recommend upgrading to the latest compatible application versions as soon as possible.
