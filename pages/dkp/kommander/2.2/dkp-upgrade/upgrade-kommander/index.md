@@ -86,6 +86,6 @@ Before running the following command, ensure that your `dkp` configuration **ref
 [k8s-access-to-clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [upgrade-workspaces]: ../../workspaces/applications/catalog-applications/
 [release-notes]: ../../release-notes/
-[images-bundle]: /downloads.mesosphere.io/kommander/airgapped/v2.2.0/kommander_image_bundle_v2.2.0_linux_amd64.tar.gz
-[charts-bundle]: /downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz
-[cat-apps-bundle]: /downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz
+[images-bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/kommander_image_bundle_v2.2.0_linux_amd64.tar.gz
+[charts-bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz
+[cat-apps-bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz
