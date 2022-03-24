@@ -24,7 +24,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 1.  Download the image bundle file:
 
     ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/v2.2.0/kommander_image_bundle_v2.2.0_linux_amd64.tar" -O kommander-image-bundle.tar
+    wget "https://downloads.mesosphere.com/kommander/airgapped/v2.2.0/kommander_image_bundle_v2.2.0_linux_amd64.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
