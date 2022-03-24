@@ -26,7 +26,7 @@ The overall process for upgrading to the latest version of DKP has the following
 
 1.  [Upgrade your Catalog applications][catalog-apps], if your environment has additional Workspaces (with Managed and Attached clusters).
 
-1.  [Upgrade Konvoy][upgrade-konvoy]:
+1.  [Upgrade Konvoy][upgrade_konvoy]:
 
     - **Upgrade Konvoy’s CAPI components**. This upgrades the CAPI controllers, which only run on the Management Cluster.
     - **Upgrade the Core Addons**. This upgrades multiple addons such as CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. If you are running other clusters than the Management cluster, upgrade the core addons on each additional cluster as well.
