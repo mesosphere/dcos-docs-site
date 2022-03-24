@@ -15,7 +15,7 @@ Kubernetes provides a facility to renew all certificates automatically during co
 
 ### Requirements
 
-This feature requires Python 3.5 or greater to be installed on all control plane hosts.
+This feature requires that you install Python 3.5 or higher version on all control plane hosts.
 
 ## Prerequisites
 
