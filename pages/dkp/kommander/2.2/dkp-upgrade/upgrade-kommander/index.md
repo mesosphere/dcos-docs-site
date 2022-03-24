@@ -13,11 +13,11 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 ## Prerequisites
 
-- [Download][download-binary] and install the latest DKP CLI binary on your computer.
+- [Download][download_binary] and install the latest DKP CLI binary on your computer.
 - Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
-- If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre-provisioned].
-- Review the [Platform Application version updates][release-notes] that are part of this upgrade.
-- Download the following air-gapped bundles: [images bundle][images-bundle], [charts bundle][charts-bundle] and [Catalog Application charts bundle][cat-apps-bundle]. **Skip this if you are not running in an air-gapped environment**.  
+- If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
+- Review the [Platform Application version updates][release_notes] that are part of this upgrade.
+- Download the following air-gapped bundles: [images bundle][images_bundle], [charts bundle][charts_bundle] and [Catalog Application charts bundle][cat_apps_bundle]. **Skip this if you are not running in an air-gapped environment**.  
 
 ### Load the Docker images into your Docker registry (skip this section if you are running in an air-gapped environment)
 
@@ -53,7 +53,7 @@ Based on the network latency between the environment of script execution and the
 
 ## Upgrade Kommander
 
-Before running the following command, ensure that your `dkp` configuration **references the Kommander Management cluster**, otherwise it attempts to run the upgrade on the bootstrap cluster. You can do this by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file's location][k8s-access-to-clusters].
+Before running the following command, ensure that your `dkp` configuration **references the Kommander Management cluster**, otherwise it attempts to run the upgrade on the bootstrap cluster. You can do this by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file's location][k8s_access_to_clusters].
 
 <p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable as stated earlier is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander upgrades on the workload cluster.</p>
 
@@ -75,17 +75,17 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
 1.  < --!Pending step: if confirmation message cannot be added on time, document a way to check the status of the upgrade in Management Cluster. --! >
 
-1.  Upgrade your additional [Workspaces][upgrade-workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster. Do this only if your environment has additional Workspaces (with Managed and Attached clusters). Otherwise, proceed with the [Konvoy Upgrade][konvoy-upgrade]. < --! we need to reference this file once it is created-->
+1.  Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster. Do this only if your environment has additional Workspaces (with Managed and Attached clusters). Otherwise, proceed with the [Konvoy Upgrade][konvoy_upgrade]. < --! we need to reference this file once it is created-->
 
-[download-binary]: ../../download/
+[download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
 [AWS]: /dkp/konvoy/2.2/choose-infrastructure/aws/advanced/update/
 [Azure]: /dkp/konvoy/2.2/choose-infrastructure/azure/advanced/update/
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
-[pre-provisioned]: /dkp/konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
-[k8s-access-to-clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
-[upgrade-workspaces]: ../../workspaces/applications/catalog-applications/
-[release-notes]: ../../release-notes/
-[images-bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/kommander_image_bundle_v2.2.0_linux_amd64.tar.gz
-[charts-bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz
-[cat-apps-bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz
+[pre_provisioned]: /dkp/konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
+[k8s_access_to_clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
+[upgrade_workspaces]: ../../workspaces/applications/catalog-applications/
+[release_notes]: ../../release-notes/
+[images_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/kommander_image_bundle_v2.2.0_linux_amd64.tar.gz
+[charts_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz
+[cat_apps_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz
