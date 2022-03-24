@@ -24,8 +24,6 @@ header.header
             a(href=val.path)!= val.title
         li.header__menu-item
           a(href='https://support.d2iq.com') Support
-  include mesosphere-dropdown.pug
-  include ksphere-dropdown.pug
   if sphere === 'mesosphere' || sphere === 'services'
     include localization-dropdown.pug
   section.header__search(role='search')
