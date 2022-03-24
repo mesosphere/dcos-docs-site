@@ -7,9 +7,9 @@ excerpt: Learn to interact with your Kubernetes cluster
 enterprise: false
 ---
 
-This guide explains how to use the command line to interact with your newly-deployed Kubernetes cluster.
+This guide explains how to use the command line interface to interact with your newly-deployed Kubernetes cluster.
 
-Before you start, make sure you have created a workload cluster.
+Before you start, make sure you have [created a workload cluster][create-new-cluster].
 
 ## Explore the new Kubernetes cluster
 
@@ -54,4 +54,4 @@ Before you start, make sure you have created a workload cluster.
 [install_docker]: https://docs.docker.com/get-docker/
 [install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[createnewcluster]: ../new
+[create-new-cluster]: ../new

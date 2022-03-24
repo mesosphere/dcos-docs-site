@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Certificate Renewal
 title: Certificate Renewal
-menuWeight: 80
+menuWeight: 82
 excerpt: Configure Automated Renewal for Managed Kubernetes PKI Certficates
 enterprise: false
 ---

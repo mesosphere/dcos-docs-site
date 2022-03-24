@@ -9,7 +9,7 @@ enterprise: false
 
 ## Prerequisites
 
-- Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
+Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
 
 ## Name your cluster
 
