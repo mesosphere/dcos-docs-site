@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp upgrade catalogapp
-title:  dkp upgrade catalogapp
+navigationTitle:  dkp upgrade workspace
+title:  dkp upgrade workspace
 menuWeight: 10
-excerpt: Upgrade a Catalog Application to a newer version
+excerpt: Upgrade all platform applications in the given workspace and its projects to the same version as platform applications running on the management cluster
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,12 +11,12 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp upgrade catalogapp
+## dkp upgrade workspace
 
-Upgrade a Catalog Application to a newer version
+Upgrade all platform applications in the given workspace and its projects to the same version as platform applications running on the management cluster
 
 ```
-dkp upgrade catalogapp CATALOGAPP_NAME --to-version VERSION [--workspace WORKSPACE | --project PROJECT] [flags]
+dkp upgrade workspace WORKSPACE_NAME [--dry-run] [flags]
 ```
 
 ### Options
@@ -24,12 +24,10 @@ dkp upgrade catalogapp CATALOGAPP_NAME --to-version VERSION [--workspace WORKSPA
 ```
       --config string            Config file to use (default "/root/.kommander/config")
       --context string           The name of the kubeconfig context to use
-  -h, --help                     help for catalogapp
+      --dry-run                  Do not upgrade, just list the AppDeployments that would be upgraded
+  -h, --help                     help for workspace
       --kubeconfig string        Path to the kubeconfig file to use for CLI requests.
-      --project string           Name of the Project to upgrade the Catalog App in
       --request-timeout string   The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests.
-      --to-version string        Version the Catalog App should be upgraded to
-  -w, --workspace string         Name of the Workspace to upgrade the Catalog App in
 ```
 
 ### Options inherited from parent commands

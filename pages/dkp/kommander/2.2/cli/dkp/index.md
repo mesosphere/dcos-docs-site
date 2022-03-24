@@ -36,12 +36,13 @@ beta: false
 * [dkp get](/dkp/kommander/2.2/cli/dkp/get/)	 - Get one of [appdeployments, chart, clusters, kubeconfig, nodepools, workspaces]
 * [dkp import](/dkp/kommander/2.2/cli/dkp/import/)	 - Import images from an image bundle into Containerd
 * [dkp install](/dkp/kommander/2.2/cli/dkp/install/)	 - Install one of [kommander]
-* [dkp move](/dkp/kommander/2.2/cli/dkp/move/)	 - Move controllers and objects from one cluster to the other
+* [dkp move](/dkp/kommander/2.2/cli/dkp/move/)	 - Command "move" is deprecated, use "dkp move capi-resources" instead
+Move one of [capi-resources]
 * [dkp open](/dkp/kommander/2.2/cli/dkp/open/)	 - Open one of [dashboard]
 * [dkp push](/dkp/kommander/2.2/cli/dkp/push/)	 - Push one of [chart, chart-bundle, image-bundle]
 * [dkp scale](/dkp/kommander/2.2/cli/dkp/scale/)	 - Scale one of [nodepool]
 * [dkp serve](/dkp/kommander/2.2/cli/dkp/serve/)	 - Serve an image registry
 * [dkp update](/dkp/kommander/2.2/cli/dkp/update/)	 - Update one of [bootstrap (cluster)]
-* [dkp upgrade](/dkp/kommander/2.2/cli/dkp/upgrade/)	 - Upgrade one of [capi-components, catalogapp, kommander]
+* [dkp upgrade](/dkp/kommander/2.2/cli/dkp/upgrade/)	 - Upgrade one of [capi-components, catalogapp, kommander, workspace]
 * [dkp version](/dkp/kommander/2.2/cli/dkp/version/)	 - Print version information
 
