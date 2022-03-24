@@ -8,11 +8,11 @@ enterprise: false
 beta: false
 ---
 
-In this section, we show you how to verify a Konvoy installation.
+In this section we show you how to verify a Konvoy installation.
 
 ## Check the cluster infrastructure and nodes
 
-DKP ships with some default diagnosis tools to check your cluster (such as the `describe` command).
+DKP ships with some default diagnosis tools to check your cluster, such as the `describe` command.
 You can use those tools to validate your installation.
 
 If you have not done so already, set the environment variable for your cluster name, substituting `my-dkp-cluster` with the name of your cluster:
@@ -27,7 +27,7 @@ Then, run this command to check the health of the cluster infrastructure:
 dkp describe cluster --cluster-name=${CLUSTER_NAME}
 ```
 
-If the cluster is healthy, you should see output similar to this:
+A healthy cluster returns an output similar to:
 
 ```sh
 NAME                                                               READY  SEVERITY  REASON  SINCE  MESSAGE
@@ -64,7 +64,7 @@ ip-10-0-71-207.us-west-2.compute.internal    Ready    <none>                 135
 ip-10-0-85-253.us-west-2.compute.internal    Ready    control-plane,master   137m   v1.21.6
 ```
 
-If your install is successful, all the above commands should return as Ready or True.
+To verify a successful installation, all of the previous commands should return as Ready or True.
 
 ## Verify all pods are running
 
@@ -76,13 +76,13 @@ kubectl get pods --all-namespaces
 
 ## Troubleshooting
 
-If any pod is not in `Running` or `Completed` status, you may need to investigate further why.
-If it appears that something has not deployed properly or fully, you can run a [diagnostic bundle][diag-bundle]:
+If any pod is not in `Running` or `Completed` status, you need to investigate further.
+If it appears that something has not deployed properly or fully, run a [diagnostic bundle][diag-bundle]:
 
 ```bash
 dkp diagnose
 ```
 
-This collects information from pods and infrastructure. Read [more about generating a support bundle and the different configurations that it supports][diag-bundle].
+This collects information from pods and infrastructure. For more information, see [more about generating a support bundle and the different configurations that it supports][diag-bundle].
 
 [diag-bundle]: ../../troubleshooting/generate-a-support-bundle
