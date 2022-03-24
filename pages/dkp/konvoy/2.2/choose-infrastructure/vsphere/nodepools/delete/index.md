@@ -9,17 +9,17 @@ enterprise: false
 
 ## Delete Node Pools
 
-Deleting a node pool deletes the Kubernetes nodes and the underlying infrastructure. All nodes will be drained prior to deletion and the pods running on those nodes will be rescheduled.
+Deleting a node pool deletes the Kubernetes nodes and the underlying infrastructure. DKP drains all nodes prior to deletion and reschedules the pods running on those nodes.
 
-To delete a node pool from a managed cluster, run:
+To delete a node pool from a managed cluster, run the command:
 
-```sh
+```bash
 dkp delete nodepool ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME}
 ```
 
-Here `example` is the node pool to be deleted.
+Here, `example` is the node pool to be deleted.
 
-The expected output will be similar to the following example, indicating the node pool is being deleted:
+The expected output is similar to the following example, indicating the node pool is being deleted:
 
 ```sh
 INFO[2021-07-28T17:14:26-07:00] Running nodepool delete command         Nodepool=example clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/delete.go:80"

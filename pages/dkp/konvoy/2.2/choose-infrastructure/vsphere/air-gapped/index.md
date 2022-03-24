@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Install AWS Air-Gapped
-title: Install AWS Air-Gapped
-excerpt: Create a Kubernetes cluster in a private subnet with no access to the Internet (air-gapped)
+navigationTitle: Create an Air-Gapped vSphere Cluster
+title: Create an Air-Gapped vSphere Cluster
+excerpt: Create a Kubernetes vSphere cluster in a private network with no access to the Internet (air-gapped)
 beta: false
 enterprise: false
-menuWeight: 30
+menuWeight: 10
 ---
 
-This guide provides the instructions to create a Kubernetes cluster in an existing VPC with the nodes and the kube-apiserver ELB in a private subnet with no access to the Internet.
+This section provides the instructions to create a Kubernetes cluster in a private, DHCP-enabled network with no access to the Internet.

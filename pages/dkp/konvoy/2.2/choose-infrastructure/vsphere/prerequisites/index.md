@@ -52,7 +52,7 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 
   - Datacenter name
 
-  - Zone name that contains ESXi hosts for your cluster's nodes
+  - Zone name that contains [ESXi hosts][vmware-esxi-hosts] for your cluster's nodes
 
   - Datastore name for the disk to be used for the VMs in the cluster
 
@@ -67,3 +67,4 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [vsphere-vm-administration]: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-55238059-912E-411F-A0E9-A7A536972A91.html
+[vmware-esxi-hosts]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-B2F01BF5-078A-4C7E-B505-5DFFED0B8C38.html

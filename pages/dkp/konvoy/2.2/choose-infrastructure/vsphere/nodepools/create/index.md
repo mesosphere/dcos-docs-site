@@ -11,23 +11,21 @@ Creating a node pool is useful when you need to run workloads that require machi
 
 ## Prepare the environment
 
-1.  Set the environment variable to the name you assigned this cluster.
+1.  Set the environment variable to the name you assigned this cluster with the command:
 
-    ```sh
-    CLUSTER_NAME=my-aws-cluster
+    ```bash
+    export CLUSTER_NAME=my-aws-cluster
     ```
 
-    See [Get Started with AWS][createnewcluster_name] for information on naming your cluster.
+1.  If your workload cluster is self-managed, as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster:
 
-1.  If your workload cluster is self-managed, as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster.
-
-    ```sh
+    ```bash
     export KUBECONFIG=${CLUSTER_NAME}.conf
     ```
 
-1.  Define your node pool name.
+1.  Define your node pool name:
 
-    ```sh
+    ```bash
     export NODEPOOL_NAME=example
     ```
 
@@ -35,7 +33,7 @@ Creating a node pool is useful when you need to run workloads that require machi
 
 Create a new AWS node pool with 3 replicas using this command:
 
-```sh
+```bash
 dkp create nodepool aws ${NODEPOOL_NAME} \
     --cluster-name=${CLUSTER_NAME} \
     --replicas=3
@@ -44,7 +42,7 @@ dkp create nodepool aws ${NODEPOOL_NAME} \
 ```sh
 %%% need vSphere-specific output
 
-INFO[2021-08-02T12:16:26-07:00] Running nodepool create command               clusterName=dlipovetsky-demo managementClusterKubeconfig= namespace=default src="nodepool/create.go:264"
+INFO[2021-08-02T12:16:26-07:00] Running nodepool create command               clusterName=user-demo managementClusterKubeconfig= namespace=default src="nodepool/create.go:264"
 machinedeployment.cluster.x-k8s.io/example created
 awsmachinetemplate.infrastructure.cluster.x-k8s.io/example created
 kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/example created
@@ -57,4 +55,3 @@ Advanced users can use a combination of the `--dry-run` and `--output=yaml` flag
 
 [makeselfmanaged]: ../../advanced/self-managed
 [createnewcluster]: ../../advanced/new
-[createnewcluster_name]: %%% resolve link, if needed

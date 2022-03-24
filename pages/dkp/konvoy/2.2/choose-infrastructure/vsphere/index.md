@@ -16,6 +16,8 @@ This diagram illustrates the overall process:
 
 The workflow on the left shows the creation of a base OS image in the vCenter vSphere client using inputs from Packer. The workflow on the right shows how DKP uses that same base OS image to create CAPI-enabled VM images for your cluster.
 
-After creating the base image, the DKP image builder uses it to create a CAPI-enabled image. You can that resulting image with the DKP `create cluster` command to create the VM nodes in your cluster. From that point, you can use DKP to provision and manage your cluster.
+After creating the base image, the DKP image builder uses it to create a CAPI-enabled vSpher template that includes the Kubernetes objects for the cluster. You can use that resulting template with the DKP `create cluster` command to create the VM nodes in your cluster directly on a vCenter server. From that point, you can use DKP to provision and manage your cluster.
 
-%%% to get started, fulfill the prereq's
+To get started, fulfill the [prerequisites][prerequisites].
+
+[prerequisites]: /prerequisites
