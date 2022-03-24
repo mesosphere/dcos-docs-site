@@ -27,7 +27,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
     wget "https://downloads.mesosphere.com/kommander/airgapped/v2.2.0/kommander_image_bundle_v2.2.0_linux_amd64.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
-1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
+1.  Place the bundle in a location from where you can push the images to your private Docker registry.
 
 1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
 
