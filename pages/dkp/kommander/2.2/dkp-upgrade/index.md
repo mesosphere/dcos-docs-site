@@ -26,6 +26,9 @@ The overall process for upgrading to the latest version of DKP has the following
 
 1.  [Upgrade all DKP Catalog applications][catalog_apps] that may be deployed to any Workspaces or Projects.
 
+    <p class="message--warning"><strong>WARNING: </strong>Ensure your **Custom** Catalog Applications are compatible with Kubernetes 1.22. If not, upgrade them before continuing with the Konvoy upgrade process.
+</p>
+
 1.  [Upgrade Konvoy][upgrade_konvoy]:
 
     - **Upgrade Konvoy’s CAPI components**. This upgrades the CAPI controllers, which only run on the Management Cluster.
