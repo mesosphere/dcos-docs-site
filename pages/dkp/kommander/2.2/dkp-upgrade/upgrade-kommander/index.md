@@ -29,27 +29,13 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 1.  Place the bundle in a location from where you can push the images to your private Docker registry.
 
-1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
+1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
-    #!/usr/bin/env bash
-    set -euo pipefail
-    IFS=$'\n\t'
-
-    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kommander-image-bundle.tar.gz"}
-    readonly REGISTRY_URL=${REGISTRY_URL?"Need to set REGISTRY_URL. E.g: 10.23.45.67:5000"}
-
-    docker load <"${AIRGAPPED_TAR_FILE}"
-
-    while read -r IMAGE; do
-        echo "Processing ${IMAGE}"
-        REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker).io@${REGISTRY_URL}@")"
-        docker tag "${IMAGE}" "${REGISTRY_IMAGE}"
-        docker push "${REGISTRY_IMAGE}"
-    done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
+    dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
     ```
 
-Based on the network latency between the environment of script execution and the docker registry, it can take a while to upload all the images to your image registry.
+It can take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
 
 ## Upgrade Kommander
 
