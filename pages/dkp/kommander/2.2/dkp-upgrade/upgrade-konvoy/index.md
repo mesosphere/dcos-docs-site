@@ -7,6 +7,6 @@ excerpt: Steps to upgrade Konvoy via CLI
 beta: false
 ---
  
-This section describes how to upgrade your Konvoy clusters to the latest versions. To prevent compatibility issues, you must first [upgrade Kommander][upgrade-kommander] on your Management Cluster before upgrading to DKP.
+This section describes how to upgrade your Konvoy clusters to the latest versions. To prevent compatibility issues, you must first [upgrade Kommander][upgrade_kommander] on your Management Cluster before upgrading to DKP.
 
-[upgrade-kommander]: /dkp/kommander/2.2/dkp-upgrade/upgrade-kommander/
+[upgrade_kommander]: /dkp/kommander/2.2/dkp-upgrade/upgrade-kommander/
