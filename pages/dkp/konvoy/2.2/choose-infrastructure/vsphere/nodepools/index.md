@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Manage Node Pools
 title: Manage Node Pools
-menuWeight: 50
+menuWeight: 85
 excerpt: Manage Node Pools
 beta: false
 enterprise: false
