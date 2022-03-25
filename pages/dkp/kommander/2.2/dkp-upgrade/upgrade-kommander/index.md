@@ -7,7 +7,7 @@ excerpt: Steps to upgrade Kommander via CLI
 beta: false
 ---
  
-This section describes how to upgrade your Kommander Management cluster and all Platform Applications to their latest versions. To prevent compatibility issues, you must first upgrade Kommander on your Management Cluster before upgrading to DKP.
+This section describes how to upgrade your Kommander Management cluster and all Platform Applications to their latest versions in networked, air-gapped and on-prem environments. To prevent compatibility issues, you must first upgrade Kommander on your Management Cluster before upgrading to DKP.
 
 <p class="message--note"><strong>NOTE: </strong>It is important you upgrade Kommander BEFORE upgrading the Kubernetes version (or Konvoy version for Managed Konvoy clusters) in attached clusters, due to the previous versions' incompatibility with 1.22.</p>
 
