@@ -24,7 +24,7 @@ The overall process for upgrading to the latest version of DKP has the following
 
 1.  For Enterprise customers only: [Upgrade your Workspaces][upgrade_workspaces] on a per-Workspace basis.
 
-1.  [Upgrade all DKP Catalog applications][catalog_apps] that may be deployed to any Workspaces or Projects.
+1.  For Enterprise customers only: [Upgrade all DKP Catalog applications][catalog_apps] deployed to any Workspaces or Projects.
 
     <p class="message--warning"><strong>WARNING: </strong>You must maintain your custom applications manually. When upgrading DKP, ensure you validate for compatibility issues any custom applications you run against the current version of Kubernetes. We recommend upgrading to the latest compatible application versions as soon as possible.</p>
 
