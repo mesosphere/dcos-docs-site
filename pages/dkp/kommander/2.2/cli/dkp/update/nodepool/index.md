@@ -29,7 +29,7 @@ Upate a Kubernetes cluster node pool, one of [aws, azure, preprovisioned]
 
 ### SEE ALSO
 
-* [dkp update](/dkp/kommander/2.2/cli/dkp/update/)	 - Update one of [bootstrap (cluster)]
+* [dkp update](/dkp/kommander/2.2/cli/dkp/update/)	 - Update one of [bootstrap (cluster), controlplane, nodepool]
 * [dkp update nodepool aws](/dkp/kommander/2.2/cli/dkp/update/nodepool/aws/)	 - Update a Konvoy cluster node pool in AWS
 * [dkp update nodepool azure](/dkp/kommander/2.2/cli/dkp/update/nodepool/azure/)	 - Update a Konvoy cluster node pool in Azure
 * [dkp update nodepool preprovisioned](/dkp/kommander/2.2/cli/dkp/update/nodepool/preprovisioned/)	 - Update a Konvoy cluster node pool in Preprovisioned

@@ -42,7 +42,7 @@ Move one of [capi-resources]
 * [dkp push](/dkp/kommander/2.2/cli/dkp/push/)	 - Push one of [chart, chart-bundle, image-bundle]
 * [dkp scale](/dkp/kommander/2.2/cli/dkp/scale/)	 - Scale one of [nodepool]
 * [dkp serve](/dkp/kommander/2.2/cli/dkp/serve/)	 - Serve an image registry
-* [dkp update](/dkp/kommander/2.2/cli/dkp/update/)	 - Update one of [bootstrap (cluster)]
-* [dkp upgrade](/dkp/kommander/2.2/cli/dkp/upgrade/)	 - Upgrade one of [capi-components, catalogapp, kommander, workspace]
+* [dkp update](/dkp/kommander/2.2/cli/dkp/update/)	 - Update one of [bootstrap (cluster), controlplane, nodepool]
+* [dkp upgrade](/dkp/kommander/2.2/cli/dkp/upgrade/)	 - Upgrade one of [addons, capi-components, catalogapp, kommander, workspace]
 * [dkp version](/dkp/kommander/2.2/cli/dkp/version/)	 - Print version information
 

@@ -40,5 +40,5 @@ dkp upgrade catalogapp CATALOGAPP_NAME --to-version VERSION [--workspace WORKSPA
 
 ### SEE ALSO
 
-* [dkp upgrade](/dkp/kommander/2.2/cli/dkp/upgrade/)	 - Upgrade one of [capi-components, catalogapp, kommander, workspace]
+* [dkp upgrade](/dkp/kommander/2.2/cli/dkp/upgrade/)	 - Upgrade one of [addons, capi-components, catalogapp, kommander, workspace]
 
