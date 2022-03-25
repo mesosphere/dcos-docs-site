@@ -18,24 +18,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 - If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
 - Review the [Platform Application version updates][release_notes] that are part of this upgrade.
 - For air-gapped environments only: Download the [images bundle][images_bundle], [charts bundle][charts_bundle] and [Catalog Application charts bundle][cat_apps_bundle].  
-
-## For air-gapped environments only: Load the Docker images into your Docker registry
-
-1.  Download the image bundle file:
-
-    ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/v2.2.0/kommander_image_bundle_v2.2.0_linux_amd64.tar.gz" -O kommander-image-bundle.tar.gz
-    ```
-
-1.  Place the bundle in a location from where you can push the images to your private Docker registry.
-
-1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
-
-    ```bash
-    dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
-    ```
-
-It can take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
+- For air-gapped environments only: [Load the Docker images into your Docker registry][load_images]
 
 ## Upgrade Kommander
 
@@ -77,4 +60,4 @@ Before running the following command, ensure that your `dkp` configuration **ref
 [charts_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz
 [cat_apps_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz
 [konvoy_upgrade]: /dkp/kommander/2.2/dkp-upgrade/upgrade-konvoy/
-
+[load_images]: ../../install/air-gapped/#load-the-docker-images-into-your-docker-registry
