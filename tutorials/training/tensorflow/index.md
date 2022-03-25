@@ -447,7 +447,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow-dev:0eb3392b-tensorflow-2.5.0-gpu
+FROM mesosphere/kubeflow-dev:7b771523-tensorflow-2.8.0-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -464,11 +464,11 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow-dev:7a344a71-mnist-tensorflow-2.5.0-gpu` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow-dev:51d57053-mnist-tensorflow-2.8.0-gpu` in case you want to skip it for now.
 
 
 ```python
-%env IMAGE mesosphere/kubeflow-dev:7a344a71-mnist-tensorflow-2.5.0-gpu
+%env IMAGE mesosphere/kubeflow-dev:51d57053-mnist-tensorflow-2.8.0-gpu
 ```
 
 ## How to Create a Distributed `TFJob`

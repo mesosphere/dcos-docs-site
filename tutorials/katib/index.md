@@ -164,7 +164,7 @@ The following YAML file describes an `Experiment` object:
 
 
 ```python
-%env IMAGE mesosphere/kubeflow-dev:7a344a71-mnist-tensorflow-2.5.0-gpu
+%env IMAGE mesosphere/kubeflow-dev:51d57053-mnist-tensorflow-2.8.0-gpu
 ```
 
 
@@ -276,7 +276,7 @@ Again, use a random search:
 
 
 ```python
-%env IMAGE mesosphere/kubeflow-dev:68283462-mnist-pytorch-1.7.1-gpu
+%env IMAGE mesosphere/kubeflow-dev:d6b2c5c6-mnist-pytorch-1.11.0-gpu
 ```
 
 

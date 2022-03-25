@@ -1,4 +1,4 @@
-much change ---
+---
 layout: layout.pug
 navigationTitle: Kaptain 1.3.0
 title: Welcome to Kaptain 1.3.0

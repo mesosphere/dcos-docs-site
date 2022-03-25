@@ -409,14 +409,17 @@ if __name__ == "__main__":
 
 
 ## Define the Model
-The central abstraction of the Kaptain SDK is a `Model` class that encapsulates all the configuration and high-level APIs required for the model training, tuning, and serving. Prior to creating an instance of the `Model` class, let's consider an example where we need to specify additional dependecies required for model training, tuning and serving, and also provide minimal required configuration for the model server.
+The central abstraction of the Kaptain SDK is a `Model` class that encapsulates all the configuration and high-level APIs required for the model training, tuning, and serving. Prior to creating an instance of the `Model` class, let's consider an example where we need to specify additional dependencies required for model training, tuning and serving, and also provide minimal required configuration for the model server.
 
 Model dependencies can be provided via pip `requirements.txt`. For example:
 
 
 ```python
 %%writefile requirements.txt
-fastai==2.5.2
+# specify additional dependencies to be installed into model Docker image
+
+# fastai
+# torch
 ```
 
     Writing requirements.txt

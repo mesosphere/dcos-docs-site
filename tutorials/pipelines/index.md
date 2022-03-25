@@ -102,8 +102,8 @@ kind: Secret
 metadata:
   name: minio-s3-secret
   annotations:
-     serving.kubeflow.org/s3-endpoint: minio.kubeflow
-     serving.kubeflow.org/s3-usehttps: "0" # Default: 1. Must be 0 when testing with MinIO!
+     serving.kserve.io/s3-endpoint: minio.kubeflow
+     serving.kserve.io/s3-usehttps: "0" # Default: 1. Must be 0 when testing with MinIO!
 type: Opaque
 data:
   awsAccessKeyID: bWluaW8=
