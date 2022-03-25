@@ -62,7 +62,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
 1.  < --!Pending step: if confirmation message cannot be added on time, document a way to check the status of the upgrade in Management Cluster. --! >
 
 1.  For Enterprise customers: Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster. 
-For Essential customers: Proceed with the [Konvoy Upgrade][konvoy_upgrade]. < --! we need to reference this file once it is created-->
+    For Essential customers: Proceed with the [Konvoy Upgrade][konvoy_upgrade].
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
@@ -76,3 +76,5 @@ For Essential customers: Proceed with the [Konvoy Upgrade][konvoy_upgrade]. < --
 [images_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/kommander_image_bundle_v2.2.0_linux_amd64.tar.gz
 [charts_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz
 [cat_apps_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz
+[konvoy_upgrade]: /dkp/kommander/2.2/dkp-upgrade/upgrade-konvoy/
+
