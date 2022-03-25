@@ -18,25 +18,21 @@ When upgrading DKP, the process is different depending on if you run a stand-alo
 
 The overall process for upgrading to the latest version of DKP must be done on each cluster, and has the following high-level steps:
 
-### For Kommander
+    * For Kommander, on your Management cluster:
 
-* On your Management cluster:
-
-1.  [Upgrade Kommander][upgrade_kommander], which upgrades all Platform applications.
+1.  [**Upgrade Kommander**][upgrade_kommander], which upgrades all Platform applications.
 
     If you don't have any Managed or Attached clusters, skip to upgrading Konvoy.
 
-* On your Workspaces (which include Management and Managed clusters):
+    * For Kommander, on your Workspaces (which include Management and Managed clusters):
 
-1.  [Upgrade Kommander on your Workspaces][upgrade_workspaces], which upgrades all Platform applications on your Workspace clusters (Workspace clusters can include Attached and Managed clusters).
+1.  [**Upgrade Kommander on your Workspaces**][upgrade_workspaces], which upgrades all Platform applications on your Workspace clusters (Workspace clusters can include Attached and Managed clusters).
 
-1.  [Upgrade all DKP Catalog applications][catalog_apps] deployed to any Workspaces or Projects.
+1.  [**Upgrade all DKP Catalog applications**][catalog_apps] deployed to any Workspaces or Projects.
 
-1.  [Verify any Custom Catalog applications][custom_apps] and ensure they are compatible with the current Kubernetes version.
+1.  [**Verify any Custom Catalog applications**][custom_apps] and ensure they are compatible with the current Kubernetes version.
 
-### For Konvoy
-
-* On your Management cluster:
+    * For Konvoy, on your Management cluster:
 
 1.  [**Upgrade Konvoy’s CAPI components**][]. This upgrades the CAPI controllers, which only run on the Management Cluster.
 
@@ -46,7 +42,7 @@ The overall process for upgrading to the latest version of DKP must be done on e
 
     If you don't have any Managed or Attached clusters, you have finished the upgrade process and can start testing your environment. If you have Managed clusters, continue with the next section.
 
-* On your Managed clusters:
+    * For Konvoy, on your Managed clusters:
 
 1.  [**Upgrade the Core Addons**][]. This upgrades multiple addons such as CSI, CNI, Cluster Autoscaler, and Node Feature Discovery.
 
