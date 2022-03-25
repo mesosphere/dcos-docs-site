@@ -22,7 +22,7 @@ The overall process for upgrading to the latest version of DKP has the following
 
 1.  [Upgrade Kommander][upgrade_kommander]. This takes place in your Management Cluster and includes the upgrade of your Platform Applications in that cluster.
 
-1.  [Upgrade your Workspaces][upgrade-workspaces] on a per-Workspace basis, if your environment has additional Workspaces (with Managed or Attached clusters).
+1.  For Enterprise customers only: [Upgrade your Workspaces][upgrade_workspaces] on a per-Workspace basis.
 
 1.  [Upgrade all DKP Catalog applications][catalog_apps] that may be deployed to any Workspaces or Projects.
 
