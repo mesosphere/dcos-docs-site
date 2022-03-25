@@ -7,7 +7,6 @@ excerpt: Steps to upgrade Konvoy via CLI
 beta: false
 ---
  
-This section describes how to upgrade your Konvoy clusters to the latest versions. To prevent compatibility issues, review and ensure you are following the correct upgrade for customers with an [Enterprise][enterprise_upgrade] or [Essential][essential_upgrade] license.
+This section describes how to upgrade your DKP clusters to the latest Konvoy version. To prevent compatibility issues, review and ensure you are following the correct [upgrade process][dkp_upgrade] for customers with a single-cluster or multi-cluster experience.
 
-[enterprise_upgrade]: /dkp/kommander/2.2/dkp-upgrade/enterprise-upgrade
-[essential_upgrade]: /dkp/kommander/2.2/dkp-upgrade/essential-upgrade
+[dkp_upgrade]: /dkp/kommander/2.2/dkp-upgrade/
