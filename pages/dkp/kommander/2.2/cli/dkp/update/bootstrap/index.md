@@ -29,6 +29,6 @@ Update bootstrap cluster
 
 ### SEE ALSO
 
-* [dkp update](/dkp/kommander/2.2/cli/dkp/update/)	 - Update one of [bootstrap (cluster)]
+* [dkp update](/dkp/kommander/2.2/cli/dkp/update/)	 - Update one of [bootstrap (cluster), controlplane, nodepool]
 * [dkp update bootstrap credentials](/dkp/kommander/2.2/cli/dkp/update/bootstrap/credentials/)	 - Update credentials in the cluster
 
