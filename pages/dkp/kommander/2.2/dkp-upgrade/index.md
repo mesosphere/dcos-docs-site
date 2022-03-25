@@ -7,7 +7,7 @@ excerpt: Upgrade DKP to the latest version
 beta: false
 ---
 
-The DKP upgrade process applies to air-gapped and on-prem environments. It represents an important step of your environment's lifecycle, as it ensures that you are up-to-date with the latest features and can benefit from the latest improvements, enhanced cluster management, and better performance. This section describes how to upgrade your environment to the latest version of DKP.
+The DKP upgrade represents an important step of your environment's lifecycle, as it ensures that you are up-to-date with the latest features and can benefit from the latest improvements, enhanced cluster management, and better performance. This section describes how to upgrade your networked, air-gapped or on-prem environment to the latest version of DKP. 
 
 <p class="message--warning"><strong>WARNING: </strong>Upgrade your Platform applications and Catalog applications before proceeding. Some applications in the previous release do not support Kubernetes 1.22, and upgrading Kubernetes to 1.22 is part of the Konvoy upgrade process.
 </p>
