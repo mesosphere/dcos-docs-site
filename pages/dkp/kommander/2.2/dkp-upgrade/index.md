@@ -22,9 +22,9 @@ The overall process for upgrading to the latest version of DKP must be done on e
 
 1.  [**Upgrade Kommander**][upgrade_kommander], which upgrades all Platform applications.
 
-    If you don't have any Managed or Attached clusters, skip to upgrading Konvoy.
+    If you do not have any Managed or Attached clusters, skip to upgrading Konvoy.
 
-    * For Kommander, on your Workspaces (which include Management and Managed clusters):
+    - For Kommander, on your Workspaces (which include Management and Managed clusters):
 
 1.  [**Upgrade Kommander on your Workspaces**][upgrade_workspaces], which upgrades all Platform applications on your Workspace clusters (Workspace clusters can include Attached and Managed clusters).
 
@@ -32,7 +32,7 @@ The overall process for upgrading to the latest version of DKP must be done on e
 
 1.  [**Verify any Custom Catalog applications**][custom_apps] and ensure they are compatible with the current Kubernetes version.
 
-    * For Konvoy, on your Management cluster:
+    - For Konvoy, on your Management cluster:
 
 1.  [**Upgrade Konvoy’s CAPI components**][]. This upgrades the CAPI controllers, which only run on the Management Cluster.
 
@@ -40,15 +40,15 @@ The overall process for upgrading to the latest version of DKP must be done on e
 
 1.  [**Upgrade the Kubernetes version**][]. This upgrades your cluster’s control plane & node pools.
 
-    If you don't have any Managed or Attached clusters, you have finished the upgrade process and can start testing your environment. If you have Managed clusters, continue with the next section.
+    If you do not have any Managed or Attached clusters, you have finished the upgrade process and can start testing your environment. If you have Managed clusters, continue with the next section.
 
-    * For Konvoy, on your Managed clusters:
+    - For Konvoy, on your Managed clusters:
 
 1.  [**Upgrade the Core Addons**][]. This upgrades multiple addons such as CSI, CNI, Cluster Autoscaler, and Node Feature Discovery.
 
 1.  [**Upgrade the Kubernetes version**][]. This upgrades your cluster’s control plane & node pools. You may also want to upgrade your Kubernetes version on any Attached clusters.
 
-[upgrade_kommander]: /dkp/kommander/2.2/dkp-upgrade/upgrade-kommander/
-[upgrade_workspaces]:
+<!-- [custom_apps]: -->
 [catalog_apps]: ../workspaces/applications/catalog-applications/
-[custom_apps]:
+[upgrade_kommander]: /dkp/kommander/2.2/dkp-upgrade/upgrade-kommander/
+<!-- [upgrade_workspaces]: -->
