@@ -26,7 +26,7 @@ dkp create nodepool aws [flags]
       --additional-tags stringToString          Tags to apply to the provisioned infrastructure (default [])
       --allow-missing-template-keys             If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
       --ami string                              AMI ID to use for nodepool nodes
-      --ami-base-os string                      Base OS for Lookup search (ex. 'centos-7', 'ubuntu-18.04', 'ubuntu-20.04') (default "centos-7")
+      --ami-base-os string                      Base OS for Lookup search (ex. 'centos-7', 'ubuntu-18.04', 'ubuntu-20.04') (default "ubuntu-20.04")
       --ami-format string                       Lookup Format string to generate AMI search name from (ex. 'capa-ami-{{.BaseOS}}-?{{.K8sVersion}}-*') (default "capa-ami-{{.BaseOS}}-?{{.K8sVersion}}-*")
       --ami-owner string                        Owner ID for AMI Lookup search (ex. '258751437250') (default "258751437250")
   -c, --cluster-name name                       Name used to prefix the cluster and all the created resources.
@@ -37,7 +37,7 @@ dkp create nodepool aws [flags]
       --iam-instance-profile string             Name of the IAM instance profile to assign to the machines. (default "nodes.cluster-api-provider-aws.sigs.k8s.io")
       --instance-type string                    Machine instance type (ex. 't3.large') (default "m5.2xlarge")
       --kubeconfig string                       Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --kubernetes-version string               Kubernetes version (default "1.21.6")
+      --kubernetes-version string               Kubernetes version (default "1.22.8")
   -n, --namespace string                        If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                        No Proxy list for nodes (default [])
   -o, --output string                           Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.

@@ -26,7 +26,7 @@ dkp create bootstrap [flags]
   -h, --help                             help for bootstrap
       --http-proxy string                HTTP proxy for CAPI controllers
       --https-proxy string               HTTPS proxy for CAPI controllers
-      --kind-cluster-image string        Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v0.0.0-dev.0")
+      --kind-cluster-image string        Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v2.2.0-rc.1")
       --kind-cluster-name string         Kind cluster name for the bootstrap cluster (default "konvoy-capi-bootstrapper")
       --kubeconfig string                Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --no-proxy strings                 No Proxy list for CAPI controllers (default [])

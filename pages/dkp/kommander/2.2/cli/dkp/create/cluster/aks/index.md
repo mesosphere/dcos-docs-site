@@ -39,11 +39,11 @@ dkp create cluster aks [flags]
   -h, --help                                 help for aks
       --http-proxy string                    HTTP proxy for CAPI controllers
       --https-proxy string                   HTTPS proxy for CAPI controllers
-      --kind-cluster-image string            Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v0.0.0-dev.0")
+      --kind-cluster-image string            Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v2.2.0-rc.1")
       --kind-cluster-name string             Kind cluster name for the bootstrap cluster (default "konvoy-capi-bootstrapper")
       --kubeconfig string                    Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string   The image repository to use for pulling kubernetes images
-      --kubernetes-version string            Kubernetes version (default "1.21.7")
+      --kubernetes-version string            Kubernetes version (default "1.22.6")
       --location string                      Azure location to deploy cluster to (default "westus")
   -n, --namespace string                     If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                     No Proxy list for CAPI controllers (default [])
