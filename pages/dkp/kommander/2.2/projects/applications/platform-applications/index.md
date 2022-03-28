@@ -12,7 +12,9 @@ The following table describes the list of applications that can be deployed to a
 Review the [project application service resource requirements](./platform-application-requirements/) to ensure that the attached clusters have sufficient resources.
 -->
 
-### Deploy applications in a project
+When deploying and upgrading applications, platform applications come as a bundle; they are tested as a single unit and you must deploy or upgrade them in a single process, for each workspace. This means all clusters in a workspace have the same set and versions of platform applications deployed.
+
+## Deploy applications in a project
 
 You can select which applications to deploy in a project by going to the **Applications** tab of the project.
 
@@ -27,3 +29,13 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 | project-grafana-logging-6.16.14 | project-grafana-logging | False               |
 | project-grafana-loki-0.33.1    | project-grafana-loki    | False               |
 | project-logging-1.0.0          | project-logging         | False               |
+
+## Upgrade Platform applications from the CLI
+
+Platform applications are deployed and upgraded as a set for each cluster or workspace. For the management cluster or workspace, Platform applications are automatically upgraded with the [DKP upgrade](../../../../dkp-upgrade) procedure; no other steps are necessary for the management cluster or workspace. For attached/managed clusters or workspaces, you MUST manually upgrade Platform applications bundle.
+
+Upgrade all platform applications in the given workspace and its projects to the same version as platform applications running on the management cluster with this command:
+
+```
+dkp upgrade workspace WORKSPACE_NAME [--dry-run] [flags]
+```
