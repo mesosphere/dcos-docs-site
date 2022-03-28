@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Upgrade Konvoy
 title: Upgrade Konvoy
-menuWeight: 40
+menuWeight: 60
 excerpt: Steps to upgrade Konvoy via CLI
 beta: false
 ---
