@@ -22,7 +22,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 - For air-gapped environments only: Download the Kommander charts bundle: 
 
 ```bash
-wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz"
+wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_v2.2.0.tar.gz"
 ```
 
 - For air-gapped environments only: Download the Kommander application definitions:
