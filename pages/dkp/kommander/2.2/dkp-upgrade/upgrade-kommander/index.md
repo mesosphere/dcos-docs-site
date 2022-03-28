@@ -55,8 +55,10 @@ Before running the following command, ensure that your `dkp` configuration **ref
     dkp upgrade kommander -v/verbose
     ```
 
-1.  For Enterprise customers (single-cluster environment): Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster. 
-    For Essential customers (multi-cluster environment): Proceed with the [Konvoy Upgrade][konvoy_upgrade].
+1.  For Enterprise customers (multi-cluster environment): Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster. 
+    For Essential customers (single-cluster environment): Proceed with the [Konvoy Upgrade][konvoy_upgrade].
+
+You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the next steps depending on your environment and license type.
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
@@ -72,3 +74,4 @@ Before running the following command, ensure that your `dkp` configuration **ref
 [cat_apps_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz
 [konvoy_upgrade]: /dkp/kommander/2.2/dkp-upgrade/upgrade-konvoy/
 [load_images]: ../../install/air-gapped/#load-the-docker-images-into-your-docker-registry
+[dkp_upgrade]: ../../dkp-upgrade/
