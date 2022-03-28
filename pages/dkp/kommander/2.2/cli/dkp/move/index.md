@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp move
 title:  dkp move
 menuWeight: 10
-excerpt: Command "move" is deprecated, use "dkp move capi-resources" instead
+excerpt: Move one of [capi-resources]
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -12,6 +12,10 @@ beta: false
 <!-- markdownlint-disable -->
 
 ## dkp move
+
+Move one of [capi-resources]
+
+### Synopsis
 
 Command "move" is deprecated, use "dkp move capi-resources" instead
 Move one of [capi-resources]

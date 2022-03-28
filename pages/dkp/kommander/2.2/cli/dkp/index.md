@@ -36,8 +36,7 @@ beta: false
 * [dkp get](/dkp/kommander/2.2/cli/dkp/get/)	 - Get one of [appdeployments, chart, clusters, kubeconfig, nodepools, workspaces]
 * [dkp import](/dkp/kommander/2.2/cli/dkp/import/)	 - Import images from an image bundle into Containerd
 * [dkp install](/dkp/kommander/2.2/cli/dkp/install/)	 - Install one of [kommander]
-* [dkp move](/dkp/kommander/2.2/cli/dkp/move/)	 - Command "move" is deprecated, use "dkp move capi-resources" instead
-Move one of [capi-resources]
+* [dkp move](/dkp/kommander/2.2/cli/dkp/move/)	 - Move one of [capi-resources]
 * [dkp open](/dkp/kommander/2.2/cli/dkp/open/)	 - Open one of [dashboard]
 * [dkp push](/dkp/kommander/2.2/cli/dkp/push/)	 - Push one of [chart, chart-bundle, image-bundle]
 * [dkp scale](/dkp/kommander/2.2/cli/dkp/scale/)	 - Scale one of [nodepool]
