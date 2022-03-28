@@ -55,8 +55,8 @@ Before running the following command, ensure that your `dkp` configuration **ref
     dkp upgrade kommander -v/verbose
     ```
 
-1.  For Enterprise customers: Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster. 
-    For Essential customers: Proceed with the [Konvoy Upgrade][konvoy_upgrade].
+1.  For Enterprise customers (single-cluster environment): Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster. 
+    For Essential customers (multi-cluster environment): Proceed with the [Konvoy Upgrade][konvoy_upgrade].
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
