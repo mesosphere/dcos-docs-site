@@ -49,6 +49,12 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
 1.  <!-- Pending step: if confirmation message cannot be added on time, document a way to check the status of the upgrade in Management Cluster. -->
 
+1.  If the upgrade fails, run the following command to get more information on the upgrade process:
+
+    ```bash
+    dkp upgrade kommander -v/verbose
+    ```
+
 1.  For Enterprise customers: Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster. 
     For Essential customers: Proceed with the [Konvoy Upgrade][konvoy_upgrade].
 
