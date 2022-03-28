@@ -28,7 +28,7 @@ wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_v2.2.0.ta
 - For air-gapped environments only: Download the Kommander application definitions:
 
 ```bash
-wget "https://downloads.mesosphere.com/dkp/kommander-applications_${VERSION}.tar.gz"
+wget "https://downloads.mesosphere.com/dkp/kommander-applications_v2.2.0.tar.gz"
 ```
 
 ## Upgrade Kommander
