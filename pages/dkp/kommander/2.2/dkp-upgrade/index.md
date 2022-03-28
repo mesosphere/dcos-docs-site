@@ -9,7 +9,7 @@ beta: false
 
 The DKP upgrade represents an important step of your environment's lifecycle, as it ensures that you are up-to-date with the latest features and can benefit from the latest improvements, enhanced cluster management, and better performance. This section describes how to upgrade your networked, air-gapped or on-prem environment to the latest version of DKP.
 
-<p class="message--warning"><strong>WARNING: </strong>Upgrade your Platform applications and Catalog applications before proceeding. Some applications in the previous release do not support Kubernetes 1.22, and upgrading Kubernetes to 1.22 is part of the Konvoy upgrade process.
+<p class="message--warning"><strong>WARNING: </strong>Upgrade your Platform applications and Catalog applications before proceeding. Some applications in the previous release do not support the [current version of Kubernetes][release_notes], and upgrading Kubernetes is part of the Konvoy upgrade process.
 </p>
 
 ## Understand the upgrade process
@@ -51,4 +51,5 @@ The overall process for upgrading to the latest version of DKP must be done on e
 <!-- [custom_apps]: -->
 [catalog_apps]: ../workspaces/applications/catalog-applications/
 [upgrade_kommander]: /dkp/kommander/2.2/dkp-upgrade/upgrade-kommander/
+[release_notes]: ../release-notes
 <!-- [upgrade_workspaces]: -->
