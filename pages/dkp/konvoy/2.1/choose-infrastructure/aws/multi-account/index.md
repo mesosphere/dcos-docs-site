@@ -74,8 +74,6 @@ dkp create cluster eks --cluster-name=${CLUSTER_NAME} \
 ```
 (EKS)
 
----
-
 ### Step 2:
 Configure a trust relationship between the source and target accounts.
 
@@ -92,7 +90,7 @@ Configure a trust relationship between the source and target accounts.
     c. Navigate to the Trust Relationship tab and click Edit Trust Relationship    
     d. Add the following relationship  
 
-```sh
+```bash
 {
   "Effect": "Allow",
   "Principal": {
@@ -105,7 +103,7 @@ Configure a trust relationship between the source and target accounts.
 3. Give permission to role in the source (management cluster) account to call sts:AssumeRole API    
     a. Login to source AWS account and attach the following inline policy to control-plane.cluster-api-provider-aws.sigs.k8s.io role
 
-```sh
+```bash
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -123,7 +121,7 @@ Configure a trust relationship between the source and target accounts.
 
 4. Modify the management cluster configuration file and update the AWSCluster object with following details
 
-```sh
+```bash
 apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
 kind: AWSCluster
 metadata:
