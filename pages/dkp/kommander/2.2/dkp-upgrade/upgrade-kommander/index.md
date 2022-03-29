@@ -45,9 +45,9 @@ Before running the following command, ensure that your `dkp` configuration **ref
     dkp upgrade kommander
     ```
 
-    <!-- A confirmation message appears once upgrade is complete. -->
-
-1.  <!-- Pending step: if confirmation message cannot be added on time, document a way to check the status of the upgrade in Management Cluster. -->
+    An output similar to this appears: 
+    
+    <!-- output missing! -->
 
 1.  If the upgrade fails, run the following command to get more information on the upgrade process:
 
