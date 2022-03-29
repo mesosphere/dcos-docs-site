@@ -9,14 +9,15 @@ beta: false
 
 The DKP upgrade represents an important step of your environment's lifecycle, as it ensures that you are up-to-date with the latest features and can benefit from the latest improvements, enhanced cluster management, and better performance. This section describes how to upgrade your networked, air-gapped or on-prem environment to the latest version of DKP.
 
-<p class="message--warning"><strong>WARNING: </strong>Upgrade your Platform Applications and Catalog Applications before proceeding. Some applications in the previous release do not support the [current version of Kubernetes][release_notes], and upgrading Kubernetes is part of the Konvoy upgrade process.
-</p>
-
 ## Understand the upgrade process
 
-When upgrading DKP, the process is different depending on if you run a stand-alone Management Cluster, or if you run a multi-cluster environment that includes a combination of a Management Cluster and Workspace Clusters (Attached or Managed Clusters).
+For this release, you perform the upgrade sequentially beginning with DKP Kommander and then moving to DKP Konvoy.
 
-The overall process for upgrading to the latest version of DKP must be done on each Workspace or cluster, and has the following high-level steps.
+When upgrading DKP, the process is different depending on if you run a stand-alone Management Cluster, or if you run a multi-cluster environment that includes a combination of a Management Cluster and Workspace Clusters (Attached or Managed Clusters). 
+
+Start with your Management Cluster in Kommander, and then proceed, Workspace by Workspace, if any. Then you can move to upgrading Konvoy, cluster by cluster.
+
+The overall process for upgrading to the latest version of DKP is done on each Workspace or cluster, and has the following high-level steps;
 
    For **Kommander**, on your Management Cluster:
 
