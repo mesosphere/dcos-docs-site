@@ -14,9 +14,9 @@ The DKP upgrade represents an important step of your environment's lifecycle, as
 
 ## Understand the upgrade process
 
-When upgrading DKP, the process is different depending on if you run a stand-alone Management Cluster, or if you run a multi-cluster environment that includes a combination of a Management Cluster and Workspace Clusters, which include Attached or Managed Clusters.
+When upgrading DKP, the process is different depending on if you run a stand-alone Management Cluster, or if you run a multi-cluster environment that includes a combination of a Management Cluster and Workspace Clusters (Attached or Managed Clusters).
 
-The overall process for upgrading to the latest version of DKP must be done on each cluster, and has the following high-level steps.
+The overall process for upgrading to the latest version of DKP must be done on each Workspace or cluster, and has the following high-level steps.
 
    For **Kommander**, on your Management Cluster:
 
