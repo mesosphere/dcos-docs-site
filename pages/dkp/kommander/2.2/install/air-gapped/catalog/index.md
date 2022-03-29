@@ -174,13 +174,13 @@ export VERSION=v2.2.0
 1.  Download the Kommander image bundle file:
 
     ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar.gz" -O kommander-image-bundle.tar.gz
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-image-bundle-${VERSION}.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
 1.  Download the [DKP catalog applications][dkp_catalog_applications] image bundle file:
 
     ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/catalog_applications_image_bundle_${VERSION}_linux_amd64.tar.gz" -O catalog-applications-image-bundle.tar.gz
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-catalog-applications-image-bundle-${VERSION}.tar.gz" -O catalog-applications-image-bundle.tar.gz
     ```
 
 1.  Place the bundles in a location where you can load and push the images to your private Docker registry.
@@ -219,19 +219,19 @@ It may take a while to push all the images to your image registry, depending on 
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.mesosphere.com/dkp/kommander-applications_${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-applications_${VERSION}.tar.gz"
     ```
 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-kommander-charts-bundle-${VERSION}.tar.gz"
     ```
 
 1.  Download the [DKP catalog applications][dkp_catalog_applications] chart bundle:
 
     ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-catalog-applications-charts-bundle-${VERSION}.tar.gz"
     ```
 
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
