@@ -22,19 +22,21 @@ This section describes how to upgrade your Kommander Management cluster and all 
   
   Download the Kommander application definitions:
 
-```bash
-wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications_v2.2.0.tar.gz"
-```
+  ```bash
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications_v2.2.0.tar.gz"
+  ```
+  
   Download the Kommander charts bundle:
 
-```bash
-wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz"
-```
+  ```bash
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz"
+  ```
+  
   If you have any Catalog Applications, download the Catalog Application charts bundle:
 
-```bash
-wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz"
-```
+  ```bash
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz"
+  ```
 
 ## Upgrade Kommander
 
@@ -47,13 +49,13 @@ Before running the following command, ensure that your `dkp` configuration **ref
     For air-gapped:
 
     ```bash
-    dkp upgrade kommander --charts-bundle bundle.tar.gz
+    dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle_v.2.2.0.tar.gz --kommander-applications-repository kommander-applications_v.2.2.0.tar.gz
     ```
 
     For non air-gapped:
 
     ```bash
-    dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle_v.2.2.0.tar.gz --kommander-applications-repository kommander-applications_v.2.2.0.tar.gz
+    dkp upgrade kommander 
     ```
 
     An output similar to this appears: 
