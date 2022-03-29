@@ -10,6 +10,10 @@ enterprise: false
 
 # Leverage Multiple AWS Accounts for Kubernetes Cluster Deployments
 
+*Estimated Read Time: 4 minutes*
+
+---
+
 ## Objective
 
 You can leverage multiple AWS accounts in your organization to meet specific business purposes, reflect your organizational structure, or implement a multi-tenancy strategy. Specific scenarios include:
@@ -83,7 +87,7 @@ Configure a trust relationship between the source and target accounts.
 ***Follow all the prerequisite steps in both the source and target accounts***
 
 1. Create all policies and roles in management and workload accounts  
-   The prerequisite IAM policies for DKP are documented here: [whitepaper](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/iam-policies//)
+   a. The prerequisite IAM policies for DKP are documented here: [whitepaper](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/iam-policies/)
  
 2. Establish a trust relationship in workload account for the management account
   
