@@ -27,10 +27,22 @@ Follow these steps to upgrade an application from the DKP Dashboard:
 
 Depending in which environment an application runs, execute the appropriate command for each catalog application that you need to upgrade:
 
-- Workspace: `dkp upgrade appdeployment <app-name> --workspace=my-workspace --to-version=<version.number>`
+-   Workspace:
 
-- Project: `dkp upgrade appdeployment <app-name> --workspace=my-workspace --project=my-project --to-version=<version.number>` 
+    ```bash
+    dkp upgrade appdeployment <app-name> --workspace=my-workspace --to-version=<version.number>
+    ```
 
-For example, `dkp upgrade appdeployment kafka-operator --workspace=my-workspace --project=my-project --to-version=0.20.2` upgrades the Kafka application in a project to version 0.20.2.
+-   Project:
+
+    ```bash
+    dkp upgrade appdeployment <app-name> --workspace=my-workspace --project=my-project --to-version=<version.number>
+    ```
+
+For example, the following command upgrades the Kafka Operator application in a workspace to version `0.20.2`:
+
+```bash
+dkp upgrade appdeployment kafka-operator --workspace=my-workspace --to-version=0.20.2
+```
 
 <p class="message--note"><strong>NOTE: Platform applications cannot be upgraded on a one-off basis, and must be upgraded in a single process for each workspace. If you attempt to upgrade a platform application with these commands, you receive an error and the application is not upgraded.</p>
