@@ -67,7 +67,7 @@ You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
 [pre_provisioned]: /dkp/konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
 [k8s_access_to_clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
-[upgrade_workspaces]: ../../workspaces/applications/catalog-applications/
+[upgrade_workspaces]: ../../cli/dkp/upgrade/workspace
 [release_notes]: ../../release-notes/
 [images_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/kommander_image_bundle_v2.2.0_linux_amd64.tar.gz
 [charts_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz
