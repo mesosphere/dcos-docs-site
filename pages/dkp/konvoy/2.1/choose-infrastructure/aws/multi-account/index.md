@@ -7,11 +7,8 @@ excerpt: Leverage Multiple AWS Accounts for Kubernetes Cluster Deployments
 beta: false
 enterprise: false
 ---
-![logo](logo.jpg)
 
-# **Leverage Multiple AWS Accounts for Kubernetes Cluster Deployments**
-
-*Estimated Read Time: 4 minutes*
+# Leverage Multiple AWS Accounts for Kubernetes Cluster Deployments
 
 ## Objective
 
@@ -26,6 +23,7 @@ You can see the additional benefits of using multiple AWS accounts in the follow
 This document describes how to leverage the D2iQ Kubernetes Platform (DKP) to deploy a management cluster, and multiple workload clusters, leveraging multiple AWS accounts.
 
 ## Assumptions
+
 This guide assumes you have some understanding of Cluster API concepts and basic DKP provisioning workflows on AWS.
 
 Cluster API Concepts - [cluster API concepts](https://cluster-api.sigs.k8s.io/user/concepts.html)
@@ -33,6 +31,7 @@ Cluster API Concepts - [cluster API concepts](https://cluster-api.sigs.k8s.io/us
 Getting Started with DKP on AWS - [getting started on AWS](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/)
 
 ## Glossary
+
 * **Management cluster** - The cluster that runs in AWS and is used to create target clusters in different AWS accounts.
 * **Target account** - The account where the target cluster is created.
 * **Source account** - The AWS account where the CAPA controllers for the management cluster runs.
@@ -45,17 +44,19 @@ Before you begin deploying DKP on AWS, you must:
 
 ## Deploy DKP on AWS
 
-1. Deploy a management cluster in the AWS account (source account)
+1. Deploy a management cluster in your AWS source account.
 2. Configure a trusted relationship between source and target accounts.
-Create a management cluster:
+3. Create a management cluster:
+
 * **AWS:** [create Kubernetes AWS cluster](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws/#create-a-new-aws-kubernetes-cluster)
 * **EKS:** [create Kubernetes EKS cluster](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/eks/quick-start/#create-a-new-eks-kubernetes-cluster)
 
 ### Step 1:
+
 DKP leverages the Cluster API provider for AWS (CAPA) to provision Kubernetes clusters in a declarative way. Customers declare the desired state of the cluster through a cluster configuration YAML file which is generated using:
 
 ---
-```
+```sh
 dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
 --dry-run \
 --output=yaml \
@@ -65,7 +66,7 @@ dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
 
 ---
 
-```
+```sh
 dkp create cluster eks --cluster-name=${CLUSTER_NAME} \
 --dry-run \
 --output=yaml \
@@ -82,7 +83,7 @@ Configure a trust relationship between the source and target accounts.
 ***Follow all the prerequisite steps in both the source and target accounts***
 
 1. Create all policies and roles in management and workload accounts  
-    a. The prerequisite IAM policies for DKP are documented here: [whitepaper](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/iam-policies//)
+   The prerequisite IAM policies for DKP are documented here: [whitepaper](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/iam-policies//)
  
 2. Establish a trust relationship in workload account for the management account
   
@@ -91,7 +92,7 @@ Configure a trust relationship between the source and target accounts.
     c. Navigate to the Trust Relationship tab and click Edit Trust Relationship    
     d. Add the following relationship  
 
-```
+```sh
 {
   "Effect": "Allow",
   "Principal": {
@@ -104,7 +105,7 @@ Configure a trust relationship between the source and target accounts.
 3. Give permission to role in the source (management cluster) account to call sts:AssumeRole API    
     a. Login to source AWS account and attach the following inline policy to control-plane.cluster-api-provider-aws.sigs.k8s.io role
 
-```
+```sh
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -122,7 +123,7 @@ Configure a trust relationship between the source and target accounts.
 
 4. Modify the management cluster configuration file and update the AWSCluster object with following details
 
-```
+```sh
 apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
 kind: AWSCluster
 metadata:
