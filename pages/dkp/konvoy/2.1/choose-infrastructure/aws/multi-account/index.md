@@ -10,7 +10,6 @@ enterprise: false
 
 # Leverage Multiple AWS Accounts for Kubernetes Cluster Deployments
 
-*Estimated Read Time: 4 minutes*
 
 ---
 
@@ -59,8 +58,7 @@ Before you begin deploying DKP on AWS, you must:
 
 DKP leverages the Cluster API provider for AWS (CAPA) to provision Kubernetes clusters in a declarative way. Customers declare the desired state of the cluster through a cluster configuration YAML file which is generated using:
 
----
-```sh
+```bash
 dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
 --dry-run \
 --output=yaml \
@@ -68,9 +66,7 @@ dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
 ```
 (AWS)
 
----
-
-```sh
+```bash
 dkp create cluster eks --cluster-name=${CLUSTER_NAME} \
 --dry-run \
 --output=yaml \
