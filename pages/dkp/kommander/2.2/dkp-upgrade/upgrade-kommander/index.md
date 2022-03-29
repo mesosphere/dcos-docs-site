@@ -16,13 +16,24 @@ This section describes how to upgrade your Kommander Management cluster and all 
 - [Download][download_binary] and install the latest DKP CLI binary on your computer.
 - Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
 - If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
-- Review the [Platform Application version updates][release_notes] that are part of this upgrade.
-- For air-gapped environments only: Download the [images bundle][images_bundle], [charts bundle][charts_bundle] and [Catalog Application charts bundle][cat_apps_bundle].  
+- Review the [Platform Application version updates][release_notes] that are part of this upgrade.  
 - For air-gapped environments only: [Load the Docker images into your Docker registry][load_images]
-- For air-gapped environments only: Download the Kommander application definitions:
+- For air-gapped environments only: 
+  
+  Download the Kommander application definitions:
 
 ```bash
 wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications_v2.2.0.tar.gz"
+```
+  Download the Kommander charts bundle:
+
+```bash
+wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz"
+```
+  If you have any Catalog Applications, download the Catalog Application charts bundle:
+
+```bash
+wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz"
 ```
 
 ## Upgrade Kommander
@@ -42,12 +53,17 @@ Before running the following command, ensure that your `dkp` configuration **ref
     For non air-gapped:
 
     ```bash
-    dkp upgrade kommander
+    dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle_v.2.2.0.tar.gz --kommander-applications-repository kommander-applications_v.2.2.0.tar.gz
     ```
 
     An output similar to this appears: 
     
-    <!-- output missing! -->
+    ```bash
+    $ dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
+    ✓ Ensuring upgrading conditions are met
+    ✓ Ensuring application definitions are updated
+    ✓ Ensuring helm-mirror implementation is migrated to chartmuseum
+    ```
 
 1.  If the upgrade fails, run the following command to get more information on the upgrade process:
 
@@ -69,9 +85,6 @@ You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the
 [k8s_access_to_clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [upgrade_workspaces]: ../../cli/dkp/upgrade/workspace
 [release_notes]: ../../release-notes/
-[images_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/kommander_image_bundle_v2.2.0_linux_amd64.tar.gz
-[charts_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz
-[cat_apps_bundle]: https://downloads.mesosphere.io/kommander/airgapped/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz
 [konvoy_upgrade]: /dkp/kommander/2.2/dkp-upgrade/upgrade-konvoy/
 [load_images]: ../../install/air-gapped/#load-the-docker-images-into-your-docker-registry
 [dkp_upgrade]: ../../dkp-upgrade/
