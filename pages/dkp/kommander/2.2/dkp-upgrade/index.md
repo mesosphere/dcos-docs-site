@@ -13,7 +13,7 @@ The DKP upgrade represents an important step of your environment's lifecycle, as
 
 For this release, you perform the upgrade sequentially beginning with DKP Kommander and then moving to DKP Konvoy.
 
-When upgrading DKP, the process is different depending on whether you run a stand-alone Management Cluster, or a multi-cluster environment that includes a combination of a Management Cluster and Workspace Clusters. This can include both attached and managed clusters. 
+When upgrading DKP, the process is different depending on whether you run a stand-alone Management Cluster, or a multi-cluster environment that includes a combination of a Management cluster and managed or attached workspace clusters.
 
 Start with your Management Cluster in Kommander, and then, if more than one exists, proceed workspace by workspace until complete. You can then move to upgrading Konvoy, cluster by cluster.
 
