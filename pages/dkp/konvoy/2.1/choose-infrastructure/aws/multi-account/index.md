@@ -80,7 +80,7 @@ Configure a trust relationship between the source and target accounts.
 ***Follow all the prerequisite steps in both the source and target accounts***
 
 1. Create all policies and roles in management and workload accounts  
-   a. The prerequisite IAM policies for DKP are documented here: [whitepaper](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/iam-policies/)
+   a. The prerequisite IAM policies for DKP are documented here: [white paper](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/iam-policies/)
  
 2. Establish a trust relationship in workload account for the management account
   
