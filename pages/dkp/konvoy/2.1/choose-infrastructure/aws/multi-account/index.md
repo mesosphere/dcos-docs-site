@@ -43,7 +43,7 @@ Getting Started with DKP on AWS - [getting started on AWS](https://docs.d2iq.com
 
 Before you begin deploying DKP on AWS, you must: 
 
-[prerequisites](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws/#configure-aws-prerequisites)
+Configure the [prerequisites](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws/#configure-aws-prerequisites)
 
 ## Deploy DKP on AWS
 
