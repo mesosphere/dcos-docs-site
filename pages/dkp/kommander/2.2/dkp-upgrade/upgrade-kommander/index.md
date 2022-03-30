@@ -43,7 +43,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 Before running the following command, ensure that your `dkp` configuration **references the Kommander Management cluster**, otherwise it attempts to run the upgrade on the bootstrap cluster. You can do this by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file's location][k8s_access_to_clusters].
 
-<p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable as stated earlier is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander upgrades on the workload cluster.</p>
+<p class="message--note"><strong>NOTE:</strong> As stated earlier, an alternative to initializing the KUBECONFIG environment variable is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander upgrades on the workload cluster.</p>
 
 1.  Use the DKP CLI to upgrade Kommander and all the Platform Applications in the Management Cluster:
 
