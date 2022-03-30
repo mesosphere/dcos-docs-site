@@ -37,7 +37,7 @@ The [DKP upgrade](../../../dkp-upgrade) process deploys and upgrades Platform ap
 <p class="message--warning"><strong>WARNING: </strong>If you are upgrading your Platform applications as part of the <a href="../../../dkp-upgrade">DKP upgrade</a>, upgrade your Platform applications on any additional Workspaces before proceeding with the Konvoy upgrade. Some applications in the previous release are not compatible with the <a href="../../../release-notes/">Kubernetes version</a> of this release, and upgrading Kubernetes is part of the DKP Konvoy upgrade process.
 </p>
 
-Upgrade all platform applications in the given workspace and its projects to the same version as platform applications running on the management cluster with this command:
+Upgrade all platform applications in the given workspace and its projects to the same version as platform applications running on the management cluster:
 
 ```bash
 dkp upgrade workspace WORKSPACE_NAME [--dry-run] [flags]
