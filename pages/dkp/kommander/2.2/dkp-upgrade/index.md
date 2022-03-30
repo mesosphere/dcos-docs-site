@@ -15,7 +15,7 @@ For this release, you perform the upgrade sequentially beginning with DKP Komman
 
 When upgrading DKP, the process is different depending on whether you run a stand-alone Management Cluster, or a multi-cluster environment that includes a combination of a Management Cluster and Workspace Clusters. This can include both attached and managed clusters. 
 
-Start with your Management Cluster in Kommander, and then proceed, Workspace by Workspace, if more than one exists. Then you can move to upgrading Konvoy, cluster by cluster.
+Start with your Management Cluster in Kommander, and then, if more than one exists, proceed workspace by workspace until complete. You can then move to upgrading Konvoy, cluster by cluster.
 
 The overall process for upgrading to the latest version of DKP is done on each Workspace or cluster, and has the following high-level steps.
 
