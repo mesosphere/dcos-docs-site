@@ -21,7 +21,7 @@ You can leverage multiple AWS accounts in your organization to meet specific bus
 * Implementing separation of concerns between management clusters, and workload clusters.
 * Reducing the impact of security events and incidents.
 
-You can see the additional benefits of using multiple AWS accounts in the following [whitepaper](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/benefits-of-using-multiple-aws-accounts.html)
+You can see the additional benefits of using multiple AWS accounts in the following [white paper](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/benefits-of-using-multiple-aws-accounts.html)
 
 This document describes how to leverage the D2iQ Kubernetes Platform (DKP) to deploy a management cluster, and multiple workload clusters, leveraging multiple AWS accounts.
 
