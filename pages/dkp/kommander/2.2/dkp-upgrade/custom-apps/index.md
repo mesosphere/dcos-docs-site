@@ -8,7 +8,7 @@ beta: false
 enterprise: true
 ---
 
-We recommend upgrading your Custom Applications to the latest compatible version as soon as possible. Since there is no expectation of support by D2iQ for Custom Applications, you must upgrade them manually.
+We recommend upgrading your Custom Applications to the latest compatible version as soon as possible. Since Custom Applications are not created, maintained or supported by D2iQ, you must upgrade them manually.
 
 <p class="message--warning"><strong>WARNING: </strong>Ensure you validate any Custom Applications you run for compatibility issues against the <a href="https://docs.d2iq.com/dkp/kommander/2.2/release-notes/">current Kubernetes version</a>. If the Custom Application’s version is not compatible with the Kubernetes version, do not continue with the Konvoy upgrade. Otherwise, your cluster’s services will stop running.
 </p>
