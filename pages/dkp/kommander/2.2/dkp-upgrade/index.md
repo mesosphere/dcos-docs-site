@@ -32,7 +32,7 @@ The overall process for upgrading to the latest version of DKP is done on each W
 
 1.  [**Upgrade all DKP Catalog applications**][catalog_apps] deployed to any Workspaces or Projects.
 
-1.  [**Verify any Custom Catalog applications**][custom_apps] and ensure they are compatible with the current Kubernetes version.
+1.  [**Verify any Custom Catalog applications**][custom_apps] and ensure they are compatible with the Kubernetes version included in the new release.
 
 
    For **Konvoy**, on your Management Cluster:
