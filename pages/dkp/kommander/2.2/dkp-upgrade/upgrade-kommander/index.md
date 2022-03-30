@@ -90,3 +90,4 @@ You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the
 [konvoy_upgrade]: /dkp/kommander/2.2/dkp-upgrade/upgrade-konvoy/
 [load_images]: ../../install/air-gapped/#load-the-docker-images-into-your-docker-registry
 [dkp_upgrade]: ../../dkp-upgrade/
+[load_images_catalog]: ../../install/air-gapped/catalog/#load-the-docker-images-into-your-docker-registry
