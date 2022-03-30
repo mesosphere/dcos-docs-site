@@ -34,7 +34,6 @@ The overall process for upgrading to the latest version of DKP is done on each W
 
 1.  [**Verify any Custom Catalog applications**][custom_apps] and ensure they are compatible with the Kubernetes version included in the [new release][release_notes].
 
-
    For **Konvoy**, on your Management Cluster:
 
 1.  [**Upgrade Konvoy’s CAPI components**][upgrade_konvoy_capi]. This upgrades the CAPI controllers, which only run on the Management Cluster.
