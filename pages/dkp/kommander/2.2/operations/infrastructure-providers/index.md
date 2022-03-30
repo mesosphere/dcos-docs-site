@@ -7,7 +7,7 @@ menuWeight: 30
 excerpt: Managing infrastructure providers used by Kommander
 ---
 
-Infrastructure providers, like AWS, provide the infrastructure for your Konvoy clusters. To automate their provisioning, Kommander needs authentication keys for your preferred infrastructure provider. You may have many accounts for a single infrastructure provider.
+Infrastructure providers, like AWS, provide the infrastructure for your DKP clusters. To automate their provisioning, Kommander needs authentication keys for your preferred infrastructure provider. You may have many accounts for a single infrastructure provider.
 
 In order to provision new clusters and manage them, Kommander needs infrastructure provider credentials. Currently, AWS is supported.
 

@@ -7,17 +7,17 @@ menuWeight: 40
 excerpt: View clusters created with Kommander or any connected Kubernetes cluster
 ---
 
-Kommander allows you to monitor and manage very large numbers of clusters. Use the features described in this area to connect existing clusters, or to create new clusters whose lifecycle is managed by Konvoy. You can view clusters from the Clusters tab in the navigation pane on the left. You can see the details for a cluster by selecting the **View Details** link at the bottom of the cluster card or the cluster name in either the card or the table view.
+Kommander allows you to monitor and manage large numbers of clusters. Use the features described in this area to connect existing clusters, or to create new clusters whose lifecycle is managed by Konvoy. You can view clusters from the Clusters tab in the navigation pane on the left. You can see the details for a cluster by selecting the **View Details** link at the bottom of the cluster card or the cluster name in either the card or the table view.
 
 ## Types
 
-There are several types of clusters that display in the Clusters tab. The cluster type appears in the cluster card just under the cluster name.
+Several types of clusters display in the Clusters tab. The cluster type appears in the cluster card just under the cluster name.
 
 The type values include:
 
 - **Attached**: An Attached cluster is one that was not created with Kommander. You cannot manage an Attached cluster's lifecycle, but you can monitor it.
-- **Managed**: A Managed cluster is a Konvoy cluster that was created with Kommander. You can use Kommander to manage a Managed cluster's lifecycle.
-- **Management**: This is the Konvoy cluster that hosts Kommander.
+- **Managed**: A Managed cluster is a DKP cluster that was created with Kommander. You can use Kommander to manage a Managed cluster's lifecycle.
+- **Management**: This is the DKP cluster that hosts Kommander.
 
 ## Statuses
 
@@ -87,5 +87,5 @@ For an attached cluster, you can only edit labels assigned to that cluster.
 
 [k8s_docs]: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 [workspace_platform_applications]: ../workspaces/applications/platform-applications/
-[platform_applications_req]: ../workspaces/applications/platform-applications/platform-service-requirements/
+[platform_applications_req]: ../workspaces/applications/platform-applications/platform-application-requirements/
 [manually_attach_cluster]: ./attach-cluster/manually-attach-cluster/

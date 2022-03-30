@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp create cluster preprovisioned
 title:  dkp create cluster preprovisioned
 menuWeight: 10
-excerpt: Create a Konvoy cluster on pre-provisioned infrastructure
+excerpt: Create a DKP cluster on pre-provisioned infrastructure
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp create cluster preprovisioned
 
-Create a Konvoy cluster on pre-provisioned infrastructure
+Create a DKP cluster on pre-provisioned infrastructure
 
 ```
 dkp create cluster preprovisioned [flags]

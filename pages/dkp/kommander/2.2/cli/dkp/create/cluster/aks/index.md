@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp create cluster aks
 title:  dkp create cluster aks
 menuWeight: 10
-excerpt: Create a Konvoy cluster in AKS
+excerpt: Create a DKP cluster in AKS
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp create cluster aks
 
-Create a Konvoy cluster in AKS
+Create a DKP cluster in AKS
 
 ```
 dkp create cluster aks [flags]

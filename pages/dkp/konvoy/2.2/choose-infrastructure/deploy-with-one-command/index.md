@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Deploy Konvoy with One Command
 title: Deploy Konvoy with One Command
 menuWeight: 50
-excerpt: Deploy a Konvoy cluster with a single command
+excerpt: Deploy a DKP cluster with a single command
 enterprise: false
 beta: false
 ---

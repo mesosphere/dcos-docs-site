@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp update nodepool preprovisioned
 title:  dkp update nodepool preprovisioned
 menuWeight: 10
-excerpt: Update a Konvoy cluster node pool in Preprovisioned
+excerpt: Update a DKP cluster node pool in Preprovisioned
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp update nodepool preprovisioned
 
-Update a Konvoy cluster node pool in Preprovisioned
+Update a DKP cluster node pool in Preprovisioned
 
 ```
 dkp update nodepool preprovisioned [flags]

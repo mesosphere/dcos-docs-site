@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp update nodepool aws
 title:  dkp update nodepool aws
 menuWeight: 10
-excerpt: Update a Konvoy cluster node pool in AWS
+excerpt: Update a DKP cluster node pool in AWS
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp update nodepool aws
 
-Update a Konvoy cluster node pool in AWS
+Update a DKP cluster node pool in AWS
 
 ```
 dkp update nodepool aws [flags]

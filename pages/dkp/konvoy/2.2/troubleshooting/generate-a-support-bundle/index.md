@@ -103,9 +103,9 @@ To generate the support bundle, perform the following steps:
 
 ### Collect information from a bootstrap cluster
 
-In the case where your bootstrap cluster has not yet pivoted towards your Konvoy cluster, you can collect log information from that bootstrap cluster as well, and there are a preconfigured set of relevant collectors. Specify an additional bootstrap cluster kubeconfig using the `--bootstrap-kubeconfig` parameter to activate bootstrap cluster diagnostics. You will receive an additional support bundle named `bootstrap-support-bundle-<date created>`.
+In the case where your bootstrap cluster has not yet pivoted towards your DKP cluster, you can collect log information from that bootstrap cluster as well, and there are a preconfigured set of relevant collectors. Specify an additional bootstrap cluster kubeconfig using the `--bootstrap-kubeconfig` parameter to activate bootstrap cluster diagnostics. You will receive an additional support bundle named `bootstrap-support-bundle-<date created>`.
 
-Note that the bootstrap cluster diagnostics are independent of the configuration of the "main" or Konvoy cluster diagnostics. We run a static collector set that collects the following bootstrap cluster information:
+Note that the bootstrap cluster diagnostics are independent of the configuration of the "main" or DKP cluster diagnostics. We run a static collector set that collects the following bootstrap cluster information:
 
 - ClusterInfo
 - ClusterResources

@@ -25,7 +25,7 @@ Prerequisite:
 
 ### Create a cluster with automated certificate renewal
 
-To enable the automated certificate renewal, create a Konvoy cluster using the `certificate-renew-interval` flag:
+To enable the automated certificate renewal, create a DKP cluster using the `certificate-renew-interval` flag:
 
 ```bash
 dkp create cluster aws --certificate-renew-interval=60 --cluster-name=long-running

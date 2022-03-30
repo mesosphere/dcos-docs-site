@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Delete Konvoy Cluster with One Command
-title: Delete a Konvoy Cluster with One Command
+navigationTitle: Delete DKP Cluster with One Command
+title: Delete a DKP Cluster with One Command
 menuWeight: 55
-excerpt: Deleete a Konvoy cluster with a single command
+excerpt: Delete a DKP cluster with a single command
 enterprise: false
 beta: false
 ---

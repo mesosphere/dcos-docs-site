@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp update controlplane preprovisioned
 title:  dkp update controlplane preprovisioned
 menuWeight: 10
-excerpt: Update a Konvoy cluster control plane in Preprovisioned
+excerpt: Update a DKP cluster control plane in Preprovisioned
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp update controlplane preprovisioned
 
-Update a Konvoy cluster control plane in Preprovisioned
+Update a DKP cluster control plane in Preprovisioned
 
 ```
 dkp update controlplane preprovisioned [flags]

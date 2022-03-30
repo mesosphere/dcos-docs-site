@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-This section describes ports used by the different Kubernetes components in your Konvoy cluster running on you pre-provisioned infrastructure.
+This section describes ports used by the different Kubernetes components in your DKP cluster running on you pre-provisioned infrastructure.
 
 ## Control-plane nodes
 

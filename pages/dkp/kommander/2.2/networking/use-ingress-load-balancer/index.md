@@ -16,7 +16,7 @@ Typically, an Ingress exposes HTTP and HTTPS routes from outside the cluster to 
 The object is called an Ingress because it acts as a gateway for inbound traffic.
 The Ingress receives inbound requests and routes them according to the rules you defined for the **Ingress resource** as part of your cluster configuration.
 
-This tutorial demonstrates how to expose an application running on the Konvoy cluster by configuring an Ingress for load balancing (layer-7).
+This tutorial demonstrates how to expose an application running on the DKP cluster by configuring an Ingress for load balancing (layer-7).
 
 ## Prerequisites
 

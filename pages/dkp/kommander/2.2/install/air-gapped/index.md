@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-This topic shows how to run Kommander on top of an [air-gapped Konvoy cluster][air-gap-konvoy] installation.
+This topic shows how to run Kommander on top of an [air-gapped DKP cluster][air-gap-konvoy] installation.
 
 ## Prerequisites
 

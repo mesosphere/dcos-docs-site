@@ -10,7 +10,7 @@ menuWeight: 65
 
 Follow these steps to launch your AMIs.
 
-## Launch a Konvoy cluster with a custom AMI
+## Launch a DKP cluster with a custom AMI
 
 To use the built `ami` with Konvoy, specify it with the `--ami` flag when calling cluster create.
 
@@ -18,7 +18,7 @@ To use the built `ami` with Konvoy, specify it with the `--ami` flag when callin
 dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --ami ami-0123456789
 ```
 
-## Launch a Konvoy cluster with custom AMI lookup
+## Launch a DKP cluster with custom AMI lookup
 
 By default `konvoy-image` will name the AMI in such a way that `dkp` can discover the latest AMI for a base OS and Kubernetes version. To create a cluster that will use the latest AMI, specify the `--ami-format`, `--ami-base-os` and `--ami-owner` flags:
 

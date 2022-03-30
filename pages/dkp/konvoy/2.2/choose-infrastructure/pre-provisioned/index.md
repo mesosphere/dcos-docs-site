@@ -8,7 +8,7 @@ enterprise: false
 beta: false
 ---
 
-The following procedure describes creating a Konvoy cluster on a pre-provisioned infrastructure using SSH.
+The following procedure describes creating a DKP cluster on a pre-provisioned infrastructure using SSH.
 
 Completing this procedure results in a Kubernetes cluster that includes a [Container Networking Interface (CNI)][calico] and a [Local Persistence Volume Static Provisioner][lvp], and that is ready for workload deployment.
 

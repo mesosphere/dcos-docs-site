@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
 beta: false
-navigationTitle: Creating Konvoy Clusters on AWS
-title: Creating Konvoy Clusters on AWS
+navigationTitle: Creating DKP Clusters on AWS
+title: Creating DKP Clusters on AWS
 menuWeight: 30
-excerpt: A guide for creating Konvoy clusters on AWS
+excerpt: A guide for creating DKP clusters on AWS
 ---
 
 ## Before you begin
@@ -13,7 +13,7 @@ excerpt: A guide for creating Konvoy clusters on AWS
 
 ## Simplified Cluster Creation on AWS
 
-From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide some basic cluster details:
+From the **Add Cluster** menu, select the **Create DKP Cluster** and provide some basic cluster details:
 
 - **Workspace**: The workspace where this cluster belongs.
 - **Kubernetes Version**: The initial version of Kubernetes to install on the cluster.
@@ -34,7 +34,7 @@ Select the pre-configured [AWS infrastructure provider](../../operations/infrast
     - **AMI ID**: AMI ID to use for all nodes.
 -   **Add Infrastructure Provider Tags**: Specify tags applied on all resources created in your infrastructure for this cluster. Different infrastructure providers have varying restrictions on the usable tags. See the [AWS Tags User Guide][aws-tags] for more information on using tags in AWS.
 
-Click **Create** to begin provisioning the Konvoy cluster. This step may take a few minutes, taking time for the cluster to be ready and fully deploy its components. The cluster will retry to join automatically and should resolve once it is fully provisioned.
+Click **Create** to begin provisioning the DKP cluster. This step may take a few minutes, taking time for the cluster to be ready and fully deploy its components. The cluster will retry to join automatically and should resolve once it is fully provisioned.
 
 [aws-tags]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
 [projects]: ../../projects/

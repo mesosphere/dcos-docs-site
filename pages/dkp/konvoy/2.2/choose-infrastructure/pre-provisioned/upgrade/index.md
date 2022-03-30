@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Upgrade the Cluster
 title: Upgrade the Cluster
 menuWeight: 85
-excerpt: Upgrade my pre-provisioned Konvoy cluster to the latest Kubernetes version
+excerpt: Upgrade my pre-provisioned DKP cluster to the latest Kubernetes version
 beta: false
 enterprise: false
 ---

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp create cluster aws
 title:  dkp create cluster aws
 menuWeight: 10
-excerpt: Create a Konvoy cluster in AWS
+excerpt: Create a DKP cluster in AWS
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp create cluster aws
 
-Create a Konvoy cluster in AWS
+Create a DKP cluster in AWS
 
 ```
 dkp create cluster aws [flags]

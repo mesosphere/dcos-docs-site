@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp create cluster vsphere
 title:  dkp create cluster vsphere
 menuWeight: 10
-excerpt: Create a Konvoy cluster in vSphere
+excerpt: Create a DKP cluster in vSphere
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp create cluster vsphere
 
-Create a Konvoy cluster in vSphere
+Create a DKP cluster in vSphere
 
 ```
 dkp create cluster vsphere [flags]

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Provision a static local volume
 title: Provision a static local volume
 menuWeight: 15
-excerpt: Learn how to provision a static local volume for a Konvoy cluster
+excerpt: Learn how to provision a static local volume for a DKP cluster
 beta: false
 enterprise: false
 ---

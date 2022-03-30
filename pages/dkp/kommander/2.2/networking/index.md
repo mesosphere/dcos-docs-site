@@ -130,7 +130,7 @@ Similarly, a service has the following DNS resolution:
 service-name.namespace-name.svc.cluster-domain.example.
 ```
 
-You can find additional information about all the possible record types and layout [here][dnsforservice].
+You can find additional information about all the possible [record types and layout.][dnsforservice].
 
 ## Ingress
 
@@ -280,6 +280,6 @@ spec:
 [dnsforservice]: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
 [listingresscontrollers]: https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/#additional-controllers
 [haproxyingress]: https://haproxy-ingress.github.io/
-[nginxingress]: https://www.nginx.com/products/nginx-ingress-controller
+[nginxingress]: https://www.nginx.com/products/nginx-ingress-controller/
 [ambassadoringress]: https://www.getambassador.io/
 [traefik]: https://github.com/containous/traefik

@@ -8,4 +8,4 @@ beta: false
 enterprise: false
 ---
 
-The following procedure describes creating a Konvoy cluster in Azure.
+The following procedure describes creating a DKP cluster in Azure.

@@ -10,7 +10,7 @@ enterprise: false
 
 D2iQ&reg; supports N-2 of the latest `MAJOR.MINOR` version of Konvoy. For example, if the current GA version of Konvoy&reg; is 2.0, then D2iQ supports all patch versions of Konvoy 2.0, 1.8, and 1.7.
 
-When the next version releases, support continues for 2.0, and 1.8. Support for Konvoy version 1.7.x expires. You should upgrade your Konvoy clusters with every new release to stay up-to-date with the latest features and bug fixes.
+When the next version releases, support continues for 2.0, and 1.8. Support for Konvoy version 1.7.x expires. You should upgrade your DKP clusters with every new release to stay up-to-date with the latest features and bug fixes.
 
 You can read more about our official support policy in [D2iQ Support and Maintenance Terms](https://d2iq.com/legal/support-terms).
 

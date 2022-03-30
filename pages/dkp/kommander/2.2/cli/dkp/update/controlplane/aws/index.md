@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp update controlplane aws
 title:  dkp update controlplane aws
 menuWeight: 10
-excerpt: Update a Konvoy cluster control plane in AWS
+excerpt: Update a DKP cluster control plane in AWS
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp update controlplane aws
 
-Update a Konvoy cluster control plane in AWS
+Update a DKP cluster control plane in AWS
 
 ```
 dkp update controlplane aws [flags]

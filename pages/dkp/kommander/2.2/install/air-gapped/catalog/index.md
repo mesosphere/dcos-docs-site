@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 
-This topic shows how to run Kommander on top of an [air-gapped Konvoy cluster][air-gap-konvoy] installation with catalog applications.
+This topic shows how to run Kommander on top of an [air-gapped DKP cluster][air-gap-konvoy] installation with catalog applications.
 
 ## Prerequisites
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp create cluster eks
 title:  dkp create cluster eks
 menuWeight: 10
-excerpt: Create a Konvoy cluster in EKS
+excerpt: Create a DKP cluster in EKS
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp create cluster eks
 
-Create a Konvoy cluster in EKS
+Create a DKP cluster in EKS
 
 ```
 dkp create cluster eks [flags]

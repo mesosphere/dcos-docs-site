@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp update controlplane azure
 title:  dkp update controlplane azure
 menuWeight: 10
-excerpt: Update a Konvoy cluster control plane in Azure
+excerpt: Update a DKP cluster control plane in Azure
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp update controlplane azure
 
-Update a Konvoy cluster control plane in Azure
+Update a DKP cluster control plane in Azure
 
 ```
 dkp update controlplane azure [flags]

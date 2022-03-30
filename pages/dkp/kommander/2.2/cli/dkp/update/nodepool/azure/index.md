@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp update nodepool azure
 title:  dkp update nodepool azure
 menuWeight: 10
-excerpt: Update a Konvoy cluster node pool in Azure
+excerpt: Update a DKP cluster node pool in Azure
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp update nodepool azure
 
-Update a Konvoy cluster node pool in Azure
+Update a DKP cluster node pool in Azure
 
 ```
 dkp update nodepool azure [flags]

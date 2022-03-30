@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp create cluster azure
 title:  dkp create cluster azure
 menuWeight: 10
-excerpt: Create a Konvoy cluster in Azure
+excerpt: Create a DKP cluster in Azure
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp create cluster azure
 
-Create a Konvoy cluster in Azure
+Create a DKP cluster in Azure
 
 ```
 dkp create cluster azure [flags]
