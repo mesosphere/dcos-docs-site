@@ -48,7 +48,7 @@ This provides a smooth experience independent of where you start your journey. A
 
 ### Kaptain AI/ML, D2iQ’s AI/ML offering
 
-For better integrated with DKP 2.2 you can easily launch this feature as a catalog application, as well as support other platforms such as Amazon AWS, AKS, and Microsoft Azure EKS. This extends D2iQ’s openness to support Kubernetes platforms beyond DKP with Kaptain. Kaptain enables an organization to develop, deploy, and run entire ML workloads in production, at scale, with consistency and reliability.
+For better integration with DKP 2.2 you can launch Kaptain as a catalog application, as well as support other platforms such as Amazon AWS, AKS, and Microsoft Azure EKS. This extends D2iQ’s openness to support Kubernetes platforms beyond DKP with Kaptain. Kaptain enables an organization to develop, deploy, and run entire ML workloads in production, at scale, with consistency and reliability.
 
 ### DKP Insights
 
