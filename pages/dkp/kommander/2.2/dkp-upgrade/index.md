@@ -17,7 +17,7 @@ When upgrading DKP, the process is different depending on whether you run a stan
 
 Start with your Management Cluster in Kommander, and then proceed, Workspace by Workspace, if more than one exists. Then you can move to upgrading Konvoy, cluster by cluster.
 
-The overall process for upgrading to the latest version of DKP is done on each Workspace or cluster, and has the following high-level steps;
+The overall process for upgrading to the latest version of DKP is done on each Workspace or cluster, and has the following high-level steps.
 
    For **Kommander**, on your Management Cluster:
 
