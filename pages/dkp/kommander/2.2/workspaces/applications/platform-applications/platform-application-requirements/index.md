@@ -14,6 +14,8 @@ Workspace platform applications require more resources than solely deploying or 
 
 The following table describes all the workspace platform applications that are available to the clusters in a workspace, minimum resource requirements, and whether they are enabled by default.
 
+<need to update this table for 2.2>
+
 | Name | Minimum Resources Suggested | Minimum Persistent Storage Required | Deployed by Default |
 | --- | --- | --- | --- |
 | cert-manager| cpu: 10m<br />memory: 32Mi |  | Yes |
