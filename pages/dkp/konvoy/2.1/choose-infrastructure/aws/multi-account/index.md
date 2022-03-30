@@ -48,11 +48,9 @@ Before you begin deploying DKP on AWS, you must:
 ## Deploy DKP on AWS
 
 1. Deploy a management cluster in your AWS source account.
-2. Configure a trusted relationship between source and target accounts.
-3. Create a management cluster:
+2. Configure a trusted relationship between source and target accounts and create a management cluster:
 
 * **AWS:** [create Kubernetes AWS cluster](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws/#create-a-new-aws-kubernetes-cluster)
-* **EKS:** [create Kubernetes EKS cluster](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/eks/quick-start/#create-a-new-eks-kubernetes-cluster)
 
 ### Step 1:
 
@@ -61,13 +59,6 @@ DKP leverages the Cluster API provider for AWS (CAPA) to provision Kubernetes cl
 (AWS)
 ```bash
 dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
---dry-run \
---output=yaml \
-> ${CLUSTER_NAME}.yaml
-```
-(EKS)
-```bash
-dkp create cluster eks --cluster-name=${CLUSTER_NAME} \
 --dry-run \
 --output=yaml \
 > ${CLUSTER_NAME}.yaml
