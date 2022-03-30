@@ -29,13 +29,13 @@ This section describes how to upgrade your Kommander Management cluster and all 
   Download the Kommander charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle_v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
   ```
   
-  If you have any Catalog Applications, download the Catalog Application charts bundle:
+  If you have any DKP Catalog Applications, download the DKP Catalog Application charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle_v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
   ```
 
 ## Upgrade Kommander
