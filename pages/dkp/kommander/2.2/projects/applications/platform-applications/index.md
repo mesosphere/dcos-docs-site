@@ -32,10 +32,13 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 
 ## Upgrade Platform applications from the CLI
 
-Platform applications are deployed and upgraded as a set for each cluster or workspace. For the management cluster or workspace, Platform applications are automatically upgraded with the [DKP upgrade](../../../../dkp-upgrade) procedure; no other steps are necessary for the management cluster or workspace. For attached/managed clusters or workspaces, you MUST manually upgrade Platform applications bundle.
+The [DKP upgrade](../../../dkp-upgrade) process deploys and upgrades Platform applications as a bundle for each cluster or workspace. For the management cluster or workspace, DKP upgrade handles all Platform applications; no other steps are necessary to upgrade the Platform application bundle. However, for managed or attached clusters or workspaces, you MUST manually upgrade the Platform applications bundle with the following command.
 
-Upgrade all platform applications in the given workspace and its projects to the same version as platform applications running on the management cluster with this command:
+<p class="message--warning"><strong>WARNING: </strong>If you are upgrading your Platform applications as part of the <a href="../../../dkp-upgrade">DKP upgrade</a>, upgrade your Platform applications on any additional Workspaces before proceeding with the Konvoy upgrade. Some applications in the previous release are not compatible with the <a href="../../../release-notes/">Kubernetes version</a> of this release, and upgrading Kubernetes is part of the DKP Konvoy upgrade process.
+</p>
 
-```
+Upgrade all platform applications in the given workspace and its projects to the same version as platform applications running on the management cluster:
+
+```bash
 dkp upgrade workspace WORKSPACE_NAME [--dry-run] [flags]
 ```
