@@ -58,21 +58,20 @@ Before you begin deploying DKP on AWS, you must:
 
 DKP leverages the Cluster API provider for AWS (CAPA) to provision Kubernetes clusters in a declarative way. Customers declare the desired state of the cluster through a cluster configuration YAML file which is generated using:
 
+(AWS)
 ```bash
 dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
 --dry-run \
 --output=yaml \
 > ${CLUSTER_NAME}.yaml
 ```
-(AWS)
-
+(EKS)
 ```bash
 dkp create cluster eks --cluster-name=${CLUSTER_NAME} \
 --dry-run \
 --output=yaml \
 > ${CLUSTER_NAME}.yaml
 ```
-(EKS)
 
 ### Step 2:
 Configure a trust relationship between the source and target accounts.
