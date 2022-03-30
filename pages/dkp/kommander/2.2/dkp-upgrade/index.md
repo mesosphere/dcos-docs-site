@@ -48,7 +48,7 @@ The overall process for upgrading to the latest version of DKP is done on each W
 
 1.  [**Upgrade the Core Addons**][upgrade_konvoy_core]. This upgrades multiple addons such as CSI, CNI, Cluster Autoscaler, and Node Feature Discovery.
 
-1.  [**Upgrade the Kubernetes version**][upgrade_konvoy_kubernetes]. This upgrades your cluster’s control plane and node pools. You may also want to upgrade your Kubernetes version on any Attached clusters.
+1.  [**Upgrade the Kubernetes version**][upgrade_konvoy_kubernetes]. This upgrades your cluster’s control plane and node pools. We recommend you upgrade your Kubernetes version on any attached clusters.
 
 [custom_apps]: ../custom-apps/
 [catalog_apps]: ../projects/applications/catalog-applications/
