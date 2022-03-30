@@ -99,7 +99,7 @@ Configure a trust relationship between the source and target accounts.
 }
 ```
 
-3. Give permission to role in the source (management cluster) account to call sts:AssumeRole API    
+3. Give permission to role in the source (management cluster) account to call the `sts:AssumeRole API`   
     a. Log in to the source AWS account and attach the following inline policy to control-plane.cluster-api-provider-aws.sigs.k8s.io role
 
 ```bash
