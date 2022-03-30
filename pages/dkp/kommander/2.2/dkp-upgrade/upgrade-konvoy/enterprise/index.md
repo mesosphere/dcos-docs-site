@@ -126,7 +126,7 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
 
 1. Replace `my-aws-cluster` with the name of the cluster.
 
-1. Use the CLUSTERNAME flag to reference the cluster on which you want to upgrade the Kubernetes version.
+1. Use the `--cluster-name` flag to reference the cluster on which you want to upgrade the Kubernetes version.
 
 1. Upgrade the Kubernetes version of the control plane.
 
