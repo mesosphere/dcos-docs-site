@@ -20,16 +20,14 @@ After adopting the cluster, you use this AMI to scale up, or replace a failed in
 
 1.  Create the AMI using [Konvoy Image Builder][kib] (you must [use the Konvoy Image Builder v1.5.0 release, downloadable from GitHub][kib-releases]):
 
-    ```sh
+    ```bash
     echo "kubernetes_version: 1.20.13" > kubever.yaml
-    konvoy-image build \
-    images/ami/centos-7.yaml \
-    --overrides kubever.yaml
+    konvoy-image build images/ami/centos-7.yaml --overrides kubever.yaml
     ```
 
     The output appears similar to this:
 
-    ```sh
+    ```bash
     writing new packer configuration to work/centos-7-1637107496-rPzRE
     starting packer build
     centos-7: output will be in this color.
@@ -48,7 +46,7 @@ After adopting the cluster, you use this AMI to scale up, or replace a failed in
     us-west-2: ami-03364d732f61fb1e2
     ```
 
-1.  Add the new AMI IDs to the Konvoy 1.8 configuration. Add a `postAdoptImageID` to every node pool in `cluster.yaml`, and set its value to the AMI ID created in the previous step:
+1.  Add the new AMI IDs to the Konvoy 1.8 configuration. In the example above the AMI that was created is `ami-03364d732f61fb1e2`. Add a `postAdoptImageID:` to every node pool in `cluster.yaml`, setting its value to the AMI ID created in the previous step:
 
     ```yaml
     kind: ClusterProvisioner
@@ -91,7 +89,7 @@ Configure the AWS EBS CSI plugin so that it runs only on the control plane machi
 
 First, configure the EBS CSI controller by running this command:
 
-```sh
+```bash
 kubectl --kubeconfig=admin.conf -n kube-system patch statefulset ebs-csi-controller --patch '{"spec":{"template":{"spec":{"nodeSelector":{"node-role.kubernetes.io/control-plane":""},"tolerations":[{"effect":"NoExecute","operator": "Exists","tolerationSeconds":300},{"effect":"NoSchedule","key":"node-role.kubernetes.io/master","operator":"Exists"},{"key":"CriticalAddonsOnly","operator":"Exists"}]}}}}'
 ```
 
@@ -101,7 +99,7 @@ statefulset.apps/ebs-csi-controller patched
 
 Then, configure the EBS CSI Snapshot controller by running this command:
 
-```sh
+```bash
 kubectl --kubeconfig=admin.conf -n kube-system patch statefulset ebs-csi-snapshot-controller --patch '{"spec":{"template":{"spec":{"nodeSelector":{"node-role.kubernetes.io/control-plane":""},"tolerations":[{"key":"CriticalAddonsOnly","operator":"Exists"},{"effect":"NoExecute","operator":"Exists","tolerationSeconds":300},{"effect":"NoSchedule","key":"node-role.kubernetes.io/master","operator":"Exists"}]}}}}'
 ```
 
@@ -113,8 +111,9 @@ statefulset.apps/ebs-csi-snapshot-controller patched
 
 For the cluster adoption to be successful, the control-plane and worker machines must have the expected IAM roles. See [Configure IAM Policies](../../../choose-infrastructure/aws/iam-policies) for more on how to create these IAM Roles and policies. After you've created the IAM resources, you must modify the existing EC2 instances.
 
-1. Modify the IAM Role of every control plane machine to `control-plane.cluster-api-provider-aws.sigs.k8s.io`.
-2. Modify the IAM Role of every worker node pool machine to `nodes.cluster-api-provider-aws.sigs.k8s.io`.
+1.  Modify the IAM Role of every control plane machine to `control-plane.cluster-api-provider-aws.sigs.k8s.io`.
+
+1.  Modify the IAM Role of every worker node pool machine to `nodes.cluster-api-provider-aws.sigs.k8s.io`.
 
 ## Modify Subnets so that new instances are assigned a public IPv4 Address
 
@@ -144,7 +143,7 @@ You must configure the adopted cluster as self-managed. The bootstrap controller
 
 CAPA controllers gain access to the AWS APIs from the policies you attach to the IAM instance profile in a later step. The bootstrap credentials can expire, so the controllers on the cluster should not use them.
 
-```sh
+```bash
 dkp --kubeconfig=admin.conf create bootstrap controllers --with-aws-bootstrap-credentials=false
 ```
 
@@ -173,7 +172,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Create the Konvoy 2.1 configuration with the command:
 
-    ```sh
+    ```bash
     dkp --kubeconfig=admin.conf prepare-to-adopt cluster aws
     ```
 
@@ -225,15 +224,15 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
     INFO[2021-11-15T19:59:35-05:00] Run 'export CLUSTER_NAME=konvoy-migration' and follow the rest of the documentation  src="cluster/adopt.go:178"
     ```
 
-1.  Update your environment with the cluster name for use in later steps. Do this by running the shell command from the last line of output in the previous step:
+1.  Update your environment with the cluster name for use in later steps, by running the shell command from the last line of output in the previous step, `export CLUSTER_NAME=konvoy-migration` in this example:
 
-    ```sh
-    export CLUSTER_NAME=konvoy-migration
+    ```bash
+    export CLUSTER_NAME=<your cluster name>
     ```
 
-    Then, verify that your environment has the cluster name:
+1.  Then, verify that your environment has the cluster name:
 
-    ```sh
+    ```bash
     echo $CLUSTER_NAME
     ```
 
@@ -247,7 +246,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Find the Pod subnet in your Konvoy 1.8 cluster configuration:
 
-    ```sh
+    ```bash
     grep "podSubnet" cluster.yaml
     ```
 
@@ -259,7 +258,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Add the Pod subnet to the `kubeadm-config` ConfigMap by copying the field from the cluster configuration and pasting it into the ConfigMap:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf -n kube-system edit configmap kubeadm-config
     ```
 
@@ -279,25 +278,25 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Delete the auto-provisioner Helm chart using the Helm CLI (version 3):
 
-    ```shell=sh
+    ```bash
     helm --kubeconfig=admin.conf --namespace konvoy uninstall auto-provisioning
     ```
 
     The output appears similar to this:
 
-    ```shell=sh
+    ```sh
     release "auto-provisioning" uninstalled
     ```
 
 1.  Remove the `konvoy` namespace:
 
-    ```shell=sh
+    ```bash
     kubectl --kubeconfig=admin.conf delete namespace konvoy
     ```
 
     The output appears similar to this:
 
-    ```shell=sh
+    ```sh
     namespace "konvoy" deleted
     ```
 
@@ -305,7 +304,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Patch the `calico-node` DaemonSet to trigger a rolling update of the calico-node pods with the command:
 
-    ```shell=sh
+    ```bash
     kubectl --kubeconfig=admin.conf patch -n kube-system daemonset/calico-node -p '{"spec":{"template":{"spec":{"$setElementOrder/containers":[{"name":"calico-node"},{"name":"bird-metrics"}],"affinity":null,"containers":[{"$setElementOrder/env":[{"name":"DATASTORE_TYPE"},{"name":"WAIT_FOR_DATASTORE"},{"name":"NODENAME"},{"name":"CALICO_NETWORKING_BACKEND"},{"name":"CLUSTER_TYPE"},{"name":"CALICO_IPV4POOL_IPIP"},{"name":"FELIX_IPINIPMTU"},{"name":"CALICO_IPV4POOL_CIDR"},{"name":"CALICO_DISABLE_FILE_LOGGING"},{"name":"FELIX_DEFAULTENDPOINTTOHOSTACTION"},{"name":"FELIX_IPV6SUPPORT"},{"name":"FELIX_LOGSEVERITYSCREEN"},{"name":"FELIX_HEALTHENABLED"},{"name":"FELIX_PROMETHEUSMETRICSENABLED"},{"name":"FELIX_PROMETHEUSMETRICSPORT"}],"env":[{"$patch":"delete","name":"IP"}],"name":"calico-node"}]}}}}'
     ```
 
@@ -317,7 +316,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Wait for the new pods to finish rolling out:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf -n kube-system rollout status daemonset/calico-node
     ```
 
@@ -347,7 +346,7 @@ DKP machines are already bootstrapped and also create the KubeadmConfigs and the
 
 This command also stops the pause on the Cluster object, which then starts the reconcile process:
 
-```sh
+```bash
 dkp --kubeconfig=admin.conf adopt cluster aws
 ```
 
@@ -375,16 +374,16 @@ INFO[2021-11-17T17:29:04-05:00] unpaused reconciliation of the cluster (konvoy-m
 
 Describe the cluster with the command:
 
-```sh
+```bash
 dkp --kubeconfig=admin.conf describe cluster --cluster-name $CLUSTER_NAME
 ```
 
 The output appears similar to this:
 
-```shell=sh
+```sh
 NAME                                                                 READY  SEVERITY  REASON  SINCE  MESSAGE
 /konvoy-migration                                                    True                     62s
-├─ClusterInfrastructure - AWSCluster/konvoy-migration
+├─ClusterInfrastructure - AWSCluster/konvoy-migration                True                     62s
 ├─ControlPlane - KubeadmControlPlane/konvoy-migration-control-plane  True                     62s
 │ └─3 Machines...                                                    True                     66s    See konvoy-migration-control-plane-0, konvoy-migration-control-plane-1, ...
 └─Workers
@@ -398,7 +397,7 @@ The cluster, control plane, and worker node pool should all show the value `True
 
 Confirm that the `calico-node` DaemonSet is running in the `calico-system` namespace.
 
-```sh
+```bash
 kubectl --kubeconfig=admin.conf -n calico-system get daemonset/calico-node
 ```
 
@@ -415,7 +414,7 @@ If the number of up-to-date replicas is equal to the number of nodes in the clus
 
 It may take some time before the DaemonSet is running. If you see that the process is not creating any Calico pods in the new namespace, trigger the DaemonSet to run using this command:
 
-```sh
+```bash
 kubectl --kubeconfig=admin.conf delete pods -n capi-system -l cluster.x-k8s.io/provider=cluster-api
 ```
 
@@ -431,11 +430,9 @@ You use this AMI to update the cluster Kubernetes version to v1.21.6.
 
 1.  Create the AMI using [Konvoy Image Builder][kib] (you must [use the Konvoy Image Builder v1.5.0 release, downloadable from GitHub][kib-releases]):
 
-    ```sh
+    ```bash
     echo "kubernetes_version: 1.21.6" > kubever.yaml
-    konvoy-image build \
-    images/ami/centos-7.yaml \
-    --overrides kubever.yaml
+    konvoy-image build images/ami/centos-7.yaml --overrides kubever.yaml
     ```
 
     The output appears similar to this:
@@ -464,7 +461,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 1.  Edit the Dex configuration
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf edit -n kubeaddons addon dex
     ```
 
@@ -508,14 +505,14 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 1.  Add your Kubernetes v1.21.6 AMI to your environment:
 
-    ```sh
-    export AMI_ID=<your ami ID>
+    ```bash
+    export CONTROL_PLANE_AMI_ID=<your ami ID>
     ```
 
     Then verify that your environment has the AMI ID:
 
-    ```sh
-    echo $AMI_ID
+    ```bash
+    echo $CONTROL_PLANE_AMI_ID
     ```
 
     The output should be the ID of the Kubernetes v1.21.6 AMI you created, for example:
@@ -526,7 +523,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 1.  Prepare patches with the above AMI and Kubernetes version.
 
-    ```sh
+    ```bash
     export KUBERNETES_VERSION=v1.21.6
     export KUBEADMCONTROLPLANE_NAME=$(set -o nounset -o pipefail; kubectl --kubeconfig=admin.conf get kubeadmcontrolplanes --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
     export CURRENT_TEMPLATE_NAME=$(kubectl --kubeconfig=admin.conf get kubeadmcontrolplanes ${KUBEADMCONTROLPLANE_NAME} -ojsonpath='{.spec.machineTemplate.infrastructureRef.name}')
@@ -546,7 +543,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
       template:
         spec:
           ami:
-            id: ${AMI_ID}
+            id: ${CONTROL_PLANE_AMI_ID}
     EOF
     ```
 
@@ -554,7 +551,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     Create a new AWSMachineTemplate; it is a copy of the currently used AWSMachineTemplate, patched with the up-to-date machine properties.
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf get awsmachinetemplate ${CURRENT_TEMPLATE_NAME} --output=yaml \
       | kubectl --kubeconfig=admin.conf patch --local=true -f- --patch="{\"metadata\": {\"name\": \"$NEW_TEMPLATE_NAME\"} }" --type=merge --output=yaml \
       | kubectl --kubeconfig=admin.conf patch --local=true -f- --patch-file=control-plane-machine-image-patch.yaml --type=merge --output=yaml \
@@ -571,7 +568,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     <p class="message--note"><strong>NOTE: </strong>Patching the KubeadmControlPlane starts the control plane update. The process updates machines with updated properties, and deletes machines with out-of-date properties, in a "rolling" update. New machines replace old machines one at a time. The update waits for each new machine to join the control plane successfully. Regardless of the specified replica count, the update works in the same way.
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf get kubeadmcontrolplane ${KUBEADMCONTROLPLANE_NAME} --output=yaml \
       | kubectl --kubeconfig=admin.conf patch --local=true -f- --patch="{\"spec\": {\"machineTemplate\": {\"infrastructureRef\": {\"name\": \"$NEW_TEMPLATE_NAME\"} } } }" --type=merge --output=yaml \
       | kubectl --kubeconfig=admin.conf patch --local=true -f- --patch-file=control-plane-kubernetes-version-patch.yaml --type=merge --output=yaml \
@@ -586,7 +583,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 1.  Wait for the update to complete. When the condition `Ready` is true, the update is complete.
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf wait --timeout=10m kubeadmcontrolplane ${KUBEADMCONTROLPLANE_NAME} --for=condition=Ready
     ```
 
@@ -594,14 +591,14 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 1.  Add your Kubernetes v1.21.6 AMI to your environment:
 
-    ```sh
-    export AMI_ID=<your ami ID>
+    ```bash
+    export WORKER_AMI_ID=<your ami ID>
     ```
 
-    Then, verify that your environment has the AMI ID:
+1.  Then, verify that your environment has the AMI ID:
 
-    ```sh
-    echo $AMI_ID
+    ```bash
+    echo $WORKER_AMI_ID
     ```
 
     The output should be the ID of the Kubernetes v1.21.6 AMI you created earlier, for this example:
@@ -612,7 +609,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 1.  Prepare patches with the above AMI and Kubernetes version.
 
-    ```sh
+    ```bash
     export KUBERNETES_VERSION=v1.21.6
     export MACHINEDEPLOYMENT_NAME=$(set -o nounset -o pipefail; kubectl --kubeconfig=admin.conf get machinedeployments --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
     export CURRENT_TEMPLATE_NAME=$(kubectl --kubeconfig=admin.conf get machinedeployments ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.spec.template.spec.infrastructureRef.name}')
@@ -634,7 +631,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
       template:
         spec:
           ami:
-            id: ${AMI_ID}
+            id: ${WORKER_AMI_ID}
     EOF
     ```
 
@@ -642,7 +639,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     Create a new AWSMachineTemplate; it is a copy of the currently used AWSMachineTemplate, patched with the up-to-date machine properties.
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf get awsmachinetemplate ${CURRENT_TEMPLATE_NAME} --output=yaml \
       | kubectl --kubeconfig=admin.conf patch --local=true -f- --patch="{\"metadata\": {\"name\": \"$NEW_TEMPLATE_NAME\"} }" --type=merge --output=yaml \
       | kubectl --kubeconfig=admin.conf patch --local=true -f- --patch-file=node-pool-machine-image-patch.yaml --type=merge --output=yaml \
@@ -659,7 +656,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     <p class="message--note"><strong>NOTE: </strong>Patching the MachineDeployment starts the worker node pool update. This process creates machines with updated properties, and deletes machines with out-of-date properties, in a "rolling" update. New machines replace old machines one at a time. The update waits for each new machine to join the cluster successfully.</p>
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=admin.conf get machinedeployment ${MACHINEDEPLOYMENT_NAME} --output=yaml \
       | kubectl --kubeconfig=admin.conf patch --local=true -f- --patch="{\"spec\": {\"template\": {\"spec\": {\"infrastructureRef\": {\"name\": \"$NEW_TEMPLATE_NAME\"} } } } }" --type=merge --output=yaml \
       | kubectl --kubeconfig=admin.conf patch --local=true -f- --patch-file=node-pool-kubernetes-version-patch.yaml --type=merge --output=yaml \
@@ -678,7 +675,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     <!-- NOTE: `kubectl wait` is the preferred solution, but cannot be used with MachineDeployment, because it does not yet have Conditions (https://github.com/kubernetes-sigs/cluster-api/pull/4625) -->
 
-    ```sh
+    ```bash
     timeout 10m bash -c \
       "until [[ $(kubectl --kubeconfig=admin.conf get machinedeployment ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.status.replicas}') \
                 == \

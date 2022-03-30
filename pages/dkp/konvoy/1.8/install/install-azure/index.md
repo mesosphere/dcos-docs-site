@@ -22,7 +22,7 @@ For a demo of installing Konvoy on Azure, see this video:
 
 The following setup and configuration requires:
 
-- The [azure][install_az] command line utility
+- The latest version of the [azure][install_az] command line utility
 - [Docker][install_docker] _version 18.09.2 or newer_
 - [kubectl][install_kubectl] _v1.20.6 or newer_ (for interacting with the running cluster)
 - Latest Konvoy [Download][konvoy_download]

@@ -64,7 +64,6 @@ html(lang='en')
                 - itemClass['header__menu-item--active'] = val.path == '/mesosphere/dcos/cn'
                 li(class=itemClass)
                   a(href=val.path)!= val.title
-        include partials/header/ksphere-dropdown.pug
         include partials/header/localization-dropdown.pug
         section.header__search(role='search')
           form.header__search-form(action='/search/')

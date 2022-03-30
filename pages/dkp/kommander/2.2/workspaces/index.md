@@ -73,14 +73,7 @@ In Kommander you can delete existing Workspaces. The following steps describe th
 
 The following procedures are supported for workspaces:
 
-- [Application Deployment using the CLI](./workspace-platform-services/application-deployment)
-- [Workspace Platform Services](./workspace-platform-services)
-- [Workspace Platform Services Dependencies](./workspace-platform-services/platform-service-dependencies)
-
-<!--
-- [Workspace Platform Services Requirements](./workspace-platform-services/platform-service-requirements)
--->
-
-<!--
-- [Workspace Platform Services Requirements](./workspace-platform-services/platform-service-requirements)
--->
+- [Application Deployment using the CLI](./applications/platform-applications/application-deployment)
+- [Workspace Platform Applications](./applications/platform-applications)
+- [Workspace Platform Application Dependencies](./applications/platform-applications/platform-application-dependencies)
+- [Workspace Platform Application Configuration Requirements](./applications/platform-applications/platform-application-requirements)

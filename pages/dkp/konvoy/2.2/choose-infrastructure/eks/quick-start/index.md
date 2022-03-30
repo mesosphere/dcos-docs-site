@@ -29,13 +29,13 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Export the AWS region where you want to deploy the EKS cluster:
 
-    ```sh
+    ```bash
     export AWS_REGION=us-west-2
     ```
 
 1.  Export the AWS Profile with the credentials that you want to use to create the EKS Kubernetes cluster:
 
-    ```sh
+    ```bash
     export AWS_PROFILE=<profile>
     ```
 
@@ -43,7 +43,7 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Create a bootstrap cluster:
 
-    ```sh
+    ```bash
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
@@ -54,7 +54,7 @@ In EKS it is critical that the name is unique as no two clusters in the same EKS
 
 Set the environment variable to be used throughout this documentation:
 
-```sh
+```bash
 CLUSTER_NAME=my-eks-cluster
 ```
 
@@ -62,7 +62,7 @@ Tips:
 
 1.  To get a list of names in use in your EKS account, use the `aws` CLI tool. For example:
 
-    ```sh
+    ```bash
     aws ec2 describe-vpcs --filter "Name=tag-key,Values=kubernetes.io/cluster" --query "Vpcs[*].Tags[?Key=='kubernetes.io/cluster'].Value | sort(@[*][0])"
     ```
 
@@ -76,12 +76,12 @@ Tips:
 1.  If you want to create a cluster name that matches the example above, use this command.
     This creates a unique name every time you run it, so use the command with forethought.
 
-    ```sh
+    ```bash
     CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 
-    ```text
+    ```sh
     hunter-aws-cluster-pf4a3
     ```
 
@@ -89,13 +89,13 @@ Tips:
 
 1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
 
-    ```sh
+    ```bash
     dkp update bootstrap credentials aws
     ```
 
 1.  Create a Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp create cluster eks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
     ```
 
@@ -105,19 +105,19 @@ Tips:
 
     You can use the `.pub` file that complements your private ssh key. For example, use the public key that complements your RSA private key:
 
-    ```sh
+    ```bash
     --ssh-public-key-file=${HOME}/.ssh/id_rsa.pub
     ```
 
     The default username for SSH access is `konvoy`. For example, use your own username:
 
-    ```sh
+    ```bash
     --ssh-username=$(whoami)
     ```
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
@@ -125,7 +125,7 @@ Tips:
 
 1.  Fetch the kubeconfig file:
 
-    ```sh
+    ```bash
     dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
@@ -137,7 +137,7 @@ Tips:
 
 1.  List the Nodes with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
@@ -145,7 +145,7 @@ Tips:
 
 1.  List the Pods with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
     ```
 
@@ -153,13 +153,13 @@ Tips:
 
 1.  Deploy CAPI controllers on the worker cluster:
 
-    ```sh
+    ```bash
     dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
 1.  Issue the move command:
 
-    ```sh
+    ```bash
     dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -174,7 +174,7 @@ Tips:
 
 1.  Remove the bootstrap cluster, as the worker cluster is now self-managed:
 
-    ```sh
+    ```bash
     dkp delete bootstrap --kubeconfig $HOME/.kube/config
     ```
 
@@ -184,13 +184,13 @@ Skip this section if the previous step of moving controllers to the newly-create
 
 1.  Create a bootstrap cluster:
 
-    ```sh
+    ```bash
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
 1.  Issue the move command:
 
-    ```sh
+    ```bash
     dkp move --from-kubeconfig ${CLUSTER_NAME}.conf --to-kubeconfig $HOME/.kube/config
     ```
 
@@ -198,13 +198,13 @@ Skip this section if the previous step of moving controllers to the newly-create
 
 1.  Delete the provisioned Kubernetes cluster and wait a few minutes:
 
-    ```sh
+    ```bash
     dkp delete cluster --cluster-name=${CLUSTER_NAME}
     ```
 
 1.  Delete the `kind` Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp delete bootstrap --kubeconfig $HOME/.kube/config
     ```
 

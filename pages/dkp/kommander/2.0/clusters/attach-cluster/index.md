@@ -26,13 +26,13 @@ To get started, ensure you have [kubectl][kubectl] set up and configured with [C
 
 1.  Create the necessary service account:
 
-    ```shell
+    ```bash
     kubectl -n kube-system create serviceaccount kommander-cluster-admin
     ```
 
 1.  Configure the new service account for `cluster-admin` permissions:
 
-    ```shell
+    ```yaml
     cat << EOF | kubectl apply -f -
     apiVersion: rbac.authorization.k8s.io/v1
     kind: ClusterRoleBinding
@@ -49,9 +49,9 @@ To get started, ensure you have [kubectl][kubectl] set up and configured with [C
     EOF
     ```
 
-1.  Set up the following environment variables with the access data that's needed for producing a new kubeconfig file:
+1.  Set up the following environment variables with the access data that is needed for producing a new kubeconfig file:
 
-    ```shell
+    ```bash
     export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')
     export USER_TOKEN_VALUE=$(kubectl -n kube-system get secret/${USER_TOKEN_NAME} -o=go-template='{{.data.token}}' | base64 --decode)
     export CURRENT_CONTEXT=$(kubectl config current-context)
@@ -62,7 +62,7 @@ To get started, ensure you have [kubectl][kubectl] set up and configured with [C
 
 1.  Generate a kubeconfig file that uses the environment variable values from the previous step:
 
-    ```shell
+    ```yaml
     cat << EOF > kommander-cluster-admin-config
     apiVersion: v1
     kind: Config
@@ -89,7 +89,7 @@ This process produces a file in your current working directory called `kommander
 
 Before importing this configuration, you can verify that it is functional by running the following command:
 
-```shell
+```bash
 kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespaces
 ```
 

@@ -26,7 +26,7 @@ When working with clusters that have networking restrictions, you will need to a
 
 To deploy many of the services on the attached cluster, there must be a default `StorageClass` configured. Run the following command on the cluster you want to attach:
 
-```sh
+```bash
 kubectl get sc
 ```
 
@@ -39,7 +39,7 @@ ebs-sc (default)   ebs.csi.aws.com   Delete          WaitForFirstConsumer   fals
 
 If the `StorageClass` is not set as default, add the following annotation to the `StorageClass` manifest:
 
-```sh
+```yaml
 annotations:
   storageclass.kubernetes.io/is-default-class: "true"
 ```
@@ -54,7 +54,7 @@ Before you attach clusters, you need to create one or more Workspaces, and we re
 
 In addition to the basic cluster requirements, the platform services you want Kommander to manage on those clusters will have an impact on the total cluster requirements. The specific combinations of platform services will make a difference in the requirements for the cluster nodes and their resources (CPU, memory, and storage).
 
-See [here][workspace_platform_services_table] for the table of platform services that Kommander provides by default.
+See [this table of platform applications][workspace_platform_applications_table] that Kommander provides by default.
 
 ## Attaching existing AWS and EKS clusters
 
@@ -77,4 +77,4 @@ Consider the additional resource requirements for running the platform services 
 [existing-clusters]: ../generate-kubeconfig
 [projects]: ../../../projects
 [workspaces]: ../../../workspaces
-[workspace_platform_services_table]: ../../../workspaces/workspace-platform-services#workspace-platform-applications
+[workspace_platform_applications_table]: ../../../workspaces/applications/platform-applications/#workspace-platform-applications

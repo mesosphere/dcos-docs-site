@@ -14,7 +14,7 @@ enterprise: false
 [Operator SDK][operator-sdk] is a popular way to create a Kubernetes [operator][operator]. The [Operator Hub][operator-hub] is the official repository to find operators built using Operator SDK.
 
 ## Before you Begin
-To run an SDK Operator workload beyond the standard workload prerequisties, you will need:
+To run an SDK Operator workload beyond the standard workload prerequisites, you will need:
 
 - [Operator Lifecycle Manager (OLM)][olm] service running in the cluster
 
@@ -26,13 +26,13 @@ The details for its installation are part of the install instructions when searc
 
 Installation of OLM
 
-```shell
+```bash
 curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.16.1/install.sh | bash -s 0.16.1
 ```
 
 Installation of the Operator
 
-```shell
+```bash
 kubectl create -f https://operatorhub.io/install/cockroachdb.yaml
 ```
 

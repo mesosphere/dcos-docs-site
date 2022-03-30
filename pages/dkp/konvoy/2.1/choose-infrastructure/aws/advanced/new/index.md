@@ -19,15 +19,15 @@ enterprise: false
 
 1.  Set the environment variable:
 
-    ```sh
-    CLUSTER_NAME=my-aws-cluster
+    ```bash
+    export CLUSTER_NAME=my-aws-cluster
     ```
 
 ## Tips and Tricks
 
 1.  To get a list of names used in your AWS account, use the `aws` [CLI][download_aws_cli]. After downloading, use the following command:
 
-    ```sh
+    ```bash
     aws ec2 describe-vpcs --filter "Name=tag-key,Values=kubernetes.io/cluster" --query "Vpcs[*].Tags[?Key=='kubernetes.io/cluster'].Value | sort(@[*][0])"
     ```
 
@@ -40,34 +40,29 @@ enterprise: false
 
 1.  To create a cluster name that is unique, use the following command:
 
-    ```sh
-    CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+    ```bash
+    export CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 
-    ```text
+    ```sh
     hunter-aws-cluster-pf4a3
     ```
 
     This will create a unique name every time you run it, so use it with forethought.
 
-1.  Set the environment variable to the name you assigned this cluster:
-
-    ```sh
-    CLUSTER_NAME=my-aws-cluster
-    ```
 
 ## Create a new AWS Kubernetes cluster
 
 1.  Ensure your AWS credentials are up to date. Refresh the credentials:
 
-    ```sh
+    ```bash
     dkp update bootstrap credentials aws
     ```
 
 1.  Generate the Kubernetes cluster objects:
 
-    ```sh
+    ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
     --dry-run \
     --output=yaml \
@@ -76,7 +71,7 @@ enterprise: false
 
 1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy:
 
-    ```sh
+    ```bash
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
     export CONTROL_PLANE_HTTPS_PROXY=http://example.org:8080
     export CONTROL_PLANE_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.elb.amazonaws.com"
@@ -97,7 +92,7 @@ enterprise: false
 
 1.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
 
-    ```sh
+    ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
     --control-plane-http-proxy="${CONTROL_PLANE_HTTP_PROXY}" \
     --control-plane-https-proxy="${CONTROL_PLANE_HTTPS_PROXY}" \
@@ -132,7 +127,7 @@ enterprise: false
 
 1.  Create the cluster from the objects.
 
-    ```sh
+    ```bash
     kubectl apply -f ${CLUSTER_NAME}.yaml
     ```
 
@@ -148,11 +143,11 @@ enterprise: false
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
-    ```text
+    ```sh
     cluster.cluster.x-k8s.io/aws-example condition met
     ```
 
@@ -160,11 +155,11 @@ enterprise: false
 
 1.  After the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
 
-    ```sh
+    ```bash
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
-    ```text
+    ```sh
     NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
     /aws-example                                                    True                     35s
     ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
@@ -176,13 +171,13 @@ enterprise: false
 
 1.  As they progress, the controllers also create Events. List the Events using this command:
 
-    ```sh
+    ```bash
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 
     For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AWSCluster"` and `kubectl get events --field-selector involvedObject.kind="AWSMachine"`.
 
-    ```text
+    ```sh
     7m26s       Normal    SuccessfulSetNodeRef                            machine/aws-example-control-plane-2wb9q      ip-10-0-182-218.us-west-2.compute.internal
     11m         Normal    SuccessfulCreate                                awsmachine/aws-example-control-plane-vcjkr   Created new control-plane instance with id "i-0dde024e80ae3de7a"
     11m         Normal    SuccessfulAttachControlPlaneELB                 awsmachine/aws-example-control-plane-vcjkr   Control plane instance "i-0dde024e80ae3de7a" is registered with load balancer

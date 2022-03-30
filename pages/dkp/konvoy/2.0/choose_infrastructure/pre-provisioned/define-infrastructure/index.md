@@ -12,7 +12,7 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
 
 1.  Export these environment variables:
 
-    ```shell
+    ```bash
     export CLUSTER_NAME="$(whoami)-preprovisioned-cluster"
     export CONTROL_PLANE_1_ADDRESS="control-plane-address-1"
     export CONTROL_PLANE_2_ADDRESS="control-plane-address-2"
@@ -80,7 +80,7 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
 
 1.  Apply the new infrastructure file with the command:
 
-    ```shell
+    ```bash
     kubectl apply -f preprovisioned_inventory.yaml
     ```
 

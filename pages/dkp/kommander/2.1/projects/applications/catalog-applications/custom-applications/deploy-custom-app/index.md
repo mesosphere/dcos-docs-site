@@ -39,13 +39,13 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
 
 1. Set the `PROJECT_NAMESPACE` environment variable to the name of the project's namespace:
 
-    ```sh
+    ```bash
     export PROJECT_NAMESPACE=<project_namespace>
     ```
 
 1. Get the list of available applications to deploy using the following command:
 
-   ```sh
+   ```bash
    kubectl get apps -n ${PROJECT_NAMESPACE}
    ```
 

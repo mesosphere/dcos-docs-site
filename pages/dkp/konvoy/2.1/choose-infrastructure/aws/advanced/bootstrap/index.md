@@ -27,7 +27,7 @@ Follow these steps to create a bootstrap cluster:
 
 1.  Create a bootstrap cluster:
 
-    ```sh
+    ```bash
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
@@ -61,7 +61,7 @@ Follow these steps to create a bootstrap cluster:
 
     Konvoy waits until the controller-manager and webhook deployments of these providers are ready. List these deployments using this command:
 
-    ```sh
+    ```bash
     kubectl get --all-namespaces deployments -l=clusterctl.cluster.x-k8s.io
     ```
 
@@ -80,7 +80,7 @@ Follow these steps to create a bootstrap cluster:
 
     Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
 
-    ```sh
+    ```bash
     kubectl get clusterresourceset
     ```
 
@@ -127,13 +127,13 @@ You need to add the custom CAs into two places:
 
 1.  Create a ConfigMap with the contents of the file
 
-    ```sh
+    ```bash
     kubectl create configmap -n capa-system aws-ca --from-file=ca.pem
     ```
 
 1.  Update the capa-controller-manager to set an environment variable `AWS_CA_BUNDLE` in `capa-controller-manager`:
 
-    ```sh
+    ```bash
     kubectl patch deployment -n capa-system capa-controller-manager --patch '{"spec":{"template":{"spec":{"$setElementOrder/containers":[{"name":"manager"},{"name":"kube-rbac-proxy"}],"$setElementOrder/volumes":[{"name":"cert"},{"name":"credentials"},{"name":"aws-ca"}],"containers":[{"$setElementOrder/env":[{"name":"AWS_SHARED_CREDENTIALS_FILE"},{"name":"AWS_CA_BUNDLE"}],"$setElementOrder/volumeMounts":[{"mountPath":"/tmp/k8s-webhook-server/serving-certs"},{"mountPath":"/home/.aws"},{"mountPath":"/home/.konvoy/aws-ca.pem"}],"env":[{"name":"AWS_CA_BUNDLE","value":"/home/.konvoy/aws-ca.pem"}],"name":"manager","volumeMounts":[{"mountPath":"/home/.konvoy/aws-ca.pem","name":"aws-ca","subPath":"ca.pem"}]}],"volumes":[{"configMap":{"name":"aws-ca"},"name":"aws-ca"}]}}}}'
     ```
 

@@ -17,7 +17,7 @@ Before you start, make sure you have created a workload cluster, as described in
 
     By default, `create bootstrap controllers` configures the Cluster API controllers to use the AWS credentials from your environment. We recommend you use the `--with-aws-bootstrap-credentials=false` flag to configure the Cluster API controllers of your self-managing AWS cluster to use AWS IAM Instance Profiles, instead of the AWS credentials from your environment.
 
-    ```sh
+    ```bash
     dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -40,7 +40,7 @@ Before you start, make sure you have created a workload cluster, as described in
 
     The cluster lifecycle services on the workload cluster are ready, but the workload cluster configuration is on the bootstrap cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the bootstrap to the workload cluster. This process is also called a [Pivot][pivot].
 
-    ```sh
+    ```bash
     dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -53,11 +53,11 @@ Before you start, make sure you have created a workload cluster, as described in
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
-    ```sh
+    ```bash
     cluster.cluster.x-k8s.io/aws-example condition met
     ```
 
@@ -65,7 +65,7 @@ Before you start, make sure you have created a workload cluster, as described in
 
     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use Konvoy with the workload cluster kubeconfig.</p>
 
-    ```sh
+    ```bash
     dkp describe cluster --kubeconfig ${CLUSTER_NAME}.conf -c ${CLUSTER_NAME}
     ```
 
@@ -81,7 +81,7 @@ Before you start, make sure you have created a workload cluster, as described in
 
 1.  Remove the bootstrap cluster, as the workload cluster is now self-managing:
 
-    ```sh
+    ```bash
     dkp delete bootstrap
     ```
 

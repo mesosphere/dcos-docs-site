@@ -8,8 +8,6 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
-
 Using DKP you can monitor the state of the cluster and the health and availability of the processes running on the cluster.
 By default, Kommander provides monitoring services using a pre-configured monitoring stack based on the Prometheus open-source project and its broader ecosystem.
 
@@ -73,7 +71,7 @@ To disable all of the default dashboards, follow these steps to define an overri
     kubectl apply -f kube-prometheus-stack-overrides.yaml
     ```
 
-1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](/dkp/kommander/2.2/workspaces/workspace-platform-services/application-deployment/#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment will resemble this code sample:
+1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](/dkp/kommander/2.2/workspaces/applications/platform-applications/application-deployment/#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment will resemble this code sample:
 
     ```yaml
     apiVersion: apps.kommander.d2iq.io/v1alpha2
@@ -198,7 +196,7 @@ For example, if you want to disable the default `node` alert rules, follow these
     kubectl apply -f kube-prometheus-stack-overrides.yaml
     ```
 
-1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](/dkp/kommander/2.2/workspaces/workspace-platform-services/application-deployment/#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment file resembles this code sample:
+1.  Edit the `kube-prometheus-stack` AppDeployment to replace the `spec.configOverrides.name` value with `kube-prometheus-stack-overrides`. (You can use the steps in the procedure, [Deploy an application with a custom configuration](/dkp/kommander/2.2/workspaces/applications/platform-applications/application-deployment/#deploy-an-application-with-a-custom-configuration) as a guide.) When your editing is complete, the AppDeployment file resembles this code sample:
 
     ```yaml
     apiVersion: apps.kommander.d2iq.io/v1alpha2
@@ -402,7 +400,7 @@ spec:
 
 This service object is discovered by a `ServiceMonitor`, which defines the selector to match the labels with those defined in the service. The app label must have the value `my-app`.
 
-In this example, in order for `kube-prometheus-stack` to discover this `ServiceMonitor`, you must add a specific label `release: kube-prometheus-stack` in the `yaml`:
+In this example, in order for `kube-prometheus-stack` to discover this `ServiceMonitor`, add a specific label `prometheus.kommander.d2iq.io/select: "true"` in the `yaml`:
 
 ```yaml
 apiVersion: monitoring.coreos.com/v1
@@ -411,7 +409,7 @@ metadata:
   name: my-app-service-monitor
   namespace: my-namespace
   labels:
-    release: kube-prometheus-stack
+    prometheus.kommander.d2iq.io/select: "true"
 spec:
   selector:
     matchLabels:

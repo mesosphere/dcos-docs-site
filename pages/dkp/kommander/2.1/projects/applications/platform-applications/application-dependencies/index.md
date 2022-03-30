@@ -24,7 +24,7 @@ Collects logs over time from Kubernetes pods deployed in the project namespace. 
 - [project-grafana-loki](https://grafana.com/oss/loki/): A horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus.
 - [project-grafana-logging](https://grafana.com/oss/grafana/): Logging dashboard used to view logs aggregated to Grafana Loki.
 
-<p class="message--important"><strong>IMPORTANT: </strong> The project logging applications depend on the <a href="../../../../workspaces/workspace-platform-services/platform-service-dependencies/">workspace logging applications</a> being deployed.</p>
+<p class="message--important"><strong>IMPORTANT: </strong> The project logging applications depend on the <a href="../../../../workspaces/applications/platform-applications/platform-application-dependencies/">workspace logging applications</a> being deployed.</p>
 
 | **Application**         | **Dependencies**                                                        |
 | ----------------------- | ----------------------------------------------------------------------- |

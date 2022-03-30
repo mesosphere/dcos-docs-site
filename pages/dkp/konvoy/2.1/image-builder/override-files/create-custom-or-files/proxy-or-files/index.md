@@ -12,7 +12,7 @@ You can use an HTTP proxy configuration when creating your image. The Ansible pl
 
 To configure a proxy for use during image creation, create a new override file like the following example, and specify the correct values for your environment:
 
-```sh
+```yaml
 cat <<EOF > overrides.yaml
 https_proxy: "http://10.0.64.5:3128"
 http_proxy: "http://10.0.64.5:3128"

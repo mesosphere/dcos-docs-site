@@ -274,7 +274,7 @@ To verify the training job, first run it on Spark in local mode:
 
 
 
-```sh
+```bash
 %%sh
 "${SPARK_HOME}/bin/spark-submit" --master "local[1]" "${HOROVOD_JOB}" --epochs=1
 ```
@@ -453,7 +453,7 @@ kubectl create -f "${KUBERNETES_FILE}"
 Check the pods are being created according to the specification:
 
 
-```sh
+```bash
 %%sh
 kubectl get pods -l sparkoperator.k8s.io/app-name=horovod-mnist
 ```
@@ -479,7 +479,7 @@ for attempt in range(1, 60):
 See the status of the `horovod-mnist` `SparkApplication`:
 
 
-```sh
+```bash
 %%sh
 kubectl describe ${HVD_JOB}
 ```
@@ -512,7 +512,7 @@ kubectl describe ${HVD_JOB}
 Check the model prediction (as before) by looking at the logs of the driver:
 
 
-```sh
+```bash
 %%sh
 kubectl logs horovod-mnist-driver | grep 'Model prediction'
 ```
@@ -521,7 +521,7 @@ kubectl logs horovod-mnist-driver | grep 'Model prediction'
 
 
 
-```sh
+```bash
 %%sh
 kubectl delete ${HVD_JOB}
 ```

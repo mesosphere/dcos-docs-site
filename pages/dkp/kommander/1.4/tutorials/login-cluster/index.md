@@ -53,8 +53,11 @@ The [Access a Cluster][access-cluster] instructions work for any clusters (manag
 
 The difference is that, once you have attached the cluster, none of the `kubectl` commands will succeed as the user does not have access:
 
+```bash
+kubectl get pods -A
+```
+
 ```sh
-$ kubectl get pods -A
 Error from server (Forbidden): pods is forbidden: User "user@yourcompany.com" cannot list resource "pods" in API group "" at the cluster scope
 ```
 

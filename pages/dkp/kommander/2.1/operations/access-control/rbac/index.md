@@ -18,7 +18,7 @@ Kubernetes does not provide an identity database for standard users. Users and g
 
 For example, if you want to make `mary@example.com` a cluster administrator, bind her username to the `cluster-admin` default role as follows:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -41,7 +41,7 @@ This user now has the highest level of access which can be achieved. Use the `cl
 
 A more common example would be to grant a user access to a specific namespace, by creating a RoleBinding (RoleBindings are namespaced scoped). For example, to make the user `bob@example.com` a _reader_ of the `baz` namespace, bind the user to the `view` role:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -65,7 +65,7 @@ The user can now perform non-destructive operations targeting resources in the `
 
 If your external identity provider supports group claims, you can also bind groups to roles. To make the `devops` LDAP group administrators of the `production` namespace bind the group to the `admin` role:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -95,6 +95,7 @@ Roles have been created for granting access to the dashboard and select applicat
 
 <p class="message--note"><strong>NOTE: </strong>Granting user <code>admin</code> privileges on <code>/dkp/*</code> grants <code>admin</code> privileges to all sub-resources, even if bindings exist for sub-resources with less privileges</p>
 
+<!-- vale Vale.Terms = NO -->
 | Dashboard           | Role                                         | Path                                 | access              |
 | ------------------- | -------------------------------------------- | ------------------------------------ | ------------------- |
 | \*                  | cluster-admin                                | \*                                   | read, write, delete |
@@ -134,6 +135,7 @@ Roles have been created for granting access to the dashboard and select applicat
 | thanos              | dkp-thanos-query-view       | /dkp/kommander/monitoring/query/\*                      | read                |
 | thanos              | dkp-thanos-query-edit       | /dkp/kommander/monitoring/query/\*                      | read, write         |
 | thanos              | dkp-thanos-query-admin      | /dkp/kommander/monitoring/query/\*                      | read, write, delete |
+<!-- vale Vale.Terms = YES -->
 
 This section provides a few examples of binding subjects to the default roles defined for the Kommander dashboard endpoints.
 
@@ -143,7 +145,7 @@ This section provides a few examples of binding subjects to the default roles de
 
 To grant the user `mary@example.com` administrative access to all Kommander resources, bind the user to the `dkp-admin` role:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -163,8 +165,11 @@ EOF
 
 If you inspect the role, you see what access is now granted:
 
-```shell
-$ kubectl describe clusterroles dkp-admin
+```bash
+kubectl describe clusterroles dkp-admin
+```
+
+```sh
 Name:         dkp-admin
 Labels:       app.kubernetes.io/instance=kommander
               app.kubernetes.io/managed-by=Helm
@@ -197,7 +202,7 @@ The user can now use the HTTP verbs HEAD, GET, DELETE, POST, and PUT when access
 
 In order to grant view access to the `/dkp/*` endpoints and edit access to the grafana logging endpoint to group `logging-ops`, create the following ClusterRoleBindings:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 ---
 apiVersion: rbac.authorization.k8s.io/v1

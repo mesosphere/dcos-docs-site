@@ -17,7 +17,7 @@ After a successful upgrade, the 1.8 addons no longer exist. Helm releases of Kib
 
 Uninstall these Helm releases from the command line, using the command:
 
-```sh
+```bash
 helm uninstall -n kubeaddons kibana-kubeaddons elasticsearch-curator-kubeaddons elasticsearch-kubeaddons elasticsearchexporter-kubeaddons
 ```
 
@@ -38,7 +38,7 @@ If Istio is installed on the cluster, the upgrade retains the Helm Secret that b
 
 Delete this secret using the `kubectl` command:
 
-```sh
+```bash
 kubectl delete -n istio-system secret sh.helm.release.v1.istio-kubeaddons.v1
 ```
 
@@ -51,7 +51,7 @@ If you manipulate this "Helm release" using Helm, it may corrupt the Gatekeeper 
 
 Delete these objects using the `kubectl`commands:
 
-```sh
+```bash
 kubectl delete -n kubeaddons secret sh.helm.release.v1.gatekeeper-kubeaddons.v1
 kubectl delete -n kubeaddons deployments gatekeeper-audit gatekeeper-controller-manager
 kubectl delete -n kubeaddons service gatekeeper-webhook-service

@@ -8,31 +8,30 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD018 MD025 MD007 MD030 MD032-->
 This topic shows how to run Kommander on top of an [air-gapped Konvoy cluster][air-gap-konvoy] installation.
 
 ## Prerequisites
 
 Before installing, ensure you have:
 
-- A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander-image-bundle.tar` tarball has the required artifacts.
+-   A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander-image-bundle.tar` tarball has the required artifacts.
 
-- A charts bundle file containing all Helm charts that Kommander installation needs.
+-   A charts bundle file containing all Helm charts that Kommander installation needs.
 
-- Connectivity with clusters attaching to the management cluster:
-  - Both management and attached clusters must connect to the Docker registry.
-  - Management cluster must connect to the attached cluster's API server.
-  - Management cluster must connect to load balancers created by some platform services.
+-   Connectivity with clusters attaching to the management cluster:
+    - Both management and attached clusters must be able to connect to the Docker registry.
+    - The management cluster must be able to connect to all attached cluster's API servers.
+    - The management cluster must be able to connect to any load balancers created for platform services on the management cluster.
 
-- A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
+-   A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
 
   ```bash
-  kommander install --init > install.yaml
+  kommander install --init --airgapped > install.yaml
   ```
 
-- All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
+-   All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
 
-- [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
+-   [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
 
 ### Kommander charts bundle
 
@@ -41,41 +40,41 @@ Create the charts bundle with the Kommander CLI or downloaded along with the Kom
 Execute this command to create the charts bundle:
 
    ```bash
-   kommander helmmirror create bundle
+   kommander create chart-bundle
    ```
 
 Kommander creates `charts-bundle.tar.gz`.
 Optionally, specify the output using the `-o` parameter:
 
    ```bash
-   kommander helmmirror create bundle -o [name of the output file]
+   kommander create chart-bundle -o [name of the output file]
    ```
 
 ### Kommander's internal Helm repository
 
-The Kommander charts bundle is uploaded to Kommander's internal Helm repository.
+The Kommander charts bundle is pushed to Kommander's internal Helm repository.
 To inspect the contents:
 
    ```bash
-   kommander helmmirror get charts
+   kommander get charts
    ```
 
 Individual charts can be removed using:
 
    ```bash
-   kommander helmmirror delete chart [chartName] [chartVersion]
+   kommander delete chart [chartName] [chartVersion]
    ```
 
-It is possible to upload new charts as well:
+It is possible to push new charts as well:
 
    ```bash
-   kommander helmmirror upload chart [chartTarball]
+   kommander push chart [chartTarball]
    ```
 
-Or upload a new bundle:
+Or push a new bundle:
 
    ```bash
-   kommander helmmirror upload bundle [chartsTarball]
+   kommander push chart-bundle [chartsTarball]
    ```
 
 Check the built-in help text for each command for more information.
@@ -164,93 +163,40 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 
 Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
 
-```sh
+```bash
 export VERSION=v2.2.0
 ```
 
 ### Load the Docker images into your Docker registry
 
-1. Download the image bundle file:
+1.  Download the image bundle file:
 
     ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O kommander-image-bundle.tar
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-image-bundle-${VERSION}.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
-1. Place the bundle in a location where you can load and push the images to your private Docker registry.
+1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 
-1. Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
+1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
-    #!/usr/bin/env bash
-    set -euo pipefail
-    IFS=$'\n\t'
-
-    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kommander-image-bundle.tar"}
-    readonly REGISTRY_URL=${REGISTRY_URL?"Need to set REGISTRY_URL. E.g: 10.23.45.67:5000"}
-
-    docker load <"${AIRGAPPED_TAR_FILE}"
-
-    while read -r IMAGE; do
-        echo "Processing ${IMAGE}"
-        REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker).io@${REGISTRY_URL}@")"
-        docker tag "${IMAGE}" "${REGISTRY_IMAGE}"
-        docker push "${REGISTRY_IMAGE}"
-    done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
+    dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
     ```
 
-Based on the network latency between the environment of script execution and the docker registry, this can take a while to upload all the images to your image registry.
+It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
 
 ## Install on Konvoy
 
-1. Adapt the [configuration file][kommander-config] created from running `kommander install --init > install.yaml` for the air-gapped deployment by changing the `.apps.kommander` section. Ensure you use the actual version number everywhere `${VERSION}` appears:
+1.  Create the [configuration file][kommander-config] by running `kommander install --init --airgapped > install.yaml` for the air-gapped deployment. Open the `install.yaml` file and review that it looks like the following:
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
     kind: Installation
-    apps:
-      ...
-      kommander:
-        values: |
-          authorizedlister:
-            image:
-              tag: ${VERSION}-amd64
-          controller:
-            containers:
-              manager:
-                image:
-                  tag: ${VERSION}-amd64
-          webhook:
-            image:
-              tag: ${VERSION}-amd64
-          fluxOperator:
-            containers:
-              manager:
-                image:
-                  tag: ${VERSION}-amd64
-          kommander-licensing:
-            controller:
-              containers:
-                manager:
-                  image:
-                    tag: ${VERSION}-amd64
-            webhook:
-              image:
-                tag: ${VERSION}-amd64
-          kubetools:
-            image:
-              tag: ${VERSION}-amd64
-    ```
-
-1. In the same file, adapt the other image tags accordingly and enable air-gapped mode. Replace `${VERSION}` with the actual version number:
-
-    ```yaml
-    appManagementImageTag: "${VERSION}-amd64"
     airgapped:
       enabled: true
-      helmMirrorImageTag: "${VERSION}-amd64"
     ```
 
-1. In the same file, if you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by setting the following:
+1.  In the same file, if you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by setting the following:
 
     ```yaml
     apps:
@@ -261,25 +207,19 @@ Based on the network latency between the environment of script execution and the
               service.beta.kubernetes.io/aws-load-balancer-internal: "true"
     ```
 
-1. Download the Kommander application definitions:
+1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.mesosphere.com/dkp/kommander-applications_${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-applications_${VERSION}.tar.gz"
     ```
 
-1. Download the Kommander charts bundle:
+1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-kommander-charts-bundle-${VERSION}.tar.gz"
     ```
 
-1. Download the [DKP catalog applications][dkp_catalog_applications] chart bundle if you intend on deploying any DKP catalog applications:
-
-    ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz"
-    ```
-
-1. To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
+1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
     kommander install --installer-config ./install.yaml \
@@ -287,16 +227,7 @@ Based on the network latency between the environment of script execution and the
     --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz
     ```
 
-    To upload the optional [DKP catalog applications][dkp_catalog_applications] chart bundle, add `--chart-bundle` flag to the `install` command:
-
-    ```bash
-    kommander install --installer-config ./install.yaml \
-    --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
-    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz \
-    --charts-bundle dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz
-    ```
-
-1. [Verify your installation](../networked#verify-installation).
+1.  [Verify your installation](../networked#verify-installation).
 
 [air-gap-before-you-begin]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/prerequisites/
 [air-gap-install-metallb]: #use-metallb

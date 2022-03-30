@@ -19,7 +19,7 @@ Before you begin using Kommander, you must:
 
 To ensure the Git repository that Kommander ships with deploys successfully, the cluster where Kommander is installed must have a default `StorageClass` configured. Run the following command:
 
-```sh
+```bash
 kubectl get sc
 ```
 
@@ -32,7 +32,7 @@ ebs-sc (default)   ebs.csi.aws.com   Delete          WaitForFirstConsumer   fals
 
 If the `StorageClass` is not set as default, add the following annotation to the `StorageClass` manifest:
 
-```sh
+```yaml
 annotations:
   storageclass.kubernetes.io/is-default-class: "true"
 ```
@@ -41,11 +41,13 @@ More information on setting a StorageClass as default can be found at [Changing 
 
 ## Install Kommander on Konvoy
 
-Before running the commands below, ensure that your `kubectl` configuration references the cluster on which you want to install Kommander. You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location.
+To customize a Kommander installation, see the [configuration page][configuration-kommander] for more details.
 
-<p class="message--note"><strong>NOTE:</strong> See the <a href="../configuration">configuration</a> page for more details on how to customize a Kommander installation.</p>
+Before running the commands below, ensure that your `kubectl` configuration **references the cluster on which you want to install Kommander**, otherwise it will install on the bootstrap cluster. You can do this by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file's location][k8s-access-to-clusters].
 
-```sh
+<p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable as stated earlier is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
+
+```bash
 kommander install
 ```
 
@@ -57,7 +59,7 @@ The Kommander installation is a multi-step process: Flux installs first, then th
 
 After running the install command, `HelmReleases` begin to appear on the cluster.
 
-```sh
+```bash
 kubectl -n kommander wait --for condition=Released helmreleases --all --timeout 15m
 ```
 
@@ -96,7 +98,7 @@ helmrelease.helm.toolkit.fluxcd.io/velero condition met
 
 When all the `HelmReleases` are ready, use the following command to open the Kommander dashboard in your browser:
 
-```sh
+```bash
 kommander open dashboard
 ```
 
@@ -104,14 +106,16 @@ This command opens the URL of the Kommander web interface in your default browse
 
 If you prefer not to open your browser, run this command to retrieve the URL used for accessing Kommander's web interface:
 
-```sh
+```bash
 kubectl -n kommander get svc kommander-traefik -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}/dkp/kommander/dashboard{{ "\n"}}'
 ```
 
 And, use the following command to access the username and password stored on the cluster:
 
-```sh
+```bash
 kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
 ```
 
 [k8s-change-default-storage-class]: https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class
+[k8s-access-to-clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
+[configuration-kommander]: ../configuration/

@@ -77,3 +77,10 @@ code.language-markdown {
   padding-left: 18px;
   color: #fff;
 }
+
+/* This hides the copy button in code snippets for sh */
+
+.code-toolbar pre[class*="language-sh"] {
+  z-index: 100;
+  position: relative;
+}

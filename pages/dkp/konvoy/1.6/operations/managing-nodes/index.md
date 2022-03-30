@@ -18,7 +18,7 @@ enterprise: false
 
 After you use `konvoy` to provision an AWS, Azure, or GCP cluster, you can use it to add more nodes. To safely add nodes, make sure your current working directory contains the following:
 
-```shell
+```sh
 .
 ├── admin.conf                  | Kubeconfig for the cluster administrator
 ├── cluster.yaml                | Cluster configuration
@@ -29,7 +29,7 @@ After you use `konvoy` to provision an AWS, Azure, or GCP cluster, you can use i
     └── terraform.tfstate       | Terraform state
 ```
 
-<p class="message--note"><strong>NOTE: </strong>A custom Terraform configuration that uses remote state, e.g. using AWS S3, may not require the `state` directory.</p>
+<p class="message--note"><strong>NOTE: </strong>A custom Terraform configuration that uses remote state, for example, using AWS S3, may not require the `state` directory.</p>
 
 With these files in the current working directory, proceed with the following steps:
 
@@ -46,7 +46,7 @@ To see the new nodes, run `kubectl get nodes --sort-by=.metadata.creationTimesta
 
 To safely add nodes, make sure your current working directory contains the following:
 
-```shell
+```sh
     .
     ├── admin.conf                  | Kubeconfig for the cluster administrator
     ├── cluster.yaml                | Cluster configuration
@@ -103,7 +103,7 @@ Sometimes you need to change the nodes you have already deployed. For example, t
 
 To avoid disrupting workloads on a node pool, migrate them to a new node pool. To safely migrate workloads, make sure your current working directory contains the following:
 
-```shell
+```sh
     .
     ├── admin.conf                  | Kubeconfig for the cluster administrator
     ├── cluster.yaml                | Cluster configuration

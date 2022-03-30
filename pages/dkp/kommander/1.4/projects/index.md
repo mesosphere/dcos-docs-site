@@ -31,7 +31,7 @@ Create a Project by specifying:
 - A Namespace Name (optional) 
 - A way for Kommander to determine which Kubernetes clusters are part of this project
 
-A Project Namespace corresponds to a Kubernetes Federated Namespace. By default, the name of the namespace is auto-generated based on the project name (first 57 characters) plus 5 unique alphanumeric characters. You can specify a namespace name, but you must ensure it does not conflict with any existing namespace on the target Kubernetes clusters that will be a part of the Project.
+A Project Namespace corresponds to a Kubernetes Federated Namespace. By default, the name of the namespace is automatically generated based on the project name (first 57 characters) plus 5 unique alphanumeric characters. You can specify a namespace name, but you must ensure it does not conflict with any existing namespace on the target Kubernetes clusters that will be a part of the Project.
 
 To determine which Kubernetes clusters will be part of this project, you can either manually select existing clusters, or define labels that Kommander will use to dynamically add clusters. The latter is recommended because it allows you to deploy additional Kubernetes clusters later and have them automatically associated with Projects based on their labels.
 
@@ -89,7 +89,7 @@ spec:
 
 ## Provide a list of matching labels
 
-The following example demonstrates how the Jenkins service in the Project namespace *p1-hjmx8* is pinned to all clusters that have the *ci: true* label:
+The following example demonstrates how the Jenkins service in the Project namespace `p1-hjmx8` is pinned to all clusters that have the `ci: true` label:
 
 ```yaml
 apiVersion: types.kubefed.io/v1beta2
@@ -111,7 +111,7 @@ spec:
 The labels provided in the `matchLabels` field are matched against the `KubefedCluster` resource on the Kommander cluster.
 Run:
 
-```sh
+```bash
 kubectl get kubefedclusters -A
 ```
 

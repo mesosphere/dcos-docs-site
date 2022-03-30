@@ -46,7 +46,7 @@ All you need is this notebook.
 Before proceeding, check you are using the correct notebook image, that is, [Pytorch](https://pytorch.org/docs/stable/index.html) is available:
 
 
-```sh
+```bash
 %%sh
 pip list | grep torch
 ```
@@ -541,7 +541,7 @@ The low accuracy of the model is to make the demonstration of distributed traini
 ### Verify the Model is Exported to MinIO
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 mc --no-color alias set minio http://minio.kubeflow minio minio123
@@ -692,7 +692,7 @@ plt.show()
 ![Image](img/7.png)
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 model_name="dev-mnist"

@@ -14,7 +14,7 @@ Before you begin, you must:
 
 ## Overview
 
-There are many reasons to update the worker node pool. This topic covers three of the most common:
+You may have many reasons to update the worker node pool. This topic covers three of the most common:
 
 1. To upgrade the Kubernetes version.
 1. To update the machine image (AMI).
@@ -26,7 +26,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
 1.  Set the environment variable to the name you assigned this cluster.
 
-    ```sh
+    ```bash
     CLUSTER_NAME=my-aws-cluster
     ```
 
@@ -34,13 +34,13 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
 1.  If your workload cluster is self-managed, as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster.
 
-    ```sh
+    ```bash
     export KUBECONFIG=${CLUSTER_NAME}.conf
     ```
 
 1.  Verify that the control plane is already updated.
 
-    ```sh
+    ```bash
     kubectl get kubeadmcontrolplane ${CLUSTER_NAME}-control-plane
     ```
 
@@ -53,7 +53,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
 1.  Define the names of the resources.
 
-    ```sh
+    ```bash
     export MACHINEDEPLOYMENT_NAME=$(kubectl get machinedeployments --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
     export CURRENT_TEMPLATE_NAME=$(kubectl get machinedeployments ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.spec.template.spec.infrastructureRef.name}')
     export NEW_TEMPLATE_NAME=${MACHINEDEPLOYMENT_NAME}-$(cat /proc/sys/kernel/random/uuid | head -c4)
@@ -61,7 +61,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
 
 1.  Prepare the patch files.
 
-    ```sh
+    ```bash
     echo '{}' > node-pool-machine-image-patch.yaml
     echo '{}' > node-pool-machine-type-patch.yaml
     echo '{}' > node-pool-kubernetes-version-patch.yaml
@@ -87,13 +87,13 @@ If you do not want to update the Kubernetes version, go to the [next section](#p
 
 1.  Define the Kubernetes version. Use the letter `v` followed by `major.minor.patch` version.
 
-    ```sh
+    ```bash
     export KUBERNETES_VERSION=v1.21.6
     ```
 
 1.  Create a patch file.
 
-    ```sh
+    ```yaml
     cat <<EOF > node-pool-kubernetes-version-patch.yaml
     apiVersion: cluster.x-k8s.io/v1alpha4
     kind: MachineDeployment
@@ -120,13 +120,13 @@ If you do not want to update the machine image, go to the [next section](#prepar
 
 1.  Define the machine image identifier.
 
-    ```sh
+    ```bash
     export AMI_ID=ami-example-identifier
     ```
 
 1.  Create a patch file.
 
-    ```sh
+    ```yaml
     cat <<EOF > node-pool-machine-image-patch.yaml
     apiVersion: infrastructure.cluster.x-k8s.io/v1alpha4
     kind: AWSMachineTemplate
@@ -144,13 +144,13 @@ If you do not want to update the instance type, go to the [next section](#apply-
 
 1.  Define the instance type. Use an instance type that is valid for the region.
 
-    ```sh
+    ```bash
     export INSTANCE_TYPE=m5.large
     ```
 
 1.  Create a patch file.
 
-    ```sh
+    ```yaml
     cat <<EOF > node-pool-machine-type-patch.yaml
     apiVersion: infrastructure.cluster.x-k8s.io/v1alpha4
     kind: AWSMachineTemplate
@@ -169,7 +169,7 @@ If you do not want to update the instance type, go to the [next section](#apply-
 
     <p class="message--note"><strong>NOTE: </strong>Creating the new AWSMachineTemplate does not by itself update the worker node pool.</p>
 
-    ```sh
+    ```bash
     kubectl get awsmachinetemplate ${CURRENT_TEMPLATE_NAME} --output=yaml \
       | kubectl patch --local=true -f- --patch="{\"metadata\": {\"name\": \"$NEW_TEMPLATE_NAME\"} }" --type=merge --output=yaml \
       | kubectl patch --local=true -f- --patch-file=node-pool-machine-image-patch.yaml --type=merge --output=yaml \
@@ -187,7 +187,7 @@ If you do not want to update the instance type, go to the [next section](#apply-
 
     <p class="message--note"><strong>NOTE: </strong>Patching the MachineDeployment starts the worker node pool update. Machines with updated properties are created, and machines with out-of-date properties are deleted. The update is "rolling." New machines replace old machines one at a time. The update waits for each new machine to successfully join the cluster.</p>
 
-    ```sh
+    ```bash
     kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME} --output=yaml \
       | kubectl patch --local=true -f- --patch="{\"spec\": {\"template\": {\"spec\": {\"infrastructureRef\": {\"name\": \"$NEW_TEMPLATE_NAME\"} } } } }" --type=merge --output=yaml \
       | kubectl patch --local=true -f- --patch-file=node-pool-kubernetes-version-patch.yaml --type=merge --output=yaml \
@@ -204,7 +204,7 @@ If you do not want to update the instance type, go to the [next section](#apply-
 
     <!-- NOTE: `kubectl wait` is the preferred solution, but cannot be used with MachineDeployment, because it does not yet have Conditions (https://github.com/kubernetes-sigs/cluster-api/pull/4625) -->
 
-    ```sh
+    ```bash
     timeout 10m bash -c \
       "until [[ $(kubectl get machinedeployment ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.status.replicas}') \
                 == \

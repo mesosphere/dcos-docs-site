@@ -49,7 +49,7 @@ When creating a cluster, use the following command line options:
 
 For example:
 
-```shell
+```bash
 dkp create cluster aws --cluster-name myFipsCluster \
 --ami=ami-03dcaa75d45aca36f \
 --kubernetes-version=1.21.6+fips.0 \

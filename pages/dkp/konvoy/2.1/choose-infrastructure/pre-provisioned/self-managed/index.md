@@ -18,36 +18,15 @@ Before you start, make sure you have created a workload cluster, as described in
 
 Before setting the cluster to manage itself, explore your cluster with this command:
 
-   ```sh
+   ```bash
    kubectl get pods -A --kubeconfig ${CLUSTER_NAME}.conf
    ```
-
-<p class="message--note"><strong>NOTE: </strong>If you see a <code>calico-node</code> pod not ready on your cluster, you need to edit the <code>installation</code> file.
-</p>
-
-To edit the installation file, run the command:
-
-   ```sh
-   kubectl edit installation default --kubeconfig ${CLUSTER_NAME}.conf
-   ```
-
-Change the value for `spec.calicoNetwork.nodeAddressAutodetectionV4` to `interface: ens192`, and save the file:
-
-   ```sh
-   spec:
-     calicoNetwork:
-     ...
-       nodeAddressAutodetectionV4:
-         interface: ens192
-   ```
-
-After saving the file, you may need to delete the node feature discovery worker pod in the `node-feature-discovery` namespace, if it failed. After you delete it, Kubernetes replaces the pod as part of its normal reconciliation.
 
 ## Make the new Kubernetes cluster manage itself
 
 1.  Deploy cluster lifecycle services on the workload cluster:
 
-    ```sh
+    ```bash
     dkp create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -75,7 +54,7 @@ After saving the file, you may need to delete the node feature discovery worker 
 
     The cluster lifecycle services on the workload cluster are ready, but the workload cluster configuration is on the bootstrap cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the bootstrap to the workload cluster. This process is also called a [Pivot][pivot].
 
-    ```sh
+    ```bash
     dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -90,7 +69,7 @@ After saving the file, you may need to delete the node feature discovery worker 
 
 3.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
@@ -102,7 +81,7 @@ After saving the file, you may need to delete the node feature discovery worker 
 
     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use Konvoy with the workload cluster kubeconfig.</p>
 
-    ```sh
+    ```bash
     dkp describe cluster --kubeconfig ${CLUSTER_NAME}.conf -c ${CLUSTER_NAME}
     ```
 
@@ -119,7 +98,7 @@ After saving the file, you may need to delete the node feature discovery worker 
 
 5.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
 
-    ```sh
+    ```bash
     dkp delete bootstrap
     ```
 

@@ -38,7 +38,7 @@ clusters in the workspace by using the OS documentation and examining the
 
 1.  Extract the default Helm values used by the Fluent Bit App:
 
-    ```sh
+    ```bash
     kubectl get -n kommander configmaps fluent-bit-0.16.2-d2iq-defaults -o=jsonpath='{.data.values\.yaml}' > fluent-bit-values.yaml
     ```
 
@@ -128,7 +128,7 @@ clusters in the workspace by using the OS documentation and examining the
 
 1.  Add the following line into the `[INPUT]` entry identified by `Name systemd` and `Alias kubernetes_host`.
 
-    ```sh
+    ```bash
     Path <path to systemd logs on the node>
     ```
 
@@ -245,7 +245,7 @@ config:
 
 1.  Edit the `fluent-bit` AppDeployment to set the value of
 `spec.configOverrides.name` to the name of the created `ConfigMap`.
-(You can use the steps in the procedure, [Deploy an application with a custom configuration](../../workspaces/workspace-platform-services/application-deployment#deploy-an-application-with-a-custom-configuration) as a guide.)
+(You can use the steps in the procedure, [Deploy an application with a custom configuration](../../workspaces/applications/platform-applications/application-deployment/#deploy-an-application-with-a-custom-configuration) as a guide.)
 
     ```bash
     kubectl edit -n ${WORKSPACE_NAMESPACE} fluent-bit
