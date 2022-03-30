@@ -24,7 +24,7 @@ The overall process for upgrading to the latest version of DKP is done on each W
 1.  [**Upgrade Kommander**][upgrade_kommander], which upgrades all Platform Applications.
 
     If you do not have any managed or attached clusters, skip to upgrading Konvoy on your Management Cluster.
-    
+    ```
 
    For **Kommander**, on your Workspaces (which include Management and Managed clusters):
 
