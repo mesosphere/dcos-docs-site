@@ -11,7 +11,7 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which then
 
 Before starting, ensure you create a workload cluster as described in [Create a New Cluster][createnewcluster].
 
-_%%% we need vSphere-specific steps for this procedure if it is supported_
+%%% we need vSphere-specific steps for this procedure if it is supported
 
 ## Make the new Kubernetes cluster manage itself
 
@@ -20,20 +20,11 @@ _%%% we need vSphere-specific steps for this procedure if it is supported_
     By default, `create bootstrap controllers` configures the Cluster API controllers to use the AWS credentials from your environment. We recommend you use the `--with-aws-bootstrap-credentials=false` flag to configure the Cluster API controllers of your self-managed AWS cluster to use AWS IAM Instance Profiles, instead of the AWS credentials from your environment.
 
     ```bash
-    dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
+    dkp create bootstrap controllers --with-vsphere-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     ```sh
-    INFO[2021-06-07T14:10:08-07:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:88"
-    INFO[2021-06-07T14:11:34-07:00] Created bootstrap controllers                 src="bootstrap/controllers.go:93"
-    INFO[2021-06-07T14:11:34-07:00] Waiting for bootstrap controllers to be ready  src="bootstrap/controllers.go:96"
-    INFO[2021-06-07T14:11:40-07:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:101"
-    INFO[2021-06-07T14:11:40-07:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:35"
-    INFO[2021-06-07T14:11:41-07:00] Created Tigera operator                       src="bootstrap/clusterresourceset.go:40"
-    INFO[2021-06-07T14:11:42-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:107"
-    INFO[2021-06-07T14:11:42-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:112"
-    INFO[2021-06-07T14:11:42-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:180"
-    INFO[2021-06-07T14:11:42-07:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:185"
+    %%% need vSphere output
     ```
 
 1.  Move the Cluster API objects from the bootstrap to the workload cluster:
@@ -58,7 +49,7 @@ _%%% we need vSphere-specific steps for this procedure if it is supported_
     ```
 
     ```sh
-    cluster.cluster.x-k8s.io/aws-example condition met
+    d2iq-e2e-cluster-1/vsphere-example condition met
     ```
 
 1.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:
@@ -70,13 +61,19 @@ _%%% we need vSphere-specific steps for this procedure if it is supported_
     ```
 
     ```sh
-    NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
-    /aws-example                                                    True                     35s
-    ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
-    ├─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     36s
-    │   └─3 Machine...                                              True                     4m20s
+    NAME                                                                READY  SEVERITY  REASON  SINCE  MESSAGE
+    Cluster/d2iq-e2e-cluster_name-1                                     True                     13h
+    ├─ClusterInfrastructure - VSphereCluster/d2iq-e2e-cluster_name-1    True                     13h
+    ├─ControlPlane - KubeadmControlPlane/d2iq-control-plane             True                     13h
+    │ ├─Machine/d2iq--control-plane-7llgd                               True                     13h
+    │ ├─Machine/d2iq--control-plane-vncbl                               True                     13h
+    │ └─Machine/d2iq--control-plane-wbgrm                               True                     13h
     └─Workers
-        └─MachineDeployment/aws-example-md-0
+        └─MachineDeployment/d2iq--md-0                                  True                     13h
+        ├─Machine/d2iq--md-0-74c849dc8c-67rv4                           True                     13h
+        ├─Machine/d2iq--md-0-74c849dc8c-n2skc                           True                     13h
+        ├─Machine/d2iq--md-0-74c849dc8c-nkftv                           True                     13h
+        └─Machine/d2iq--md-0-74c849dc8c-sqklv                           True                     13h
     ```
 
 1.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
@@ -86,18 +83,18 @@ _%%% we need vSphere-specific steps for this procedure if it is supported_
     ```
 
     ```sh
-    INFO[2021-06-07T14:53:36-07:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:182"
+    INFO[2022-03-30T17:53:36-07:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:182"
     ```
 
 ## Known Limitations
 
 <p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of DKP Konvoy.</p>
 
-- Before making a workload cluster self-managed, be sure that its control plane nodes have sufficient permissions for running Cluster API controllers. 
+-   Before making a workload cluster self-managed, be sure that its control plane nodes have sufficient permissions for running Cluster API controllers.
 
-- DKP Konvoy supports moving only one set of cluster objects from the bootstrap cluster to the workload cluster, or vice-versa.
+-   DKP Konvoy supports moving only one set of cluster objects from the bootstrap cluster to the workload cluster, or vice-versa.
 
-- DKP Konvoy only supports moving all namespaces in the cluster; DKP does not support migration of individual namespaces.
+-   DKP Konvoy only supports moving all namespaces in the cluster; DKP does not support migration of individual namespaces.
 
 [bootstrap]: ../bootstrap
 [pivot]: https://cluster-api.sigs.k8s.io/reference/glossary.html?highlight=pivot#pivot

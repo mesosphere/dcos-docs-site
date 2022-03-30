@@ -14,7 +14,7 @@ Before you begin, you must:
 - [Create a workload cluster][createnewcluster].
 - [Make the new cluster self-managed][selfmanaged].
 
-_%%% if this functionality is supported for vSphere, we need to replace the commands and output with vSphere-specific examples_
+%%% if this functionality is supported for vSphere, we need to replace the commands and output with vSphere-specific examples
 
 ## Replace a worker node
 
@@ -32,16 +32,12 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     ```sh
     NAME                                         STATUS   ROLES                  AGE   VERSION
-    ip-10-0-102-60.us-west-2.compute.internal    Ready    control-plane,master   36m   v1.21.6
-    ip-10-0-118-168.us-west-2.compute.internal   Ready    <none>                 42m   v1.21.6
-    ip-10-0-175-114.us-west-2.compute.internal   Ready    control-plane,master   44m   v1.21.6
-    ip-10-0-214-26.us-west-2.compute.internal    Ready    control-plane,master   40m   v1.21.6
-    ip-10-0-84-17.us-west-2.compute.internal     Ready    <none>                 42m   v1.21.6
+    %%% we need vSphere-specific output
     ```
 
 1.  Export a variable with the node name to use in the next steps:
 
-    This example uses the name `ip-10-0-118-168.us-west-2.compute.internal`.
+    This example uses the name `ip-10-0-118-168.us-west-2.compute.internal`. %%% we need a proper vSphere example to replace this one from AWS
 
     ```bash
     export NAME_NODE_TO_DELETE="ip-10-0-118-168.us-west-2.compute.internal"
@@ -58,19 +54,19 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     machine.cluster.x-k8s.io "aws-example-md-0-7fbfb98fcf-4xcv9" deleted
     ```
 
-    The command does not return immediately. It will return once the Machine resource has been deleted.
+    The command does not return immediately, but it does return after the Machine resource is deleted.
 
     A few minutes after the Machine resource is deleted, the corresponding Node resource is also deleted.
 
-1.  Observe that the Machine resource is being replaced using this command:
+1.  Observe the Machine resource replacement using this command:
 
     ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf get machinedeployment
     ```
 
     ```sh
-    NAME               PHASE       REPLICAS   READY   UPDATED   UNAVAILABLE
-    aws-example-md-0   ScalingUp   2          1       2         1
+    NAME                   PHASE       REPLICAS   READY   UPDATED   UNAVAILABLE
+    vsphere-example-md-0   ScalingUp   2          1       2         1
     ```
 
     There exist 2 replicas, but only 1 is ready. There exists 1 unavailable replica, and the `ScalingUp` phase means a new Machine is being created.
@@ -94,17 +90,17 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```
 
     ```sh
-    ip-10-0-85-101.us-west-2.compute.internal
+    %%% need vSphere output
     ```
 
     If the output is empty, the Node resource is not yet available, or does not yet have the expected annotation. Wait a few minutes, then repeat the command.
 
-<!--
+<!---
 ## Known Limitations
 
 <p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of Konvoy.</p>
 
--->
+--->
 
 [createnewcluster]: ../new
 [selfmanaged]: ../self-managed

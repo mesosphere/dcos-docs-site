@@ -25,24 +25,6 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
     ```sh
     %%% we need vSphere-specific output
-    INFO[2021-08-25T13:43:50-32:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:143"
-    INFO[2021-08-25T13:43:52-07:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:96"
-    INFO[2021-08-25T13:44:29-07:00] Created bootstrap controllers                 src="bootstrap/controllers.go:101"
-    INFO[2021-08-25T13:44:29-07:00] Waiting for bootstrap controllers to be ready  src="bootstrap/controllers.go:104"
-    INFO[2021-08-25T13:44:39-07:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:109"
-    INFO[2021-08-25T13:44:39-07:00] Patching ClusterRoleBinding for CAPPP         src="bootstrap/controllers.go:112"
-    INFO[2021-08-25T13:44:39-07:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
-    INFO[2021-08-25T13:44:39-07:00] Created Tigera operator                       src="bootstrap/clusterresourceset.go:42"
-    INFO[2021-08-25T13:44:40-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:109"
-    INFO[2021-08-25T13:44:40-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:114"
-    INFO[2021-08-25T13:44:40-07:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:116"
-    INFO[2021-08-25T13:44:40-07:00] Created Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:121"
-    INFO[2021-08-25T13:44:40-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:181"
-    INFO[2021-08-25T13:44:40-07:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:186"
-    INFO[2021-08-25T13:44:40-07:00] Initializing Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:239"
-    INFO[2021-08-25T13:44:40-07:00] Created Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:244"
-    INFO[2021-08-25T13:44:40-07:00] Initializing NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:297"
-    INFO[2021-08-25T13:44:40-07:00] Created NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:302"
     ```
 
 1.  Move the Cluster API objects from the workload to the bootstrap cluster:
@@ -69,14 +51,19 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```
 
     ```sh
-    %%% need a vSphere specific example output block
-    NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
-    /aws-example                                                    True                     35s
-    ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
-    ├─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     36s
-    │   └─3 Machine...                                              True                     4m20s
+    NAME                                                                READY  SEVERITY  REASON  SINCE  MESSAGE
+    Cluster/d2iq-e2e-cluster_name-1                                     True                     13h
+    ├─ClusterInfrastructure - VSphereCluster/d2iq-e2e-cluster_name-1    True                     13h
+    ├─ControlPlane - KubeadmControlPlane/d2iq-control-plane             True                     13h
+    │ ├─Machine/d2iq--control-plane-7llgd                               True                     13h
+    │ ├─Machine/d2iq--control-plane-vncbl                               True                     13h
+    │ └─Machine/d2iq--control-plane-wbgrm                               True                     13h
     └─Workers
-        └─MachineDeployment/aws-example-md-0
+        └─MachineDeployment/d2iq--md-0                                  True                     13h
+        ├─Machine/d2iq--md-0-74c849dc8c-67rv4                           True                     13h
+        ├─Machine/d2iq--md-0-74c849dc8c-n2skc                           True                     13h
+        ├─Machine/d2iq--md-0-74c849dc8c-nkftv                           True                     13h
+        └─Machine/d2iq--md-0-74c849dc8c-sqklv                           True                     13h
     ```
 
      <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use dkp with the workload cluster kubeconfig.</p>
@@ -89,14 +76,15 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     kubectl --kubeconfig $HOME/.kube/config wait --for=condition=controlplaneready "clusters/${CLUSTER_NAME}" --timeout=60m
     ```
 
+    The output should be similar to this example:
+
     ```sh
-    %%% need vSphere specific example
-    cluster.cluster.x-k8s.io/aws-example condition met
+    d2iq-e2e-cluster-1-control-plane/vsphere-example condition met
     ```
 
 ## Delete the workload cluster
 
-1.  Make sure your vSphere credentials are up to date. Refresh the credentials using this command:
+1.  Make sure your vSphere credentials are up-to-date. Refresh the credentials using this command:
 
     ```bash
     dkp update bootstrap credentials vsphere --kubeconfig $HOME/.kube/config
@@ -115,10 +103,9 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```
 
     ```sh
-    %%% need Vspshere specific output
-    INFO[2021-06-09T11:53:42-07:00] Running cluster delete command                clusterName=aws-example managementClusterKubeconfig= namespace=default src="cluster/delete.go:95"
-    INFO[2021-06-09T11:53:42-07:00] Waiting for cluster to be fully deleted       src="cluster/delete.go:123"
-    INFO[2021-06-09T12:14:03-07:00] Deleted default/aws-example cluster  src="cluster/delete.go:129"
+    INFO[2022-03-30T11:53:42-07:00] Running cluster delete command                clusterName=d2iq-e2e-cluster-1 managementClusterKubeconfig= namespace=default src="cluster/delete.go:95"
+    INFO[2022-03-30T11:53:42-07:00] Waiting for cluster to be fully deleted       src="cluster/delete.go:123"
+    INFO[2022-03-30T12:14:03-07:00] Deleted default/d2iq-e2e-cluster-1 cluster  src="cluster/delete.go:129"
     ```
 
     After the workload cluster is deleted, delete the bootstrap cluster.
@@ -133,8 +120,6 @@ dkp delete bootstrap --kubeconfig $HOME/.kube/config
 INFO[2021-06-09T12:15:20-07:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:182"
 ```
 
-[pivot]: https://cluster-api.sigs.k8s.io/reference/glossary.html?highlight=pivot#pivot
-
 ## Known Limitations
 
 <p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of DKP Konvoy.</p>
@@ -142,3 +127,4 @@ INFO[2021-06-09T12:15:20-07:00] Deleting bootstrap cluster                    sr
 - The DKP Konvoy version used to create the workload cluster must match the DKP Konvoy version used to delete the workload cluster.
 
 [makeselfmanaged]: ../self-managed
+[pivot]: https://cluster-api.sigs.k8s.io/reference/glossary.html?highlight=pivot#pivot
