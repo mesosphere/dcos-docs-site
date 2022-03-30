@@ -48,9 +48,10 @@ Configure the [prerequisites](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infras
 ## Deploy DKP on AWS
 
 1. Deploy a management cluster in your AWS source account.
-2. Configure a trusted relationship between source and target accounts and create a management cluster:
 
 * **AWS:** [create Kubernetes AWS cluster](https://docs.d2iq.com/dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws/#create-a-new-aws-kubernetes-cluster)
+
+2. Configure a trusted relationship between source and target accounts and create a management cluster:
 
 ### Step 1:
 
