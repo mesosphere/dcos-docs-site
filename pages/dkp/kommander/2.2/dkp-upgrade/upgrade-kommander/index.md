@@ -13,13 +13,13 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 ## Prerequisites
 
-- [Download][download_binary] and install the latest DKP CLI binary on your computer.
-- Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
-- If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
-- Review the [Platform Application version updates][release_notes] that are part of this upgrade.  
-- For air-gapped environments **with** DKP Catalog Applications in a multi-cluster environment: [Load the Docker images into your Docker registry][load_images_catalog]
-- For air-gapped environments **without** DKP Catalog Applications: [Load the Docker images into your Docker registry][load_images]
-- For air-gapped environments only: 
+-   [Download][download_binary] and install the latest DKP CLI binary on your computer.
+-   Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
+-   If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
+-   Review the [Platform Application version updates][release_notes] that are part of this upgrade.  
+-   For air-gapped environments **with** DKP Catalog Applications in a multi-cluster environment: [Load the Docker images into your Docker registry][load_images_catalog]
+-   For air-gapped environments **without** DKP Catalog Applications: [Load the Docker images into your Docker registry][load_images]
+-   For air-gapped environments only:
   
   Download the Kommander application definitions:
 
@@ -59,8 +59,8 @@ Before running the following command, ensure that your `dkp` configuration **ref
     dkp upgrade kommander 
     ```
 
-    An output similar to this appears: 
-    
+    An output similar to this appears:
+
     ```bash
     $ dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
     ✓ Ensuring upgrading conditions are met
@@ -74,7 +74,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
     dkp upgrade kommander -v 4
     ```
 
-1.  For Enterprise customers (multi-cluster environment): Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster. 
+1.  For Enterprise customers (multi-cluster environment): Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster.
     For Essential customers (single-cluster environment): Proceed with the [Konvoy Upgrade][konvoy_upgrade].
 
 You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the next steps depending on your environment and license type.
