@@ -7,18 +7,17 @@ excerpt: Prepare to deploy Kubernetes clusters
 enterprise: false
 ---
 
-To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) controllers. These controllers run on a Kubernetes cluster. To get started, you need a _bootstrap_ cluster. By default, Konvoy creates a bootstrap cluster for you in a Docker container using the Kubernetes-in-Docker ([KIND][kind]) tool.
+To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) controllers, which run on a Kubernetes cluster. To get started, you need a _bootstrap_ cluster. By default, Konvoy creates a bootstrap cluster for you in a Docker container using the Kubernetes-in-Docker ([KIND][kind]) tool.
 
 ## Prerequisites
 
 Before you begin, you must:
 
 - Complete the steps in [Prerequisites][prerequisites].
+
 - Ensure the `dkp` binary can be found in your $PATH.
 
 ## Bootstrap Cluster Lifecycle Services
-
-1.  If an HTTP proxy is required for the bootstrap cluster, set the local `http_proxy`, `https_proxy`, and `no_proxy` environment variables. They are copied into the bootstrap cluster.
 
 1.  Create a bootstrap cluster:
 
@@ -27,30 +26,13 @@ Before you begin, you must:
     ```
 
     ```sh
-    INFO[2021-11-23T15:54:07-08:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
-    INFO[2021-11-23T15:55:01-08:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:94"
-    INFO[2021-11-23T15:56:05-08:00] Created bootstrap controllers                 src="bootstrap/controllers.go:106"
-    INFO[2021-11-23T15:56:05-08:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:110"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Tigera operator               src="bootstrap/clusterresourceset.go:42"
-    INFO[2021-11-23T15:56:05-08:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:95"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated AWS EBS CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:100"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Azure Disk CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:102"
-    INFO[2021-11-23T15:56:05-08:00] Created Azure Disk CustomResourceSet          src="bootstrap/clusterresourceset.go:107"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:109"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:114"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:181"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:186"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:239"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:244"
-    INFO[2021-11-23T15:56:06-08:00] Initializing NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:297"
-    INFO[2021-11-23T15:56:06-08:00] Created/Updated NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:302"
+    %%% need actual vSphere output here
     ```
 
     Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
 
     - [Core Provider][capi]
-    - [AWS Infrastructure Provider][capa]
+    - [vSphere Infrastructure Provider][capv]
     - [Kubeadm Bootstrap Provider][cabpk]
     - [Kubeadm ControlPlane Provider][kcp]
 
@@ -115,7 +97,7 @@ Before you begin, you must:
 [install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
-[capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
+[capv]: https://github.com/kubernetes-sigs/cluster-api-provider-vsphere
 [kind]: https://github.com/kubernetes-sigs/kind
 [capi_book]: https://cluster-api.sigs.k8s.io/
 [calico]: https://docs.projectcalico.org/
