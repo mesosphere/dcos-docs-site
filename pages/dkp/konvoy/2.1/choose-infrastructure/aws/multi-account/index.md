@@ -86,7 +86,7 @@ Configure a trust relationship between the source and target accounts.
   
     a. Go to your target (workload) account    
     b. Search for the role control-plane.cluster-api-provider-aws.sigs.k8s.io    
-    c. Navigate to the Trust Relationship tab and click Edit Trust Relationship    
+    c. Navigate to the Trust Relationship tab and select Edit Trust Relationship    
     d. Add the following relationship  
 
 ```bash
