@@ -41,16 +41,16 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
 
     ```bash
     konvoy create cluster vsphere \
-      --cluster-name your-cluster-name \
-      --network network-name \
-      --control-plane-endpoint-host xxx.yyy.zzz.000 \
-      --data-center data-ceneter-name \
-      --data-store datastore-name \
-      --folder folder-name  \
-      --server vcenter-api-server-url \
+      --cluster-name ${CLUSTER_NAME} \
+      --network <NETWORK_NAME> \
+      --control-plane-endpoint-host <xxx.yyy.zzz.000> \
+      --data-center <DATACENTER_NAME> \
+      --data-store <DATASTORE_NAME> \
+      --folder <FOLDER_NAME>  \
+      --server <VCENTER_API_SERVER_UTR \
       --ssh-authorized-key "<SSH_KEY>" \
-      --resource-pool resource-pool-name \
-      --vm-template template-name
+      --resource-pool <RESOURE_POOL_NAME> \
+      --vm-template <TEMPLATE_NAME>
     ```
 
 <!--- 1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy: %%% is this even possible in vSphere?
@@ -124,7 +124,7 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
     kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-mp-0 created
     ``` --->
 
-1.  Use the wait command to monitor the cluster control-plane readiness:
+1.  Use the `wait` command to monitor the cluster control-plane readiness:
 
     ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
@@ -164,7 +164,7 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
     For brevity, this example uses `grep`. You can also use separate commands to get Events for specific objects, such as `kubectl get events --field-selector involvedObject.kind="AWSCluster"` and `kubectl get events --field-selector involvedObject.kind="AWSMachine"`.
 
     ```sh
-    %%% need a (shorter?) vSphere specific output
+    %%% need a (shorter?) vSphere specific output example
     ```
 
 ## Known Limitations

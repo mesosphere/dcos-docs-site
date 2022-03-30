@@ -2,7 +2,8 @@
 layout: layout.pug
 navigationTitle: Explore New Cluster
 title: Explore New Cluster
-menuWeight: 25
+menuWeight: 40
+
 excerpt: Explore the new Kubernetes cluster
 beta: false
 enterprise: false
@@ -22,7 +23,7 @@ enterprise: false
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
-    Note: wait for the Status to move to `Ready` while `calico-node` pods are being deployed.
+    Note: wait for the Status to move to `Ready` while the `calico-node` pods deploy.
 
 1.  List the Pods with the command:
 
@@ -32,9 +33,4 @@ enterprise: false
 
 When you're ready, [delete your cluster and clean up your environment][delete-cluster].
 
-[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
-[capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
 [delete-cluster]: ../delete
-[install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
-[install_docker]: https://docs.docker.com/get-docker/
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/

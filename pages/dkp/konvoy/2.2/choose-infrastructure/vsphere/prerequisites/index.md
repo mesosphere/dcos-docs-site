@@ -44,6 +44,8 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 
 - A RedHat&reg; subscription with user name and password for downloading DVD ISOs
 
+- For air-gapped environments, a [bastion VM host template][create-bastion-vm] with access to a configured Docker registry
+
 - Valid vSphere values for the following:
 
   - vCenter API server URL
@@ -62,11 +64,15 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 
   - Resource Pools - at least one resource pool needed, with every host in the pool having access to shared storage, such as VSAN
 
-The next step is to [create a base OS image][create-base-os-image].
+The next step is:
 
+- for non air-gapped environments, [create a base OS image][create-base-os-image]
+
+- for air-gapped environments, [create and prepare a bastion VM][create-bastion-vm]
 
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [vsphere-vm-administration]: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-55238059-912E-411F-A0E9-A7A536972A91.html
 [vmware-esxi-hosts]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-B2F01BF5-078A-4C7E-B505-5DFFED0B8C38.html
 [create-base-os-image]: ../create-base-os-image/
+[create-bastion-vm]: ../air-gapped/create-bastion-vm
