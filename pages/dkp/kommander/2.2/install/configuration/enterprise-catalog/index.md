@@ -46,13 +46,15 @@ The following section describes each label:
 
 ### Air-gapped Catalog Configuration
 
-When running in air-gapped environments, update the configuration by replacing `gitRepositorySpec` with the `path` field pointing to a local path of the catalog git repository folder, for example:
+When running in air-gapped environments, update the configuration by replacing `gitRepositorySpec` with the `path` field pointing to a local path of the DKP catalog applications git repository.
+
+1. Download the DKP catalog application Git repository archive:
 
 ```bash
-git clone https://github.com/mesosphere/dkp-catalog-applications
+wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-catalog-applications-${VERSION}.tar.gz"
 ```
 
-And then:
+1. Update the Kommander configuration file with:
 
 ```yaml
 apiVersion: config.kommander.mesosphere.io/v1alpha1

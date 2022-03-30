@@ -216,6 +216,8 @@ It may take a while to push all the images to your image registry, depending on 
               service.beta.kubernetes.io/aws-load-balancer-internal: "true"
     ```
 
+1.  Follow the steps on the [Configure an Enterprise catalog](../../configuration/enterprise-catalog#air-gapped-catalog-configuration) page.
+
 1.  Download the Kommander application definitions:
 
     ```bash
@@ -239,8 +241,8 @@ It may take a while to push all the images to your image registry, depending on 
     ```bash
     kommander install --installer-config ./install.yaml \
     --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
-    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz \
-    --charts-bundle dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz
+    --charts-bundle dkp-kommander-charts-bundle-${VERSION}.tar.gz \
+    --charts-bundle dkp-catalog-applications-charts-bundle-${VERSION}.tar.gz
     ```
 
 1.  [Verify your installation](../../networked#verify-installation).

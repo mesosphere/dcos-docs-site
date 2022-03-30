@@ -53,6 +53,12 @@ Before running the following command, ensure that your `dkp` configuration **ref
     dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v.2.2.0.tar.gz --kommander-applications-repository kommander-applications_v.2.2.0.tar.gz
     ```
 
+    For air-gapped **with** DKP Catalog Applications in a multi-cluster environment:
+
+    ```bash
+    dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v.2.2.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications_v.2.2.0.tar.gz
+    ```
+
     For non air-gapped:
 
     ```bash

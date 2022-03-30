@@ -224,7 +224,7 @@ It may take a while to push all the images to your image registry, depending on 
     ```bash
     kommander install --installer-config ./install.yaml \
     --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
-    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz
+    --charts-bundle dkp-kommander-charts-bundle-${VERSION}.tar.gz
     ```
 
 1.  [Verify your installation](../networked#verify-installation).
