@@ -13,7 +13,7 @@ Kommander provides centralized monitoring, in a multi-cluster environment, using
 
 Attached clusters are distinguished by a monitoring ID.
 The monitoring ID corresponds to the kube-system namespace UID of the cluster.
-To find a cluster's monitoring ID, you can go to the Clusters tab on the Kommander UI (in the relevant workspace), or go to the **Clusters** page in the **Global** workspace:
+To find a cluster's monitoring ID, you can go to the Clusters tab on the DKP UI (in the relevant workspace), or go to the **Clusters** page in the **Global** workspace:
 
 ```bash
 https://<CLUSTER_URL>/dkp/kommander/dashboard/clusters
@@ -67,7 +67,7 @@ The preferred method to view the metrics for a specific cluster is to go directl
 ### Adding custom dashboards
 
 You can also define custom dashboards for centralized monitoring on Kommander.
-There are a few methods to [import dashboards][grafana_import_dashboards] to Grafana.
+There exists a few methods to [import dashboards][grafana_import_dashboards] to Grafana.
 For simplicity, assume the desired dashboard definition is in `json` format:
 
 ```json

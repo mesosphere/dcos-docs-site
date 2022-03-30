@@ -20,7 +20,7 @@ For example, Kommander 2.2 supports Kubernetes versions between 1.21.0 and 1.22.
 
 <!--- For attaching clusters with networking restrictions the Kubernetes version of the cluster you want to attach must be greater than or equal to version 1.19.x. For these types of clusters, the Kommander cluster uses a tunnel to access the clusters you plan to attach. Any managed service you want to expose in the Kommander cluster requires the creation of a reverse proxy, or the use of HTTPS_PROXY environment variables that point to the Kommander tunnel proxy server.
 
-When working with clusters that have networking restrictions, you will need to apply some YAML manifests on the existing cluster, so that Kommander can collect a resulting `kubeconfig` file used to establish the tunnel. When you use the Kommander UI, this is handled for you. If you choose to use the manual [CLI attachment process][manual_cli_attachment], you will apply those manifests as part of the procedure. -->
+When working with clusters that have networking restrictions, you will need to apply some YAML manifests on the existing cluster, so that Kommander can collect a resulting `kubeconfig` file used to establish the tunnel. When you use the DKP UI, this is handled for you. If you choose to use the manual [CLI attachment process][manual_cli_attachment], you will apply those manifests as part of the procedure. -->
 
 ### Creating a default StorageClass
 

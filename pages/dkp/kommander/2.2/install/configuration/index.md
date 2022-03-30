@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-You can configure Kommander during the initial installation, and also post-installation using the Kommander CLI.
+You can configure Kommander during the initial installation, and also post-installation using the DKP CLI.
 
 ## Initializing a configuration file
 

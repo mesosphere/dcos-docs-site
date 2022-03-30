@@ -13,7 +13,7 @@ If your license information has changed, you may need to remove an existing lice
 
 <p class="message--note"><strong>NOTE: </strong>Original license information can still be obtained from D2iQ or the AWS License Manager console even after removing from Kommander.</p>
 
-In the Kommander UI, do the following:
+In the DKP UI, do the following:
 
 1.  Select **Global** in the workspace header drop-down.
 
@@ -22,6 +22,8 @@ In the Kommander UI, do the following:
 1.  Your existing licenses will be listed. Click **Remove License** on the license you would like to remove, and follow the prompts.
 
 ### Manually remove a license using kubectl
+<!-- vale ttd-light.Quotes = NO -->
+<!-- vale Microsoft.Quotes = NO -->
 
 To remove a license from Kommander using `kubectl`, you have to delete the `Secret` and `License` objects. In this example, the secret is named "my-license-secret".
 

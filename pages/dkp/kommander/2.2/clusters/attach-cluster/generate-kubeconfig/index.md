@@ -87,7 +87,7 @@ Then, you can use this kubeconfig to:
 - Attach a cluster with [no additional networking restrictions][no-network-restrictions]
 - Attach a cluster that [has networking restrictions][with-network-restrictions]
 
-<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the Kommander UI. If this happens, check if there are any pods that are not getting the resources required.</p>
+<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the DKP UI. If this happens, check if there are any pods that are not getting the resources required.</p>
 
 [clusteradmin]: https://kubernetes.io/docs/concepts/cluster-administration/cluster-administration-overview/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/

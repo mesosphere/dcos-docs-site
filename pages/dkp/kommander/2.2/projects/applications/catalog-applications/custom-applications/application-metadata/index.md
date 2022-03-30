@@ -6,7 +6,7 @@ beta: false
 menuWeight: 40
 excerpt: To display more information about custom applications in the UI, define a metadata.yaml file for each application in the git repository.
 ---
-You can define how custom applications display in the Kommander UI by defining a `metadata.yaml` file for each application in your git repository. You must define this file at `services/<application>/metadata.yaml` for it to process correctly.
+You can define how custom applications display in the DKP UI by defining a `metadata.yaml` file for each application in your git repository. You must define this file at `services/<application>/metadata.yaml` for it to process correctly.
 
 You can define the following fields:
 
@@ -17,7 +17,7 @@ You can define the following fields:
 | category    | general              | 1 or more categories for this application. Categories are used to group applications in the UI. |
 | overview    |                      | Markdown overview used on the application detail page in the UI.                                |
 | icon        |                      | Base64 encoded icon SVG file used for application logos in the UI.                              |
-| scope       | workspace            | List of scopes, can be workspace and/or project currently.                                                                                               |
+| scope       | workspace            | List of scopes, can be a workspace, a project, or both.                                                                                               |
 
 None of these fields are required for the application to display in the UI.
 

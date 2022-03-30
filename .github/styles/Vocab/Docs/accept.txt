@@ -121,7 +121,7 @@ kfserving
 (kind|KIND)
 kmem
 (knative|Knative)
-Kommander
+(kommander|Kommander)
 Konvoy
 konvoy
 konvoy-image

@@ -64,7 +64,7 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
     LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tC[...]
     ```
 
-    You can add the configuration as the values field in the `dex` application. An example `dex` configuration provided to the [Kommander CLI’s install command][kommander-install] should look similar to:
+    You can add the configuration as the values field in the `dex` application. An example `dex` configuration provided to the [DKP CLI’s install command][kommander-install] should look similar to:
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1

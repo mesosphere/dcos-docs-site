@@ -44,7 +44,7 @@ If you use already use one or more of the following IdPs, you can configure Dex 
 
 ## Add login connectors
 
-Kommander uses Dex to provide OpenID Connect single sign-on (SSO) to the cluster. Dex can be configured to use multiple connectors, including GitHub, LDAP, and SAML 2.0. The [Dex Connector documentation](https://dexidp.io/docs/connectors/) describes how to configure different connectors. You can add the configuration as the values field in the Dex application. An example Dex configuration provided to the Kommander CLI's `install` command would look similar to this:
+Kommander uses Dex to provide OpenID Connect single sign-on (SSO) to the cluster. Dex can be configured to use multiple connectors, including GitHub, LDAP, and SAML 2.0. The [Dex Connector documentation](https://dexidp.io/docs/connectors/) describes how to configure different connectors. You can add the configuration as the values field in the Dex application. An example Dex configuration provided to the DKP CLI's `install` command would look similar to this:
 
 ```yaml
 apiVersion: config.kommander.mesosphere.io/v1alpha1
@@ -81,9 +81,9 @@ Users access Kommander in two ways:
 
 -   To interact with Kubernetes API, usually through `kubectl`.
 
--   To interact with the D2iQ Kommander Dashboard, which has GUI dashboards for Prometheus, Grafana, and so on.
+-   To interact with the D2iQ Kommander Dashboard, which has GUI dashboards for Prometheus, Grafana, etc.
 
-In Kommander, Dex comes pre-configured with a client for these access use cases. The clients talk to Dex for authentication. Dex talks to the configured Identity Provider, or IdP, (for example LDAP, SAML and so on) to perform the actual task of authenticating the user.
+In Kommander, Dex comes pre-configured with a client for these access use cases. The clients talk to Dex for authentication. Dex talks to the configured Identity Provider, or IdP, (for example LDAP, SAML, etc.) to perform the actual task of authenticating the user.
 
 If the user authenticates successfully, Dex pulls the user’s information from the IdP and forms an OpenID token. The token contains this information and returns it to the respective client’s callback URL. The client or end user uses this token for communicating with the D2iQ Kommander Dashboard or Kubernetes API respectively.
 

@@ -36,7 +36,7 @@ Before installing, ensure you have:
 ### Kommander charts bundle
 
 The charts bundle is a gzipped Tar archive containing Helm charts, which are required during Kommander installation.
-Create the charts bundle with the Kommander CLI or downloaded along with the Kommander CLI.
+Create the charts bundle with the DKP CLI or downloaded along with the DKP CLI.
 Execute this command to create the charts bundle:
 
    ```bash

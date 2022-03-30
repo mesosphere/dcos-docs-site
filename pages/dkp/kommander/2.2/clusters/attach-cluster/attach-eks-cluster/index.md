@@ -58,7 +58,7 @@ This procedure requires the following items and configurations:
     EOF
     ```
 
-1.  You must create a kubeconfig file that is compatible with the Kommander UI. Enter these commands to set the following environment variables:
+1.  You must create a kubeconfig file that is compatible with the DKP UI. Enter these commands to set the following environment variables:
 
     ```bash
     export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')
@@ -75,7 +75,7 @@ This procedure requires the following items and configurations:
     env | grep CLUSTER
     ```
 
-1.  Create your kubeconfig file to use in the Kommander UI. Enter the following commands:
+1.  Create your kubeconfig file to use in the DKP UI. Enter the following commands:
 
     ```bash
     cat << EOF > kommander-cluster-admin-config
@@ -114,7 +114,7 @@ This procedure requires the following items and configurations:
 
    <p class="message--note"><strong>NOTE: </strong>If you are not using the Mac OS X operating system, this command will not work. If you are using the Linux operating system, enter the following command: <br/><code>cat kommander-cluster-admin-config | xclip -selection clipboard</code></p>
 
-Now that you have kubeconfig, go to the Kommander UI and follow these steps below:
+Now that you have kubeconfig, go to the DKP UI and follow these steps below:
 
 1.  Select **Clusters** from the left sidebar navigation, and then select the **Add Cluster** button in your Kommander window.
 
@@ -130,7 +130,7 @@ Now that you have kubeconfig, go to the Kommander UI and follow these steps belo
 
 1.  Select the **Submit** button.
 
-<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the Kommander UI. If this happens, ensure your system has sufficient resources for all pods.</p>
+<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the DKP UI. If this happens, ensure your system has sufficient resources for all pods.</p>
 
 ## Related information
 

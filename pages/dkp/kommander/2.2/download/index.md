@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle: Download
-title: Download Kommander
+title: Download DKP
 menuWeight: 2
-excerpt: Learn how to download Kommander
+excerpt: Learn how to download DKP
 beta: false
 enterprise: false
 ---
