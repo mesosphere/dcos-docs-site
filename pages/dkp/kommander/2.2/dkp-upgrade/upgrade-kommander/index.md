@@ -17,7 +17,8 @@ This section describes how to upgrade your Kommander Management cluster and all 
 - Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
 - If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
 - Review the [Platform Application version updates][release_notes] that are part of this upgrade.  
-- For air-gapped environments only: [Load the Docker images into your Docker registry][load_images]
+- For air-gapped environments **with** DKP Catalog Applications in a multi-cluster environment: [Load the Docker images into your Docker registry][load_images_catalog]
+- For air-gapped environments **without** DKP Catalog Applications: [Load the Docker images into your Docker registry][load_images]
 - For air-gapped environments only: 
   
   Download the Kommander application definitions:
