@@ -8,7 +8,7 @@ excerpt: Define custom application dashboard cards displayed on a cluster's deta
 
 ## Custom Cluster Application Dashboard Cards
 
-Custom application dashboard cards can be added to the cluster detail page's Applications section by creating a `ConfigMap` on the cluster. The `ConfigMap` must have a `kommander.d2iq.io/application` label applied through the CLI and must contain both `name` and `dashboardLink` data keys to be displayed. Upon creation of the `ConfigMap`, the Kommander UI displays a card corresponding to the data provided in the `ConfigMap`. Custom application cards have a Kubernetes icon and can link to a service running in the cluster, or use an absolute URL to link to any accessible URL.
+You can add custom application dashboard cards to the cluster detail page's Applications section by creating a `ConfigMap` on the cluster. The `ConfigMap` must have a `kommander.d2iq.io/application` label applied through the CLI, and must contain both `name` and `dashboardLink` data keys to be displayed. Upon creation of the `ConfigMap`, the Kommander UI displays a card corresponding to the data provided in the `ConfigMap`. Custom application cards have a Kubernetes icon, and can link to a service running in the cluster, or use an absolute URL to link to any accessible URL.
 
 ### ConfigMap example
 

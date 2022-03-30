@@ -8,7 +8,7 @@ excerpt:
 
 ## Application Dashboards
 
-Applications, formerly called Platform Services and Addons, are installed by the management cluster. You can visit a cluster's detail page to see the application dashboards that are enabled from the deployed applications under the "Application Dashboards" section.
+Applications, formerly called Platform Services and Addons, are installed by the management cluster. You can visit a cluster's detail page to see the application dashboards enabled from the deployed applications under the "Application Dashboards" section.
 
 ![Cluster Detail Page - Application Dashboards](../../img/cluster-detail-page.png)
 
@@ -18,7 +18,7 @@ You can visit the "Applications" section of the cluster's detail page to view th
 
 ![Cluster Detail Page - Applications](../../img/cluster-detail-page-applications.png)
 
-Under the "Applications" section you can view the current status of the enabled applications on the cluster. The status is displayed on the application card. Hovering on the status will display details about the status of the application.
+Under the "Applications" section, you can view the current status of the enabled applications on the cluster. The status is displayed on the application card. Hovering on the status displays details about the status of the application.
 
 Cluster applications can have one of the following statuses:
 
