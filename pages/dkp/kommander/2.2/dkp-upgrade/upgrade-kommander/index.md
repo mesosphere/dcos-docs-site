@@ -81,14 +81,14 @@ You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
-[AWS]: /dkp/konvoy/2.2/choose-infrastructure/aws/advanced/update/
-[Azure]: /dkp/konvoy/2.2/choose-infrastructure/azure/advanced/update/
+[AWS]: ../../../../konvoy/2.2/choose-infrastructure/aws/advanced/update/
+[Azure]: ../../../../konvoy/2.2/choose-infrastructure/azure/advanced/update/
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
-[pre_provisioned]: /dkp/konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
+[pre_provisioned]: ../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
 [k8s_access_to_clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [upgrade_workspaces]: ../../cli/dkp/upgrade/workspace
 [release_notes]: ../../release-notes/
-[konvoy_upgrade]: /dkp/kommander/2.2/dkp-upgrade/upgrade-konvoy/
+[konvoy_upgrade]: ../upgrade-konvoy/
 [load_images]: ../../install/air-gapped/#load-the-docker-images-into-your-docker-registry
 [dkp_upgrade]: ../../dkp-upgrade/
 [load_images_catalog]: ../../install/air-gapped/catalog/#load-the-docker-images-into-your-docker-registry
