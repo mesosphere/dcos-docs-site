@@ -57,7 +57,7 @@ This only occurs when the PKI certificates are older than the interval given at 
 To debug the automatic certificate renewal feature, a cluster administrator can look at several different components to see if the certificates were renewed. For example, an administrator might start with a look at the control plane pod definition to check the last reset time. To determine if a scheduler pod was properly reset, run the command:
 
 ```bash
-kubectl get pod -n kube-system %%%kube-scheduler-nodename -o yaml
+kubectl get pod -n kube-system kube-scheduler-nodename -o yaml
 ```
 
 The output of the command is similar to the following:

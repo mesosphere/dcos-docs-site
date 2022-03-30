@@ -63,14 +63,19 @@ Use the following steps to create a new, air-gapped vSphere cluster.
     ```
 
     ```sh
-    %%% need Vsphere specific output
-    NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
-    /vsphere-example                                                True                     35s
-    ├─ClusterInfrastructure - vSphereCluster/vsphere-example        True                     4m47s
-    ├─ControlPlane - KubeadmControlPlane/vm-example-control-plane   True                     36s
-    │   └─3 Machine...                                              True                     4m20s
+    NAME                                                                READY  SEVERITY  REASON  SINCE  MESSAGE
+    Cluster/e2e-airgapped-1                                             True                     13h
+    ├─ClusterInfrastructure - VSphereCluster/e2e-airgapped-1            True                     13h
+    ├─ControlPlane - KubeadmControlPlane/e2e-airgapped-1-control-plane  True                     13h
+    │ ├─Machine/e2e-airgapped-1-control-plane-7llgd                     True                     13h
+    │ ├─Machine/e2e-airgapped-1-control-plane-vncbl                     True                     13h
+    │ └─Machine/e2e-airgapped-1-control-plane-wbgrm                     True                     13h
     └─Workers
-        └─MachineDeployment/vsphere-example-md-0
+        └─MachineDeployment/e2e-airgapped-1-md-0                          True                     13h
+        ├─Machine/e2e-airgapped-1-md-0-74c849dc8c-67rv4                 True                     13h
+        ├─Machine/e2e-airgapped-1-md-0-74c849dc8c-n2skc                 True                     13h
+        ├─Machine/e2e-airgapped-1-md-0-74c849dc8c-nkftv                 True                     13h
+        └─Machine/e2e-airgapped-1-md-0-74c849dc8c-sqklv                 True                     13h
     ```
 
 1.  As they progress, the controllers also create Events, which you can list using the command:
@@ -81,23 +86,19 @@ Use the following steps to create a new, air-gapped vSphere cluster.
 
     For brevity, this example uses `grep`. You can also use separate commands to get Events for specific objects, such as `kubectl get events --field-selector involvedObject.kind="vSphereCluster"` and `kubectl get events --field-selector involvedObject.kind="vSphereMachine"`.
 
-    ```sh
-    %%% need a (shorter?) vSphere specific output
-    ```
-
-Then, you can [explore your new cluster][explore-cluster].
+Next, you can [explore your new cluster][explore-cluster].
 
 ## Known Limitations
 
 <p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of DKP Konvoy.</p>
 
-- The DKP Konvoy version used to create a bootstrap cluster must match the DKP Konvoy version used to create a workload cluster.
+-   The DKP Konvoy version used to create a bootstrap cluster must match the DKP Konvoy version used to create a workload cluster.
 
-- DKP Konvoy supports deploying one workload cluster.
+-   DKP Konvoy supports deploying one workload cluster.
 
-- DKP Konvoy generates a set of objects for one Node Pool.
+-   DKP Konvoy generates a set of objects for one Node Pool.
 
-- DKP Konvoy does not validate edits to cluster objects.
+-   DKP Konvoy does not validate edits to cluster objects.
 
 [prereqs]: ../../prerequisites/
 [create-bootstrap]: ../bootstrap/

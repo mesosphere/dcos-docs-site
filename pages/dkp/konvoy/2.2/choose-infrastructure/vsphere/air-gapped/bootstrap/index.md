@@ -10,7 +10,7 @@ enterprise: false
 
 ## Prerequisites
 
-Before you perform this procedure, ensure that you have [created a CAPI VM template][create-capi-vm]
+Before you perform this procedure, ensure that you have [created a CAPI VM template][create-capi-image]
 
 ## Bootstrap a kind cluster and CAPI controllers
 
@@ -30,6 +30,19 @@ DKP Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which 
     ./dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
+1.  Ensure that the CAPV controllers are present with the command:
+
+    ```bash
+     kubectl get pods -n capv-system
+    ```
+
+    The output resembles the following:
+
+    ```sh
+    NAME                                      READY   STATUS    RESTARTS   AGE
+    capv-controller-manager-785c5978f-nnfns   1/1     Running   0          13h
+    ```
+
 1.  Refresh the credentials used by the vSphere provider at any time, using the command:
 
     ```bash
@@ -39,5 +52,5 @@ DKP Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which 
 Next, you can create a [new vSphere Kubernetes cluster][new-cluster].
 
 [prereqs]: ../../prerequisites/
-[create-bastion-vm]: ../create-capi-vm-image/
 [new-cluster]: ../new
+[create-capi-image]: ../create-capi-vm-image/

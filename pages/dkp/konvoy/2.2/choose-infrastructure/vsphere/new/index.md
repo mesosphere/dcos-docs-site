@@ -145,14 +145,57 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
     ```
 
     ```sh
-    %%% need Vsphere specific output
-    NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
-    /vsphere-example                                                True                     35s
-    ├─ClusterInfrastructure - vSphereCluster/vsphere-example        True                     4m47s
-    ├─ControlPlane - KubeadmControlPlane/vm-example-control-plane   True                     36s
-    │   └─3 Machine...                                              True                     4m20s
+    NAME                                                                READY  SEVERITY  REASON  SINCE  MESSAGE
+    Cluster/d2iq-e2e-cluster_name-1                                     True                     13h
+    ├─ClusterInfrastructure - VSphereCluster/d2iq-e2e-cluster_name-1    True                     13h
+    ├─ControlPlane - KubeadmControlPlane/d2iq-control-plane             True                     13h
+    │ ├─Machine/d2iq--control-plane-7llgd                               True                     13h
+    │ ├─Machine/d2iq--control-plane-vncbl                               True                     13h
+    │ └─Machine/d2iq--control-plane-wbgrm                               True                     13h
     └─Workers
-        └─MachineDeployment/vsphere-example-md-0
+        └─MachineDeployment/d2iq--md-0                                  True                     13h
+        ├─Machine/d2iq--md-0-74c849dc8c-67rv4                           True                     13h
+        ├─Machine/d2iq--md-0-74c849dc8c-n2skc                           True                     13h
+        ├─Machine/d2iq--md-0-74c849dc8c-nkftv                           True                     13h
+        └─Machine/d2iq--md-0-74c849dc8c-sqklv                           True                     13h
+    ```
+
+1.  Check all machines has `NODE_NAME` assigned
+
+    ```bash
+    kubectl get machines
+    ```
+
+    The output appears similar to the following:
+
+    ```sh
+    NAME                                       CLUSTER              NODENAME                                       PROVIDERID                                       PHASE     AGE   VERSION
+    d2iq-e2e-cluster-1-control-plane-7llgd     d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-control-plane-7llgd     vsphere://421638e2-e776-9af6-f683-5e105de5da5a   Running   13h   v1.22.8
+    d2iq-e2e-cluster-1-control-plane-vncbl     d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-control-plane-vncbl     vsphere://42168835-7fef-95c4-3652-ebcad3e10d36   Running   13h   v1.22.8
+    d2iq-e2e-cluster-1-control-plane-wbgrm     d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-control-plane-wbgrm     vsphere://421642df-afc4-b6c2-9e61-5b86e7c37eac   Running   13h   v1.22.8
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4   vsphere://4216f467-8483-73cb-a8b6-8d6a4a71e4b4   Running   14h   v1.22.8
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-n2skc   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-n2skc   vsphere://42161cde-9904-4dd2-7a3e-cdfc7655f090   Running   14h   v1.22.8
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-nkftv   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-nkftv   vsphere://42163a0d-eb8d-b5a6-82d5-188e24817c00   Running   14h   v1.22.8
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-sqklv   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-sqklv   vsphere://42161dff-92a5-6da9-7ac1-e987e2c8fed2   Running   14h   v1.22.8
+    ```
+
+1.  Verify that the kubeadm control plane is ready with the command
+
+     ```sh
+    kubectl get kubeadmcontrolplane
+    ```
+
+    The output appears similar to the following:
+
+    ```sh
+    NAME                               CLUSTER              INITIALIZED   API SERVER AVAILABLE   REPLICAS   READY   UPDATED   UNAVAILABLE   AGE   VERSION
+    d2iq-e2e-cluster-1-control-plane   d2iq-e2e-cluster-1   true          true                   3          3       3         0             14h   v1.22.8
+    ```
+
+1.  Describe the kubeadm control plane and check its status and events with the command:
+
+    ```sh
+    kubectl describe kubeadmcontrolplane
     ```
 
 1.  As they progress, the controllers also create Events, which you can list using the command:
@@ -163,21 +206,17 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
 
     For brevity, this example uses `grep`. You can also use separate commands to get Events for specific objects, such as `kubectl get events --field-selector involvedObject.kind="AWSCluster"` and `kubectl get events --field-selector involvedObject.kind="AWSMachine"`.
 
-    ```sh
-    %%% need a (shorter?) vSphere specific output example
-    ```
-
 ## Known Limitations
 
 <p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of DKP Konvoy.</p>
 
-- The DKP Konvoy version used to create a bootstrap cluster must match the DKP Konvoy version used to create a workload cluster.
+-   The DKP Konvoy version used to create a bootstrap cluster must match the DKP Konvoy version used to create a workload cluster.
 
-- DKP Konvoy supports deploying one workload cluster.
+-   DKP Konvoy supports deploying one workload cluster.
 
-- DKP Konvoy generates a set of objects for one Node Pool.
+-   DKP Konvoy generates a set of objects for one Node Pool.
 
-- DKP Konvoy does not validate edits to cluster objects.
+-   DKP Konvoy does not validate edits to cluster objects.
 
 [bootstrap]: ../bootstrap
 [capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html

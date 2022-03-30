@@ -22,15 +22,14 @@ Here, `example` is the node pool to be deleted.
 The expected output is similar to the following example, indicating the node pool is being deleted:
 
 ```sh
-INFO[2021-07-28T17:14:26-07:00] Running nodepool delete command         Nodepool=example clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/delete.go:80"
+INFO[2021-07-28T17:14:26-07:00] Running nodepool delete command         Nodepool=example clusterName=d2iq-e2e-cluster-1 managementClusterKubeconfig= namespace=default src="nodepool/delete.go:80"
 ```
 
-Deleting an invalid node pool results in output similar to this example:
+Deleting an invalid node pool results in output similar to this example command output:
 
-```sh
-%%% need vSphere-specific output
+```bash
 dkp delete nodepool ${CLUSTER_NAME}-md-invalid --cluster-name=${CLUSTER_NAME}
 
-INFO[2021-07-28T17:11:44-07:00] Running nodepool delete command               Nodepool=demo-cluster-md-invalid clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/delete.go:80"
+INFO[2021-07-28T17:11:44-07:00] Running nodepool delete command               Nodepool=demo-cluster-md-invalid clusterName=d2iq-e2e-cluster-1 managementClusterKubeconfig= namespace=default src="nodepool/delete.go:80"
 Error: failed to get nodepool with name demo-cluster-md-invalid in namespace default : failed to get nodepool with name demo-cluster-md-invalid in namespace default : machinedeployments.cluster.x-k8s.io "demo-cluster-md-invalid" not found
 ```

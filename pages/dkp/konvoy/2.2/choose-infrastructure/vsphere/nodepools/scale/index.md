@@ -13,7 +13,7 @@ While you can run [Cluster Autoscaler](../cluster-autoscaler), you can also manu
 
 ### Scaling Up Node Pools
 
-To scale up a node pool in a cluster, run the command, replacing the value 5 with the actual number of replicas needed:
+To scale up a node pool in a cluster, run the command that follows, replacing the value 5 with the actual number of replicas you need:
 
 ```bash
 dkp scale nodepools ${NODEPOOL_NAME} --replicas=5 --cluster-name=${CLUSTER_NAME}

@@ -11,7 +11,7 @@ enterprise: false
 
 Use this command to list the node pools of a given cluster. This returns specific properties of each node pool so that you can see the name of the MachineDeployments.
 
-To list all node pools for a managed cluster, run:
+To list all node pools for a managed cluster, run the command:
 
 ```bash
 dkp get nodepools --cluster-name=${CLUSTER_NAME} --kubeconfig=${CLUSTER_NAME}.conf
@@ -21,6 +21,6 @@ The expected output is similar to the following example, indicating the desired 
 
 ```sh
 NODEPOOL                        DESIRED               READY               KUBERNETES VERSION
-demo-cluster-md-0               4                     4                   v1.21.6
-example                         3                     0                   v1.21.6
+demo-cluster-md-0               4                     4                   v1.22.8
+example                         3                     0                   v1.22.8
 ```

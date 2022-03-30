@@ -8,13 +8,14 @@ enterprise: false
 ---
 
 ## Prerequisites
+
 You need to create a [base OS image][vsphere-base-os-image] in vSphere before starting this procedure.
 
 ## Create a vSphere template for your cluster from a base OS image
 
 Using the base OS image created in a previous procedure, DKP creates the new vSphere template directly on the vCenter server.
 
-1.  Set the following vSphere environment variables on the bastion VM host:
+1. Set the following vSphere environment variables on the bastion VM host:
 
   ```bash
   export VSPHERE_SERVER=your_vCenter_APIserver_URL
@@ -24,7 +25,7 @@ Using the base OS image created in a previous procedure, DKP creates the new vSp
 
 1.  Copy the base OS image file created in the vSphere Client to your desired location on the bastion VM host, and make a note of the path and file name.
 
-1.  Create an `image.yaml` file and add the following variables for vSphere:
+1.  Create an `image.yaml` file and add the following variables for vSphere. DKP uses this file and these variables as inputs in the next step.
 
    ```yaml
    packer:
@@ -42,8 +43,6 @@ Using the base OS image created in a previous procedure, DKP creates the new vSp
      distribution: "example_RHEL"
      distribution_version: "example_7.9"
    ```
-
-    DKP uses this file and these variables as inputs in the next step.
 
 1.  Create a vSphere VM template with the following command:
 

@@ -13,9 +13,9 @@ To create Kubernetes clusters, Konvoy uses [Cluster API][capi_book] (CAPI) contr
 
 Before you begin, you must:
 
-- Ensure the `dkp` binary can be found in your $PATH.
+-   Ensure the `dkp` binary can be found in your $PATH.
 
-- Complete the steps in [Create a CAPI VM Image][create-capi-image]
+-   Complete the steps in [Create a CAPI VM Image][create-capi-image]
 
 ## Bootstrap Cluster Lifecycle Services
 
@@ -27,10 +27,6 @@ Before you begin, you must:
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
-    ```sh
-    %%% We'll need new output capture for vSphere
-    ```
-
     Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
 
     - [Core Provider][capi]
@@ -38,7 +34,20 @@ Before you begin, you must:
     - [Kubeadm Bootstrap Provider][cabpk]
     - [Kubeadm ControlPlane Provider][kcp]
 
-    Konvoy waits until the controller-manager and webhook deployments of these providers are ready. List these deployments using this command:
+1.  Ensure that the CAPV controllers are present with the command:
+
+    ```bash
+     kubectl get pods -n capv-system
+    ```
+
+    The output resembles the following:
+
+    ```sh
+    NAME                                      READY   STATUS    RESTARTS   AGE
+    capv-controller-manager-785c5978f-nnfns   1/1     Running   0          13h
+    ```
+
+1.  Konvoy waits until the controller-manager and webhook deployments of these providers are ready. List these deployments using this command:
 
     ```bash
     kubectl get --all-namespaces deployments -l=clusterctl.cluster.x-k8s.io
@@ -49,15 +58,10 @@ Before you begin, you must:
     %%% need a new output capture for vSphere
     ```
 
-    Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
+    Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. You can list ClusterResourceSets using this command:
 
     ```bash
     kubectl get clusterresourceset
-    ```
-
-    ```sh
-    NAME                       AGE
-    %%% need new output capture for vSphere
     ```
 
 When the bootstrap cluster is running, you are ready to [create a new cluster][create-cluster].
@@ -85,7 +89,7 @@ When the bootstrap cluster is running, you are ready to [create a new cluster][c
 
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[capv]: https://https://github.com/kubernetes-sigs/cluster-api-provider-vsphere
+[capv]: https://github.com/kubernetes-sigs/cluster-api-provider-vsphere
 [kind]: https://github.com/kubernetes-sigs/kind
 [capi_book]: https://cluster-api.sigs.k8s.io/
 [capi]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/

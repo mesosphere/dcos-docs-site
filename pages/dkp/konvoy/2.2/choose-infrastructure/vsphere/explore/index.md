@@ -32,9 +32,6 @@ Before you start, make sure you have [created a workload cluster][create-new-clu
     ```sh
     NAME
     %%% need some sample output data from a vSphere run
-                                                 STATUS   ROLES                  AGE    VERSION
-    ip-10-0-126-209.us-west-2.compute.internal   Ready    control-plane,master   124m   v1.21.6
-    ip-10-0-204-168.us-west-2.compute.internal   Ready    <none>                 118m   v1.21.6
     ```
 
     <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Node's Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>
@@ -42,16 +39,12 @@ Before you start, make sure you have [created a workload cluster][create-new-clu
 1.  List the Pods using this command:
 
     ```bash
-    kubectl --kubeconfig=${CLUSTER_NAME}.conf get --all-namespaces pods
+    kubectl --kubeconfig=${CLUSTER_NAME}.conf get --all-namespaces pods  %%% is this the command we would want to use - all namespaces?
     ```
 
     ```sh
-    %%% need some sample output data from a vSphere run
     NAMESPACE                           NAME                                                                 READY   STATUS    RESTARTS   AGE
-    calico-system                       calico-kube-controllers-f95867bfb-4vxzz                              1/1     Running   0          124m
-    calico-system                       calico-node-xjqkq                                                    1/1     Running   0          124m
-    calico-system                       calico-node-z2h7c                                                    1/1     Running   0          120m
-    etc
+    %%% need some sample output data from a vSphere run
     ```
 
 [install_docker]: https://docs.docker.com/get-docker/
