@@ -20,7 +20,7 @@ beta: false
 
 Welcome to D2iQ Kubernetes Platform (DKP) 2.2! This release continues our tradition of customer-led development making DKP even easier to deploy, supporting more platforms and applications, and includes our AI/ML solution, Kaptain, added as a catalog application. In this release, we are beginning the process of combining our two flagship products, Konvoy and Kommander, into a single DKP product with two service level options: DKP Enterprise for multi-cluster environments, and DKP Essentials for single-cluster environments.
 
-For this release, we are maintaining the legacy Konvoy and Kommander documentation sets, while publishing some combined DKP documentation for processes, such as Upgrading DKP version.
+For this release, we maintain the Konvoy and Kommander documentation sets, while publishing some combined DKP documentation for processes, such as Upgrading DKP version.
 
 This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using Kommander 2.2 must be running a Kubernetes version in this range.
 
