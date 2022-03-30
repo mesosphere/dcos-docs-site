@@ -9,11 +9,11 @@ beta: true
 enterprise: false
 ---
 
-The Insight Management UI is enabled by default with the installation of the DKP platform. No other action is necessary for the admin.
+The Insight Management UI is enabled by default with the installation of the DKP platform. No other actions are required.
 
 ## Enable insight components
 
-The Admin must manually enable the insight components in the attached Kubernetes clusters, to provide insight items into the management plane.
+To receive Insights from attached clusters, you must manually enable the Insights components in the attached clusters.
 
 <add process>
 
