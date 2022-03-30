@@ -46,8 +46,7 @@ dkp create cluster aws [flags]
       --http-proxy string                           HTTP proxy for CAPI controllers
       --https-proxy string                          HTTPS proxy for CAPI controllers
       --internal-load-balancer                      Make the control plane load balancer internal, i.e., reachable only within the VPC.
-      --kind-cluster-image string                   Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v2.2.0-rc.1")
-      --kind-cluster-name string                    Kind cluster name for the bootstrap cluster (default "konvoy-capi-bootstrapper")
+      --kind-cluster-image string                   Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v0.0.0-dev.0")
       --kubeconfig string                           Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string          The image repository to use for pulling kubernetes images
       --kubernetes-version string                   Kubernetes version (default "1.22.8")
