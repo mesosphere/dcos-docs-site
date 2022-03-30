@@ -134,3 +134,4 @@ spec:
     kind: AWSClusterControllerIdentity
     name: default
 ```
+After performing the above steps, any managed AWS clusters you create using the Management cluster will be provisioned in your target account.
