@@ -7,7 +7,7 @@ excerpt: Upgrade DKP to the latest version
 beta: false
 ---
 
-The DKP upgrade represents an important step of your environment's lifecycle, as it ensures that you are up-to-date with the latest features and can benefit from the latest improvements, enhanced cluster management, and better performance. This section describes how to upgrade your networked, air-gapped or on-prem environment to the latest version of DKP.
+The DKP upgrade represents an important step of your environment's lifecycle, as it ensures that you are up-to-date with the latest features and can benefit from the most recent improvements, enhanced cluster management, and better performance. This section describes how to upgrade your networked, air-gapped or on-prem environment to the latest version of DKP.
 
 ## Understand the upgrade process
 
