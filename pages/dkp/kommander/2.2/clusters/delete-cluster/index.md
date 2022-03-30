@@ -12,10 +12,7 @@ excerpt: Disconnect or delete a cluster
 When you attach a cluster to Kommander that was not created with Kommander, you can later disconnect it. This does not alter the running state of the cluster, but simply removes it from the Kommander UI. User workloads, platform services, and other Kubernetes resources are not cleaned up at detach.
 
 <p class="message--warning"><strong>WARNING: </strong>
-After successfully detaching the cluster you need to manually disconnect the attached cluster's Flux installation from the management Git repository. Otherwise, changes to apps in the managed cluster's workspace will still be reflected on the then-detached cluster:
-```bash
-kubectl -n kommander-flux patch gitrepo management -p '{"spec":{"suspend":true}}' --type merge
-```
+After successfully detaching the cluster you need to manually disconnect the attached cluster's Flux installation from the management Git repository. Otherwise, changes to apps in the managed cluster's workspace will still be reflected on the then-detached cluster: <code>kubectl -n kommander-flux patch gitrepo management -p '{"spec":{"suspend":true}}' --type merge</code>
 </p>
 
 If you created the managed clusters with Kommander, you cannot disconnect the cluster, but you can delete the cluster. This completely removes the cluster and all of its cloud assets.
