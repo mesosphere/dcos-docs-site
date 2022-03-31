@@ -45,8 +45,6 @@ Quickly and easily deploy applications and complex data services from a centrali
 * **Kafka:** Primarily used to build real-time streaming data pipelines and applications that adapt to the data streams. It combines messaging, storage, and stream processing to allow storage and analysis of both historical and real-time data.
 * **Spark:** An industry standard analytics engine for big data processing and machine learning. Spark enables you to process data for both batch and streaming workloads.
 * **Cassandra:** An orchestration platform for deploying and managing containerized systems in the cloud.
-* **Jenkins:** An open source automation server which enables developers to reliably build, test, and deploy their software.
-* **Elastic:** A distributed, multitenant-capable, full-text search engine with an HTTP web interface and schema-free JSON documents. Elasticsearch clusters are highly available, fault tolerant, and durable.
 * **Zookeeper:** A centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services.
 
  For instructions on how to deploy catalog applications, see [Workspace Catalog Applications][workspacecatapps]
