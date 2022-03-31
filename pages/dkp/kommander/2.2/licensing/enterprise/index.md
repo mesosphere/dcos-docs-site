@@ -49,7 +49,7 @@ Quickly and easily deploy applications and complex data services from a centrali
 * **Elastic:** A distributed, multitenant-capable, full-text search engine with an HTTP web interface and schema-free JSON documents. Elasticsearch clusters are highly available, fault tolerant, and durable.
 * **Zookeeper:** A centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services.
 
-D2iQ keeps a comprehensive list of it's other optional [catalog applications][catapps]. For instructions on how to deploy these catalog applications, see [Workspace Catalog Applications][workspacecatapps]
+ For instructions on how to deploy catalog applications, see [Workspace Catalog Applications][workspacecatapps]
 
 ## Cluster manager
 
