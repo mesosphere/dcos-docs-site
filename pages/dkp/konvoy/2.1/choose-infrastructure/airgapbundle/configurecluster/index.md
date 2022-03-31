@@ -13,11 +13,10 @@ This section covers the configuration and creation of a bootstrap cluster and it
 
 1. Set the cluster name using environment variables.
 
-    ```bash
-  # Clustername
-  CLUSTER_SUFFIX=ABC
-  export CLUSTER_NAME=cluster-${CLUSTER_SUFFIX,,}
-    ```
+```bash
+CLUSTER_SUFFIX=ABC
+export CLUSTER_NAME=cluster-${CLUSTER_SUFFIX,,}
+```
 <p class="message--note"><strong>NOTE:</strong> Resource types require their names to follow the DNS label standard as defined in RFC 1123. This means the name must:
 * Contain at most 63 characters
 * Contain only lowercase alphanumeric characters or ‘-’
