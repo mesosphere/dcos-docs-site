@@ -62,6 +62,9 @@ machine inventory can grow on demand, it does not work if there is a fixed numbe
 clusters have a fixed number of machines. To enable updates for Preprovisioned clusters, DKP uses the "delete first"
 update strategy, which first deletes an old machine, then creates a new one.
 
+New clusters use the "delete first" strategy by default. Existing clusters are switched to the "delete first" strategy
+whenever their machines are updated.
+
 ### Component updates
 
 The following components have been upgraded to the listed version:
