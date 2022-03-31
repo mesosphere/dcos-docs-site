@@ -48,29 +48,35 @@ The following section describes each label:
 
 When running in air-gapped environments, update the configuration by replacing `gitRepositorySpec` with the `path` field pointing to a local path of the DKP catalog applications git repository.
 
-1. Set the `VERSION` environment variable to the version of Kommander, for example:
+1.  Set the `VERSION` environment variable to the version of Kommander, for example:
 
-```bash
-export VERSION=v2.2.0
-```
+    ```bash
+    export VERSION=v2.2.0
+    ```
 
-1. Download the DKP catalog application Git repository archive:
+1.  Download the DKP catalog application Git repository archive:
 
-```bash
-wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-catalog-applications-${VERSION}.tar.gz" -O dkp-catalog-applications.tar.gz
-```
+    ```bash
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-catalog-applications-${VERSION}.tar.gz" -O dkp-catalog-applications.tar.gz
+    ```
 
-1. Update the Kommander configuration file with:
+1.  Update the Kommander configuration file with:
 
-```yaml
-apiVersion: config.kommander.mesosphere.io/v1alpha1
-kind: Installation
-catalog:
-  repositories:
-    - name: dkp-catalog-applications
-      labels:
-        kommander.d2iq.io/project-default-catalog-repository: "true"
-        kommander.d2iq.io/workspace-default-catalog-repository: "true"
-        kommander.d2iq.io/gitapps-gitrepository-type: "dkp"
-      path: ./dkp-catalog-applications.tar.gz
-```
+    ```yaml
+    apiVersion: config.kommander.mesosphere.io/v1alpha1
+    kind: Installation
+    catalog:
+      repositories:
+        - name: dkp-catalog-applications
+          labels:
+            kommander.d2iq.io/project-default-catalog-repository: "true"
+            kommander.d2iq.io/workspace-default-catalog-repository: "true"
+            kommander.d2iq.io/gitapps-gitrepository-type: "dkp"
+          path: ./dkp-catalog-applications.tar.gz
+    ```
+
+1.  Use this configuration when installing or reconfiguring Kommander by passing it to the `kommander install` command:
+
+    ```bash
+    kommander install --installer-config <config_file.yaml>
+    ```

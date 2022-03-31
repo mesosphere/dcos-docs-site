@@ -47,23 +47,27 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
 1.  Use the DKP CLI to upgrade Kommander and all the Platform Applications in the Management Cluster:
 
-    For air-gapped:
+    -   For air-gapped:
 
-    ```bash
-    dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications_v2.2.0.tar.gz
-    ```
+        ```bash
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications_v2.2.0.tar.gz
+        ```
 
-    For air-gapped **with** DKP Catalog Applications in a multi-cluster environment:
+    -   For air-gapped **with** DKP Catalog Applications in a multi-cluster environment:
 
-    ```bash
-    dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications_v2.2.0.tar.gz
-    ```
+        ```bash
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications_v2.2.0.tar.gz
+        ```
 
-    For non air-gapped:
+        After the upgrade, follow the [DKP Catalog Applications configuration page](../../install/configuration/enterprise-catalog#air-gapped-catalog-configuration) to update the Git repository.
 
-    ```bash
-    dkp upgrade kommander 
-    ```
+    -   For non air-gapped:
+
+        ```bash
+        dkp upgrade kommander
+        ```
+
+        If you have DKP Catalog Applications deployed, follow the [DKP Catalog Applications configuration page](../../install/configuration/enterprise-catalog#configure-a-default-enterprise-catalog) to update the Git repository after the upgrade.
 
     An output similar to this appears:
 
@@ -72,6 +76,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
     ✓ Ensuring upgrading conditions are met
     ✓ Ensuring application definitions are updated
     ✓ Ensuring helm-mirror implementation is migrated to chartmuseum
+    ...
     ```
 
 1.  If the upgrade fails, run the following command to get more information on the upgrade process:
