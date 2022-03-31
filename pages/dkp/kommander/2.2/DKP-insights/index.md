@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 beta: false
-navigationTitle: DKP Insight
-title: DKP Insight
+navigationTitle: DKP Insights
+title: DKP Insights
 excerpt: Use DKP Insights to monitor and tune your environment
 menuWeight: 55
 beta: true
