@@ -5,7 +5,7 @@ navigationTitle: Insight items
 title: Insight items
 excerpt: Insight items
 menuWeight: 40
-beta: true
+beta: false
 enterprise: false
 techPreview: true
 ---

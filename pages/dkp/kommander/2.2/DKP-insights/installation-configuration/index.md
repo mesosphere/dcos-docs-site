@@ -5,7 +5,7 @@ navigationTitle: Insights installation and configuration
 title: Insights installation and configuration
 excerpt: Insights installation and configuration
 menuWeight: 30
-beta: true
+beta: false
 enterprise: false
 techPreview: true
 ---

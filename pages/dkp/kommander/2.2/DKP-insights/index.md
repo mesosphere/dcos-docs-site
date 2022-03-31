@@ -5,7 +5,7 @@ navigationTitle: DKP Insights
 title: DKP Insights
 excerpt: Use DKP Insights to monitor and tune your environment
 menuWeight: 55
-beta: true
+beta: false
 enterprise: false
 techPreview: true
 ---
