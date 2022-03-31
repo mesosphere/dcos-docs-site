@@ -64,15 +64,15 @@ Before you start, make sure you have created a workload cluster, as described in
 
     ```sh
     NAME                                                                            READY  SEVERITY  REASON                           SINCE  MESSAGE
-    Cluster/preprovisioned-example-rhel-84                                             True                                              1s
-    ├─ClusterInfrastructure - PreprovisionedCluster/preprovisioned-example-rhel-84
-    ├─ControlPlane - KubeadmControlPlane/preprovisioned-example-rhel-84-control-plane  True                                              1s
-    │ ├─Machine/preprovisioned-example-rhel-84-control-plane-tnhb9                     True                                              4s
-    │ ├─Machine/preprovisioned-example-rhel-84-control-plane-vz4hk                     True                                              4s
-    │ └─Machine/preprovisioned-example-rhel-84-control-plane-zdgjt                     True                                              4s
+    Cluster/preprovisioned-example                                             True                                              1s
+    ├─ClusterInfrastructure - PreprovisionedCluster/preprovisioned-example
+    ├─ControlPlane - KubeadmControlPlane/preprovisioned-example-control-plane  True                                              1s
+    │ ├─Machine/preprovisioned-example-control-plane-tnhb9                     True                                              4s
+    │ ├─Machine/preprovisioned-example-control-plane-vz4hk                     True                                              4s
+    │ └─Machine/preprovisioned-example-control-plane-zdgjt                     True                                              4s
     └─Workers
-      └─MachineDeployment/preprovisioned-example-rhel-84-md-0                          True                                              9s
-        └─Machine/preprovisioned-example-rhel-84-md-0-7bc695f54d-lzhlf                 False  Info      WaitingForClusterInfrastructure  9s     0 of 1 completed
+      └─MachineDeployment/preprovisioned-example-md-0                          True                                              9s
+        └─Machine/preprovisioned-example-md-0-7bc695f54d-lzhlf                 False  Info      WaitingForClusterInfrastructure  9s     0 of 1 completed
     ```
 
 5.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
