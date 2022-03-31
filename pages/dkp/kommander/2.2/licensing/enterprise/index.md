@@ -9,34 +9,19 @@ beta: false
 
 ## DKP Enterprise overview
 
-![DKP Enterprise Diagram](../img/dkpenterprisediagram.png)
+[DKP Enterprise Diagram](../img/dkp enterprise diagram v2.png)
 
-DKP Enterprise is a multi-cluster lifecycle management Kubernetes solution centered around a FIPS compliant management cluster that manages multiple attached or managed Kubernetes clusters through a centralized management dashboard that gives you a single point of observability and control throughout all of your attached or managed clusters. The DKP Enterprise license gives the user access to the entire Konvoy cluster environment, the Kommander UI dashboard that deploys platform and catalog applications as well as multi-cluster management, and comprehensive compatibility with our full range of infrastructure deployment options.
+DKP Enterprise is a multi-cluster lifecycle management Kubernetes solution centered around a management cluster that manages multiple attached or managed Kubernetes clusters via a centralized management dashboard. The management dashboard gives you a single point of observability and control throughout all of your attached or managed clusters. The DKP Enterprise license gives the user access to the entire Konvoy cluster environment, the Kommander UI dashboard that deploys platform and catalog applications as well as multi-cluster management, and comprehensive compatibility with our full range of infrastructure deployment options.
 
 ## Compatible infrastructure
 
-DKP Enterprise operates across D2iQ's entire range of cloud, on-premise, edge, and air-gapped infrastructures and has support for various OSs, including immutable OSs.
+DKP Enterprise operates across D2iQ's entire range of cloud, on-premise, edge, and air-gapped infrastructures and has support for various OSs, including immutable OSs. See [Supported Operating Systems][supported] for a full list of compatible infrastructure.
 
-Deployment options for DKP Enterprise include:
-
-* Bare metal servers
-* VMware vSphere   
-
-Cloud deployment options for DKP Enterprise include:
-
-* Amazon Web Services (AWS)
-* Amazon Elastic Kubernetes Service (EKS)
-* Azure Kubernetes Service (AKS)
-* Google Kubernetes Engine (GKE)
-* Lightweight Kubernetes (K3s)
-* Microsoft Azure
-* Google Cloud Platform (GCP)
-
-For the basics on standing up a DKP Enterprise cluster in one of the previously listed environments of your choice, see [Choose Infrastructure][choose-infrastructure].  
+For the basics on standing up a DKP Enterprise cluster in one of the listed environments of your choice, see [Choose Infrastructure][choose-infrastructure].  
 
 ## Platform applications
 
-Applications can be deployed in any Kubernetes-managed or self-attached clusters, giving you complete flexibility to operate across cloud, on-premise, edge, and air-gapped scenarios. DKP Enterprise users can use the Kommander UI to customize which platform applications to deploy to the cluster in a given workspace. For a list of available platform applications that are included with DKP Enterprise, see [Workspace Platform Applications][workspaceplatform].
+Applications can be deployed in any Kubernetes-managed or self-attached clusters, giving you complete flexibility to operate across cloud, on-premise, edge, and air-gapped scenarios. DKP Enterprise users can use the Kommander UI to customize which platform applications to deploy to the cluster in a given workspace.
 
 ## Catalog Applications:
 
@@ -77,12 +62,6 @@ Bundled with DKP Enterprise is a multi-cluster management UI that can be used in
 * **Kubernetes cost monitoring and management**: The kubecost platform application provides real-time cost visibility and insights for external cloud services such as AWS, helping you continuously reduce your cloud costs.
 
 For more information concerning the global and workspace-level UI, see [Workspaces][workspaces]
-
-## FAQ
-
-* All I have a is a Kommander license I purchased previously, do I need to do anything to upgrade to DKP Enterprise?
-
-Existing customers with Kommander licenses will have access to all DKP Enterprise features.    When your Kommander license expires, you will need purchase a DKP Enterprise license to continue using DKP Enterprise features.
 
 [choose-infrastructure]: .../konvoy/2.2/choose-infrastructure/
 [projects]: .../projects/

@@ -9,26 +9,15 @@ beta: false
 
 ## DKP Essential overview
 
-![DKP Essential Diagram](../img/dkpessentialdiagram.png)
+[DKP Essential Diagram](../img/dkpessentialdiagram.png)
 
-DKP Essential is a FIPS-compliant, self-managed single cluster Kubernetes solution that gives you a feature-rich, easy-to-deploy, and easy-to-manage entry-level cloud container platform. The DKP Essential license gives the user access to the entire Konvoy cluster environment, as well as the Kommander platform application manager for standing up crucial day-2 level production.
+DKP Essential is a FIPS-compliant, self-managed single cluster Kubernetes solution that gives you a feature-rich, easy-to-deploy, and easy-to-manage entry-level cloud container platform. The DKP Essential license gives the user access to the entire Konvoy cluster environment, as well as the Kommander platform application manager.
 
 ## Compatible infrastructure
 
-DKP Essential operates across a range of cloud, on-premise, edge, and air-gapped infrastructures and has support for various OSs, including immutable OSs.
+DKP Essential operates across a range of cloud, on-premise, edge, and air-gapped infrastructures and has support for various OSs, including immutable OSs. See [Supported Operating Systems][supported] for a full list of compatible infrastructure.
 
-Deployment options for DKP Essential include:
-
-* Bare metal servers
-* VMware vSphere   
-
-Cloud deployment options for DKP Essential include:
-
-* Amazon Web Services (AWS)
-* Microsoft Azure
-* Google Cloud Platform (GCP)
-
-For the basics on standing up a DKP Essential cluster in one of the previously listed environments of your choice, see [Choose Infrastructure][choose-infrastructure].  
+For the basics on standing up a DKP Essential cluster in one of the listed environments of your choice, see [Choose Infrastructure][choose-infrastructure].  
 
 <p class="message--note"><strong> NOTE:</strong> Infrastructure options are dependent upon license type. Some infrastructure deployment options listed within the corresponding link above may not be available for DKP Essential users. For an expanded list of supported infrastructure, see <a href="https://docs.d2iq.com/dkp/kommander/2.2/licensing/enterprise/">DKP Enterprise</a>.</p>
 
@@ -63,16 +52,6 @@ Bundled with DKP Essential is a single cluster management UI that can be used in
 * **Add a license:** To add a license via the UI, see [Add a license to Kommander][addlicense]
 
 For more information concerning the global and workspace-level UI, see [Workspaces][workspaces]
-
-## FAQ
-
-* I'm getting a denial message when I attempt to attach or manage clusters with my DKP Essential self-managed cluster, why?
-
-DKP Essential only provides for the ability to stand up an individual, self-managed kubernetes cluster. Attaching or managing other clusters via a management cluster is only available by upgrading to [DKP Enterprise][dkpenterprise]
-
-* I used to be able to work with one free attached cluster, and now I can't see it in the UI, why?
-
-Prior to DKP version 2.2 you could create or attach 1 additional cluster without a license. If you have a 2.1 cluster that utilized that 1 additional cluster and upgrade to 2.2, the upgrade will automatically put you into the DKP Essential UI, and you will no longer have access to that additional cluster in the UI. However, the additional cluster will still appear within the CLI. To resolve this, enter your [DKP Enterprise][dkpenterprise] license in either the UI or CLI, and the previously attached cluster and deployed applications will reappear within the UI.
 
 [choose-infrastructure]: .../konvoy/2.2/choose-infrastructure/
 [workspaceplatform]: .../workspaces/applications/platform-applications/
