@@ -155,3 +155,4 @@ Repeat this step for each additional node pool.
 [dkpessential]: .../kommander/2.2/licensing/essential/
 [kubeconfig]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [CAPI]: https://cluster-api.sigs.k8s.io/
+[releasenotes]: ../../../release-notes
