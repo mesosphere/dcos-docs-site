@@ -157,7 +157,7 @@ RHEL 7.9 requires copying the CentOS mirror GPG Key to all nodes.
 1. Copy the CentOS mirror GPG key to all of the nodes.
 
 ```bash
-	curl -O http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7
+curl -O http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7
 ```
 
 1. 	Move the GPG key to the Bastion node.
@@ -185,4 +185,5 @@ exit
 // Login
 ssh user@x.x.x.x
 ```
+
 After a successful login, move on to setting up Konvoy Image Builder.
