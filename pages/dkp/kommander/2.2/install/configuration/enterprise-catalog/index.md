@@ -36,6 +36,8 @@ Use this configuration when installing or reconfiguring Kommander by passing it 
 kommander install --installer-config <config_file.yaml>
 ```
 
+<p class="message--note"><strong>NOTE: </strong>When configuring the catalog repository post-upgrade, run <code>kommander install --init > install.yaml</code> and update it accordingly with any custom configuration. This ensures you are using the proper default configuration values for the new Kommander version.</p>
+
 The following section describes each label:
 
 | Label  |  Description |
@@ -74,6 +76,8 @@ When running in air-gapped environments, update the configuration by replacing `
             kommander.d2iq.io/gitapps-gitrepository-type: "dkp"
           path: ./dkp-catalog-applications.tar.gz
     ```
+
+    <p class="message--note"><strong>NOTE: </strong>When configuring the catalog repository post-upgrade, run <code>kommander install --init > install.yaml</code> and update it accordingly with any custom configuration. This ensures you are using the proper default configuration values for the new Kommander version.</p>
 
 1.  Use this configuration when installing or reconfiguring Kommander by passing it to the `kommander install` command:
 
