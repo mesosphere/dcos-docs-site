@@ -82,7 +82,7 @@ For more information concerning the global and workspace-level UI, see [Workspac
 
 * All I have a is a Kommander license I purchased previously, do I need to do anything to upgrade to DKP Enterprise?
 
-No, you will automatically be upgraded to DKP Enterprise after version 2.2.
+Existing customers with Kommander licenses will have access to all DKP Enterprise features.    When your Kommander license expires, you will need purchase a DKP Enterprise license to continue using DKP Enterprise features.
 
 [choose-infrastructure]: .../konvoy/2.2/choose-infrastructure/
 [projects]: .../projects/
