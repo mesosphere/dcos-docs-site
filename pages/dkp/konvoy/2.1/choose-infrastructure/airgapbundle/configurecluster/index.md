@@ -84,54 +84,52 @@ When ready, begin configuring the control plane.
 ## Configuring the cluster control plane
 1.  Apply the cluster configuration.
 
-    ```bash
-    kubectl apply -f cluster-abc.yaml
-    ```
+```bash
+kubectl apply -f cluster-abc.yaml
+```
 
 1.  Monitor the Kubernetes cluster deployment.
 
-    ```bash
-    watch dkp describe cluster -c cluster-abc
-    ```
+```bash
+watch dkp describe cluster -c cluster-abc
+```
 
 ## Add cluster controllers
 
 1.  Get the kubeconfig file.
 
-    ```bash
+```bash
 dkp get kubeconfig -c cluster-abc > cluster-abc.conf
-    ```
+```
 
 1.  Verify the nodes are ‘Ready’.
 
-    ```bash
-    kubectl --kubeconfig cluster-abc.conf get nodes
-    ```
+```bash
+kubectl --kubeconfig cluster-abc.conf get nodes
+```
 
 1.  Add the ClusterAPI controllers to the cluster
 
-    ```bash
+```bash
 dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig cluster-abc.conf
-
-    ```
+```
 
 1.  When the workload cluster is ready, move the cluster lifecycle services to the workload cluster.
 
-    ```bash
+```bash
 dkp move --to-kubeconfig cluster-abc.conf
-
-    ```
+```
 
 1.  Wait for the cluster control-plane to be ready
 
-    ```bash
-    kubectl --kubeconfig cluster-abc.conf wait --for=condition=ControlPlaneReady "clusters/cluster-abc" --timeout=20m
-	```
+```bash
+kubectl --kubeconfig cluster-abc.conf wait --for=condition=ControlPlaneReady "clusters/cluster-abc" --timeout=20m
+```
 
-    Output
-	```bash
-    cluster.cluster.x-k8s.io/aws-example condition met
-    ```
+Output
+```bash
+cluster.cluster.x-k8s.io/aws-example condition met
+```
 At this point, begin exploring your created bootstrap cluster via:
 * [Exploring the new Kubernetes cluster in AWS][explore]
 
