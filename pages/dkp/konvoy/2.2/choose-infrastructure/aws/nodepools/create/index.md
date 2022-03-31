@@ -13,7 +13,7 @@ Creating a node pool is useful when you need to run workloads that require machi
 
 1.  Set the environment variable to the name you assigned this cluster.
 
-    ```sh
+    ```bash
     CLUSTER_NAME=my-aws-cluster
     ```
 
@@ -21,13 +21,13 @@ Creating a node pool is useful when you need to run workloads that require machi
 
 1.  If your workload cluster is self-managed, as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster.
 
-    ```sh
+    ```bash
     export KUBECONFIG=${CLUSTER_NAME}.conf
     ```
 
 1.  Define your node pool name.
 
-    ```sh
+    ```bash
     export NODEPOOL_NAME=example
     ```
 
@@ -35,7 +35,7 @@ Creating a node pool is useful when you need to run workloads that require machi
 
 Create a new AWS node pool with 3 replicas using this command:
 
-```sh
+```bash
 dkp create nodepool aws ${NODEPOOL_NAME} \
     --cluster-name=${CLUSTER_NAME} \
     --replicas=3

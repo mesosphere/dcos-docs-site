@@ -16,7 +16,7 @@ enterprise: false
 
     <p class="message--note"><strong>NOTE: </strong>Do not skip this step if the Azure Network is managed by DKP. When DKP deletes cluster, it deletes the Network.</p>
 
-    ```sh
+    ```bash
     dkp delete cluster --cluster-name=${CLUSTER_NAME} --kubeconfig $HOME/.kube/config
     ```
 
@@ -30,7 +30,7 @@ enterprise: false
 
 After you have moved the workload resources back to a bootstrap cluster and deleted the workload cluster, you no longer need the bootstrap cluster. You can safely delete the bootstrap cluster with this command:
 
-```sh
+```bash
 dkp delete bootstrap --kubeconfig $HOME/.kube/config
 ```
 

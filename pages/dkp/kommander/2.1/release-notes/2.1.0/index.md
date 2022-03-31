@@ -36,7 +36,7 @@ For more information on provisioning from Kommander, see [Managing Clusters](../
 
 #### Kommander Continuous Deployment
 
-Kommander 2.1 now supports continuous delivery/deployment using Flux, which is designed for Kubernetes and supports multi-cluster and multi-tenant use cases. Configure Kommander Projects with GitOps-based Continuous Deployments using FluxCD, which enables canary and A/B deployments, as well as roll-back. Kommander now uses a completely declarative approach, where what you define for production is what you get, without the need to monitor and manually intervene when something goes wrong.
+Kommander 2.1 now supports continuous delivery/deployment using Flux, which is designed for Kubernetes and supports multi-cluster and multi-tenant use cases. Configure Kommander Projects with GitOps-based Continuous Deployments using FluxCD, which enables canary and A/B deployments, and roll-back. Kommander now uses a completely declarative approach, where what you define for production is what you get, without the need to monitor and manually intervene when something goes wrong.
 
 For more information on setting up continuous deployment using Flux, see [Continuous Deployment](../../projects/project-deployments/continuous-delivery).
 
@@ -99,7 +99,7 @@ After this, you can deploy different applications through the UI.
 
 To add custom catalog applications to a Project, a GitRepository pointing to the catalog Git repository **must be also created on each attached cluster in the Project**. Follow the steps on the [Create a Git Repository][project-custom-applications-git-repo] page, but apply the same commands on each attached cluster that is in the Project.
 
-```sh
+```yaml
 kubectl apply -f - <<EOF
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
@@ -164,13 +164,43 @@ EOF
 
 Then, apply this file to your cluster:
 
-```sh
+```bash
 kubectl apply -f cert_manager_root-ca.yaml
 ```
 
 Once complete, continue to [attach your cluster][attach-cluster] to Kommander.
 
-You should expect to see that cert-manager will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
+Your cert-manager will fail to deploy due to your existing `cert-manager` installation. This behavior is expected and can be ignored.
+
+### Kommander Cluster with custom SSL certificate
+
+If the management cluster was initialized using a custom SSL certificate, the managed cluster will fail cloning the manager's service repository. Check the status of the federated git repository resource to see the error:
+
+```bash
+kubectl get gitrepo -n kommander-flux management --kubeconfig MANAGED-KUBECONFIG
+[..]
+unable to clone 'https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander': Get "https://MANAGER_INGRESS_ADDRESS/dkp/kommander/git/kommander/kommander/info/refs?service=git-upload-pack": x509: certificate signed by unknown authority
+[..]
+```
+
+The deployment fails because the managed cluster uses the wrong CA certificate to verify access to the management cluster's git repository. Solve this issue by patching the `gitserver-ca` secret within the `kommander-flux` namespace on the managed cluster with the CA certificate stored in the `kommander-traefik-certificate` secret within the `kommander` namespace on the management cluster.
+
+```bash
+kubectl --kubeconfig=MANAGED_KUBECONFIG patch secret -n kommander-flux gitserver-ca -p '{"data":{"caFile":"'$(kubectl --kubeconfig=MANAGER_KUBECONFIG get secret -n kommander kommander-traefik-certificate -o go-template='{{index .data "ca.crt"}}')'"}}'
+```
+
+You may need to trigger a reconciliation of the flux controller on the managed cluster if you do not want to wait for its regular interval to occur. Use the [`flux` CLI utility][flux-cli]:
+
+```bash
+flux reconcile -n kommander-flux source git management --kubeconfig MANAGED_KUBECONFIG
+```
+
+```sh
+► annotating GitRepository management in kommander-flux namespace
+✔ GitRepository annotated
+◎ waiting for GitRepository reconciliation
+✔ fetched revision main/GIT_HASH
+```
 
 ### Additional resources
 
@@ -180,5 +210,6 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
-[konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
+[konvoy-self-managed]: ../../choose-infrastructure/aws/quick-start-aws/#optional-move-controllers-to-the-newly-created-cluster
 [project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
+[flux-cli]: https://fluxcd.io/docs/installation/

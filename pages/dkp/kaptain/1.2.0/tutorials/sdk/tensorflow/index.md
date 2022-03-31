@@ -47,7 +47,7 @@ All you need is this notebook.
 Before proceeding, check you are using the correct notebook image, that is, [TensorFlow](https://www.tensorflow.org/api_docs/) is available:
 
 
-```sh
+```bash
 %%sh
 pip list | grep tensorflow
 ```
@@ -351,7 +351,7 @@ The low accuracy of the model is to make the demonstration of distributed traini
 ### Verify the Model is Exported to MinIO
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 mc --no-color alias set minio http://minio.kubeflow minio minio123
@@ -490,7 +490,7 @@ with open("input.json", "w") as json_file:
 ```
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 model_name="dev-mnist"

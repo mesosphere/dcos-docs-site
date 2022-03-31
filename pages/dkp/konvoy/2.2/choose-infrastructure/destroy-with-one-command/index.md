@@ -14,7 +14,7 @@ You can use a single command line entry to delete a Kubernetes cluster on any of
 
 The basic DKP `delete` command structure is:
 
-```shell
+```bash
 dkp delete cluster --cluster-name=clustername --self-managed --kubeconfig=cluster_name.conf
 ```
 

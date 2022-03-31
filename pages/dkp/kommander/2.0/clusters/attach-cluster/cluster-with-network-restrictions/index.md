@@ -35,7 +35,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a NAT
 
 1. If you have not attached this cluster before, you must create a new secret in the **Root CA Certificate** drop down menu. To do this in your Konvoy management cluster, view your base64 encoded Kubernetes secret values to copy and paste into the **Root CA Certificate** field:
 
-    ```shell
+    ```bash
     echo $(kubectl get secret -n kommander kommander-bootstrap-root-ca -o=go-template='{{index .data "tls.crt"}}')
     ```
 

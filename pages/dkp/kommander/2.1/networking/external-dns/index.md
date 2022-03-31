@@ -10,7 +10,7 @@ enterprise: false
 
 If you need to use `external-dns` to maintain your hostnames, you must add some overrides to the app section of your installation config file that you pass onto `kommander install`. Adjust your `kommander.yaml` file to include these values:
 
-```sh
+```yaml
   traefik:
     values: |
       service:

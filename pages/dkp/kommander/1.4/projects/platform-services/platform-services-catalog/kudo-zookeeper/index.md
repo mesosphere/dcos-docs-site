@@ -69,7 +69,7 @@ The current parameters set can be retrieved using the kubectl command with the t
 
 To retrieve the current parameters, use the following command in the terminal with appropriate `INSTANCE` value set:
 
-```sh
+```bash
 INSTANCE=zookeeper;
 kubectl -n test-project-zc6tc get instances -o json | jq ".items[] | select(.metadata.name == \"$INSTANCE\") | .spec.parameters" | yq -e --yaml-output '.' > zookeeper-params.yml
 ```
@@ -86,13 +86,13 @@ Parameters can be updated using arguments to the KUDO CLI.
 
 **NOTE**: As mentioned in the [ZooKeeper Getting Started Guide](), a minimum of three servers are required for a fault tolerant clustered setup, and it is strongly recommended that you have an odd number of servers.
 
-```sh
+```bash
 kubectl kudo update --instance zookeeper -p NODE_COUNT=5 -n test-project-zc6tc
 ```
 
 - Monitor the KUDO Zookeeper deployment plan:
 
-```sh
+```bash
 kubectl kudo plan status --instance zookeeper -n test-project-zc6tc
 ```
 
@@ -100,8 +100,11 @@ kubectl kudo plan status --instance zookeeper -n test-project-zc6tc
 
 When the deployment plan is `COMPLETE`, there should be 5 nodes as seen by the number of pods running:
 
+```bash
+kubectl get pods -n test-project-zc6tc
+```
+
 ```sh
-$ kubectl get pods -n test-project-zc6tc
 NAME                    READY   STATUS    RESTARTS   AGE
 zookeeper-zookeeper-0   1/1     Running   0          37s
 zookeeper-zookeeper-1   1/1     Running   0          2m47s
@@ -118,7 +121,7 @@ See [Available Parameters](#available-parameters) to get the full list of curren
 
 Apply the desired updates in `zookeeper-params.yml` using the KUDO CLI:
 
-```sh
+```bash
 kubectl kudo update -n test-project-zc6tc --instance=zookeeper -P zookeeper-params.yml 
 ```
 
@@ -152,8 +155,11 @@ Below, we demonstrate how to connect a client to KUDO Zookeeper, the reader will
 
 List the available services in the project namespace created by Kommander:
 
+```bash
+kubectl -n test-project-zc6tc get services
+```
+
 ```sh
-$ kubectl -n test-project-zc6tc get services
 NAME           TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)             AGE
 zookeeper-cs   ClusterIP   10.0.38.117   <none>        2181/TCP            8m52s
 zookeeper-hs   ClusterIP   None          <none>        2888/TCP,3888/TCP   8m52s
@@ -161,16 +167,22 @@ zookeeper-hs   ClusterIP   None          <none>        2888/TCP,3888/TCP   8m52s
 
 Port-forward the `zookeeper-cs` service:
 
+```bash
+kubectl port-forward service/zookeeper-cs 2181:2181 -n test-project-zc6tc
+```
+
 ```sh
-$ kubectl port-forward service/zookeeper-cs 2181:2181 -n test-project-zc6tc
 Forwarding from 127.0.0.1:2181 -> 2181
 Forwarding from [::1]:2181 -> 2181
 ```
 
 Connect to the KUDO Zookeeper via `zkCli`
 
+```bash
+bin/zkCli.sh -server 127.0.0.1:2181
+```
+
 ```sh
-$ bin/zkCli.sh -server 127.0.0.1:2181
 [...output omitted...]
 Welcome to ZooKeeper!
 2021-04-15 01:12:31,978 [myid:127.0.0.1:2181] - INFO  [main-SendThread(127.0.0.1:2181):ClientCnxn$SendThread@1171] - Opening socket connection to server localhost/127.0.0.1:2181.
@@ -191,7 +203,7 @@ WatchedEvent state:SyncConnected type:None path:null
 
 KUDO provides the ability to collect logs and other [diagnostics data](https://kudo.dev/docs/cli/examples.html#collecting-diagnostic-data) for debugging and for bug-reports.
 
-```sh
+```bash
 kubectl kudo diagnostics collect --instance zookeeper -n test-project-zc6tc
 ```
 
@@ -210,6 +222,6 @@ Data for the specified Operator
 
 To monitor all the events occurring in the namespace, it is helpful to look at event log:
 
-```sh
+```bash
 kubectl get events -w -n test-project-zc6tc
 ```

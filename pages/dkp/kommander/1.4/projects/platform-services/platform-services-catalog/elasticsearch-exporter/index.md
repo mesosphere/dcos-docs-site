@@ -33,8 +33,11 @@ The Kommander UI should resemble the following image. The dialog is populated wi
 
 You will see the following pods under the project namespace on the Kubernetes cluster (assuming Elasticsearch is already running):
 
+```bash
+kubectl get pods
+```
+
 ```sh
-$ kubectl get pods
 NAME                                                              READY   STATUS    RESTARTS   AGE
 elasticsearch-oss-client-0                                        1/1     Running   0          111s
 elasticsearch-oss-data-0                                          1/1     Running   0          111s
@@ -54,8 +57,11 @@ Full list of [Configuration Parameters](https://github.com/mesosphere/charts/tre
 
 The following services are exposed by Elasticsearch and Elasticsearch exporter.
 
+```bash
+kubectl get svc
+```
+
 ```sh
-$ kubectl get svc
 NAME                                                       TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)             AGE
 elasticsearch-oss-client                                   ClusterIP   10.0.50.166   <none>        9200/TCP,9300/TCP   33m
 elasticsearch-oss-client-headless                          ClusterIP   None          <none>        9200/TCP,9300/TCP   33m

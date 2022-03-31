@@ -11,7 +11,7 @@ beta: false
 
 To configure a custom domain, update the `konvoyconfig` addon in `cluster.yaml` and apply the changes using `konvoy up`:
 
-The hostname, eg `mycluster.domain.dom` in these examples, must be resolvable from the client (your browser) and from the cluster.
+The hostname, for example `mycluster.domain.dom` in these examples, must be resolvable from the client (your browser) and from the cluster.
 
 ```yaml
 - name: konvoyconfig
@@ -52,7 +52,7 @@ In AWS, the `external-dns` can be configured as:
 
 ##### RFC2136 (eg BIND and Windows DNS)
 
-In many on-premises environments, dns entries may be updated using the `external-dns` RFC2136 provider.
+In many on-premises environments, DNS entries may be updated using the `external-dns` RFC2136 provider.
 
 ```yaml
 - name: external-dns
@@ -105,14 +105,14 @@ Requires a custom domain with the following:
 
 1.  Create the directory `extras/kubernetes` from the same directory as your cluster.yaml
 
-    ```shell
+    ```bash
     mkdir -p extras/kubernetes
     ```
 
 1.  Create a `secret.yaml` file with the certificate, key and CA bundle(s) and place it in `extras/kubernetes`.
     - *Note*: in the following example, `custom-cert` is used as the secret name and later used to modify addons but users can use whatever secret name they prefer.
 
-    ```shell
+    ```bash
     kubectl create secret generic custom-cert -n kubeaddons \
       --from-file ca.crt=<path to ca bundle> \
       --from-file tls.crt=<path to certificate file> \
@@ -170,7 +170,7 @@ Requires a custom domain with the following:
 
 1.  Install `konvoy`.
 
-    ```shell
+    ```bash
     konvoy up
     ```
 

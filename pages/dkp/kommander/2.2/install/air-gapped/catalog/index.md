@@ -1,110 +1,255 @@
 ---
 layout: layout.pug
-navigationTitle: Host on Gitea
-title: Host on Gitea
+navigationTitle: Install Kommander in an air-gapped environment with catalog applications
+title: Install Kommander in an air-gapped environment with catalog applications
 menuWeight: 10
-excerpt: How to host git repositories on Gitea for air gapped deployments
+excerpt: Install Kommander in an air-gapped environment with catalog applications
+beta: false
+enterprise: true
 ---
 
-DKP supports using an external catalog git repository to install applications. In cases where an external repository is not accessible from within the cluster, to install applications, use the Gitea server that comes out-of-box with a Kommander deployment.
+
+This topic shows how to run Kommander on top of an [air-gapped Konvoy cluster][air-gap-konvoy] installation with catalog applications.
 
 ## Prerequisites
 
-- Install `git` in the local environment (from where a connection to air-gapped cluster is established).
+Before installing, ensure you have:
 
-## Host external repository on Gitea
+-   A Docker registry containing all the necessary Docker images, including the Kommander and [DKP catalog application][dkp_catalog_applications] images.
 
-To configure the Gitea server, follow these steps:
+-   A charts bundle file containing all Helm charts that Kommander installation needs, including the [DKP catalog applications][dkp_catalog_applications] charts.
 
-1.  Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
+-   Connectivity with clusters attaching to the management cluster:
+    - See more details about attaching air-gapped clusters in the [Managing Clusters](../../../clusters/attach-cluster/cluster-with-network-restrictions/) documentation.
+    - Both management and attached clusters must be able to connect to the Docker registry.
+    - The management cluster must be able to connect to all attached cluster's API servers.
+    - The management cluster must be able to connect to any load balancers created for platform services on the management cluster.
+
+-   A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
+
+  ```bash
+  kommander install --init --airgapped > install.yaml
+  ```
+
+-   All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
+
+-   [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
+
+### Kommander charts bundle
+
+The charts bundle is a gzipped Tar archive containing Helm charts, which are required during Kommander installation.
+Create the charts bundle with the Kommander CLI or downloaded along with the Kommander CLI.
+Execute this command to create the charts bundle:
+
+   ```bash
+   kommander create chart-bundle
+   ```
+
+Kommander creates `charts-bundle.tar.gz`.
+Optionally, specify the output using the `-o` parameter:
+
+   ```bash
+   kommander create chart-bundle -o [name of the output file]
+   ```
+
+### Kommander's internal Helm repository
+
+The Kommander charts bundle is pushed to Kommander's internal Helm repository.
+To inspect the contents:
+
+   ```bash
+   kommander get charts
+   ```
+
+Individual charts can be removed using:
+
+   ```bash
+   kommander delete chart [chartName] [chartVersion]
+   ```
+
+It is possible to push new charts as well:
+
+   ```bash
+   kommander push chart [chartTarball]
+   ```
+
+Or push a new bundle:
+
+   ```bash
+   kommander push chart-bundle [chartsTarball]
+   ```
+
+Check the built-in help text for each command for more information.
+
+### Use MetalLB
+
+For an on-premises deployment, Kommander ships with [MetalLB][metallb], which provides load-balancing services.
+
+<p class="message--note"><strong>NOTE: </strong>Making a configuration change in the <code>ConfigMap</code> for the <code>metallb</code> application may not result in the configuration change applying. This is <a href="https://github.com/danderson/metallb/issues/348#issuecomment-442218138" target="_blank">intentional behavior</a>. MetalLB refuses to adopt changes to the ConfigMap that breaks existing Services. You can force MetalLB to load those changes by deleting the <code>metallb</code> controller pod:</p>
+
+   ```bash
+   kubectl -n kommander delete pod -l app=metallb,component=controller
+   ```
+
+To use MetalLB:
+
+1.  Identify and reserve a virtual IP (VIP) address range in your networking infrastructure.
+
+1.  Configure your networking infrastructure so that the reserved IP addresses is reachable:
+
+    - from all hosts specified in the inventory file.
+    - from the computer used to deploy Kubernetes.
+
+<p class="message--note"><strong>NOTE: </strong>Ensure the MetalLB subnet does not overlap with <code>podSubnet</code> and <code>serviceSubnet</code>.</p>
+
+Your configuration is complete if the reserved virtual IP addresses are in the same subnet as the rest of the cluster nodes.
+If it is in a different subnet, configure appropriate routes to ensure connectivity with the virtual IP address.
+If the virtual IP addresses share an interface with the primary IP address of the interface, disable any IP or MAC spoofing from the infrastructure firewall.
+
+You can configure MetalLB in two modes: Layer2 and BGP.
+
+#### Layer2
+
+The following example illustrates how to enable MetalLB and configure it with the Layer2 mode using the `install.yaml` configuration file created above:
+
+   ```yaml
+   apiVersion: config.kommander.mesosphere.io/v1alpha1
+   kind: Installation
+   apps:
+    ...
+     metallb:
+       values: |
+         configInline:
+           address-pools:
+             - name: default
+               protocol: layer2
+               addresses:
+                 - 10.0.50.25-10.0.50.50
+   ```
+
+The number of virtual IP addresses in the reserved range determines the maximum number of `LoadBalancer` service types you can create in the cluster.
+
+#### BGP
+
+MetalLB in `bgp` mode implements only a subset of the BGP protocol. In particular, it only advertises the virtual IP to peer BGP agent.
+
+The following example illustrates the BGP configuration in the overrides `ConfigMap`:
+
+   ```yaml
+   apiVersion: config.kommander.mesosphere.io/v1alpha1
+   kind: Installation
+   apps:
+    ...
+     metallb:
+       values: |
+         configInline:
+           peers:
+             - my-asn: 64500
+               peer-asn: 64500
+               peer-address: 172.17.0.4
+           address-pools:
+             - name: my-ip-space
+               protocol: bgp
+               addresses:
+                 - 172.40.100.0/24
+   ```
+
+In the above configuration, `peers` defines the configuration of the BGP peer, such as peer IP address and `autonomous system number` (`asn`).
+The `address-pools` section is similar to `layer2`, except for the protocol.
+
+MetalLB also supports [advanced BGP configuration][metallb_config].
+
+See [Kommander Load Balancing][kommander-load-balancing] for more information.
+
+### Determine the installation version
+
+Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
+
+```bash
+export VERSION=v2.2.0
+```
+
+### Load the Docker images into your Docker registry
+
+1.  Download the Kommander image bundle file:
 
     ```bash
-    export VERSION=v2.2.0
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-image-bundle-${VERSION}.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
-1.  Set the `TARGET_NAMESPACE` to the workspace (or project) namespace in which the catalog repository will be created.
+1.  Download the [DKP catalog applications][dkp_catalog_applications] image bundle file:
 
     ```bash
-    export TARGET_NAMESPACE=<WORKSPACE_OR_PROJECT_NAMESPACE>
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-catalog-applications-image-bundle-${VERSION}.tar.gz" -O catalog-applications-image-bundle.tar.gz
     ```
 
-1.  Go to the Gitea UI below and register a new user account:
+1.  Place the bundles in a location where you can load and push the images to your private Docker registry.
+
+1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
-    GITEA_HOSTNAME=$((kubectl -n kommander get cm konvoyconfig-kubeaddons -o go-template='{{if ne .data.clusterHostname ""}}{{.data.clusterHostname}}{{"\n"}}{{end}}' ; kubectl -n kommander get ingress gitea -o jsonpath="{.status.loadBalancer.ingress[0]['ip','hostname']}") | head -1) && echo https://${GITEA_HOSTNAME}/dkp/kommander/git/
+    dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
+    dkp push image-bundle --image-bundle catalog-applications-image-bundle.tar.gz --to-registry <REGISTRY_URL>
     ```
 
-1.  Create a new repository under the new user account. Rest of this guide assumes you created a private repository named `dkp-catalog-applications` with `main` as default branch. You can substitute these values as needed. Create environment variables that contain the Gitea credentials and repository metadata:
+It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
+
+## Install on Konvoy
+
+1.  Create the [configuration file][kommander-config] by running `kommander install --init --airgapped > install.yaml` for the air-gapped deployment. Open the `install.yaml` file and review that it looks like the following:
+
+    ```yaml
+    apiVersion: config.kommander.mesosphere.io/v1alpha1
+    kind: Installation
+    airgapped:
+      enabled: true
+    ```
+
+1.  In the same file, if you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by setting the following:
+
+    ```yaml
+    apps:
+      traefik:
+        values: |
+          service:
+            annotations:
+              service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+    ```
+
+1.  Download the Kommander application definitions:
 
     ```bash
-    GITEA_USERNAME=<YOUR_GITEA_USERNAME>
-    GITEA_PASSWORD=<YOUR_GITEA_PASSWORD>
-    GITEA_REPOSITORY_NAME=dkp-catalog-applications
-    GITEA_REPOSITORY_DEFAULT_BRANCH=main
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-applications_${VERSION}.tar.gz"
     ```
 
-1.  Clone the newly created repository on your local machine:
+1.  Download the Kommander charts bundle:
 
     ```bash
-    kubectl -n kommander get secret kommander-traefik-certificate -o go-template='{{index .data "ca.crt"|base64decode}}' > /tmp/ca.crt
-    git clone -c http.sslCAInfo=/tmp/ca.crt https://${GITEA_USERNAME}:${GITEA_PASSWORD}@${GITEA_HOSTNAME}/dkp/kommander/git/${GITEA_USERNAME}/${GITEA_REPOSITORY_NAME}
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-kommander-charts-bundle-${VERSION}.tar.gz"
     ```
 
-1.  Download and extract the catalog repository bundle to your local machine from the download portal and extract the contents into the `${GITEA_REPOSITORY_NAME}` repository cloned in the above step:
+1.  Download the [DKP catalog applications][dkp_catalog_applications] chart bundle:
 
     ```bash
-    curl -fsSL https://github.com/mesosphere/dkp-catalog-applications/archive/refs/tags/${VERSION}.tar.gz | tar zxf - --strip-components=1 -C ${GITEA_REPOSITORY_NAME}
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-catalog-applications-charts-bundle-${VERSION}.tar.gz"
     ```
 
-1.  Navigate into the `${GITEA_REPOSITORY_NAME}` directory and push the changes:
+1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
-    cd ${GITEA_REPOSITORY_NAME}
-    git add .
-    git commit -m "feat: initialize ${GITEA_REPOSITORY_NAME} for air-gapped"
-    git push --set-upstream origin ${GITEA_REPOSITORY_DEFAULT_BRANCH}
-    cd ..
+    kommander install --installer-config ./install.yaml \
+    --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
+    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz \
+    --charts-bundle dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz
     ```
 
-1.  Run the following command to create a secret containing Gitea credentials in `TARGET_NAMESPACE`:
+1.  [Verify your installation](../../networked#verify-installation).
 
-    ```bash
-    kubectl create secret generic -n${TARGET_NAMESPACE} ${TARGET_NAMESPACE} --type opaque \
-        --from-literal=caFile="$(cat /tmp/ca.crt)" \
-        --from-literal=username="${GITEA_USERNAME}" \
-        --from-literal=password="${GITEA_PASSWORD}"
-    ```
-
-    <p class="message--note"><strong>NOTE: </strong>This command needs to be run in Management cluster (where Kommander is installed) and ALL target clusters that belong to the specific Workspace or Project.</p>
-
-1.  Optionally, cleanup the certificate and locally cloned repository:
-
-    ```bash
-    rm -rf ${GITEA_REPOSITORY_NAME}
-    rm /tmp/ca.crt
-    ```
-
-1.  Run the following command to create the catalog `GitRepository`:
-
-    ```bash
-    kubectl apply -f - <<EOF
-    apiVersion: source.toolkit.fluxcd.io/v1beta1
-    kind: GitRepository
-    metadata:
-      name: ${GITEA_REPOSITORY_NAME}
-      namespace: ${TARGET_NAMESPACE}
-      labels:
-        kommander.d2iq.io/gitapps-gitrepository-type: catalog
-        kommander.d2iq.io/gitrepository-type: catalog
-    spec:
-      interval: 1m0s
-      ref:
-        branch: ${GITEA_REPOSITORY_DEFAULT_BRANCH}
-      timeout: 20s
-      url: https://${GITEA_HOSTNAME}/dkp/kommander/git/${GITEA_USERNAME}/${GITEA_REPOSITORY_NAME}
-      secretRef:
-        name: ${TARGET_NAMESPACE}
-    EOF
-    ```
-
-1.  After the newly created `GitRepository` on the management cluster reconciles, any corresponding `App`s are loaded by Kommander controller.
+[air-gap-before-you-begin]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/prerequisites/
+[air-gap-install-metallb]: #use-metallb
+[air-gap-konvoy]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/
+[kommander-config]: ../../configuration
+[kommander-load-balancing]: ../../../networking/load-balancing
+[metallb]: https://metallb.universe.tf/concepts/
+[metallb_config]: https://metallb.universe.tf/configuration/
+[dkp_catalog_applications]: ../../../workspaces/applications/catalog-applications/dkp-applications/

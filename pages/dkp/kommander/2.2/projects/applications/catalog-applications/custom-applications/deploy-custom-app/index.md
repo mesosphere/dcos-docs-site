@@ -39,13 +39,13 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
 
 1. Set the `PROJECT_NAMESPACE` environment variable to the name of the project's namespace:
 
-    ```sh
+    ```bash
     export PROJECT_NAMESPACE=<project_namespace>
     ```
 
 1. Get the list of available applications to deploy using the following command:
 
-   ```sh
+   ```bash
    kubectl get apps -n ${PROJECT_NAMESPACE}
    ```
 
@@ -115,3 +115,7 @@ kubectl get helmreleases -n ${PROJECT_NAMESPACE}
 NAMESPACE               NAME            READY   STATUS                             AGE
 project-test-vjsfq      my-custom-app   True    Release reconciliation succeeded   7m3s
 ```
+
+## Upgrade custom applications
+
+You must maintain your custom applications manually. When upgrading DKP, ensure you validate for compatibility issues any custom applications you run against the current version of Kubernetes. We recommend upgrading to the latest compatible application versions as soon as possible.

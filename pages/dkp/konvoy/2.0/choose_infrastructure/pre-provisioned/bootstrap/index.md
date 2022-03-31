@@ -16,7 +16,7 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which depl
 
 Use the following command to create a bootstrap cluster:
 
-```shell
+```bash
 dkp create bootstrap
 ```
 

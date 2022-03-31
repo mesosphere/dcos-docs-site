@@ -12,12 +12,12 @@ enterprise: false
 
 1.  Delete the provisioned Kubernetes cluster and wait a few minutes:
 
-    ```sh
+    ```bash
     dkp delete cluster --cluster-name=${CLUSTER_NAME}
     ```
 
 1.  Delete the `kind` Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp delete bootstrap
     ```

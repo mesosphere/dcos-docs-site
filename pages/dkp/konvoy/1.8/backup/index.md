@@ -19,7 +19,7 @@ Konvoy provides the Velero addon by default, to support backup and restore opera
 
 For on-premises deployments, Konvoy deploys Velero integrated with [Minio][minio], operating inside the same cluster.
 
-For production use-cases, it's advisable to provide an *external* storage class for Minio to use.
+For production use-cases, it is advisable to provide an *external* storage class for Minio to use.
 With the external storage class, you can configure the Velero addon in `cluster.yaml`  as follows:
 
 ```yaml
@@ -166,7 +166,7 @@ For example, if you are preparing to upgrade any components or modify your clust
 
 Create a backup by running the following command:
 
-```shell
+```bash
 velero backup create BACKUP_NAME
 ```
 
@@ -180,7 +180,7 @@ Before attempting to restore the cluster state using the Velero command-line int
 
 To list the available backup archives for your cluster, run the following command:
 
-```shell
+```bash
 velero backup get
 ```
 
@@ -199,19 +199,19 @@ addons:
 
 Then you may apply the configuration change by running:
 
-```shell
+```bash
 konvoy deploy addons -y
 ```
 
 Finally, check your deployment to verify that the configuration change was applied correctly:
 
-```shell
+```bash
 helm get values velero-kubeaddons
 ```
 
 To restore cluster data on demand from a selected backup snapshot available in the cluster, run a command similar to the following:
 
-```shell
+```bash
 velero restore create --from-backup BACKUP_NAME
 ```
 

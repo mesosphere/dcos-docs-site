@@ -67,7 +67,7 @@ to a minimum of 2 machines.
 The scaling decisions are based on the usage of the resources
 and requested resources, as detailed below.
 
-When deploying the cluster for the first time using `konvoy up`, **you must ensure the initial cluster size satisfies the resource requirements of your addons**. The autoscaler will not scale up the cluster if `konvoy up` did not succeed. For instance, this can happen when you create an underprovisioned cluster where the addons won't fit in the cluster, and thereby the installation will fail. A possible workaround could be to firstly run `konvoy deploy kubernetes` to deploy the autoscaler, and then run `konvoy deploy addons`. Following this approach would allow the cluster to autoscale in order to satisfy the requirements of the selected addons.
+When deploying the cluster for the first time using `konvoy up`, **you must ensure the initial cluster size satisfies the resource requirements of your addons**. The autoscaler will not scale up the cluster if `konvoy up` did not succeed. For instance, this can happen when you create an underprovisioned cluster where the addons will not fit in the cluster, and thereby the installation will fail. A possible workaround could be to firstly run `konvoy deploy kubernetes` to deploy the autoscaler, and then run `konvoy deploy addons`. Following this approach would allow the cluster to autoscale in order to satisfy the requirements of the selected addons.
 
 <p class="message--note"><strong>NOTE: </strong> Autoscaling is not enabled for control-plane and bastion node pools.</p>
 
@@ -84,8 +84,11 @@ The following files are stored in Kubernetes when using the autoscaling feature:
 * `cluster.yaml`: the cluster specification is stored in Kubernetes in the
 `konvoy` namespace as part of the resource `KonvoyCluster` resource:
 
-```shell
+```bash
 kubectl get konvoycluster -n konvoy
+```
+
+```sh
 NAMESPACE                    NAME           DISPLAY NAME   STATUS        PROVIDER   AGE    PROVISIONING PAUSED
 konvoy                       mycluster      New Cluster    Provisioned   aws        6d2h
 ```
@@ -137,8 +140,11 @@ under the `konvoy` namespace, e.g. `kubectl get all -n konvoy`.
 
 The Konvoy autoscaler deploys two pods.
 
-```shell
+```bash
 kubectl get pods -n konvoy
+```
+
+```sh
 NAME                                                              READY   STATUS    RESTARTS   AGE
 mycluster-kbk4w                                                  1/1     Running   0          5s
 mycluster-kubeaddons-konvoy-cluster-autoscaler-55f48c876dp2z9h   1/1     Running   0          98m
@@ -147,8 +153,11 @@ mycluster-kubeaddons-konvoy-cluster-autoscaler-55f48c876dp2z9h   1/1     Running
 To make any future change to the configuration of the Konvoy cluster,
 you must use the `konvoy pull` command to fetch the required files in your working directory.
 
-```shell
+```bash
 konvoy pull -h
+```
+
+```sh
 Pull cluster state
 
 Usage:
@@ -160,9 +169,11 @@ Flags:
       --verbose               enable debug level logging
 ```
 
-```shell
+```bash
 konvoy pull
+```
 
+```sh
 Kubernetes cluster state pulled successfully!
 ```
 
@@ -175,8 +186,11 @@ working directory and the cluster state in Kubernetes.
 In addition to `konvoy pull`, Konvoy provides a new command to store the cluster
 state in Kubernetes, `konvoy push`:
 
-```shell
+```bash
 konvoy push -h
+```
+
+```sh
 Push cluster state
 
 Usage:
@@ -193,9 +207,11 @@ This `push` command stores the cluster state, on demand, in Kubernetes.
 It allows users to specify certain cloud provider credentials that might differ
 from those used during the cluster bootstrap operation. This is especially important when using temporary credentials when bootstrapping the cluster.
 
-```shell
+```bash
 konvoy push --cloud-provider-account-name=my-specific-aws-cloudaccount
+```
 
+```sh
 Kubernetes cluster state pushed successfully!
 ```
 
@@ -311,7 +327,7 @@ In an air-gapped cluster, you need to specify some additional configurations for
 
 Configuring auto-provisioning with a local Docker registry is mandatory and explained in the [air-gapped installation documentation][airgapped-autoscaling].
 
-<p class="message--note"><strong>NOTE: </strong> There is a limitation when using the autoscaler in an air-gapped AWS environment. You must use existing <a href="../install/install-aws/advanced-provisioning#iam-instance-profiles">IAM Instance Profiles</a>, otherwise the the process will timeout trying to access https://iam.amazonaws.com.</p>
+<p class="message--note"><strong>NOTE: </strong> There is a limitation when using the autoscaler in an air-gapped AWS environment. You must use existing <a href="../install/install-aws/advanced-provisioning#iam-instance-profiles">IAM Instance Profiles</a>, otherwise the process will timeout trying to access https://iam.amazonaws.com.</p>
 
 ## Autoscaler scaling decision making
 
@@ -356,7 +372,7 @@ Whenever a scaling decision is triggered successfully, a new event is registered
 in our respective `KonvoyCluster` resource in Kubernetes. These are the two events representing
 scaling up and down decisions, as shown below:
 
-```shell
+```sh
 Events:
   Type    Reason                  Age    From                Message
   ----    ------                  ----   ----                -------

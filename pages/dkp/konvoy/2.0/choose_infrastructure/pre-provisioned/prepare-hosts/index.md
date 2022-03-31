@@ -57,7 +57,7 @@ An Ansible inventory describes the hosts in your environment and details for con
 
 <p class="message--note"><strong>NOTE: </strong>Use the correct image for your target infrastructure Operating system. If your infrastructure is heterogeneous, you must create a separate inventory per Operating System target.</p>
 
-```shell
+```bash
 cd <konvoy-image-bundle-dir>
 ./konvoy-image provision --inventory-file inventory.yaml images/generic/<centos-7|centos-8|flatcar|sles-15>.yaml
 ```
@@ -79,7 +79,7 @@ proxy_env:
 
 Then run the following command passing in `--overrides=http-proxy-override.yaml`:
 
-```shell
+```bash
 cd <konvoy-image-bundle-dir>
 ./konvoy-image provision --inventory-file inventory.yaml images/generic/<centos-7|centos-8|flatcar|sles-15>.yaml --overrides http-proxy-override.yaml
 ```

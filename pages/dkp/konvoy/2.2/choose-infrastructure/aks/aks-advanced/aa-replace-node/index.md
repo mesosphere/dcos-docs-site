@@ -21,13 +21,13 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     List the nodes:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes
     ```
 
     The output from this command resembles the following:
 
-    ```text
+    ```sh
     NAME                                         STATUS   ROLES                  AGE   VERSION
     ip-10-0-102-60.eastus2.compute.internal    Ready    control-plane,master   36m   v1.21.3
     ip-10-0-118-168.eastus2.compute.internal   Ready    <none>                 42m   v1.21.3
@@ -40,18 +40,18 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     This example uses the name `ip-10-0-118-168.eastus2.compute.internal`.
 
-    ```sh
+    ```bash
     export NAME_NODE_TO_DELETE="ip-10-0-118-168.eastus2.compute.internal"
     ```
 
 1.  Delete the Machine resource
 
-    ```sh
+    ```bash
     NAME_MACHINE_TO_DELETE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machine -ojsonpath="{.items[?(@.status.nodeRef.name==\"$NAME_NODE_TO_DELETE\")].metadata.name}")
     kubectl --kubeconfig ${CLUSTER_NAME}.conf delete machine "$NAME_MACHINE_TO_DELETE"
     ```
 
-    ```text
+    ```sh
     machine.cluster.x-k8s.io "aks-example-md-0-7fbfb98fcf-4xcv9" deleted
     ```
 
@@ -61,7 +61,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
 1.  Observe that the Machine resource is being replaced using this command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf get machinedeployment
     ```
 
@@ -74,7 +74,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
 1.  Identify the replacement Machine using this command:
 
-    ```sh
+    ```bash
     export NAME_NEW_MACHINE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machines \
         -l=cluster.x-k8s.io/deployment-name=${CLUSTER_NAME}-md-0 \
         -ojsonpath='{.items[?(@.status.phase=="Provisioning")].metadata.name}{"\n"}')
@@ -85,12 +85,12 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
 1.  Identify the replacement Node using this command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes \
         -o=jsonpath="{.items[?(@.metadata.annotations.cluster\.x-k8s\.io/machine==\"$NAME_NEW_MACHINE\")].metadata.name}"
     ```
 
-    ```text
+    ```sh
     ip-10-0-85-101.eastus2.compute.internal
     ```
 

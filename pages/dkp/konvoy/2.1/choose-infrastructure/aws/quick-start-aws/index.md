@@ -26,7 +26,7 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Export the AWS Profile with the credentials that you want to use to create the Kubernetes cluster:
 
-    ```sh
+    ```bash
     export AWS_PROFILE=<profile>
     ```
 
@@ -36,15 +36,22 @@ Before starting the Konvoy installation, verify that you have:
 
     Set the environment variable to be used throughout this documentation:
 
-    ```sh
+    ```bash
     export CLUSTER_NAME=my-aws-cluster
     ```
 
 ## Create a new AWS Kubernetes cluster
 
+If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on a [CentOS 7 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
+
+<p class="message--note"><strong>NOTE: </strong>
+Using these default images work, but due to missing optimizations, the created cluster will have certain limits.
+We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builder to create a custom AMI</a> to take advantage of enhanced cluster operations, and to explore the <a href="../advanced">advanced AWS installation</a> topics for more options.
+</p>
+
 1.  Create a Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp create cluster aws \
     --cluster-name=${CLUSTER_NAME} \
     --additional-tags=owner=$(whoami) \
@@ -78,7 +85,7 @@ The kubeconfig file is written to your local directory and you can now explore t
 
 1.  List the Nodes with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
@@ -97,7 +104,7 @@ The kubeconfig file is written to your local directory and you can now explore t
 
 1.  List the Pods with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
     ```
 
@@ -120,13 +127,13 @@ If you no longer need the cluster and want to delete it, you can do so using the
 
 1.  Update the AWS bootstrap credentials:
 
-    ```sh
+    ```bash
     dkp update bootstrap credentials aws --kubeconfig=${CLUSTER_NAME}.conf
     ```
 
 1.  Delete the provisioned Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp delete cluster \
     --cluster-name=${CLUSTER_NAME} \
     --kubeconfig=${CLUSTER_NAME}.conf \
@@ -158,6 +165,9 @@ To understand how this process works step by step, you can follow the workflow i
 
 [advanced]: ../advanced/
 [advanced_delete]: ../advanced/delete/
+[aws_advanced]: ../advanced
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.htm
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+[kib_create_ami]: ../../../image-builder/create-ami
+[supported-systems]: ../../../supported-operating-systems

@@ -10,40 +10,18 @@ enterprise: false
 
 Konvoy needs to know how to access your cluster hosts. This is done using inventory resources. For initial cluster creation, you must define a control-plane and at least one worker pool.
 
-## Name your cluster
-
-Give your cluster a unique name suitable for your environment.
-
-Set the environment variable to be used throughout this procedure:
-
-```sh
-CLUSTER_NAME=my-preprovisioned-cluster
-```
-
-Note: If you want to create a unique cluster name, use this command.
-This creates a unique name every time you run it, so use it carefully.
-
-```sh
-CLUSTER_NAME=$(whoami)-preprovisioned-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
-echo $CLUSTER_NAME
-```
-
-```text
-hunter-aws-cluster-pf4a3
-```
-
 ## Define your infrastructure
 
 1.  Export these environment variables:
 
-    ```shell
-    export CONTROL_PLANE_1_ADDRESS="control-plane-address-1"
-    export CONTROL_PLANE_2_ADDRESS="control-plane-address-2"
-    export CONTROL_PLANE_3_ADDRESS="control-plane-address-3"
-    export WORKER_1_ADDRESS="worker-address-1"
-    export WORKER_2_ADDRESS="worker-address-2"
-    export WORKER_3_ADDRESS="worker-address-3"
-    export WORKER_4_ADDRESS="worker-address-4"
+    ```bash
+    export CONTROL_PLANE_1_ADDRESS="<control-plane-address-1>"
+    export CONTROL_PLANE_2_ADDRESS="<control-plane-address-2>"
+    export CONTROL_PLANE_3_ADDRESS="<control-plane-address-3>"
+    export WORKER_1_ADDRESS="<worker-address-1>"
+    export WORKER_2_ADDRESS="<worker-address-2>"
+    export WORKER_3_ADDRESS="<worker-address-3>"
+    export WORKER_4_ADDRESS="<worker-address-4>"
     export SSH_USER="<ssh-user>"
     export SSH_PRIVATE_KEY_SECRET_NAME="$CLUSTER_NAME-ssh-key"
     ```
@@ -64,6 +42,8 @@ hunter-aws-cluster-pf4a3
     spec:
       hosts:
         # Create as many of these as needed to match your infrastructure
+        # Note that the command line parameter `--control-plane-replicas` determines how many control plane nodes will actually be used.
+        #
         - address: $CONTROL_PLANE_1_ADDRESS
         - address: $CONTROL_PLANE_2_ADDRESS
         - address: $CONTROL_PLANE_3_ADDRESS
@@ -103,23 +83,30 @@ hunter-aws-cluster-pf4a3
 
 1.  Apply the new infrastructure file with the command:
 
-    ```shell
+    ```bash
     envsubst < preprovisioned_inventory.yaml | kubectl apply -f -
     ```
 
+    ```sh
+    preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/my-preprovisioned-cluster-control-plane created
+    preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/my-preprovisioned-cluster-md-0 created
+    ```
+
 ## Prepare your machines
+
+For DKP to install completely, you must turn off memory swap.
 
 For DKP to install completely, you must stop `firewalld`, if enabled.
 
 Verify `firewalld` is running before you deploy DKP. Use SSH to access each of the machines onto which you are deploying DKP, and check to see if 'firewalld' is running, using the command:
 
-```sh
+```bash
 systemctl status firewalld
 ```
 
 If `firewalld` is active, stop it with the command:
 
-```sh
+```bash
 systemctl stop firewalld
 ```
 

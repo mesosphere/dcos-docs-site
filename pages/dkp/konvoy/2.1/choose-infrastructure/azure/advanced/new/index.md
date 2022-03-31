@@ -36,7 +36,7 @@ Be sure also that you review the [known limitations section](../new#known-limita
 
 1.  Set the environment variable:
 
-    ```sh
+    ```bash
     CLUSTER_NAME=my-azure-cluster
     ```
 
@@ -44,7 +44,7 @@ Be sure also that you review the [known limitations section](../new#known-limita
 
 1.  To create a cluster name that is unique, use the following command:
 
-    ```sh
+    ```bash
     CLUSTER_NAME=$(whoami)-azure-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
@@ -59,7 +59,7 @@ Be sure also that you review the [known limitations section](../new#known-limita
 
 1.  Set the environment variable to the name you assigned this cluster:
 
-    ```sh
+    ```bash
     CLUSTER_NAME=my-azure-cluster
     ```
 
@@ -71,7 +71,7 @@ When creating the basic Azure Kubernetes cluster objects, you need to first cons
 
 1.  Generate the basic Kubernetes cluster objects:
 
-    ```sh
+    ```bash
     dkp create cluster azure --cluster-name=${CLUSTER_NAME} \
     --dry-run \
     --output=yaml \
@@ -86,7 +86,7 @@ To configure the Control Plane and Worker nodes to use an HTTP proxy:
 
 1.  Copy the commands in the following code block to an editor and apply the list of edits that follows to customize them, then execute them from the command line:
 
-    ```sh
+    ```bash
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
     export CONTROL_PLANE_HTTPS_PROXY=http://example.org:8080
     export CONTROL_PLANE_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.cloudapp.azure.com"
@@ -107,7 +107,7 @@ To configure the Control Plane and Worker nodes to use an HTTP proxy:
 
 1.  Copy and run the following command to create a Kubernetes cluster with HTTP proxy configured. (This step assumes you did not already create a cluster in the previous procedure.)
 
-    ```sh
+    ```bash
     dkp create cluster azure --cluster-name=${CLUSTER_NAME} \
     --control-plane-http-proxy="${CONTROL_PLANE_HTTP_PROXY}" \
     --control-plane-https-proxy="${CONTROL_PLANE_HTTPS_PROXY}" \
@@ -228,7 +228,7 @@ Use this procedure to create the Azure Kubernetes cluster when you finish your i
 
 1.  Create the cluster from the generated, and any modified, YAML objects using the command:
 
-    ```sh
+    ```bash
     kubectl apply -f ${CLUSTER_NAME}.yaml
     ```
 
@@ -248,7 +248,7 @@ Use this procedure to create the Azure Kubernetes cluster when you finish your i
 
 1.  Wait for the cluster's control-plane Status to be Ready:
 
-    ```sh
+    ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
@@ -262,7 +262,7 @@ Use this procedure to create the Azure Kubernetes cluster when you finish your i
 
 1.  Run the DKP Konvoy command to describe the current status of the cluster:
 
-    ```sh
+    ```bash
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
@@ -281,7 +281,7 @@ Use this procedure to create the Azure Kubernetes cluster when you finish your i
 
 1.  As they progress, the controllers also create Events. List the Events using the command:
 
-    ```sh
+    ```bash
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 

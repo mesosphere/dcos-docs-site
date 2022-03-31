@@ -15,7 +15,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
 1.  Deploy cluster lifecycle services on the workload cluster:
 
-    ```sh
+    ```bash
     dkp create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -44,7 +44,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
     The cluster lifecycle services on the workload cluster are ready, but the workload cluster configuration is on the bootstrap cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the bootstrap to the workload cluster. This process is also called a [Pivot][pivot].
 
-    ```sh
+    ```bash
     dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -57,7 +57,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
@@ -69,11 +69,11 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use Konvoy with the workload cluster kubeconfig.</p>
 
-    ```sh
+    ```bash
     dkp describe cluster --kubeconfig ${CLUSTER_NAME}.conf -c ${CLUSTER_NAME}
     ```
 
-    ```text
+    ```sh
     NAME                                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
     /my-azure-cluster                                                    True                     6m37s
     ├─ClusterInfrastructure - AzureCluster/my-azure-cluster              True                     13m
@@ -86,7 +86,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
 1.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
 
-    ```sh
+    ```bash
     dkp delete bootstrap
     ```
 

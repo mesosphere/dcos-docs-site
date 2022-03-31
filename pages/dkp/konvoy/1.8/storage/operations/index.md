@@ -35,7 +35,7 @@ If you have not enabled or deployed your own [default storage class][default-sto
 
 Previously we referenced several "drivers" which are in use by default on various cloud platforms when deploying Konvoy. At a high level, and an operational perspective, using these drivers you can automatically manage  your Persistent Volumes (PV). The PV is created when a Persistent Volume Claim (PVC) is created on the cluster, and the PV is torn down, depending on the configuration, when the PVCs are deleted.
 
-In the following sections we will discuss some of the basic operational characterists and capabilities of these drivers and how to utilize them to provision storage for your Kubernetes applications.
+In the following sections we will discuss some of the basic operational characteristics and capabilities of these drivers and how to utilize them to provision storage for your Kubernetes applications.
 
 ### Examples
 
@@ -45,8 +45,11 @@ Each of the following example assumes that you have either the AWS, Azure, GCP, 
 
 You can verify that you have a default storage class provided by the driver you're using by running the following:
 
-```shell
+```bash
 kubectl get storageclasses
+```
+
+```sh
 NAME                             PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 awsebscsiprovisioner (default)   ebs.csi.aws.com   Delete          WaitForFirstConsumer   true                   10m
 ```
@@ -69,7 +72,7 @@ In this example we will set up a basic webserver using [NGinx][nginx] with a cus
 
 Create the application deployment by running the following:
 
-```shell
+```yaml
 cat << EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
@@ -115,31 +118,40 @@ EOF
 
 On success the following output will be received:
 
-```shell
+```sh
 deployment.apps/nginx-stateful created
 persistentvolumeclaim/nginx-data created
 ```
 
 If you're fast you may see the PVC in a pending state:
 
-```shell
+```bash
 kubectl get pvc
+```
+
+```sh
 NAME                               STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 persistentvolumeclaim/nginx-data   Pending                                      default        79s
 ```
 
 Very quickly automatic processes from your driver will create a PV and bind it to your PVC:
 
-```shell
+```bash
 kubectl get pvc
+```
+
+```sh
 NAME         STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS           AGE
 nginx-data   Bound    pvc-8b1118e4-39b7-44ea-84e0-66d509f30658   1Gi        RWO            awsebscsiprovisioner   7s
 ```
 
 Now this isn't magic, the provisioner (a part of the driver) was responsible for creating the necessary PV and binding it to your PVC:
 
-```shell
+```bash
 kubectl -n kube-system logs ebs-csi-controller-0 csi-provisioner | grep nginx
+```
+
+```sh
 I0807 17:34:39.244929       1 controller.go:1284] provision "default/nginx-data" class "awsebscsiprovisioner": started
 I0807 17:34:39.248874       1 event.go:281] Event(v1.ObjectReference{Kind:"PersistentVolumeClaim", Namespace:"default", Name:"nginx-data", UID:"8b1118e4-39b7-44ea-84e0-66d509f30658", APIVersion:"v1", ResourceVersion:"50952", FieldPath:""}): type: 'Normal' reason: 'Provisioning' External provisioner is provisioning volume for claim "default/nginx-data"
 I0807 17:34:45.671303       1 controller.go:726] successfully created PV pvc-8b1118e4-39b7-44ea-84e0-66d509f30658 for PVC nginx-data and csi volume name vol-0de1bf1ebcd1a3710
@@ -151,8 +163,11 @@ I0807 17:34:45.675198       1 event.go:281] Event(v1.ObjectReference{Kind:"Persi
 
 The controller's `csi-provisioner` container above is responsible for making sure the PV gets created, but other containers may be responsible for other components. For example, the `ebs-plugin` container is responsible for making the actual EBS API calls to create and mount volumes and attaching the underlying Linux devices:
 
-```shell
+```bash
 kubectl -n kube-system logs -f ebs-csi-controller-0 ebs-plugin
+```
+
+```sh
 I0807 18:43:11.932954       1 controller.go:93] CreateVolume: called with args {Name:pvc-848a1291-238b-44c0-81c6-435ee2b7c05d CapacityRange:required_bytes:1073741824  VolumeCapabilities:[mount:<fs_type:"ext4" > access_mode:<mode:SINGLE_NODE_WRITER > ] Parameters:map[type:gp2] Secrets:map[] VolumeContentSource:<nil> AccessibilityRequirements:requisite:<segments:<key:"topology.ebs.csi.aws.com/zone" value:"us-west-2c" > > preferred:<segments:<key:"topology.ebs.csi.aws.com/zone" value:"us-west-2c" > >  XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
 I0807 18:43:15.953064       1 controller.go:229] ControllerPublishVolume: called with args {VolumeId:vol-062a1d0e8d8657e29 NodeId:i-0630c41e683f2898f VolumeCapability:mount:<fs_type:"ext4" > access_mode:<mode:SINGLE_NODE_WRITER >  Readonly:false Secrets:map[] VolumeContext:map[storage.kubernetes.io/csiProvisionerIdentity:1596815338056-8081-ebs.csi.aws.com] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
 I0807 18:43:16.628669       1 cloud.go:364] AttachVolume volume="vol-062a1d0e8d8657e29" instance="i-0630c41e683f2898f" request returned {
@@ -168,8 +183,11 @@ I0807 18:43:17.827754       1 controller.go:268] ControllerPublishVolume: volume
 
 After a few moments the relevant `Deployment`, `ReplicaSet`, `Pod` and `PersistentVolumeClaim` for your webserver should be ready:
 
-```shell
+```bash
 kubectl get deployments,replicasets,pods,pvc
+```
+
+```sh
 NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/nginx-stateful   1/1     1            1           28m
 
@@ -185,8 +203,11 @@ persistentvolumeclaim/nginx-data   Bound    pvc-8b1118e4-39b7-44ea-84e0-66d509f3
 
 At this point our webserver has storage mounted at `/usr/share/nginx/html` and can be used going forward, and you can see the PV that was created for it by running:
 
-```shell
+```bash
 kubectl get pv $(kubectl get pvc nginx-data -o='go-template={{.spec.volumeName}}')
+```
+
+```sh
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                STORAGECLASS           REASON   AGE
 pvc-8b1118e4-39b7-44ea-84e0-66d509f30658   1Gi        RWO            Delete           Bound    default/nginx-data   awsebscsiprovisioner            59m
 ```
@@ -199,16 +220,22 @@ When using a driver the deletion of the Persistent Volumes is often an implicit 
 
 Similarly to what was seen in the above documentation on creating volumes, deletion follows the same process:
 
-```shell
+```bash
 kubectl delete deployment nginx-stateful && kubectl delete pvc nginx-data
+```
+
+```sh
 deployment.apps "nginx-stateful" deleted
 persistentvolumeclaim "nginx-data" deleted
 ```
 
 Under the hood deleting the claim removed the binding to the PV and the driver's provisioner triggered deletion of the PV:
 
-```shell
+```bash
 kubectl -n kube-system logs -f ebs-csi-controller-0 ebs-plugin
+```
+
+```sh
 I0807 18:40:36.259570       1 controller.go:211] DeleteVolume: called with args: {VolumeId:vol-0473776ae2aed3751 Secrets:map[] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
 E0807 18:40:36.367028       1 driver.go:109] GRPC error: rpc error: code = Internal desc = Could not delete volume ID "vol-0473776ae2aed3751": DeleteDisk could not delete volume: VolumeInUse: Volume vol-0473776ae2aed3751 is currently attached to i-0630c41e683f2898f status code: 400, request id: bdf9c704-eee0-4817-8e1a-8d6c1c9750c8
 I0807 18:40:37.370937       1 controller.go:211] DeleteVolume: called with args: {VolumeId:vol-0473776ae2aed3751 Secrets:map[] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
@@ -230,8 +257,11 @@ After reviewing the above examples and **before you get started on any _producti
 
 Note from the previous PVC created some of the fields on the record:
 
-```shell
+```bash
 kubectl get pvc
+```
+
+```sh
 NAME         STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS           AGE
 nginx-data   Bound    pvc-8b1118e4-39b7-44ea-84e0-66d509f30658   1Gi        RWO            awsebscsiprovisioner   7s
 ```

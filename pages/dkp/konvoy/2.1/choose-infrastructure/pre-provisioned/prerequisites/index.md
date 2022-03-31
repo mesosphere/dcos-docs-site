@@ -15,7 +15,5 @@ Before you begin using Konvoy, you must have:
 - [kubectl][install_kubectl] for interacting with the running cluster.
 - Pre-provisioned hosts with SSH access enabled.
 - An unencrypted SSH private key, whose public key is configured on the above hosts.
-- Stop and disable `firewalld` systemd service.
-- Turn off memory swap.
 
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl

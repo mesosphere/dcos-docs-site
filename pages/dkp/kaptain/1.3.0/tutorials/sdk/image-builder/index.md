@@ -49,7 +49,7 @@ Please note that this notebook is interactive!
 Kaptain SDK 1.0.0 or later:
 
 
-```sh
+```bash
 %%sh
 pip show d2iq-kaptain
 ```

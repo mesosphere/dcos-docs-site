@@ -12,13 +12,13 @@ enterprise: false
 
 1.  Update `cluster-aws.sh` with the existing infrastructure values.
 
-    ```sh
+    ```bash
     vi cluster-aws.sh
     ```
 
 1.  Generate the cluster configuration file from the updated cluster.sh file.
 
-    ```sh
+    ```bash
     ./cluster.sh
     ```
 
@@ -90,13 +90,13 @@ enterprise: false
 
 1.  Apply the cluster configuration.
 
-    ```sh
-    kubectl apply -f cluster-sbx.yaml
+    ```bash
+    kubectl create -f cluster-sbx.yaml
     ```
 
 1.  Monitor the Kubernetes cluster deployment.
 
-    ```sh
+    ```bash
     watch ./dkp describe cluster -c cluster-sbx
     ```
 

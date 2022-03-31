@@ -19,11 +19,11 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 - VPC
 - VPC Endpoints (for subnets without NAT Gateways)
 
-<p class="message--note"><strong>NOTE: </strong>An AWS subnet has Network ACLs that can control taffic in and out of the subnet. DKP does not modify the Network ACLs of an existing subnet. DKP uses Security Groups to control traffic. If a Network ACL denies traffic that is allowed by DKP-managed Security Groups, the cluster may not work correctly.</p>
+<p class="message--note"><strong>NOTE: </strong>An AWS subnet has Network ACLs that can control traffic in and out of the subnet. DKP does not modify the Network ACLs of an existing subnet. DKP uses Security Groups to control traffic. If a Network ACL denies traffic that is allowed by DKP-managed Security Groups, the cluster may not work correctly.</p>
 
 1.  Set the environment variable to the name you assigned this cluster:
 
-    ```sh
+    ```bash
     CLUSTER_NAME=my-aws-cluster
     ```
 
@@ -31,7 +31,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
 1.  Export variables for the existing infrastructure details:
 
-    ```sh
+    ```bash
     export AWS_VPC_ID=<vpc-...>
     export AWS_SUBNET_IDS=<subnet-...,subnet-...,subnet-...>
     export AWS_ADDITIONAL_SECURITY_GROUPS=<sg-...>
@@ -47,7 +47,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
     The tags should be set as follows, where `<CLUSTER_NAME>` corresponds to the name set in `CLUSTER_NAME` environment variable:
 
-    ```text
+    ```bash
     kubernetes.io/cluster = <CLUSTER_NAME>
     kubernetes.io/cluster/CLUSTER_NAME = owned
     kubernetes.io/role/internal-elb = 1
@@ -57,7 +57,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
     <p class="message--important"><strong>IMPORTANT: </strong>The AMI must be created by the <a href="https://github.com/mesosphere/konvoy-image-builder">konvoy-image-builder</a> project in order to use the registry mirror feature.</p>
 
-    ```sh
+    ```bash
     export DOCKER_REGISTRY_ADDRESS=<https/http>://<registry-address>:<registry-port>
     export DOCKER_REGISTRY_CA=<path to the CA on the bastion>
     ```
@@ -67,7 +67,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
 1.  Create a Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
     --vpc-id=${AWS_VPC_ID} \
     --ami=${AWS_AMI_ID} \
@@ -80,7 +80,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
 1.  (Optional) The Control Plane and Worker nodes can be configured to use an HTTP proxy:
 
-    ```sh
+    ```bash
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
     export CONTROL_PLANE_HTTPS_PROXY=http://example.org:8080
     export CONTROL_PLANE_NO_PROXY="example.org,example.com,example.net,localhost,127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,169.254.169.254,.elb.amazonaws.com"
@@ -91,7 +91,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     ```
 
     - Replace `example.org,example.com,example.net` with you internal addresses
-    - `localhost` and `127.0.0.1` addesses should not use the proxy
+    - `localhost` and `127.0.0.1` addresses should not use the proxy
     - `10.96.0.0/12` is the default Kubernetes service subnet
     - `192.168.0.0/16` is the default Kubernetes pod subnet
     - `kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local` is the internal Kubernetes kube-apiserver service
@@ -101,7 +101,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
 1.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
 
-    ```sh
+    ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
     --vpc-id=${AWS_VPC_ID} \
     --ami=${AWS_AMI_ID} \
@@ -120,19 +120,19 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
 1.  Inspect the created cluster resources:
 
-    ```sh
+    ```bash
     kubectl get clusters,kubeadmcontrolplanes,machinedeployments
     ```
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m
     ```
 
 Then, [explore your new cluster][explore-cluster].
 
-[ansible-task-images]: https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/defaults/main.yaml
+[ansible-task-images]: https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/tasks/main.yaml
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
 [createnewcluster]: ../../advanced/new/index.md#create-a-new-aws-kubernetes-cluster

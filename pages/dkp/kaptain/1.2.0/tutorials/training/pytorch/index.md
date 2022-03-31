@@ -51,7 +51,7 @@ If you prefer to create your Docker image locally, you must also have a Docker c
 Before proceeding, check you are using the correct notebook image, that is, [PyTorch](https://pytorch.org/docs/stable/torch.html) is available:
 
 
-```sh
+```bash
 %%sh
 pip list | grep torch
 ```
@@ -772,7 +772,7 @@ kubectl create -f "${KUBERNETES_FILE}"
 Check the status like so:
 
 
-```sh
+```bash
 %%sh
 kubectl describe $PYTORCH_JOB
 ```
@@ -796,7 +796,7 @@ Events:
 You should now be able to see the pods created, matching the specified number of replicas.
 
 
-```sh
+```bash
 %%sh
 kubectl get pods -l job-name=pytorchjob-mnist
 ```
@@ -813,7 +813,7 @@ As per the specification, the training runs for 15 epochs.
 During that time, stream the logs from the `Master` pod to follow the progress:
 
 
-```sh
+```bash
 %%sh
 kubectl logs -f pytorchjob-mnist-master-0
 ```
@@ -902,7 +902,7 @@ It usually takes a few minutes, depending on the arguments and resources of the 
 To delete the job, execute::
 
 
-```sh
+```bash
 %%sh
 kubectl delete $PYTORCH_JOB
 ```

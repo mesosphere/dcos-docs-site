@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Kommander 2.2 Release Notes
 title: Kommander 2.2 Release Notes
-menuWeight: 10
+menuWeight: 0
 excerpt: View release-specific information for Kommander 2.2
 enterprise: false
 beta: false
@@ -24,16 +24,15 @@ This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster
 
 ### New features and capabilities
 
-#### Feature 1, 2, etc.
+#### Upgrade catalog application via CLI and UI
 
+You can use either the CLI or the UI to [upgrade your catalog applications](../projects/applications/catalog-applications/#upgrade-catalog-applications).
+
+<p class="message--note"><strong>NOTE:</strong> Catalog applications must be upgraded to the latest version BEFORE upgrading the Kubernetes version (or Konvoy version for managed Konvoy clusters) on attached clusters, due to the previous versions' incompatibility with Kubernetes 1.22.</p>
 
 ### Component updates
 
-
-
 ## Known issues
-
-
 
 ### Additional resources
 

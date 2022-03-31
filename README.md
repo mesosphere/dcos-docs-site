@@ -2,17 +2,25 @@
 
 # D2iQ documentation
 
+D2iQ's documentation is created based on a *docs as code* approach or methodology. In other words, content creators use the same processes and tools as developers. Therefore, there are a few steps you need to follow to be able to contribute to documentation. 
+
 D2iQ's documentation site uses a JavaScript static site generator called Metalsmith. Here is how you can get started running the repo. Please also read the [contributing guidelines](./CONTRIBUTING.md) for instructions on how to make edits to docs.
 
 ## Prerequisites
 
-1. Clone the repo
+1. Download and install a source code editor like VSC. Note: use a package manager such as Homebrew to install new software.
+1. Create an account on GitHub and activate the 2FA process for added security, or use your personal account and ensure 2FA is active.
+1. Add the GitHub extension to your editor (in VSC: https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+1. Clone the repo (in VSC: select *Clone repo*, enter *mesosphere/dcos-docs-site* in the search bar and save a copy of the repo locally).
 1. Install node.js version 12.22.7 (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf) or [nvm-windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows))
 1. Windows users will need to [install python2](https://github.com/nodejs/node-gyp/tree/v3.8.0#on-windows) globally
 1. Install dependencies via command `npm i`
 1. Install [vale](https://docs.errata.ai/vale/install) (an [ASDF plugin](https://github.com/osg/asdf-vale) is also available).
+1. Your GitHub profile needs to be validate with a GPG certificate. 
 
 ## Development
+
+You can see how documentation will look like in front-end by running a local build of the docs site. Watch [this tutorial](https://drive.google.com/file/d/1eRuFWyx-nE6fRoj-blO8QNUcwKDFwJMS/view?usp=sharing) or proceed with the following steps to set up your local build:
 
 Run `npm run dev` or `make build-development` from the root directory to spin up a live preview of the docs site based on your local changes. After about a minute the compilation will complete.
 

@@ -57,7 +57,7 @@ All you need is this notebook.
 Before proceeding, check you are using the correct notebook image, that is, [scikit-learn](https://scikit-learn.org/stable/) is available:
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 pip list | grep scikit-learn
@@ -398,7 +398,7 @@ model.tune(
 ## Verify the Model is Exported to MinIO
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 

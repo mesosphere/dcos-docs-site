@@ -13,7 +13,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Set the environment variable to a name for this cluster.
 
-    ```sh
+    ```bash
     CLUSTER_NAME=aks-example
     ```
 
@@ -40,8 +40,9 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
 1.  Create the cluster from the objects.
+
     <!---FIXME: remove --kubernetes-version when dkp defaults to a supported version--->
-    ```sh
+    ```bash
     dkp create cluster aks --cluster-name=${CLUSTER_NAME} --kubernetes-version=1.21.7 --additional-tags=owner=$(whoami)
     ```
 
@@ -61,7 +62,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
@@ -73,7 +74,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  Once the objects are created on the API server, the Cluster API controllers reconcile them. They create infrastructure and machines. As they progress, they update the Status of each object. Konvoy provides a command to describe the current status of the cluster:
 
-    ```sh
+    ```bash
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
@@ -86,13 +87,13 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
 1.  As they progress, the controllers also create Events. List the Events using this command:
 
-    ```sh
+    ```bash
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 
     For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AKSCluster"` and `kubectl get events --field-selector involvedObject.kind="AKSMachine"`.
 
-    ```text
+    ```sh
     7m26s       Normal    SuccessfulSetNodeRef                            machine/aws-example-control-plane-2wb9q      ip-10-0-182-218.us-west-2.compute.internal
     11m         Normal    SuccessfulCreate                                awsmachine/aws-example-control-plane-vcjkr   Created new control-plane instance with id "i-0dde024e80ae3de7a"
     11m         Normal    SuccessfulAttachControlPlaneELB                 awsmachine/aws-example-control-plane-vcjkr   Control plane instance "i-0dde024e80ae3de7a" is registered with load balancer

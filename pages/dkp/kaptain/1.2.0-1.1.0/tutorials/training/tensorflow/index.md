@@ -63,7 +63,7 @@ For Kubernetes commands to run outside of the cluster, you need [`kubectl`](http
 Before proceeding, check you are using the correct notebook image, that is, [TensorFlow](https://www.tensorflow.org/api_docs/) is available:
 
 
-```sh
+```bash
 %%sh
 pip list | grep tensorflow
 ```
@@ -535,7 +535,7 @@ kubectl create -f "${KUBERNETES_FILE}"
 To see the job status, use the following command:
 
 
-```sh
+```bash
 %%sh
 kubectl describe ${TF_JOB}
 ```
@@ -543,7 +543,7 @@ kubectl describe ${TF_JOB}
 You should now be able to see the created pods matching the specified number of workers.
 
 
-```sh
+```bash
 %%sh
 kubectl get pods -l job-name=tfjob-mnist
 ```
@@ -556,7 +556,7 @@ kubectl get pods -l job-name=tfjob-mnist
 In case of issues, it may be helpful to see the last ten events within the cluster:
 
 
-```sh
+```bash
 %%sh
 kubectl get events --sort-by='{.metadata.creationTimestamp}'
 ```
@@ -564,7 +564,7 @@ kubectl get events --sort-by='{.metadata.creationTimestamp}'
 To stream logs from the worker-0 pod to check the training progress, run the following command:
 
 
-```sh
+```bash
 %%sh
 kubectl logs -f tfjob-mnist-worker-0 -c tensorflow
 ```
@@ -607,7 +607,7 @@ kubectl logs -f tfjob-mnist-worker-0 -c tensorflow
 To delete the job, run the following command:
 
 
-```sh
+```bash
 %%sh
 kubectl delete ${TF_JOB}
 ```

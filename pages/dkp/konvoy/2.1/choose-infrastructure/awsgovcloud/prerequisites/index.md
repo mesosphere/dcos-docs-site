@@ -31,7 +31,7 @@ Before you begin, you must have:
 
 1.  Export the AWS profile with the credentials you want to use to create the Kubernetes cluster:
 
-    ```sh
+    ```bash
     export AWS_PROFILE=<profile>
     ```
 
@@ -50,28 +50,22 @@ The air-gapped bundle includes the following packages and tooling
 
 1.  Download the air-gapped bundle.
 
-    <p class="message--important"><strong>NOTE: </strong>Enter in the appropriate version in the <code>$VERSION</code> field.</p>
 
-    ```sh
-    curl -O downloads.d2iq.com/konvoy/airgapped/$VERSION.tar.gz
     curl -O downloads.d2iq.com/konvoy/airgapped/pip-packages.tar.gz
     ```
 
 1.  Expand the air-gapped bundle artifact.
-
-    ```sh
-    tar -xvf $VERSION.tar.gz
     ```
 
 1.  Run setup.
 
-    ```sh
+    ```bash
     sudo ./setup
     ```
 
 1.  Refresh your group membership.
 
-    ```sh
+    ```bash
     // Logout
     exit
 
@@ -87,7 +81,7 @@ Use Konvoy Image Builder to create an Amazon Machine Image (AMI) based on the de
 
 1.  Unpack the Konvoy Image Builder within the air-gapped bundle.
 
-    ```sh
+    ```bash
     curl -OL https://github.com/mesosphere/konvoy-image-builder/releases/download/v1.5.0-rc.3/konvoy-image-bundle-v1.5.0-rc.3_linux_amd64.tar.gz
 
     tar -xvf konvoy-image-bundle-v1.5.0-rc.3_linux_amd64.tar.gz
@@ -97,7 +91,7 @@ Use Konvoy Image Builder to create an Amazon Machine Image (AMI) based on the de
 
     <p class="message--important"><strong>IMPORTANT: </strong>The following usernames and IDs are samples, enter your identification into the appropriate fields where applicable.</p>
 
-    ```sh
+    ```yaml
     cat <EOF> overrides/custom.yaml
     packer:
       ssh_username: "maintuser"
@@ -110,7 +104,7 @@ Use Konvoy Image Builder to create an Amazon Machine Image (AMI) based on the de
     EOF
     ```
 
-    ```sh
+    ```yaml
     cat <EOF> overrides/images.yaml
     ---
     extra_images:
@@ -158,7 +152,7 @@ Use Konvoy Image Builder to create an Amazon Machine Image (AMI) based on the de
       - docker.io/mesosphere/dkp-diagnostics-node-collector:v0.3.3
     ```
 
-    ```sh
+    ```bash
     ./konvoy-image build --ami-regions us-gov-west-1,us-gov-east-1 --region us-gov-east-1 --source-ami ami-092e75227e47facfc --overrides overrides/custom.yaml --overrides overrides/images.yaml images/ami/centos-7.yaml
     ```
 

@@ -86,19 +86,19 @@ allowedTopologies:
 
 Next, apply the file.
 
-```shell
+```bash
 kubectl apply -f ebs-sc.yaml
 ```
 
 Ensure that it is applied.
 
-```shell
+```bash
 kubectl get storageclass
 ```
 
 The output should be similar to:
 
-```shell
+```sh
 NAME               PROVISIONER       RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 ebs-storageclass   ebs.csi.aws.com   Delete          WaitForFirstConsumer   true                   10s
 ```
@@ -121,19 +121,19 @@ spec:
 
 Next, apply the file.
 
-```shell
+```bash
 kubectl apply -f ebs-pvc.yaml
 ```
 
 Ensure that it is applied.
 
-```shell
+```bash
 kubectl get pvc
 ```
 
 The output should be similar to:
 
-```shell
+```sh
 NAMESPACE    NAME      STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS        AGE
 default      ebs-pvc   Bound    pvc-c0dff51c-a8c1-48b7-97f0-01b56fabca08   30Gi       RWO            ebs-storage-class   50s
 ```

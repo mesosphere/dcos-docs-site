@@ -15,35 +15,35 @@ Follow these instructions to generate a support bundle with data collected for t
 
 Before generating a support bundle, verify that you have:
 
-- An AMD64-based Linux or MacOS machine with a supported version of the operating system.
+- An AMD64-based Linux or macOS machine with a supported version of the operating system.
 - A running Kubernetes cluster.
-- `dkp-diagnose` command for [MacOS][dkp-diagnostics-darwin] or [Linux][dkp-diagnostics-linux] for collecting the support bundle.
+- `dkp-diagnose` command for [macOS][dkp-diagnostics-darwin] or [Linux][dkp-diagnostics-linux] for collecting the support bundle.
 
 ## Download dkp-diagnose
 
-1.  To download and extract the `dkp-diagnose` binary for [MacOS][dkp-diagnostics-darwin] or [Linux][dkp-diagnostics-linux]
+1.  To download and extract the `dkp-diagnose` binary for [macOS][dkp-diagnostics-darwin] or [Linux][dkp-diagnostics-linux]
 
     For Linux:
 
-    ```sh
-    mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.2_linux_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
+    ```bash
+    mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.4.1_linux_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
     ```
 
     For macOS:
 
-    ```sh
-    mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.2_darwin_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
+    ```bash
+    mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.4.1_darwin_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
     ```
 
 1.  Add the binary to your PATH:
 
-    ```sh
+    ```bash
     export PATH=./dkp-diagnose/:$PATH
     ```
 
 1.  Verify the binary works:
 
-    ```sh
+    ```bash
     dkp-diagnose version
     ```
 
@@ -75,7 +75,7 @@ To generate the support bundle, perform the following steps:
 
 1.  Run the `dkp-diagnose` command by running the default collectors configuration.
 
-    ```sh
+    ```bash
     dkp-diagnose
     ```
 
@@ -87,13 +87,13 @@ To generate the support bundle, perform the following steps:
 
 1.  To view the bundle contents, extract the bundle (replacing `support-bundle-2021-08-13T14_44_23.tar.gz` with the location from the previous step):
 
-    ```sh
+    ```bash
     tar -xzvf support-bundle-2021-08-13T14_44_23.tar.gz
     ```
 
 1.  A new directory named `support-bundle-<date-created>`is created. This directory contains the files specified:
 
-    ```sh
+    ```bash
     ls support-bundle-2021-08-13T14_44_23
     ```
 
@@ -115,7 +115,7 @@ Note that the bootstrap cluster diagnostics are independent of the configuration
 
 1. Run the `dkp-diagnose` command with bootstrap bundle configuration.
 
-```sh
+```bash
     dkp-diagnose bundle.yaml
 ```
 
@@ -123,7 +123,7 @@ Note that the bootstrap cluster diagnostics are independent of the configuration
 
 To print the default collectors configuration, run the following command:
 
-```sh
+```bash
 dkp-diagnose default-config > bundle.yaml
 ```
 
@@ -139,7 +139,7 @@ To get node level information from your cluster using SSH access, perform the fo
 
 1. Enter the following command:
 
-```sh
+```bash
 dkp-diagnose ssh <path/to/ansible-inventory.yaml>
 ```
 
@@ -199,13 +199,13 @@ The fallback collector runs a bash script over SSH and copies the collected data
 
 Redactors are supported and are in the same format as the main `dkp-diagnose` command. Per node collection timeouts are supported using the `--timeout` parameter.
 
-[dkp-diagnostics-darwin]: https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.2_darwin_amd64.tar.gz
-[dkp-diagnostics-linux]: https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.3.2_linux_amd64.tar.gz
-[troubleshoot-collectors]: https://troubleshoot.sh/docs/collect/all/
 [clusterInfo-collector]: https://troubleshoot.sh/docs/collect/cluster-info/
 [clusterResources-collector]: https://troubleshoot.sh/docs/collect/cluster-resources/
 [configMap-collector]: https://troubleshoot.sh/docs/collect/configmap/
-[secrets-collector]: https://troubleshoot.sh/docs/collect/secret/
-[logs-collector]: https://troubleshoot.sh/docs/collect/logs/
 [copyFromHost-collector]: https://troubleshoot.sh/docs/collect/copy-from-host/
+[dkp-diagnostics-darwin]: https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.4.1_darwin_amd64.tar.gz
+[dkp-diagnostics-linux]: https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.4.1_linux_amd64.tar.gz
 [exec-collector]: https://troubleshoot.sh/docs/collect/exec/
+[logs-collector]: https://troubleshoot.sh/docs/collect/logs/
+[secrets-collector]: https://troubleshoot.sh/docs/collect/secret/
+[troubleshoot-collectors]: https://troubleshoot.sh/docs/collect/all/

@@ -22,7 +22,7 @@ Before you begin, you must:
 
 1.  Create a bootstrap cluster:
 
-    ```sh
+    ```bash
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
@@ -58,7 +58,7 @@ Before you begin, you must:
 
     Konvoy waits until the controller-manager and webhook deployments of these providers are ready. List these deployments using this command:
 
-    ```sh
+    ```bash
     kubectl get --all-namespaces deployments -l=clusterctl.cluster.x-k8s.io
     ```
 
@@ -76,7 +76,7 @@ Before you begin, you must:
 
     Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
 
-    ```sh
+    ```bash
     kubectl get clusterresourceset
     ```
 
