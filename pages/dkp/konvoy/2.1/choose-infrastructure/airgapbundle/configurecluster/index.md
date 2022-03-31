@@ -15,13 +15,9 @@ This section covers the configuration and creation of a bootstrap cluster and it
 
 ```bash
 CLUSTER_SUFFIX=ABC
-export CLUSTER_NAME=cluster-${CLUSTER_SUFFIX,,}
+export CLUSTER_NAME=cluster-${CLUSTER_SUFFIX}
 ```
-<p class="message--note"><strong>NOTE:</strong> Resource types require their names to follow the DNS label standard as defined in RFC 1123. This means the name must:
-* Contain at most 63 characters
-* Contain only lowercase alphanumeric characters or ‘-’
-* Start with an alphanumeric character
-* End with an alphanumeric character </p>
+<p class="message--note"><strong>NOTE:</strong> Resource types require their names to follow the DNS label standard as defined in RFC 1123.</p>
 
 1. The following variables are required based on the infrastructure, AWS IAM roles, and policies in order to appropriately setup the bootstrap cluster and control plane.
 
@@ -136,5 +132,5 @@ At this point, begin exploring your created bootstrap cluster via:
 Or create more clusters via:
 * [Creating another new Kubernetes cluster in AWS][create]
 
-[create][.../air-gapped/new]
-[explore][.../air-gapped/explore]
+[create]:.../air-gapped/new
+[explore]:.../air-gapped/explore

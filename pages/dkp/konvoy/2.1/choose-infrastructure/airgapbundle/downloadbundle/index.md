@@ -47,16 +47,15 @@ scp $VERSION_x86_64_rpms.tar.gz <user>@<bastion_host>:~/
 ```
 1.  Login to the bastion host using the same credentials used in the previous step.
 
-	```bash
-	ssh <user>@<bastion_host>
-	```
+```bash
+ssh <user>@<bastion_host>
+```
 
 1.  Expand the air-gapped bundle artifact.
 
 ```bash
-
     tar -xvf $VERSION_x86_64_rpms.tar.gz
-    ```
+```
 1.  Move into the created directory.
 
 ```bash
