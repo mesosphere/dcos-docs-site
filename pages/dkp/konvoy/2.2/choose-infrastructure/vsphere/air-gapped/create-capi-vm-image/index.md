@@ -51,7 +51,7 @@ Using the base OS image created in a previous procedure, DKP creates the new vSp
       --overrides /path/to/overrides/offline.yaml
     ```
 
-    The DKP image builder uses the values in `image.yaml` and the input base OS image to create a vSphere template that contains the required Kubernetes objects. Give the file a suitable name using this suggested naming convention: `creator-ova-vsphere-OS-ver-k8sver-timestamp`. As an example, the filename you create might resemble `dkp-ova-vsphere-rhel-84-1.21.6-1646938922`.
+    The DKP image builder uses the values in `image.yaml` and the input base OS image to create a vSphere template that contains the required artifacts needed to create a Kubernetes cluster. Give the file a suitable name using this suggested naming convention: `creator-ova-vsphere-OS-ver-k8sver-unique_identifier`. As an example, the filename you create might resemble `dkp-ova-vsphere-rhel-84-1.21.6-1646938922`.
 
     DKP creates the new vSphere template directly on the vCenter server.
 

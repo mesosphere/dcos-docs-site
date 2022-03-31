@@ -38,7 +38,7 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 
 - Access to a bastion VM, or other network connected host, running vSphere Client version v6.7.x with Update 3 or later version
 
-  You must be able to reach the API endpoint from where the Konvoy command line interface (CLI) runs.
+  You must be able to reach the vSphere API endpoint from where the Konvoy command line interface (CLI) runs.
 
 - vSphere account with credentials configured - this account must have Administrator privileges.
 
