@@ -93,4 +93,3 @@ Existing customers with Kommander licenses will have access to all DKP Enterpris
 [addlicense]: .../add/
 [workspaces]: .../workspaces/
 [dkpenterprise]: .../enterprise/
-[catapps]: https://d2iq.com/service-catalog
