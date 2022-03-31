@@ -86,7 +86,6 @@ Existing customers with Kommander licenses will have access to all DKP Enterpris
 
 [choose-infrastructure]: .../konvoy/2.2/choose-infrastructure/
 [projects]: .../projects/
-[catapps]: https://d2iq.com/service-catalog
 [workspacecatapps]: .../workspaces/applications/catalog-applications/
 [identityprov]: .../operations/identity-providers/
 [workspaceplatform]: .../workspaces/applications/platform-applications/
