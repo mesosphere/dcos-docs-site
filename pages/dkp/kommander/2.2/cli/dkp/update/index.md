@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp update
 title:  dkp update
 menuWeight: 10
-excerpt: Update one of [bootstrap (cluster)]
+excerpt: Update one of [bootstrap (cluster), controlplane, nodepool]
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp update
 
-Update one of [bootstrap (cluster)]
+Update one of [bootstrap (cluster), controlplane, nodepool]
 
 ### Options
 

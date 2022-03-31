@@ -23,10 +23,10 @@ dkp delete bootstrap [flags]
 
 ```
   -h, --help                       help for bootstrap
-      --kind-cluster-name string   Kind cluster name for the bootstrap cluster
+      --kind-cluster-name string   Kind cluster name for the bootstrap cluster (default "konvoy-capi-bootstrapper")
       --kubeconfig string          Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --timeout duration           The length of time to wait before giving up. Zero means wait forever.
-      --wait                       If true, wait for operations to complete before returning.
+      --timeout duration           The length of time to wait before giving up. Zero means wait forever. (default 5m0s)
+      --wait                       If true, wait for operations to complete before returning. (default true)
 ```
 
 ### Options inherited from parent commands
@@ -37,5 +37,5 @@ dkp delete bootstrap [flags]
 
 ### SEE ALSO
 
-* [dkp delete](/dkp/kommander/2.2/cli/dkp/delete/)	 - Delete one of [bootstrap (cluster), capi-components, cluster, nodepool]
+* [dkp delete](/dkp/kommander/2.2/cli/dkp/delete/)	 - Delete one of [bootstrap, capi-components, chart, cluster, nodepool]
 

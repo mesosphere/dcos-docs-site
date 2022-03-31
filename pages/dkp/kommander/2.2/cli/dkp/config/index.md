@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp config
 title:  dkp config
 menuWeight: 10
-excerpt: Modify kommander's configuration
+excerpt: Manage DKP Kommander's configuration
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,12 +13,12 @@ beta: false
 
 ## dkp config
 
-Modify kommander's configuration
+Manage DKP Kommander's configuration
 
 ### Options
 
 ```
-      --config string            Config file to use
+      --config string            Config file to use (default "/root/.kommander/config")
       --context string           The name of the kubeconfig context to use
   -h, --help                     help for config
       --kubeconfig string        Path to the kubeconfig file to use for CLI requests.
@@ -34,6 +34,6 @@ Modify kommander's configuration
 ### SEE ALSO
 
 * [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp config current-workspace](/dkp/kommander/2.2/cli/dkp/config/current-workspace/)	 - Displays the name of the configured default Workspace
-* [dkp config set-workspace](/dkp/kommander/2.2/cli/dkp/config/set-workspace/)	 - Set the name of the default Workspace to use in all commands when none is provided
+* [dkp config get](/dkp/kommander/2.2/cli/dkp/config/get/)	 - Retrieve DKP Kommander's configuration
+* [dkp config set](/dkp/kommander/2.2/cli/dkp/config/set/)	 - Modify DKP Kommander's configuration
 

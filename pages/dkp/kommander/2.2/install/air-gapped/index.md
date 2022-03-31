@@ -19,9 +19,9 @@ Before installing, ensure you have:
 -   A charts bundle file containing all Helm charts that Kommander installation needs.
 
 -   Connectivity with clusters attaching to the management cluster:
-    - Both management and attached clusters must connect to the Docker registry.
-    - Management cluster must connect to the attached cluster's API server.
-    - Management cluster must connect to load balancers created by some platform services.
+    - Both management and attached clusters must be able to connect to the Docker registry.
+    - The management cluster must be able to connect to all attached cluster's API servers.
+    - The management cluster must be able to connect to any load balancers created for platform services on the management cluster.
 
 -   A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
 
@@ -40,41 +40,41 @@ Create the charts bundle with the Kommander CLI or downloaded along with the Kom
 Execute this command to create the charts bundle:
 
    ```bash
-   kommander helmmirror create bundle
+   kommander create chart-bundle
    ```
 
 Kommander creates `charts-bundle.tar.gz`.
 Optionally, specify the output using the `-o` parameter:
 
    ```bash
-   kommander helmmirror create bundle -o [name of the output file]
+   kommander create chart-bundle -o [name of the output file]
    ```
 
 ### Kommander's internal Helm repository
 
-The Kommander charts bundle is uploaded to Kommander's internal Helm repository.
+The Kommander charts bundle is pushed to Kommander's internal Helm repository.
 To inspect the contents:
 
    ```bash
-   kommander helmmirror get charts
+   kommander get charts
    ```
 
 Individual charts can be removed using:
 
    ```bash
-   kommander helmmirror delete chart [chartName] [chartVersion]
+   kommander delete chart [chartName] [chartVersion]
    ```
 
-It is possible to upload new charts as well:
+It is possible to push new charts as well:
 
    ```bash
-   kommander helmmirror upload chart [chartTarball]
+   kommander push chart [chartTarball]
    ```
 
-Or upload a new bundle:
+Or push a new bundle:
 
    ```bash
-   kommander helmmirror upload bundle [chartsTarball]
+   kommander push chart-bundle [chartsTarball]
    ```
 
 Check the built-in help text for each command for more information.
@@ -172,7 +172,7 @@ export VERSION=v2.2.0
 1.  Download the image bundle file:
 
     ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar.gz" -O kommander-image-bundle.tar.gz
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-image-bundle-${VERSION}.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
@@ -183,7 +183,7 @@ export VERSION=v2.2.0
     dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
     ```
 
-Based on the network latency between the environment of script execution and the docker registry, this can take a while to upload all the images to your image registry.
+It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
 
 ## Install on Konvoy
 
@@ -210,19 +210,13 @@ Based on the network latency between the environment of script execution and the
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.mesosphere.com/dkp/kommander-applications_${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-applications_${VERSION}.tar.gz"
     ```
 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz"
-    ```
-
-1.  Download the [DKP catalog applications][dkp_catalog_applications] chart bundle if you intend on deploying any DKP catalog applications:
-
-    ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-kommander-charts-bundle-${VERSION}.tar.gz"
     ```
 
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
@@ -231,15 +225,6 @@ Based on the network latency between the environment of script execution and the
     kommander install --installer-config ./install.yaml \
     --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
     --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz
-    ```
-
-    To upload the optional [DKP catalog applications][dkp_catalog_applications] chart bundle, add `--chart-bundle` flag to the `install` command:
-
-    ```bash
-    kommander install --installer-config ./install.yaml \
-    --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
-    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz \
-    --charts-bundle dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz
     ```
 
 1.  [Verify your installation](../networked#verify-installation).

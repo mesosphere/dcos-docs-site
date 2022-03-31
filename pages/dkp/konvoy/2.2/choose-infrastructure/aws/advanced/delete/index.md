@@ -19,7 +19,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
     <p class="message--note"><strong>NOTE: </strong>To avoid using the wrong kubeconfig, the following steps use explicit kubeconfig paths and contexts.</p>
 
-    ```sh
+    ```bash
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
@@ -47,7 +47,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 1.  Move the Cluster API objects from the workload to the bootstrap cluster:
     The cluster lifecycle services on the bootstrap cluster are ready, but the workload cluster configuration is on the workload cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the workload to the bootstrap cluster. This process is also called a [Pivot][pivot].
 
-    ```sh
+    ```bash
     dkp move \
         --from-kubeconfig ${CLUSTER_NAME}.conf \
         --from-context konvoy-${CLUSTER_NAME}-admin@konvoy-${CLUSTER_NAME} \
@@ -63,7 +63,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
 1.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:
 
-    ```sh
+    ```bash
     dkp describe cluster --kubeconfig $HOME/.kube/config -c ${CLUSTER_NAME}
     ```
 
@@ -83,7 +83,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
 1.  Wait for the cluster control-plane to be ready:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig $HOME/.kube/config wait --for=condition=controlplaneready "clusters/${CLUSTER_NAME}" --timeout=60m
     ```
 
@@ -95,7 +95,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
 1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
 
-    ```sh
+    ```bash
     dkp update bootstrap credentials aws --kubeconfig $HOME/.kube/config
     ```
 
@@ -106,7 +106,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
     <p class="message--note"><strong>NOTE: </strong>Do not skip this step if the VPC is managed by dkp. When dkp deletes cluster, it deletes the VPC. If the VPC has any AWS Classic ELBs, AWS does not allow the VPC to be deleted, and dkp cannot delete the cluster.</p>
 
-    ```sh
+    ```bash
     dkp delete cluster --cluster-name=${CLUSTER_NAME} --kubeconfig $HOME/.kube/config
     ```
 
@@ -120,7 +120,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 
 ## Delete the bootstrap cluster
 
-```sh
+```bash
 dkp delete bootstrap --kubeconfig $HOME/.kube/config
 ```
 

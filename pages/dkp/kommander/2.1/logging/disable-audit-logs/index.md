@@ -245,7 +245,7 @@ config:
 
 1.  Edit the `fluent-bit` AppDeployment to set the value of
 `spec.configOverrides.name` to the name of the created `ConfigMap`.
-(You can use the steps in the procedure, [Deploy an application with a custom configuration](../../workspaces/workspace-platform-services/application-deployment/#deploy-an-application-with-a-custom-configuration) as a guide.)
+(You can use the steps in the procedure, [Deploy an application with a custom configuration](../../workspaces/applications/platform-applications/application-deployment/#deploy-an-application-with-a-custom-configuration) as a guide.)
 
     ```bash
     kubectl edit -n ${WORKSPACE_NAMESPACE} fluent-bit

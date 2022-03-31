@@ -5,10 +5,12 @@ const Yaml = require("js-yaml");
 ///////////////////////////////////////////////////////////////////////////////
 //                                  HELPERS                                  //
 ///////////////////////////////////////////////////////////////////////////////
-const badge = (style, label) => (buf, { size = "large", type = "block" }) =>
-  buf
-    ? `${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--${style}">${label}</span>`
-    : `<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--${style}">${label}</span></span>`;
+const badge =
+  (style, label) =>
+  (buf, { size = "large", type = "block" }) =>
+    buf
+      ? `${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--${style}">${label}</span>`
+      : `<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--${style}">${label}</span></span>`;
 
 const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
@@ -25,6 +27,7 @@ const shortcodes = {
   experimental: badge("experimental", "Experimental"),
   oss: badge("oss", "Open Source"),
   preview: badge("preview", "Preview"),
+  techPreview: badge("techPreview", "Tech Preview"),
 
   button: (buf, { href, color = "purple" }) => {
     const btn = `<button type="button" class="btn btn--${color} btn--large">${buf.toUpperCase()}</button>`;

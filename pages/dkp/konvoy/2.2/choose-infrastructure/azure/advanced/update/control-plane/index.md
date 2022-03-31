@@ -14,7 +14,7 @@ Before you begin, you must:
 
 ## Overview
 
-There are many reasons to update the control plane. This topic covers one of the most common:
+You may have many reasons to update the control plane. This topic covers one of the most common:
 
 1. To upgrade the Kubernetes version.
 
@@ -24,7 +24,7 @@ The control plane is described by a KubeadmControlPlane resource. This reference
 
 1.  Set the environment variable to the name you assigned this cluster.
 
-    ```sh
+    ```bash
     CLUSTER_NAME=my-azure-cluster
     ```
 
@@ -32,13 +32,13 @@ The control plane is described by a KubeadmControlPlane resource. This reference
 
 1.  If your workload cluster is self-managed, as described in [Make the New Cluster Self-Managed][makeselfmanaged], configure `kubectl` to use the kubeconfig for the cluster.
 
-    ```sh
+    ```bash
     export KUBECONFIG=${CLUSTER_NAME}.conf
     ```
 
 1.  Verify that the control plane is ready to be updated.
 
-    ```sh
+    ```bash
     kubectl get kubeadmcontrolplane ${CLUSTER_NAME}-control-plane
     ```
 
@@ -51,7 +51,7 @@ The control plane is described by a KubeadmControlPlane resource. This reference
 
 1.  Define the names of the resources.
 
-    ```sh
+    ```bash
     export KUBEADMCONTROLPLANE_NAME=$(kubectl get kubeadmcontrolplanes --selector=cluster.x-k8s.io/cluster-name=${CLUSTER_NAME} -ojsonpath='{.items[0].metadata.name}')
     export CURRENT_TEMPLATE_NAME=$(kubectl get kubeadmcontrolplanes ${KUBEADMCONTROLPLANE_NAME} -ojsonpath='{.spec.machineTemplate.infrastructureRef.name}')
     export NEW_TEMPLATE_NAME=${KUBEADMCONTROLPLANE_NAME}-v1216
@@ -59,7 +59,7 @@ The control plane is described by a KubeadmControlPlane resource. This reference
 
 1.  Prepare the patch file.
 
-    ```sh
+    ```bash
     echo '{}' > control-plane-kubernetes-version-patch.yaml
     ```
 
@@ -77,13 +77,13 @@ The control plane is described by a KubeadmControlPlane resource. This reference
 
 1.  Define the Kubernetes version. Use the letter `v` followed by `major.minor.patch` version.
 
-    ```sh
+    ```bash
     export KUBERNETES_VERSION=v1.21.6
     ```
 
 1.  Create a patch file.
 
-    ```sh
+    ```yaml
     cat <<EOF > control-plane-kubernetes-version-patch.yaml
     apiVersion: controlplane.cluster.x-k8s.io/v1alpha4
     kind: KubeadmControlPlane
@@ -98,9 +98,9 @@ The control plane is described by a KubeadmControlPlane resource. This reference
 
     The KubeadmControlPlane is patched to reference the new AzureMachineTemplate created in the previous step, and to use a new Kubernetes version, if one was provided.
 
-    <p class="message--note"><strong>NOTE: </strong>Patching the KubeadmControlPlane starts the control plane update. Machines with updated properties are created, and machines with out-of-date properties are deleted. The update is "rolling". New machines replace old machines one at a time. The update waits for each new machine to successfully join the control plane. Regardless of the specified replica count the update works the same way.
+    <p class="message--note"><strong>NOTE: </strong>Patching the KubeadmControlPlane starts the control plane update. Machines with updated properties are created, and machines with out-of-date properties are deleted. The update is "rolling." New machines replace old machines one at a time. The update waits for each new machine to successfully join the control plane. Regardless of the specified replica count the update works the same way.
 
-    ```sh
+    ```bash
     kubectl get kubeadmcontrolplane ${KUBEADMCONTROLPLANE_NAME} --output=yaml \
       | kubectl patch --local=true -f- --patch="{\"spec\": {\"machineTemplate\": {\"infrastructureRef\": {\"name\": \"$NEW_TEMPLATE_NAME\"} } } }" --type=merge --output=yaml \
       | kubectl patch --local=true -f- --patch-file=control-plane-kubernetes-version-patch.yaml --type=merge --output=yaml \
@@ -115,7 +115,7 @@ The control plane is described by a KubeadmControlPlane resource. This reference
 
     When the condition `Ready` is true, the update is complete.
 
-    ```sh
+    ```bash
     kubectl wait --timeout=10m kubeadmcontrolplane ${KUBEADMCONTROLPLANE_NAME} --for=condition=Ready
     ```
 

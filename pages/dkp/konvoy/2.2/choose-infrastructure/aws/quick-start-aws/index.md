@@ -26,13 +26,13 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Export the AWS region where you want to deploy the cluster:
 
-    ```sh
+    ```bash
     export AWS_REGION=us-west-2
     ```
 
 1.  Export the AWS Profile with the credentials that you want to use to create the Kubernetes cluster:
 
-    ```sh
+    ```bash
     export AWS_PROFILE=<profile>
     ```
 
@@ -42,7 +42,7 @@ Before starting the Konvoy installation, verify that you have:
 
     Set the environment variable to be used throughout this documentation:
 
-    ```sh
+    ```bash
     export CLUSTER_NAME=my-aws-cluster
     ```
 
@@ -57,7 +57,7 @@ We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builde
 
 1.  Create a Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp create cluster aws \
     --cluster-name=${CLUSTER_NAME} \
     --additional-tags=owner=$(whoami) \
@@ -66,7 +66,7 @@ We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builde
 
     You will see output similar to the following:
 
-    ```text
+    ```sh
     INFO[2021-11-16T12:27:38-06:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
     INFO[2021-11-16T12:28:53-06:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:94"
     INFO[2021-11-16T12:30:22-06:00] Created bootstrap controllers                 src="bootstrap/controllers.go:106"
@@ -91,7 +91,7 @@ The kubeconfig file is written to your local directory and you can now explore t
 
 1.  List the Nodes with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
@@ -110,13 +110,13 @@ The kubeconfig file is written to your local directory and you can now explore t
 
 1.  List the Pods with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
     ```
 
     You will see output similar to:
 
-    ```text
+    ```sh
     NAMESPACE                           NAME                                                                 READY   STATUS    RESTARTS   AGE
     calico-system                       calico-typha-665d976df-rf7jg                                         1/1     Running   0          60m
     capa-system                         capa-controller-manager-697b7df888-vhcbj                             2/2     Running   0          57m
@@ -133,13 +133,13 @@ If you no longer need the cluster and want to delete it, you can do so using the
 
 1.  Update the AWS bootstrap credentials:
 
-    ```sh
+    ```bash
     dkp update bootstrap credentials aws --kubeconfig=${CLUSTER_NAME}.conf
     ```
 
 1.  Delete the provisioned Kubernetes cluster:
 
-    ```sh
+    ```bash
     dkp delete cluster \
     --cluster-name=${CLUSTER_NAME} \
     --kubeconfig=${CLUSTER_NAME}.conf \
@@ -148,7 +148,7 @@ If you no longer need the cluster and want to delete it, you can do so using the
 
     You will see output similar to:
 
-    ```text
+    ```sh
     INFO[2021-11-17T10:22:57-06:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
     INFO[2021-11-17T10:22:59-06:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:94"
     ...

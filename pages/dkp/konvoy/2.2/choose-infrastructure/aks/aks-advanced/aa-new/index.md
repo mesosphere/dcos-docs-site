@@ -100,65 +100,31 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AKSCluster"` and `kubectl get events --field-selector involvedObject.kind="AKSMachine"`.
 
     ```sh
-    7m26s       Normal    SuccessfulSetNodeRef                            machine/aws-example-control-plane-2wb9q      ip-10-0-182-218.us-west-2.compute.internal
-    11m         Normal    SuccessfulCreate                                awsmachine/aws-example-control-plane-vcjkr   Created new control-plane instance with id "i-0dde024e80ae3de7a"
-    11m         Normal    SuccessfulAttachControlPlaneELB                 awsmachine/aws-example-control-plane-vcjkr   Control plane instance "i-0dde024e80ae3de7a" is registered with load balancer
-    7m25s       Normal    SuccessfulDeleteEncryptedBootstrapDataSecrets   awsmachine/aws-example-control-plane-vcjkr   AWS Secret entries containing userdata deleted
-    7m6s        Normal    FailedDescribeInstances                         awsmachinepool/aws-example-mp-0              No Auto Scaling Groups with aws-example-mp-0 found
-    7m3s        Warning   FailedLaunchTemplateReconcile                   awsmachinepool/aws-example-mp-0              Failed to reconcile launch template: ValidationError: AutoScalingGroup name not found - AutoScalingGroup aws-example-mp-0 not found
-    7m1s        Warning   FailedLaunchTemplateReconcile                   awsmachinepool/aws-example-mp-0              Failed to reconcile launch template: ValidationError: AutoScalingGroup name not found - AutoScalingGroup aws-example-mp-0 not found
-    6m59s       Warning   FailedLaunchTemplateReconcile                   awsmachinepool/aws-example-mp-0              Failed to reconcile launch template: ValidationError: AutoScalingGroup name not found - AutoScalingGroup aws-example-mp-0 not found
-    6m57s       Warning   FailedLaunchTemplateReconcile                   awsmachinepool/aws-example-mp-0              Failed to reconcile launch template: ValidationError: AutoScalingGroup name not found - AutoScalingGroup aws-example-mp-0 not found
-    6m55s       Warning   FailedLaunchTemplateReconcile                   awsmachinepool/aws-example-mp-0              Failed to reconcile launch template: ValidationError: AutoScalingGroup name not found - AutoScalingGroup aws-example-mp-0 not found
-    6m53s       Warning   FailedLaunchTemplateReconcile                   awsmachinepool/aws-example-mp-0              Failed to reconcile launch template: ValidationError: AutoScalingGroup name not found - AutoScalingGroup aws-example-mp-0 not found
-    6m51s       Warning   FailedLaunchTemplateReconcile                   awsmachinepool/aws-example-mp-0              Failed to reconcile launch template: ValidationError: AutoScalingGroup name not found - AutoScalingGroup aws-example-mp-0 not found
-    6m49s       Warning   FailedLaunchTemplateReconcile                   awsmachinepool/aws-example-mp-0              Failed to reconcile launch template: ValidationError: AutoScalingGroup name not found - AutoScalingGroup aws-example-mp-0 not found
-    6m47s       Warning   FailedLaunchTemplateReconcile                   awsmachinepool/aws-example-mp-0              Failed to reconcile launch template: ValidationError: AutoScalingGroup name not found - AutoScalingGroup aws-example-mp-0 not found
-    74s         Warning   FailedLaunchTemplateReconcile                   awsmachinepool/aws-example-mp-0              (combined from similar events): Failed to reconcile launch template: ValidationError: AutoScalingGroup name not found - AutoScalingGroup aws-example-mp-0 not found
-    16m         Normal    SuccessfulCreateVPC                             awscluster/aws-example                       Created new managed VPC "vpc-032fff0fe06a85035"
-    16m         Normal    SuccessfulSetVPCAttributes                      awscluster/aws-example                       Set managed VPC attributes for "vpc-032fff0fe06a85035"
-    16m         Normal    SuccessfulCreateSubnet                          awscluster/aws-example                       Created new managed Subnet "subnet-0677a4fbd7d170dfe"
-    16m         Normal    SuccessfulModifySubnetAttributes                awscluster/aws-example                       Modified managed Subnet "subnet-0677a4fbd7d170dfe" attributes
-    16m         Normal    SuccessfulCreateSubnet                          awscluster/aws-example                       Created new managed Subnet "subnet-04fc9deb4fa9f8333"
-    16m         Normal    SuccessfulCreateSubnet                          awscluster/aws-example                       Created new managed Subnet "subnet-0a266c15dd211ce6c"
-    16m         Normal    SuccessfulModifySubnetAttributes                awscluster/aws-example                       Modified managed Subnet "subnet-0a266c15dd211ce6c" attributes
-    16m         Normal    SuccessfulCreateSubnet                          awscluster/aws-example                       Created new managed Subnet "subnet-06269d5b52d50840f"
-    16m         Normal    SuccessfulCreateSubnet                          awscluster/aws-example                       Created new managed Subnet "subnet-0fc41ffef7dceface"
-    16m         Normal    SuccessfulModifySubnetAttributes                awscluster/aws-example                       Modified managed Subnet "subnet-0fc41ffef7dceface" attributes
-    16m         Normal    SuccessfulCreateSubnet                          awscluster/aws-example                       Created new managed Subnet "subnet-0725068cca16ad9f9"
-    16m         Normal    SuccessfulCreateInternetGateway                 awscluster/aws-example                       Created new managed Internet Gateway "igw-07cd7ad3e6c7c1ca7"
-    16m         Normal    SuccessfulAttachInternetGateway                 awscluster/aws-example                       Internet Gateway "igw-07cd7ad3e6c7c1ca7" attached to VPC "vpc-032fff0fe06a85035"
-    16m         Normal    SuccessfulCreateNATGateway                      awscluster/aws-example                       Created new NAT Gateway "nat-0a0cf17d29150cf9a"
-    16m         Normal    SuccessfulCreateNATGateway                      awscluster/aws-example                       Created new NAT Gateway "nat-065e5e383e6f23320"
-    16m         Normal    SuccessfulCreateNATGateway                      awscluster/aws-example                       Created new NAT Gateway "nat-01c4a6fed2a31ed4c"
-    13m         Normal    SuccessfulCreateRouteTable                      awscluster/aws-example                       Created managed RouteTable "rtb-09f4e2eecb7462d22"
-    13m         Normal    SuccessfulCreateRoute                           awscluster/aws-example                       Created route {
-    13m         Normal    SuccessfulAssociateRouteTable                   awscluster/aws-example                       Associated managed RouteTable "rtb-09f4e2eecb7462d22" with subnet "subnet-0677a4fbd7d170dfe"
-    13m         Normal    SuccessfulCreateRouteTable                      awscluster/aws-example                       Created managed RouteTable "rtb-0007b98b36f37d1e4"
-    13m         Normal    SuccessfulCreateRoute                           awscluster/aws-example                       Created route {
-    13m         Normal    SuccessfulAssociateRouteTable                   awscluster/aws-example                       Associated managed RouteTable "rtb-0007b98b36f37d1e4" with subnet "subnet-04fc9deb4fa9f8333"
-    13m         Normal    SuccessfulCreateRouteTable                      awscluster/aws-example                       Created managed RouteTable "rtb-079a1d7d3667c2525"
-    13m         Normal    SuccessfulCreateRoute                           awscluster/aws-example                       Created route {
-    13m         Normal    SuccessfulAssociateRouteTable                   awscluster/aws-example                       Associated managed RouteTable "rtb-079a1d7d3667c2525" with subnet "subnet-0a266c15dd211ce6c"
-    13m         Normal    SuccessfulCreateRouteTable                      awscluster/aws-example                       Created managed RouteTable "rtb-0e5ebc8ec29848a17"
-    13m         Normal    SuccessfulCreateRoute                           awscluster/aws-example                       Created route {
-    13m         Normal    SuccessfulAssociateRouteTable                   awscluster/aws-example                       Associated managed RouteTable "rtb-0e5ebc8ec29848a17" with subnet "subnet-06269d5b52d50840f"
-    13m         Normal    SuccessfulCreateRouteTable                      awscluster/aws-example                       Created managed RouteTable "rtb-087f0c400675c4bce"
-    13m         Normal    SuccessfulCreateRoute                           awscluster/aws-example                       Created route {
-    13m         Normal    SuccessfulAssociateRouteTable                   awscluster/aws-example                       Associated managed RouteTable "rtb-087f0c400675c4bce" with subnet "subnet-0fc41ffef7dceface"
-    13m         Normal    SuccessfulCreateRouteTable                      awscluster/aws-example                       Created managed RouteTable "rtb-05a05080bbb3cead9"
-    13m         Normal    SuccessfulCreateRoute                           awscluster/aws-example                       Created route {
-    13m         Normal    SuccessfulAssociateRouteTable                   awscluster/aws-example                       Associated managed RouteTable "rtb-05a05080bbb3cead9" with subnet "subnet-0725068cca16ad9f9"
-    13m         Normal    SuccessfulCreateSecurityGroup                   awscluster/aws-example                       Created managed SecurityGroup "sg-0379bf77211472854" for Role "bastion"
-    13m         Normal    SuccessfulCreateSecurityGroup                   awscluster/aws-example                       Created managed SecurityGroup "sg-0a4e0635f68a2f57d" for Role "apiserver-lb"
-    13m         Normal    SuccessfulCreateSecurityGroup                   awscluster/aws-example                       Created managed SecurityGroup "sg-022da9dfc21ef3d5e" for Role "lb"
-    13m         Normal    SuccessfulCreateSecurityGroup                   awscluster/aws-example                       Created managed SecurityGroup "sg-00db2e847c0b49d6e" for Role "controlplane"
-    13m         Normal    SuccessfulCreateSecurityGroup                   awscluster/aws-example                       Created managed SecurityGroup "sg-01fe3426404f94708" for Role "node"
-    13m         Normal    SuccessfulAuthorizeSecurityGroupIngressRules    awscluster/aws-example                       Authorized security group ingress rules [protocol=tcp/range=[22-22]/description=SSH] for SecurityGroup "sg-0379bf77211472854"
-    13m         Normal    SuccessfulAuthorizeSecurityGroupIngressRules    awscluster/aws-example                       Authorized security group ingress rules [protocol=tcp/range=[6443-6443]/description=Kubernetes API] for SecurityGroup "sg-0a4e0635f68a2f57d"
-    13m         Normal    SuccessfulAuthorizeSecurityGroupIngressRules    awscluster/aws-example                       Authorized security group ingress rules [protocol=tcp/range=[5473-5473]/description=typha (calico) protocol=tcp/range=[179-179]/description=bgp (calico) protocol=4/range=[-1-65535]/description=IP-in-IP (calico) protocol=tcp/range=[22-22]/description=SSH protocol=tcp/range=[6443-6443]/description=Kubernetes API protocol=tcp/range=[2379-2379]/description=etcd protocol=tcp/range=[2380-2380]/description=etcd peer] for SecurityGroup "sg-00db2e847c0b49d6e"
-    13m         Normal    SuccessfulAuthorizeSecurityGroupIngressRules    awscluster/aws-example                       Authorized security group ingress rules [protocol=tcp/range=[5473-5473]/description=typha (calico) protocol=tcp/range=[179-179]/description=bgp (calico) protocol=4/range=[-1-65535]/description=IP-in-IP (calico) protocol=tcp/range=[22-22]/description=SSH protocol=tcp/range=[30000-32767]/description=Node Port Services protocol=tcp/range=[10250-10250]/description=Kubelet API] for SecurityGroup "sg-01fe3426404f94708"
+    15m         Normal    AzureClusterObjectNotFound                  azurecluster                                          AzureCluster object default/aks-example not found
+    15m         Normal    AzureManagedControlPlaneObjectNotFound      azuremanagedcontrolplane                              AzureManagedControlPlane object default/aks-example not found
+    15m         Normal    AzureClusterObjectNotFound                  azurecluster                                          AzureCluster.infrastructure.cluster.x-k8s.io "aks-example" not found
+    8m22s       Normal    SuccessfulSetNodeRef                        machine/aks-example-control-plane-bmc9b          aks-example-control-plane-fdvnm
+    10m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-control-plane-fdvnm     Machine Controller has not yet set OwnerRef
+    12m         Normal    SuccessfulSetNodeRef                        machine/aks-example-control-plane-msftd          aks-example-control-plane-z9q45
+    10m         Normal    SuccessfulSetNodeRef                        machine/aks-example-control-plane-nrvff          aks-example-control-plane-vmqwx
+    12m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-control-plane-vmqwx     Machine Controller has not yet set OwnerRef
+    14m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-control-plane-z9q45     Machine Controller has not yet set OwnerRef
+    14m         Warning   VMIdentityNone                              azuremachinetemplate/aks-example-control-plane   You are using Service Principal authentication for Cloud Provider Azure which is less secure than Managed Identity. Your Service Principal credentials will be written to a file on the disk of each VM in order to be accessible by Cloud Provider. To learn more, see https://capz.sigs.k8s.io/topics/identities-use-cases.html#azure-host-identity
+    12m         Warning   ControlPlaneUnhealthy                       kubeadmcontrolplane/aks-example-control-plane    Waiting for control plane to pass preflight checks to continue reconciliation: [machine aks-example-control-plane-msftd does not have APIServerPodHealthy condition, machine aks-example-control-plane-msftd does not have ControllerManagerPodHealthy condition, machine aks-example-control-plane-msftd does not have SchedulerPodHealthy condition, machine aks-example-control-plane-msftd does not have EtcdPodHealthy condition, machine aks-example-control-plane-msftd does not have EtcdMemberHealthy condition]
+    11m         Warning   ControlPlaneUnhealthy                       kubeadmcontrolplane/aks-example-control-plane    Waiting for control plane to pass preflight checks to continue reconciliation: [machine aks-example-control-plane-nrvff does not have APIServerPodHealthy condition, machine aks-example-control-plane-nrvff does not have ControllerManagerPodHealthy condition, machine aks-example-control-plane-nrvff does not have SchedulerPodHealthy condition, machine aks-example-control-plane-nrvff does not have EtcdPodHealthy condition, machine aks-example-control-plane-nrvff does not have EtcdMemberHealthy condition]
+    9m52s       Normal    SuccessfulSetNodeRef                        machine/aks-example-md-0-84bd8b5f5b-b8cnq        aks-example-md-0-bsc82
+    9m53s       Normal    SuccessfulSetNodeRef                        machine/aks-example-md-0-84bd8b5f5b-j8ldg        aks-example-md-0-mjcbn
+    9m52s       Normal    SuccessfulSetNodeRef                        machine/aks-example-md-0-84bd8b5f5b-lx89f        aks-example-md-0-pmq8f
+    10m         Normal    SuccessfulSetNodeRef                        machine/aks-example-md-0-84bd8b5f5b-pcv7q        aks-example-md-0-vzprf
+    15m         Normal    SuccessfulCreate                            machineset/aks-example-md-0-84bd8b5f5b           Created machine "aks-example-md-0-84bd8b5f5b-j8ldg"
+    15m         Normal    SuccessfulCreate                            machineset/aks-example-md-0-84bd8b5f5b           Created machine "aks-example-md-0-84bd8b5f5b-lx89f"
+    15m         Normal    SuccessfulCreate                            machineset/aks-example-md-0-84bd8b5f5b           Created machine "aks-example-md-0-84bd8b5f5b-pcv7q"
+    15m         Normal    SuccessfulCreate                            machineset/aks-example-md-0-84bd8b5f5b           Created machine "aks-example-md-0-84bd8b5f5b-b8cnq"
+    15m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-md-0-bsc82              Machine Controller has not yet set OwnerRef
+    15m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-md-0-mjcbn              Machine Controller has not yet set OwnerRef
+    15m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-md-0-pmq8f              Machine Controller has not yet set OwnerRef
     ```
+
 
 ## Known Limitations
 
