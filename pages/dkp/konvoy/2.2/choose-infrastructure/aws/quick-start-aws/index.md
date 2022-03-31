@@ -67,16 +67,9 @@ We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builde
     You will see output similar to the following:
 
     ```sh
-    INFO[2021-11-16T12:27:38-06:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
-    INFO[2021-11-16T12:28:53-06:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:94"
-    INFO[2021-11-16T12:30:22-06:00] Created bootstrap controllers                 src="bootstrap/controllers.go:106"
-    INFO[2021-11-16T12:30:22-06:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:110"
-    ...
-    Cluster default/my-aws-cluster kubeconfig was written to /private/tmp/konvoyrc2/my-aws-cluster.conf,
-    You can now view resources in the new cluster by using the --kubeconfig flag with kubectl.
-    For example: kubectl --kubeconfig=my-aws-cluster.conf get nodes  src="cluster/create.go:338"
-    ```
-
+	INF Generating cluster resources
+	```
+	
     As part of the underlying processing, the DKP CLI:
     - creates a bootstrap cluster
     - creates a workload cluster
@@ -149,15 +142,10 @@ If you no longer need the cluster and want to delete it, you can do so using the
     You will see output similar to:
 
     ```sh
-    INFO[2021-11-17T10:22:57-06:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
-    INFO[2021-11-17T10:22:59-06:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:94"
-    ...
-    INFO[2021-11-17T10:25:01-06:00] Running cluster delete command                ClusterName=my-aws-cluster Namespace=default managementClusterKubeconfig=my-aws-cluster-bootstrap.conf src="cluster/delete.go:215"
-    INFO[2021-11-17T10:25:02-06:00] Deleting Services with type LoadBalancer for Cluster default/my-aws-cluster  src="cluster/cluster.go:34"
-    INFO[2021-11-17T10:25:02-06:00] Waiting for cluster to be fully deleted       src="cluster/delete.go:253"
-    INFO[2021-11-17T10:31:27-06:00] Deleted default/my-aws-cluster cluster   src="cluster/delete.go:123"
-    INFO[2021-11-17T10:31:27-06:00] Running delete bootstrap cluster              src="cluster/create.go:381"
-    INFO[2021-11-17T10:31:27-06:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:186"
+	INF  ✓ Deleting Services with type LoadBalancer for Cluster default/aws-example
+	INF  ✓ Deleting ClusterResourceSets for Cluster default/aws-example
+	INF  ✓ Deleting cluster resources
+	INF  ✓ Waiting for cluster to be fully deleted
     ```
 
 Similar to `create cluster`, use the flag `--self-managed` with the `delete cluster`command:

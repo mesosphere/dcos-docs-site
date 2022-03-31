@@ -19,5 +19,9 @@ Use the following command to create a bootstrap cluster:
 ```bash
 dkp create bootstrap
 ```
+```sh
+✓ Creating a bootstrap cluster
+✓ Initializing new CAPI components
+```
 
 When the bootstrap cluster is up, [create the correct secrets and overrides](../create-secrets-and-overrides).

@@ -23,23 +23,8 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    INFO[2021-09-06T23:15:16-05:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:96"
-    INFO[2021-09-06T23:16:28-05:00] Created bootstrap controllers                 src="bootstrap/controllers.go:101"
-    INFO[2021-09-06T23:16:28-05:00] Waiting for bootstrap controllers to be ready  src="bootstrap/controllers.go:104"
-    INFO[2021-09-06T23:22:57-05:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:109"
-    INFO[2021-09-06T23:22:57-05:00] Patching ClusterRoleBinding for CAPPP         src="bootstrap/controllers.go:112"
-    INFO[2021-09-06T23:22:57-05:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
-    INFO[2021-09-06T23:22:58-05:00] Created Tigera operator                       src="bootstrap/clusterresourceset.go:42"
-    INFO[2021-09-06T23:22:59-05:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:109"
-    INFO[2021-09-06T23:23:00-05:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:114"
-    INFO[2021-09-06T23:23:00-05:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:116"
-    INFO[2021-09-06T23:23:00-05:00] Created Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:121"
-    INFO[2021-09-06T23:23:00-05:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:181"
-    INFO[2021-09-06T23:23:01-05:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:186"
-    INFO[2021-09-06T23:23:01-05:00] Initializing Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:239"
-    INFO[2021-09-06T23:23:01-05:00] Created Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:244"
-    INFO[2021-09-06T23:23:01-05:00] Initializing NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:297"
-    INFO[2021-09-06T23:23:02-05:00] Created NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:302"
+    Command "controllers" is deprecated, use "dkp create capi-components" instead
+    ✓ Initializing new CAPI components
     ```
 
 2.  Move the Cluster API objects from the bootstrap to the workload cluster:
@@ -51,10 +36,10 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    INFO[2021-09-06T23:23:52-05:00] Checking move syntax                          fromClusterContext= fromClusterKubeconfig= src="move/move.go:84" toClusterContext= toClusterKubeconfig=preprovisioned-cluster.conf
-    INFO[2021-09-06T23:23:52-05:00] Running pivot command                         fromClusterContext= fromClusterKubeconfig= src="move/move.go:129" toClusterContext= toClusterKubeconfig=preprovisioned-cluster.conf
-    INFO[2021-09-06T23:24:21-05:00] Pivot operation complete.                     src="move/move.go:157"
-    INFO[2021-09-06T23:24:21-05:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=preprovisioned-cluster.conf get nodes  src="move/move.go:158"
+    Flag --to-kubeconfig has been deprecated, use "dkp move capi-resources" instead
+    Command "move" is deprecated, use "dkp move capi-resources" instead
+	✓ Moving cluster resources
+    You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=preprovisioned-example-rhel-84.conf get nodes
     ```
 
     <p class="message--note"><strong>NOTE: </strong>To ensure only one set of cluster lifecycle services manages the workload cluster, Konvoy first pauses reconciliation of the objects on the bootstrap cluster, then creates the objects on the workload cluster. As Konvoy copies the objects, the cluster lifecycle services on the workload cluster reconcile the objects. The workload cluster becomes self-managed after Konvoy creates all the objects. If it fails, the <code>move</code> command can be safely retried.</p>
@@ -66,7 +51,7 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    cluster.cluster.x-k8s.io preprovisioned-cluster condition met
+    cluster.cluster.x-k8s.io preprovisioned-example condition met
     ```
 
 4.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:
@@ -78,14 +63,16 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    NAME                                                                          READY  SEVERITY  REASON  SINCE  MESSAGE
-    /preprovisioned-cluster                                                       True                     2m31s
-    ├─ClusterInfrastructure - PreprovisionedCluster/preprovisioned-cluster
-    ├─ControlPlane - KubeadmControlPlane/preprovisioned-cluster-control-plane     True                     2m31s
-    │ └─3 Machines...                                                             True                     2m33s
+    NAME                                                                            READY  SEVERITY  REASON                           SINCE  MESSAGE
+    Cluster/preprovisioned-example-rhel-84                                             True                                              1s
+    ├─ClusterInfrastructure - PreprovisionedCluster/preprovisioned-example-rhel-84
+    ├─ControlPlane - KubeadmControlPlane/preprovisioned-example-rhel-84-control-plane  True                                              1s
+    │ ├─Machine/preprovisioned-example-rhel-84-control-plane-tnhb9                     True                                              4s
+    │ ├─Machine/preprovisioned-example-rhel-84-control-plane-vz4hk                     True                                              4s
+    │ └─Machine/preprovisioned-example-rhel-84-control-plane-zdgjt                     True                                              4s
     └─Workers
-      └─MachineDeployment/preprovisioned-cluster-md-0
-        └─4 Machines...                                                           True                     2m33s
+      └─MachineDeployment/preprovisioned-example-rhel-84-md-0                          True                                              9s
+        └─Machine/preprovisioned-example-rhel-84-md-0-7bc695f54d-lzhlf                 False  Info      WaitingForClusterInfrastructure  9s     0 of 1 completed
     ```
 
 5.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
@@ -95,7 +82,7 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    INFO[2021-06-07T14:53:36-07:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:182"
+    INF  ✓ Deleting bootstrap cluster
     ```
 
 ## Known Limitations

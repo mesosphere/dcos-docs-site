@@ -16,6 +16,27 @@ With the inventory, and the control plane endpoint defined, use the `dkp` binary
 dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443>
 ```
 
+```bash
+Generating cluster resources
+cluster.cluster.x-k8s.io/preprovisioned-example-rhel-84 created
+kubeadmcontrolplane.controlplane.cluster.x-k8s.io/preprovisioned-example-rhel-84-control-plane created
+preprovisionedcluster.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-rhel-84 created
+preprovisionedmachinetemplate.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-rhel-84-control-plane created
+secret/preprovisioned-example-rhel-84-etcd-encryption-config created
+machinedeployment.cluster.x-k8s.io/preprovisioned-example-rhel-84-md-0 created
+preprovisionedmachinetemplate.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-rhel-84-md-0 created
+kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/preprovisioned-example-rhel-84-md-0 created
+clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-preprovisioned-example-rhel-84 created
+configmap/calico-cni-installation-preprovisioned-example-rhel-84 created
+configmap/tigera-operator-preprovisioned-example-rhel-84 created
+clusterresourceset.addons.cluster.x-k8s.io/local-volume-provisioner-preprovisioned-example-rhel-84 created
+configmap/local-volume-provisioner-preprovisioned-example-rhel-84 created
+clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-preprovisioned-example-rhel-84 created
+configmap/node-feature-discovery-preprovisioned-example-rhel-84 created
+clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-preprovisioned-example-rhel-84 created
+configmap/nvidia-feature-discovery-preprovisioned-example-rhel-84 created
+```
+
 <p class="message--note"><strong>NOTE: </strong>If you have <a href="../create-secrets-and-overrides">overrides for your clusters</a>, you must specify the secret as part of the create cluster command. If these are not specified, the overrides for your nodes will not be applied. </p>
 
 ```bash
@@ -38,6 +59,42 @@ Get the pods running on your cluster with this command:
 
    ```bash
    kubectl get pods -A --kubeconfig ${CLUSTER_NAME}.conf
+   ```
+
+   ```bash
+   NAMESPACE                NAME                                                                READY   STATUS            RESTARTS        AGE
+   calico-system            calico-kube-controllers-57fbd7bd59-vpn8b                            1/1     Running           0               16m
+   calico-system            calico-node-5tbvl                                                   1/1     Running           0               16m
+   calico-system            calico-node-nbdwd                                                   1/1     Running           0               4m40s
+   calico-system            calico-node-twl6b                                                   0/1     PodInitializing   0               9s
+   calico-system            calico-node-wktkh                                                   1/1     Running           0               5m35s
+   calico-system            calico-typha-54f46b998d-52pt2                                       1/1     Running           0               16m
+   calico-system            calico-typha-54f46b998d-9tzb8                                       1/1     Running           0               4m31s
+   default                  cuda-vectoradd                                                      0/1     Pending           0               0s
+   kube-system              coredns-78fcd69978-frwx4                                            1/1     Running           0               16m
+   kube-system              coredns-78fcd69978-kkf44                                            1/1     Running           0               16m
+   kube-system              etcd-ip-10-0-121-16.us-west-2.compute.internal                      0/1     Running           0               8s
+   kube-system              etcd-ip-10-0-46-17.us-west-2.compute.internal                       1/1     Running           1               16m
+   kube-system              etcd-ip-10-0-88-238.us-west-2.compute.internal                      1/1     Running           1               5m35s
+   kube-system              kube-apiserver-ip-10-0-121-16.us-west-2.compute.internal            0/1     Running           6               7s
+   kube-system              kube-apiserver-ip-10-0-46-17.us-west-2.compute.internal             1/1     Running           1               16m
+   kube-system              kube-apiserver-ip-10-0-88-238.us-west-2.compute.internal            1/1     Running           1               5m34s
+   kube-system              kube-controller-manager-ip-10-0-121-16.us-west-2.compute.internal   0/1     Running           0               7s
+   kube-system              kube-controller-manager-ip-10-0-46-17.us-west-2.compute.internal    1/1     Running           1 (5m25s ago)   15m
+   kube-system              kube-controller-manager-ip-10-0-88-238.us-west-2.compute.internal   1/1     Running           0               5m34s
+   kube-system              kube-proxy-gclmt                                                    1/1     Running           0               16m
+   kube-system              kube-proxy-gptd4                                                    1/1     Running           0               9s
+   kube-system              kube-proxy-mwkgl                                                    1/1     Running           0               4m40s
+   kube-system              kube-proxy-zcqxd                                                    1/1     Running           0               5m35s
+   kube-system              kube-scheduler-ip-10-0-121-16.us-west-2.compute.internal            0/1     Running           1               7s
+   kube-system              kube-scheduler-ip-10-0-46-17.us-west-2.compute.internal             1/1     Running           3 (5m25s ago)   16m
+   kube-system              kube-scheduler-ip-10-0-88-238.us-west-2.compute.internal            1/1     Running           1               5m34s
+   kube-system              local-volume-provisioner-2mv7z                                      1/1     Running           0               4m10s
+   kube-system              local-volume-provisioner-vdcrg                                      1/1     Running           0               4m53s
+   kube-system              local-volume-provisioner-wsjrt                                      1/1     Running           0               16m
+   node-feature-discovery   node-feature-discovery-master-84c67dcbb6-m78vr                      1/1     Running           0               16m
+   node-feature-discovery   node-feature-discovery-worker-vpvpl                                 1/1     Running           0               4m10s
+   tigera-operator          tigera-operator-d499f5c8f-79dc4                                     1/1     Running           1 (5m24s ago)   16m
    ```
 
 <p class="message--note"><strong>NOTE: </strong>If a <code>calico-node</code> pod is not ready on your cluster, you must edit the <code>installation</code> file.
