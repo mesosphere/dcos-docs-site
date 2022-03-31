@@ -11,7 +11,7 @@ menuWeight: 30
 
 * Follow the steps listed in the [DKP upgrade overview][dkpup]
 
-* Ensure that all platform applications in the management cluster have been upgraded to avoid compatibility issues with the current Kubernetes version. This is done automatically when [upgrading Kommander][upgradekomm], so ensure that Kommander has been upgraded prior to Konvoy.
+* Ensure that all platform applications in the management cluster have been upgraded to avoid compatibility issues with the [Kubernetes version][releasenotes] included in this release. This is done automatically when [upgrading Kommander][upgradekomm], so ensure that Kommander has been upgraded prior to Konvoy.
 
 * For air-gapped: Download the required bundles either at our [support site][supportsite] or [via the CLI][airgapbundle]
 
