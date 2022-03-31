@@ -54,6 +54,7 @@ The default value for flag `--with-aws-bootstrap-credentials` will be changing f
 
 #### New command to update Azure credentials in running clusters
 
+### Fixes and Improvements
 #### Default update strategy changed to "delete first" for Preprovisioned clusters
 
 A "create first" update strategy first creates a new machine, then deletes the old one. While this strategy works when
