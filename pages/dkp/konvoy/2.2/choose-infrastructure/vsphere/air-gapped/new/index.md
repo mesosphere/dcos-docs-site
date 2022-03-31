@@ -31,10 +31,12 @@ Use the following steps to create a new, air-gapped vSphere cluster.
       --resource-pool <RESOURCE_POOL_NAME> \
       --vm-template konvoy-ova-vsphere-os-release-k8s_release-vsphere-timestamp \
       --virtual-ip-interface eth0 \
-      --extra-sans <127.0.0.1> \
-      --registry-mirror-url https://registry.example.com \
+      --extra-sans "127.0.0.1" \
+      --registry-mirror-url ${DOCKER_REGISTRY_ADDRESS} \
       --registry-mirror-cacert /tmp/registry.pem
     ```
+
+    Review [Create and Prepare a Bastion VM Host][create-bastion-host] for more about the ${DOCKER_REGISTRY_ADDRESS}.
 
 1.  Inspect the created cluster resources with the command:
 
@@ -84,7 +86,7 @@ Use the following steps to create a new, air-gapped vSphere cluster.
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 
-    For brevity, this example uses `grep`. You can also use separate commands to get Events for specific objects, such as `kubectl get events --field-selector involvedObject.kind="vSphereCluster"` and `kubectl get events --field-selector involvedObject.kind="vSphereMachine"`.
+    For brevity, this example uses `grep`. You can also use separate commands to get Events for specific objects, such as `kubectl get events --field-selector involvedObject.kind="VSphereCluster"` and `kubectl get events --field-selector involvedObject.kind="VSphereMachine"`.
 
 Next, you can [explore your new cluster][explore-cluster].
 
@@ -102,4 +104,5 @@ Next, you can [explore your new cluster][explore-cluster].
 
 [prereqs]: ../../prerequisites/
 [create-bootstrap]: ../bootstrap/
+[create-bastion-host]: ../create-bastion-vm/
 [explore-cluster]: ../explore

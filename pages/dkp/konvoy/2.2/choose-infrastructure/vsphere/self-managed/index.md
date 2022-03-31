@@ -11,20 +11,16 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which then
 
 Before starting, ensure you create a workload cluster as described in [Create a New Cluster][createnewcluster].
 
-%%% we need vSphere-specific steps for this procedure if it is supported
-
 ## Make the new Kubernetes cluster manage itself
 
 1.  Deploy cluster lifecycle services on the workload cluster:
 
-    By default, `create bootstrap controllers` configures the Cluster API controllers to use the AWS credentials from your environment. We recommend you use the `--with-aws-bootstrap-credentials=false` flag to configure the Cluster API controllers of your self-managed AWS cluster to use AWS IAM Instance Profiles, instead of the AWS credentials from your environment.
-
-    ```bash
-    dkp create bootstrap controllers --with-vsphere-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
+        ```bash
+    dkp create capi-components --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     ```sh
-    %%% need vSphere output
+    ✓ Initializing new CAPI components
     ```
 
 1.  Move the Cluster API objects from the bootstrap to the workload cluster:

@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-Use this procedure only when yoku no longer need your cluster, or the bootstrap cluster.
+Use this procedure only when you no longer need your cluster, or the bootstrap cluster.
 
 ## Delete the Kubernetes cluster
 
@@ -18,7 +18,7 @@ Use this procedure only when yoku no longer need your cluster, or the bootstrap 
     dkp delete cluster --cluster-name=${CLUSTER_NAME}
     ```
 
-## Delete the KIND boostrap cluster
+## Delete the KIND bootstrap cluster
 
 1.  Delete the `kind` Kubernetes cluster:
 

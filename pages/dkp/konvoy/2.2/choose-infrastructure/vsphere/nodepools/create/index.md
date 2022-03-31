@@ -35,18 +35,24 @@ Create a new vSphere node pool with 3 replicas using this command:
 
 ```bash
 dkp create nodepool vsphere ${NODEPOOL_NAME} \
-    --cluster-name=${CLUSTER_NAME} \
-    --replicas=3
+  --cluster-name=${CLUSTER_NAME} \
+  --network=example_network \
+  --data-center=example_datacenter \
+  --data-store=example_datastore \
+  --folder=example_folder \
+  --server=example_vsphere_api_server_url\
+  --resource-pool=example_resource_pool \
+  --vm-template=example_vm_template \
+  --replicas=3
 ```
 
-```sh
-%%% need vSphere-specific output
+The output resembles this example:
 
-INFO[2021-08-02T12:16:26-07:00] Running nodepool create command               clusterName=d2iq-e2e-cluster-1 managementClusterKubeconfig= namespace=default src="nodepool/create.go:264"
+```sh
 machinedeployment.cluster.x-k8s.io/example created
-awsmachinetemplate.infrastructure.cluster.x-k8s.io/example created
+vspheremachinetemplate.infrastructure.cluster.x-k8s.io/example created
 kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/example created
-INFO[2021-08-02T12:16:26-07:00] Created default/example nodepool          src="nodepool/create.go:318"
+ ✓ Creating default/example nodepool resources
 ```
 
 This example uses default values for brevity. Use flags to define %%% parm1, parm2, and other properties.

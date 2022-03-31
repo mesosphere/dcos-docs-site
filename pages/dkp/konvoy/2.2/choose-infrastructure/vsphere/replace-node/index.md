@@ -31,16 +31,22 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     The output from this command resembles the following:
 
     ```sh
-    NAME                                         STATUS   ROLES                  AGE   VERSION
-    %%% we need vSphere-specific output
+    NAME                                       STATUS   ROLES                  AGE   VERSION
+    d2iq-e2e-cluster-1-control-plane-7llgd     Ready    control-plane,master   20h   v1.22.8
+    d2iq-e2e-cluster-1-control-plane-vncbl     Ready    control-plane,master   20h   v1.22.8
+    d2iq-e2e-cluster-1-control-plane-wbgrm     Ready    control-plane,master   19h   v1.22.8
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4   Ready    <none>                 20h   v1.22.8
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-n2skc   Ready    <none>                 20h   v1.22.8
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-nkftv   Ready    <none>                 20h   v1.22.8
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-sqklv   Ready    <none>                 20h   v1.22.8
     ```
 
 1.  Export a variable with the node name to use in the next steps:
 
-    This example uses the name `ip-10-0-118-168.us-west-2.compute.internal`. %%% we need a proper vSphere example to replace this one from AWS
+    This example uses the name `d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4`.
 
     ```bash
-    export NAME_NODE_TO_DELETE="ip-10-0-118-168.us-west-2.compute.internal"
+    export NAME_NODE_TO_DELETE="d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4"
     ```
 
 1.  Delete the Machine resource with the command:
@@ -51,7 +57,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```
 
     ```sh
-    machine.cluster.x-k8s.io "aws-example-md-0-7fbfb98fcf-4xcv9" deleted
+    machine.cluster.x-k8s.io "d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4" deleted
     ```
 
     The command does not return immediately, but it does return after the Machine resource is deleted.
@@ -65,11 +71,11 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```
 
     ```sh
-    NAME                   PHASE       REPLICAS   READY   UPDATED   UNAVAILABLE
-    vsphere-example-md-0   ScalingUp   2          1       2         1
+    NAME                      CLUSTER              REPLICAS   READY   UPDATED   UNAVAILABLE   PHASE       AGE   VERSION
+    d2iq-e2e-cluster-1-md-0   d2iq-e2e-cluster-1   4          3       4         1             ScalingUp   20h   v1.22.8
     ```
 
-    There exist 2 replicas, but only 1 is ready. There exists 1 unavailable replica, and the `ScalingUp` phase means a new Machine is being created.
+    There exist 4 replicas, but only 3 are ready. One replica is unavailable, and the `ScalingUp` phase means a new Machine is being created.
 
 1.  Identify the replacement Machine using this command:
 
@@ -89,8 +95,10 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
         -o=jsonpath="{.items[?(@.metadata.annotations.cluster\.x-k8s\.io/machine==\"$NAME_NEW_MACHINE\")].metadata.name}"
     ```
 
+    The output should be similar to this example:
+
     ```sh
-    %%% need vSphere output
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-rc528
     ```
 
     If the output is empty, the Node resource is not yet available, or does not yet have the expected annotation. Wait a few minutes, then repeat the command.

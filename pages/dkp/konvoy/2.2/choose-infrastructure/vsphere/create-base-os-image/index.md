@@ -9,7 +9,7 @@ enterprise: false
 
 ### Create a base OS image in the vSphere client
 
-Creating a base OS image from DVD ISO files is a one-time process. Building a base OS image creates a base vSphere template. You use this base image template in DKP to create CAPI Kubernetes images for your cluster as an OVA template.
+Creating a base OS image from DVD ISO files is a one-time process. Building a base OS image creates a base vSphere template in your vSphere environment. You can use the base OS image template to create a Kubernetes node vSphere template for your cluster.
 
 Refer to the vCenter and vSphere Client documentation for details.
 

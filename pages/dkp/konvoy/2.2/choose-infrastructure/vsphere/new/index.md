@@ -204,7 +204,7 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
     kubectl get events | grep ${CLUSTER_NAME}
     ```
 
-    For brevity, this example uses `grep`. You can also use separate commands to get Events for specific objects, such as `kubectl get events --field-selector involvedObject.kind="AWSCluster"` and `kubectl get events --field-selector involvedObject.kind="AWSMachine"`.
+    For brevity, this example uses `grep`. You can also use separate commands to get Events for specific objects, such as `kubectl get events --field-selector involvedObject.kind="VSphereCluster"` and `kubectl get events --field-selector involvedObject.kind="VSphereMachine"`.
 
 ## Known Limitations
 

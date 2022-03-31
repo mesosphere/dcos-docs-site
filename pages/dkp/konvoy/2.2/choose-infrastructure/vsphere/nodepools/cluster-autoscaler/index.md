@@ -9,8 +9,6 @@ enterprise: false
 
 ## Cluster Autoscaler
 
-_%%% can we use autoscaler with vSphere?_
-
 [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/clusterapi) provides the ability to automatically scale-up or scale-down the number of worker nodes in a cluster, based on the number of pending pods to be scheduled. Running the Cluster Autoscaler is optional.
 
 Unlike [Horizontal-Pod Autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-fast-is-hpa-when-combined-with-ca), Cluster Autoscaler does not depend on any Metrics server and does not need Prometheus or any other metrics source.
@@ -60,7 +58,7 @@ Run the following steps to enable Cluster Autoscaler:
 
 1.  The Cluster Autoscaler logs will show that the worker nodes are associated with node-groups and that pending pods are being watched.
 
-1.  To demonstrate that it is working properly, create a large deployment which will trigger pending pods (For this example we used AWS m5.2xlarge worker nodes. If you have larger worker-nodes, you should scale up the number of replicas accordingly). _%%% we'll want a vSphere-specific example, if there is one_
+1.  To demonstrate that it is working properly, create a large deployment which will trigger pending pods.
 
     ```bash
     cat <<EOF | kubectl --kubeconfig=${CLUSTER_NAME}.conf apply -f -
