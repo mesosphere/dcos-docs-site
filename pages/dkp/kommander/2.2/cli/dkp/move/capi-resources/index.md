@@ -37,6 +37,5 @@ dkp move capi-resources [flags]
 
 ### SEE ALSO
 
-* [dkp move](/dkp/kommander/2.2/cli/dkp/move/)	 - Command "move" is deprecated, use "dkp move capi-resources" instead
-Move one of [capi-resources]
+* [dkp move](/dkp/kommander/2.2/cli/dkp/move/)	 - Move one of [capi-resources]
 

@@ -26,7 +26,7 @@ dkp create cluster aws [flags]
       --additional-tags stringToString              Tags to apply to the provisioned infrastructure (default [])
       --allow-missing-template-keys                 If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
       --ami string                                  AMI ID to use for all nodes
-      --ami-base-os string                          Base OS for Lookup search (ex. 'centos-7', 'ubuntu-18.04', 'ubuntu-20.04') (default "centos-7")
+      --ami-base-os string                          Base OS for Lookup search (ex. 'centos-7', 'ubuntu-18.04', 'ubuntu-20.04') (default "ubuntu-20.04")
       --ami-format string                           Lookup Format string to generate AMI search name from (ex. 'capa-ami-{{.BaseOS}}-?{{.K8sVersion}}-*') (default "capa-ami-{{.BaseOS}}-?{{.K8sVersion}}-*")
       --ami-owner string                            Owner ID for AMI Lookup search (ex. '258751437250') (default "258751437250")
       --aws-service-endpoints string                Custom AWS service endpoints in a semi-colon separated format: ${SigningRegion1}:${ServiceID1}=${URL},${ServiceID2}=${URL};${SigningRegion2}...
@@ -47,10 +47,9 @@ dkp create cluster aws [flags]
       --https-proxy string                          HTTPS proxy for CAPI controllers
       --internal-load-balancer                      Make the control plane load balancer internal, i.e., reachable only within the VPC.
       --kind-cluster-image string                   Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v0.0.0-dev.0")
-      --kind-cluster-name string                    Kind cluster name for the bootstrap cluster (default "konvoy-capi-bootstrapper")
       --kubeconfig string                           Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string          The image repository to use for pulling kubernetes images
-      --kubernetes-version string                   Kubernetes version (default "1.21.6")
+      --kubernetes-version string                   Kubernetes version (default "1.22.8")
   -n, --namespace string                            If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                            No Proxy list for CAPI controllers (default [])
   -o, --output string                               Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.

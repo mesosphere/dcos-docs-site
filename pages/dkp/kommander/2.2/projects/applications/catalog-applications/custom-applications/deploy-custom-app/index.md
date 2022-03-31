@@ -115,3 +115,7 @@ kubectl get helmreleases -n ${PROJECT_NAMESPACE}
 NAMESPACE               NAME            READY   STATUS                             AGE
 project-test-vjsfq      my-custom-app   True    Release reconciliation succeeded   7m3s
 ```
+
+## Upgrade custom applications
+
+You must maintain your custom applications manually. When upgrading DKP, ensure you validate for compatibility issues any custom applications you run against the current version of Kubernetes. We recommend upgrading to the latest compatible application versions as soon as possible.

@@ -33,7 +33,7 @@ dkp create nodepool vsphere name [flags]
       --http-proxy string                 HTTP proxy for nodes
       --https-proxy string                HTTPS proxy for nodes
       --kubeconfig string                 Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --kubernetes-version string         Kubernetes version (default "1.21.6")
+      --kubernetes-version string         Kubernetes version (default "1.22.8")
   -n, --namespace string                  If present, the namespace scope for this CLI request. (default "default")
       --network string                    The VM network to deploy the management cluster on.
       --no-proxy strings                  No Proxy list for nodes (default [])

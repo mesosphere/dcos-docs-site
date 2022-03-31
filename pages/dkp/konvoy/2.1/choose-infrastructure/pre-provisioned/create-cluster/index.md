@@ -63,7 +63,9 @@ Save this file. You may need to delete the node feature discovery worker pod in 
 
 ## Use the built-in Virtual IP
 
-As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. To use the virtual IP, add these flags to the `create cluster` command:
+As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. The built-in virtual IP uses the [kube-vip][kube-vip] project.
+To use the virtual IP, add these flags to the `create cluster` command:
+
 
 | Virtual IP Configuration                 | Flag                                 |
 | ---------------------------------------- | ------------------------------------ |
@@ -211,3 +213,4 @@ Confirm that your [Calico installation is correct][calico-install].
 [calico-method]: https://projectcalico.docs.tigera.io/reference/node/configuration#ip-autodetection-methods
 [create-secrets-and-overrides]: ../create-secrets-and-overrides
 [define-control-plane-endpoint]: ../define-control-plane-endpoint
+[kube-vip]: https://kube-vip.chipzoller.dev

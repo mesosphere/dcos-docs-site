@@ -19,7 +19,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a NAT
 
 1. Select the **Cluster has networking restrictions** card to display the configuration page.
 
-    <!--- ![Add Cluster Networking Options](/dkp/kommander/1.4/img/cluster-has-networking-restrictions.png) --->
+<!--- ![Add Cluster Networking Options](/dkp/kommander/1.4/img/cluster-has-networking-restrictions.png) --->
 
 1. Enter the **Cluster Name** of the cluster you're attaching and select a **Workspace** from the dropdown list (if entering the **Add Cluster** menu from the Global workspace).
 
@@ -35,11 +35,11 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a NAT
 
 1. If you have not attached this cluster before, you must create a new secret in the **Root CA Certificate** drop down menu. To do this in your Konvoy management cluster, view your base64 encoded Kubernetes secret values to copy and paste into the **Root CA Certificate** field:
 
-    ```bash
-    echo $(kubectl get secret -n kommander kommander-bootstrap-root-ca -o=go-template='{{index .data "tls.crt"}}')
-    ```
+   ```bash
+   echo $(kubectl get secret -n cert-manager kommander-ca -o=go-template='{{index .data "tls.crt"}}')
+   ```
 
-    Otherwise, select from the list of available Secrets.
+   Otherwise, select from the list of available Secrets.
 
    <!--- ![Network Cluster Configuration](/dkp/kommander/1.4/img/attach-network-restrict-cluster-tunnel-config.png) --->
 
