@@ -84,26 +84,26 @@ seed.sh ${KOMMANDER_AIRGAPPED_TAR_FILE}
 
 1. Once the registry has been seeded, load the bootstrap image.
 
-    ```bash
-    docker load < konvoy-bootstrap_$VERSION.tar
-    ```
+```bash
+docker load < konvoy-bootstrap_$VERSION.tar
+```
 
 1. Refresh your group membership.
 
- Logout:  
- ```bash
- exit
- ```
- Login:
- ```bash
- ssh user@x.x.x.x
- ```
+Logout:  
+```bash
+exit
+```
+Login:
+```bash
+ssh user@x.x.x.x
+```
 
 1.  Verify the contents of the air-gapped bundle.
 
-	```bash
-	rpm -qa
-	```
+```bash
+rpm -qa
+```
 The output should read as follows:
 
 	```bash
@@ -156,33 +156,33 @@ RHEL 7.9 requires copying the CentOS mirror GPG Key to all nodes.
 
 1. Copy the CentOS mirror GPG key to all of the nodes.
 
-	```bash
+```bash
 	curl -O http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-7
-	```
+```
 
 1. 	Move the GPG key to the Bastion node.
 
-	```bash
-	scp RPM-GPG-KEY-CentOS-7 <user>@<bastion_host>:~/
-	```
+```bash
+scp RPM-GPG-KEY-CentOS-7 <user>@<bastion_host>:~/
+```
 1. 	Log in to the Bastion host using the same credentials from the previous step.
 
-	```bash
-	ssh <user>@<bastion_host>
-	```
+```bash
+ssh <user>@<bastion_host>
+```
 
 1. 	Then, copy the GPG key to all nodes.
 
-	```bash
-	scp RPM-GPG-KEY-CentOS-7 <user>@<node-1-3>:/tmp/RPM-GPG-KEY-CentOS-7
-	```
+```bash
+scp RPM-GPG-KEY-CentOS-7 <user>@<node-1-3>:/tmp/RPM-GPG-KEY-CentOS-7
+```
 1.	Refresh your group membership.
 
-	```bash
-	// Logout
-	exit
+```bash
+// Logout
+exit
 
-	// Login
-	ssh user@x.x.x.x
-  ```
+// Login
+ssh user@x.x.x.x
+```
 After a successful login, move on to setting up Konvoy Image Builder.

@@ -30,21 +30,21 @@ The air-gapped bundle includes the following packages and tooling:
 
 1.  Define an environment variable for the Kubernetes version that corresponds with Konvoy release you are installing. You can find the correct Kubernetes version by checking the release notes for the release you are installing.
 
-    ```bash
-    export VERSION=1.21.6
-    ```
+```bash
+export VERSION=1.21.6
+```
 
 1.  Download the air-gapped bundle files.
 
-    ```bash
-    curl -O downloads.d2iq.com/konvoy/airgapped/os-packages_$VERSION_x86_64_rpms.tar.gz
-    curl -O downloads.d2iq.com/konvoy/airgapped/pip-packages.tar.gz
-    ```
+```bash
+curl -O downloads.d2iq.com/konvoy/airgapped/os-packages_$VERSION_x86_64_rpms.tar.gz
+curl -O downloads.d2iq.com/konvoy/airgapped/pip-packages.tar.gz
+```
 1.  Transfer the air-gapped bundle to the bastion host.
 
-    ```bash
-	scp $VERSION_x86_64_rpms.tar.gz <user>@<bastion_host>:~/
-	```
+```bash
+scp $VERSION_x86_64_rpms.tar.gz <user>@<bastion_host>:~/
+```
 1.  Login to the bastion host using the same credentials used in the previous step.
 
 	```bash
@@ -59,11 +59,11 @@ The air-gapped bundle includes the following packages and tooling:
     ```
 1.  Move into the created directory.
 
-  ```bash
+```bash
+cd dkp-$VERSION
+```
 
-    cd dkp-$VERSION
-    ```
 Then, begin loading the bootstrap image.
 
-[rhel_7_9]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.9_release_notes/index
-[centos7]: https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS7.2003
+[rhel_7_9]:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.9_release_notes/index
+[centos7]:https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS7.2003
