@@ -63,7 +63,9 @@ Save this file. You may need to delete the node feature discovery worker pod in 
 
 ## Use the built-in Virtual IP
 
-As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. To use the virtual IP, add these flags to the `create cluster` command:
+As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. The built-in virtual IP uses the [kube-vip][kube-vip] project.
+To use the virtual IP, add these flags to the `create cluster` command:
+
 
 | Virtual IP Configuration                 | Flag                                 |
 | ---------------------------------------- | ------------------------------------ |
@@ -74,9 +76,9 @@ As explained in [Define the Control Plane Endpoint][define-control-plane-endpoin
 
 ```bash
 dkp create cluster preprovisioned \
---cluster-name ${CLUSTER_NAME} \
---control-plane-endpoint-host 196.168.1.10 \
---virtual-ip-interface eth1
+    --cluster-name ${CLUSTER_NAME} \
+    --control-plane-endpoint-host 196.168.1.10 \
+    --virtual-ip-interface eth1
 ```
 
 Confirm that your [Calico installation is correct][calico-install].
@@ -89,8 +91,8 @@ When provisioning onto the Flatcar Container Linux distribution, you must instru
 
 ```bash
 dkp create cluster preprovisioned \
---cluster-name ${CLUSTER_NAME} \
---os-hint flatcar
+    --cluster-name ${CLUSTER_NAME} \
+    --os-hint flatcar
 ```
 
 Confirm that your [Calico installation is correct][calico-install].
@@ -112,13 +114,13 @@ If you require HTTP proxy configurations, you can apply them during the `create`
 
 ```bash
 dkp create cluster preprovisioned \
---cluster-name ${CLUSTER_NAME} \
---control-plane-http-proxy http://proxy.example.com:8080 \
---control-plane-https-proxy https://proxy.example.com:8080 \
---control-plane-no-proxy "127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local" \
---worker-http-proxy http://proxy.example.com:8080 \
---worker-https-proxy https://proxy.example.com:8080 \
---worker-no-proxy "127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
+    --cluster-name ${CLUSTER_NAME} \
+    --control-plane-http-proxy http://proxy.example.com:8080 \
+    --control-plane-https-proxy https://proxy.example.com:8080 \
+    --control-plane-no-proxy "127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local" \
+    --worker-http-proxy http://proxy.example.com:8080 \
+    --worker-https-proxy https://proxy.example.com:8080 \
+    --worker-no-proxy "127.0.0.1,10.96.0.0/12,192.168.0.0/16,kubernetes,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
 ```
 
 Confirm that your [Calico installation is correct][calico-install].
@@ -140,9 +142,9 @@ When the cluster is up and running, you can deploy and test workloads.
 
 ```bash
 dkp create cluster preprovisioned \
---cluster-name ${CLUSTER_NAME} \
---registry-mirror-cacert /tmp/registry.pem \
---registry-mirror-url https://registry.example.com
+    --cluster-name ${CLUSTER_NAME} \
+    --registry-mirror-cacert /tmp/registry.pem \
+    --registry-mirror-url https://registry.example.com
 ```
 
 Confirm that your [Calico installation is correct][calico-install].
@@ -211,3 +213,4 @@ Confirm that your [Calico installation is correct][calico-install].
 [calico-method]: https://projectcalico.docs.tigera.io/reference/node/configuration#ip-autodetection-methods
 [create-secrets-and-overrides]: ../create-secrets-and-overrides
 [define-control-plane-endpoint]: ../define-control-plane-endpoint
+[kube-vip]: https://kube-vip.chipzoller.dev
