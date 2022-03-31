@@ -1,22 +1,23 @@
 ---
 layout: layout.pug
 beta: false
-navigationTitle: Insight installation and configuration
-title: Insight installation and configuration
-excerpt: Insight installation and configuration
+navigationTitle: Insights installation and configuration
+title: Insights installation and configuration
+excerpt: Insights installation and configuration
 menuWeight: 30
 beta: true
 enterprise: false
+techPreview: true
 ---
 
 The Insight Management UI is enabled by default with the installation of the DKP platform. No other actions are required.
 
-## Enable insight components
+## Enable Insights engine
 
-To receive Insights from attached clusters, you must manually enable the Insights components in the attached clusters.
+To receive insight items from attached clusters, you must manually enable the Insights engine in the attached clusters.
 
 <add process>
 
-## Upgrade insight components
+## Upgrade Insights engine
 
 <add process>

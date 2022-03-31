@@ -9,4 +9,4 @@ beta: true
 enterprise: false
 ---
 
-For this initial release, DKP Insight is provided by default with no other action or purchase required on your part. However, future releases will require an add-on trial license or Enterprise license.
+For this initial release, DKP Insights is provided by default with no other action or purchase required on your part. However, future releases may require additional licenses.
