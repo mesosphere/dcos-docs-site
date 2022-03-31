@@ -10,7 +10,7 @@ enterprise: false
 techPreview: true
 ---
 
-The Insight Management UI is enabled by default with the installation of the DKP platform. No other actions are required.
+DKP Insights is enabled by default with the installation of the DKP platform. No other actions are required.
 
 ## Enable Insights engine
 
