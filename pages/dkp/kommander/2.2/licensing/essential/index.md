@@ -9,7 +9,7 @@ beta: false
 
 ## DKP Essential overview
 
-[DKP Essential Diagram](../img/dkpessentialdiagram.png)
+![DKP Essential Diagram](/dkp/kommander/2.2/img/dkpessentialdiagram.png)
 
 DKP Essential is a FIPS-compliant, self-managed single cluster Kubernetes solution that gives you a feature-rich, easy-to-deploy, and easy-to-manage entry-level cloud container platform. The DKP Essential license gives the user access to the entire Konvoy cluster environment, as well as the Kommander platform application manager.
 
