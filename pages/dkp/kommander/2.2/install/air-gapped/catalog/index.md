@@ -221,7 +221,7 @@ It may take a while to push all the images to your image registry, depending on 
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-applications_${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-applications-${VERSION}.tar.gz"
     ```
 
 1.  Download the Kommander charts bundle:
@@ -240,7 +240,7 @@ It may take a while to push all the images to your image registry, depending on 
 
     ```bash
     kommander install --installer-config ./install.yaml \
-    --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
+    --kommander-applications-repository kommander-applications-${VERSION}.tar.gz \
     --charts-bundle dkp-kommander-charts-bundle-${VERSION}.tar.gz \
     --charts-bundle dkp-catalog-applications-charts-bundle-${VERSION}.tar.gz
     ```
