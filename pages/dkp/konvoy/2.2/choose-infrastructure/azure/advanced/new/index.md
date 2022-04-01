@@ -26,7 +26,7 @@ enterprise: false
 1.  To create a cluster name that is unique, use the following command:
 
     ```bash
-    CLUSTER_NAME=azure-example-azure-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+    export CLUSTER_NAME=azure-example-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 

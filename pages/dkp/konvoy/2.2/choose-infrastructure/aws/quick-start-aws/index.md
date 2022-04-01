@@ -43,7 +43,7 @@ Before starting the Konvoy installation, verify that you have:
     Set the environment variable to be used throughout this documentation:
 
     ```bash
-    export CLUSTER_NAME=my-aws-cluster
+    export CLUSTER_NAME=aws-example
     ```
 
 ## Create a new AWS Kubernetes cluster
