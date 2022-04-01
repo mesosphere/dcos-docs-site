@@ -17,12 +17,8 @@ DKP Insights works seamlessly within networked or air-gapped environments. It co
 
 You can filter the insight items for a selected cluster or project by:
 
-- All Insights
-- Availability
-- Best Practices
-- Configuration
-- Cost
-- Performance
-- Security
-- Upgrade
-- Environment
+- Project name
+- Cluster name
+- Description
+
+You can also toggle into each severity level.
