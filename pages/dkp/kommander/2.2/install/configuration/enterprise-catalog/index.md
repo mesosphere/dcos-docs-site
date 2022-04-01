@@ -50,16 +50,10 @@ The following section describes each label:
 
 When running in air-gapped environments, update the configuration by replacing `gitRepositorySpec` with the `path` field pointing to a local path of the DKP catalog applications git repository.
 
-1.  Set the `VERSION` environment variable to the version of Kommander, for example:
-
-    ```bash
-    export VERSION=v2.2.0
-    ```
-
 1.  Download the DKP catalog application Git repository archive:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-catalog-applications-${VERSION}.tar.gz" -O dkp-catalog-applications.tar.gz
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-v2.2.0.tar.gz" -O dkp-catalog-applications.tar.gz
     ```
 
 1.  Update the Kommander configuration file with:
