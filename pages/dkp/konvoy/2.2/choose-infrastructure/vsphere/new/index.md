@@ -53,7 +53,7 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
       --vm-template <TEMPLATE_NAME>
     ```
 
-<!--- 1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy: %%% is this even possible in vSphere?
+1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy: %%% is this even possible in vSphere?
 
     ```bash
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
@@ -122,7 +122,7 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
     kubeadmcontrolplane.controlplane.cluster.x-k8s.io/aws-example-control-plane created
     machinedeployment.cluster.x-k8s.io/aws-example-mp-0 created
     kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-mp-0 created
-    ``` --->
+    ```
 
 1.  Use the `wait` command to monitor the cluster control-plane readiness:
 
