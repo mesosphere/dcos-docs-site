@@ -19,7 +19,7 @@ Start with your Management Cluster in Kommander, and then, if more than one exis
 
 The overall process for upgrading to the latest version of DKP is done on each Workspace or cluster, with the following processes:
 
-Ensure you have a recent backup of your environment's current state in case rolling back is not possible. If you do not have one yet, create an [on-demand backup][backup].
+1.  Ensure you have a recent backup of your environment's current state in case rolling back is not possible. If you do not have one yet, create an [on-demand backup][backup].
 
    For **Kommander**, on your Management Cluster:
 
@@ -59,4 +59,4 @@ Ensure you have a recent backup of your environment's current state in case roll
 [upgrade_konvoy_capi]: /upgrade-konvoy
 [upgrade_konvoy_core]: /upgrade-konvoy
 [upgrade_konvoy_kubernetes]: /upgrade-konvoy
-[backup]: ../backup-and-restore/
+[backup]: ../backup-and-restore/#back-up-on-demand
