@@ -14,7 +14,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 1.  Set the environment variable to a name for this cluster.
 
     ```bash
-    CLUSTER_NAME=aks-example
+    export CLUSTER_NAME=aks-example
     ```
 
     See [Get Started with AKS](../../aks-quickstart) for information on naming your cluster.
@@ -66,7 +66,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
-    ```text
+    ```sh
     cluster.cluster.x-k8s.io/aks-example condition met
     ```
 
@@ -78,7 +78,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     dkp describe cluster -c ${CLUSTER_NAME}
     ```
 
-    ```text
+    ```sh
     NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
     /aks-example                                                    True                     35s
     ├─ClusterInfrastructure - AzureManagedCluster/aks-example
