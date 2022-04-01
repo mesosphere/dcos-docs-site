@@ -155,7 +155,7 @@ Repeat this step for each additional node pool.
 
 1. If you have any additional management or managed clusters, review the [DKP Upgrade][dkpup] documentation for next steps.
 
-[dkup]: .../dkp-upgrade/
+[dkpup]: .../dkp-upgrade/
 [upgradekomm]: .../upgrade-kommander/
 [supportsite]: https://support.d2iq.com/hc/en-us
 [airgapbundle]: .../konvoy/2.2/choose-infrastructure/airgapbundle/

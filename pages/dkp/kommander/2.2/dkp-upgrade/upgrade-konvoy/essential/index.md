@@ -148,7 +148,7 @@ The output should be similar to:
 ```
 Repeat this step for each additional node pool.
 
-[dkup]: .../dkp-upgrade/
+[dkpup]: .../dkp-upgrade/
 [upgradekomm]: .../upgrade-kommander/
 [supportsite]: https://support.d2iq.com/hc/en-us
 [airgapbundle]: .../konvoy/2.2/choose-infrastructure/airgapbundle/
