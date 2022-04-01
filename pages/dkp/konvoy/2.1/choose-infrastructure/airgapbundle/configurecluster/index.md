@@ -11,7 +11,7 @@ This section covers the configuration and creation of a bootstrap cluster and it
 
 ## Configure the bootstrap cluster
 
-1. Set the cluster name using environment variables.
+1.   To make the following examples easier to follow, set an environment variable with the cluster name.   
 
 ```bash
 CLUSTER_SUFFIX=ABC
