@@ -13,12 +13,6 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 ## Prerequisites
 
--   Set the `VERSION` environment variable to the version of Kommander you are upgrading to, for example:
-
-    ```bash
-    export VERSION=v2.2.0
-    ```
-
 -   [Download][download_binary] and install the latest DKP CLI binary on your computer.
 -   Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
 -   If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
@@ -30,19 +24,19 @@ This section describes how to upgrade your Kommander Management cluster and all 
   Download the Kommander application definitions:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-applications-${VERSION}.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar.gz"
   ```
   
   Download the Kommander charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-kommander-charts-bundle-${VERSION}.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
   ```
   
   If you have any DKP Catalog Applications, download the DKP Catalog Application charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-catalog-applications-charts-bundle-${VERSION}.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
   ```
 
 ## Upgrade Kommander
@@ -51,24 +45,18 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
 <p class="message--note"><strong>NOTE:</strong> As stated earlier, an alternative to initializing the KUBECONFIG environment variable is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander upgrades on the workload cluster.</p>
 
-1.  Set the `VERSION` environment variable to the version of Kommander you are upgrading to (if you have not already), for example:
-
-    ```bash
-    export VERSION=v2.2.0
-    ```
-
 1.  Use the DKP CLI to upgrade Kommander and all the Platform Applications in the Management Cluster:
 
     -   For air-gapped:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-${VERSION}.tar.gz --kommander-applications-repository kommander-applications-${VERSION}.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
         ```
 
     -   For air-gapped **with** DKP Catalog Applications in a multi-cluster environment:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-${VERSION}.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-${VERSION}.tar.gz --kommander-applications-repository kommander-applications-${VERSION}.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
         ```
 
         After the upgrade, follow the [DKP Catalog Applications configuration page](../../install/configuration/enterprise-catalog#air-gapped-catalog-configuration) to update the Git repository.
