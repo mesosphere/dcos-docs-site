@@ -4,7 +4,6 @@ navigationTitle: AKS Make New Cluster Self-Managed
 title: Make the New Cluster Self-Managed
 menuWeight: 25
 excerpt: Make the new Kubernetes cluster manage itself
-beta: false
 enterprise: false
 ---
 
