@@ -10,7 +10,7 @@ Project Roles are used to define permissions at the namespace level.
 
 ## Configure Project Role - UI Method
 
-In the example below, a Project Role is created with a single Rule. This Project Role corresponds to a admin role.
+In the example below, a Project Role is created with a single Rule. This Project Role corresponds to an admin role.
 
 ![Project Role Form](../../img/project-create-role.png)
 
