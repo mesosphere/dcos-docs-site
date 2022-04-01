@@ -74,7 +74,25 @@ It is possible to push new charts as well:
 Or push a new bundle:
 
    ```bash
-   kommander push chart-bundle [chartsTarball]
+   export KUBECONFIG=${MANAGEMENT_KUBECONFIG}
+   export WORKSPACE_NAMESPACE=kommander
+
+   kubectl apply -f - <<EOF
+   apiVersion: source.toolkit.fluxcd.io/v1beta1
+   kind: GitRepository
+   metadata:
+    name: insights-catalog-applications
+    namespace: ${WORKSPACE_NAMESPACE}
+    labels:
+     kommander.d2iq.io/gitapps-gitrepository-type: dkp
+     kommander.d2iq.io/workspace-default-catalog-repository: "true"
+   spec:
+    interval: 1m0s
+    ref:
+     branch: main
+    timeout: 20s
+    url: https://github.com/mesosphere/insights-catalog-applications
+   EOF
    ```
 
 Check the built-in help text for each command for more information.

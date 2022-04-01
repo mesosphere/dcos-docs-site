@@ -11,7 +11,7 @@ techPreview: true
 
 <p class="message--note"><strong>NOTE:</strong> We are offering DKP Insights with this release as a Technical preview only. </p>
 
-We designed DKP Insights to assist Kubernetes Administrators with daily tasks, such as ensuring your clusters are secure, debugging, monitoring, and anticipating issues. DKP Insights collects logs, events, and metrics from the DKP Management cluster and managed or attached Kubernetes clusters. It then generates rules-based insights on potential problems of varying critical levels so that you can quickly identify and resolve them yourself.
+We designed DKP Insights to assist Kubernetes Administrators with daily tasks, such as checking for security issues, monitoring resource usage, verifying that workloads and clusters follow best practices, and resolving common issues. DKP Insights collects logs, events, and metrics from the DKP Management cluster and managed or attached Kubernetes clusters. It then generates rules-based insights on potential problems of varying critical levels so that you can quickly identify and resolve them yourself.
 
 DKP Insights works seamlessly within networked or air-gapped environments. It collects metrics, logs, and events from multiple data sources and uses rule-based heuristics to detect issues from the data and generate insight items for the users.
 
@@ -21,4 +21,14 @@ You can filter the insight items for a selected cluster or project by:
 - Cluster name
 - Description
 
-You can also toggle into each severity level.
+From the DKP Workspace Dashboard, you can toggle by severity level:
+
+- Critical
+- Warning
+- Notice/informational
+
+Alternately, you can view the DKP Insights dashboard by selecting Insights from the sidebar menu.
+
+## Architecture
+
+<add diagram & description>
