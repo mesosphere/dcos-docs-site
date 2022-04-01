@@ -8,8 +8,6 @@ excerpt: How workspace platform applications work
 
 When attaching a cluster, Kommander deploys certain platform applications on the newly attached cluster. Operators can use the Kommander UI to customize which platform applications to deploy to the attached clusters in a given workspace.
 
-The following table describes the list of platform applications that are deployed on attachment.
-
 Currently, the monitoring stack is deployed by default. The logging stack is not.
 
 Review the [workspace platform application resource requirements](./platform-application-requirements/) to ensure that the attached clusters have sufficient resources.
@@ -25,6 +23,8 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 <p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the applications, which are listed <a href="./platform-application-dependencies/">in the workspace platform application dependencies</a> documentation. Review them carefully prior to customizing to ensure that the applications are deployed successfully.</p>
 
 ## Workspace platform applications
+
+The following table describes the list of platform applications that are deployed on attachment:
 
 | NAME                          | APP ID                | Deployed by default |
 | ----------------------------- | --------------------- | ------------------- |
