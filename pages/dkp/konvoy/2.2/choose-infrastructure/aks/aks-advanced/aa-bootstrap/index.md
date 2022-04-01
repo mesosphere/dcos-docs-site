@@ -27,23 +27,8 @@ Before you begin, you must:
     ```
 
     ```sh
-    INFO[2021-12-22T13:51:34-05:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
-    INFO[2021-12-22T13:53:09-05:00] Created bootstrap controllers                 src="bootstrap/controllers.go:111"
-    INFO[2021-12-22T13:53:09-05:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:115"
-    INFO[2021-12-22T13:53:09-05:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
-    INFO[2021-12-22T13:53:09-05:00] Created/Updated Tigera operator               src="bootstrap/clusterresourceset.go:42"
-    INFO[2021-12-22T13:53:09-05:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:95"
-    INFO[2021-12-22T13:53:09-05:00] Created/Updated AWS EBS CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:100"
-    INFO[2021-12-22T13:53:09-05:00] Initializing Azure Disk CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:102"
-    INFO[2021-12-22T13:53:09-05:00] Created Azure Disk CustomResourceSet          src="bootstrap/clusterresourceset.go:107"
-    INFO[2021-12-22T13:53:09-05:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:109"
-    INFO[2021-12-22T13:53:09-05:00] Created/Updated Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:114"
-    INFO[2021-12-22T13:53:09-05:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:181"
-    INFO[2021-12-22T13:53:09-05:00] Created/Updated Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:186"
-    INFO[2021-12-22T13:53:09-05:00] Initializing Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:239"
-    INFO[2021-12-22T13:53:09-05:00] Created/Updated Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:244"
-    INFO[2021-12-22T13:53:09-05:00] Initializing NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:297"
-    INFO[2021-12-22T13:53:09-05:00] Created/Updated NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:302"
+    ✓ Creating a bootstrap cluster
+    ✓ Initializing bootstrap controllers
     ```
 
     Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:

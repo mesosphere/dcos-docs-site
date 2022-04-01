@@ -14,7 +14,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 1.  Set the environment variable to the name you assigned this cluster.
 
     ```bash
-    CLUSTER_NAME=my-eks-cluster
+    export CLUSTER_NAME=eks-example
     ```
 
     See [Get Started with EKS](../../quick-start) for information on naming your cluster.
@@ -69,7 +69,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
 
-    ```text
+    ```sh
     cluster.cluster.x-k8s.io/eks-example condition met
     ```
 
