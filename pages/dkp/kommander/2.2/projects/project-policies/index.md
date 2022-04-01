@@ -10,7 +10,7 @@ Project Role Bindings grant access to a specified Project Role for a specified g
 
 ## Configure Project Role Bindings - UI Method
 
-Before you can create a Project Role Binding, ensure you have created a Group. A Kommander Group can contain one or several Identity Provider users and/or groups.
+Before you can create a Project Role Binding, ensure you have created a Group. A Kommander Group can contain one or several Identity Provider users or groups.
 
 You can assign a role to this Kommander Group:
 
