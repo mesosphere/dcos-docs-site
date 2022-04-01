@@ -97,6 +97,46 @@ The following services and service components have been upgraded to the listed v
 
 ## Known issues
 
+### Overriding configuration for kube-oidc-proxy and traefik-forward-auth
+
+Configuration overrides for kube-oidc-proxy and traefik-forward-auth platform applications must be manually applied for each cluster that requires custom configuration on top of the default configuration. Passing in the configuration via the CLI installer *will not work*. Instead, you must edit the cluster's custom configuration in the appropriate `FederatedConfigMap`'s `spec.overrides` list. For kube-oidc-proxy, the `FederatedConfigMap` is called `kube-oidc-proxy-overrides`, and for traefik-forward-auth, it is called `traefik-forward-auth-kommander-overrides`. See below for an example to override the kube-oidc-proxy configuration to use a custom domain `mycluster.domain.dom`:
+
+```bash
+kubectl edit federatedconfigmap kube-oidc-proxy-overrides -n kommander
+```
+
+Modify `oidc.issuerUrl` under the `values.yaml` key to override it for the `host-cluster` cluster:
+
+```sh
+apiVersion: types.kubefed.io/v1beta1
+kind: FederatedConfigMap
+metadata:
+  name: kube-oidc-proxy-overrides
+  namespace: kommander
+[...]
+spec:
+  overrides:
+  - clusterName: host-cluster
+    clusterOverrides:
+    - op: add
+      path: /data
+      value:
+        values.yaml: |
+          initContainers: []
+          oidc:
+            caPEM: |
+              <redacted>
+            caSecretName: ""
+            clientId: kube-apiserver
+            clientSecret:
+              value: <redacted>
+            groupsClaim: groups
+            groupsPrefix: 'oidc:'
+            issuerUrl: mycluster.domain.dom/dex
+            usernameClaim: email
+[...]
+```
+
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->
