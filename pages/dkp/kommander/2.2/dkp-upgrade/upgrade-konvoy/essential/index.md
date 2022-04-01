@@ -58,7 +58,7 @@ The command should output something similar to the following:
 ✓ Deleting Outdated Global ClusterResourceSets
 ```
 
-1. Once finished, verify that the components were upgraded using the `kubectl get provider` command.
+2. Once finished, verify that the components were upgraded using the `kubectl get provider` command.
 
 ```bash
 kubectl get provider --all-namespaces
@@ -81,11 +81,11 @@ To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API 
 
 Your cluster comes preconfigured with a few different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may come pre-bundled with newer versions of these addons. Perform the following steps to update these addons.
 
-1. If you have more than one essential license, ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the KUBECONFIG environment variable [to the appropriate kubeconfig file’s location][kubeconfig].
+2. If you have more than one essential license, ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the KUBECONFIG environment variable [to the appropriate kubeconfig file’s location][kubeconfig].
 
 <p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable is to use the <code>--kubeconfig=cluster_name.conf</code> flag, ensuring that Kommander upgrades on the workload cluster.</p>
 
-1. Replace `my-aws-cluster` with the name of the cluster.
+3. Replace `my-aws-cluster` with the name of the cluster.
 
 ```bash
 export CLUSTER_NAME=my-aws-cluster
@@ -110,7 +110,7 @@ clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-my-aws-clust
 configmap/nvidia-feature-discovery-my-aws-cluster upgraded
 ```
 
-1. Monitor the pods for the core addons restarting in your cluster:
+4. Monitor the pods for the core addons restarting in your cluster:
 
 ```bash
 ###DEV ADD OUTPUT HERE
@@ -123,7 +123,7 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
 
 1. Replace `my-aws-cluster` with the name of the cluster.
 
-1. Upgrade the Kubernetes version of the control plane.
+2. Upgrade the Kubernetes version of the control plane.
 
 ```bash
 dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
@@ -135,7 +135,7 @@ The output should be similar to:
 ### DEV ENTER OUTPUT HERE
 ```
 
-1. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
+3. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
 
 ```bash
 export NODEPOOL_NAME=my-nodepool

@@ -61,7 +61,7 @@ The command should output something similar to the following:
 ✓ Deleting Outdated Global ClusterResourceSets
 ```
 
-1. Once finished, verify that the components were upgraded using the `kubectl get provider` command.
+2. Once finished, verify that the components were upgraded using the `kubectl get provider` command.
 
 ```bash
 kubectl get provider --all-namespaces
@@ -88,7 +88,7 @@ Your cluster comes preconfigured with a few different core addons that provide f
 
 <p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable is to use the <code>--kubeconfig=cluster_name.conf</code> flag, ensuring that Kommander upgrades on the workload cluster.</p>
 
-1. Replace `my-aws-cluster` with the name of the cluster.
+2. Replace `my-aws-cluster` with the name of the cluster.
 
 ```bash
 export CLUSTER_NAME=my-aws-cluster
@@ -113,7 +113,7 @@ clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-my-aws-clust
 configmap/nvidia-feature-discovery-my-aws-cluster upgraded
 ```
 
-1. Monitor the pods for the core addons restarting in your cluster:
+3. Monitor the pods for the core addons restarting in your cluster:
 
 ```bash
 ###DEV ADD OUTPUT HERE
@@ -126,9 +126,9 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
 
 1. Replace `my-aws-cluster` with the name of the cluster.
 
-1. Use the `--cluster-name` flag to reference the cluster on which you want to upgrade the Kubernetes version.
+2. Use the `--cluster-name` flag to reference the cluster on which you want to upgrade the Kubernetes version.
 
-1. Upgrade the Kubernetes version of the control plane.
+3. Upgrade the Kubernetes version of the control plane.
 
 ```bash
 dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
@@ -140,7 +140,7 @@ The output should be similar to:
 ### DEV ENTER OUTPUT HERE
 ```
 
-1. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
+4. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
 
 ```bash
 export NODEPOOL_NAME=my-nodepool
@@ -153,7 +153,7 @@ The output should be similar to:
 ```
 Repeat this step for each additional node pool.
 
-1. If you have any additional management or managed clusters, review the [DKP Upgrade][dkpup] documentation for next steps.
+If you have any additional management or managed clusters, review the [DKP Upgrade][dkpup] documentation for next steps.
 
 [dkpup]: .../dkp-upgrade/
 [upgradekomm]: .../upgrade-kommander/
