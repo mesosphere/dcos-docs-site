@@ -10,12 +10,17 @@ excerpt: Project Quotas and Limit Ranges can be set up to limit the number of re
 
 Project Quotas and Limit Ranges can be set up to limit the number of resources the Project team uses. Quotas and Limit Ranges are applied to all project clusters.
 
-![Project Quotas and Limit Ranges](../../img/project-quota.png)
-Project Quotas and Limit Ranges
+1. Select the workspace your project was created in from the workspace selection dropdown in the header.
 
-Kommander provides a set of default resources for which you can set Quotas, or you can define Quotas for custom resources. We recommended that you set Quotas for CPU and Memory. Using Limit Ranges, you can restrict the resource consumption of individual Pods, Containers, and Persistent Volume Claims in the project namespace. You can also constrain memory and CPU resources consumed by Pods and Containers, and you can constrain storage resources consumed by Persistent Volume Claims.
+1. In the sidebar menu select **Projects**, and then select the project you would like to configure from the table.
 
-![Adding a custom Quota](../../img/project-quotas-add-custom.png)
+1. Select the **Quotas & Limit Ranges** tab, and then select the **Edit** button.
+
+    Kommander provides a set of default resources for which you can set Quotas, or you can define Quotas for custom resources. We recommended that you set Quotas for CPU and Memory. Using Limit Ranges, you can restrict the resource consumption of individual Pods, Containers, and Persistent Volume Claims in the project namespace. You can also constrain memory and CPU resources consumed by Pods and Containers, and you can constrain storage resources consumed by Persistent Volume Claims.
+
+1. To add a custom quota, scroll to the bottom of the form and select **Add Quota**.
+
+1. When you are finished, select the **Save** button.
 
 ## Creating Project Quotas & Limit Ranges - CLI Method
 

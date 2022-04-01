@@ -10,9 +10,13 @@ Project Secrets can be created to make sure Kubernetes Secrets are automatically
 
 ## Configuring  Project Secrets - UI Method
 
-![Project Secret Form](../../img/project-create-secret.png)
+1. Select the workspace your project was created in from the workspace selection dropdown in the header.
 
-![Project Secret Form](../../img/project-create-secret.png)
+1. In the sidebar menu select **Projects**, and then select the project you would like to configure from the table.
+
+1. Select the **Secrets** tab, and then select the **Create Secret** button.
+
+1. Complete the form and select the **Create** button.
 
 ## Configuring  Project Secrets - CLI Method
 
