@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Insight items
 title: Insight items
 excerpt: Insight items

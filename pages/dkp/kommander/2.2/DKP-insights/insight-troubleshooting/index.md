@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Insight item troubleshooting
 title: Insight item troubleshooting
 excerpt: Insight item troubleshooting

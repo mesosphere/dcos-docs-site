@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Insights installation and configuration
 title: Insights installation and configuration
 excerpt: Insights installation and configuration

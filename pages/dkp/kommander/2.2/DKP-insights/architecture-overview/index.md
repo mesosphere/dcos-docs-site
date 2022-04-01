@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Insights architecture overview
 title: Insights architecture overview
 excerpt: Insights architecture overview
