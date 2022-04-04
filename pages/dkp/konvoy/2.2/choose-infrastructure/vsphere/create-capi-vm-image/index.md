@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Create a CAPI VM Image
-title: Create a CAPI VM Image
+navigationTitle: Create a vSphere VM Template
+title: Create a vSphere VM Template
 menuWeight: 40
-excerpt: Create a CAPI VM image using the DKP image builder
+excerpt: Create a vSphere VM template using the base OS image and the DKP image builder
 enterprise: false
 ---
 

@@ -53,7 +53,7 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
       --vm-template <TEMPLATE_NAME>
     ```
 
-1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy: %%% is this even possible in vSphere?
+1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy:
 
     ```bash
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
@@ -97,15 +97,15 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
 
     1.  Cluster
 
-        A _Cluster_ object has references to the infrastructure-specific and control plane objects. Because this is a vSphere cluster, there is an object _%%% is there one? if so, what' it called?_ that describes the infrastructure-specific cluster properties. Here, this means the vSphere _%%% parm1, parm2, parm3, rule1, rule2, etc_ required by the Pod network implementation.
+        A _Cluster_ object has references to the infrastructure-specific and control plane objects. Because this is a vSphere cluster, there is an object that describes the infrastructure-specific cluster properties.
 
     1.  Control Plane
 
-        A _KubeadmControlPlane_ object describes the control plane, which is the group of machines that run the Kubernetes control plane components, which include the etcd distributed database, the API server, the core controllers, and the scheduler. The object describes the configuration for these components. The object also has a reference to an infrastructure-specific object that describes the properties of all control plane machines. Here, it references an _vSphereMachineTemplate_ object, which describes _%%% thing1, thing2, and thing3_, among other properties.
+        A _KubeadmControlPlane_ object describes the control plane, which is the group of machines that run the Kubernetes control plane components, which include the etcd distributed database, the API server, the core controllers, and the scheduler. The object describes the configuration for these components. The object also has a reference to an infrastructure-specific object that describes the properties of all control plane machines. Here, it references an _vSphereMachineTemplate_ object.
 
     1.  Node Pool
 
-        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (for example, kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and a _vSphereMachineTemplate_ object, which describes _%%% thing 1, thing2, and thing3_, among other properties.
+        A Node Pool is a collection of machines with identical properties. For example, a cluster might have one Node Pool with large memory capacity, another Node Pool with GPU support. Each Node Pool is described by three objects: The MachinePool references an object that describes the configuration of Kubernetes components (for example, kubelet) deployed on each node pool machine, and an infrastructure-specific object that describes the properties of all node pool machines. Here, it references a _KubeadmConfigTemplate_, and a _vSphereMachineTemplate_ object.
 
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
@@ -116,12 +116,11 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
     ```
 
     ```sh
-    %%% need vSphere specific output
-    cluster.cluster.x-k8s.io/aws-example created
-    cluster.infrastructure.cluster.x-k8s.io/aws-example created
-    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/aws-example-control-plane created
-    machinedeployment.cluster.x-k8s.io/aws-example-mp-0 created
-    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-mp-0 created
+    cluster.cluster.x-k8s.io/vsphere-example created
+    cluster.infrastructure.cluster.x-k8s.io/vsphere-example created
+    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/vsphere-example-control-plane created
+    machinedeployment.cluster.x-k8s.io/vsphere-example-mp-0 created
+    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/vsphere-example-mp-0 created
     ```
 
 1.  Use the `wait` command to monitor the cluster control-plane readiness:
@@ -218,6 +217,9 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
 
 -   DKP Konvoy does not validate edits to cluster objects.
 
+The optional, next step is to [make the cluster self-managing][make-self-manage]. The step is optional because, as an example, if you are using an existing, self-managed cluster to create a managed cluster, you would not want the managed cluster to be self-managed.
+
 [bootstrap]: ../bootstrap
 [capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
 [k8s_custom_resources]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
+[make-self-manage]: ../self-managed/

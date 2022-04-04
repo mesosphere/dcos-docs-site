@@ -19,7 +19,7 @@ Before using DKP to create a vSphere cluster, verify that you have:
 
 - An x86_64-based Linux&reg; or macOS&reg; machine.
 
-- The `dkp` binaries for Linux or macOS.
+- The `dkp` and [Konvoy Image Builder (KIB)][kib-binary] binaries for Linux or macOS.
 
 - [Docker&reg;][install_docker] version 18.09.2 or later installed.
   You must have Docker installed on the host where the DKP Konvoy CLI runs. For example, if you are installing Konvoy on your laptop, ensure the laptop has a supported version of Docker.
@@ -29,8 +29,6 @@ Before using DKP to create a vSphere cluster, verify that you have:
 - [kubectl][install_kubectl] 1.21.6 for interacting with the running cluster, installed on the host where the DKP Konvoy command line interface (CLI) runs.
 
 - A valid VMware vSphere account with credentials configured.
-
-<p class="message--note"><strong>NOTE: </strong>On macOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
 
 ## VMware vSphere Prerequisites
 
@@ -76,3 +74,4 @@ The next step is:
 [vmware-esxi-hosts]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-B2F01BF5-078A-4C7E-B505-5DFFED0B8C38.html
 [create-base-os-image]: ../create-base-os-image/
 [create-bastion-vm]: ../air-gapped/create-bastion-vm
+[kib-binary]: https://github.com/mesosphere/konvoy-image-builder/releases/tag/v1.10.0

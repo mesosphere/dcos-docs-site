@@ -29,7 +29,7 @@ Creating a node pool is useful when you need to run workloads that require machi
     export NODEPOOL_NAME=example
     ```
 
-## Create an AWS node pool
+## Create an vSphere node pool
 
 Create a new vSphere node pool with 3 replicas using this command:
 
