@@ -53,9 +53,9 @@ Bundled with DKP Essential is a single cluster management UI that can be used in
 
 For more information concerning the global and workspace-level UI, see [Workspaces][workspaces]
 
-[choose-infrastructure]: .../konvoy/2.2/choose-infrastructure/
-[workspaceplatform]: .../workspaces/applications/platform-applications/
-[capi-concepts-and-terms]: .../konvoy/2.1/major-version-upgrade/capi-concepts-and-terms/
-[addlicense]: .../add/
-[workspaces]: .../workspaces/
-[dkpenterprise]: .../enterprise/
+[choose-infrastructure]: ../konvoy/2.2/choose-infrastructure/
+[workspaceplatform]: ../workspaces/applications/platform-applications/
+[capi-concepts-and-terms]: ../konvoy/2.1/major-version-upgrade/capi-concepts-and-terms/
+[addlicense]: ../add/
+[workspaces]: ../workspaces/
+[dkpenterprise]: ../enterprise/

@@ -9,7 +9,7 @@ beta: false
 
 ## DKP Enterprise overview
 
-![DKP Enterprise Diagram](/dkp/kommander/2.2/img/dkp_enterprise_diagram_v2.png)
+![DKP Enterprise Diagram](/dkp/kommander/2.2/img/dkpenterprisediagramv2.png)
 
 DKP Enterprise is a multi-cluster lifecycle management Kubernetes solution centered around a management cluster that manages multiple attached or managed Kubernetes clusters via a centralized management dashboard. The management dashboard gives you a single point of observability and control throughout all of your attached or managed clusters. The DKP Enterprise license gives the user access to the entire Konvoy cluster environment, the Kommander UI dashboard that deploys platform and catalog applications as well as multi-cluster management, and comprehensive compatibility with our full range of infrastructure deployment options.
 
@@ -63,12 +63,12 @@ Bundled with DKP Enterprise is a multi-cluster management UI that can be used in
 
 For more information concerning the global and workspace-level UI, see [Workspaces][workspaces]
 
-[choose-infrastructure]: .../konvoy/2.2/choose-infrastructure/
-[projects]: .../projects/
-[workspacecatapps]: .../workspaces/applications/catalog-applications/
-[identityprov]: .../operations/identity-providers/
-[workspaceplatform]: .../workspaces/applications/platform-applications/
-[capi-concepts-and-terms]: .../konvoy/2.1/major-version-upgrade/capi-concepts-and-terms/
-[addlicense]: .../add/
-[workspaces]: .../workspaces/
-[dkpenterprise]: .../enterprise/
+[choose-infrastructure]: ../konvoy/2.2/choose-infrastructure/
+[projects]: ../projects/
+[workspacecatapps]: ../workspaces/applications/catalog-applications/
+[identityprov]: ../operations/identity-providers/
+[workspaceplatform]: ../workspaces/applications/platform-applications/
+[capi-concepts-and-terms]: ../konvoy/2.1/major-version-upgrade/capi-concepts-and-terms/
+[addlicense]: ../add/
+[workspaces]: ../workspaces/
+[dkpenterprise]: ../enterprise/
