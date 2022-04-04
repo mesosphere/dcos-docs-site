@@ -16,7 +16,7 @@ This feature, installed by default in the management cluster, provides a central
 ## Centralized Costs
 
 Using Thanos, the management cluster collects cost metrics remotely from each attached cluster.
-Costs from the last day and the last 7 days are displayed for each cluster, workspace, and project in the respective Kommander UI pages.
+Costs from the last day and the last 7 days are displayed for each cluster, workspace, and project in the respective DKP UI pages.
 Further cost analysis and details can be found in the centralized Kubecost UI running on Kommander, at:
 
 ```bash
@@ -27,7 +27,7 @@ For more information on cost allocation metrics and how to navigate this view in
 
 To identify the clusters in Kubecost, use the cluster's monitoring ID.
 The monitoring ID corresponds to the kube-system namespace UID of the cluster.
-To find the cluster's monitoring ID, select the **Clusters** tab on the Kommander UI in the relevant workspace, or go to the **Clusters** page in the **Global** workspace:
+To find the cluster's monitoring ID, select the **Clusters** tab on the DKP UI in the relevant workspace, or go to the **Clusters** page in the **Global** workspace:
 
 ```bash
 https://<CLUSTER_URL>/dkp/kommander/dashboard/clusters

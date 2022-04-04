@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 Kubernetes Ingress resources expose HTTP and HTTPS routes from outside the cluster to services within the cluster.
-In Kommander, the [Traefik][traefik] Ingress controller is installed by default and provides access to the Kommander dashboard.
+In Kommander, the [Traefik][traefik] Ingress controller is installed by default and provides access to the DKP UI.
 
 An Ingress performs the following:
 
@@ -22,7 +22,7 @@ An Ingress controller fulfills the Ingress with a load balancer.
 
 A cluster can have multiple Ingress controllers.
 D2iQ recommends adding your own Ingress controllers for your applications.
-The Traefik Ingress controller that Kommander installs for access to the Kommander dashboard can be replaced later if a different solution is a better fit.
+The Traefik Ingress controller that Kommander installs for access to the DKP UI can be replaced later if a different solution is a better fit.
 Using your own Ingress controller in parallel for your own business requirements ensures that you are not limited by any future changes in Kommander.
 
 ## Traefik v2.4

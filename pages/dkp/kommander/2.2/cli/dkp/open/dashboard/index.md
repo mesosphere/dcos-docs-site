@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp open dashboard
 title:  dkp open dashboard
 menuWeight: 10
-excerpt: Open Kommander dashboard in your browser
+excerpt: Open DKP UI in your browser
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp open dashboard
 
-Open Kommander dashboard in your browser
+Open DKP UI in your browser
 
 ```
 dkp open dashboard [flags]

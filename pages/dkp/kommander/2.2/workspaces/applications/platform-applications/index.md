@@ -6,7 +6,7 @@ menuWeight: 30
 excerpt: How workspace platform applications work
 ---
 
-When attaching a cluster, Kommander deploys certain platform applications on the newly attached cluster. Operators can use the Kommander UI to customize which platform applications to deploy to the attached clusters in a given workspace.
+When attaching a cluster, Kommander deploys certain platform applications on the newly attached cluster. Operators can use the DKP UI to customize which platform applications to deploy to the attached clusters in a given workspace.
 
 Currently, the monitoring stack is deployed by default. The logging stack is not.
 
@@ -14,7 +14,7 @@ Review the [workspace platform application resource requirements](./platform-app
 
 ### Customize a workspace's applications
 
-You can customize the applications that are deployed to a workspace's clusters using the Kommander UI. Access the applications page by going to the specific workspace, then opening the **Applications** page from the sidebar menu.
+You can customize the applications that are deployed to a workspace's clusters using the DKP UI. Access the applications page by going to the specific workspace, then opening the **Applications** page from the sidebar menu.
 
 This takes you to the **Applications** page which displays all applications that can be deployed or uninstalled.
 
@@ -55,4 +55,4 @@ The following table describes the list of platform applications that are deploye
 
 <p class="message--note"><strong>NOTE: </strong>Only a single deployment of <code>traefik</code> per cluster is supported.</p>
 
-<p class="message--note"><strong>NOTE: </strong>Kommander automatically manages the deployment of <code>traefik-forward-auth</code> and <code>kube-oidc-proxy</code> when clusters are attached to the workspace. These applications are not shown in the Kommander UI.</p>
+<p class="message--note"><strong>NOTE: </strong>Kommander automatically manages the deployment of <code>traefik-forward-auth</code> and <code>kube-oidc-proxy</code> when clusters are attached to the workspace. These applications are not shown in the DKP UI.</p>

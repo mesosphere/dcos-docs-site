@@ -85,9 +85,9 @@ EOF
 
 One important distinction from adding users is that all external groups are prefixed with `oidc:`, so a group name becomes `oidc:devops`. This prevents collision with locally defined groups.
 
-## Kommander Dashboard Authorization
+## DKP UI Authorization
 
-The Kommander Dashboard, and other HTTP applications protected by Kommander forward authentication, are also authorized by the Kubernetes RBAC API. In addition to Kubernetes API resources, it is possible to define rules which map to HTTP URIs and HTTP verbs. Kubernetes RBAC calls these `nonResourceURLs`, Kommander forward authentication uses these rules to grant or deny access to HTTP endpoints.
+The DKP UI, and other HTTP applications protected by Kommander forward authentication, are also authorized by the Kubernetes RBAC API. In addition to Kubernetes API resources, it is possible to define rules which map to HTTP URIs and HTTP verbs. Kubernetes RBAC calls these `nonResourceURLs`, Kommander forward authentication uses these rules to grant or deny access to HTTP endpoints.
 
 ### Default Roles
 
@@ -137,7 +137,7 @@ Roles have been created for granting access to the dashboard and select applicat
 | thanos              | dkp-thanos-query-admin      | /dkp/kommander/monitoring/query/\*                      | read, write, delete |
 <!-- vale Vale.Terms = YES -->
 
-This section provides a few examples of binding subjects to the default roles defined for the Kommander dashboard endpoints.
+This section provides a few examples of binding subjects to the default roles defined for the DKP UI endpoints.
 
 ### Examples
 
@@ -196,7 +196,7 @@ PolicyRule:
 
 The user can now use the HTTP verbs HEAD, GET, DELETE, POST, and PUT when accessing any URL at or under `/dkp`. Provided the downstream application follows REST conventions, this effectively allows read, edit, and delete privileges.
 
-<p class="message--note"><strong>NOTE: </strong>To allow users to access the Kommander UI, ensure they have the appropriate <code>dkp-kommander-</code> role in addition to the Kommander roles granted in the Kommander UI. For more information, see the <a href="../">Access Control section of the Kommander documentation</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>To allow users to access the DKP UI, ensure they have the appropriate <code>dkp-kommander-</code> role in addition to the Kommander roles granted in the DKP UI. For more information, see the <a href="../">Access Control section of the Kommander documentation</a>.</p>
 
 #### Group
 

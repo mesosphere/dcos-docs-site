@@ -23,20 +23,20 @@ After you create this application, you should something like this:
 
 ![Created a GitHub OAuth App](/dkp/kommander/2.1/img/tutorial-idp-github-oauth-created.png)
 
-In Kommander UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Identity Providers** tab and click the **Add Identity Provider** button. Ensure GitHub is selected as the identity provider type, and copy the Client ID and Client Secret values into the form. Press **Save** to create your Identity Provider.
+In DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Identity Providers** tab and click the **Add Identity Provider** button. Ensure GitHub is selected as the identity provider type, and copy the Client ID and Client Secret values into the form. Press **Save** to create your Identity Provider.
 
 ![Adding the GitHub OAuth App](/dkp/kommander/2.1/img/tutorial-idp-github-added.png)
 
-D2iQ configured the identity provider to load all groups, so you need to map these groups to the Kubernetes groups. In Kommander UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Groups** tab and click the **Create Group** button. Give your group a descriptive name and add the groups from your GitHub provider under **Identity Provider Groups**.
+D2iQ configured the identity provider to load all groups, so you need to map these groups to the Kubernetes groups. In DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Groups** tab and click the **Create Group** button. Give your group a descriptive name and add the groups from your GitHub provider under **Identity Provider Groups**.
 Click **Save** to create the group, which creates it on the management cluster and federated to all target clusters, and also describes the developers for your organization.
 
 ![Adding a developer group](/dkp/kommander/2.1/img/tutorial-auth-developer-group.png)
 
-To enable this group, you need to first connect it to a role which then creates a role and allows you to view every resource. In Kommander UI, choose **Global** in the header drop-down and then select **Administration** > **Access Control** in the sidebar. Select the **Cluster Roles** tab and click the **Create Role** button. For a read-only role, click **+ Add Rule**, select the **get**, **list**, and **watch** verbs, and select **All resource types** in the **Resources** input.
+To enable this group, you need to first connect it to a role which then creates a role and allows you to view every resource. In DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Access Control** in the sidebar. Select the **Cluster Roles** tab and click the **Create Role** button. For a read-only role, click **+ Add Rule**, select the **get**, **list**, and **watch** verbs, and select **All resource types** in the **Resources** input.
 
 ![Adding a read role](/dkp/kommander/2.1/img/tutorial-auth-developer-role.png)
 
-Now that you have everything, you can assign the "Read Everything" role to the developers group. In Kommander UI, choose **Global** in the header drop-down and then select **Administration** > **Access Control** in the sidebar. Select the **Cluster Policies** tab and click the **Add or remove roles** button for your group.
+Now that you have everything, you can assign the "Read Everything" role to the developers group. In DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Access Control** in the sidebar. Select the **Cluster Policies** tab and click the **Add or remove roles** button for your group.
 
 ![Adding a policy](/dkp/kommander/2.1/img/tutorial-auth-developer-policy.png)
 
