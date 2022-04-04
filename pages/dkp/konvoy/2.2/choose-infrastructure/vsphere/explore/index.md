@@ -9,7 +9,7 @@ enterprise: false
 
 This guide explains how to use the command line interface to interact with your newly-deployed Kubernetes cluster.
 
-Before you start, make sure you have [created a workload cluster][create-new-cluster] and if needed, that you have [made the cluster self-managing][make-self-managed].
+Before you start, make sure you have [created a workload cluster][create-new-cluster] and, if needed, that you have [made the cluster self-managing][make-self-managed].
 
 ## Explore the new Kubernetes cluster
 
