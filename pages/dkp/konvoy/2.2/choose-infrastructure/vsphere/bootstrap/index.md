@@ -123,14 +123,17 @@ When the bootstrap cluster is running, you are ready to [create a new cluster][c
 
     Konvoy defines the selectors and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_cape]. --->
 
+[calico]: https://projectcalico.docs.tigera.io/about/about-calico
+[cabpk]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/bootstrap/kubeadm
+[capi]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/
+[capi_book]: https://cluster-api.sigs.k8s.io/
+[capv]: https://github.com/kubernetes-sigs/cluster-api-provider-vsphere
+[clusterresourceset_cape]: https://github.com/kubernetes-sigs/cluster-api/blob/master/docs/proposals/20200220-cluster-resource-set.md
+[create-capi-image]: ../create-capi-vm-image/
+[create-cluster]: ../new/
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[capv]: https://github.com/kubernetes-sigs/cluster-api-provider-vsphere
-[kind]: https://github.com/kubernetes-sigs/kind
-[capi_book]: https://cluster-api.sigs.k8s.io/
-[capi]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/
 [kcp]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/controlplane/kubeadm
-[cabpk]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/bootstrap/kubeadm
-[clusterresourceset_cape]: https://github.com/kubernetes-sigs/cluster-api/blob/master/docs/proposals/20200220-cluster-resource-set.md
+[kind]: https://github.com/kubernetes-sigs/kind
 [create-capi-image]: ../create-capi-vm-image/
 [create-cluster]: ../new/
