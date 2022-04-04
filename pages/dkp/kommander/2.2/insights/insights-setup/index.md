@@ -41,7 +41,3 @@ To enable DKP Insights:
    This provides all attached clusters the ability to enable the Insights Engine, and DKP Insights icon appears under Applications.
 
 1. Enable the DKP Insights engine on each attached or managed cluster from the DKP UI by selecting: Cluster -> Applications -> Options Menu -> Enable -> Deploy with defaults.
-
-## Upgrade Insights engine
-
-<add process/command if relevent or delete this section if not>
