@@ -77,12 +77,12 @@ Tips:
     This creates a unique name every time you run it, so use the command with forethought.
 
     ```bash
-    CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+    CLUSTER_NAME=$(whoami)-eks-cluster-$(LC_CTYPE=C LC_COLLATE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 5 | head -c 5)
     echo $CLUSTER_NAME
     ```
 
     ```sh
-    hunter-aws-cluster-pf4a3
+    hunter-eks-cluster-pf4a3
     ```
 
 ## Create a new EKS Kubernetes cluster
@@ -131,7 +131,7 @@ Tips:
 
     <p class="message--note"><strong>NOTE: </strong>This kubeconfig is temporary and needs to be renewed either by running the above command with updated credentials and rerunning, or by running the AWS CLI command:</p>
 
-    ```yaml
+    ```bash
     aws eks --region us-west-2 update-kubeconfig --name default_<name-of-cluster>-control-plane
     ```
 
@@ -141,57 +141,12 @@ Tips:
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
-   <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to <code>Ready</code> while <code>calico-node</code> pods are being deployed.</p>
+    <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to <code>Ready</code> while <code>calico-node</code> pods are being deployed.</p>
 
 1.  List the Pods with the command:
 
     ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
-    ```
-
-## (Optional) Move controllers to the newly-created cluster
-
-1.  Deploy CAPI controllers on the worker cluster:
-
-    ```bash
-    dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
-    ```
-
-1.  Issue the move command:
-
-    ```bash
-    dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
-    ```
-
-    <p class="message--note"><strong>NOTE: </strong>Remember to specify flag <code>--kubeconfig</code> flag pointing to file <code>${CLUSTER_NAME}.conf</code> or make sure that the access credentials from this file become the default credentials after the move operation is complete.</p>
-
-    Note that the Konvoy `move` operation has the following limitations:
-    - Only one workload cluster is supported. This also implies that Konvoy does not support moving more than one bootstrap cluster onto the same worker cluster.
-    - The Konvoy version used for creating the worker cluster must match the Konvoy version used for deleting the worker cluster.
-    - The Konvoy version used for deploying a bootstrap cluster must match the Konvoy version used for deploying a worker cluster.
-    - Konvoy only supports moving all namespaces in the cluster; Konvoy does not support migration of individual namespaces.
-    - You must ensure that the permissions are sufficient and available to the CAPI controllers running on the worker cluster.
-
-1.  Remove the bootstrap cluster, as the worker cluster is now self-managed:
-
-    ```bash
-    dkp delete bootstrap --kubeconfig $HOME/.kube/config
-    ```
-
-## Moving controllers back to the temporary bootstrap cluster
-
-Skip this section if the previous step of moving controllers to the newly-created cluster was not run.
-
-1.  Create a bootstrap cluster:
-
-    ```bash
-    dkp create bootstrap --kubeconfig $HOME/.kube/config
-    ```
-
-1.  Issue the move command:
-
-    ```bash
-    dkp move --from-kubeconfig ${CLUSTER_NAME}.conf --to-kubeconfig $HOME/.kube/config
     ```
 
 ## Delete the Kubernetes cluster and cleanup your environment

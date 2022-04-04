@@ -37,7 +37,7 @@ Before you begin using Konvoy with AWS, you must:
     export AWS_PROFILE=<profile>
     ```
 
-[install_docker]: https://docs.docker.com/get-docker/
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [iampolicies]: ../../../aws/iam-policies
+[install_docker]: https://docs.docker.com/get-docker/
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
