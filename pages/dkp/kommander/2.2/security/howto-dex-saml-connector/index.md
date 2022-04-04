@@ -108,7 +108,7 @@ This procedure configures your Kommander cluster to use SAML, to connect to an i
 
 1.  Run `kommander install --installer-config kommander.yaml` to deploy modified `dex`.
 
-1.  Visit `https://<your-cluster-host>/dkp/kommander/dashboard` to login to the Kommander dashboard.
+1.  Visit `https://<your-cluster-host>/dkp/kommander/dashboard` to login to the DKP UI.
 
 1.  Select `Launch Console` and follow the authentication steps to complete the procedure.
 

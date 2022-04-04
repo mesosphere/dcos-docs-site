@@ -30,7 +30,7 @@ This approach gives you maximum flexibility over who has access to what resource
 ### Special Limitation for Kommander Roles
 
 In addition to granting a Kommander Role, you must also grant the appropriate DKP role to allow external users and groups into the UI.
-See [RBAC - Kommander Dashboard Authorization][kommander-rbac] for details about the built-in DKP roles.
+See [RBAC - DKP UI Authorization][kommander-rbac] for details about the built-in DKP roles.
 Here are examples of `ClusterRoleBindings` that grant an IDP group admin access to the Kommander routes:
 
 ```yaml
@@ -147,7 +147,7 @@ All groups defined in the **Groups** tab will be present at the global, workspac
 ## Related Information
 
 - [Kommander RBAC Tutorial][kommander-rbac-tutorial]
-- [RBAC - Kommander Dashboard Authorization][kommander-rbac]
+- [RBAC - DKP UI Authorization][kommander-rbac]
 - [Kubernetes RBAC Authorization][k8s-rbac-auth]
 
 [k8s-rbac-auth]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/

@@ -10,7 +10,7 @@ beta: false
 <!-- markdownlint-disable MD030 -->
 
 Workspace logging AppDeployments enable and deploy the logging stack to all attached clusters within the workspace.
-Use the Kommander UI to enable the logging applications, or, alternately, use the CLI to create the AppDeployments.
+Use the DKP UI to enable the logging applications, or, alternately, use the CLI to create the AppDeployments.
 
 To enable logging in DKP using the CLI, follow these steps on the **management** cluster:
 

@@ -7,11 +7,11 @@ excerpt: Deploy a Custom Application from the Project Catalog
 ---
 <!-- markdownlint-disable MD030 -->
 
-After creating a GitRepository, you can either use the Kommander UI or the CLI to deploy your custom applications.
+After creating a GitRepository, you can either use the DKP UI or the CLI to deploy your custom applications.
 
-## Deploy the application using the Kommander UI
+## Deploy the application using the DKP UI
 
-Go to the Kommander UI to deploy your custom applications:
+Go to the DKP UI to deploy your custom applications:
 
 1. Select **Workspace** > **Project**
 

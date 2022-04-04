@@ -6,7 +6,7 @@ beta: false
 menuWeight: 40
 excerpt: To display more information about custom applications in the UI, define a metadata.yaml file for each application in the git repository.
 ---
-You can define how custom applications display in the Kommander UI by defining a `metadata.yaml` file for each application in the git repository. You must define this file at `services/<application>/metadata.yaml` for it to process correctly.
+You can define how custom applications display in the DKP UI by defining a `metadata.yaml` file for each application in the git repository. You must define this file at `services/<application>/metadata.yaml` for it to process correctly.
 
 You can define the following fields:
 

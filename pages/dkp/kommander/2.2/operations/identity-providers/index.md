@@ -19,7 +19,7 @@ kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.dat
 
 You can retrieve it anytime using the same command.
 
-You should only use these static credentials to access the D2iQ Kommander Dashboard for configuring an external identity provider. Since there is no way to update static credentials, you should treat them as backup credentials and _not_ use them for normal access. Always log in with your own identity from external identity providers that provide additional security features like Multi-Factor Authentication.
+You should only use these static credentials to access the D2iQ DKP UI for configuring an external identity provider. Since there is no way to update static credentials, you should treat them as backup credentials and _not_ use them for normal access. Always log in with your own identity from external identity providers that provide additional security features like Multi-Factor Authentication.
 
 You can perform the following operations on Identity Providers:
 

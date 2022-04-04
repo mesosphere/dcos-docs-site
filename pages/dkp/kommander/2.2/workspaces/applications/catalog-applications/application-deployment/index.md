@@ -22,11 +22,11 @@ Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace'
 export WORKSPACE_NAMESPACE=<workspace_namespace>
 ```
 
-After creating a GitRepository, use either the Kommander UI or the CLI to deploy your catalog applications.
+After creating a GitRepository, use either the DKP UI or the CLI to deploy your catalog applications.
 
-## Deploy the application using the Kommander UI
+## Deploy the application using the DKP UI
 
-Follow these steps to deploy your catalog applications from the Kommander UI:
+Follow these steps to deploy your catalog applications from the DKP UI:
 
 1.  Select the desired **Workspace**
 

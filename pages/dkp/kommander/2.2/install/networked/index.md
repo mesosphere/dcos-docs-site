@@ -94,9 +94,9 @@ helmrelease.helm.toolkit.fluxcd.io/traefik-forward-auth-mgmt condition met
 helmrelease.helm.toolkit.fluxcd.io/velero condition met
 ```
 
-## Access Kommander Web UI
+## Access DKP UI
 
-When all the `HelmReleases` are ready, use the following command to open the Kommander dashboard in your browser:
+When all the `HelmReleases` are ready, use the following command to open the DKP UI in your browser:
 
 ```bash
 dkp open dashboard

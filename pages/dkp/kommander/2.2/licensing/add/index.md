@@ -23,7 +23,7 @@ For licenses purchased via the AWS marketplace, find the license in the "Granted
 
 <p class="message--note"><strong>NOTE: </strong>An administrator must add licenses to Kommander.</p>
 
-From the Kommander UI, complete the following steps:
+From the DKP UI, complete the following steps:
 
 1.  Select **Global** in the workspace header drop-down.
 
