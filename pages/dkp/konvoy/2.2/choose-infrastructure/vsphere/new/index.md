@@ -217,7 +217,7 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
 
 -   DKP Konvoy does not validate edits to cluster objects.
 
-The optional, next step is to [make the cluster self-managing][make-self-manage]. The step is optional because, as an example, if you are using an existing, self-managed cluster to create a managed cluster, you would not want the managed cluster to be self-managed.
+The optional next step is to [make the cluster self-managing][make-self-manage]. The step is optional because, as an example, if you are using an existing, self-managed cluster to create a managed cluster, you would not want the managed cluster to be self-managed.
 
 [bootstrap]: ../bootstrap
 [capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
