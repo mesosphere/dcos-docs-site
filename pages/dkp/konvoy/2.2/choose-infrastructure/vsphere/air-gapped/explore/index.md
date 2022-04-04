@@ -13,13 +13,13 @@ enterprise: false
 
 1.  Fetch the kubeconfig file with the command:
 
-    ```sh
+    ```bash
     dkp get kubeconfig -c ${air-gapped_NAME} > ${air-gapped_NAME}.conf
     ```
 
 1.  List the Nodes with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${air-gapped_NAME}.conf get nodes
     ```
 
@@ -27,6 +27,7 @@ enterprise: false
 
     The output resembles this example:
 
+    ```sh
     NAME                                         STATUS   ROLES                  AGE   VERSION
     d2iq-e2e-air-gapped-1-control-plane-7llgd     Ready    control-plane,master   20h   v1.22.8
     d2iq-e2e-air-gapped-1-control-plane-vncbl     Ready    control-plane,master   19h   v1.22.8
@@ -39,7 +40,7 @@ enterprise: false
 
 1.  List the Pods with the command:
 
-    ```sh
+    ```bash
     kubectl --kubeconfig=${air-gapped_NAME}.conf get pods -A
     ```
 
