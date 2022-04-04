@@ -15,7 +15,7 @@ Before you begin, you must:
 
 -   Ensure the `dkp` binary can be found in your $PATH.
 
--   Complete the steps in [Create a CAPI VM Image][create-capi-image]
+-   Complete the steps in [Create a CAPI VM template][create-capi-image]
 
 ## Bootstrap Cluster Lifecycle Services
 

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Make New Cluster Self-Managed
 title: Make the New Cluster Self-Managed
-menuWeight: 75
+menuWeight: 70
 excerpt: Make the new Kubernetes cluster manage itself
 enterprise: false
 ---
@@ -15,7 +15,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
 1.  Deploy cluster lifecycle services on the workload cluster:
 
-        ```bash
+    ```bash
     dkp create capi-components --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
@@ -92,6 +92,10 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
 -   DKP Konvoy only supports moving all namespaces in the cluster; DKP does not support migration of individual namespaces.
 
+
+Next, you can [explore the new cluster][explore-cluster].
+
 [bootstrap]: ../bootstrap
 [pivot]: https://cluster-api.sigs.k8s.io/reference/glossary.html?highlight=pivot#pivot
 [createnewcluster]: ../new
+[explore-cluster]: ../explore/

@@ -12,9 +12,8 @@ menuWeight: 80
 Before you begin, you must:
 
 - [Create a workload cluster][createnewcluster].
-- [Make the new cluster self-managed][selfmanaged].
 
-%%% if this functionality is supported for vSphere, we need to replace the commands and output with vSphere-specific examples
+- [Make the new cluster self-managed][selfmanaged].
 
 ## Replace a worker node
 
