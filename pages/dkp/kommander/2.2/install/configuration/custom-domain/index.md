@@ -62,8 +62,6 @@ ingressCertificate:
 
 Kommander can be configured to automatically issue a trusted certificate for the configured custom domain and renew it before expiration.
 
-<p class="message--important"><strong>IMPORTANT: </strong>This feature is currently only supported for the management cluster. Kommander does not currently support attaching clusters that use ACME certs. </p>
-
 ### Let's encrypt
 
 In this section, we will walk you through how to set up a Let’s Encrypt certificate for the cluster ingress. This would allow most browsers to validate the certificate for the cluster when the users try to log into the ops portal.
