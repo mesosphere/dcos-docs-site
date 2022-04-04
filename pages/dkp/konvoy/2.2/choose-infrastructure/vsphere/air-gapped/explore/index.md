@@ -104,6 +104,6 @@ enterprise: false
     vmware-system-csi        vsphere-csi-node-rp77r                                               3/3     Running    0             19h
     ```
 
-When you're ready, [delete your air-gapped cluster and clean up your environment][delete-air-gapped].
+When you are ready, [delete your air-gapped cluster and clean up your environment][delete-air-gapped].
 
 [delete-air-gapped]: ../delete
