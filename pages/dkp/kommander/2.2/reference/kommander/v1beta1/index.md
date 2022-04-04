@@ -189,6 +189,7 @@ LicenseStatus defines the observed state of License.
 | conditions | Conditions relevant to the license (currently used to track term breaches) | [][LicenseCondition](#licensecondition) | false |
 | coreCapacity | Maximum number of cores that the license allows. | int32 | true |
 | customerId | The customer's ID. This is the customer name provided from Salesforce. | string | true |
+| dkpLevel | The DKP license level. | string | true |
 | endDate | End date of the licensing period. | metav1.Time | false |
 | licenseId | The license's ID as provided from Salesforce. | string | true |
 | productName | The product name the license is for. | string | true |
