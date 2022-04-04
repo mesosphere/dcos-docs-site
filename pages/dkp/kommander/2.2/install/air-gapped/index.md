@@ -74,7 +74,8 @@ It is possible to push new charts as well:
 Or push a new bundle:
 
    ```bash
-   export KUBECONFIG=${MANAGEMENT_KUBECONFIG}
+      kommander push chart-bundle [chartsTarball]
+      export KUBECONFIG=${MANAGEMENT_KUBECONFIG}
    export WORKSPACE_NAMESPACE=kommander
 
    kubectl apply -f - <<EOF

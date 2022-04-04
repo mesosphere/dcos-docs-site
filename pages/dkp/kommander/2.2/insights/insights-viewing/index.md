@@ -10,13 +10,12 @@ techPreview: true
 ---
 <p class="message--note"><strong>NOTE: </strong>Insights are refreshed on a 72-hour basis.</p>
 
-Select one of your workspaces to get started viewing your insight items. From a Workspace Dashboard, the Insights table, below the workspace summary cards, displays the most recent Insights. You can toggle the view between Critical, Warning, Notices, and View All for a summary of insights.
+Select one of your workspaces to get started viewing your insight items. From a Workspace Dashboard, the Insights table, below the workspace summary cards, displays the most recent insight items. You can toggle the view between Critical, Warning, Notices, and View All for a summary of insight items.
 
 For the full DKP Insights dashboard, select Insights from the sidebar menu. From the Insights dashboard, we provide several different ways you can filter the insight items you want to view:
 
 - Use the search dialog to search by description keyword.
 - Toggle your view by the following insight types:
-
   - All types
   - Availability
   - Best Practies
@@ -30,7 +29,7 @@ For the full DKP Insights dashboard, select Insights from the sidebar menu. From
 - Select All Projects or an individual project.
 - Toggle between All, Critical, Warning, and Notices.
 
-To clear filters and reset your view all insight items, select Clear All.
+To clear filters and reset your view to all insight items, select Clear All.
 
 Usage tips:
 
