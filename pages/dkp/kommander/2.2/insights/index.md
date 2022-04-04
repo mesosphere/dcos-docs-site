@@ -27,7 +27,7 @@ From the DKP Workspace Dashboard, you can toggle by severity level:
 - Warning
 - Notice/informational
 
-Alternately, the DKP Insights dashboard gives you several different ways to filter and sort insight itmes. Access the DKP Insights dashboard by selecting Insights from the sidebar menu.
+Alternately, the DKP Insights dashboard gives you several different ways to filter and sort insight items. Access the DKP Insights dashboard by selecting Insights from the sidebar menu.
 
 ## Architecture
 
