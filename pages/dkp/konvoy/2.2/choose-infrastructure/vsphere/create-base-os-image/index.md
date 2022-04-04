@@ -13,7 +13,7 @@ Creating a base OS image from DVD ISO files is a one-time process. Building a ba
 
 Refer to the vCenter and vSphere Client documentation for details.
 
-The next step is to [create a vSphere VM template][create-vsphere-template] that contains the CAPI and Kubernetes objects.]
+The next step is to [create a vSphere VM template][create-vsphere-template] that contains the CAPI and Kubernetes objects.
 
 [vsphere-doc-base-image]: https://docs.vmware.com/en/VMware-vSphere/index.html
 [create-vsphere-template]: ../create-capi-vm-image/

@@ -20,4 +20,4 @@ After creating the base image, the DKP image builder uses it to create a CAPI-en
 
 To get started, fulfill the [prerequisites][prerequisites].
 
-[prerequisites]: /prerequisites
+[prerequisites]: prerequisites

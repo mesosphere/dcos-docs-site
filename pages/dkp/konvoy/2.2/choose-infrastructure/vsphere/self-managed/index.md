@@ -15,7 +15,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
 1.  Deploy cluster lifecycle services on the workload cluster:
 
-        ```bash
+    ```bash
     dkp create capi-components --kubeconfig ${CLUSTER_NAME}.conf
     ```
 

@@ -99,6 +99,6 @@ Run the following steps to enable Cluster Autoscaler:
 
 1.  Cluster Autoscaler starts to scale down the number of Worker Nodes after the default timeout of 10 minutes.
 
-[bootstraplifecycle]: ../../advanced/bootstrap
-[createnewcluster]: ../../advanced/new
-[selfmanagedcluster]: ../../advanced/self-managed
+[bootstraplifecycle]: ../../bootstrap
+[createnewcluster]: ../../new
+[selfmanagedcluster]: ../../self-managed
