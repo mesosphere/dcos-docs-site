@@ -10,17 +10,17 @@ menuWeight: 30
 
 ## Prerequisites
 
-* **REQUIRED** Before upgrading, create an [on-demand backup][backup] of your current configuration with Velero.
-
 * Follow the steps listed in the [DKP upgrade overview][dkpup].
 
 * Ensure that all platform applications in the management cluster have been upgraded to avoid compatibility issues with the [Kubernetes version][releasenotes] included in this release. This is done automatically when [upgrading Kommander][upgradekomm], so ensure that you upgrade Kommander prior to upgrading Konvoy.
 
-* For air-gapped: Download the required bundles either at our [support site][supportsite] or [via the CLI][airgapbundle].
+* For air-gapped: Download the required bundles either at our [support site][supportsite] or by using the CLI.
 
 * For Azure, set the required [environment variables][envariables].
 
 * For AWS, set the required [environment variables][envariables2].
+
+* When upgrading, ensure that you set the flag, `--etcd-version=3.4.13-0.`
 
 The following infrastructure environments are supported:
 
@@ -32,25 +32,29 @@ The following infrastructure environments are supported:
 
 ## Overview
 
-To upgrade Konvoy upgrade for DKP Enterprise, :
+To upgrade Konvoy for DKP Enterprise:
 
 1. Upgrade the Cluster API (CAPI) components
 1. Upgrade the core addons
 1. Upgrade the Kubernetes version
 
-Run all three steps on the management cluster (Kommander cluster) first. Then, run the second and third steps on additional managed clusters (Konvoy clusters), one cluster at a time using the KUBECONFIG configured for each cluster.
+Run all three steps on the management cluster (Kommander cluster) first. Then, run the second and third steps on additional managed clusters (Konvoy clusters), one cluster at a time using the KUBECONFIG configured for each cluster. If an AMI was specified when initially creating a cluster, you must build a new one with [Konvoy Image Builder][KIB] and pass it with `--ami.`
+
+<p class="message--note"><strong>NOTE:</strong> For pre-provisioned air-gapped environments, you must run <code>konvoy-image upload artifacts</code>.</p>
 
 For a full list of DKP Enterprise features, see [DKP Enterprise][dkpenterprise].
 
-<p class="message--note"><strong>NOTE:</strong> You must maintain your attached clusters manually. Review the documentation from your cloud provider for more information.
+<p class="message--note"><strong>NOTE:</strong> You must maintain your attached clusters manually. Review the documentation from your cloud provider for more information.</p>
 
 ## Upgrade the CAPI components
 
 New versions of DKP come pre-bundled with newer versions of CAPI, newer versions of infrastructure providers, or new infrastructure providers. When using a new version of the DKP CLI, upgrade all of these components first.
 
-If you are running on more than one management cluster (Kommander cluster), you must upgrade the CAPI components on each of these clusters. Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file location][kubeconfig].
+If you are running on more than one management cluster (Kommander cluster), you must upgrade the CAPI components on each of these clusters.
 
-<p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable is to use the <code>--kubeconfig=cluster_name.conf</code> flag, ensuring that Kommander upgrades on the workload cluster.</p>
+<p class="message--warning"><strong>IMPORTANT:</strong>Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file location][kubeconfig].</p>
+
+An alternative to initializing the KUBECONFIG environment variable is to use the <code>--kubeconfig=cluster_name.conf</code> flag.
 
 1. Run the following upgrade command for the CAPI components.
 
@@ -73,9 +77,9 @@ If the upgrade fails, review the prerequisites section and ensure that you've fo
 
 To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API feature][CAPI]. In the CAPI component upgrade, we deleted the previous set of outdated global `ClusterResourceSets` because prior to DKP 2.2 some addons were installed using a global configuration. In order to support individual cluster upgrades, DKP 2.2 now installs all addons with a unique set of `ClusterResourceSet` and corresponding referenced resources, all named using the cluster’s name as a suffix. For example: `calico-cni-installation-my-aws-cluster`.
 
-<p class="message--warning"><strong>WARNING:</strong> If you modified any of the <code>clusterResourceSet</code> definitions, these changes are <strong>not</strong> preserved when running the command <code>dkp upgrade addons</code>. You must use the <code>--dry-run -o yaml</code> options to save the new configuration to a file and make the same changes again upon each of the upgrades.</p>
+<p class="message--warning"><strong>WARNING:</strong> If you have modified any of the <code>clusterResourceSet</code> definitions, these changes will <strong>not</strong> be preserved when running the command <code>dkp upgrade addons</code>. You must use the <code>--dry-run -o yaml</code> options to save the new configuration to a file and remake the same changes upon each upgrade.</p>
 
-Your cluster comes preconfigured with some different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may provide newer versions of these addons. Perform the following steps to update these addons.
+Your cluster comes preconfigured with a few different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may come prebundled with newer versions of these addons. Perform the following steps to update these addons.
 
 1. Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the KUBECONFIG environment variable [to the appropriate kubeconfig file’s location][kubeconfig].
 
@@ -159,7 +163,6 @@ If you have any additional management or managed clusters, review the [DKP Upgra
 [dkpup]: /dkp/kommander/2.2/dkp-upgrade/
 [upgradekomm]: ../../upgrade-kommander/
 [supportsite]: https://support.d2iq.com/hc/en-us
-[airgapbundle]: /dkp/konvoy/2.2/choose-infrastructure/airgapbundle/
 [dkpenterprise]: /dkp/kommander/2.2/licensing/enterprise/
 [kubeconfig]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [CAPI]: https://cluster-api.sigs.k8s.io/
@@ -167,3 +170,4 @@ If you have any additional management or managed clusters, review the [DKP Upgra
 [envariables]: /dkp/konvoy/2.2/choose-infrastructure/azure/quick-start-azure/#configure-azure-prerequisites
 [backup]: ../../../backup-and-restore/#back-up-on-demand
 [envariables2]: /dkp/konvoy/2.2/choose-infrastructure/aws/quick-start-aws/#configure-aws-prerequisites
+[KIB]: /dkp/konvoy/2.2/image-builder/

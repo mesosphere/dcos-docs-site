@@ -15,7 +15,13 @@ menuWeight: 30
 
 * Ensure that all platform applications in the management cluster have been upgraded to avoid compatibility issues with the [Kubernetes version][releasenotes] included in this release. This is done automatically when [upgrading Kommander][upgradekomm], so ensure that you upgrade Kommander prior to upgrading Konvoy.
 
-* For air-gapped: Download the required bundles either at the D2iQ [support site][supportsite] or [using the CLI][airgapbundle].
+* For air-gapped: Download the required bundles either at our [support site][supportsite] or by using the CLI.
+
+* For Azure, set the required [environment variables][envariables].
+
+* For AWS, set the required [environment variables][envariables2].
+
+* When upgrading, ensure that you set the flag, `--etcd-version=3.4.13-0.`
 
 The following infrastructure environments are supported:
 
@@ -27,13 +33,15 @@ The following infrastructure environments are supported:
 
 ## Overview
 
-The Konvoy upgrade for DKP Essential encompasses the following three steps in sequential order:
+To upgrade Konvoy for DKP Essential:
 
 1. Upgrade the Cluster API (CAPI) components
 1. Upgrade the core addons
 1. Upgrade the Kubernetes version
 
-If you have more than one Essential license, repeat all of these steps for each Essential cluster (management cluster).
+If you have more than one Essential license, repeat all of these steps for each Essential cluster (management cluster). If an AMI was specified when initially creating a cluster, you must build a new one with [Konvoy Image Builder][KIB] and pass it with `--ami.`
+
+<p class="message--note"><strong>NOTE:</strong> For pre-provisioned air-gapped environments, you must run <code>konvoy-image upload artifacts</code>.</p>
 
 For a full list of DKP Essential features, see [DKP Essential][dkpessential].
 
@@ -41,7 +49,7 @@ For a full list of DKP Essential features, see [DKP Essential][dkpessential].
 
 New versions of DKP come pre-bundled with newer versions of CAPI, newer versions of infrastructure providers or new infrastructure providers. When using a new version of the DKP CLI, upgrade all of these components first.
 
-If you are running on more than one management cluster (Kommander cluster), you must upgrade the CAPI Components on each of these clusters. Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the KUBECONFIG environment variable [to the appropriate kubeconfig file’s location][kubeconfig].
+<p class="message--warning"><strong>IMPORTANT:</strong> Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the KUBECONFIG environment variable [to the appropriate kubeconfig file’s location][kubeconfig].</p>
 
 An alternative to initializing the KUBECONFIG environment variable is to use the `--kubeconfig=cluster_name.conf flag`.
 
@@ -102,8 +110,16 @@ configmap/nvidia-feature-discovery-my-aws-cluster upgraded
 3. Monitor the pods for the core addons restarting in your cluster:
 
 ```bash
-###DEV ADD OUTPUT HERE
+kubectl rollout status daemonset/calico-node
+--namespace calico-system
 ```
+
+The output should be similar to:
+
+```bash
+daemon set "calico-node" successfully rolled out
+```
+
 Once complete, begin upgrading the Kubernetes version.
 
 ## Upgrade the Kubernetes version
@@ -137,12 +153,14 @@ The output should be similar to:
 ```
 Repeat this step for each additional node pool.
 
-[dkpup]: .../dkp-upgrade/
-[upgradekomm]: .../upgrade-kommander/
+[dkpup]: /dkp/kommander/2.2/dkp-upgrade/
+[upgradekomm]: ../../upgrade-kommander/
 [supportsite]: https://support.d2iq.com/hc/en-us
-[airgapbundle]: .../konvoy/2.2/choose-infrastructure/airgapbundle/
 [dkpessential]: .../kommander/2.2/licensing/essential/
 [kubeconfig]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [CAPI]: https://cluster-api.sigs.k8s.io/
 [releasenotes]: ../../../release-notes
 [backup]: ../../../backup-and-restore/#back-up-on-demand
+[envariables]: /dkp/konvoy/2.2/choose-infrastructure/azure/quick-start-azure/#configure-azure-prerequisites
+[envariables2]: /dkp/konvoy/2.2/choose-infrastructure/aws/quick-start-aws/#configure-aws-prerequisites
+[KIB]: /dkp/konvoy/2.2/image-builder/
