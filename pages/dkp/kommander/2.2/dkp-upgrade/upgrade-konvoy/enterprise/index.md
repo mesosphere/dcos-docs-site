@@ -46,7 +46,7 @@ For a full list of DKP Enterprise features, see [DKP Enterprise][dkpenterprise].
 
 New versions of DKP come pre-bundled with newer versions of CAPI, newer versions of infrastructure providers, or new infrastructure providers. When using a new version of the DKP CLI, upgrade all of these components first.
 
-If you are running on more than one management cluster (Kommander cluster), you must upgrade the CAPI Components on each of these clusters. Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file location][kubeconfig].
+If you are running on more than one management cluster (Kommander cluster), you must upgrade the CAPI components on each of these clusters. Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file location][kubeconfig].
 
 <p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable is to use the <code>--kubeconfig=cluster_name.conf</code> flag, ensuring that Kommander upgrades on the workload cluster.</p>
 
