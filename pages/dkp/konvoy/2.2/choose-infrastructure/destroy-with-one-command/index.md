@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Delete Konvoy Cluster with One Command
 title: Delete a Konvoy Cluster with One Command
 menuWeight: 55
-excerpt: Deleete a Konvoy cluster with a single command
+excerpt: Delete a Konvoy cluster with a single command
 enterprise: false
 beta: false
 ---

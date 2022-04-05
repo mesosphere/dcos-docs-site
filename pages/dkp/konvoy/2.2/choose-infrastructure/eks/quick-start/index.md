@@ -58,7 +58,7 @@ Set the environment variable to be used throughout this documentation:
 export CLUSTER_NAME=eks-example
 ```
 
-Optinal:
+Optional:
 
 1.  To get a list of names in use in your EKS account, use the `aws` CLI tool. For example:
 
