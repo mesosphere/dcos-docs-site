@@ -86,7 +86,7 @@ Your cluster comes preconfigured with a few different core addons that provide f
 
 An alternative to initializing the KUBECONFIG environment variable is to use the `--kubeconfig=cluster_name.conf flag`.
 
-2. Replace `my-aws-cluster` with the name of the cluster.
+1. Replace `my-aws-cluster` with the name of the cluster.
 
 ```bash
 export CLUSTER_NAME=my-aws-cluster
@@ -111,7 +111,7 @@ clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-my-aws-clust
 configmap/nvidia-feature-discovery-my-aws-cluster upgraded
 ```
 
-3. Monitor the pods for the core addons restarting in your cluster:
+2. Monitor the pods for the core addons restarting in your cluster:
 
 ```bash
 kubectl rollout status daemonset/calico-node
