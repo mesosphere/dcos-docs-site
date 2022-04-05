@@ -26,13 +26,13 @@ Before generating a support bundle, verify that you have:
     For Linux:
 
     ```bash
-    mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.4.1_linux_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
+    mkdir dkp-diagnose && curl -sL https://downloads.d2iq.com/dkp/dkp-diagnose_v0.4.1_linux_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
     ```
 
     For macOS:
 
     ```bash
-    mkdir dkp-diagnose && curl -sL https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.4.1_darwin_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
+    mkdir dkp-diagnose && curl -sL https://downloads.d2iq.com/dkp/dkp-diagnose_v0.4.1_darwin_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
     ```
 
 1.  Add the binary to your PATH:
@@ -203,8 +203,8 @@ Redactors are supported and are in the same format as the main `dkp-diagnose` co
 [clusterResources-collector]: https://troubleshoot.sh/docs/collect/cluster-resources/
 [configMap-collector]: https://troubleshoot.sh/docs/collect/configmap/
 [copyFromHost-collector]: https://troubleshoot.sh/docs/collect/copy-from-host/
-[dkp-diagnostics-darwin]: https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.4.1_darwin_amd64.tar.gz
-[dkp-diagnostics-linux]: https://downloads.mesosphere.io/dkp/dkp-diagnose_v0.4.1_linux_amd64.tar.gz
+[dkp-diagnostics-darwin]: https://downloads.d2iq.com/dkp/dkp-diagnose_v0.4.1_darwin_amd64.tar.gz
+[dkp-diagnostics-linux]: https://downloads.d2iq.com/dkp/dkp-diagnose_v0.4.1_linux_amd64.tar.gz
 [exec-collector]: https://troubleshoot.sh/docs/collect/exec/
 [logs-collector]: https://troubleshoot.sh/docs/collect/logs/
 [secrets-collector]: https://troubleshoot.sh/docs/collect/secret/
