@@ -22,6 +22,7 @@ Before starting the Konvoy installation, verify that you have:
 - [Docker][install_docker] version 18.09.2 or later.
 - [kubectl][install_kubectl] for interacting with the running cluster.
 - A valid EKS account with [credentials configured][aws_credentials].
+- Installation of [aws-iam-authenticator][aws_auth].
 
 ## Configure EKS prerequisites
 
@@ -129,12 +130,6 @@ Tips:
     dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>This kubeconfig is temporary and needs to be renewed either by running the above command with updated credentials and rerunning, or by running the AWS CLI command:</p>
-
-    ```bash
-    aws eks --region us-west-2 update-kubeconfig --name default_<name-of-cluster>-control-plane
-    ```
-
 1.  List the Nodes with the command:
 
     ```bash
@@ -163,7 +158,8 @@ Tips:
     dkp delete bootstrap --kubeconfig $HOME/.kube/config
     ```
 
+[advanced]: ../advanced/
+[aws_auth]: https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
+[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
-[advanced]: ../advanced/
