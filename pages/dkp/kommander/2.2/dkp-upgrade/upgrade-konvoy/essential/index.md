@@ -66,7 +66,7 @@ If the upgrade fails, review the prerequisites section and ensure that you've fo
 
 To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API feature][CAPI]. In the CAPI component upgrade, we deleted the previous set of outdated global `ClusterResourceSets` because prior to DKP 2.2 some addons were installed using a global configuration. In order to support individual cluster upgrades, DKP 2.2 now installs all addons with a unique set of `ClusterResourceSet` and corresponding referenced resources, all named using the cluster’s name as a suffix. For example: `calico-cni-installation-my-aws-cluster`.
 
-<p class="message--warning"><strong>WARNING:</strong> If you have modified any of the <code>clusterResourceSet</code> definitions, these changes will <strong>not</strong> be preserved when running the command <code>dkp upgrade addons</code>. You can use the <code>--dry-run -o yaml</code> options to save the new configuration to a file and remake the same changes upon each upgrade.</p>
+<p class="message--warning"><strong>WARNING:</strong> If you modified any of the <code>clusterResourceSet</code> definitions, these changes are <strong>not</strong> preserved when running the command <code>dkp upgrade addons</code>. You can use the <code>--dry-run -o yaml</code> options to save the new configuration to a file and make the same changes again upon each of the upgrades.</p>
 
 Your cluster comes preconfigured with a few different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may come pre-bundled with newer versions of these addons. Perform the following steps to update these addons.
 
