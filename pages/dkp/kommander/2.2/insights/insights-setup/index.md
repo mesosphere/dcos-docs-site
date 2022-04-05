@@ -36,7 +36,7 @@ To receive insight items on the Insights Dashboard, enable the DKP Insights Engi
     EOF
     ```
 
-    This grants all Attached clusters the ability to enable the Insights Engine, and DKP Insights icon appears under Applications.
+    This grants all Attached clusters the ability to enable the Insights Engine, and to display DKP Insights under Applications.
 
 1.  Enable the DKP Insights Engine on each Attached cluster from the DKP UI by selecting: **Cluster**, **Applications**, **Options Menu**, **Enable**, **Deploy with defaults**.
 
