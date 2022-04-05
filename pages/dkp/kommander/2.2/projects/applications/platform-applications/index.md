@@ -14,9 +14,25 @@ Review the [project application service resource requirements](./platform-applic
 
 When deploying and upgrading applications, platform applications come as a bundle; they are tested as a single unit and you must deploy or upgrade them in a single process, for each workspace. This means all clusters in a workspace have the same set and versions of platform applications deployed.
 
-## Deploy applications in a project
+## Enable applications in a project using the DKP UI
 
-You can select which applications to deploy in a project by going to the **Applications** tab of the project.
+1.  Select a workspace from the **Workspace Selector** in the top navigation bar.
+
+1.  Select **Projects** from the sidebar menu.
+
+1.  Select your project from the list.
+
+1.  Select the **Applications** tab to browse the available applications.
+
+1.  Select the three dot button from the bottom-right corner of the desired application tile, and then select **Enable**.
+
+1.  (Optional) If you want to override the default configuration values, copy your values content into the text editor under **Configure Service** or just upload your yaml file that contains the values:
+
+      ```yaml
+      someField: someValue
+      ```
+
+1.  Select the **Enable** button.
 
 To use the CLI to enable or disable applications, see [Application Deployment](./application-deployment)
 
