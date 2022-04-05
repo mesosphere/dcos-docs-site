@@ -145,3 +145,4 @@ Repeat this step for each additional node pool.
 [kubeconfig]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [CAPI]: https://cluster-api.sigs.k8s.io/
 [releasenotes]: ../../../release-notes
+[backup]: ../../../backup-and-restore/#back-up-on-demand
