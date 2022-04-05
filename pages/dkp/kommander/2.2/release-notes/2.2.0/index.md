@@ -12,6 +12,8 @@ beta: false
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
+**Note:** In DKP 2.2, the Konvoy and Kommander binaries have been merged into a single binary. 
+
 [Download](../../download/) and [install](../../install/) the latest version to get started.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download Kommander. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.</p>
