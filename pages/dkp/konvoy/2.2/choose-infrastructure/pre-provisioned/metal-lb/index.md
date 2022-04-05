@@ -79,5 +79,5 @@ data:
 Once complete, run the following `kubectl` command.
 
 ```sh
-kubectl apply -f <metallb-config-file>
+kubectl apply -f metallb-conf.yaml
 ```
