@@ -54,6 +54,14 @@ The default value for flag `--with-aws-bootstrap-credentials` will be changing f
 
 #### New command to update Azure credentials in running clusters
 
+### Fixes and Improvements
+
+#### Default update strategy changed to "delete first" for Preprovisioned clusters
+
+A "create first" update strategy first creates a new machine, then deletes the old one. While this strategy works when machine inventory can grow on demand, it does not work if there is a fixed number of machines. Most Preprovisioned clusters have a fixed number of machines. To enable updates for Preprovisioned clusters, DKP uses the "delete first" update strategy, which first deletes an old machine, then creates a new one.
+
+New clusters use the "delete first" strategy by default. Existing clusters are switched to the "delete first" strategy whenever their machines are updated with `update controlplane` and `update nodepool`.
+
 ### Component updates
 
 The following components have been upgraded to the listed version:
