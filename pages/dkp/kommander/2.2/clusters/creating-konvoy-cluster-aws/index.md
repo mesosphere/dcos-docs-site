@@ -38,7 +38,7 @@ excerpt: A guide for creating Konvoy clusters on AWS
         - **AMI ID**: AMI ID to use for all nodes.
     -   **Add Infrastructure Provider Tags**: Specify tags applied on all resources created in your infrastructure for this cluster. Different infrastructure providers have varying restrictions on the usable tags. See the [AWS Tags User Guide][aws-tags] for more information on using tags in AWS.
 
-1. Click **Create** to begin provisioning the Konvoy cluster. This step may take a few minutes, taking time for the cluster to be ready and fully deploy its components. The cluster will retry to join automatically and should resolve once it is fully provisioned.
+1. Click **Create** to begin provisioning the Konvoy cluster. This step may take a few minutes, taking time for the cluster to be ready and fully deploy its components. The cluster automatically tries to join, and should resolve once it is fully-provisioned.
 
 [aws-tags]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
 [projects]: ../../projects/
