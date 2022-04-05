@@ -18,7 +18,7 @@ Project Quotas and Limit Ranges can be set up to limit the number of resources t
 
 1. Select the **Quotas & Limit Ranges** tab, and then select the **Edit** button.
 
-    Kommander provides a set of default resources for which you can set Quotas, or you can define Quotas for custom resources. We recommended that you set Quotas for CPU and Memory. Using Limit Ranges, you can restrict the resource consumption of individual Pods, Containers, and Persistent Volume Claims in the project namespace. You can also constrain memory and CPU resources consumed by Pods and Containers, and you can constrain storage resources consumed by Persistent Volume Claims.
+    Kommander provides a set of default resources for which you can set Quotas. You can also define Quotas for custom resources. We recommend that you set Quotas for CPU and Memory. By using Limit Ranges, you can restrict the resource consumption of individual Pods, Containers, and Persistent Volume Claims in the project namespace. You can also constrain memory and CPU resources consumed by Pods and Containers, and storage resources consumed by Persistent Volume Claims.
 
 1. To add a custom quota, scroll to the bottom of the form and select **Add Quota**.
 
