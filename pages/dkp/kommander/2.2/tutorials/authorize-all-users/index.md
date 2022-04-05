@@ -23,7 +23,7 @@ After you create this application, you should something like this:
 
 ![Created a GitHub OAuth App](/dkp/kommander/2.1/img/tutorial-idp-github-oauth-created.png)
 
-In DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Identity Providers** tab and click the **Add Identity Provider** button. Ensure GitHub is selected as the identity provider type, and copy the Client ID and Client Secret values into the form. Press **Save** to create your Identity Provider.
+In the DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Identity Providers** tab and click the **Add Identity Provider** button. Ensure GitHub is selected as the identity provider type, and copy the Client ID and Client Secret values into the form. Press **Save** to create your Identity Provider.
 
 ![Adding the GitHub OAuth App](/dkp/kommander/2.1/img/tutorial-idp-github-added.png)
 
