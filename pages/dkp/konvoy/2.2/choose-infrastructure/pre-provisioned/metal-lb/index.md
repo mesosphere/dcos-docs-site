@@ -76,30 +76,6 @@ data:
       addresses:
       - 192.168.10.0/24
 ```
-If you installed MetalLB with the MetalLB Operator, the addresspool configuration happens via the AddressPool CRD:
-
-```sh
-apiVersion: metallb.io/v1beta1
-kind: BGPPeer
-metadata:
-  name: peer-sample1
-  namespace: metallb-system
-spec:
-  peerAddress: 10.0.0.1
-  peerASN: 64501
-  myASN: 64500
-  routerID: 10.10.10.10
-  peerPort: 1
-  holdTime: "180s"
-  keepaliveTime: "180s"
-  sourceAddress: "1.1.1.1"
-  password: "test"
-  nodeSelectors:
-  - matchExpressions:
-    - key: kubernetes.io/hostname
-      operator: In
-      values: [hostA, hostB]
-```
 Once complete, run the following `kubectl` command.
 
 ```sh
