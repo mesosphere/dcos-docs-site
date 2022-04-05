@@ -121,7 +121,9 @@ dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=
 The output should be similar to:
 
 ```text
-### DEV ENTER OUTPUT HERE
+Updating control plane resource controlplane.cluster.x-k8s.io/v1beta1, Kind=KubeadmControlPlane default/my-aws-cluster-control-plane
+Waiting for control plane update to finish.
+ ✓ Updating the control plane ```
 ```
 
 3. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
@@ -133,8 +135,11 @@ dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubern
 The output should be similar to:
 
 ```text
-### DEV ENTER OUTPUT HERE
+Updating node pool resource cluster.x-k8s.io/v1beta1, Kind=MachineDeployment default/my-aws-cluster-my-nodepool
+Waiting for node pool update to finish.
+ ✓ Updating the my-aws-cluster-my-nodepool node pool
 ```
+
 Repeat this step for each additional node pool.
 
 [dkpup]: /dkp/kommander/2.2/dkp-upgrade/
