@@ -151,7 +151,9 @@ dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubern
 The output should be similar to:
 
 ```text
-### DEV ENTER OUTPUT HERE
+Updating node pool resource cluster.x-k8s.io/v1beta1, Kind=MachineDeployment default/my-aws-cluster-my-nodepool
+Waiting for node pool update to finish.
+ ✓ Updating the my-aws-cluster-my-nodepool node pool 
 ```
 Repeat this step for each additional node pool.
 
