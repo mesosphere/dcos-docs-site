@@ -63,7 +63,7 @@ clusters have a fixed number of machines. To enable updates for Preprovisioned c
 update strategy, which first deletes an old machine, then creates a new one.
 
 New clusters use the "delete first" strategy by default. Existing clusters are switched to the "delete first" strategy
-whenever their machines are updated.
+whenever their machines are updated with `update controlplane` and `update nodepool`.
 
 ### Component updates
 
