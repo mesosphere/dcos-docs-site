@@ -12,7 +12,7 @@ beta: false
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
-**Note:** In DKP 2.2, the Konvoy and Kommander binaries have been merged into a single binary. 
+**Note:** In DKP 2.2, the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above. 
 
 [Download](../../download/) and [install](../../install/) the latest version to get started.
 
@@ -20,21 +20,29 @@ beta: false
 
 ## Release summary
 
-Welcome to D2iQ Kubernetes Platform (DKP) 2.2! This release continues our tradition of customer-led development making DKP even easier to deploy, supporting more platforms and applications, and includes our AI/ML solution, Kaptain, added as a catalog application. In this release, we are beginning the process of combining our two flagship products, Konvoy and Kommander, into a single DKP product with two service level options: DKP Enterprise for multi-cluster environments, and DKP Essentials for single-cluster environments.
+Welcome to D2iQ Kubernetes Platform (DKP) 2.2! This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Konvoy. In this release, we are beginning the process of combining our two flagship products, Konvoy and Kommander, into a single DKP product with two service level options: DKP Enterprise for multi-cluster environments, and DKP Essential for single-cluster environments.
 
-For this release, we maintain the Konvoy and Kommander documentation sets, while publishing some combined DKP documentation for processes, such as Upgrading DKP version.
+For this release, the Konvoy and Kommander documentation sets remain, while publishing some combined DKP documentation for processes, such as Upgrading DKP version.
 
-This version supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using Kommander 2.2 must be running a Kubernetes version in this range.
+DKP 2.2 supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using DKP 2.2 must be running a Kubernetes version in this range.
+
+### Supported versions
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.21.0 |
+|**Maximum** | 1.22.x |
+|**Default** | 1.22.0|
 
 ## New features and capabilities
 
-These features and capabilities are new for Version 2.2
+The following features and capabilities are new for Version 2.2.
 
-### Upgrade catalog application via CLI and UI
+### Integrated DKP Upgrade
 
-You can use either the CLI or the UI to [upgrade your catalog applications](../../projects/applications/catalog-applications#upgrade-catalog-applications).
+You can now upgrade Konvoy and Kommander as a single fluid process using a combination of the [DKP CLI](../../cli/dkp) and the UI to upgrade your environment.
 
-<p class="message--note"><strong>NOTE:</strong> Catalog applications must be upgraded to the latest version BEFORE upgrading the Kubernetes version (or Konvoy version for managed Konvoy clusters) on attached clusters, due to the previous versions' incompatibility with Kubernetes 1.22.</p>
+For more information, see [DKP Upgrade](../../dkp-upgrade)
 
 ### Integration with VMware vSphere
 
@@ -42,11 +50,13 @@ You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](
 
 ### Zero downtime upgrades for air-gapped deployments
 
-Kubernetes Operators and other IT operations team members can use their laptop or USB drive to transfer pre-created bundles, including OS dependencies and DKP binaries into an air-gapped environment with no external connectivity. This improves the availability of the DKP air-gapped deployment and productivity of your IT operations team.
+You can now use your laptop or USB drive to transfer pre-created air-gapped bundles, including OS dependencies and DKP binaries into your air-gapped environment with no external connectivity. This improves the availability of the DKP air-gapped deployment and productivity of your IT operations team.
 
-### Unified user interfaces
+For more information, see the [air-gapped bundle](????????) documentation. 
 
-This provides a smooth experience independent of where you start your journey. A DKP Essential customer can simply update your license to access DKP Enterprise features without having to learn another interface.
+### Unified DKP user interfaces
+
+The unified DKP user interface provides a smooth experience independent of where you start your journey. A DKP Essential customer can simply update your license to access DKP Enterprise features without having to learn another interface.
 
 ### Kaptain AI/ML, D2iQ’s AI/ML offering
 
@@ -54,11 +64,11 @@ For better integration with DKP 2.2 you can launch Kaptain as a catalog applicat
 
 ### DKP Insights
 
-This new predictive analytics tool provides greater support productivity, speed, and reduced costs. An Insights module integrated into DKP collects configuration, logs, events, and metrics from DKP deployments and generates predictive insights on potential issues of varying critical levels. This enables you to quickly identify and resolve issues that would save a lot of time and money by not escalating to D2iQ's support. You can filter the insight summary cards by one or many insight categories for a selected cluster and project.
+This new predictive analytics tool provides greater support productivity, speed, and reduced costs. An [Insights](../../insights/) module integrated into DKP collects configuration, logs, events, and metrics from DKP deployments and generates predictive insights on potential issues of varying levels. These insights enable you to proactively identify and resolve issues that can save you a lot of time and money by not escalating to D2iQ's support. 
 
 ## Component updates
 
-The following services and service components have been upgraded to the listed version:
+The following services and service components will be upgraded to the listed version:
 
 | Platform Application                           | Version | Component Versions                                                                                                        |
 |------------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------|
