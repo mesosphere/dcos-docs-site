@@ -11,18 +11,20 @@ beta: false
 
 Use this option when you want to attach a cluster that does not require additional access information.
 
-1. In the selected workspace Dashboard, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
+1. Select a workspace from the **Workspace Selector** in the top navigation bar. 
 
-1. In the Add Cluster page, select **Attach Cluster**.
+1. On the Dashboard page, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
+
+1. Select **Attach Cluster**.
 
 1. Select the **No additional networking restrictions** card.
 
-1. In the **Connection Information** dialog box, paste your kubeconfig file into the field, or select the upload link below the field to specify a file.
+1. In the **Cluster Configuration** section, paste your kubeconfig file into the field, or select the **Upload kubeconfig File** button to specify the file. 
 
-1. Select the intended context or change the display name provided with the kubeconfig in the **Context** select list.
+1. The **Cluster Name** field will automatically populate with the name of the cluster is in the kubeconfig. You can edit this field with the name you want for your cluster.
+
+1. The **Context** select list is populated from the kubeconfig. Select the desired context with admin privileges from the **Context** select list.
 
 1. Add labels to classify your cluster as needed.
 
-1. Select the **Submit** button to begin the cluster attachment process.
-
-![Add Cluster Connect](../../../img/add-cluster-connect.png)
+1. Select **Submit** to attach your cluster.

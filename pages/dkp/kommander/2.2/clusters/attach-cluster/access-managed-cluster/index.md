@@ -11,7 +11,7 @@ beta: false
 
 ## Accessing your managed clusters using your Kommander administrator credentials
 
-After the cluster is successfully attached and you can access the user interface, you can retrieve a custom kubeconfig file.
+After the cluster is successfully attached, you can retrieve a custom kubeconfig file from the UI.
 
 1. Select the Kommander username in the top right corner, and then select **Generate Token**.
 
