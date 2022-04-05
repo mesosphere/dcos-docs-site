@@ -56,7 +56,7 @@ If you are running on more than one management cluster (Kommander cluster), you 
 dkp upgrade capi-components
 ```
 
-The command should output something similar to the following:
+The output resembles the following:
 
 ```bash
 ✓ Upgrading CAPI components
