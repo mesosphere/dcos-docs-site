@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 navigationTitle: Viewing insight items
-title: Viewing insight items
-excerpt: Viewing and troubleshooting insight items
+title: Viewing Insight Items
+excerpt: Viewing and Troubleshooting Insight Items
 menuWeight: 30
 beta: false
 enterprise: false
