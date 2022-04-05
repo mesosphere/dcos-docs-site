@@ -11,7 +11,7 @@ beta: false
 
 ![DKP Enterprise Diagram](/dkp/kommander/2.2/img/dkpenterprisediagramv2.png)
 
-DKP Enterprise is a multi-cluster lifecycle management Kubernetes solution centered around a management cluster that manages multiple attached or managed Kubernetes clusters via a centralized management dashboard. The management dashboard gives you a single point of observability and control throughout all of your attached or managed clusters. The DKP Enterprise license gives the user access to the entire Konvoy cluster environment, the Kommander UI dashboard that deploys platform and catalog applications, and multi-cluster management, and comprehensive compatibility with our full range of infrastructure deployment options.
+DKP Enterprise is a multi-cluster lifecycle management Kubernetes solution centered around a management cluster that manages multiple attached or managed Kubernetes clusters via a centralized management dashboard. The management dashboard gives you a single point of observability and control throughout all of your attached or managed clusters. The DKP Enterprise license gives the user access to the entire Konvoy cluster environment, the DKP UI dashboard that deploys platform and catalog applications, and multi-cluster management, and comprehensive compatibility with our full range of infrastructure deployment options.
 
 ## Compatible infrastructure
 
@@ -21,7 +21,7 @@ For the basics on standing up a DKP Enterprise cluster in one of the listed envi
 
 ## Platform applications
 
-Applications can be deployed in any Kubernetes-managed or self-attached clusters, giving you complete flexibility to operate across cloud, on-premise, edge, and air-gapped scenarios. DKP Enterprise users can use the Kommander UI to customize which platform applications to deploy to the cluster in a given workspace.
+Applications can be deployed in any DKP managed clusters, giving you complete flexibility to operate across cloud, on-premise, edge, and air-gapped scenarios. DKP Enterprise users can use the DKP UI to customize which platform applications to deploy to the cluster in a given workspace.
 
 ## Catalog Applications
 
