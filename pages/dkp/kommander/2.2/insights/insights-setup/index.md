@@ -40,7 +40,7 @@ EOF
 ``` 
    This grants all Attached clusters the ability to enable the Insights Engine, and DKP Insights icon appears under Applications.
 
-1. Enable the DKP Insights Engine on each Attached cluster from the DKP UI by selecting: Cluster -> Applications -> Options Menu -> Enable -> Deploy with defaults.
+2. Enable the DKP Insights Engine on each Attached cluster from the DKP UI by selecting: Cluster -> Applications -> Options Menu -> Enable -> Deploy with defaults.
    
    **Note**: The option for *Enable Another Instance* is not supported in this Preview release.
    
