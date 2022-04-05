@@ -126,7 +126,7 @@ Now that you have kubeconfig, go to the Kommander UI and follow these steps belo
 
 1.  The **Cluster Configuration** section of the form accepts a kubeconfig file that you can paste, or upload, into the field. Paste the contents of your clipboard (or upload the file you created) into the kubeconfig field.
 
-1.  The **Cluster Name** field will automatically populate with the name of the cluster in the kubeconfig. You can edit this field with the name you want for your cluster.
+1.  The **Cluster Name** field automatically populates with the name of the cluster in the kubeconfig. You can edit this field with the name you want for your cluster.
 
 1.  Add labels to classify your cluster as needed.
 
