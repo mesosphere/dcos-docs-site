@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Prerequisites
 title: Prerequisites
-menuWeight: 20
+menuWeight: 10
 excerpt: Prepare your environment to run DKP with VMware vSphere
 enterprise: false
 ---

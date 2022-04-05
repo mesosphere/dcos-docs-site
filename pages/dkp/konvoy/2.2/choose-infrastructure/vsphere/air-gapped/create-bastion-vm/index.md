@@ -18,17 +18,17 @@ When creating an air-gapped vSphere cluster, the bastion VM hosts the installati
 
 1.  Find and record the bastion VM's IP or host name.
 
-1.  Download the required Konvoy binaries and installation bundles directly to the bastion host, or transfer them using your environment's approved methods:
+1.  [Download][download] the following required Konvoy binaries and installation bundles directly to the bastion host, or transfer them using your environment's approved methods:
 
-    - [downloads.d2iq.com/konvoy/konvoy_v2.2.0-rc.1_checksums.txt](http://downloads.d2iq.com/konvoy/konvoy_v2.2.0-beta.1_checksums.txt)
+    - konvoy_v2.2.0_checksums.txt
 
-    - [downloads.d2iq.com/konvoy/konvoy_v2.2.0-rc.1_darwin_amd64.tar.gz](http://downloads.d2iq.com/konvoy/konvoy_v2.2.0-beta.1_darwin_amd64.tar.gz)
+    - konvoy_v2.2.0_darwin_amd64.tar.gz
 
-    - [downloads.d2iq.com/konvoy/konvoy_v2.2.0-rc.1_linux_amd64.tar.gz](http://downloads.d2iq.com/konvoy/konvoy_v2.2.0-beta.1_linux_amd64.tar.gz)
+    - konvoy_v2.2.0_linux_amd64.tar.gz
 
-    - [downloads.d2iq.com/konvoy/airgapped/v2.2.0-rc.1/konvoy_image_bundle_v2.2.0-rc.1_linux_amd64.tar.gz](http://downloads.d2iq.com/konvoy/airgapped/v2.2.0-beta.1/konvoy_image_bundle_v2.2.0-beta.1_linux_amd64.tar.gz) (This bundle contains air-gapped images that you must push to a registry.)
+    - konvoy_image_bundle_v2.2.0_linux_amd64.tar.gz (air-gapped) - This bundle contains air-gapped images that you must push to a registry.)
 
-    - [downloads.d2iq.com/konvoy/airgapped/v2.2.0-rc.1/konvoy-bootstrap_v2.2.0-rc.1.tar](http://downloads.d2iq.com/konvoy/airgapped/v2.2.0-beta.1/konvoy-bootstrap_v2.2.0-beta.1.tar) (This bundle contains the KIND bootstrap image to load with the `docker load` command when you create the bootstrap cluster in a later step.)
+    - konvoy-bootstrap_v2.2.0.tar (air-gapped) - This bundle contains the KIND bootstrap image to load with the `docker load` command when you create the bootstrap cluster in a later step.
 
 1.  Use your credentials to SSH into the bastion VM host with the command:
 
@@ -59,6 +59,7 @@ When creating an air-gapped vSphere cluster, the bastion VM hosts the installati
 
 When you complete this procedure, the next step is to [create a bootstrap cluster][bootstrap].
 
+[download]: ../../../../download/
 [prereqs]: ../../prerequisites/
 [bootstrap]: ../bootstrap/
 [set-up-mirrored-registry]: ../set-up-mirrored-registry/
