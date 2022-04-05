@@ -13,6 +13,6 @@
     "DO_NOT_BUILD": ["dkp/kommander/2.2/**"]
   },
   "production": {
-    "DO_NOT_BUILD": ["dkp/kommander/2.2/**", "dkp/konvoy/2.2/**"]
+    "DO_NOT_BUILD": ["dkp/kommander/2.3/**", "dkp/konvoy/2.3/**"]
   }
 }
