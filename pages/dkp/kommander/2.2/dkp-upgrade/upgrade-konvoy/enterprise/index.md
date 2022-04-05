@@ -154,12 +154,13 @@ Repeat this step for each additional node pool.
 
 If you have any additional management or managed clusters, review the [DKP Upgrade][dkpup] documentation for next steps.
 
-[dkpup]: ../../dkp-upgrade/
+[dkpup]: /dkp/kommander/2.2/dkp-upgrade/
 [upgradekomm]: ../../upgrade-kommander/
 [supportsite]: https://support.d2iq.com/hc/en-us
-[airgapbundle]: /dkp//konvoy/2.2/choose-infrastructure/airgapbundle/
+[airgapbundle]: /dkp/konvoy/2.2/choose-infrastructure/airgapbundle/
 [dkpenterprise]: /dkp/kommander/2.2/licensing/enterprise/
 [kubeconfig]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [CAPI]: https://cluster-api.sigs.k8s.io/
 [releasenotes]: ../../../release-notes
 [envariables]: /dkp/konvoy/2.2/choose-infrastructure/azure/quick-start-azure/#configure-azure-prerequisites
+[envariables2]: /dkp/konvoy/2.2/choose-infrastructure/aws/quick-start-aws/#configure-aws-prerequisites
