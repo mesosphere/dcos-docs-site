@@ -11,7 +11,7 @@ techPreview: true
 
 DKP Insights Management is installed by default on your Management Cluster.
 
-DKP Insights Engine needs to be enabled manually on each Attached cluster to receive insight items on the Insight Dashboard.
+Enable the DKP Insights Engine manually on each Attached cluster, to receive insight items on the Insights Dashboard.
 
 ## Enable the DKP Insights Engine
 

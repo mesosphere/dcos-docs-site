@@ -13,7 +13,7 @@ techPreview: true
 
 Once the [Insights Engine is Enabled](../insights-setup/) select one of your workspaces to view your insight items. From a Workspace Dashboard, the Insights summary table, below the workspace summary cards, displays the most recent insight items. You can toggle the view between Critical, Warning, Notices, and View All for a summary of insight items.
 
-Select Insights from the sidebar menu for the DKP Insights dashboard, where you can filter the insight items several different ways:
+Select Insights from the sidebar menu for the DKP Insights Dashboard, where you can filter the insight items several different ways:
 
 -   Use the search dialog to search by description keyword.
 -   Toggle your view by the following insight types:
