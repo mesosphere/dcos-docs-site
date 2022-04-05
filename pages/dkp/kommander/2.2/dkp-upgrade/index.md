@@ -42,14 +42,14 @@ The overall process for upgrading to the latest version of DKP is done on each W
 1.  [**Upgrade the Kubernetes version**][upgrade_konvoy_kubernetes]. This upgrades your cluster’s control plane and node pools.
 
     If you do not have any managed or attached clusters, you have finished the upgrade process and can start testing your environment. If you have managed or attached clusters, continue with the next section.
-    
+
    For **Konvoy**, on your Managed Clusters:
 
 1.  [**Upgrade the Core Addons**][upgrade_konvoy_core]. This upgrades multiple addons such as CSI, CNI, Cluster Autoscaler, and Node Feature Discovery.
 
 1.  [**Upgrade the Kubernetes version**][upgrade_konvoy_kubernetes]. This upgrades your cluster’s control plane and node pools. We recommend you upgrade your Kubernetes version on any attached clusters.
 
-[custom_apps]: ../custom-apps/
+[custom_apps]: /custom-apps/
 [catalog_apps]: ../projects/applications/catalog-applications/
 [upgrade_kommander]: /dkp/kommander/2.2/dkp-upgrade/upgrade-kommander/
 [release_notes]: ../release-notes
