@@ -48,7 +48,7 @@ Before running the commands below, ensure that your `kubectl` configuration **re
 <p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable as stated earlier is to use the <code>–kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
 
 ```bash
-kommander install
+dkp install kommander
 ```
 
 ## Verify installation
@@ -99,7 +99,7 @@ helmrelease.helm.toolkit.fluxcd.io/velero condition met
 When all the `HelmReleases` are ready, use the following command to open the Kommander dashboard in your browser:
 
 ```bash
-kommander open dashboard
+dkp open dashboard
 ```
 
 This command opens the URL of the Kommander web interface in your default browser, and prints the username and password in the CLI.

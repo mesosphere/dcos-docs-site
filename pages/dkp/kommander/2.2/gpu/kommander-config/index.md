@@ -43,7 +43,7 @@ To enable Nvidia GPU support when installing Kommander, perform the following st
 1. Create an installation configuration file:
 
     ```bash
-    kommander install --init > install.yaml
+    dkp install kommander --init > install.yaml
     ```
 
 1. Append the following to the apps section in the `install.yaml` file to enable Nvidia platform services.
@@ -56,10 +56,8 @@ To enable Nvidia GPU support when installing Kommander, perform the following st
 1. Install Kommander, using the configuration file you created:
 
     ```bash
-    kommander install --installer-config ./install.yaml
+    dkp install kommander --installer-config ./install.yaml
     ```
-
-
 
 ## Disable Nvidia Platform Service on Kommander
 

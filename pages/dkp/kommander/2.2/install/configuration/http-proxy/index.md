@@ -45,12 +45,12 @@ If the proxy is working for HTTP and HTTPS, respectively, the `curl` command ret
 
 Gatekeeper acts as a [Kubernetes mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook). You can use this to mutate the Pod resources with `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` environment variables.
 
-Kommander installs with a dedicated CLI.
+Kommander installs with the DKP CLI.
 
 1.  Create (if necessary) and update the Kommander installation configuration file. If one does not already exist, then create it using the following commands:
 
     ```bash
-    ./kommander install --init > install.yaml
+    ./dkp install kommander --init > install.yaml
     ```
 
 1. Append the `apps` section in `install.yaml` with the following values to enable Gatekeeper and configure it to add HTTP proxy settings to the pods.
@@ -83,7 +83,7 @@ Kommander installs with a dedicated CLI.
 1. Install Kommander using the above configuration file:
 
     ```bash
-    ./kommander install --installer-config ./install.yaml
+    ./dkp install kommander --installer-config ./install.yaml
     ```
 
 # Configure Workspace (or Project) in which you want to use proxy
