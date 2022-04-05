@@ -12,7 +12,7 @@ beta: false
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
-[Download](../download/) and [install](../install/) the latest version to get started.
+[Download](../../download/) and [install](../../install/) the latest version to get started.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download Kommander. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.</p>
 
@@ -30,13 +30,13 @@ These features and capabilities are new for Version 2.2
 
 ### Upgrade catalog application via CLI and UI
 
-You can use either the CLI or the UI to [upgrade your catalog applications](../projects/applications/catalog-applications/#upgrade-catalog-applications).
+You can use either the CLI or the UI to [upgrade your catalog applications](../../projects/applications/catalog-applications#upgrade-catalog-applications).
 
 <p class="message--note"><strong>NOTE:</strong> Catalog applications must be upgraded to the latest version BEFORE upgrading the Kubernetes version (or Konvoy version for managed Konvoy clusters) on attached clusters, due to the previous versions' incompatibility with Kubernetes 1.22.</p>
 
 ### Better integration with VMware vSphere
 
-You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](../../../choose-infrastructure/vsphere/index.md), which allows you to manage bootstrapping of VMs on a DKP cluster. This gives you improved productivity and speed of deploying VMs on DKP in a VMWare environment, including FIPS builds and air-gapped deployments.
+You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](/dkp/konvoy/2.2/choose-infrastructure/vsphere/), which allows you to manage bootstrapping of VMs on a DKP cluster. This gives you improved productivity and speed of deploying VMs on DKP in a VMWare environment, including FIPS builds and air-gapped deployments.
 
 ### Zero downtime upgrades for air-gapped deployments
 
@@ -48,11 +48,11 @@ This provides a smooth experience independent of where you start your journey. A
 
 ### Kaptain AI/ML, D2iQ’s AI/ML offering
 
-For better integration with DKP 2.2 you can launch Kaptain as a catalog application, as well as support other platforms such as Amazon AWS, AKS, and Microsoft Azure EKS. This extends D2iQ’s openness to support Kubernetes platforms beyond DKP with Kaptain. Kaptain enables an organization to develop, deploy, and run entire ML workloads in production, at scale, with consistency and reliability.
+For better integration with DKP 2.2 you can launch Kaptain as a catalog application, and also support other platforms such as Amazon AWS, AKS, and Microsoft Azure EKS. This extends D2iQ’s openness to support Kubernetes platforms beyond DKP with Kaptain. Kaptain enables an organization to develop, deploy, and run entire ML workloads in production, at scale, with consistency and reliability.
 
 ### DKP Insights
 
-This new predictive analytics tool provides greater support productivity, speed, and reduced costs. An Insights module integrated into DKP collects configuration, logs, events, and metrics from DKP deployments and generates predictive insights on potential issues of varying critical levels. This enables you to quickly identify and resolve issues that would save a lot of time and money by not escalating to D2IQ's support. You can filter the insight summary cards by one or many insight categories for a selected cluster and project.
+This new predictive analytics tool provides greater support productivity, speed, and reduced costs. An Insights module integrated into DKP collects configuration, logs, events, and metrics from DKP deployments and generates predictive insights on potential issues of varying critical levels. This enables you to quickly identify and resolve issues that would save a lot of time and money by not escalating to D2iQ's support. You can filter the insight summary cards by one or many insight categories for a selected cluster and project.
 
 ## Component updates
 
@@ -143,4 +143,5 @@ spec:
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
+[kube-prometheus-stack]: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 [kubernetes-doc]: https://kubernetes.io/docs/home/
