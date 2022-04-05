@@ -16,7 +16,7 @@ Under the **Applications** section of the cluster's detail page, you can view th
 
 ![Cluster Detail Page - Applications](../../img/cluster-detail-page-applications.png)
 
-In this section, you can also view the current status of the enabled applications on the cluster. The status is displayed on the application card. Hovering on the status displays details about the status of the application.
+In this section, you can also view the current status of the enabled applications on the cluster, on each application card. Hovering on the status displays details about the status of the application.
 
 Cluster applications can have one of the following statuses:
 
