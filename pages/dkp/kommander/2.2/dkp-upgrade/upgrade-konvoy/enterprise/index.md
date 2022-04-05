@@ -80,9 +80,7 @@ To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API 
 
 Your cluster comes preconfigured with a few different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may come prebundled with newer versions of these addons. Perform the following steps to update these addons.
 
-<p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">to the appropriate kubeconfig file location</a>.</p>
-
-An alternative to initializing the KUBECONFIG environment variable is to use the `--kubeconfig=cluster_name.conf flag`.
+<p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
 1. Replace `my-aws-cluster` with the name of the cluster.
 
@@ -93,7 +91,7 @@ dkp upgrade addons aws --cluster-name=${CLUSTER_NAME}
 
 The output should be similar to:
 
-```bash
+```text
 Generating addon resources
 clusterresourceset.addons.cluster.x-k8s.io/calico-cni-    installation-my-aws-cluster upgraded
 configmap/calico-cni-installation-my-aws-cluster upgraded
@@ -118,7 +116,7 @@ kubectl rollout status daemonset/calico-node
 
 The output should be similar to:
 
-```bash
+```text
 daemon set "calico-node" successfully rolled out
 ```
 
@@ -140,7 +138,7 @@ dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=
 
 The output should be similar to:
 
-```bash
+```text
 ### DEV ENTER OUTPUT HERE
 ```
 
@@ -152,7 +150,7 @@ dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubern
 ```
 The output should be similar to:
 
-```bash
+```text
 ### DEV ENTER OUTPUT HERE
 ```
 Repeat this step for each additional node pool.
