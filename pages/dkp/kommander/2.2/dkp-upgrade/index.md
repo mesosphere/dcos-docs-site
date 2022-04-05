@@ -54,6 +54,6 @@ The overall process for upgrading to the latest version of DKP is done on each W
 [upgrade_kommander]: /dkp/kommander/2.2/dkp-upgrade/upgrade-kommander/
 [release_notes]: ../release-notes
 [upgrade_workspaces]: ../cli/dkp/upgrade/workspace
-[upgrade_konvoy_capi]: /upgrade-konvoy
-[upgrade_konvoy_core]: /upgrade-konvoy
-[upgrade_konvoy_kubernetes]: /upgrade-konvoy
+[upgrade_konvoy_capi]: upgrade-konvoy
+[upgrade_konvoy_core]: upgrade-konvoy
+[upgrade_konvoy_kubernetes]: upgrade-konvoy
