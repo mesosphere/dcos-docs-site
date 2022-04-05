@@ -75,7 +75,7 @@ To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API 
 
 <p class="message--warning"><strong>WARNING:</strong> If you modified any of the <code>clusterResourceSet</code> definitions, these changes are <strong>not</strong> preserved when running the command <code>dkp upgrade addons</code>. You must use the <code>--dry-run -o yaml</code> options to save the new configuration to a file and make the same changes again upon each of the upgrades.</p>
 
-Your cluster comes preconfigured with a few different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may come prebundled with newer versions of these addons. Perform the following steps to update these addons.
+Your cluster comes preconfigured with some different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may provide newer versions of these addons. Perform the following steps to update these addons.
 
 1. Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the KUBECONFIG environment variable [to the appropriate kubeconfig file’s location][kubeconfig].
 
