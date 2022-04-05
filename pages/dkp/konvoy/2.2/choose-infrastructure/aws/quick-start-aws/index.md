@@ -48,7 +48,7 @@ Before starting the Konvoy installation, verify that you have:
 
 ## Create a new AWS Kubernetes cluster
 
-If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on a [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
+If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
 
 <p class="message--note"><strong>NOTE: </strong>
 Using these default images work, but due to missing optimizations, the created cluster will have certain limits.
