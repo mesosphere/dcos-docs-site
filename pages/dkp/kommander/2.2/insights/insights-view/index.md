@@ -9,9 +9,9 @@ enterprise: false
 techPreview: true
 ---
 
-<p class="message--note"><strong>NOTE: </strong>Insights are refreshed on a 72-hour basis.</p>
+<p class="message--note"><strong>NOTE: </strong>Insights are refreshed on a 72-hour basis. Older insights drop off the table, but, if an insight persists, a new insight item populates on the board when it refreshes.</p>
 
-After the [Insights Engine is enabled](../insights-setup/), select one of your workspaces to view your insight items. From a Workspace Dashboard, the Insights summary table displays the most recent insight items, below the workspace summary cards. You can toggle the view between Critical, Warning, Notices, and View All for a summary of insight items.
+After the [Insights Engine is enabled](../insights-setup/), select one of your workspaces to view your insight items. From a Workspace Dashboard, the Insights summary table displays the most recent insight items, below the workspace summary cards. You can view Critical, Warning, Notices, and View All for a summary of insight items.
 
 Select Insights from the sidebar menu for the DKP Insights Dashboard, where you can filter the insight items several different ways:
 

@@ -9,15 +9,13 @@ enterprise: false
 techPreview: true
 ---
 
-DKP Insights Management is installed by default on your Management Cluster.
+DKP Insights Management installs by default on your Management Cluster, when you install or upgrade to DKP 2.2 and higher.
 
-Enable the DKP Insights Engine manually on each Attached cluster, to receive insight items on the Insights Dashboard.
+To receive insight items on the Insights Dashboard, enable the DKP Insights Engine manually on each Managed or Attached or cluster.
 
 ## Enable the DKP Insights Engine
 
-1.  Add DKP Insights Engine Addon
-
-    Add the DKP Insights Engine Addons by applying the following YAML from the CLI:
+1.  Add DKP Insights Engine Addon by applying the following YAML from the CLI:
 
     ```yaml
     kubectl apply -f - <<EOF
@@ -40,6 +38,6 @@ Enable the DKP Insights Engine manually on each Attached cluster, to receive ins
 
     This grants all Attached clusters the ability to enable the Insights Engine, and DKP Insights icon appears under Applications.
 
-1.  Enable the DKP Insights Engine on each Attached cluster from the DKP UI by selecting: Cluster -> Applications -> Options Menu -> Enable -> Deploy with defaults.
+1.  Enable the DKP Insights Engine on each Attached cluster from the DKP UI by selecting: **Cluster**, **Applications**, **Options Menu**, **Enable**, **Deploy with defaults**.
 
    **Note**: The option for *Enable Another Instance* is not supported in this Preview release.
