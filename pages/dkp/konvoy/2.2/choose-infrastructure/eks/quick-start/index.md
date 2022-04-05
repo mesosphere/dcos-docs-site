@@ -55,10 +55,10 @@ In EKS it is critical that the name is unique as no two clusters in the same EKS
 Set the environment variable to be used throughout this documentation:
 
 ```bash
-CLUSTER_NAME=my-eks-cluster
+export CLUSTER_NAME=eks-example
 ```
 
-Tips:
+Optinal:
 
 1.  To get a list of names in use in your EKS account, use the `aws` CLI tool. For example:
 
@@ -68,7 +68,7 @@ Tips:
 
     ```json
     [
-        "alex-aws-cluster-afe98",
+        "alex-eks-cluster-afe98",
         "sam-aws-cluster-8if9q"
     ]
     ```
@@ -77,12 +77,12 @@ Tips:
     This creates a unique name every time you run it, so use the command with forethought.
 
     ```bash
-    CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+    export CLUSTER_NAME=$eks-example-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 
     ```sh
-    hunter-aws-cluster-pf4a3
+    eks-example-cluster-pf4a3
     ```
 
 ## Create a new EKS Kubernetes cluster
