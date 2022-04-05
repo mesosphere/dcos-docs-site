@@ -26,13 +26,13 @@ The following infrastructure environments are supported:
 
 ## Overview
 
-The Konvoy upgrade for DKP Enterprise encompasses the following three steps in sequential order:
+To upgrade Konvoy upgrade for DKP Enterprise, :
 
 1. Upgrade the Cluster API (CAPI) components
 1. Upgrade the core addons
 1. Upgrade the Kubernetes version
 
-Run all three steps on the management cluster (Kommander cluster) first. Then, run the second and third step on additional managed clusters (Konvoy clusters), one cluster at the time.
+Run all three steps on the management cluster (Kommander cluster) first. Then, run the second and third step on additional managed clusters (Konvoy clusters), one cluster at a time with the KUBECONFIG configured for each cluster.
 
 For a full list of DKP Enterprise features, see [DKP Enterprise][dkpenterprise].
 
@@ -61,19 +61,6 @@ The command should output something similar to the following:
 ✓ Deleting Outdated Global ClusterResourceSets
 ```
 
-2. Once finished, verify that the components were upgraded using the `kubectl get provider` command.
-
-```bash
-kubectl get provider --all-namespaces
-NAMESPACE                           NAME                            AGE     TYPE                     PROVIDER         VERSION
-capa-system                         infrastructure-aws              5m54s   InfrastructureProvider   aws              v1.2.0-d2iq.0
-capi-kubeadm-bootstrap-system       bootstrap-kubeadm               6m2s    BootstrapProvider        kubeadm          v1.1.3-d2iq.3
-capi-kubeadm-control-plane-system   control-plane-kubeadm           5m58s   ControlPlaneProvider     kubeadm          v1.1.3-d2iq.3
-capi-system                         cluster-api                     6m5s    CoreProvider             cluster-api      v1.1.3-d2iq.3
-cappp-system                        infrastructure-preprovisioned   5m44s   InfrastructureProvider   preprovisioned   v0.5.0
-capv-system                         infrastructure-vsphere          57s     InfrastructureProvider   vsphere          v1.1.1
-capz-system                         infrastructure-azure            5m47s   InfrastructureProvider   azure                 v1.1.1
-```
 If the upgrade fails, review the prerequisites section and ensure that you've followed the steps in the [DKP upgrade overview][dkpup].
 
 ## Upgrade the core addons
@@ -86,7 +73,7 @@ Your cluster comes preconfigured with a few different core addons that provide f
 
 1. Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the KUBECONFIG environment variable [to the appropriate kubeconfig file’s location][kubeconfig].
 
-<p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable is to use the <code>--kubeconfig=cluster_name.conf</code> flag, ensuring that Kommander upgrades on the workload cluster.</p>
+An alternative to initializing the KUBECONFIG environment variable is to use the `--kubeconfig=cluster_name.conf flag`.
 
 2. Replace `my-aws-cluster` with the name of the cluster.
 
@@ -155,11 +142,11 @@ Repeat this step for each additional node pool.
 
 If you have any additional management or managed clusters, review the [DKP Upgrade][dkpup] documentation for next steps.
 
-[dkpup]: .../dkp-upgrade/
-[upgradekomm]: .../upgrade-kommander/
+[dkpup]: ../dkp-upgrade/
+[upgradekomm]: ../upgrade-kommander/
 [supportsite]: https://support.d2iq.com/hc/en-us
-[airgapbundle]: .../konvoy/2.2/choose-infrastructure/airgapbundle/
-[dkpenterprise]: .../kommander/2.2/licensing/enterprise/
+[airgapbundle]: /konvoy/2.2/choose-infrastructure/airgapbundle/
+[dkpenterprise]: /kommander/2.2/licensing/enterprise/
 [kubeconfig]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [CAPI]: https://cluster-api.sigs.k8s.io/
-[releasenotes]: ../../../release-notes
+[releasenotes]: /2.2/release-notes

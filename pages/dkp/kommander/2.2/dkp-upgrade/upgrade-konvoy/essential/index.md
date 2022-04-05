@@ -41,7 +41,7 @@ New versions of DKP come pre-bundled with newer versions of CAPI, newer versions
 
 If you are running on more than one management cluster (Kommander cluster), you must upgrade the CAPI Components on each of these clusters. Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the KUBECONFIG environment variable [to the appropriate kubeconfig file’s location][kubeconfig].
 
-<p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable is to use the <code>--kubeconfig=cluster_name.conf</code> flag, ensuring that Kommander upgrades on the workload cluster.</p>
+<p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable is to use the <code>--kubeconfig=cluster_name.conf</code> flag.</p>
 
 1. Run the following upgrade command for the CAPI components.
 
@@ -58,19 +58,6 @@ The command should output something similar to the following:
 ✓ Deleting Outdated Global ClusterResourceSets
 ```
 
-2. Once finished, verify that the components were upgraded using the `kubectl get provider` command.
-
-```bash
-kubectl get provider --all-namespaces
-NAMESPACE                           NAME                            AGE     TYPE                     PROVIDER         VERSION
-capa-system                         infrastructure-aws              5m54s   InfrastructureProvider   aws              v1.2.0-d2iq.0
-capi-kubeadm-bootstrap-system       bootstrap-kubeadm               6m2s    BootstrapProvider        kubeadm          v1.1.3-d2iq.3
-capi-kubeadm-control-plane-system   control-plane-kubeadm           5m58s   ControlPlaneProvider     kubeadm          v1.1.3-d2iq.3
-capi-system                         cluster-api                     6m5s    CoreProvider             cluster-api      v1.1.3-d2iq.3
-cappp-system                        infrastructure-preprovisioned   5m44s   InfrastructureProvider   preprovisioned   v0.5.0
-capv-system                         infrastructure-vsphere          57s     InfrastructureProvider   vsphere          v1.1.1
-capz-system                         infrastructure-azure            5m47s   InfrastructureProvider   azure                 v1.1.1
-```
 If the upgrade fails, review the prerequisites section and ensure that you've followed the steps in the [DKP upgrade overview][dkpup].
 
 ## Upgrade the core addons
