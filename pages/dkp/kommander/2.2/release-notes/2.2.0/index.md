@@ -36,7 +36,7 @@ You can use either the CLI or the UI to [upgrade your catalog applications](../p
 
 ### Better integration with VMware vSphere
 
-You can use CAPI vSphere Provider while provisioning a DKP cluster on vSphere, which allows you to manage bootstrapping of VMs on a DKP cluster. This gives you improved productivity and speed of deploying VMs on DKP in a VMWare environment, including FIPS builds and air-gapped deployments.
+You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](../../../choose-infrastructure/vsphere/index.md), which allows you to manage bootstrapping of VMs on a DKP cluster. This gives you improved productivity and speed of deploying VMs on DKP in a VMWare environment, including FIPS builds and air-gapped deployments.
 
 ### Zero downtime upgrades for air-gapped deployments
 
