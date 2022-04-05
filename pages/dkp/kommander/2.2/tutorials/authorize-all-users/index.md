@@ -27,7 +27,7 @@ In the DKP UI, choose **Global** in the header drop-down and then select **Admin
 
 ![Adding the GitHub OAuth App](/dkp/kommander/2.1/img/tutorial-idp-github-added.png)
 
-D2iQ configured the identity provider to load all groups, so you need to map these groups to the Kubernetes groups. In DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Groups** tab and click the **Create Group** button. Give your group a descriptive name and add the groups from your GitHub provider under **Identity Provider Groups**.
+D2iQ configured the identity provider to load all groups, so you need to map these groups to the Kubernetes groups. In the DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Groups** tab and click the **Create Group** button. Give your group a descriptive name and add the groups from your GitHub provider under **Identity Provider Groups**.
 Click **Save** to create the group, which creates it on the management cluster and federated to all target clusters, and also describes the developers for your organization.
 
 ![Adding a developer group](/dkp/kommander/2.1/img/tutorial-auth-developer-group.png)
