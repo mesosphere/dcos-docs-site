@@ -4,7 +4,7 @@ navigationTitle: Replace a Node
 title: Replace a Node
 excerpt: Replace a worker node
 beta: false
-menuWeight: 80
+menuWeight: 90
 ---
 
 ## Prerequisites
