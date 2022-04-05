@@ -13,6 +13,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 ## Prerequisites
 
+-   **REQUIRED** Before upgrading, create an [on-demand backup][backup] of your current configuration with Velero.
 -   [Download][download_binary] and install the latest DKP CLI binary on your computer.
 -   Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
 -   If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
@@ -103,3 +104,4 @@ You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the
 [load_images]: ../../install/air-gapped/
 [dkp_upgrade]: ../../dkp-upgrade/
 [load_images_catalog]: ../../install/air-gapped/catalog/
+[backup]: ../../backup-and-restore#back-up-on-demand
