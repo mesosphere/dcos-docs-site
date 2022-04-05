@@ -88,7 +88,7 @@ Use the following steps to create a new, air-gapped vSphere cluster.
 
     For brevity, this example uses `grep`. You can also use separate commands to get Events for specific objects, such as `kubectl get events --field-selector involvedObject.kind="VSphereCluster"` and `kubectl get events --field-selector involvedObject.kind="VSphereMachine"`.
 
-Next, you can [explore your new cluster][explore-cluster].
+Next, you can [make the cluster self-managed][make-self-managed], and then [explore your new cluster][explore-cluster].
 
 ## Known Limitations
 
@@ -105,4 +105,5 @@ Next, you can [explore your new cluster][explore-cluster].
 [prereqs]: ../../prerequisites/
 [create-bootstrap]: ../bootstrap/
 [create-bastion-host]: ../create-bastion-vm/
+[make-self-managed]: ../../self-managed/
 [explore-cluster]: ../explore

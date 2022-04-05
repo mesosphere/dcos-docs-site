@@ -36,7 +36,7 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 
 - Access to a bastion VM, or other network connected host, running vSphere Client version v6.7.x with Update 3 or later version
 
-  You must be able to reach the vSphere API endpoint from where the Konvoy command line interface (CLI) runs.
+  - You must be able to reach the vSphere API endpoint from where the Konvoy command line interface (CLI) runs.
 
 - vSphere account with credentials configured - this account must have Administrator privileges.
 
@@ -52,7 +52,9 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 
   - Zone name that contains [ESXi hosts][vmware-esxi-hosts] for your cluster's nodes
 
-  - Datastore name for the disk to be used for the VMs in the cluster
+  - Datastore name for the shared storage resource to be used for the VMs in the cluster.
+
+    - Use of PersistentVolumes in your cluster depends on Cloud Native Storage (CNS), available in vSphere v6.7.x with Update 3 and later versions. CNS depends on this shared Datastore's configuration.
 
   - Folder name
 
@@ -61,6 +63,8 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
   - Name of a Virtual Network that has DHCP enabled for both air-gapped and non air-gapped environments
 
   - Resource Pools - at least one resource pool needed, with every host in the pool having access to shared storage, such as VSAN
+
+    - Each host in the resource pool needs access to shared storage, such as NFS or VSAN, to make use of MachineDeployments and high-availability control planes.
 
 The next step is:
 
