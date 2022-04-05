@@ -32,7 +32,7 @@ Click **Save** to create the group, which creates it on the management cluster a
 
 ![Adding a developer group](/dkp/kommander/2.1/img/tutorial-auth-developer-group.png)
 
-To enable this group, you need to first connect it to a role which then creates a role and allows you to view every resource. In DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Access Control** in the sidebar. Select the **Cluster Roles** tab and click the **Create Role** button. For a read-only role, click **+ Add Rule**, select the **get**, **list**, and **watch** verbs, and select **All resource types** in the **Resources** input.
+To enable this group, you need to first connect it to a role which then creates a role and allows you to view every resource. In the DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Access Control** in the sidebar. Select the **Cluster Roles** tab and click the **Create Role** button. For a read-only role, click **+ Add Rule**, select the **get**, **list**, and **watch** verbs, and select **All resource types** in the **Resources** input.
 
 ![Adding a read role](/dkp/kommander/2.1/img/tutorial-auth-developer-role.png)
 
