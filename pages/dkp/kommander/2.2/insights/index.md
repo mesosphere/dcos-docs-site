@@ -18,7 +18,7 @@ DKP Insights assists Kubernetes Administrators with routine tasks:
 - Checking security issues
 - Verifying workloads and clusters follow best practices
 
-Access the DKP Insights Dashboard by selecting **Insights** from the sidebar menu.
+Access the DKP Insights Dashboard by selecting **Insights** from the left-side navigation menu.
 
 DKP Insights consists of two components:
 

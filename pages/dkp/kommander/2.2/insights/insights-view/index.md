@@ -9,11 +9,11 @@ enterprise: false
 techPreview: true
 ---
 
-<p class="message--note"><strong>NOTE: </strong>Insights are refreshed on a 72-hour basis. Older insights expire, however, if an insight persists, it reappears in the table.</p>
+<p class="message--note"><strong>NOTE: </strong>Insights refresh every 72-hours. Older insights expire. However, if an insight persists, it reappears in the table.</p>
 
-After the [Insights Engine is enabled](../insights-setup/), select a workspaces to view your insight items. On the Workspace Dashboard below the workspace summary cards, the Insights summary card displays the most recent insight items. The Insights summary card displays the amount of insights within each severity level of Critical, Warning, and Notices. Select the View All link to see a summary of all insight items on the Insights Dashboard.
+After the [Insights Engine is enabled](../insights-setup/), select a workspace to view your insight items. On the Workspace Dashboard below the workspace summary cards, the Insights summary card displays the most recent insight items. The Insights summary card displays the amount of insights within each severity level of Critical, Warning and Notices. Select the View All link to see a summary of all insight items on the Insights Dashboard.
 
-Select **Insights** from the sidebar menu for the DKP Insights Dashboard, where you can filter the insight items several different ways:
+Select **Insights** from the left-side navigation menu for the DKP Insights Dashboard, where you can filter the insight items several different ways:
 
 -   Use the search dialog to search by description keyword.
 -   Toggle your view by the following insight types:
