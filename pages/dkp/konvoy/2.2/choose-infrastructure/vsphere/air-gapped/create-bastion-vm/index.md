@@ -20,15 +20,15 @@ When creating an air-gapped vSphere cluster, the bastion VM hosts the installati
 
 1.  Download the required Konvoy binaries and installation bundles directly to the bastion host, or transfer them using your environment's approved methods:
 
-    - [downloads.mesosphere.io/konvoy/konvoy_v2.2.0-rc.1_checksums.txt](http://downloads.mesosphere.io/konvoy/konvoy_v2.2.0-beta.1_checksums.txt)
+    - [downloads.d2iq.com/konvoy/konvoy_v2.2.0-rc.1_checksums.txt](http://downloads.d2iq.com/konvoy/konvoy_v2.2.0-beta.1_checksums.txt)
 
-    - [downloads.mesosphere.io/konvoy/konvoy_v2.2.0-rc.1_darwin_amd64.tar.gz](http://downloads.mesosphere.io/konvoy/konvoy_v2.2.0-beta.1_darwin_amd64.tar.gz)
+    - [downloads.d2iq.com/konvoy/konvoy_v2.2.0-rc.1_darwin_amd64.tar.gz](http://downloads.d2iq.com/konvoy/konvoy_v2.2.0-beta.1_darwin_amd64.tar.gz)
 
-    - [downloads.mesosphere.io/konvoy/konvoy_v2.2.0-rc.1_linux_amd64.tar.gz](http://downloads.mesosphere.io/konvoy/konvoy_v2.2.0-beta.1_linux_amd64.tar.gz)
+    - [downloads.d2iq.com/konvoy/konvoy_v2.2.0-rc.1_linux_amd64.tar.gz](http://downloads.d2iq.com/konvoy/konvoy_v2.2.0-beta.1_linux_amd64.tar.gz)
 
-    - [downloads.mesosphere.io/konvoy/airgapped/v2.2.0-rc.1/konvoy_image_bundle_v2.2.0-rc.1_linux_amd64.tar.gz](http://downloads.mesosphere.io/konvoy/airgapped/v2.2.0-beta.1/konvoy_image_bundle_v2.2.0-beta.1_linux_amd64.tar.gz) (This bundle contains air-gapped images that you must push to a registry.)
+    - [downloads.d2iq.com/konvoy/airgapped/v2.2.0-rc.1/konvoy_image_bundle_v2.2.0-rc.1_linux_amd64.tar.gz](http://downloads.d2iq.com/konvoy/airgapped/v2.2.0-beta.1/konvoy_image_bundle_v2.2.0-beta.1_linux_amd64.tar.gz) (This bundle contains air-gapped images that you must push to a registry.)
 
-    - [downloads.mesosphere.io/konvoy/airgapped/v2.2.0-rc.1/konvoy-bootstrap_v2.2.0-rc.1.tar](http://downloads.mesosphere.io/konvoy/airgapped/v2.2.0-beta.1/konvoy-bootstrap_v2.2.0-beta.1.tar) (This bundle contains the KIND bootstrap image to load with the `docker load` command when you create the bootstrap cluster in a later step.)
+    - [downloads.d2iq.com/konvoy/airgapped/v2.2.0-rc.1/konvoy-bootstrap_v2.2.0-rc.1.tar](http://downloads.d2iq.com/konvoy/airgapped/v2.2.0-beta.1/konvoy-bootstrap_v2.2.0-beta.1.tar) (This bundle contains the KIND bootstrap image to load with the `docker load` command when you create the bootstrap cluster in a later step.)
 
 1.  Use your credentials to SSH into the bastion VM host with the command:
 
