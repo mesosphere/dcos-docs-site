@@ -59,6 +59,7 @@ As an example, if you want to give MetalLB the range 192.168.10.0/24 and AS numb
 <p class="message--note"><strong>NOTE:</strong>The following values are generic, enter your specific values into the fields where applicable.</p>
 
 ```sh
+cat << EOF > metallb-conf.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -75,6 +76,7 @@ data:
       protocol: bgp
       addresses:
       - 192.168.10.0/24
+EOF
 ```
 Once complete, run the following `kubectl` command.
 
