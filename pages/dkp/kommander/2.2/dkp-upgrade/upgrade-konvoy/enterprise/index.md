@@ -21,8 +21,6 @@ menuWeight: 30
 
 * For AWS, set the required [environment variables][envariables2].
 
-* When upgrading, ensure that you set the flag `--etcd-version=3.4.13-0.`
-
 The following infrastructure environments are supported:
 
 * Amazon Web Services (AWS)
