@@ -20,7 +20,7 @@ enterprise: false
     Before deleting the cluster, dkp deletes all Services of type LoadBalancer on the cluster. Each Service is backed by an AWS Classic ELB. Deleting the Service deletes the ELB that backs it.
     To skip this step, use the flag `--delete-kubernetes-resources=false`.
 
-    <p class="message--note"><strong>NOTE: </strong>Do not skip this step if the VPC is managed by DKP. When DKP deletes cluster, it deletes the VPC. If the VPC has any EKS Classic ELBs, EKS does not allow the VPC to be deleted, and dkp cannot delete the cluster.</p>
+    <p class="message--note"><strong>NOTE: </strong>Do not skip this step if the VPC is managed by DKP. When DKP deletes the cluster, it deletes the VPC. If the VPC has any EKS Classic ELBs, EKS does not allow the VPC to be deleted, and DKP cannot delete the cluster.</p>
 
     ```bash
     dkp delete cluster --cluster-name=${CLUSTER_NAME} --kubeconfig $HOME/.kube/config
