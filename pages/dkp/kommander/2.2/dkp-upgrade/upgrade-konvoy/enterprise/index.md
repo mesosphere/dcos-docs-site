@@ -163,4 +163,5 @@ If you have any additional management or managed clusters, review the [DKP Upgra
 [CAPI]: https://cluster-api.sigs.k8s.io/
 [releasenotes]: ../../../release-notes
 [envariables]: /dkp/konvoy/2.2/choose-infrastructure/azure/quick-start-azure/#configure-azure-prerequisites
+[backup]: ../../../backup-and-restore/#back-up-on-demand
 [envariables2]: /dkp/konvoy/2.2/choose-infrastructure/aws/quick-start-aws/#configure-aws-prerequisites
