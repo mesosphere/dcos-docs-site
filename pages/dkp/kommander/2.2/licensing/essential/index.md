@@ -45,7 +45,7 @@ DKP Essential comes bundled with GitOps, an operating model for Kubernetes and o
 
 ## DKP Essential single cluster UI
 
-Bundled with DKP Essential is a single cluster management UI that can be used in lieu of the bundled CLI. From the UI you can:
+Bundled with DKP Essential is a single cluster management view of DKP UI that can be used in lieu of the bundled CLI. From the UI you can:
 
 - **Setup identity providers:** DKP Essential supports GitHub, LDAP, SAML, and standard OIDC identity providers such as Google. These identity management providers support the login and authentication process for your Kubernetes cluster. See [Identity Providers][identityprov] for more information.
 - **Deploy applications:** The DKP Essential UI allows you to customize your workspace application deployments via the Applications page within the UI.
