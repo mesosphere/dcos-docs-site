@@ -46,7 +46,7 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
       --control-plane-endpoint-host <xxx.yyy.zzz.000> \
       --data-center <DATACENTER_NAME> \
       --data-store <DATASTORE_NAME> \
-      --folder <FOLDER_NAME>  \
+      --folder <FOLDER_NAME> \
       --server <VCENTER_API_SERVER_UTR \
       --ssh-authorized-key "<SSH_KEY>" \
       --resource-pool <RESOURE_POOL_NAME> \

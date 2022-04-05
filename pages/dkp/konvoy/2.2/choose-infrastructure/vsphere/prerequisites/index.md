@@ -19,7 +19,7 @@ Before using DKP to create a vSphere cluster, verify that you have:
 
 - An x86_64-based Linux&reg; or macOS&reg; machine.
 
-- The `dkp` and [Konvoy Image Builder (KIB)][kib-binary] binaries for Linux or macOS.
+- The `dkp` binaries and [Konvoy Image Builder (KIB)][kib-bundle] image bundle for Linux or macOS.
 
 - [Docker&reg;][install_docker] version 18.09.2 or later installed.
   You must have Docker installed on the host where the DKP Konvoy CLI runs. For example, if you are installing Konvoy on your laptop, ensure the laptop has a supported version of Docker.
@@ -56,6 +56,10 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 
     - Use of PersistentVolumes in your cluster depends on Cloud Native Storage (CNS), available in vSphere v6.7.x with Update 3 and later versions. CNS depends on this shared Datastore's configuration.
 
+  - Datastore URL from the datastore record for the shared datastore you want your cluster to use.
+
+    - You need this URL value to ensure that the correct Datastore is used when DKP creates VMs for your cluster in vSphere.
+
   - Folder name
 
   - Base template name, such as base-rhel-8, or base-rhel-7
@@ -78,4 +82,4 @@ The next step is:
 [vmware-esxi-hosts]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-B2F01BF5-078A-4C7E-B505-5DFFED0B8C38.html
 [create-base-os-image]: ../create-base-os-image/
 [create-bastion-vm]: ../air-gapped/create-bastion-vm
-[kib-binary]: https://github.com/mesosphere/konvoy-image-builder/releases/tag/v1.10.0
+[kib-bundle]: ../../../download/
