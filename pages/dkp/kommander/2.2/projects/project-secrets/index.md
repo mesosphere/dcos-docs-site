@@ -14,7 +14,7 @@ Project Secrets can be created to make sure Kubernetes Secrets are automatically
 
 1. In the sidebar menu, select **Projects**. 
 
-1. Select the project you would like to configure from the table.
+1. Select the project you want to configure from the table.
 
 1. Select the **Secrets** tab, and then select the **Create Secret** button.
 
