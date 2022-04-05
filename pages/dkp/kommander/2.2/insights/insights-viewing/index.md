@@ -11,7 +11,7 @@ techPreview: true
 
 <p class="message--note"><strong>NOTE: </strong>Insights are refreshed on a 72-hour basis.</p>
 
-Once the [Insights Engine is Enabled](../insights-setup/) select one of your workspaces to view your insight items. From a Workspace Dashboard, the Insights summary table, below the workspace summary cards, displays the most recent insight items. You can toggle the view between Critical, Warning, Notices, and View All for a summary of insight items.
+After the [Insights Engine is enabled](../insights-setup/), select one of your workspaces to view your insight items. From a Workspace Dashboard, the Insights summary table displays the most recent insight items, below the workspace summary cards. You can toggle the view between Critical, Warning, Notices, and View All for a summary of insight items.
 
 Select Insights from the sidebar menu for the DKP Insights Dashboard, where you can filter the insight items several different ways:
 
@@ -35,4 +35,4 @@ To clear filters and reset your view to all insight items, select Clear All.
 Insight items usage tips:
 
 - To flag individual insights as useful, select the thumbs-up icon. This notifies the Insights Engine that you find this type of insight useful and helps customize your experience over time.
-- For an insight item that is not useful, select the vertical 3-dot menu for that insight item and select Snooze. This only snoozes the individual insight; if the issue recurs, a new insight item displays in the table.
+- For an insight item you do not want to use, select the vertical 3-dot menu for that insight item and select Snooze. This only snoozes the individual insight; if the issue recurs, a new insight item displays in the table.

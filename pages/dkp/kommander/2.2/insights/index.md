@@ -13,10 +13,10 @@ techPreview: true
 
 DKP Insights assists Kubernetes Administrators with routine tasks:
 
-- Resolving common issues.
-- Monitoring resource usage.
-- Checking security issues.
-- Verifying workloads and clusters follow best practices.
+- Resolving common issues
+- Monitoring resource usage
+- Checking security issues
+- Verifying workloads and clusters follow best practices
 
 Access the DKP Insights Dashboard by selecting **Insights** from the sidebar menu.
 
@@ -25,11 +25,11 @@ DKP Insights consists of two components:
 - DKP Insights Management: Runs on the Kommander [Management](../clusters/management-cluster) cluster.
 - DKP Insights Engine: Runs on each [Attached](../clusters/) Kubernetes cluster.
 
-DKP Insights Engine needs be to explicitly enabled on each Attached cluster, instructions are found in the section on [Insights Setup and Configuration](./insights-setup/).
+You must enable the DKP Insights Engine explicitly on each Attached cluster. You can find instructions in the section on [Insights Setup and Configuration](./insights-setup/).
 
 DKP Insights Engine collects events and metrics on the Attached cluster, and uses rule-based heuristics on potential problems of varying criticality, so they can be quickly identified and resolved. These Insights are then forwarded and displayed in the DKP Insights Dashboard.
 
-Within the DKP Insights Dashboard, insights can be filtered for a selected cluster or project by:
+Within the DKP Insights Dashboard, you can filter insights for a selected cluster or project by:
 
 - Project name
 - Cluster name
