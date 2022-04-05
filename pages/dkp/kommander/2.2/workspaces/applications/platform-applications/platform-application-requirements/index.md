@@ -14,22 +14,28 @@ Workspace platform applications require more resources than solely deploying or 
 
 The following table describes all the workspace platform applications that are available to the clusters in a workspace, minimum resource requirements, and whether they are enabled by default.
 
+<need to update this table for 2.2>
+
 | Name | Minimum Resources Suggested | Minimum Persistent Storage Required | Deployed by Default |
 | --- | --- | --- | --- |
 | cert-manager| cpu: 10m<br />memory: 32Mi |  | Yes |
 | fluentbit | cpu: 350m<br />memory: 350Mi |  | No |
-| gatekeeper |  |  | Yes |
+| gatekeeper | cpu: 300m<br />memory: 768Mi | | Yes |
 | grafana-logging | cpu: 200m<br />memory: 100Mi |  | No |
-| grafana-loki | cpu: 200m<br />memory: 100Mi | # of PVs: 4<br />PV sizes: 10Gi x 4 (total: 40Gi) | No |
+| grafana-loki | | # of PVs: 4<br />PV sizes: 10Gi x 4 (total: 40Gi) | No |
+| istio | TBD |  | No |
+| jaeger | TBD | | No |
+| kiali | TBD | | No |
+| knative | TBD | | No |
 | kube-prometheus-stack | cpu: 1210m<br />memory: 4150Mi | # of PVs: 1<br />PV sizes: 100Gi | Yes |
 | kube-oidc-proxy |  |  | Yes |
 | kubecost | cpu: 700m<br />memory: 1700Mi | # of PVs: 3<br />PV sizes: 2Gi, 32Gi, 32Gi (total: 66Gi) | Yes |
 | kubernetes-dashboard | cpu: 250m<br />memory: 300Mi |  | Yes |
-| logging-operator | cpu: 600m<br />memory: 228Mi |  | No |
-| minio-operator |  |  | No |
+| logging-operator | cpu: cpu: 350m * # of nodes + 600m<br />memory: 228Mi  + 350Mi * # of nodes | # of PVs: 1<br />PV sizes: 10Gi | No |
+| minio-operator |  cpu: 200m<br />memory: 256Mi |  | No |
 | nvidia | cpu: 100m<br />memory: 128Mi |  | No |
 | prometheus-adapter | cpu: 1000m<br />memory: 1000Mi |  | Yes |
 | reloader | cpu: 100m<br />memory: 128Mi |  | Yes |
 | traefik | cpu: 500m |  | Yes |
 | traefik-forward-auth | cpu: 100m<br />memory: 128Mi |  | Yes |
-| velero | cpu: 750m<br />memory: 512Mi | # of PVs: 1<br />PV sizes: 10Gi | No |
+| velero | cpu: 1000m<br />memory: 1024Mi | PV sizes: 10Gi x 4 (total: 40Gi) | No |
