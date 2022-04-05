@@ -36,7 +36,7 @@ To enable this group, you need to first connect it to a role which then creates 
 
 ![Adding a read role](/dkp/kommander/2.1/img/tutorial-auth-developer-role.png)
 
-Now that you have everything, you can assign the "Read Everything" role to the developers group. In DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Access Control** in the sidebar. Select the **Cluster Policies** tab and click the **Add or remove roles** button for your group.
+Now that you have everything, you can assign the "Read Everything" role to the developers group. In the DKP UI, choose **Global** in the header drop-down and then select **Administration** > **Access Control** in the sidebar. Select the **Cluster Policies** tab and click the **Add or remove roles** button for your group.
 
 ![Adding a policy](/dkp/kommander/2.1/img/tutorial-auth-developer-policy.png)
 
