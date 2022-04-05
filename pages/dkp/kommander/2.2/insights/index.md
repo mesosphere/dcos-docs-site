@@ -29,19 +29,20 @@ You must enable the DKP Insights Engine explicitly on each Attached cluster. You
 
 DKP Insights Engine collects events and metrics on the Attached cluster, and uses rule-based heuristics on potential problems of varying criticality, so they can be quickly identified and resolved. These Insights are then forwarded and displayed in the DKP Insights Dashboard.
 
+The DKP Insights Dashboard gives you several different ways to filter and sort insight items.
+
 Within the DKP Insights Dashboard, you can filter insights for a selected cluster or project by:
 
 - Project name
 - Cluster name
 - Description
+- Type
 
-From the DKP Insights Dashboard, you can toggle by Severity level:
+From the DKP Insights Dashboard, you can toggle by each Severity level:
 
 - Critical
 - Warning
 - Notice
-
-Alternately, the DKP Insights Dashboard gives you several different ways to filter and sort insight items.
 
 ## Architecture
 
