@@ -7,7 +7,7 @@ menuWeight: 299
 beta: false
 ---
 
-This section contains overviews of the feature sets for DKP Essential and DKP Enterprise licenses, as well as how to acquire and consume both licenses.
+This section contains overviews of the feature sets for DKP Essential and DKP Enterprise licenses, and how to acquire and consume both licenses.
 
 ## Purchase a License
 
