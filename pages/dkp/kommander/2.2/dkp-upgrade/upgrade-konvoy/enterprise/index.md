@@ -36,7 +36,7 @@ To upgrade Konvoy upgrade for DKP Enterprise, :
 1. Upgrade the core addons
 1. Upgrade the Kubernetes version
 
-Run all three steps on the management cluster (Kommander cluster) first. Then, run the second and third step on additional managed clusters (Konvoy clusters), one cluster at a time with the KUBECONFIG configured for each cluster.
+Run all three steps on the management cluster (Kommander cluster) first. Then, run the second and third steps on additional managed clusters (Konvoy clusters), one cluster at a time using the KUBECONFIG configured for each cluster.
 
 For a full list of DKP Enterprise features, see [DKP Enterprise][dkpenterprise].
 
