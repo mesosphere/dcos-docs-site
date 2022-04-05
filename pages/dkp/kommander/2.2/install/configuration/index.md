@@ -15,7 +15,7 @@ You can configure Kommander during the initial installation, and also post-insta
 To begin configuring Kommander, run the following command to initialize a default configuration file:
 
 ```bash
-kommander install --init > kommander.yaml
+dkp install kommander --init > kommander.yaml
 ```
 
 ## Configuring applications
@@ -80,7 +80,7 @@ apps:
 Add the `--installer-config` flag to the `kommander install` command to use a custom configuration file. To reconfigure applications, you can also run this command after the initial installation.
 
 ```bash
-kommander install --installer-config kommander.yaml
+dkp install kommander --installer-config kommander.yaml
 ```
 
 When completed, you can [verify your installation](../networked#verify-installation).

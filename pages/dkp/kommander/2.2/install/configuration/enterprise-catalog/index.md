@@ -30,11 +30,13 @@ catalog:
           tag: v2.2.0
 ```
 
-Use this configuration when installing or reconfiguring Kommander by passing it to the `kommander install` command:
+Use this configuration when installing or reconfiguring Kommander by passing it to the `dkp install kommander` command:
 
 ```bash
-kommander install --installer-config <config_file.yaml>
+dkp install kommander --installer-config <config_file.yaml>
 ```
+
+<p class="message--note"><strong>NOTE: </strong>When configuring the catalog repository post-upgrade, run <code>kommander install --init > install.yaml</code> and update it accordingly with any custom configuration. This ensures you are using the proper default configuration values for the new Kommander version.</p>
 
 The following section describes each label:
 
@@ -46,23 +48,33 @@ The following section describes each label:
 
 ### Air-gapped Catalog Configuration
 
-When running in air-gapped environments, update the configuration by replacing `gitRepositorySpec` with the `path` field pointing to a local path of the catalog git repository folder, for example:
+When running in air-gapped environments, update the configuration by replacing `gitRepositorySpec` with the `path` field pointing to a local path of the DKP catalog applications git repository.
 
-```bash
-git clone https://github.com/mesosphere/dkp-catalog-applications
-```
+1.  Download the DKP catalog application Git repository archive:
 
-And then:
+    ```bash
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-v2.2.0.tar.gz" -O dkp-catalog-applications.tar.gz
+    ```
 
-```yaml
-apiVersion: config.kommander.mesosphere.io/v1alpha1
-kind: Installation
-catalog:
-  repositories:
-    - name: dkp-catalog-applications
-      labels:
-        kommander.d2iq.io/project-default-catalog-repository: "true"
-        kommander.d2iq.io/workspace-default-catalog-repository: "true"
-        kommander.d2iq.io/gitapps-gitrepository-type: "dkp"
-      path: ./dkp-catalog-applications
-```
+1.  Update the Kommander configuration file with:
+
+    ```yaml
+    apiVersion: config.kommander.mesosphere.io/v1alpha1
+    kind: Installation
+    catalog:
+      repositories:
+        - name: dkp-catalog-applications
+          labels:
+            kommander.d2iq.io/project-default-catalog-repository: "true"
+            kommander.d2iq.io/workspace-default-catalog-repository: "true"
+            kommander.d2iq.io/gitapps-gitrepository-type: "dkp"
+          path: ./dkp-catalog-applications.tar.gz
+    ```
+
+    <p class="message--note"><strong>NOTE: </strong>When configuring the catalog repository post-upgrade, run <code>kommander install --init > install.yaml</code> and update it accordingly with any custom configuration. This ensures you are using the proper default configuration values for the new Kommander version.</p>
+
+1.  Use this configuration when installing or reconfiguring Kommander by passing it to the `dkp install kommander` command:
+
+    ```bash
+    dkp install kommander --installer-config <config_file.yaml>
+    ```

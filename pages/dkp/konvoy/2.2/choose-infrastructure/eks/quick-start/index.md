@@ -56,10 +56,10 @@ In EKS it is critical that the name is unique as no two clusters in the same EKS
 Set the environment variable to be used throughout this documentation:
 
 ```bash
-CLUSTER_NAME=my-eks-cluster
+export CLUSTER_NAME=eks-example
 ```
 
-Tips:
+Optional:
 
 1.  To get a list of names in use in your EKS account, use the `aws` CLI tool. For example:
 
@@ -69,7 +69,7 @@ Tips:
 
     ```json
     [
-        "alex-aws-cluster-afe98",
+        "alex-eks-cluster-afe98",
         "sam-aws-cluster-8if9q"
     ]
     ```

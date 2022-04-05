@@ -2,3 +2,5 @@ on-premise[^s]
 add-on
 D2IQ
 airgapped
+downloads.mesosphere.io
+downloads.mesosphere.com

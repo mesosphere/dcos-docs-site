@@ -124,7 +124,7 @@ export VERSION=v2.1.0
 1.  Download the image bundle file:
 
     ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O kommander-image-bundle.tar
+    wget "https://downloads.d2iq.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O kommander-image-bundle.tar
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
@@ -216,7 +216,7 @@ Based on the network latency between the environment of script execution and the
 1.  Download and extract the `kommander-applications` bundle.
 
     ```bash
-    mkdir kommander-applications && wget https://downloads.mesosphere.com/dkp/kommander-applications_${VERSION}.tar.gz -O - | tar xvzf - -C kommander-applications --strip-components 1
+    mkdir kommander-applications && wget https://downloads.d2iq.com/dkp/kommander-applications_${VERSION}.tar.gz -O - | tar xvzf - -C kommander-applications --strip-components 1
     ```
 
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:

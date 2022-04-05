@@ -61,7 +61,7 @@ The following example configures a DKP cluster to connect to the [Online LDAP Te
           nameAttr: ou
     ```
 
-    <p class="message--note"><strong>NOTE: </strong> The value for the LDAP connector <code>name</code> parameter (here: <code>LDAP Test</code>) appears on one of the login buttons in the Kommander user interface. You should choose an expressive name.</p>
+    <p class="message--note"><strong>NOTE: </strong> The value for the LDAP connector <code>name</code> parameter (here: <code>LDAP Test</code>) appears on one of the login buttons in the DKP UI. You should choose an expressive name.</p>
 
     Also note that for demonstration purposes, the configuration shown above uses `insecureNoSSL: true`.
 

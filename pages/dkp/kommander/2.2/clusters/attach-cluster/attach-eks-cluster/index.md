@@ -58,7 +58,7 @@ This procedure requires the following items and configurations:
     EOF
     ```
 
-1.  You must create a kubeconfig file that is compatible with the Kommander UI. Enter these commands to set the following environment variables:
+1.  You must create a kubeconfig file that is compatible with the DKP UI. Enter these commands to set the following environment variables:
 
     ```bash
     export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')
@@ -75,7 +75,7 @@ This procedure requires the following items and configurations:
     env | grep CLUSTER
     ```
 
-1.  Create your kubeconfig file to use in the Kommander UI. Enter the following commands:
+1.  Create your kubeconfig file to use in the DKP UI. Enter the following commands:
 
     ```bash
     cat << EOF > kommander-cluster-admin-config
@@ -114,23 +114,25 @@ This procedure requires the following items and configurations:
 
    <p class="message--note"><strong>NOTE: </strong>If you are not using the Mac OS X operating system, this command will not work. If you are using the Linux operating system, enter the following command: <br/><code>cat kommander-cluster-admin-config | xclip -selection clipboard</code></p>
 
-Now that you have kubeconfig, go to the Kommander UI and follow these steps below:
+Now that you have kubeconfig, go to the DKP UI and follow these steps below:
 
-1.  Select **Clusters** from the left sidebar navigation, and then select the **Add Cluster** button in your Kommander window.
+1.  Select a workspace from the **Workspace Selector** in the top navigation bar. 
 
-1.  Select the **Attach Cluster** button.
+1.  On the Dashboard page, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
 
-1.  Select the **No additional networking restrictions** card to display the **Cluster Configuration** dialog box. This dialog box accepts a kubeconfig file that you can paste, or upload, into the field.
+1.  Select **Attach Cluster**.
 
-1.  Paste the contents of your clipboard (or upload the file you created) into the Kubeconfig File text box.
+1.  Select the **No additional networking restrictions** card.
 
-1.  Assign a name and add any desired labels for the cluster.
+1.  The **Cluster Configuration** section of the form accepts a kubeconfig file that you can paste, or upload, into the field. Paste the contents of your clipboard (or upload the file you created) into the kubeconfig field.
 
-1.  Confirm you are assigning the cluster to your desired workspace.
+1.  The **Cluster Name** field automatically populates with the name of the cluster in the kubeconfig. You can edit this field with the name you want for your cluster.
 
-1.  Select the **Submit** button.
+1.  Add labels to classify your cluster as needed.
 
-<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the Kommander UI. If this happens, ensure your system has sufficient resources for all pods.</p>
+1.  Select **Submit** to attach your cluster.
+
+<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the DKP UI. If this happens, ensure your system has sufficient resources for all pods.</p>
 
 ## Related information
 

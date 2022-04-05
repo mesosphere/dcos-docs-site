@@ -15,4 +15,4 @@ Application types are:
     - [Custom Applications](catalog-applications/custom-applications) are applications you create and add to the Catalog.
 -   [Platform Applications](platform-applications) are applications integrated into Kommander.
 
-<p class="message--note"><strong>NOTE: When deploying and upgrading applications, platform applications come as a bundle; they are tested as a single unit and you must deploy or upgrade them in a single process, for each workspace. This means all clusters in a workspace have the same set and versions of platform applications deployed. Whereas catalog applications are individual, so you can deploy and upgrade them individually, for each project.</p>
+<p class="message--note"><strong>NOTE: </strong>When deploying and upgrading applications, platform applications come as a bundle; they are tested as a single unit and you must deploy or upgrade them in a single process, for each workspace. This means all clusters in a workspace have the same set and versions of platform applications deployed. Whereas catalog applications are individual, so you can deploy and upgrade them individually, for each project.</p>

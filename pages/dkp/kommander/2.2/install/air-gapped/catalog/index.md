@@ -28,7 +28,7 @@ Before installing, ensure you have:
 -   A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
 
   ```bash
-  kommander install --init --airgapped > install.yaml
+  dkp install kommander --init --airgapped > install.yaml
   ```
 
 -   All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
@@ -42,14 +42,14 @@ Create the charts bundle with the Kommander CLI or downloaded along with the Kom
 Execute this command to create the charts bundle:
 
    ```bash
-   kommander create chart-bundle
+   dkp create chart-bundle
    ```
 
 Kommander creates `charts-bundle.tar.gz`.
 Optionally, specify the output using the `-o` parameter:
 
    ```bash
-   kommander create chart-bundle -o [name of the output file]
+   dkp create chart-bundle -o [name of the output file]
    ```
 
 ### Kommander's internal Helm repository
@@ -58,25 +58,25 @@ The Kommander charts bundle is pushed to Kommander's internal Helm repository.
 To inspect the contents:
 
    ```bash
-   kommander get charts
+   dkp get charts
    ```
 
 Individual charts can be removed using:
 
    ```bash
-   kommander delete chart [chartName] [chartVersion]
+   dkp delete chart [chartName] [chartVersion]
    ```
 
 It is possible to push new charts as well:
 
    ```bash
-   kommander push chart [chartTarball]
+   dkp push chart [chartTarball]
    ```
 
 Or push a new bundle:
 
    ```bash
-   kommander push chart-bundle [chartsTarball]
+   dkp push chart-bundle [chartsTarball]
    ```
 
 Check the built-in help text for each command for more information.
@@ -161,26 +161,18 @@ MetalLB also supports [advanced BGP configuration][metallb_config].
 
 See [Kommander Load Balancing][kommander-load-balancing] for more information.
 
-### Determine the installation version
-
-Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
-
-```bash
-export VERSION=v2.2.0
-```
-
 ### Load the Docker images into your Docker registry
 
 1.  Download the Kommander image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-image-bundle-${VERSION}.tar.gz" -O kommander-image-bundle.tar.gz
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-image-bundle-v2.2.0.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
 1.  Download the [DKP catalog applications][dkp_catalog_applications] image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-catalog-applications-image-bundle-${VERSION}.tar.gz" -O catalog-applications-image-bundle.tar.gz
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-image-bundle-v2.2.0.tar.gz" -O catalog-applications-image-bundle.tar.gz
     ```
 
 1.  Place the bundles in a location where you can load and push the images to your private Docker registry.
@@ -216,31 +208,33 @@ It may take a while to push all the images to your image registry, depending on 
               service.beta.kubernetes.io/aws-load-balancer-internal: "true"
     ```
 
+1.  Follow the steps on the [Configure an Enterprise catalog](../../configuration/enterprise-catalog#air-gapped-catalog-configuration) page.
+
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/${VERSION}/kommander-applications_${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar.gz"
     ```
 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-kommander-charts-bundle-${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
     ```
 
 1.  Download the [DKP catalog applications][dkp_catalog_applications] chart bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/${VERSION}/dkp-catalog-applications-charts-bundle-${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
     ```
 
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
-    kommander install --installer-config ./install.yaml \
-    --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
-    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz \
-    --charts-bundle dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz
+    dkp install kommander --installer-config ./install.yaml \
+    --kommander-applications-repository kommander-applications-v2.2.0.tar.gz \
+    --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz \
+    --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz
     ```
 
 1.  [Verify your installation](../../networked#verify-installation).

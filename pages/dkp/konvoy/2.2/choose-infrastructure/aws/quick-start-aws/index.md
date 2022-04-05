@@ -48,7 +48,7 @@ Before starting the Konvoy installation, verify that you have:
 
 ## Create a new AWS Kubernetes cluster
 
-If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on a [CentOS 7 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
+If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
 
 <p class="message--note"><strong>NOTE: </strong>
 Using these default images work, but due to missing optimizations, the created cluster will have certain limits.
@@ -67,9 +67,9 @@ We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builde
     You will see output similar to the following:
 
     ```sh
-	INF Generating cluster resources
-	```
-	
+    INF Generating cluster resources
+    ```
+
     As part of the underlying processing, the DKP CLI:
     - creates a bootstrap cluster
     - creates a workload cluster
@@ -142,10 +142,10 @@ If you no longer need the cluster and want to delete it, you can do so using the
     You will see output similar to:
 
     ```sh
-	INF  ✓ Deleting Services with type LoadBalancer for Cluster default/aws-example
-	INF  ✓ Deleting ClusterResourceSets for Cluster default/aws-example
-	INF  ✓ Deleting cluster resources
-	INF  ✓ Waiting for cluster to be fully deleted
+    INF  ✓ Deleting Services with type LoadBalancer for Cluster default/aws-example
+    INF  ✓ Deleting ClusterResourceSets for Cluster default/aws-example
+    INF  ✓ Deleting cluster resources
+    INF  ✓ Waiting for cluster to be fully deleted
     ```
 
 Similar to `create cluster`, use the flag `--self-managed` with the `delete cluster`command:

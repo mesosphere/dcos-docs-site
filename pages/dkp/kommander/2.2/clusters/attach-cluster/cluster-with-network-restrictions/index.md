@@ -13,19 +13,21 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a NAT
 
 <p class="message--note"><strong>NOTE: </strong>If your cluster blocks public access, you may need to make the additional step of allowing certain authorized networks where Docker images are hosted for Konvoy to use your cluster, specifically <code>https://registry-1.docker.io/</code>.</p>
 
-1. In the selected workspace Dashboard, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
+1. Select a workspace from the **Workspace Selector** in the top navigation bar. 
 
-1. On the **Add Cluster** page, select **Attach Cluster**.
+1. On the Dashboard page, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
+
+1. Select **Attach Cluster**.
 
 1. Select the **Cluster has networking restrictions** card to display the configuration page.
 
-<!--- ![Add Cluster Networking Options](/dkp/kommander/1.4/img/cluster-has-networking-restrictions.png) --->
+    <!--- ![Add Cluster Networking Options](/dkp/kommander/1.4/img/cluster-has-networking-restrictions.png) --->
 
-1. Enter the **Cluster Name** of the cluster you're attaching and select a **Workspace** from the dropdown list (if entering the **Add Cluster** menu from the Global workspace).
+1. Enter the **Cluster Name** of the cluster you're attaching.
 
 1. Create additional new Labels as needed.
 
-1. Select the **Load Balancer Hostname** which is the Ingress for the cluster from the dropdown menu. You will want the hostname to match the Kommander Host cluster that you are attaching your existing cluster with network restrictions to.
+1. Select the hostname that is the Ingress for the cluster from the **Load Balancer Hostname** dropdown menu. The hostname must match the Kommander Host cluster to which you are attaching your existing cluster with network restrictions.
 
 1. Specify the **URL Path Prefix** for your Load Balancer Hostname. This URL path will serve as the prefix for the specific tunnel services you want to expose on the Kommander management cluster. If no value is specified, the value defaults to `/dkp/tunnel`.
 

@@ -13,7 +13,7 @@ If your license information has changed, you may need to remove an existing lice
 
 <p class="message--note"><strong>NOTE: </strong>Original license information can still be obtained from D2iQ or the AWS License Manager console even after removing from Kommander.</p>
 
-In the Kommander UI, do the following:
+In the DKP UI, do the following:
 
 1.  Select **Global** in the workspace header drop-down.
 

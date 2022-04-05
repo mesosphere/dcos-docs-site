@@ -105,8 +105,10 @@ This distinction between provisioning and deployment is important because some a
     ```sh
     NAME            STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS             AGE
     example-claim   Bound    local-pv-4c7fc8ba   3986Mi     RWO            localvolumeprovisioner   78s
-    $ kubectl get pv
-    NAME                CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                   STORAGECLASS             REASON   AGE
+	```
+	       
+	```sh
+	NAME                CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                   STORAGECLASS             REASON   AGE
     local-pv-4c7fc8ba   3986Mi     RWO            Delete           Bound       default/example-claim   localvolumeprovisioner            15m
     ```
 

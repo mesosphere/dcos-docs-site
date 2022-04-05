@@ -7,7 +7,7 @@ excerpt: How to create Project-level AppDeployments for use in multi-tenant logg
 beta: false
 ---
 
-You must create AppDeployments in the Project namespace to enable and deploy the logging stack to all clusters within a Project. You can use the CLI to do this, or use the Kommander UI to enable the logging applications.
+You must create AppDeployments in the Project namespace to enable and deploy the logging stack to all clusters within a Project. You can use the CLI to do this, or use the DKP UI to enable the logging applications.
 
 To create the AppDeployments needed for Project-level logging, follow these steps **on the management cluster**:
 

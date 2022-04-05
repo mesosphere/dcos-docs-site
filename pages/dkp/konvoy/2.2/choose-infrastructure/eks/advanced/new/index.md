@@ -50,7 +50,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 1.  Create the cluster from the objects.
 
     ```bash
-    kubectl create -f ${CLUSTER_NAME}.yaml
+    dkp create cluster eks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
     ```
 
     ```sh

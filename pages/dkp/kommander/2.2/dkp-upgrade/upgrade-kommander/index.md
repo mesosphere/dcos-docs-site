@@ -13,6 +13,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 ## Prerequisites
 
+-   **REQUIRED** Before upgrading, create an [on-demand backup][backup] of your current configuration with Velero.
 -   [Download][download_binary] and install the latest DKP CLI binary on your computer.
 -   Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
 -   If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
@@ -24,7 +25,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
   Download the Kommander application definitions:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications_v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar.gz"
   ```
   
   Download the Kommander charts bundle:
@@ -47,17 +48,27 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
 1.  Use the DKP CLI to upgrade Kommander and all the Platform Applications in the Management Cluster:
 
-    For air-gapped:
+    -   For air-gapped:
 
-    ```bash
-    dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v.2.2.0.tar.gz --kommander-applications-repository kommander-applications_v.2.2.0.tar.gz
-    ```
+        ```bash
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
+        ```
 
-    For non air-gapped:
+    -   For air-gapped **with** DKP Catalog Applications in a multi-cluster environment:
 
-    ```bash
-    dkp upgrade kommander 
-    ```
+        ```bash
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
+        ```
+
+        After the upgrade, follow the [DKP Catalog Applications configuration page](../../install/configuration/enterprise-catalog#air-gapped-catalog-configuration) to update the Git repository.
+
+    -   For non air-gapped:
+
+        ```bash
+        dkp upgrade kommander
+        ```
+
+        If you have DKP Catalog Applications deployed, follow the [DKP Catalog Applications configuration page](../../install/configuration/enterprise-catalog#configure-a-default-enterprise-catalog) to update the Git repository after the upgrade.
 
     An output similar to this appears:
 
@@ -66,6 +77,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
     ✓ Ensuring upgrading conditions are met
     ✓ Ensuring application definitions are updated
     ✓ Ensuring helm-mirror implementation is migrated to chartmuseum
+    ...
     ```
 
 1.  If the upgrade fails, run the following command to get more information on the upgrade process:
@@ -92,3 +104,4 @@ You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the
 [load_images]: ../../install/air-gapped/
 [dkp_upgrade]: ../../dkp-upgrade/
 [load_images_catalog]: ../../install/air-gapped/catalog/
+[backup]: ../../backup-and-restore#back-up-on-demand

@@ -30,7 +30,7 @@ The steps required to enable multi-tenant logging include:
 
 1.  [View a cluster's log data.][view-logdata]
 
-To get started with logging, create the AppDeployments using the CLI. You can also [use the Kommander UI to enable the logging applications][enable-logging-via-ui]. When Workspace-level logging is fully-configured and operational, then you can configure Kommander to enable [multi-tenant logging](../multi-tenant-logging), if needed.
+To get started with logging, create the AppDeployments using the CLI. You can also [use the DKP UI to enable the logging applications][enable-logging-via-ui]. When Workspace-level logging is fully-configured and operational, then you can configure Kommander to enable [multi-tenant logging](../multi-tenant-logging), if needed.
 
 [create-appdeployment]: ../../logging/enable-logging/create-appdeployment-workspace
 [default-storage-class]: ../../clusters/attach-cluster/requirements-for-attaching#creating-a-default-storageclass
