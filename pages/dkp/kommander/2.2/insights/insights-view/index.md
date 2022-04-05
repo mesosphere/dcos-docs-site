@@ -32,7 +32,7 @@ Select Insights from the sidebar menu for the DKP Insights Dashboard, where you 
 
 To clear filters and reset your view to all insight items, select Clear All.
 
-Insight items usage tips:
+Insight item usage tips:
 
 - To flag individual insights as useful, select the thumbs-up icon. This notifies the Insights Engine that you find this type of insight useful and helps customize your experience over time.
 - For an insight item you do not want to use, select the vertical 3-dot menu for that insight item and select Snooze. This only snoozes the individual insight; if the issue recurs, a new insight item displays in the table.
