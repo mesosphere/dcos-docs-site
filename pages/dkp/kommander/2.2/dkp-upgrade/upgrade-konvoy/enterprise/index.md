@@ -53,9 +53,7 @@ New versions of DKP come pre-bundled with newer versions of CAPI, newer versions
 
 If you are running on more than one management cluster (Kommander cluster), you must upgrade the CAPI components on each of these clusters.
 
-<p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">to the appropriate kubeconfig file location</a>.</p>
-
-An alternative to initializing the KUBECONFIG environment variable is to use the <code>--kubeconfig=cluster_name.conf</code> flag.
+<p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
 1. Run the following upgrade command for the CAPI components.
 
