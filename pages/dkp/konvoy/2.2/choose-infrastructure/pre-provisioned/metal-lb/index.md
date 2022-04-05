@@ -9,7 +9,6 @@ enterprise: false
 ---
 ## Prerequisites
 
-* If you installed MetalLB using Helm, you will need to change the namespace of the config map to match the namespace in which MetalLB was deployed, and change the name of the config map from config to metallb.    
 
 Choose one of the following two protocols you want to use to announce service IPs, either Layer 2 or BGP configurations.
 
