@@ -7,8 +7,6 @@ excerpt: Create a MetalLB configmap for your pre-provisioned infrastructure.
 beta: false
 enterprise: false
 ---
-## Prerequisites
-
 
 Choose one of the following two protocols you want to use to announce service IPs, either Layer 2 or BGP configurations.
 
