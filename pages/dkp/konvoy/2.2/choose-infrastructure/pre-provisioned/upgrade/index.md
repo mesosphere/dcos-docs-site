@@ -18,7 +18,7 @@ Before you begin, you must:
 
 Some of the most common reasons to update the workload cluster are:
 
-1. To upgrade the Kubernetes version
+   To upgrade the Kubernetes version
 
 <!--
 ## Known Limitations

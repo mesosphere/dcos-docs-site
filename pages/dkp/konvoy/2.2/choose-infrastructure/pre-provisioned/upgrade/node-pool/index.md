@@ -25,7 +25,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
 1.  Set the environment variable to the name you assigned this cluster.
 
     ```bash
-    CLUSTER_NAME=my-preprovisioned-cluster
+    export CLUSTER_NAME=preprovisioned-example
     ```
 
     See [define infrastructure](../../create-secrets-and-overrides#name-your-cluster) for information on naming your cluster.
@@ -45,8 +45,8 @@ The worker node pool is described by a MachineDeployment resource, which referen
     The replicas, ready replicas, and updated replicas counts should be equal, as seen here:
 
     ```sh
-    NAME                             INITIALIZED   API SERVER AVAILABLE   VERSION   REPLICAS   READY   UPDATED   UNAVAILABLE
-    my-preprovisioned-cluster-control-plane        true          true                   v1.21.3   1          1       1
+    NAME                             			   INITIALIZED   API SERVER AVAILABLE   VERSION   REPLICAS   READY   UPDATED   UNAVAILABLE
+    preprovisioned-example-cluster-control-plane   true          true                   v1.21.3   1          1       1
     ```
 
 1.  Define the names of the resources.
@@ -112,7 +112,7 @@ The worker node pool is described by a MachineDeployment resource, which referen
     ```
 
     ```sh
-    machinedeployment.cluster.x-k8s.io/my-preprovisioned-cluster-md-0 configured
+    machinedeployment.cluster.x-k8s.io/preprovisioned-example-cluster-md-0 configured
     ```
 
 1.  Wait for the update to complete.
