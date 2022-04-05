@@ -27,7 +27,7 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
 1.  Set the environment variable to the name you assigned this cluster.
 
     ```bash
-    CLUSTER_NAME=my-preprovisioned-cluster
+    export CLUSTER_NAME=preprovisioned-example
     ```
 
     See [creating secrets and overrides](../../create-secrets-and-overrides#name-your-cluster) for information on naming your cluster.
@@ -47,8 +47,8 @@ The control plane is described by a KubeadmControlPlane resource. This topic exp
     The replicas, ready replicas, and updated replicas counts should be equal, as seen here:
 
     ```sh
-    NAME                             INITIALIZED   API SERVER AVAILABLE   VERSION   REPLICAS   READY   UPDATED   UNAVAILABLE
-    my-preprovisioned-cluster-control-plane        true          true                   v1.21.3   1          1       1
+    NAME                                                INITIALIZED   API SERVER AVAILABLE   VERSION   REPLICAS   READY   UPDATED   UNAVAILABLE
+    preprovisioned-example-cluster-control-plane        true          true                   v1.21.3   1          1       1
     ```
 
 1.  Define the names of the resources.
