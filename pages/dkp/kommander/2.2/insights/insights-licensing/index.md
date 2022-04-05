@@ -5,7 +5,6 @@ navigationTitle: Insight licensing
 title: Insight licensing
 excerpt: Insight licensing
 menuWeight: 10
-beta: false
 enterprise: false
 techPreview: true
 ---
