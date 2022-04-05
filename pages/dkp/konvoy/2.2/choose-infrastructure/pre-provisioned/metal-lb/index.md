@@ -37,19 +37,6 @@ data:
       addresses:
       - 192.168.1.240-192.168.1.250
 ```
-If you installed MetalLB with the MetalLB Operator, the addresspool configuration happens via the AddressPool CRD:
-
-```sh
-apiVersion: metallb.io/v1beta1
-kind: AddressPool
-metadata:
-  name: addresspool-sample1
-  namespace: metallb-system
-spec:
-  protocol: layer2
-  addresses:
-    - 172.18.0.100-172.18.0.255
-```
 
 Once complete, run the following `kubectl` command.
 
