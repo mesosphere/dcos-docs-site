@@ -9,7 +9,7 @@ enterprise: false
 
 ## Delete the EKS cluster
 
-1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
+1.  Ensure your AWS credentials are up to date. Refresh the credentials using this command:
 
     ```bash
     dkp update bootstrap credentials aws --kubeconfig $HOME/.kube/config
