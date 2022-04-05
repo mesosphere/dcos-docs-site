@@ -30,10 +30,10 @@ catalog:
           tag: v2.2.0
 ```
 
-Use this configuration when installing or reconfiguring Kommander by passing it to the `kommander install` command:
+Use this configuration when installing or reconfiguring Kommander by passing it to the `dkp install kommander` command:
 
 ```bash
-kommander install --installer-config <config_file.yaml>
+dkp install kommander --installer-config <config_file.yaml>
 ```
 
 <p class="message--note"><strong>NOTE: </strong>When configuring the catalog repository post-upgrade, run <code>kommander install --init > install.yaml</code> and update it accordingly with any custom configuration. This ensures you are using the proper default configuration values for the new Kommander version.</p>
@@ -73,8 +73,8 @@ When running in air-gapped environments, update the configuration by replacing `
 
     <p class="message--note"><strong>NOTE: </strong>When configuring the catalog repository post-upgrade, run <code>kommander install --init > install.yaml</code> and update it accordingly with any custom configuration. This ensures you are using the proper default configuration values for the new Kommander version.</p>
 
-1.  Use this configuration when installing or reconfiguring Kommander by passing it to the `kommander install` command:
+1.  Use this configuration when installing or reconfiguring Kommander by passing it to the `dkp install kommander` command:
 
     ```bash
-    kommander install --installer-config <config_file.yaml>
+    dkp install kommander --installer-config <config_file.yaml>
     ```

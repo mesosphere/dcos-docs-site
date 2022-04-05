@@ -21,10 +21,10 @@ kind: Installation
 clusterHostname: mycluster.domain.dom
 ```
 
-This configuration can be used when installing or reconfiguring Kommander by passing it to the `kommander install` command:
+This configuration can be used when installing or reconfiguring Kommander by passing it to the `dkp install kommander` command:
 
 ```bash
-kommander install --installer-config <config_file.yaml>
+dkp install kommander --installer-config <config_file.yaml>
 ```
 
 Soon after the command completes, obtain the cluster ingress IP address or hostname using the following command:
