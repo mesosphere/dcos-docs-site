@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: DKP 2.2 Release Notes
+navigationTitle: DKP 2.2.0 Release Notes
 title: DKP 2.2 Release Notes
 menuWeight: 10
-excerpt: View release-specific information for DKP 2.2
+excerpt: View release-specific information for DKP 2.2.0
 enterprise: false
 beta: false
 ---
@@ -34,13 +34,13 @@ You can use either the CLI or the UI to [upgrade your catalog applications](../.
 
 <p class="message--note"><strong>NOTE:</strong> Catalog applications must be upgraded to the latest version BEFORE upgrading the Kubernetes version (or Konvoy version for managed Konvoy clusters) on attached clusters, due to the previous versions' incompatibility with Kubernetes 1.22.</p>
 
-### Better integration with VMware vSphere
+### Integration with VMware vSphere
 
 You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](/dkp/konvoy/2.2/choose-infrastructure/vsphere/), which allows you to manage bootstrapping of VMs on a DKP cluster. This gives you improved productivity and speed of deploying VMs on DKP in a VMWare environment, including FIPS builds and air-gapped deployments.
 
 ### Zero downtime upgrades for air-gapped deployments
 
-Kubernetes Operators and other IT operations team members can use your laptop or USB drive to transfer pre-created bundles, including OS dependencies and DKP binaries into an air-gapped environment with no external connectivity. This improves the availability of the DKP air-gapped deployment and productivity of your IT operations team.
+Kubernetes Operators and other IT operations team members can use their laptop or USB drive to transfer pre-created bundles, including OS dependencies and DKP binaries into an air-gapped environment with no external connectivity. This improves the availability of the DKP air-gapped deployment and productivity of your IT operations team.
 
 ### Unified user interfaces
 
