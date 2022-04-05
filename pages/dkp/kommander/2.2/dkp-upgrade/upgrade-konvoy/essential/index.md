@@ -38,7 +38,7 @@ To upgrade Konvoy for DKP Essential:
 1. Upgrade the core addons
 1. Upgrade the Kubernetes version
 
-If you have more than one Essential license, repeat all of these steps for each Essential cluster (management cluster).
+If you have more than one Essential cluster, repeat all of these steps for each Essential cluster (management cluster).
 
 <p class="message--note"><strong>NOTE:</strong> For pre-provisioned air-gapped environments, you must run <code>konvoy-image upload artifacts</code>.</p>
 
