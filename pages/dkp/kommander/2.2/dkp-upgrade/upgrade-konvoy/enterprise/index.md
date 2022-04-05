@@ -37,7 +37,7 @@ To upgrade Konvoy for DKP Enterprise:
 1. Upgrade the core addons
 1. Upgrade the Kubernetes version
 
-Run all three steps on the management cluster (Kommander cluster) first. Then, run the second and third steps on additional managed clusters (Konvoy clusters), one cluster at a time using the KUBECONFIG configured for each cluster. If an AMI was specified when initially creating a cluster, you must build a new one with [Konvoy Image Builder][KIB] and pass it with `--ami.`
+Run all three steps on the management cluster (Kommander cluster) first. Then, run the second and third steps on additional managed clusters (Konvoy clusters), one cluster at a time using the KUBECONFIG configured for each cluster.
 
 <p class="message--note"><strong>NOTE:</strong> For pre-provisioned air-gapped environments, you must run <code>konvoy-image upload artifacts</code>.</p>
 
@@ -105,24 +105,13 @@ clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-my-aws-clust
 configmap/nvidia-feature-discovery-my-aws-cluster upgraded
 ```
 
-2. Monitor the pods for the core addons restarting in your cluster:
-
-```bash
-kubectl rollout status daemonset/calico-node
---namespace calico-system
-```
-
-The output should be similar to:
-
-```text
-daemon set "calico-node" successfully rolled out
-```
-
 Once complete, begin upgrading the Kubernetes version.
 
 ## Upgrade the Kubernetes version
 
 When upgrading the Kubernetes version of a cluster, first upgrade the control plane and then the node pools.
+
+<p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.2/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
 
 1. Replace `my-aws-cluster` with the name of the cluster.
 
@@ -153,7 +142,7 @@ The output should be similar to:
 ```text
 Updating node pool resource cluster.x-k8s.io/v1beta1, Kind=MachineDeployment default/my-aws-cluster-my-nodepool
 Waiting for node pool update to finish.
- ✓ Updating the my-aws-cluster-my-nodepool node pool 
+ ✓ Updating the my-aws-cluster-my-nodepool node pool
 ```
 Repeat this step for each additional node pool.
 
@@ -169,4 +158,3 @@ If you have any additional management or managed clusters, review the [DKP Upgra
 [envariables]: /dkp/konvoy/2.2/choose-infrastructure/azure/quick-start-azure/#configure-azure-prerequisites
 [backup]: ../../../backup-and-restore/#back-up-on-demand
 [envariables2]: /dkp/konvoy/2.2/choose-infrastructure/aws/quick-start-aws/#configure-aws-prerequisites
-[KIB]: /dkp/konvoy/2.2/image-builder/

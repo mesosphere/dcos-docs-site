@@ -38,7 +38,7 @@ To upgrade Konvoy for DKP Essential:
 1. Upgrade the core addons
 1. Upgrade the Kubernetes version
 
-If you have more than one Essential license, repeat all of these steps for each Essential cluster (management cluster). If an AMI was specified when initially creating a cluster, you must build a new one with [Konvoy Image Builder][KIB] and pass it with `--ami.`
+If you have more than one Essential license, repeat all of these steps for each Essential cluster (management cluster).
 
 <p class="message--note"><strong>NOTE:</strong> For pre-provisioned air-gapped environments, you must run <code>konvoy-image upload artifacts</code>.</p>
 
@@ -102,24 +102,13 @@ clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-my-aws-clust
 configmap/nvidia-feature-discovery-my-aws-cluster upgraded
 ```
 
-2. Monitor the pods for the core addons restarting in your cluster:
-
-```bash
-kubectl rollout status daemonset/calico-node
---namespace calico-system
-```
-
-The output should be similar to:
-
-```text
-daemon set "calico-node" successfully rolled out
-```
-
 Once complete, begin upgrading the Kubernetes version.
 
 ## Upgrade the Kubernetes version
 
 When upgrading the Kubernetes version of a cluster, first upgrade the control plane and then the node pools.
+
+<p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.2/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
 
 1. Replace `my-aws-cluster` with the name of the cluster.
 
@@ -158,4 +147,3 @@ Repeat this step for each additional node pool.
 [backup]: ../../../backup-and-restore/#back-up-on-demand
 [envariables]: /dkp/konvoy/2.2/choose-infrastructure/azure/quick-start-azure/#configure-azure-prerequisites
 [envariables2]: /dkp/konvoy/2.2/choose-infrastructure/aws/quick-start-aws/#configure-aws-prerequisites
-[KIB]: /dkp/konvoy/2.2/image-builder/
