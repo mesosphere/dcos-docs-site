@@ -51,7 +51,7 @@ DKP Enterprise comes bundled with GitOps, an operating model for Kubernetes and 
 
 ## DKP Enterprise multi-cluster UI
 
-Bundled with DKP Enterprise is a multi-cluster management UI that can be used in lieu of the bundled CLI. From the UI you can:
+Bundled with DKP Enterprise is a multi-cluster management view of DKP UI that can be used in lieu of the bundled CLI. From the UI you can:
 
 - **Connect to an infrastructure provider:** DKP Enterprise supports on-premises and cloud infrastructure providers such as AWS and Azure for your Konvoy clusters. To automate their provisioning, DKP requires authentication keys to your preferred infrastructure provider entered on the Add Infrastructure Provider form.
 - **Setup identity providers:** DKP Enterprise supports GitHub, LDAP, SAML, and standard OIDC identity providers such as Google. These identity management providers support the login and authentication process for your Kubernetes cluster. See [Identity Providers][identityprov] for more information.
