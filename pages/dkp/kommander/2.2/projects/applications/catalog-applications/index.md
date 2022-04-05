@@ -45,4 +45,4 @@ For example, the following command upgrades the Kafka Operator application in a 
 dkp upgrade appdeployment kafka-operator --workspace=my-workspace --to-version=0.20.2
 ```
 
-<p class="message--note"><strong>NOTE: Platform applications cannot be upgraded on a one-off basis, and must be upgraded in a single process for each workspace. If you attempt to upgrade a platform application with these commands, you receive an error and the application is not upgraded.</p>
+<p class="message--note"><strong>NOTE: </strong>Platform applications cannot be upgraded on a one-off basis, and must be upgraded in a single process for each workspace. If you attempt to upgrade a platform application with these commands, you receive an error and the application is not upgraded.</p>
