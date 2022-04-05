@@ -9,6 +9,8 @@ menuWeight: 30
 ---
 ## Prerequisites
 
+* **REQUIRED** Before upgrading, create an [on-demand backup][backup] of your current configuration with Velero.
+
 * Follow the steps listed in the [DKP upgrade overview][dkpup].
 
 * Ensure that all platform applications in the management cluster have been upgraded to avoid compatibility issues with the [Kubernetes version][releasenotes] included in this release. This is done automatically when [upgrading Kommander][upgradekomm], so ensure that Kommander has been upgraded prior to Konvoy.
