@@ -15,13 +15,17 @@ Before upgrading your catalog applications, verify the current and supported ver
 
 ### Upgrade with UI
 
-Follow these steps to upgrade an application from the DKP Dashboard:
+Follow these steps to upgrade an application from the DKP UI:
 
-1.  Select Applications from the left-hand menu of the DKP Dashboard.
+1.  Select a workspace from the **Workspace Selector** in the top navigation bar.
 
-1.  Select the three dots from the bottom-right corner of the desired application tile, and then select Edit.
+1.  Select **Applications** from the sidebar menu.
 
-1.  Select the drop-down arrow next to Version, select the new version, and then select Save.
+1.  Select the three dot button from the bottom-right corner of the desired application tile, and then select **Edit**.
+
+1.  Select the **Version** drop-down, and select a new version. This drop-down will only be available if there is a newer version to upgrade to.
+
+1.  Select **Save**.
 
 ### Upgrade with CLI
 

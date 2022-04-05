@@ -9,18 +9,23 @@ excerpt: Use ConfigMaps to automate ConfigMaps aretion on your clusters
 Project ConfigMaps can be created to make sure Kubernetes ConfigMaps are automatically created on all Kubernetes clusters associated with the Project, in the corresponding namespace.
 
 As reference, a ConfigMap is a key-value pair to store some type of non-confidential data like "name=bob" or "state=CA".
-For a full reference to the concept, consult the Kubernetes documentation on the topic of ConfigMaps [here](https://kubernetes.io/docs/concepts/configuration/configmap/).
+For a full reference to the concept, consult the Kubernetes documentation on the topic of [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/).
 
 ## Configuring Project ConfigMaps - UI Method
 
 The below Project ConfigMap form can be navigated to by:
 
-1. Select **Workspace** > **Project**
-1. Select an Existing Project or Create a New Project
-1. Select **ConfigMaps** to browse the deployed ConfigMaps
-1. Select **+Create ConfigMap** button
+1.  Select a workspace from the **Workspace Selector** in the top navigation bar.
 
-![Project ConfigMap Form](../../img/project-create-configmap.png)
+1.  Select **Projects** from the sidebar menu.
+
+1.  Select your project from the list.
+
+1.  Select the **ConfigMaps** tab to browse the deployed ConfigMaps.
+
+1.  Select **+ Create ConfigMap** button.
+
+1.  Enter an ID, Description and Data for the ConfigMap, and select the **Create** button.
 
 ## Configuring Project ConfigMaps - CLI Method
 

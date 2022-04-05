@@ -1,7 +1,7 @@
 ---
 extends: existence
 message: 'Punctuation should be inside the quotes.'
-level: error
+level: warning
 nonword: true
 tokens:
   - '"[^"]+"[.,?]'

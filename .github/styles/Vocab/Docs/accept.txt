@@ -9,6 +9,7 @@ ANN(|s)
 archiver
 auto-assign
 Auto-IP
+auto-sync
 (auto-provisioner|Auto-Provisioner)
 auto-provisioning
 autoscal(e|es|ed|ing)

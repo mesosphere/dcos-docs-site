@@ -37,7 +37,7 @@ The following table describes the fields required for each authentication method
 
 After the secret is created, you can view it in the `Secrets` tab. Configure the GitOps source accessed by the secret.
 
-<p class="message--important"><strong>NOTE: </strong>If using an SSH secret, the SCM repo url needs to be an SSH address. It does not support SCP syntax. The URL format is <code>ssh://user@host:port/org/repository</code>.</p>
+<p class="message--important"><strong>NOTE: </strong>If using an SSH secret, the SCM repo URL needs to be an SSH address. It does not support SCP syntax. The URL format is <code>ssh://user@host:port/org/repository</code>.</p>
 
 It takes a few moments for the GitOps Source to be reconciled and the manifests from the SCM repository at the given path to be federated to attached clusters. After the sync is complete, manifests from GitOps source are created in attached clusters.
 
@@ -91,7 +91,21 @@ If there are errors creating the manifests, those events are populated in the st
 
 ## Suspend GitOps Source
 
-There may be times when you need to suspend the auto-sync between the GitOps repository and the associated clusters. This _live debugging_ may be necessary to resolve an incident in the minimum amount of time without the overhead of pull request based workflows. Select **Suspend** to manually suspend the GitOps reconciliation.
+There may be times when you need to suspend the auto-sync between the GitOps repository and the associated clusters. This _live debugging_ may be necessary to resolve an incident in the minimum amount of time without the overhead of pull request based workflows.
+
+To Suspend the GitOps Source from the DKP UI:
+
+1.  Select a workspace from the **Workspace Selector** in the top navigation bar.
+
+1.  Select **Projects** from the sidebar menu.
+
+1.  Select your project from the list.
+
+1.  Select the **Continuous Deployment (CD)** tab.
+
+1.  Select the three dot button to the right of the desired GitOps Source.
+
+1.  Select **Suspend** to manually suspend the GitOps reconciliation.
 
 This lets you use `kubectl`, `helm`, or another tool to resolve the issue. After the issue is resolved select **Resume** to sync the updated contents of the GitOps source to the associated clusters.
 
