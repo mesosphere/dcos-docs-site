@@ -14,7 +14,7 @@ Project Quotas and Limit Ranges can be set up to limit the number of resources t
 
 1. In the sidebar menu, select **Projects**. 
 
-1. Select the project you would like to configure from the table.
+1. Select the project you want to configure from the table.
 
 1. Select the **Quotas & Limit Ranges** tab, and then select the **Edit** button.
 
