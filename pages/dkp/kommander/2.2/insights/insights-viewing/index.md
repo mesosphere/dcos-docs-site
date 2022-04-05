@@ -34,5 +34,5 @@ To clear filters and reset your view to all insight items, select Clear All.
 Insight items usage tips:
 
 - To flag individual insights as useful, select the thumbs-up icon. This notifys the Insights Engine that you find this type of insight useful and helps customize your expereince over time.
-- For an insight item that is not useful, select the vertical 3-dot menu for that insight item and select Snooze. This only snoozes the individual insight; if the issue recurrs, a new insight item displays in the table.
+- For an insight item that is not useful, select the vertical 3-dot menu for that insight item and select Snooze. This only snoozes the individual insight; if the issue recurs, a new insight item displays in the table.
 - Under the description and if applicable, we provide you links to Grafana and the Kubernetes Dashboard so that you can dig deeper into the insight item.
