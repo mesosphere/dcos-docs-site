@@ -8,13 +8,19 @@ excerpt: Project Secrets can be created to make sure a Kubernetes Secrets are au
 
 Project Secrets can be created to make sure Kubernetes Secrets are automatically created on all the Kubernetes clusters associated with the Project, in the corresponding namespace.
 
-## Configuring  Project Secrets - UI Method
+## Configure Project Secrets - UI Method
 
-![Project Secret Form](../../img/project-create-secret.png)
+1. Select the workspace your project was created in from the workspace selection dropdown in the header.
 
-![Project Secret Form](../../img/project-create-secret.png)
+1. In the sidebar menu, select **Projects**. 
 
-## Configuring  Project Secrets - CLI Method
+1. Select the project you want to configure from the table.
+
+1. Select the **Secrets** tab, and then select the **Create Secret** button.
+
+1. Complete the form and select the **Create** button.
+
+## Configure Project Secrets - CLI Method
 
 A Project Secret is simply a Kubernetes FederatedConfigSecret and can also be created using kubectl:
 
