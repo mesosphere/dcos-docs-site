@@ -8,7 +8,7 @@ beta: false
 enterprise: true
 ---
 
-This section details requirements for management cluster-specific applications. For the list of all available platform applications, see [Platform Application Configuration Requirements](../../../projects/applications/platform-applications/application-requirements/).
+This section details requirements for management cluster-specific applications. For the list of all available platform applications, see [Platform Application Configuration Requirements](../../workspaces/applications/platform-applications/platform-application-requirements/).
 
 This table describes the workspace platform applications specific to the management cluster, minimum resource requirements, and minimum persistent storage requirements.
 
@@ -19,7 +19,7 @@ This table describes the workspace platform applications specific to the managem
 | traefik                 | cpu: 500m                    |                                                           | Yes                 |
 | kubecost                | cpu: 700m<br>memory: 1700Mi  | # of PVs: 3<br>PV sizes: 0.2Gi, 2Gi, 32Gi (total: 34.2Gi) | Yes                 |
 | kube-prometheus-stack   | cpu: 300m<br>memory: 1500Mi  | # of PVs: 1<br>PV sizes: 50Gi                             | Yes                 |
-| kube-oidc-proxy         |                              |                                                           |                     |
+| kube-oidc-proxy         |                              |                                                           |  Yes                |
 | prometheusadapter       | cpu: 1000m<br>memory: 1000Mi |                                                           | Yes                 |
 | kubernetes-dashboard    |                              |                                                           | Yes                 |
 | nvidia                  |                              |                                                           | No                  |
@@ -30,9 +30,9 @@ This table describes the workspace platform applications specific to the managem
 | minio-operator          |                              |                                                           | No                  |
 | gatekeeper              |                              |                                                           | No                  |
 | kube-oidc-proxy         |                              |                                                           | Yes                 |
-| traefik                 |                              |                                                           |                     |
+| traefik                 |                              |                                                           | Yes                 |
 | traefik-forward-auth    | cpu: 100m<br>memory: 128Mi   |                                                           | Yes                 |
-| velero                  |                              |                                                           | No                  |
+| velero                  |                              |                                                           | Yes                 |
 | kubetunnel              | 0.0.8                        |                                                           |                     |
 | logging-operator        | 3.15.0                       |                                                           |                     |
 | metallb                 | 0.12.2                       |                                                           |                     |
