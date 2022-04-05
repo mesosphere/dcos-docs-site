@@ -53,7 +53,7 @@ New versions of DKP come pre-bundled with newer versions of CAPI, newer versions
 
 If you are running on more than one management cluster (Kommander cluster), you must upgrade the CAPI components on each of these clusters.
 
-<p class="message--warning"><strong>IMPORTANT:</strong>Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the `KUBECONFIG` environment variable [to the appropriate kubeconfig file location][kubeconfig].</p>
+<p class="message--warning"><strong>IMPORTANT:</strong>Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the `KUBECONFIG` environment variable <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">to the appropriate kubeconfig file location</a>.</p>
 
 An alternative to initializing the KUBECONFIG environment variable is to use the <code>--kubeconfig=cluster_name.conf</code> flag.
 
@@ -82,7 +82,7 @@ To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API 
 
 Your cluster comes preconfigured with a few different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may come prebundled with newer versions of these addons. Perform the following steps to update these addons.
 
-1. Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the KUBECONFIG environment variable [to the appropriate kubeconfig file’s location][kubeconfig].
+<p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the `KUBECONFIG` environment variable <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">to the appropriate kubeconfig file location</a>.</p>
 
 An alternative to initializing the KUBECONFIG environment variable is to use the `--kubeconfig=cluster_name.conf flag`.
 

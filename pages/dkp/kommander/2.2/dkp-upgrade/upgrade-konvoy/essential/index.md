@@ -49,7 +49,7 @@ For a full list of DKP Essential features, see [DKP Essential][dkpessential].
 
 New versions of DKP come pre-bundled with newer versions of CAPI, newer versions of infrastructure providers or new infrastructure providers. When using a new version of the DKP CLI, upgrade all of these components first.
 
-<p class="message--warning"><strong>IMPORTANT:</strong> Ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the KUBECONFIG environment variable [to the appropriate kubeconfig file’s location][kubeconfig].</p>
+<p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the `KUBECONFIG` environment variable <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">to the appropriate kubeconfig file location</a>.</p>
 
 An alternative to initializing the KUBECONFIG environment variable is to use the `--kubeconfig=cluster_name.conf flag`.
 
@@ -78,7 +78,7 @@ To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API 
 
 Your cluster comes preconfigured with a few different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may come pre-bundled with newer versions of these addons. Perform the following steps to update these addons.
 
-1. If you have more than one essential license, ensure your `dkp` configuration references the management cluster where you want to run the upgrade by setting the KUBECONFIG environment variable [to the appropriate kubeconfig file’s location][kubeconfig].
+<p class="message--warning"><strong>IMPORTANT:</strong>If you have more than one essential license, ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the `KUBECONFIG` environment variable <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">to the appropriate kubeconfig file location</a>.</p>
 
 <p class="message--note"><strong>NOTE:</strong> An alternative to initializing the KUBECONFIG environment variable is to use the <code>--kubeconfig=cluster_name.conf</code> flag, ensuring that Kommander upgrades on the workload cluster.</p>
 
