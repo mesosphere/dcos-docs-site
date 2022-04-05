@@ -9,6 +9,10 @@ beta: false
 
 The DKP upgrade represents an important step of your environment's lifecycle, as it ensures that you are up-to-date with the latest features and can benefit from the most recent improvements, enhanced cluster management, and better performance. This section describes how to upgrade your networked, air-gapped, or on-prem environment to the latest version of DKP.
 
+## Prerequisite
+
+- **REQUIRED** Before upgrading, create an [on-demand backup][backup] of your current configuration with Velero.
+
 ## Understand the upgrade process
 
 For this release, you perform the upgrade sequentially beginning with DKP Kommander and then moving to DKP Konvoy.
@@ -18,8 +22,6 @@ When upgrading DKP, the process is different depending on whether you run a stan
 Start with your Management Cluster in Kommander, and then, if more than one exists, proceed workspace by workspace until complete. You can then move to upgrading Konvoy, cluster by cluster.
 
 The overall process for upgrading to the latest version of DKP is done on each Workspace or cluster, with the following processes:
-
-1.  Ensure you have a recent backup of your environment's current state in case rolling back is not possible. If you do not have one yet, create an [on-demand backup][backup].
 
    For **Kommander**, on your Management Cluster:
 
