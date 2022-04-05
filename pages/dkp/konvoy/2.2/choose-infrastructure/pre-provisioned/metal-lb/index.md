@@ -23,6 +23,7 @@ For example, the following configuration gives MetalLB control over IPs from 192
 <p class="message--note"><strong>NOTE:</strong>The following values are generic, enter your specific values into the fields where applicable.</p>
 
 ```sh
+cat << EOF > metallb-conf.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -35,6 +36,7 @@ data:
       protocol: layer2
       addresses:
       - 192.168.1.240-192.168.1.250
+EOF
 ```
 
 Once complete, run the following `kubectl` command.
