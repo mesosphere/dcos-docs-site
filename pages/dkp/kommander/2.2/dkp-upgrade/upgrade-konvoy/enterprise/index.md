@@ -16,6 +16,10 @@ menuWeight: 30
 
 * For air-gapped: Download the required bundles either at our [support site][supportsite] or [via the CLI][airgapbundle].
 
+* For Azure, set the required [environment variables][envariables].
+
+* For AWS, set the required [environment variables][envariables2].
+
 The following infrastructure environments are supported:
 
 * Amazon Web Services (AWS)
@@ -103,8 +107,16 @@ configmap/nvidia-feature-discovery-my-aws-cluster upgraded
 3. Monitor the pods for the core addons restarting in your cluster:
 
 ```bash
-###DEV ADD OUTPUT HERE
+kubectl rollout status daemonset/calico-node
+--namespace calico-system
 ```
+
+The output should be similar to:
+
+```bash
+daemon set "calico-node" successfully rolled out
+```
+
 Once complete, begin upgrading the Kubernetes version.
 
 ## Upgrade the Kubernetes version
@@ -142,11 +154,12 @@ Repeat this step for each additional node pool.
 
 If you have any additional management or managed clusters, review the [DKP Upgrade][dkpup] documentation for next steps.
 
-[dkpup]: ../dkp-upgrade/
-[upgradekomm]: ../upgrade-kommander/
+[dkpup]: ../../dkp-upgrade/
+[upgradekomm]: ../../upgrade-kommander/
 [supportsite]: https://support.d2iq.com/hc/en-us
-[airgapbundle]: /konvoy/2.2/choose-infrastructure/airgapbundle/
-[dkpenterprise]: /kommander/2.2/licensing/enterprise/
+[airgapbundle]: /dkp//konvoy/2.2/choose-infrastructure/airgapbundle/
+[dkpenterprise]: /dkp/kommander/2.2/licensing/enterprise/
 [kubeconfig]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [CAPI]: https://cluster-api.sigs.k8s.io/
-[releasenotes]: /2.2/release-notes
+[releasenotes]: ../../../release-notes
+[envariables]: /dkp/konvoy/2.2/choose-infrastructure/azure/quick-start-azure/#configure-azure-prerequisites
