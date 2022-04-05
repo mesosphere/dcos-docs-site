@@ -77,7 +77,7 @@ Tips:
     This creates a unique name every time you run it, so use the command with forethought.
 
     ```bash
-    CLUSTER_NAME=$(whoami)-eks-cluster-$(LC_CTYPE=C LC_COLLATE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 5 | head -c 5)
+    CLUSTER_NAME=$(whoami)-eks-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 
