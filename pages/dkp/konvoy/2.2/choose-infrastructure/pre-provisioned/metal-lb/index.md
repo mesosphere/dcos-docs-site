@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Configure MetalLB
 title: Configure MetalLB
-menuWeight: 90
+menuWeight: 80
 excerpt: Create a MetalLB configmap for your pre-provisioned infrastructure.
 beta: false
 enterprise: false
