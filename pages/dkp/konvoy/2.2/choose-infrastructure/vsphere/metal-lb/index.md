@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Configure MetalLB
 title: Configure MetalLB
 menuWeight: 78
-excerpt: Create a MetalLB configmap for your pre-provisioned infrastructure.
+excerpt: Create a MetalLB configmap for your vSphere infrastructure.
 beta: false
 enterprise: false
 ---
