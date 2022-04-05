@@ -91,7 +91,7 @@ The output should be similar to:
 
 ```text
 Generating addon resources
-clusterresourceset.addons.cluster.x-k8s.io/calico-cni-    installation-my-aws-cluster upgraded
+clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-my-aws-cluster upgraded
 configmap/calico-cni-installation-my-aws-cluster upgraded
 clusterresourceset.addons.cluster.x-k8s.io/tigera-operator-my-aws-cluster upgraded
 configmap/tigera-operator-my-aws-cluster upgraded
