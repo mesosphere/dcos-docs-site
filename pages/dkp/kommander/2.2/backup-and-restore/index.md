@@ -239,7 +239,7 @@ kubectl patch validatingwebhookconfigurations kommander-validating \
 
 ## Backup service diagnostics
 
-You can check whether the Velero service is currently running on your cluster through the Kubernetes dashboard (accessible via the DKP UI on the Kommander Management Cluster), or by running the following `kubectl` command:
+You can check whether the Velero service is currently running on your cluster through the Kubernetes dashboard (accessible through the DKP UI on the Kommander Management Cluster), or by running the following `kubectl` command:
 
 ```bash
 kubectl get all -A | grep velero
