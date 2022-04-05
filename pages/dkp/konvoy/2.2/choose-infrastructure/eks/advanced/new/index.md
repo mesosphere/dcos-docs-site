@@ -50,7 +50,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 1.  Create the cluster from the objects.
 
     ```bash
-    dkp create cluster aks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
+    dkp create cluster eks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
     ```
 
     ```sh
