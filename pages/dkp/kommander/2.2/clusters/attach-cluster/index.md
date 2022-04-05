@@ -105,7 +105,7 @@ Using the **Add Cluster** option, you can attach an existing Kubernetes or Konvo
 
 1. In the **Cluster Configuration** section, paste your kubeconfig file into the field, or select the **Upload kubeconfig File** button to specify the file. 
 
-1.  The **Cluster Name** field will automatically populate with the name of the cluster is in the kubeconfig. You can edit this field with the name you want for your cluster.
+1.  The **Cluster Name** field automatically populates with the name of the cluster is in the kubeconfig. You can edit this field with the name you want for your cluster.
 
 1. The **Context** select list is populated from the kubeconfig. Select the desired context with admin privileges from the **Context** select list.
 
