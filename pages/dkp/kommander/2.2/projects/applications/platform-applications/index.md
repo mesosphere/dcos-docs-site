@@ -26,7 +26,7 @@ When deploying and upgrading applications, platform applications come as a bundl
 
 1.  Select the three dot button from the bottom-right corner of the desired application tile, and then select **Enable**.
 
-1.  (Optional) If you want to override the default configuration values, copy your values content into the text editor under **Configure Service** or just upload your yaml file that contains the values:
+1.  To override the default configuration values, copy your values content into the text editor under **Configure Service** or just upload your yaml file that contains the values:
 
       ```yaml
       someField: someValue
