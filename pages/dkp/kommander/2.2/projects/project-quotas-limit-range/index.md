@@ -24,7 +24,7 @@ Project Quotas and Limit Ranges can be set up to limit the number of resources t
 
 1. When you are finished, select the **Save** button.
 
-## Creating Project Quotas & Limit Ranges - CLI Method
+## Create Project Quotas & Limit Ranges - CLI Method
 
 All the Project Quotas are defined using a Kubernetes FederatedResourceQuota called `kommander` which you can also create/update using kubectl:
 
