@@ -1,26 +1,24 @@
 ---
 layout: layout.pug
-navigationTitle: Install Kommander in an air-gapped environment with catalog applications
-title: Install Kommander in an air-gapped environment with catalog applications
-menuWeight: 10
-excerpt: Install Kommander in an air-gapped environment with catalog applications
+navigationTitle: Install Kommander in an air-gapped environment
+title: Install Kommander in an air-gapped environment
+menuWeight: 30
+excerpt: Install Kommander in an air-gapped environment
 beta: false
-enterprise: true
+enterprise: false
 ---
 
-
-This topic shows how to run Kommander on top of an [air-gapped Konvoy cluster][air-gap-konvoy] installation with catalog applications.
+This topic shows how to run Kommander on top of an [air-gapped Konvoy cluster][air-gap-konvoy] installation.
 
 ## Prerequisites
 
 Before installing, ensure you have:
 
--   A Docker registry containing all the necessary Docker images, including the Kommander and [DKP catalog application][dkp_catalog_applications] images.
+-   A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander-image-bundle.tar` tarball has the required artifacts.
 
--   A charts bundle file containing all Helm charts that Kommander installation needs, including the [DKP catalog applications][dkp_catalog_applications] charts.
+-   A charts bundle file containing all Helm charts that Kommander installation needs.
 
 -   Connectivity with clusters attaching to the management cluster:
-    - See more details about attaching air-gapped clusters in the [Managing Clusters](../../../clusters/attach-cluster/cluster-with-network-restrictions/) documentation.
     - Both management and attached clusters must be able to connect to the Docker registry.
     - The management cluster must be able to connect to all attached cluster's API servers.
     - The management cluster must be able to connect to any load balancers created for platform services on the management cluster.
@@ -28,7 +26,7 @@ Before installing, ensure you have:
 -   A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
 
   ```bash
-  kommander install --init --airgapped > install.yaml
+  dkp install kommander --init --airgapped > install.yaml
   ```
 
 -   All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
@@ -38,18 +36,18 @@ Before installing, ensure you have:
 ### Kommander charts bundle
 
 The charts bundle is a gzipped Tar archive containing Helm charts, which are required during Kommander installation.
-Create the charts bundle with the Kommander CLI or downloaded along with the Kommander CLI.
+Create the charts bundle with the DKP CLI or downloaded along with the DKP CLI.
 Execute this command to create the charts bundle:
 
    ```bash
-   kommander create chart-bundle
+   dkp create chart-bundle
    ```
 
 Kommander creates `charts-bundle.tar.gz`.
 Optionally, specify the output using the `-o` parameter:
 
    ```bash
-   kommander create chart-bundle -o [name of the output file]
+   dkp create chart-bundle -o [name of the output file]
    ```
 
 ### Kommander's internal Helm repository
@@ -58,25 +56,25 @@ The Kommander charts bundle is pushed to Kommander's internal Helm repository.
 To inspect the contents:
 
    ```bash
-   kommander get charts
+   dkp get charts
    ```
 
 Individual charts can be removed using:
 
    ```bash
-   kommander delete chart [chartName] [chartVersion]
+   dkp delete chart [chartName] [chartVersion]
    ```
 
 It is possible to push new charts as well:
 
    ```bash
-   kommander push chart [chartTarball]
+   dkp push chart [chartTarball]
    ```
 
 Or push a new bundle:
 
    ```bash
-   kommander push chart-bundle [chartsTarball]
+   dkp push chart-bundle [chartsTarball]
    ```
 
 Check the built-in help text for each command for more information.
@@ -161,35 +159,20 @@ MetalLB also supports [advanced BGP configuration][metallb_config].
 
 See [Kommander Load Balancing][kommander-load-balancing] for more information.
 
-### Determine the installation version
-
-Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
-
-```bash
-export VERSION=v2.2.0
-```
-
 ### Load the Docker images into your Docker registry
 
-1.  Download the Kommander image bundle file:
+1.  Download the image bundle file:
 
     ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar.gz" -O kommander-image-bundle.tar.gz
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-image-bundle-v2.2.0.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
-1.  Download the [DKP catalog applications][dkp_catalog_applications] image bundle file:
-
-    ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/catalog_applications_image_bundle_${VERSION}_linux_amd64.tar.gz" -O catalog-applications-image-bundle.tar.gz
-    ```
-
-1.  Place the bundles in a location where you can load and push the images to your private Docker registry.
+1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 
 1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
     dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
-    dkp push image-bundle --image-bundle catalog-applications-image-bundle.tar.gz --to-registry <REGISTRY_URL>
     ```
 
 It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
@@ -219,37 +202,30 @@ It may take a while to push all the images to your image registry, depending on 
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.mesosphere.com/dkp/kommander-applications_${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar.gz"
     ```
 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.mesosphere.com/dkp/dkp-kommander-charts-bundle_${VERSION}.tar.gz"
-    ```
-
-1.  Download the [DKP catalog applications][dkp_catalog_applications] chart bundle:
-
-    ```bash
-    wget "https://downloads.mesosphere.com/kommander/airgapped/${VERSION}/dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
     ```
 
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
-    kommander install --installer-config ./install.yaml \
-    --kommander-applications-repository kommander-applications_${VERSION}.tar.gz \
-    --charts-bundle dkp-kommander-charts-bundle_${VERSION}.tar.gz \
-    --charts-bundle dkp-catalog-applications-charts-bundle_${VERSION}.tar.gz
+    dkp install kommander --installer-config ./install.yaml \
+    --kommander-applications-repository kommander-applications-v2.2.0.tar.gz \
+    --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz
     ```
 
-1.  [Verify your installation](../../networked#verify-installation).
+1.  [Verify your installation](../networked#verify-installation).
 
 [air-gap-before-you-begin]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/prerequisites/
 [air-gap-install-metallb]: #use-metallb
 [air-gap-konvoy]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/
-[kommander-config]: ../../configuration
-[kommander-load-balancing]: ../../../networking/load-balancing
+[kommander-config]: ../configuration
+[kommander-load-balancing]: ../../networking/load-balancing
 [metallb]: https://metallb.universe.tf/concepts/
 [metallb_config]: https://metallb.universe.tf/configuration/
-[dkp_catalog_applications]: ../../../workspaces/applications/catalog-applications/dkp-applications/
+[dkp_catalog_applications]: ../../workspaces/applications/catalog-applications/dkp-applications/
