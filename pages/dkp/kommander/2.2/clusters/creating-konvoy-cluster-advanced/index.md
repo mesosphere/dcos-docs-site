@@ -24,7 +24,7 @@ Depending on your infrastructure, Konvoy can generate a set of cluster objects t
 1.  On the Add Cluster page, select **Upload YAML to Create a Cluster** and provide advanced cluster details:
 
     - **Workspace**: The workspace where this cluster belongs (if within the Global workspace).
-    - **Cluster YAML**: Paste or upload your customized set of cluster objects into this field. Only valid YAML will be accepted.
+    - **Cluster YAML**: Paste or upload your customized set of cluster objects into this field. Only valid YAML is accepted.
     - **Add Labels**: By default, your cluster has labels that reflect the infrastructure provider provisioning. For example, your AWS cluster may have a label for the data center region and `provider: aws`. Cluster labels are matched to the selectors created for [projects][projects]. Changing a cluster label may add or remove the cluster from projects.
 
 1. Click **Create** to begin provisioning the Konvoy cluster. This step may take a few minutes, taking time for the cluster to be ready and fully deploy its components. The cluster will retry to join automatically and should resolve once it is fully provisioned.
