@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Explore New air-gapped
-title: Explore New air-gapped
+navigationTitle: Explore New Air-gapped Cluster
+title: Explore New Air-gapped Cluster
 menuWeight: 40
 
-excerpt: Explore the new Kubernetes air-gapped
+excerpt: Explore the new Kubernetes air-gapped cluster
 beta: false
 enterprise: false
 ---
@@ -105,6 +105,6 @@ enterprise: false
     vmware-system-csi        vsphere-csi-node-rp77r                                               3/3     Running    0             19h
     ```
 
-When you are ready, [delete your air-gapped cluster and clean up your environment][delete-air-gapped].
+When you are ready, [delete your cluster and clean up your environment][delete].
 
-[delete-air-gapped]: ../delete
+[delete]: ../delete/

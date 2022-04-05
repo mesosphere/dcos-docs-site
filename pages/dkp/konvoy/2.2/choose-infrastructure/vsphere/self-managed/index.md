@@ -72,7 +72,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
         └─Machine/d2iq--md-0-74c849dc8c-sqklv                           True                     13h
     ```
 
-1.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
+1.  Remove the bootstrap cluster, if desired, as the workload cluster is now self-managed:
 
     ```bash
     dkp delete bootstrap
@@ -93,9 +93,10 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 -   DKP Konvoy only supports moving all namespaces in the cluster; DKP does not support migration of individual namespaces.
 
 
-Next, you can [explore the new cluster][explore-cluster].
+Next, you can [explore the new cluster][explore-cluster] or [explore the new air-gapped cluster][explore-air-gapped].
 
 [bootstrap]: ../bootstrap
 [pivot]: https://cluster-api.sigs.k8s.io/reference/glossary.html?highlight=pivot#pivot
 [createnewcluster]: ../new
 [explore-cluster]: ../explore/
+[explore-air-gapped]: ../air-gapped/explore/
