@@ -65,7 +65,7 @@ dkp upgrade capi-components
 
 The output resembles the following:
 
-```bash
+```text
 ✓ Upgrading CAPI components
 ✓ Waiting for CAPI components to be upgraded
 ✓ Initializing new CAPI components
