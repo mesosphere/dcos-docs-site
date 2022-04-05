@@ -17,7 +17,7 @@ Enable the DKP Insights Engine manually on each Attached cluster, to receive ins
 
 1.  Add DKP Insights Engine Addon
 
-    Apply yaml to your Management cluster from the CLI
+    Add the DKP Insights Engine Addons by applying the following YAML from the CLI:
 
     ```yaml
     kubectl apply -f - <<EOF
