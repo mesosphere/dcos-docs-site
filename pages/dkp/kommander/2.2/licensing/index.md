@@ -11,7 +11,7 @@ This section contains overviews of the feature sets for DKP Essential and DKP En
 
 ## Purchase a License
 
-Licenses for both DKP Enterprise and DKP Essential are sold in units of cores. To learn more about both and to obtain a valid license:
+Licenses for both DKP Enterprise and DKP Essential are sold in units of cores. To learn more about both, and to obtain a valid license:
 
 - Contact your sales representative at <sales@d2iq.com> to purchase one or more licenses.
 - Purchase a license via the [AWS Marketplace](https://aws.amazon.com/marketplace/). After purchase, your license information (ARN) is accessible in the AWS License Manager console.
