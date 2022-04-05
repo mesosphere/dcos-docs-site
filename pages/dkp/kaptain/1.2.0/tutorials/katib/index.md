@@ -9,9 +9,9 @@ enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.mesosphere.io/kaptain/d2iq-tutorials-1.2.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-1.2.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run
-<code>curl -L https://downloads.mesosphere.io/kaptain/d2iq-tutorials-1.2.0.tar.gz | tar xz</code>
+<code>curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-1.2.0.tar.gz | tar xz</code>
 from a Jupyter Notebook Terminal running in your Kaptain installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>These notebook tutorials have been built for and
