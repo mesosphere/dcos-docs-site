@@ -63,12 +63,13 @@ Bundled with DKP Enterprise is a multi-cluster management UI that can be used in
 
 For more information concerning the global and workspace-level UI, see [Workspaces][workspaces]
 
-[choose-infrastructure]: /dkp/konvoy/2.2/choose-infrastructure/
-[projects]: ../../projects/
-[workspacecatapps]: ../../workspaces/applications/catalog-applications/
-[identityprov]: ../../operations/identity-providers/
-[workspaceplatform]: ../../workspaces/applications/platform-applications/
-[capi-concepts-and-terms]: /dkp/konvoy/2.1/major-version-upgrade/capi-concepts-and-terms/
 [addlicense]: ../add/
-[workspaces]: ../../workspaces/
+[capi-concepts-and-terms]: /dkp/konvoy/2.1/major-version-upgrade/capi-concepts-and-terms/
+[choose-infrastructure]: /dkp/konvoy/2.2/choose-infrastructure/
 [dkpenterprise]: ../enterprise/
+[identityprov]: ../../operations/identity-providers/
+[projects]: ../../projects/
+[supported]: /dkp/konvoy/2.2/supported-operating-systems/
+[workspacecatapps]: ../../workspaces/applications/catalog-applications/
+[workspaceplatform]: ../../workspaces/applications/platform-applications/
+[workspaces]: ../../workspaces/

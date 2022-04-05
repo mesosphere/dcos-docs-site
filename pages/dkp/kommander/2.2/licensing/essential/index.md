@@ -19,13 +19,13 @@ DKP Essential operates across a range of cloud, on-premise, edge, and air-gapped
 
 For the basics on standing up a DKP Essential cluster in one of the listed environments of your choice, see [Choose Infrastructure][choose-infrastructure].  
 
-<p class="message--note"><strong> NOTE:</strong> Infrastructure options are dependent upon license type. Some infrastructure deployment options listed within the corresponding link above may not be available for DKP Essential users. For an expanded list of supported infrastructure, see <a href="https://docs.d2iq.com/dkp/kommander/2.2/licensing/enterprise/">DKP Enterprise</a>.</p>
+<p class="message--note"><strong> NOTE:</strong> Infrastructure options are dependent upon license type. Some infrastructure deployment options listed within the corresponding link above may not be available for DKP Essential users. For an expanded list of supported infrastructure, see <a href="/dkp/kommander/2.2/licensing/enterprise/">DKP Enterprise</a>.</p>
 
 ## Platform applications
 
 When creating a cluster, the application manager deploys certain platform applications on the newly created cluster. DKP Essential users can use the Kommander UI to customize which platform applications to deploy to the cluster in a given workspace. For a list of available platform applications that are included with DKP Essential, see [Workspace Platform Applications][workspaceplatform].
 
-<p class="message--note"><strong>NOTE:</strong> The platform application <code>kubecost</code> is not included with DKP Essential, but is included with <a href="https://docs.d2iq.com/dkp/kommander/2.2/licensing/enterprise/">DKP Enterprise</a>.</p>
+<p class="message--note"><strong>NOTE:</strong> The platform application <code>kubecost</code> is not included with DKP Essential, but is included with <a href="/dkp/kommander/2.2/licensing/enterprise/">DKP Enterprise</a>.</p>
 
 ## Cluster manager
 
@@ -53,9 +53,11 @@ Bundled with DKP Essential is a single cluster management UI that can be used in
 
 For more information concerning the global and workspace-level UI, see [Workspaces][workspaces]
 
-[choose-infrastructure]: /dkp/konvoy/2.2/choose-infrastructure/
-[workspaceplatform]: ../../workspaces/applications/platform-applications/
-[capi-concepts-and-terms]: /dkp/konvoy/2.1/major-version-upgrade/capi-concepts-and-terms/
 [addlicense]: ../add/
-[workspaces]: ../../workspaces/
+[capi-concepts-and-terms]: /dkp/konvoy/2.1/major-version-upgrade/capi-concepts-and-terms/
+[choose-infrastructure]: /dkp/konvoy/2.2/choose-infrastructure/
 [dkpenterprise]: ../enterprise/
+[identityprov]: ../../operations/identity-providers/
+[supported]: /dkp/konvoy/2.2/supported-operating-systems/
+[workspaces]: ../../workspaces/
+[workspaceplatform]: ../../workspaces/applications/platform-applications/
