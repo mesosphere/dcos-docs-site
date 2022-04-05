@@ -7,8 +7,9 @@ beta: false
 enterprise: false
 menuWeight: 30
 ---
-
 ## Prerequisites
+
+* Create an [on-demand backup][backup] of your current configuration with Velero.
 
 * Follow the steps listed in the [DKP upgrade overview][dkpup].
 
