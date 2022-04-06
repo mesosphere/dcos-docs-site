@@ -52,7 +52,7 @@ The overall process for upgrading to the latest version of DKP is done on each W
 1.  [**Upgrade the Kubernetes version**][upgrade_konvoy_kubernetes]. This upgrades your cluster’s control plane and node pools. We recommend you upgrade your Kubernetes version on any attached clusters.
 
 [custom_apps]: custom-apps/
-[catalog_apps_projects]: ../projects/applications/catalog-applications/
+[catalog_apps_projects]: ../projects/applications/catalog-applications/upgrading-applications/
 [catalog_apps_workspaces]: ../workspaces/applications/catalog-applications/upgrading-applications/
 [upgrade_kommander]: /dkp/kommander/2.2/dkp-upgrade/upgrade-kommander/
 [release_notes]: ../release-notes
