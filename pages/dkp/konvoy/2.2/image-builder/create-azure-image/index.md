@@ -79,13 +79,13 @@ Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS
 Run the `konvoy-image` command to build and validate the image.
 
 ```sh
-konvoy-image build azure --client-id <azure_client_id> --tenant-id <azure_tenant_id> --overrides override-source-image.yaml --overrides override-images.yaml images/azure/centos-7.yaml
+konvoy-image build azure --client-id <azure_client_id> --tenant-id <azure_tenant_id> --overrides override-source-image.yaml images/azure/centos-7.yaml
 ```
 
 By default, the image builder builds in the `westus2` location. To specify another location set the `--location` flag:
 
 ```sh
-konvoy-image build azure --client-id <azure_client_id> --tenant-id <azure_tenant_id> --location eastus --overrides override-source-image.yaml --overrides override-images.yaml images/azure/centos-7.yaml
+konvoy-image build azure --client-id <azure_client_id> --tenant-id <azure_tenant_id> --location eastus --overrides override-source-image.yaml images/azure/centos-7.yaml
 ```
 
 When the command is complete, the image id is printed and written to `./manifest.json`.    You should then specify this image id when creating the cluster.
