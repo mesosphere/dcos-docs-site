@@ -52,14 +52,13 @@ Before starting the Konvoy installation, verify that you have:
     <p class="message--note"><strong>NOTE: </strong>If an SP with the name exists, this command will rotate the password.</p>
 
     ```bash
-    az ad sp create-for-rbac --role contributor --name "$(whoami)-konvoy"
+    az ad sp create-for-rbac --role contributor --name "$(whoami)-konvoy" --scopes=/subscriptions/$(az account show --query id -o tsv)
     ```
 
     ```sh
     {
       "appId": "7654321a-1a23-567b-b789-0987b6543a21",
       "displayName": "azure-cli-2021-03-09-23-17-06",
-      "name": "http://azure-cli-2021-03-09-23-17-06",
       "password": "Z79yVstq_E.R0R7RUUck718vEHSuyhAB0C",
       "tenant": "a1234567-b132-1234-1a11-1234a5678b90"
     }

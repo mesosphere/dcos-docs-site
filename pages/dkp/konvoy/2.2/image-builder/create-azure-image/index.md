@@ -56,7 +56,7 @@ Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS
     <p class="message--note"><strong>NOTE: </strong>If an SP with the name exists, this command will rotate the password.</p>
 
     ```bash
-    az ad sp create-for-rbac --role contributor --name "$(whoami)-konvoy" --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
+    az ad sp create-for-rbac --role contributor --name "$(whoami)-konvoy" --scopes=/subscriptions/$(az account show --query id -o tsv) --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
     ```
 
     ```sh
@@ -66,6 +66,7 @@ Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS
       "tenant_id": "a1234567-b132-1234-1a11-1234a5678b90"
     }
     ```
+
 -   Set the `AZURE_CLIENT_SECRET` environment variable:
 
     ```bash
