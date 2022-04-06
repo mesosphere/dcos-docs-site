@@ -43,12 +43,12 @@ Follow these steps to deploy a ZooKeeper cluster in a project namespace. This pr
 1.  Check the status of your ZooKeeper cluster using `kubectl`:
 
     ```bash
-    kubectl get zk
+    kubectl get zookeeperclusters -n ${PROJECT_NAMESPACE}
     ```
 
     ```text
     NAME        REPLICAS   READY REPLICAS    VERSION   DESIRED VERSION   INTERNAL ENDPOINT    EXTERNAL ENDPOINT   AGE
-    zookeeper   3          3                 0.2.13    0.2.13            10.100.200.18:2181   N/A                 94s
+    zookeeper   1          1                 0.2.13    0.2.13            10.100.200.18:2181   N/A                 94s
     ```
 
 ## Deleting ZooKeeper clusters

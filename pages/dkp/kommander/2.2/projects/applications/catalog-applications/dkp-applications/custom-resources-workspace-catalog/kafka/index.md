@@ -41,7 +41,7 @@ This example deployment walks you through first deploying a ZooKeeper cluster an
 1.  Check the status of your ZooKeeper cluster using `kubectl`:
 
     ```bash
-    kubectl -n ${PROJECT_NAMESPACE} get zookeeper
+    kubectl -n ${PROJECT_NAMESPACE} get zookeeperclusters
     ```
 
 1.  Download the [sample Kafka Cluster](https://raw.githubusercontent.com/banzaicloud/koperator/master/config/samples/simplekafkacluster.yaml) file.
