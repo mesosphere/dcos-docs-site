@@ -9,6 +9,7 @@ excerpt: Enable a Custom Application from the Workspace Catalog
 <!-- markdownlint-disable MD030 -->
 
 After creating a GitRepository, you can either use the DKP UI or the CLI to enable your custom applications.
+<p class="message--important"><strong>IMPORTANT: </strong>From within a workspace, you can enable applications to deploy. Verify that an application has successfully deployed <a href="#verify-applications">via the CLI</a>.</p>
 
 ## Enable the application using the DKP UI
 

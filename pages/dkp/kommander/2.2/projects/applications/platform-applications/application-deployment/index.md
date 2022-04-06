@@ -99,7 +99,7 @@ Kommander waits for the `ConfigMap` to be present before deploying the `AppDeplo
 
 ## Verify applications
 
-The applications are now deployed. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
+The applications are now enabled. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
 
 ```bash
 kubectl get helmreleases -n ${PROJECT_NAMESPACE}

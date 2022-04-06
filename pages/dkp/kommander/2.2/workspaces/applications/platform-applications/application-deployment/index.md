@@ -27,6 +27,8 @@ Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace'
 export WORKSPACE_NAMESPACE=<workspace_namespace>
 ```
 
+<p class="message--important"><strong>IMPORTANT: </strong>From the CLI, you can enable applications to deploy in the workspace. Verify that an application has successfully deployed <a href="#verify-applications">via the CLI</a>.</p>
+
 ## Enable the application
 
 The list of available applications that can be enabled to deploy to the attached cluster can be found [in this documentation](../../platform-applications#workspace-platform-applications).
@@ -97,7 +99,7 @@ Kommander waits for the `ConfigMap` to be present before deploying the `AppDeplo
 
 ## Verify applications
 
-The applications are now deployed. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
+The applications are now enabled. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}

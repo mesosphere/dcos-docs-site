@@ -23,6 +23,7 @@ export WORKSPACE_NAMESPACE=<workspace_namespace>
 ```
 
 After creating a GitRepository, use either the DKP UI or the CLI to enable your catalog applications.
+<p class="message--important"><strong>IMPORTANT: </strong>From within a workspace, you can enable applications to deploy. Verify that an application has successfully deployed <a href="#verify-applications">via the CLI</a>.</p>
 
 ## Enable the application using the DKP UI
 
@@ -115,7 +116,7 @@ Kommander waits for the `ConfigMap` to be present before deploying the `AppDeplo
 
 ## Verify applications
 
-The applications are now deployed. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
+The applications are now enabled. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
