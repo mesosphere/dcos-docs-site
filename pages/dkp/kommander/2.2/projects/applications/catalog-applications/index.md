@@ -34,7 +34,7 @@ Follow these steps to upgrade an application from the DKP UI:
 ### Upgrade with CLI
 
 ```bash
-dkp upgrade appdeployment <app-name> --workspace=my-workspace --project=my-project --to-version=<version.number>
+dkp upgrade catalogapp <appdeployment-name> --workspace=my-workspace --project=my-project --to-version=<version.number>
 ```
 
 <p class="message--note"><strong>NOTE: </strong>Platform applications cannot be upgraded on a one-off basis, and must be upgraded in a single process for each workspace. If you attempt to upgrade a platform application with these commands, you receive an error and the application is not upgraded.</p>
