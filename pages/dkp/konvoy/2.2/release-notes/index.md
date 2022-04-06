@@ -22,6 +22,8 @@ beta: false
 
 Welcome to D2iQ Kubernetes Platform (DKP) 2.2! This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Konvoy. In this release, we are beginning the process of combining our two flagship products, Konvoy and Kommander, into a single DKP product with two service level options: DKP Enterprise for multi-cluster environments, and DKP Essential for single-cluster environments.
 
+For this release, we are maintaining the documentation sets for individual platform components Konvoy and Kommander, while publishing some combined DKP documentation for processes, such as Upgrading DKP version.
+
 DKP 2.2 supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using DKP 2.2 must be running a Kubernetes version in this range.
 
 ### Supported versions
@@ -54,11 +56,7 @@ For more information, see the [air-gapped bundle](????????) documentation.
 
 ### Unified DKP user interfaces
 
-The unified DKP user interface provides a smooth experience independent of where you start your journey. A DKP Essential customer can simply update your license to access DKP Enterprise features without having to learn another interface.
-
-### Kaptain AI/ML, D2iQ’s AI/ML offering
-
-For better integration with DKP 2.2 you can launch Kaptain as a catalog application, and also support other platforms such as Amazon AWS, AKS, and Microsoft Azure EKS. This extends D2iQ’s openness to support Kubernetes platforms beyond DKP with Kaptain. Kaptain enables an organization to develop, deploy, and run entire ML workloads in production, at scale, with consistency and reliability.
+The unified DKP user interface provides a smooth experience independent of where you start your journey. Both DKP Essential and DKP Enterprise customers will have similar experiences in the User Interface, with DKP Enterprise customers gaining access to additional features and benefits simply by entering their DKP Enterprise [license key](../../licensing/). 
 
 ### DKP Insights
 
@@ -162,6 +160,7 @@ New clusters use the "delete first" strategy by default. Existing clusters are s
 
 <!-- Add links to external documentation as needed -->
 
-For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
+For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
+[kube-prometheus-stack]: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 [kubernetes-doc]: https://kubernetes.io/docs/home/
