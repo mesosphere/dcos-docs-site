@@ -149,7 +149,172 @@ spec:
             usernameClaim: email
 [...]
 ```
+### Spark operator failure workaround
 
+Upgrading catalog applications using Spark Operator can fail when running `dkp upgrade catalogapp` due to the operator not starting. If this occurs, use the following workaround:
+
+1. Run the `dkp upgrade catalogapp` command.
+1. Monitor the failure of `spark-operator`.
+1. Get the workspace namespace name and export it.
+   ```bash
+   export WORKSPACE_NAMESPACE=<SPARK_OPERATOR_WS_NS>
+   ```
+1. Export the spark-operator AppDeployment name.
+    ```bash
+    # e.g., this value can be spark-operator-1
+    export SPARK_APPD_NAME=$(kubectl get appdeployment -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[*]} {.metadata.name}{"\n"}{end}' | grep spark)
+    ``` 
+1. Export the service account name of your `spark-operator`.
+    ```bash
+    # if your provided values override, please look it up in that ConfigMap
+    # this is the default value defined in spark-operator-1.1.6-d2iq-defaults ConfigMap
+    export SPARK_OPERATOR_SERVICE_ACCOUNT=spark-operator-service-account
+    ```
+1. Run the following command.
+   ```bash
+    kubectl apply -f - <<EOF
+    ---
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    metadata:
+    name: spark-operator
+    annotations:
+        "helm.sh/hook": pre-install, pre-upgrade
+        "helm.sh/hook-delete-policy": hook-failed, before-hook-creation
+    labels:
+        app.kubernetes.io/instance: spark-operator
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: spark-operator
+        app.kubernetes.io/version: v1beta2-1.3.3-3.1.1
+        helm.sh/chart: spark-operator-1.1.17
+        helm.toolkit.fluxcd.io/name: $SPARK_APPD_NAME
+        helm.toolkit.fluxcd.io/namespace: $WORKSPACE_NAMESPACE
+    rules:
+    - apiGroups:
+    - ""
+    resources:
+    - pods
+    verbs:
+    - "*"
+    - apiGroups:
+    - ""
+    resources:
+    - services
+    - configmaps
+    - secrets
+    verbs:
+    - create
+    - get
+    - delete
+    - update
+    - apiGroups:
+    - extensions
+    - networking.k8s.io
+    resources:
+    - ingresses
+    verbs:
+    - create
+    - get
+    - delete
+    - apiGroups:
+    - ""
+    resources:
+    - nodes
+    verbs:
+    - get
+    - apiGroups:
+    - ""
+    resources:
+    - events
+    verbs:
+    - create
+    - update
+    - patch
+    - apiGroups:
+    - ""
+    resources:
+    - resourcequotas
+    verbs:
+    - get
+    - list
+    - watch
+    - apiGroups:
+    - apiextensions.k8s.io
+    resources:
+    - customresourcedefinitions
+    verbs:
+    - create
+    - get
+    - update
+    - delete
+    - apiGroups:
+    - admissionregistration.k8s.io
+    resources:
+    - mutatingwebhookconfigurations
+    - validatingwebhookconfigurations
+    verbs:
+    - create
+    - get
+    - update
+    - delete
+    - apiGroups:
+    - sparkoperator.k8s.io
+    resources:
+    - sparkapplications
+    - sparkapplications/status
+    - scheduledsparkapplications
+    - scheduledsparkapplications/status
+    verbs:
+    - "*"
+    - apiGroups:
+    - batch
+    resources:
+    - jobs
+    verbs:
+    - delete
+    ---
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    metadata:
+    name: spark-operator
+    annotations:
+        "helm.sh/hook": pre-install
+        "helm.sh/hook-delete-policy": hook-failed, before-hook-creation
+    labels:
+        app.kubernetes.io/instance: spark-operator
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: spark-operator
+        app.kubernetes.io/version: v1beta2-1.3.3-3.1.1
+        helm.sh/chart: spark-operator-1.1.17
+        helm.toolkit.fluxcd.io/name: $SPARK_APPD_NAME
+        helm.toolkit.fluxcd.io/namespace: $WORKSPACE_NAMESPACE
+    subjects:
+    - kind: ServiceAccount
+        name: $SPARK_OPERATOR_SERVICE_ACCOUNT
+        namespace: $WORKSPACE_NAMESPACE
+    roleRef:
+    kind: ClusterRole
+    name: spark-operator
+    apiGroup: rbac.authorization.k8s.io
+    ---
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+    annotations:
+        helm.sh/hook: pre-install, pre-upgrade
+        helm.sh/hook-delete-policy: hook-failed
+    labels:
+        app.kubernetes.io/instance: spark-operator
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: spark-operator
+        app.kubernetes.io/version: v1beta2-1.3.3-3.1.1
+        helm.sh/chart: spark-operator-1.1.17
+        helm.toolkit.fluxcd.io/name: $SPARK_APPD_NAME
+        helm.toolkit.fluxcd.io/namespace: $WORKSPACE_NAMESPACE
+    name: $SPARK_OPERATOR_SERVICE_ACCOUNT
+    namespace: $WORKSPACE_NAMESPACE
+    EOF
+    ```
 #### Default update strategy changed to "delete first" for Preprovisioned clusters
 
 A "create first" update strategy first creates a new machine, then deletes the old one. While this strategy works when machine inventory can grow on demand, it does not work if there is a fixed number of machines. Most Preprovisioned clusters have a fixed number of machines. To enable updates for Preprovisioned clusters, DKP uses the "delete first" update strategy, which first deletes an old machine, then creates a new one.
