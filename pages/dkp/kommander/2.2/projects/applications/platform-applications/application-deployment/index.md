@@ -9,7 +9,7 @@ excerpt: Deploy applications to attached clusters using the CLI
 <!-- markdownlint-disable MD004 MD040 -->
 
 This topic describes how to use the CLI to deploy an application to attached clusters within a project.
-To use the DKP UI to deploy applications, see [Deploy applications in a project](../../platform-applications#deploy-applications-in-a-project).
+To use the DKP UI to deploy applications, see [Deploy applications in a project](../../platform-applications).
 
 See [Platform Applications](../../platform-applications#platform-applications) for a list of all applications and those that are enabled by default.
 
@@ -39,11 +39,11 @@ The list of available applications that can be deployed on the attached cluster 
     apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
-      name: project-grafana-logging-6.16.14
+      name: project-grafana-logging-6.20.6
       namespace: ${PROJECT_NAMESPACE}
     spec:
       appRef:
-        name: project-grafana-logging-6.16.14
+        name: project-grafana-logging-6.20.6
         kind: ClusterApp
     EOF
     ```
@@ -65,7 +65,7 @@ The list of available applications that can be deployed on the attached cluster 
       namespace: ${PROJECT_NAMESPACE}
     spec:
       appRef:
-        name: project-grafana-logging-6.16.14
+        name: project-grafana-logging-6.20.6
         kind: ClusterApp
       configOverrides:
         name: project-grafana-logging-overrides

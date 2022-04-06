@@ -68,7 +68,7 @@ Review the [list of available applications](../../platform-applications#workspac
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: metallb-0.12.2
+        name: metallb-0.12.3
         kind: ClusterApp
       configOverrides:
         name: metallb-overrides-attached
