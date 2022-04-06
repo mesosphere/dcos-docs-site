@@ -21,4 +21,4 @@ This table describes the workspace platform applications specific to the managem
 | karma                         |                                 |                                     |                     |
 | kubefed                       |                                 |                                     |                     |
 | thanos                        |                                 |                                     |                     |
-| traefik-forward-auth          | cpu: 100m `<br>`memory: 128Mi |                                     | Yes                 |
+| traefik-forward-auth          | cpu: 100m<br />memory: 128Mi  |                                     | Yes                 |
