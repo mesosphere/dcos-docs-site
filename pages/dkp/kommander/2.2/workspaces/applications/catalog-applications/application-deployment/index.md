@@ -35,7 +35,7 @@ Follow these steps to enable your catalog applications from the DKP UI:
 
 1.  Select the three dot button from the bottom-right corner of the desired application tile, and then select **Enable**.
 
-1.  If available, select a version from the drop-down. This drop-down will only be visible if there is more than one version.
+1.  If available, select a version from the drop-down menu. This drop-down menu will only be visible if there is more than one version.
 
 1.  (Optional) If you want to override the default configuration values, copy your customized values into the text editor under **Configure Service** or upload your yaml file that contains the values:
 
