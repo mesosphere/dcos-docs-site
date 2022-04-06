@@ -47,7 +47,10 @@ This section describes how to upgrade your Kommander Management cluster and all 
   kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
   helmrelease.helm.toolkit.fluxcd.io/metallb patched
   ```
-
+  ```sh
+  helmrelease.helm.toolkit.fluxcd.io/metallb patched
+  ```
+  
   1. Delete the helm release secret.
   ```bash
   kubectl -n kommander delete secret -l name=metallb,owner=helm
@@ -77,6 +80,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
   
   ```bash
   kubectl -n kommander get pod -l app=metallb
+  ```
   
   ```sh
   NAME                                 READY   STATUS    RESTARTS   AGE
