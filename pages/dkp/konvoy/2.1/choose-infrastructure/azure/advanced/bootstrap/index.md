@@ -121,7 +121,7 @@ Before you begin, you must:
 
 ## (Optional) Create identity secret for Azure
 
-In case of bootstrap cluster resides on a Virtual machine inside Azure, the cappz-controller needs the identity secret also to be created:
+If your bootstrap cluster resides on a Virtual machine inside Azure, create an identity secret that uses the cappz-controller:
 
 ```bash
 export AZURE_CLUSTER_IDENTITY_SECRET_NAME="cluster-identity-secret"
