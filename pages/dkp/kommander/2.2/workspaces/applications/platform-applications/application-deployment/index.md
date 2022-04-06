@@ -46,7 +46,7 @@ Review the [list of available applications](../../platform-applications#workspac
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: cert-manager-0.2.7
+        name: cert-manager-1.7.1
         kind: ClusterApp
     EOF
     ```

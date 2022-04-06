@@ -21,15 +21,16 @@ The following table describes all the workspace platform applications that are a
 | gatekeeper | cpu: 300m<br />memory: 768Mi | | Yes |
 | grafana-logging | cpu: 200m<br />memory: 100Mi |  | No |
 | grafana-loki | | # of PVs: 4<br />PV sizes: 10Gi x 4 (total: 40Gi) | No |
-| istio |  |  | No |
+| istio | cpu: 1270m<br />memory: 4500Mi |  | No |
 | jaeger |  | | No |
-| kiali |  | | No |
-| knative |  | | No |
+| kiali | cpu: 20m<br />memory: 128Mi | | No |
+| knative | cpu: 610m<br />memory: 400Mi | | No |
 | kube-prometheus-stack | cpu: 1210m<br />memory: 4150Mi | # of PVs: 1<br />PV sizes: 100Gi | Yes |
 | kube-oidc-proxy |  |  | Yes |
 | kubecost | cpu: 700m<br />memory: 1700Mi | # of PVs: 3<br />PV sizes: 2Gi, 32Gi, 32Gi (total: 66Gi) | Yes |
 | kubernetes-dashboard | cpu: 250m<br />memory: 300Mi |  | Yes |
-| logging-operator | cpu: cpu: 350m * # of nodes + 600m<br />memory: 228Mi  + 350Mi * # of nodes | # of PVs: 1<br />PV sizes: 10Gi | No |
+<!-- markdownlint-disable MD037 -->
+| logging-operator | cpu: cpu: 350m * # of nodes + 600m<br />memory: 228Mi + 350Mi * # of nodes | # of PVs: 1<br />PV sizes: 10Gi | No |
 | minio-operator |  cpu: 200m<br />memory: 256Mi |  | No |
 | nvidia | cpu: 100m<br />memory: 128Mi |  | No |
 | prometheus-adapter | cpu: 1000m<br />memory: 1000Mi |  | Yes |
