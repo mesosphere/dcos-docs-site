@@ -13,7 +13,7 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
 
 1.  Create the directories where you will place the air-gapped bundles:
 
-    ```
+    ```bash
     mkdir artifacts
     mkdir artifacts/images
     ```
@@ -35,30 +35,30 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
     * `redhat_8_x86_64`
     * `redhat_8_x86_64_fips`
 
-    ```
+    ```bash
     export BUNDLE_OS=centos_7_x86_64
     ```
 
 1.  Download the OS packages bundle:
 
-    ```
+    ```bash
     curl --output artifacts/"$VERSION"_"$BUNDLE_OS".tar.gz -O https://downloads.d2iq.com/dkp/airgapped/os-packages/"$VERSION"_"$BUNDLE_OS".tar.gz
     ```
 
-1.  Download the Kubernetes images bundle. This bundle includes the necessary images for `kubeadm` to bootstrap a Kubernete `Node`.
+1.  Download the Kubernetes images bundle. This bundle includes the necessary images for `kubeadm` to bootstrap a Kubernetes `Node`.
 
     The available options for each Kubernetes version are:
 
     * `<version>_images.tar.gz`
     * `<version>_images_fips.tar.gz`
 
-    ```
+    ```bash
     curl --output artifacts/images/"$VERSION"_images.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/kubernetes-images/"$VERSION"_images.tar.gz
     ```
 
 1.  Download the PIP packages. This bundle includes a few packages required by DKP to boostrap machines.
 
-    ```
+    ```bash
     curl --output artifacts/pip-packages.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
 

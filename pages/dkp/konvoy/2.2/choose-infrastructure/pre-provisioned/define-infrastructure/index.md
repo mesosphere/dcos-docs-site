@@ -12,7 +12,7 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
 
 ## Define your infrastructure
 
-1.  Export these environment variables:
+1.  Export the following environment variables, ensuring that all control plane and worker nodes are included:
 
     ```bash
     export CONTROL_PLANE_1_ADDRESS="<control-plane-address-1>"

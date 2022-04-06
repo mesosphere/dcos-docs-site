@@ -10,19 +10,19 @@ beta: false
 
 ## Download the bootstrap image
 
-1.  Set an environment variable with the DKP version.
+1.  Set an environment variable with the DKP version:
     
     ```bash
     export DKP_VERSION=v2.2.0
     ```
 
-2.  Download the bootstrap docker image on a machine that has access to this artifact.
+2.  Download the bootstrap docker image on a machine that has access to this artifact:
 
     ```docker
     curl -O https://downloads.d2iq.com/dkp/$DKP_VERSION/konvoy-bootstrap_$DKP_VERSION.tar
     ```
 
-3.  Load the bootstrap docker image on your bastion machine.
+3.  Load the bootstrap docker image on your bastion machine:
 
     ```docker
     docker load -i konvoy-bootstrap_$DKP_VERSION.tar
@@ -34,18 +34,18 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 
 1.  Create the directories where you will place the air-gapped bundles:
 
-    ```
+    ```bash
     mkdir artifacts
     mkdir artifacts/images
     ```
 
-1.  Define an environment variable for the Kubernetes version that corresponds with Konvoy release you are installing. You can find the correct Kubernetes version by checking the release notes for the release you are installing.
+1.  Define an environment variable for the Kubernetes version that corresponds with Konvoy release you are installing. You can find the correct Kubernetes version by checking the release notes for the release you are installing:
 
     ```bash
     export VERSION=1.22.8
     ```
 
-1.  Set an environment variable for the AMI's OS you are will be using.
+1.  Set an environment variable for the image's OS you want to use.
     The OS packages bundles will contain the RPMs for Containerd, Kubernetes and all of their dependencies required to install these packages without access to any external RPM repositories.
     The available options are:
 
@@ -56,34 +56,34 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
     * `redhat_8_x86_64`
     * `redhat_8_x86_64_fips`
 
-    ```
+    ```bash
     export BUNDLE_OS=centos_7_x86_64
     ```
 
 1.  Download the OS packages bundle:
 
-    ```
+    ```bash
     curl --output artifacts/"$VERSION"_"$BUNDLE_OS".tar.gz -O https://downloads.d2iq.com/dkp/airgapped/os-packages/"$VERSION"_"$BUNDLE_OS".tar.gz
     ```
 
-1.  Download the Kubernetes images bundle. This bundle includes the necessary images for `kubeadm` to bootstrap a Kubernete `Node`.
+1.  Download the Kubernetes images bundle. This bundle includes the necessary images for `kubeadm` to bootstrap a Kubernetes `Node`.
 
     The available options for each Kubernetes version are:
 
     * `<version>_images.tar.gz`
     * `<version>_images_fips.tar.gz`
 
-    ```
+    ```bash
     curl --output artifacts/images/"$VERSION"_images.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/kubernetes-images/"$VERSION"_images.tar.gz
     ```
 
 1.  Download the PIP packages. This bundle includes a few packages required by DKP to boostrap machines.
 
-    ```
+    ```bash
     curl --output artifacts/pip-packages.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
 
-1.  Export these environment variables:
+1.  Export the following environment variables, ensuring that all control plane and worker nodes are included:
 
     ```bash
     export CONTROL_PLANE_1_ADDRESS="<control-plane-address-1>"
@@ -94,10 +94,12 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
     export WORKER_3_ADDRESS="<worker-address-3>"
     export WORKER_4_ADDRESS="<worker-address-4>"
     export SSH_USER="<ssh-user>"
-    export SSH_PRIVATE_KEY_SECRET_NAME="$CLUSTER_NAME-ssh-key"
+    export SSH_PRIVATE_KEY_FILE="<private key file>"
     ```
 
-2.  Generate an `inventory.yaml` to be used with `konvoy-image upload` in the next step.
+    `SSH_PRIVATE_KEY_FILE` must be either the name of the SSH private key file in your working directory or an absolute path to the file in your user's home directory.
+
+1.  Generate an `inventory.yaml` to be used with `konvoy-image upload` in the next step:
 
     ```yaml
     cat <<EOF > inventory.yaml
@@ -105,7 +107,7 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
       vars:
         ansible_user: $SSH_USER
         ansible_port: 22
-        ansible_ssh_private_key_file: $SSH_PRIVATE_KEY_SECRET_NAME
+        ansible_ssh_private_key_file: $SSH_PRIVATE_KEY_FILE
       hosts:
         $CONTROL_PLANE_1_ADDRESS:
           ansible_host: $CONTROL_PLANE_1_ADDRESS
@@ -124,9 +126,9 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
     EOF
     ```
 
-3.  Copy the artifacts onto cluster hosts.
+1.  Copy the artifacts onto cluster hosts:
 
-    ```
+    ```bash
     konvoy-image upload artifacts --container-images-dir=./artifacts/images/ --os-packages-bundle=./artifacts/"$VERSION"_"$BUNDLE_OS".tar.gz --pip-packages-bundle=./artifacts/pip-packages.tar.gz
     ```
 
@@ -134,30 +136,30 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 
 Before creating a Kubernetes cluster you must have the required images in a local docker registry. This registry must be accessible from both the bastion machine and the machines that will be created for the Kubernetes cluster.
 
-1.  Set an environment variable with the DKP version.
+1.  Set an environment variable with the DKP version:
     
     ```bash
     export DKP_VERSION=v2.2.0
     ```
 
-1.  Download the images bundle.
+1.  Download the images bundle:
 
-    ```
+    ```bash
     curl -o konvoy-image-bundle.tar.gz -O downloads.d2iq.com/dkp/$DKP_VERSION/konvoy_image_bundle_"$DKP_VERSION"_linux_amd64.tar.gz
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private docker registry.
 
-1.  Set an environment variable with your registry address
+1.  Set an environment variable with your registry address:
 
-    ```
+    ```bash
     export DOCKER_REGISTRY_ADDRESS=<https/http>://<registry-address>:<registry-port>
     ```
 
-1.  Run the following command to load the air-gapped image bundle into your private Docker registry.
+1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
-    dkp push image-bundle --image-bundle konvoy-image-bundle.tar.gz --to-registry <DOCKER_REGISTRY_ADDRESS>
+    dkp push image-bundle --image-bundle konvoy-image-bundle.tar.gz --to-registry <$DOCKER_REGISTRY_ADDRESS>
     ```
 
 It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.

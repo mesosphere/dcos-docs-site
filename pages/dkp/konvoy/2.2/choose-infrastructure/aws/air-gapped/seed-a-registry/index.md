@@ -19,7 +19,7 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 
 1.  Download the images bundle.
 
-    ```
+    ```bash
     curl -o konvoy-image-bundle.tar.gz -O downloads.d2iq.com/dkp/$DKP_VERSION/konvoy_image_bundle_"$DKP_VERSION"_linux_amd64.tar.gz
     ```
 
@@ -27,7 +27,7 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 
 1.  Set an environment variable with your registry address.
 
-    ```
+    ```bash
     export DOCKER_REGISTRY_ADDRESS=<https/http>://<registry-address>:<registry-port>
     ```
 
