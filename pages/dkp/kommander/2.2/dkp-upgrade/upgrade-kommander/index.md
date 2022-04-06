@@ -67,6 +67,8 @@ This section describes how to upgrade your Kommander Management cluster and all 
   
   ```bash
   kubectl -n kommander get pod -l app=metallb
+  
+  ```sh
   NAME                                 READY   STATUS    RESTARTS   AGE
   metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
   metallb-speaker-2gz6p                1/1     Running   0          20m
