@@ -116,7 +116,7 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 Set the `VERSION` environment variable to the version of Kommander you want to install, for example:
 
 ```bash
-export VERSION=v2.1.0
+export VERSION=v2.1.1
 ```
 
 ### Load the Docker images into your Docker registry
@@ -143,7 +143,7 @@ export VERSION=v2.1.0
 
     while read -r IMAGE; do
         echo "Processing ${IMAGE}"
-        REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker).io@${REGISTRY_URL}@")"
+        REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker|k8s.gcr).io@${REGISTRY_URL}@")"
         docker tag "${IMAGE}" "${REGISTRY_IMAGE}"
         docker push "${REGISTRY_IMAGE}"
     done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
