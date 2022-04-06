@@ -15,7 +15,7 @@ For a full reference to the concept, consult the Kubernetes documentation on the
 
 The below Project ConfigMap form can be navigated to by:
 
-1.  Select a workspace from the **Workspace Selector** in the top navigation bar.
+1.  From the top menu bar, select your target workspace.
 
 1.  Select **Projects** from the sidebar menu.
 

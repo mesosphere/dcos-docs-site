@@ -116,7 +116,7 @@ This procedure requires the following items and configurations:
 
 Now that you have kubeconfig, go to the DKP UI and follow these steps below:
 
-1.  Select a workspace from the **Workspace Selector** in the top navigation bar. 
+1.  From the top menu bar, select your target workspace.
 
 1.  On the Dashboard page, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
 

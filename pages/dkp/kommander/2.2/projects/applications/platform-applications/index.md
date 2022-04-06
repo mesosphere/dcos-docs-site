@@ -14,9 +14,11 @@ Review the [project application service resource requirements](./platform-applic
 
 When deploying and upgrading applications, platform applications come as a bundle; they are tested as a single unit and you must deploy or upgrade them in a single process, for each workspace. This means all clusters in a workspace have the same set and versions of platform applications deployed.
 
+<p class="message--important"><strong>IMPORTANT: </strong>From within a project, you can enable applications to deploy. Verify that an application has successfully deployed <a href="../platform-applications/application-deployment#verify-applications">via the CLI</a>.</p>
+
 ## Enable applications in a project using the DKP UI
 
-1.  Select a workspace from the **Workspace Selector** in the top navigation bar.
+1.  From the top menu bar, select your target workspace.
 
 1.  Select **Projects** from the sidebar menu.
 

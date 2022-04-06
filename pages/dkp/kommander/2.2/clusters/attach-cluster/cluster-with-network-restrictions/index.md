@@ -13,7 +13,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a NAT
 
 <p class="message--note"><strong>NOTE: </strong>If your cluster blocks public access, you may need to make the additional step of allowing certain authorized networks where Docker images are hosted for Konvoy to use your cluster, specifically <code>https://registry-1.docker.io/</code>.</p>
 
-1. Select a workspace from the **Workspace Selector** in the top navigation bar. 
+1. From the top menu bar, select your target workspace.
 
 1. On the Dashboard page, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
 

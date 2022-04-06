@@ -14,9 +14,11 @@ Review the [workspace platform application resource requirements](./platform-app
 
 ### Customize a workspace's applications
 
-You can customize the applications that are deployed to a workspace's clusters using the DKP UI. Access the applications page by going to the specific workspace, then opening the **Applications** page from the sidebar menu.
+You can customize the applications that are deployed to a workspace's clusters using the DKP UI:
 
-This takes you to the **Applications** page which displays all applications that can be deployed or uninstalled.
+1.  From the top menu bar, select your target workspace.
+
+1.  Select **Applications** from the sidebar menu to browse all applications that can be deployed or uninstalled.
 
 To use the CLI to deploy or uninstall applications, see [Application Deployment](./application-deployment)
 
@@ -56,3 +58,5 @@ The following table describes the list of platform applications that are deploye
 <p class="message--note"><strong>NOTE: </strong>Only a single deployment of <code>traefik</code> per cluster is supported.</p>
 
 <p class="message--note"><strong>NOTE: </strong>Kommander automatically manages the deployment of <code>traefik-forward-auth</code> and <code>kube-oidc-proxy</code> when clusters are attached to the workspace. These applications are not shown in the DKP UI.</p>
+
+<p class="message--note"><strong>NOTE: </strong>Applications are enabled in DKP and then deployed to attached clusters. To confirm that your enabled application has successfully deployed, you should <a href="../platform-applications/application-deployment#verify-applications">verify via the CLI</a>.</p>

@@ -9,28 +9,29 @@ beta: false
 
 <!-- markdownlint-disable MD030 -->
 
-You can enable the Workspace logging stack to all attached clusters within the Workspace through the UI. If you prefer to deploy the logging stack through `kubectl`, review how you [create AppDeployments to Enable Workspace Logging][create-appdeployment].
+You can enable the Workspace logging stack to all attached clusters within the Workspace through the UI. If you prefer to enable the logging stack with `kubectl`, review how you [create AppDeployments to Enable Workspace Logging][create-appdeployment].
 
-To enable logging in DKP using the UI, follow these steps in Kommander:
+To enable workspace-level logging in DKP using the UI, follow these steps:
 
-1. In the **Global workspace** nav, click on the **Global** dropdown and then select the Workspace you want to deploy for your logging stack.
+1.  From the top menu bar, select your target workspace.
 
-1. In the left rail nav, click on **Applications**.
+1.  Select **Applications** from the sidebar menu.
 
-1. Ensure that cert-manager and Traefik are enabled in the Workspace. Scroll down in the **Applications** page to view the **Foundational** applications section. Confirm that cert-manager and Traefik are deployed.
+1.  Traefik and cert-manager are required to be deployed for the logging stack. Ensure that Traefik is enabled in the Workspace, and cert-manager is enabled or already deployed to the cluster.
 
-1. After validating these applications are deployed, scroll to the **Logging** applications section.
+1.  Scroll to the **Logging** applications section.
 
-1. Click on the three button action menu on the card for MinIO, and click **Deploy**. In this **Deploy Workspace Platform Application** page, you can add a customized configuration for settings that best fit your organization. You can leave the configuration settings unchanged to deploy with default settings.
+1.  Select the three dot button from the bottom-right corner of the card for MinIO, and click **Enable**. On the **Enable Workspace Platform Application** page, you can add a customized configuration for settings that best fit your organization. You can leave the configuration settings unchanged to enable with default settings.
 
-1. Click **Deploy** at the top right of the page.
+1.  Select **Enable** at the top right of the page.
 
-1. Repeat the deployment process for the cards on Grafana Loki, Fluent Bit, Logging Operator, and Grafana Logging.
+1.  Repeat the process for the Grafana Loki, Fluent Bit, Logging Operator, and Grafana Logging applications.
 
-1. You can verify the cluster logging stack installation by waiting until the cards have a Deployed checkmark, or you can [verify the cluster logging stack installation via the CLI][verify-logging-install].
+1.  You can verify the cluster logging stack installation by waiting until the cards have a Deployed checkmark on the [cluster detail page][cluster-applications], or you can [verify the cluster logging stack installation via the CLI][verify-logging-install].
 
-1. Then, you can [view cluster log data][view-log-data].
+1.  Then, you can [view cluster log data][view-log-data].
 
 [create-appdeployment]: ../create-appdeployment-workspace
 [verify-logging-install]: ../verify-cluster-logstack
 [view-log-data]: ../view-cluster-logdata
+[cluster-applications]: ../../../clusters/applications#applications

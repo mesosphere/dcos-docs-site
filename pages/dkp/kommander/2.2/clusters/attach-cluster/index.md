@@ -95,26 +95,25 @@ kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespa
 
 Using the **Add Cluster** option, you can attach an existing Kubernetes or Konvoy cluster directly to Kommander. This enables you to access the multi-cluster management and monitoring benefits that Kommander provides, while keeping your existing cluster on its current provider and infrastructure.
 
-1. Select a workspace from the **Workspace Selector** in the top navigation bar. 
+1.  From the top menu bar, select your target workspace.
 
-1. On the Dashboard page, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
+1.  On the Dashboard page, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
 
-1. Select **Attach Cluster**.
+1.  Select **Attach Cluster**.
 
-1. Select the **No additional networking restrictions** card.
+1.  Select the **No additional networking restrictions** card.
 
-1. In the **Cluster Configuration** section, paste your kubeconfig file into the field, or select the **Upload kubeconfig File** button to specify the file. 
+1.  In the **Cluster Configuration** section, paste your kubeconfig file into the field, or select the **Upload kubeconfig File** button to specify the file.
 
 1.  The **Cluster Name** field automatically populates with the name of the cluster is in the kubeconfig. You can edit this field with the name you want for your cluster.
 
-1. The **Context** select list is populated from the kubeconfig. Select the desired context with admin privileges from the **Context** select list.
+1.  The **Context** select list is populated from the kubeconfig. Select the desired context with admin privileges from the **Context** select list.
 
-1. Add labels to classify your cluster as needed.
+1.  Add labels to classify your cluster as needed.
 
-1. Select **Submit** to attach your cluster.
+1.  Select **Submit** to attach your cluster.
 
 Platform applications extend the functionality of Kubernetes and provide ready-to-use logging and monitoring stacks by deploying platform applications when attaching a cluster to Kommander. For more information, refer to [workspace platform applications][workspace_platform_applications].
-
 
 <!---
 ## Accessing your managed clusters using your Kommander administrator credentials

@@ -9,8 +9,8 @@ excerpt: Deploy applications to attached clusters using the CLI
 
 <!-- markdownlint-disable MD004 MD040 -->
 
-This topic describes how to use the CLI to deploy an application to attached clusters within a workspace.
-To use the DKP UI to deploy applications, see [Customize a workspace's applications](../../platform-applications#customize-a-workspaces-applications).
+This topic describes how to use the CLI to enable an application to deploy to attached clusters within a workspace.
+To use the DKP UI to enable applications, see [Customize a workspace's applications](../../platform-applications#customize-a-workspaces-applications).
 
 See [Workspace Platform Applications](../../platform-applications#workspace-platform-applications) for a list of all applications and those that are enabled by default.
 
@@ -27,13 +27,15 @@ Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace'
 export WORKSPACE_NAMESPACE=<workspace_namespace>
 ```
 
-## Deploy the application
+<p class="message--important"><strong>IMPORTANT: </strong>From the CLI, you can enable applications to deploy in the workspace. Verify that an application has successfully deployed <a href="#verify-applications">via the CLI</a>.</p>
 
-The list of available applications that can be deployed on the attached cluster can be found [in this documentation](../../platform-applications#workspace-platform-applications).
+## Enable the application
 
-1.  Deploy a supported application to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
+Review the [list of available applications](../../platform-applications#workspace-platform-applications) that can be enabled to deploy to your attached cluster.
 
-1.  Within the `AppDeployment`, define the `appRef` to specify which `App` will be deployed:
+1.  Enable a supported application to deploy to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
+
+1.  Within the `AppDeployment`, define the `appRef` to specify which `App` will be enabled:
 
     ```yaml
     cat <<EOF | kubectl apply -f -
@@ -53,7 +55,7 @@ The list of available applications that can be deployed on the attached cluster 
 
 <p class="message--note"><strong>NOTE: </strong>The <code>appRef.name</code> must match the app <code>name</code> from the list of available applications.</p>
 
-## Deploy an application with a custom configuration
+## Enable an application with a custom configuration
 
 1.  Provide the name of a `ConfigMap` in the `AppDeployment`, which provides custom configuration on top of the default configuration:
 
@@ -97,7 +99,7 @@ Kommander waits for the `ConfigMap` to be present before deploying the `AppDeplo
 
 ## Verify applications
 
-The applications are now deployed. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
+The applications are now enabled. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}

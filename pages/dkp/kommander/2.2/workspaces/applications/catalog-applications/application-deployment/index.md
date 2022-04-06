@@ -22,19 +22,20 @@ Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace'
 export WORKSPACE_NAMESPACE=<workspace_namespace>
 ```
 
-After creating a GitRepository, use either the DKP UI or the CLI to deploy your catalog applications.
+After creating a GitRepository, use either the DKP UI or the CLI to enable your catalog applications.
+<p class="message--important"><strong>IMPORTANT: </strong>From within a workspace, you can enable applications to deploy. Verify that an application has successfully deployed <a href="#verify-applications">via the CLI</a>.</p>
 
-## Deploy the application using the DKP UI
+## Enable the application using the DKP UI
 
-Follow these steps to deploy your catalog applications from the DKP UI:
+Follow these steps to enable your catalog applications from the DKP UI:
 
-1.  Select the desired **Workspace**
+1.  From the top menu bar, select your target workspace.
 
-1.  Select **Applications** on the left navigation bar to browse the available applications from your configured repositories.
+1.  Select **Applications** from the sidebar menu to browse the available applications from your configured repositories.
 
-1.  Select your desired application.
+1.  Select the three dot button from the bottom-right corner of the desired application tile, and then select **Enable**.
 
-1.  Select the version you'd like to deploy from the version drop-down, and then select Deploy. The `Deploy Workspace Catalog Application` page is displayed.
+1.  If available, select a version from the drop-down menu. This drop-down menu will only be visible if there is more than one version.
 
 1.  (Optional) If you want to override the default configuration values, copy your customized values into the text editor under **Configure Service** or upload your yaml file that contains the values:
 
@@ -42,19 +43,19 @@ Follow these steps to deploy your catalog applications from the DKP UI:
     someField: someValue
     ```
 
-1.  Confirm the details are correct, and then select the `Deploy` button.
+1.  Confirm the details are correct, and then select the **Enable** button.
 
 For all applications, you must provide a display name and an ID which is automatically generated based on what you enter for the display name, unless or until you edit the ID directly. The ID must be compliant with [Kubernetes DNS subdomain name validation rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names).
 
-Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to deploy your catalog applications.
+Alternately, you can use the [CLI](#enable-the-application-using-the-cli) to enable your catalog applications.
 
-## Deploy the application using the CLI
+## Enable the application using the CLI
 
 See [workspace catalog applications](/dkp/kommander/2.2/workspaces/applications/catalog-applications/#workspace-catalog-applications) for the list of available applications that you can deploy on the attached cluster.
 
-1.  Deploy a supported application to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
+1.  Enable a supported application to deploy to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 
-1.  Within the `AppDeployment`, define the `appRef` to specify which `App` to deploy:
+1.  Within the `AppDeployment`, define the `appRef` to specify which `App` to enable:
 
     ```yaml
     cat <<EOF | kubectl apply -f -
@@ -74,7 +75,7 @@ See [workspace catalog applications](/dkp/kommander/2.2/workspaces/applications/
 
 <p class="message--note"><strong>NOTE: </strong>The <code>appRef.name</code> must match the app <code>name</code> from the list of available catalog applications.</p>
 
-## Deploy an application with a custom configuration using the CLI
+## Enable an application with a custom configuration using the CLI
 
 1.  Provide the name of a `ConfigMap` in the `AppDeployment`, which provides custom configuration on top of the default configuration:
 
@@ -115,7 +116,7 @@ Kommander waits for the `ConfigMap` to be present before deploying the `AppDeplo
 
 ## Verify applications
 
-The applications are now deployed. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
+The applications are now enabled. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}

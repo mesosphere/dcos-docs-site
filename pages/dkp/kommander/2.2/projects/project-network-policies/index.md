@@ -39,10 +39,10 @@ This section also contains the **Pod Selector** fields for selecting pods using 
 The **Policy Types** selections help to define the type of Network Policy you are creating:
 
 - **Default** - automatically includes ingress, and egress is set only if the network policy defines egress rules.
-- **Ingress** - this policy applies to ingress traffic for the selected pods and/or namespaces using the options you define below.
-- **Egress** - this policy applies to egress traffic for the selected pods and/or namespaces using the options you define below.
+- **Ingress** - this policy applies to ingress traffic for the selected pods, to namespaces using the options you define below, or both.
+- **Egress** - this policy applies to egress traffic for the selected pods, to namespaces using the options you define below, or both.
 
-If the Default policy type is too rigid or does not offer what you need, you can select the Ingress and/or Egress type and explicitly define the policy with the options that follow. For example, if you do not want this policy to apply to ingress traffic, you would select only Egress, and then define the policy.
+If the Default policy type is too rigid or does not offer what you need, you can select the Ingress or Egress type, or both, and explicitly define the policy with the options that follow. For example, if you do not want this policy to apply to ingress traffic, you would select only Egress, and then define the policy.
 
 To deny all ingress traffic, select the **Ingress** option here and then leave the ingress rules empty.
 
@@ -52,13 +52,13 @@ To deny all egress traffic, select the **Egress** option here and then leave the
 
 Ingress rules use a combination of **Port** / **Protocol** and **Source** to define the incoming traffic allowed to some or all of the pods in this namespace.
 
-The options under **Sources: From** enable you to define a source either by using the pod selector or by defining an IP block. When using the pod selector method, you can define the namespace, and/or the pods within that namespace.
+The options under **Sources: From** enable you to define a source either by using the pod selector or by defining an IP block. When using the pod selector method, you can define the namespace, the pods within that namespace, or both.
 
 **Namespaces** - Selecting a namespace in an ingress rule source permits the pods selected by the pod selector, in your selected namespaces, to receive incoming traffic that meets the other defined criteria. If you have not selected any pods, the rule permits traffic from all pods in the selected namespaces.
 
 **Pods** - This option selects specific Pods which should be allowed as ingress sources or egress destinations. If you have not selected any namespaces in the namespace selector, this option selects all matching pods in the project namespace. Otherwise, this option selects all matching pods in the selected namespaces.
 
-There also are options to select all namespaces and/or all pods.
+There also are options to select all namespaces, all pods, or both.
 
 When defining ingress rules using the IP Block method, you define a CIDR and exception conditions. CIDR stands for Classless Inter-Domain Routing and is an IP standard for creating unique network and device identifiers. When grouped together so that they share an initial sequence of bits in their binary representation, the range of addresses creates a CIDR block. The block identity is in an IPv4-like notation including a dotted-decimal address, followed by a slash, then a colon and a number from 0 through 32, for example, 127.0.26.33:31.
 
@@ -72,7 +72,7 @@ Egress rules use a similar combination of options to define the outgoing traffic
 
 To navigate to your project's Network Policy page:
 
-1. Select a workspace from the **Workspace Selector** in the top navigation bar.
+1. From the top menu bar, select your target workspace.
 1. Select **Projects** from the sidebar menu.
 1. Select your project from the list.
 1. Select the **Network Policy** tab.
