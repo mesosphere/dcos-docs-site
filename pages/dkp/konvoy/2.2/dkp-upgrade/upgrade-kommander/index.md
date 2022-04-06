@@ -98,7 +98,7 @@ You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
 [pre_provisioned]: ../../choose-infrastructure/pre-provisioned/upgrade/control-plane/
 [k8s_access_to_clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
-[upgrade_workspaces]: ../../../../kommander/2.2/projects/applications/platform-applications
+[upgrade_workspaces]: ../../../../kommander/2.2/projects/applications/platform-applications#upgrade-platform-applications-from-the-cli
 [release_notes]: ../../release-notes/
 [konvoy_upgrade]: ../upgrade-konvoy/
 [load_images]: ../../../../kommander/2.2/install/air-gapped#load-the-docker-images-into-your-docker-registry
