@@ -38,7 +38,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
   ```bash
   wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
   ```
-## Detatch MetalLB from Kommander
+## Detach MetalLB from Kommander
 
   <p class="message--important"><strong>NOTE:</strong> Beginning with DKP version 2.2, MetalLB is no longer managed as a platform application. If you installed MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.</p>
   
