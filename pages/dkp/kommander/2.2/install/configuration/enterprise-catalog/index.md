@@ -36,15 +36,15 @@ Use this configuration when installing or reconfiguring Kommander by passing it 
 dkp install kommander --installer-config <config_file.yaml>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>When configuring the catalog repository post-upgrade, run <code>kommander install --init > install.yaml</code> and update it accordingly with any custom configuration. This ensures you are using the proper default configuration values for the new Kommander version.</p>
+<p class="message--note"><strong>NOTE: </strong>When configuring the catalog repository post-upgrade, run <code>dkp install kommander --init > install.yaml</code> and update it accordingly with any custom configuration. This ensures you are using the proper default configuration values for the new Kommander version.</p>
 
 The following section describes each label:
 
-| Label  |  Description |
-|---|---|
-| `kommander.d2iq.io/project-default-catalog-repository`  | Indicates this acts as a Catalog Repository in all projects  |
-| `kommander.d2iq.io/workspace-default-catalog-repository`  | Indicates this acts as a Catalog Repository in all workspaces  |
-| `kommander.d2iq.io/gitapps-gitrepository-type`  |  Indicates this Catalog Repository (and all its Applications) are certified to run on DKP |
+| Label                                                    | Description                                                                              |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `kommander.d2iq.io/project-default-catalog-repository`   | Indicates this acts as a Catalog Repository in all projects                              |
+| `kommander.d2iq.io/workspace-default-catalog-repository` | Indicates this acts as a Catalog Repository in all workspaces                            |
+| `kommander.d2iq.io/gitapps-gitrepository-type`           | Indicates this Catalog Repository (and all its Applications) are certified to run on DKP |
 
 ### Air-gapped Catalog Configuration
 
@@ -71,7 +71,7 @@ When running in air-gapped environments, update the configuration by replacing `
           path: ./dkp-catalog-applications.tar.gz
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>When configuring the catalog repository post-upgrade, run <code>kommander install --init > install.yaml</code> and update it accordingly with any custom configuration. This ensures you are using the proper default configuration values for the new Kommander version.</p>
+    <p class="message--note"><strong>NOTE: </strong>When configuring the catalog repository post-upgrade, run <code>dkp install kommander --init > install.yaml</code> and update it accordingly with any custom configuration. This ensures you are using the proper default configuration values for the new Kommander version.</p>
 
 1.  Use this configuration when installing or reconfiguring Kommander by passing it to the `dkp install kommander` command:
 
