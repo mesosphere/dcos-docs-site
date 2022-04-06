@@ -9,13 +9,44 @@ beta: false
 enterprise: false
 ---
 
-## Explore the new Kubernetes air-gapped cluster
+## Get the kubeconfig file for the new Kubernetes cluster
 
 1.  Fetch the kubeconfig file with the command:
 
     ```bash
     dkp get kubeconfig -c ${air-gapped_NAME} > ${air-gapped_NAME}.conf
     ```
+
+# Create a StorageClass with a vSphere Datastore
+
+1.   Access the Datastore tab in the vSphere client and select a datastore by name.
+
+1.   Copy the URL for that datastore from the information dialog that displays.
+
+1.   Return to the DKP CLI, and delete the existing `StorageClass` with the commmand:
+
+   ```bash
+   kubectl delete storageclass vsphere-raw-block-sc
+   ```
+
+1.   Run the following command to create a new StorageClass, supplying the correct values for your environment:
+
+   ```yaml
+   cat <<EOF > vsphere-raw-block-sc.yaml
+    kind: StorageClass
+    apiVersion: storage.k8s.io/v1
+    metadata:
+      annotations:
+        storageclass.kubernetes.io/is-default-class: "true"
+      name: vsphere-raw-block-sc
+    provisioner: csi.vsphere.vmware.com
+    parameters:
+      datastoreurl: "<url>"
+    volumeBindingMode: WaitForFirstConsumer
+    EOF
+   ```
+
+## Explore Nodes and Pods in the New Cluster
 
 1.  List the Nodes with the command:
 
