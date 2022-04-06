@@ -31,7 +31,7 @@ export WORKSPACE_NAMESPACE=<workspace_namespace>
 
 ## Enable the application
 
-The list of available applications that can be enabled to deploy to the attached cluster can be found [in this documentation](../../platform-applications#workspace-platform-applications).
+Review the [list of available applications](../../platform-applications#workspace-platform-applications) that can be enabled to deploy to your attached cluster.
 
 1.  Enable a supported application to deploy to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 
