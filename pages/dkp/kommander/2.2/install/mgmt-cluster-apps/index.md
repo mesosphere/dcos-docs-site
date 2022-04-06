@@ -19,7 +19,7 @@ This table describes the workspace platform applications specific to the managem
 | traefik                 | cpu: 500m                    |                                                           | Yes                 |
 | kubecost                | cpu: 700m<br>memory: 1700Mi  | # of PVs: 3<br>PV sizes: 0.2Gi, 2Gi, 32Gi (total: 34.2Gi) | Yes                 |
 | kube-prometheus-stack   | cpu: 300m<br>memory: 1500Mi  | # of PVs: 1<br>PV sizes: 50Gi                             | Yes                 |
-| kube-oidc-proxy         |                              |                                                           |  Yes                |
+| kube-oidc-proxy         |                              |                                                           | Yes                |
 | prometheusadapter       | cpu: 1000m<br>memory: 1000Mi |                                                           | Yes                 |
 | kubernetes-dashboard    |                              |                                                           | Yes                 |
 | nvidia                  |                              |                                                           | No                  |
