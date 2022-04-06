@@ -7,19 +7,18 @@ excerpt: Management cluster application minimum resources and storage requiremen
 beta: false
 enterprise: true
 ---
-
 This section only details requirements for management cluster-specific applications. For the list of all platform applications, see [Platform Application Configuration Requirements](../../workspaces/applications/platform-applications/platform-application-requirements/).
 
 This table describes the workspace platform applications specific to the management cluster, minimum resource requirements, and minimum persistent storage requirements.
 
-| Name                          | Minimum Resources Suggested     | Minimum Persistent Storage Required | Deployed by Default |
-| ----------------------------- | ------------------------------- | ----------------------------------- | ------------------- |
-| centralized-grafana   |  cpu: 200m<br />memory: 100Mi |                                     |                     |
-| centralized-kubecost |  cpu: 1200m<br />memory: 4151Mi | # of PVs: 1<br />PV sizes: 32Gi | Yes                 |
-| chartmuseum                   |                                 | # of PVs: 1<br />PV sizes: 2Gi | Yes                 |
-| dkp-insights-management |                           |                                     | Yes                 |
-| gitea                         |    cpu: 500m<br />memory: 512Mi |   # of PVs: 2<br />PV sizes: 10Gi  |    Yes          |
-| karma                         |                                 |                                     |                     |
-| kubefed                       |  cpu: 300m<br />memory: 192Mi |                                     |                     |
-| thanos                        |                                 |                                     |                     |
-| traefik-forward-auth-mgmt   | cpu: 100m<br />memory: 128Mi    |                                     | Yes                 |
+| Name                      | Minimum Resources Suggested    | Minimum Persistent Storage Required |
+| ------------------------- | ------------------------------ | ----------------------------------- |
+| centralized-grafana       | cpu: 200m<br />memory: 100Mi   |                                     |
+| centralized-kubecost      | cpu: 1200m<br />memory: 4151Mi | # of PVs: 1<br />PV sizes: 32Gi     |
+| chartmuseum               |                                | # of PVs: 1<br />PV sizes: 2Gi      |
+| dkp-insights-management   |                                |                                     |
+| gitea                     | cpu: 500m<br />memory: 512Mi   | # of PVs: 2<br />PV sizes: 10Gi     |
+| karma                     |                                |                                     |
+| kubefed                   | cpu: 300m<br />memory: 192Mi   |                                     |
+| thanos                    |                                |                                     |
+| traefik-forward-auth-mgmt | cpu: 100m<br />memory: 128Mi   |                                     |
