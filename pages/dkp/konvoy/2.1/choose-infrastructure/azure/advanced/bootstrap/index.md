@@ -119,7 +119,7 @@ Before you begin, you must:
 
     Konvoy defines the selectors and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_caep].
 
-## (Optional) In case of bootstrap cluster resides inside Azure, the identity secret should be created.
+## (Optional) Create identity secret for Azure
 
 In case of bootstrap cluster resides on a Virtual machine inside Azure, the cappz-controller needs the identity secret also to be created:
 
