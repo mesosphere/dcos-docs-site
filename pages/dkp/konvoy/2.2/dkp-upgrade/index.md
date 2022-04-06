@@ -29,7 +29,9 @@ The overall process for upgrading to the latest version of DKP is done on each W
 
 1.  [**Upgrade Kommander on your Workspaces**][upgrade_workspaces], which upgrades all Platform Applications on your managed or attached workspace clusters.
 
-1.  [**Upgrade all DKP Catalog applications**][catalog_apps] deployed to any Workspaces or Projects.
+1.  [**Upgrade all DKP Catalog applications**][catalog_apps_workspaces] deployed to Workspaces.
+
+1.  [**Upgrade all DKP Catalog applications**][catalog_apps_projects] deployed to Projects.
 
 1.  [**Verify any Custom Catalog applications**][custom_apps] and ensure they are compatible with the Kubernetes version included in the [new release][release_notes].
 
@@ -50,7 +52,8 @@ The overall process for upgrading to the latest version of DKP is done on each W
 1.  [**Upgrade the Kubernetes version**][upgrade_konvoy_kubernetes]. This upgrades your cluster’s control plane and node pools. We recommend you upgrade your Kubernetes version on any attached clusters.
 
 [custom_apps]: custom-apps
-[catalog_apps]: ../../../kommander/2.2/projects/applications/catalog-applications/
+[catalog_apps_projects]: ../../../kommander/2.2/projects/applications/catalog-applications/
+[catalog_apps_workspaces]: ../../../kommander/2.2/workspaces/applications/catalog-applications/upgrading-applications/
 [upgrade_kommander]: upgrade-kommander/
 [release_notes]: ../release-notes
 [upgrade_workspaces]: ../../../kommander/2.2/cli/dkp/upgrade/workspace
