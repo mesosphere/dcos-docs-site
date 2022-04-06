@@ -33,7 +33,7 @@ The following table describes the list of platform applications that are deploye
 | cert-manager-1.7.1            | cert-manager          | True                |
 | external-dns-6.1.8            | external-dns          | False               |
 | fluent-bit-0.19.20            | fluent-bit            | False               |
-| gatekeeper-3.7.0              | gatekeeper            | True               |
+| gatekeeper-3.7.0              | gatekeeper            | True                |
 | grafana-logging-6.22.0        | grafana-logging       | False               |
 | grafana-loki-0.33.2           | grafana-loki          | False               |
 | istio-1.11.6                  | istio                 | False               |
