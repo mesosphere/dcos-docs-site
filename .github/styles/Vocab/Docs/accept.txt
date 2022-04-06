@@ -98,7 +98,7 @@ hotfix(|es)
 hyperparameter(|s)
 (http|HTTP)
 (https|HTTPS)
-IAM
+(IAM|iam)
 (Imagefs|imagefs)
 io
 iproute

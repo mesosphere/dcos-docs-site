@@ -16,6 +16,7 @@ Before you begin using Konvoy, you must have:
 - [Docker][install_docker] version 18.09.2 or later installed.
 - [kubectl][install_kubectl] for interacting with the running cluster.
 - A valid AWS account with [credentials configured][aws_credentials].
+- Installation of [aws-iam-authenticator][aws_auth].
 
 <p class="message--note"><strong>NOTE: </strong>On macOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
 
@@ -37,7 +38,8 @@ Before you begin using Konvoy with AWS, you must:
     export AWS_PROFILE=<profile>
     ```
 
-[install_docker]: https://docs.docker.com/get-docker/
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[aws_auth]: https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [iampolicies]: ../../../aws/iam-policies
+[install_docker]: https://docs.docker.com/get-docker/
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
