@@ -14,8 +14,6 @@ Workspace platform applications require more resources than solely deploying or 
 
 The following table describes all the workspace platform applications that are available to the clusters in a workspace, minimum resource requirements, and whether they are enabled by default.
 
-<need to update this table for 2.2>
-
 | Name | Minimum Resources Suggested | Minimum Persistent Storage Required | Deployed by Default |
 | --- | --- | --- | --- |
 | cert-manager| cpu: 10m<br />memory: 32Mi |  | Yes |
@@ -23,10 +21,10 @@ The following table describes all the workspace platform applications that are a
 | gatekeeper | cpu: 300m<br />memory: 768Mi | | Yes |
 | grafana-logging | cpu: 200m<br />memory: 100Mi |  | No |
 | grafana-loki | | # of PVs: 4<br />PV sizes: 10Gi x 4 (total: 40Gi) | No |
-| istio | TBD |  | No |
-| jaeger | TBD | | No |
-| kiali | TBD | | No |
-| knative | TBD | | No |
+| istio |  |  | No |
+| jaeger |  | | No |
+| kiali |  | | No |
+| knative |  | | No |
 | kube-prometheus-stack | cpu: 1210m<br />memory: 4150Mi | # of PVs: 1<br />PV sizes: 100Gi | Yes |
 | kube-oidc-proxy |  |  | Yes |
 | kubecost | cpu: 700m<br />memory: 1700Mi | # of PVs: 3<br />PV sizes: 2Gi, 32Gi, 32Gi (total: 66Gi) | Yes |
