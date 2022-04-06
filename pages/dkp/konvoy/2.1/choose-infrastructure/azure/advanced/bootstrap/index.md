@@ -131,7 +131,6 @@ export AZURE_CLUSTER_IDENTITY_SECRET_NAMESPACE="default"
 kubectl create secret generic "${AZURE_CLUSTER_IDENTITY_SECRET_NAME}" --from-literal=clientSecret="${AZURE_CLIENT_SECRET}"
 ```
 
-
 When complete, move on to the [Create a New Cluster][new-cluster] section.
 
 [new-cluster]: ../new
