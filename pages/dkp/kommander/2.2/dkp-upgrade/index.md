@@ -9,6 +9,17 @@ beta: false
 
 The DKP upgrade represents an important step of your environment's lifecycle, as it ensures that you are up-to-date with the latest features and can benefit from the most recent improvements, enhanced cluster management, and better performance. This section describes how to upgrade your networked, air-gapped, or on-prem environment to the latest version of DKP.
 
+## Upgrade paths
+
+Verified upgrade paths are as follows:
+
+| To    | From | 1.8.4 | 1.8.5 | 2.1.0 | 2.1.1 |
+|-------|------|:-----:|:-----:|:-----:|:-----:|
+| 1.8.5 |      | Yes   |       |       |       |
+| 2.1.0 |      | Yes   | Yes   |       |       |
+| 2.1.1 |      | Yes   | Yes   | No    |       |
+| 2.2.0 |      | No    | No    | Yes   | Yes   |
+
 ## Understand the upgrade process
 
 For this release, you perform the upgrade sequentially beginning with DKP Kommander and then moving to DKP Konvoy.
