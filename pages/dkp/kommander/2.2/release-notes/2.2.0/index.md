@@ -12,7 +12,7 @@ beta: false
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
-**Note:** In DKP 2.2, the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above. 
+**Note:** In DKP 2.2 the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above. 
 
 [Download](../../download/) and [install](../../install/) the latest version to get started.
 
