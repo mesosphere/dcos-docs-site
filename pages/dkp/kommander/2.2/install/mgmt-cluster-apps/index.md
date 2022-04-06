@@ -14,12 +14,12 @@ This table describes the workspace platform applications specific to the managem
 
 | Name                          | Minimum Resources Suggested     | Minimum Persistent Storage Required | Deployed by Default |
 | ----------------------------- | ------------------------------- | ----------------------------------- | ------------------- |
-| centralized-grafana           |                                 |                                     |                     |
-| centralized-kubecostcert      |                                 |                                     | Yes                 |
-| chartmuseum                   |                                 |                                     | Yes                 |
-| dkp-insights-managementtraefi | cpu: 500m                       |                                     | Yes                 |
-| gitea                         |                                 |                                     |                     |
+| centralized-grafana   |  cpu: 200m<br />memory: 100Mi |                                     |                     |
+| centralized-kubecost |  cpu: 1200m<br />memory: 4151Mi | # of PVs: 1<br />PV sizes: 32Gi | Yes                 |
+| chartmuseum                   |                                 | # of PVs: 1<br />PV sizes: 2Gi | Yes                 |
+| dkp-insights-management |                           |                                     | Yes                 |
+| gitea                         |    cpu: 500m<br />memory: 512Mi |   # of PVs: 2<br />PV sizes: 10Gi  |    Yes          |
 | karma                         |                                 |                                     |                     |
-| kubefed                       |                                 |                                     |                     |
+| kubefed                       |  cpu: 300m<br />memory: 192Mi |                                     |                     |
 | thanos                        |                                 |                                     |                     |
-| traefik-forward-auth          | cpu: 100m<br />memory: 128Mi    |                                     | Yes                 |
+| traefik-forward-auth-mgmt   | cpu: 100m<br />memory: 128Mi    |                                     | Yes                 |
