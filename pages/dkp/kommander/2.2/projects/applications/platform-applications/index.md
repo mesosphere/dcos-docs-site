@@ -16,7 +16,7 @@ When deploying and upgrading applications, platform applications come as a bundl
 
 ## Enable applications in a project using the DKP UI
 
-1.  Select a workspace from the **Workspace Selector** in the top navigation bar.
+1.  From the top menu bar, select your target workspace.
 
 1.  Select **Projects** from the sidebar menu.
 

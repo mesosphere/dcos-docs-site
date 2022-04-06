@@ -17,7 +17,7 @@ Before upgrading your catalog applications, verify the current and supported ver
 
 Follow these steps to upgrade an application from the DKP UI:
 
-1.  Select a workspace from the **Workspace Selector** in the top navigation bar.
+1.  From the top menu bar, select your target workspace.
 
 1.  Select **Applications** from the sidebar menu.
 

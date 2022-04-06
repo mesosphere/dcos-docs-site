@@ -87,7 +87,7 @@ status:
 ...
 ```
 
-If there are errors creating the manifests, those events are populated in the status field of the `GitopsRepository` resource on the management cluster and/or the `GitRepository` and `Kustomization` resources on the attached cluster(s).
+If there are errors creating the manifests, those events are populated in the status field of the `GitopsRepository` resource on the management cluster, the `GitRepository` and `Kustomization` resources on the attached cluster(s), or both.
 
 ## Suspend GitOps Source
 
@@ -95,7 +95,7 @@ There may be times when you need to suspend the auto-sync between the GitOps rep
 
 To Suspend the GitOps Source from the DKP UI:
 
-1.  Select a workspace from the **Workspace Selector** in the top navigation bar.
+1.  From the top menu bar, select your target workspace.
 
 1.  Select **Projects** from the sidebar menu.
 

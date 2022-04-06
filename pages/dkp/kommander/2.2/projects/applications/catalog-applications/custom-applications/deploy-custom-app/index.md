@@ -1,19 +1,17 @@
 ---
 layout: layout.pug
-navigationTitle: Deploy a Custom Application from the Project Catalog
-title: Deploy a Custom Application from the Project Catalog
+navigationTitle: Enable a Custom Application from the Project Catalog
+title: Enable a Custom Application from the Project Catalog
 menuWeight: 50
-excerpt: Deploy a Custom Application from the Project Catalog
+excerpt: Enable a Custom Application from the Project Catalog
 ---
 <!-- markdownlint-disable MD030 -->
 
-After creating a GitRepository, you can either use the DKP UI or the CLI to deploy your custom applications.
+After creating a GitRepository, you can either use the DKP UI or the CLI to enable your custom applications.
 
-## Deploy the application using the DKP UI
+## Enable the application using the DKP UI
 
-Go to the DKP UI to deploy your custom applications:
-
-1.  Select a workspace from the **Workspace Selector** in the top navigation bar.
+1.  From the top menu bar, select your target workspace.
 
 1.  Select **Projects** from the sidebar menu.
 
@@ -23,7 +21,7 @@ Go to the DKP UI to deploy your custom applications:
 
 1.  Select the three dot button from the bottom-right corner of the desired application tile, and then select **Enable**.
 
-1.  Select the version you'd like to enable from the version drop-down, and then select **Enable**. This drop-down will only be visible if there is more than one version available.
+1.  If available, select a version from the drop-down. This drop-down will only be visible if there is more than one version.
 
 1.  (Optional) If you want to override the default configuration values, copy your values content into the text editor under **Configure Service** or just upload your yaml file that contains the values:
 
@@ -31,13 +29,13 @@ Go to the DKP UI to deploy your custom applications:
     someField: someValue
     ```
 
-1.  Once you confirm the details are correct, select the **Enable** button.
+1.  Confirm the details are correct, and then select the **Enable** button.
 
 For all applications, you must provide a display name and an ID which is automatically generated based on what you enter for the display name, unless or until you edit the ID directly. The ID must be compliant with [Kubernetes DNS subdomain name validation rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names).
 
-Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to deploy your custom applications.
+Alternately, you can use the [CLI](#enable-the-application-using-the-cli) to enable your custom applications.
 
-## Deploy the application using the CLI
+## Enable the application using the CLI
 
 1. Set the `PROJECT_NAMESPACE` environment variable to the name of the project's namespace:
 
@@ -45,15 +43,15 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
     export PROJECT_NAMESPACE=<project_namespace>
     ```
 
-1. Get the list of available applications to deploy using the following command:
+1. Get the list of available applications to enable using the following command:
 
    ```bash
    kubectl get apps -n ${PROJECT_NAMESPACE}
    ```
 
-1. Deploy one of the supported applications from the list with an `AppDeployment` resource.
+1. Enable one of the supported applications from the list with an `AppDeployment` resource.
 
-1. Within the `AppDeployment`, define the `appRef` to specify which `App` will be deployed:
+1. Within the `AppDeployment`, define the `appRef` to specify which `App` will be enabled:
 
    ```yaml
    cat <<EOF | kubectl apply -f -
@@ -70,7 +68,7 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
 
 <p class="message--note"><strong>NOTE: </strong>The <code>appRef.name</code> must match the app <code>name</code> from the list of available applications.</p>
 
-## Deploy an application with a custom configuration using the CLI
+## Enable an application with a custom configuration using the CLI
 
 1. Provide the name of a `ConfigMap` in the `AppDeployment`, which provides custom configuration on top of the default configuration:
 
@@ -105,11 +103,11 @@ Alternately, you can use the [CLI](#deploy-the-application-using-the-cli) to dep
    EOF
    ```
 
-Kommander waits for the `ConfigMap` to be present before deploying the `AppDeployment` to the attached clusters in the Project.
+Kommander waits for the `ConfigMap` to be present before enabling the `AppDeployment` to the attached clusters in the Project.
 
 ## Verify applications
 
-After completing the previous steps, your applications are deployed. Connect to the attached cluster and check the `HelmReleases` to verify the deployments:
+After completing the previous steps, your applications are enabled. Connect to the attached cluster and check the `HelmReleases` to verify the deployments:
 
 ```bash
 kubectl get helmreleases -n ${PROJECT_NAMESPACE}
