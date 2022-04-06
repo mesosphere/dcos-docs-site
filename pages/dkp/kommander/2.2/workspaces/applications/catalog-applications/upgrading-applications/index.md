@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Catalog applications
-title: Catalog applications
-menuWeight: 20
-excerpt: Catalog applications
+navigationTitle: Application Upgrades
+title: Application Upgrades
+menuWeight: 5
+beta: false
+excerpt: Upgrade catalog applications using the CLI and UI
 ---
-Catalog applications are any third-party or open source applications that appear in the Catalog. These can be DKP applications provided by D2iQ for use in your environment, or [Custom Applications](custom-applications) that can be used but are not supported by D2iQ.
 
 ## Upgrade catalog applications
 
@@ -19,11 +19,7 @@ Follow these steps to upgrade an application from the DKP UI:
 
 1.  From the top menu bar, select your target workspace.
 
-1.  From the side menu bar, select **Projects**.
-
-1.  Select your target project.
-
-1.  Select **Applications** from the project menu bar.
+1.  Select **Applications** from the sidebar menu.
 
 1.  Select the three dot button from the bottom-right corner of the desired application tile, and then select **Edit**.
 
@@ -34,7 +30,13 @@ Follow these steps to upgrade an application from the DKP UI:
 ### Upgrade with CLI
 
 ```bash
-dkp upgrade appdeployment <app-name> --workspace=my-workspace --project=my-project --to-version=<version.number>
+dkp upgrade appdeployment <app-name> --workspace=my-workspace --to-version=<version.number>
+```
+
+For example, the following command upgrades the Kafka Operator application in a workspace to version `0.20.2`:
+
+```bash
+dkp upgrade appdeployment kafka-operator --workspace=my-workspace --to-version=0.20.2
 ```
 
 <p class="message--note"><strong>NOTE: </strong>Platform applications cannot be upgraded on a one-off basis, and must be upgraded in a single process for each workspace. If you attempt to upgrade a platform application with these commands, you receive an error and the application is not upgraded.</p>
