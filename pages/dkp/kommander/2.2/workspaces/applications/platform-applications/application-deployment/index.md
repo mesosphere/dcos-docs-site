@@ -42,11 +42,11 @@ Review the [list of available applications](../../platform-applications#workspac
     apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
-      name: cert-manager
+      name: istio
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: cert-manager-1.7.1
+        name: istio-1.11.6
         kind: ClusterApp
     EOF
     ```
@@ -64,14 +64,14 @@ Review the [list of available applications](../../platform-applications#workspac
     apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
-      name: metallb
+      name: istio
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: metallb-0.12.3
+        name: istio-1.11.6
         kind: ClusterApp
       configOverrides:
-        name: metallb-overrides-attached
+        name: istio-overrides-attached
     EOF
     ```
 
@@ -83,15 +83,17 @@ Review the [list of available applications](../../platform-applications#workspac
     kind: ConfigMap
     metadata:
       namespace: ${WORKSPACE_NAMESPACE}
-      name: metallb-overrides-attached
+      name: istio-overrides-attached
     data:
       values.yaml: |
-        configInline:
-          address-pools:
-          - name: default
-            protocol: layer2
-            addresses:
-            - 172.17.255.150-172.17.255.199
+        operator:
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 50m
+              memory: 128Mi
     EOF
     ```
 
@@ -102,9 +104,14 @@ Kommander waits for the `ConfigMap` to be present before deploying the `AppDeplo
 The applications are now enabled. Connect to the attached cluster and check the `HelmReleases` to verify the deployment:
 
 ```bash
-kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
+kubectl get helmreleases istio -n ${WORKSPACE_NAMESPACE} -w
+```
+
+You should eventually see the `HelmRelease` marked as `Ready`:
+
+```sh
 NAMESPACE               NAME        READY   STATUS                             AGE
-workspace-test-vjsfq    metallb     True    Release reconciliation succeeded   7m3s
+workspace-test-vjsfq    istio       True    Release reconciliation succeeded   7m3s
 ```
 
 <p class="message--note"><strong>NOTE: </strong>Some of the supported applications have dependencies on other applications. See <a href="../platform-application-dependencies">Workspace Platform Application Dependencies</a> for that table.</p>
