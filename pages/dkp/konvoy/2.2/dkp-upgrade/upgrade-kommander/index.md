@@ -101,7 +101,7 @@ You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the
 [upgrade_workspaces]: ../../../../kommander/2.2/projects/applications/platform-applications
 [release_notes]: ../../release-notes/
 [konvoy_upgrade]: ../upgrade-konvoy/
-[load_images]: ../../../../kommander/2.2/install/air-gapped/
+[load_images]: ../../../../kommander/2.2/install/air-gapped#load-the-docker-images-into-your-docker-registry
 [dkp_upgrade]: ../
-[load_images_catalog]: ../../../../kommander/2.2/install/air-gapped/catalog/
+[load_images_catalog]: ../../../../kommander/2.2/install/air-gapped/catalog#load-the-docker-images-into-your-docker-registry
 [backup]: ../../../../kommander/2.2/backup-and-restore#back-up-on-demand
