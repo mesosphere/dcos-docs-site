@@ -66,7 +66,7 @@ See [workspace catalog applications](/dkp/kommander/2.2/workspaces/applications/
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: spark-operator-1.1.6
+        name: spark-operator-1.1.17
         kind: App
     EOF
     ```
@@ -88,7 +88,7 @@ See [workspace catalog applications](/dkp/kommander/2.2/workspaces/applications/
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: spark-operator-1.1.6
+        name: spark-operator-1.1.17
         kind: App
       configOverrides:
         name: spark-operator-overrides

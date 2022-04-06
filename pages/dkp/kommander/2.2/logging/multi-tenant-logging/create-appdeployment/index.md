@@ -51,7 +51,7 @@ To create the AppDeployments needed for Project-level logging, follow these step
       namespace: ${PROJECT_NAMESPACE}
     spec:
       appRef:
-        name: project-grafana-loki-0.33.1
+        name: project-grafana-loki-0.33.2
         kind: ClusterApp
     ---
     apiVersion: apps.kommander.d2iq.io/v1alpha2
@@ -61,7 +61,7 @@ To create the AppDeployments needed for Project-level logging, follow these step
       namespace: ${PROJECT_NAMESPACE}
     spec:
       appRef:
-        name: project-grafana-logging-6.16.14
+        name: project-grafana-logging-6.20.6
         kind: ClusterApp
     EOF
     ```

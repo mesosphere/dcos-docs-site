@@ -261,7 +261,7 @@ config:
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: fluent-bit-0.16.2
+        name: fluent-bit-0.19.20
         kind: ClusterApp
       configOverrides:
         name: fluent-bit-overrides
