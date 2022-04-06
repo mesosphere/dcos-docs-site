@@ -60,10 +60,14 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     ```bash
     export DOCKER_REGISTRY_ADDRESS=<https/http>://<registry-address>:<registry-port>
     export DOCKER_REGISTRY_CA=<path to the CA on the bastion>
+    export DOCKER_REGISTRY_USERNAME="myuser"
+    export DOCKER_REGISTRY_PASSWORD="mypassword"
     ```
 
     - `DOCKER_REGISTRY_ADDRESS`: the address of an existing Docker registry accessible in the VPC that the new cluster nodes will be configured to use a mirror registry when pulling images.
     - `DOCKER_REGISTRY_CA`: (optional) the path on the bastion machine to the Docker registry CA. Konvoy will configure the cluster nodes to trust this CA. This value is only needed if the registry is using a self-signed certificate and the AMIs are not already configured to trust this CA.
+    - `DOCKER_REGISTRY_USERNAME`: optional, set to a user that has pull access to this registry.
+    - `DOCKER_REGISTRY_PASSWORD`: optional if username is not set.
 
 3.  Create a Kubernetes cluster:
 
@@ -75,7 +79,9 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     --internal-load-balancer=true \
     --additional-security-group-ids=${AWS_ADDITIONAL_SECURITY_GROUPS} \
     --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
-    --registry-mirror-cacert=${DOCKER_REGISTRY_CA}
+    --registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
+    --registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
+    --registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
     ```
 
 4.  (Optional) The Control Plane and Worker nodes can be configured to use an HTTP proxy:
@@ -110,6 +116,8 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     --additional-security-group-ids=${AWS_ADDITIONAL_SECURITY_GROUPS} \
     --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
     --registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
+    --registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
+    --registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
     --control-plane-http-proxy="${CONTROL_PLANE_HTTP_PROXY}" \
     --control-plane-https-proxy="${CONTROL_PLANE_HTTPS_PROXY}" \
     --control-plane-no-proxy="${CONTROL_PLANE_NO_PROXY}" \

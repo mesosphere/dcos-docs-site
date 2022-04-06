@@ -52,13 +52,17 @@ export DOCKER_REGISTRY_CA=<path to the CA on the bastion>
 
 - `DOCKER_REGISTRY_ADDRESS`: the address of an existing Docker registry accessible in the VPC that the new cluster nodes will be configured to use a mirror registry when pulling images.
 - `DOCKER_REGISTRY_CA`: (optional) the path on the bastion machine to the Docker registry CA. Konvoy will configure the cluster nodes to trust this CA. This value is only needed if the registry is using a self-signed certificate and the AMIs are not already configured to trust this CA.
-    
+- `DOCKER_REGISTRY_USERNAME`: optional, set to a user that has pull access to this registry.
+- `DOCKER_REGISTRY_PASSWORD`: optional if username is not set.
+
 ```bash
 dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} \
 --control-plane-endpoint-host <control plane endpoint host> \
 --control-plane-endpoint-port <control plane endpoint port, if different than 6443> \
 --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
---registry-mirror-cacert=${DOCKER_REGISTRY_CA}
+--registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
+--registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
+--registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
 ```
 
 Depending on the cluster size, it will take a few minutes to be created. After the creation, use this command to get the Kubernetes kubeconfig for the new cluster and begin deploying workloads:
