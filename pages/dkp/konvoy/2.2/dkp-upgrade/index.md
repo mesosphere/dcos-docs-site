@@ -16,10 +16,10 @@ Verified upgrade paths are as follows:
 
 | To    | From | 1.8.4 | 1.8.5 | 2.1.0 | 2.1.1 |
 |-------|------|:-----:|:-----:|:-----:|:-----:|
-| 1.8.5 | Yes  |       |       |       |       |
-| 2.1.0 | Yes  | Yes   |       |       |       |
-| 2.1.1 | Yes  | Yes   | ?     |       |       |
-| 2.2.0 | ?    | ?     | ?     |       |       |
+| 1.8.5 |      | Yes   |       |       |       |
+| 2.1.0 |      | Yes   | Yes   |       |       |
+| 2.1.1 |      | Yes   | Yes   | ?     |       |
+| 2.2.0 |      | ?     | ?     | ?     | ?     |
 
 ## Understand the upgrade process
 
