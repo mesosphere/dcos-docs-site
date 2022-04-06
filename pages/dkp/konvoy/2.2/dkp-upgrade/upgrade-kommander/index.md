@@ -48,20 +48,27 @@ This section describes how to upgrade your Kommander Management cluster and all 
   helmrelease.helm.toolkit.fluxcd.io/metallb patched
   ```
 
- 1. Delete the helm release secret.
+  ```sh
+  helmrelease.helm.toolkit.fluxcd.io/metallb patched
+  ```
+  
+  1. Delete the helm release secret.
+
   ```bash
   kubectl -n kommander delete secret -l name=metallb,owner=helm
   ```
-  ```sh 
+
+  ```sh
   secret "sh.helm.release.v1.metallb.v1" deleted
   ```
-  
+
   1. Delete MetalLB.
+
   ```bash
   k -n kommander delete appdeployment metallb
   ```
-  
-  ```sh 
+
+  ```sh
   appdeployment.apps.kommander.d2iq.io "metallb" deleted
   ```
 
@@ -70,14 +77,16 @@ This section describes how to upgrade your Kommander Management cluster and all 
   kubectl -n kommander patch -p='{"spec":{"suspend": false}}' --type=merge helmrelease/metallb
   ```
   
-  ```sh 
+  ```sh
   helmrelease.helm.toolkit.fluxcd.io/metallb patched
   ```
+
   This deletes MetalLb from Kommander while leaving the resources running in the cluster.
-  
+
   ```bash
   kubectl -n kommander get pod -l app=metallb
-  
+  ```
+
   ```sh
   NAME                                 READY   STATUS    RESTARTS   AGE
   metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
