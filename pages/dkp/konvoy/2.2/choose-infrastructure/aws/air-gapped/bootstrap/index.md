@@ -11,18 +11,22 @@ enterprise: false
 
 Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which deploys a workload cluster. When the workload cluster is ready, move the cluster lifecycle services to the workload cluster, after which the workload cluster manages its own lifecycle.
 
-1.  Pull the bootstrap Docker image and save it as tar.gz locally. The image version should correspond to the version of Konvoy as returned by `dkp version`:
-
-    ```docker
-    docker pull mesosphere/konvoy-bootstrap:<version> && docker save mesosphere/konvoy-bootstrap:<version> -o mesosphere_konvoy-bootstrap:<version>.tar.gz
+1.  Set an environment variable with the DKP version.
+    
+    ```bash
+    export DKP_VERSION=v2.2.0
     ```
 
-1.  Copy the image tar file to the machine where the bootstrap cluster will run.
-
-1.  Load the bootstrap Docker image. The image version should correspond to the version of Konvoy as returned by `dkp version`:
+1.  Download the bootstrap docker image on a machine that has access to the tar.
 
     ```docker
-    docker load -i <path to mesosphere/konvoy-bootstrap image>
+    curl -O https://downloads.d2iq.com/dkp/$DKP_VERSION/konvoy-bootstrap_$DKP_VERSION.tar
+    ```
+
+1.  Load the bootstrap docker image on your bastion machine.
+
+    ```docker
+    docker load -i konvoy-bootstrap_$DKP_VERSION.tar
     ```
 
 1.  Create a bootstrap cluster:
@@ -37,11 +41,11 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which depl
     dkp update bootstrap credentials aws
     ```
 
-Then, you can create a [new AWS Kubernetes cluster][new-cluster].
+Then, you can [create a cluster][create-a-cluster].
 
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
 [install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[new-cluster]: ../new
+[create-a-cluster]: ../new
