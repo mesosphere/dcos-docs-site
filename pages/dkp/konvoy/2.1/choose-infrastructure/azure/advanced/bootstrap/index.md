@@ -119,6 +119,18 @@ Before you begin, you must:
 
     Konvoy defines the selectors and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_caep].
 
+## (Optional) Create identity secret for Azure
+
+If your bootstrap cluster resides on a Virtual machine inside Azure, create an identity secret that uses the cappz-controller:
+
+```bash
+export AZURE_CLUSTER_IDENTITY_SECRET_NAME="cluster-identity-secret"
+export CLUSTER_IDENTITY_NAME="cluster-identity"
+export AZURE_CLUSTER_IDENTITY_SECRET_NAMESPACE="default"
+
+kubectl create secret generic "${AZURE_CLUSTER_IDENTITY_SECRET_NAME}" --from-literal=clientSecret="${AZURE_CLIENT_SECRET}"
+```
+
 When complete, move on to the [Create a New Cluster][new-cluster] section.
 
 [new-cluster]: ../new
