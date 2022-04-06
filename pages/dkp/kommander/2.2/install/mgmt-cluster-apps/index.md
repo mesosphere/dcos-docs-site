@@ -7,9 +7,10 @@ excerpt: Management cluster application minimum resources and storage requiremen
 beta: false
 enterprise: true
 ---
-This section details requirements for management cluster-specific applications. For the list of all available platform applications, see [Platform Application Configuration Requirements](../../workspaces/applications/platform-applications/platform-application-requirements/).
 
-This table only describes the workspace platform applications specific to the management cluster, minimum resource requirements, and minimum persistent storage requirements. For the list of all platform applications, see [Workspace Platform Application Configuration Requirements](../../../../workspaces/applications/platform-applications/platform-application-requirements).
+This section only details requirements for management cluster-specific applications. For the list of all platform applications, see [Platform Application Configuration Requirements](../../workspaces/applications/platform-applications/platform-application-requirements/).
+
+This table describes the workspace platform applications specific to the management cluster, minimum resource requirements, and minimum persistent storage requirements.
 
 | Name                          | Minimum Resources Suggested     | Minimum Persistent Storage Required | Deployed by Default |
 | ----------------------------- | ------------------------------- | ----------------------------------- | ------------------- |
@@ -21,4 +22,4 @@ This table only describes the workspace platform applications specific to the ma
 | karma                         |                                 |                                     |                     |
 | kubefed                       |                                 |                                     |                     |
 | thanos                        |                                 |                                     |                     |
-| traefik-forward-auth          | cpu: 100m<br />memory: 128Mi  |                                     | Yes                 |
+| traefik-forward-auth          | cpu: 100m<br />memory: 128Mi    |                                     | Yes                 |
