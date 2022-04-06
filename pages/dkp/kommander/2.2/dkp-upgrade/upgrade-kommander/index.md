@@ -6,7 +6,7 @@ menuWeight: 20
 excerpt: Steps to upgrade Kommander via CLI
 beta: false
 ---
- 
+
 This section describes how to upgrade your Kommander Management cluster and all Platform Applications to their supported versions in networked, air-gapped, and on-prem environments. To prevent compatibility issues, you must first upgrade Kommander on your Management Cluster before upgrading to DKP.
 
 <p class="message--note"><strong>NOTE: </strong>It is important you upgrade Kommander BEFORE upgrading the Kubernetes version (or Konvoy version for Managed Konvoy clusters) in attached clusters, due to the previous versions' incompatibility with 1.22.</p>
@@ -20,24 +20,58 @@ This section describes how to upgrade your Kommander Management cluster and all 
 -   Review the [Platform Application version updates][release_notes] that are part of this upgrade.  
 -   For air-gapped environments **with** DKP Catalog Applications in a multi-cluster environment: [Load the Docker images into your Docker registry][load_images_catalog]
 -   For air-gapped environments **without** DKP Catalog Applications: [Load the Docker images into your Docker registry][load_images]
--   For air-gapped environments only:
-  
+
   Download the Kommander application definitions:
 
   ```bash
   wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar.gz"
   ```
-  
+
   Download the Kommander charts bundle:
 
   ```bash
   wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
   ```
-  
+
   If you have any DKP Catalog Applications, download the DKP Catalog Application charts bundle:
 
   ```bash
   wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
+  ```
+  If you installed MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.
+
+  1. Pause the helm release.
+  ```sh
+  kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
+  helmrelease.helm.toolkit.fluxcd.io/metallb patched
+  ```
+
+  1. Delete the helm release secret.
+  ```sh
+  kubectl -n kommander delete secret -l name=metallb,owner=helm
+  secret "sh.helm.release.v1.metallb.v1" deleted
+  ```
+  1. Delete MetalLB.
+  ```sh
+  k -n kommander delete appdeployment metallb
+  appdeployment.apps.kommander.d2iq.io "metallb" deleted
+  ```
+
+  1. Unpause the helm release.
+  ```sh
+  kubectl -n kommander patch -p='{"spec":{"suspend": false}}' --type=merge helmrelease/metallb
+  helmrelease.helm.toolkit.fluxcd.io/metallb patched
+  ```
+  This deletes MetalLb from Kommander while leaving the resources running in the cluster.
+  
+  ```sh
+  $ kubectl -n kommander get pod -l app=metallb
+  NAME                                 READY   STATUS    RESTARTS   AGE
+  metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
+  metallb-speaker-2gz6p                1/1     Running   0          20m
+  metallb-speaker-48d44                1/1     Running   0          20m
+  metallb-speaker-6gp76                1/1     Running   0          20m
+  metallb-speaker-dh9dm                1/1     Running   0          20m
   ```
 
 ## Upgrade Kommander
