@@ -40,7 +40,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
   ```
 ## Detach MetalLB from Kommander
 
-  <p class="message--important"><strong>NOTE:</strong> Beginning with DKP version 2.2, MetalLB is no longer managed as a platform application. If you installed MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.</p>
+  <p class="message--important"><strong>IMPORTANT:</strong> Beginning with DKP version 2.2, MetalLB is no longer managed as a platform application. If you installed MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.</p>
   
   1. Pause the helm release.
   ```bash
