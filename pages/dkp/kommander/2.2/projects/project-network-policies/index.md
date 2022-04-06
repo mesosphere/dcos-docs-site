@@ -39,7 +39,7 @@ This section also contains the **Pod Selector** fields for selecting pods using 
 The **Policy Types** selections help to define the type of Network Policy you are creating:
 
 - **Default** - automatically includes ingress, and egress is set only if the network policy defines egress rules.
-- **Ingress** - this policy applies to ingress traffic for the selected pods, namespaces using the options you define below, or both.
+- **Ingress** - this policy applies to ingress traffic for the selected pods, to namespaces using the options you define below, or both.
 - **Egress** - this policy applies to egress traffic for the selected pods, namespaces using the options you define below, or both.
 
 If the Default policy type is too rigid or does not offer what you need, you can select the Ingress or Egress type, or both, and explicitly define the policy with the options that follow. For example, if you do not want this policy to apply to ingress traffic, you would select only Egress, and then define the policy.
