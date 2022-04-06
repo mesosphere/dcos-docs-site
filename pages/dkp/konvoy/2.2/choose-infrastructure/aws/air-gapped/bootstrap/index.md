@@ -11,22 +11,16 @@ enterprise: false
 
 Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which deploys a workload cluster. When the workload cluster is ready, move the cluster lifecycle services to the workload cluster, after which the workload cluster manages its own lifecycle.
 
-1.  Set an environment variable with the DKP version.
-    
-    ```bash
-    export DKP_VERSION=v2.2.0
-    ```
-
 1.  Download the bootstrap docker image on a machine that has access to the tar.
 
     ```docker
-    curl -O https://downloads.d2iq.com/dkp/$DKP_VERSION/konvoy-bootstrap_$DKP_VERSION.tar
+    curl -O https://downloads.d2iq.com/dkp/v2.2.0/konvoy-bootstrap_v2.2.0.tar
     ```
 
 1.  Load the bootstrap docker image on your bastion machine.
 
     ```docker
-    docker load -i konvoy-bootstrap_$DKP_VERSION.tar
+    docker load -i konvoy-bootstrap_v2.2.0.tar
     ```
 
 1.  Create a bootstrap cluster:

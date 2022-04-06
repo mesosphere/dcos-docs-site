@@ -49,7 +49,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
     ```bash
     kubernetes.io/cluster = <CLUSTER_NAME>
-    kubernetes.io/cluster/CLUSTER_NAME = owned
+    kubernetes.io/cluster/<CLUSTER_NAME> = owned
     kubernetes.io/role/internal-elb = 1
     ```
 
