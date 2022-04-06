@@ -28,28 +28,28 @@ The following table describes the list of platform applications that are deploye
 
 | NAME                          | APP ID                | Deployed by default |
 | ----------------------------- | --------------------- | ------------------- |
-| cert-manager-0.2.7            | cert-manager          | True                |
-| external-dns-2.20.5           | external-dns          | False               |
-| fluent-bit-0.16.2             | fluent-bit            | False               |
-| gatekeeper-0.6.8              | gatekeeper            | False               |
-| grafana-logging-6.16.4        | grafana-logging       | False               |
-| grafana-loki-0.33.1           | grafana-loki          | False               |
-| istio-1.9.1                   | istio                 | False               |
-| jaeger-2.21.0                 | jaeger                | False               |
-| kiali-1.29.1                  | kiali                 | False               |
-| kube-oidc-proxy-0.2.5         | kube-oidc-proxy       | True                |
-| kube-prometheus-stack-18.1.1  | kube-prometheus-stack | True                |
-| kubecost-0.20.2               | kubecost              | True                |
-| kubernetes-dashboard-5.0.2    | kubernetes-dashboard  | True                |
-| logging-operator-3.15.0       | logging-operator      | False               |
-| metallb-0.12.2                | metallb               | False               |
-| minio-operator-4.1.7          | minio-operator        | False               |
-| nvidia-0.4.3                  | nvidia                | False               |
-| prometheus-adapter-2.11.1     | prometheus-adapter    | True                |
-| reloader-0.0.99               | reloader              | True                |
-| traefik-10.3.0                | traefik               | True                |
-| traefik-forward-auth-0.3.2    | traefik-forward-auth  | True                |
-| velero-3.1.3                  | velero                | False               |
+| cert-manager-1.7.1            | cert-manager          | True                |
+| external-dns-6.1.8            | external-dns          | False               |
+| fluent-bit-0.19.20            | fluent-bit            | False               |
+| gatekeeper-3.7.0              | gatekeeper            | False               |
+| grafana-logging-6.22.0        | grafana-logging       | False               |
+| grafana-loki-0.33.2           | grafana-loki          | False               |
+| istio-1.11.6                  | istio                 | False               |
+| jaeger-2.29.0                 | jaeger                | False               |
+| kiali-2.0.1                   | kiali                 | False               |
+| kube-oidc-proxy-0.3.1         | kube-oidc-proxy       | True                |
+| kube-prometheus-stack-33.1.5  | kube-prometheus-stack | True                |
+| kubecost-0.23.3               | kubecost              | True                |
+| kubernetes-dashboard-5.1.1    | kubernetes-dashboard  | True                |
+| logging-operator-3.17.2       | logging-operator      | False               |
+| metallb-0.12.3                | metallb               | False               |
+| minio-operator-4.4.10         | minio-operator        | False               |
+| nvidia-0.4.4                  | nvidia                | False               |
+| prometheus-adapter-2.17.1     | prometheus-adapter    | True                |
+| reloader-0.0.104              | reloader              | True                |
+| traefik-10.9.1                | traefik               | True                |
+| traefik-forward-auth-0.3.6    | traefik-forward-auth  | True                |
+| velero-3.1.5                  | velero                | False               |
 
 <p class="message--note"><strong>NOTE: </strong>Currently, Kommander only supports a single deployment of <code>cert-manager</code> per cluster. Because of this, <code>cert-manager</code> cannot be installed on <code>Konvoy</code> managed <code>AWS</code> clusters.</p>
 

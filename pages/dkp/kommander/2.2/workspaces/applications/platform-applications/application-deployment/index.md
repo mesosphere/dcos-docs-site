@@ -44,7 +44,7 @@ The list of available applications that can be deployed on the attached cluster 
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: cert-manager-0.2.7
+        name: cert-manager-1.7.1
         kind: ClusterApp
     EOF
     ```
