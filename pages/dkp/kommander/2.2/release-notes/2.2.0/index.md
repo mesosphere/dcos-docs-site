@@ -58,7 +58,12 @@ The unified DKP user interface provides a smooth experience independent of where
 
 ### DKP Insights
 
-This new predictive analytics tool provides greater support productivity, speed, and reduced costs. An [Insights](../../insights/) module integrated into DKP collects configuration, logs, events, and metrics from DKP deployments and generates predictive insights on potential issues of varying levels. These insights enable you to proactively identify and resolve issues that can save you a lot of time and money by not escalating to D2iQ's support. 
+This new predictive analytics tool provides greater support productivity, speed, and reduced costs. The [DKP Insights](../../insights/) Engine collects events and metrics on the Attached cluster, and uses rule-based heuristics on potential problems of varying criticality, so they can be quickly identified and resolved. These Insights are then forwarded and displayed in the DKP Insights Dashboard, where it assists you with routine tasks such as:
+
+- Resolving common issues
+- Monitoring resource usage
+- Checking security issues
+- Verifying workloads and clusters follow best practices
 
 ## Component updates
 
