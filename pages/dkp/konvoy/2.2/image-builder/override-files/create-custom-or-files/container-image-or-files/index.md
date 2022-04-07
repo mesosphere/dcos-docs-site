@@ -16,7 +16,7 @@ Your AMI uses a container image. The Ansible playbooks pull a minimal set of [co
 extra_images:
   - docker.io/mesosphere/cluster-api-aws-controller:v1.4.0-d2iq.0-rc1
   - docker.io/mesosphere/cluster-api-controller:v1.1.3-d2iq.3
-  - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.6.1
+  - docker.io/mesosphere/cluster-api-preprovisioned-controller:v0.6.2
   - docker.io/mesosphere/kubeadm-bootstrap-controller:v1.1.3-d2iq.3
   - docker.io/mesosphere/kubeadm-control-plane-controller:v1.1.3-d2iq.3
   - gcr.io/cluster-api-provider-vsphere/release/manager:v1.1.1
@@ -25,7 +25,7 @@ extra_images:
   - quay.io/jetstack/cert-manager-controller:v1.5.3
   - quay.io/jetstack/cert-manager-webhook:v1.5.3
   - us.gcr.io/k8s-artifacts-prod/cluster-api-azure/cluster-api-azure-controller:v1.1.1
-  - docker.io/mesosphere/konvoy-image-builder:v1.10.0
+  - docker.io/mesosphere/konvoy-image-builder:v1.11.0
   - docker.io/plndr/kube-vip:v0.3.7
   - ghcr.io/kube-vip/kube-vip:v0.3.9
   - gcr.io/k8s-staging-sig-storage/snapshot-controller:v5.0.0
@@ -66,7 +66,7 @@ extra_images:
   - docker.io/library/busybox:1
   - docker.io/mesosphere/pause-busybox:3.2
   - docker.io/mesosphere/dkp-diagnostics-node-collector:v0.4.1
-  - docker.io/mesosphere/kfips:v0.1.0
+  - docker.io/mesosphere/kfips:v0.2.0
   - k8s.gcr.io/sig-storage/snapshot-validation-webhook:v3.0.2
   - quay.io/metallb/controller:v0.12.1
   - quay.io/metallb/speaker:v0.12.1
