@@ -27,7 +27,7 @@ DKP Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which 
 1.  Create a bootstrap cluster with the command:
 
     ```bash
-    ./dkp create bootstrap --kubeconfig $HOME/.kube/config
+    dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
 
     The output resembles this example:
@@ -73,7 +73,7 @@ DKP Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which 
 1.  Refresh the credentials used by the vSphere provider at any time, using the command:
 
     ```bash
-    ./dkp update bootstrap credentials vsphere
+    dkp update bootstrap credentials vsphere
     ```
 
 Next, you can create a [new vSphere Kubernetes cluster][new-cluster].

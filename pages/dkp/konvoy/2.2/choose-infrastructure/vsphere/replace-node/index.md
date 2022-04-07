@@ -11,7 +11,7 @@ menuWeight: 90
 
 Before you begin, you must:
 
-- [Create a workload cluster][createnewcluster].
+- [Create a workload cluster][createnewcluster] or [create an air-gapped workload cluster][createnewairgappedcluster].
 
 - [Make the new cluster self-managed][selfmanaged].
 
@@ -74,7 +74,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     d2iq-e2e-cluster-1-md-0   d2iq-e2e-cluster-1   4          3       4         1             ScalingUp   20h   v1.22.8
     ```
 
-    There exist 4 replicas, but only 3 are ready. One replica is unavailable, and the `ScalingUp` phase means a new Machine is being created.
+    In this example, there exist 4 replicas, but only 3 are ready. One replica is unavailable, and the `ScalingUp` phase means a new Machine is being created.
 
 1.  Identify the replacement Machine using this command:
 
@@ -110,5 +110,6 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 --->
 
 [createnewcluster]: ../new
+[createnewairgappedcluster]: ../air-gapped/new/
 [selfmanaged]: ../self-managed
 [capi_book]: https://cluster-api.sigs.k8s.io/

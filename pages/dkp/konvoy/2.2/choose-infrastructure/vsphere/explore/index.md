@@ -65,8 +65,6 @@ Before you start, make sure you have [created a workload cluster][create-new-clu
     The output resembles the following example:
 
     ```sh
-        The output resembles this example:
-
     NAME                                       STATUS   ROLES                  AGE   VERSION
     d2iq-e2e-cluster-1-control-plane-7llgd     Ready    control-plane,master   20h   v1.22.8
     d2iq-e2e-cluster-1-control-plane-vncbl     Ready    control-plane,master   19h   v1.22.8

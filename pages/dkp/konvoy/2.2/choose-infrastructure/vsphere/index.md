@@ -14,6 +14,8 @@ The overall process for configuring vSphere and DKP together includes the follow
 
 1.   Configure vSphere to provide the needed elements, described in the [Prerequisites][prerequisites].
 
+1.   Create a bastion VM host if you are using an air-gapped environment.
+
 1.   Create a base OS image.
 
 1.   Create a CAPI VM image that uses the base OS image and adds the needed Kubernetes cluster components.
@@ -21,6 +23,8 @@ The overall process for configuring vSphere and DKP together includes the follow
 1.   Create a bootstrap cluster.
 
 1.   Create a new DKP cluster on vSphere.
+
+1.   Make the cluster self-managing.
 
 1.   Explore the cluster and perform other functions as needed.
 

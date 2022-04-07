@@ -37,7 +37,7 @@ data:
 EOF
 ```
 
-Once complete, run the following `kubectl` command.
+When complete, run the following `kubectl` command.
 
 ```sh
 kubectl apply -f metallb-conf.yaml
@@ -76,7 +76,8 @@ data:
       - 192.168.10.0/24
 EOF
 ```
-Once complete, run the following `kubectl` command.
+
+When complete, run the following `kubectl` command:
 
 ```sh
 kubectl apply -f metallb-conf.yaml
