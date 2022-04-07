@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Download
 title: Download DKP
-menuWeight: 2
+menuWeight: 30
 excerpt: Learn how to download DKP
 beta: false
 enterprise: false
