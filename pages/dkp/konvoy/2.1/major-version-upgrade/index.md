@@ -12,6 +12,17 @@ enterprise: false
 
 Moving from Konvoy 1.8.x to DKP 2.1.x is not just an upgrade - you are enhancing your existing clusters to use a new architecture. If you currently use Konvoy to manage one cluster, that single-cluster experience continues in DKP 2.1.x, and includes the use of the management tools offered by Kommander. If you currently use Kommander to manage more than one cluster, your multi-cluster experience continues in DKP 2.1.x, with enhanced management and control offered by CAPI.
 
+
+## Upgrade paths
+
+Verified upgrade paths are as follows:
+
+| To    | From | 1.8.4 | 1.8.5 | 2.1.0 | 2.1.1 |
+|-------|------|:-----:|:-----:|:-----:|:-----:|
+| 1.8.5 |      | Yes   |       |       |       |
+| 2.1.0 |      | Yes   | Yes   |       |       |
+| 2.1.1 |      | Yes   | Yes   | No    |       |
+
 ## Understanding the Major Version Upgrade Process
 
 The overall process for upgrading the major version to DKP 2.1 has the following high-level steps:
