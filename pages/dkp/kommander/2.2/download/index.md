@@ -16,7 +16,7 @@ To download a new version of DKP, you have 2 options:
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
-<p class="message--note"><strong>NOTE: </strong> In DKP 2.2 the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above.
+<p class="message--note"><strong>NOTE: </strong>In DKP 2.2, the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the Download DKP button above.
 You must be a registered user and logged on to the support portal to download DKP. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.
 If you have problems downloading DKP, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.</p>
 
