@@ -60,14 +60,16 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     ```bash
     export DOCKER_REGISTRY_ADDRESS=<https/http>://<registry-address>:<registry-port>
     export DOCKER_REGISTRY_CA=<path to the CA on the bastion>
-    export DOCKER_REGISTRY_USERNAME="myuser"
-    export DOCKER_REGISTRY_PASSWORD="mypassword"
+    export DOCKER_REGISTRY_USERNAME=<username>
+    export DOCKER_REGISTRY_USERNAME=<password>
     ```
 
     - `DOCKER_REGISTRY_ADDRESS`: the address of an existing Docker registry accessible in the VPC that the new cluster nodes will be configured to use a mirror registry when pulling images.
     - `DOCKER_REGISTRY_CA`: (optional) the path on the bastion machine to the Docker registry CA. Konvoy will configure the cluster nodes to trust this CA. This value is only needed if the registry is using a self-signed certificate and the AMIs are not already configured to trust this CA.
     - `DOCKER_REGISTRY_USERNAME`: optional, set to a user that has pull access to this registry.
     - `DOCKER_REGISTRY_PASSWORD`: optional if username is not set.
+
+    <p class="message--warning"><strong>WARNING: </strong> Docker registries with a subdirectory in the address are not supported.</p>
 
 3.  Create a Kubernetes cluster:
 
