@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Cluster Applications
 title: Cluster Applications
 menuWeight: 10
-excerpt:
+excerpt: A guide for applications installed on your cluster
 ---
 
 ## Applications
