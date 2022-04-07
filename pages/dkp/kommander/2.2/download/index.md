@@ -1,16 +1,16 @@
 ---
 layout: layout.pug
 navigationTitle: Download
-title: Download Kommander
+title: Download DKP
 menuWeight: 2
-excerpt: Learn how to download Kommander
+excerpt: Learn how to download DKP
 beta: false
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->
 
-To download a new version of Kommander, you have 2 options:
+To download a new version of DKP, you have 2 options:
 
 ## Download from the support website
 
@@ -18,7 +18,7 @@ To download a new version of Kommander, you have 2 options:
 
 <p class="message--note"><strong>NOTE: </strong> In DKP 2.2 the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above.
 
-You must be a registered user and logged on to the support portal to download Kommander. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.</p>
+You must be a registered user and logged on to the support portal to download DKP. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.</p>
 
 If you have problems downloading DKP, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.</p>
 
