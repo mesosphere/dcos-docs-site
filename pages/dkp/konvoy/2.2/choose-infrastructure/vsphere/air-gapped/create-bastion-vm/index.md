@@ -20,8 +20,6 @@ When creating an air-gapped vSphere cluster, the bastion VM hosts the installati
 
 1.  [Download][download] the following required Konvoy binaries and installation bundles directly to the bastion host, or transfer them using your environment's approved methods:
 
-    - konvoy_v2.2.0_checksums.txt
-
     - konvoy_v2.2.0_darwin_amd64.tar.gz
 
     - konvoy_v2.2.0_linux_amd64.tar.gz
