@@ -57,8 +57,6 @@ export DOCKER_REGISTRY_USERNAME=<password>
 - `DOCKER_REGISTRY_USERNAME`: optional, set to a user that has pull access to this registry.
 - `DOCKER_REGISTRY_PASSWORD`: optional if username is not set.
 
-<p class="message--warning"><strong>WARNING: </strong>Docker registries with a subdirectory in the address are not supported.</p>
-
 ```bash
 dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} \
 --control-plane-endpoint-host <control plane endpoint host> \

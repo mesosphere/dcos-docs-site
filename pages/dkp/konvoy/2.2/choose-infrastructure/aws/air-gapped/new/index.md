@@ -69,8 +69,6 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     - `DOCKER_REGISTRY_USERNAME`: optional, set to a user that has pull access to this registry.
     - `DOCKER_REGISTRY_PASSWORD`: optional if username is not set.
 
-    <p class="message--warning"><strong>WARNING: </strong> Docker registries with a subdirectory in the address are not supported.</p>
-
 3.  Create a Kubernetes cluster:
 
     ```bash
