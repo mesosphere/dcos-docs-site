@@ -37,51 +37,38 @@ Currently, Kommander supports **GitHub**, **LDAP**, any standard **SAML** provid
 
 You can configure as many Identity Providers as you like. Users can then select any of those methods when logging in.
 
-![Identity](../../img/Identity-providers-table.png)
-
-Identity Providers
-
 ### Limit who has access
 
-- The GitHub provider allows you to specify which organizations and teams are eligible for access.
+-   The GitHub provider allows you to specify which organizations and teams are eligible for access.
 
-![GitHub Form](../../img/Identity-provider-Github.png)
+-   The LDAP provider allows you to configure search filters for either users or groups.
 
-GitHub Form
+-   The OIDC provider cannot limit users based on identity.
 
-- The LDAP provider allows you to configure search filters for either users or groups.
+-   The SAML provider allows users to log in using a single sign-on (SSO) profile.
 
-![LDAP Form](../../img/Identity-provider-LDAP.png)
+### Configure an identity provider via the DKP UI
 
-LDAP Form
+1.  From the top menu bar, select the **Global** workspace.
 
-- The OIDC provider cannot limit users based on identity.
+1.  Select **Identity Providers** in the **Administration** section of the sidebar menu.
 
-![OIDC Form](../../img/Identity-provider-OIDC.png)
+1.  Select the **Identity Providers** tab, and then select the **+ Add Identity Provider** button.
 
-OIDC Form
+1.  Select an identity provider and complete the form field with the relevant details.
 
-- The SAML provider allows users to log in using a single sign-on (SSO) profile.
-
-![SAML Form](../../img/Identity-provider-SAML.png)
-
-SAML Form
+1.  Select **Save** to create your Identity Provider.
 
 ### Temporarily disabling a provider
 
-Open the actions menu on the Identity Providers table and click Disable. The provider option no longer appears on the login screen.
+Select the three dot button on the Identity Providers table and select **Disable** from the drop-down menu. The provider option no longer appears on the login screen.
 
-![Identity Provider Table Row Action Menu](../../img/Identity-provider-table-action-menu.png)
-
-Identity Provider Table Row Action Menu
+<img style="margin-top:0.85rem;" src="../../img/Identity-provider-table-action-menu.png" alt="Identity Provider Table Row Action Menu" width="500"/>
+<figcaption>Identity Provider Table Row Action Menu</figcaption>
 
 ## Groups
 
 Access control groups are configured in the Groups tab of the Identity Providers page. Refer to [Access Control](../../operations/access-control/) for an overview of groups in Kommander.
-
-![Identity Provider Groups](../../img/access-control-idp-groups.png)
-
-Identity Provider Groups
 
 <!--- ## Related Information
 

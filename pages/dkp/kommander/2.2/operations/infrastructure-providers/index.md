@@ -11,9 +11,13 @@ Infrastructure providers, like AWS, provide the infrastructure for your Konvoy c
 
 In order to provision new clusters and manage them, Kommander needs infrastructure provider credentials. Currently, AWS is supported.
 
+<p class="message--note"><strong>NOTE: </strong>Infrastructure provider credentials are configured in each workspace.</p>
+
 ### View and Modify Infrastructure Providers
 
-Infrastructure provider credentials are configured in each workspace, so you must first select a workspace. Then, navigate to the infrastructure providers option under Administration.
+1.  From the top menu bar, select your target workspace.
+
+1.  Select **Infrastructure Providers** in the **Administration** section of the sidebar menu.
 
 #### AWS
 
