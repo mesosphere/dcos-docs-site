@@ -88,7 +88,7 @@ The output should be similar to:
 
 ```text
 Generating addon resources
-clusterresourceset.addons.cluster.x-k8s.io/calico-cni-    installation-my-aws-cluster upgraded
+clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-my-aws-cluster upgraded
 configmap/calico-cni-installation-my-aws-cluster upgraded
 clusterresourceset.addons.cluster.x-k8s.io/tigera-operator-my-aws-cluster upgraded
 configmap/tigera-operator-my-aws-cluster upgraded
@@ -110,9 +110,7 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
 
 <p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.2/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
 
-1. Replace `my-aws-cluster` with the name of the cluster.
-
-2. Upgrade the Kubernetes version of the control plane.
+1. Upgrade the Kubernetes version of the control plane.
 
 ```bash
 dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
@@ -123,10 +121,10 @@ The output should be similar to:
 ```text
 Updating control plane resource controlplane.cluster.x-k8s.io/v1beta1, Kind=KubeadmControlPlane default/my-aws-cluster-control-plane
 Waiting for control plane update to finish.
- ✓ Updating the control plane ```
+ ✓ Updating the control plane
 ```
 
-3. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
+2. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
 
 ```bash
 export NODEPOOL_NAME=my-nodepool
@@ -141,6 +139,8 @@ Waiting for node pool update to finish.
 ```
 
 Repeat this step for each additional node pool.
+
+For the overall process for upgrading to the latest version of DKP, refer back to [DKP Upgrade][dkpup]
 
 [dkpup]: ../../
 [upgradekomm]: ../../upgrade-kommander/
