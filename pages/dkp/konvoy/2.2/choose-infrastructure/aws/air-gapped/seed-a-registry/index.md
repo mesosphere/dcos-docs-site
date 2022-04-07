@@ -14,7 +14,7 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 1.  Download the images bundle.
 
     ```bash
-    curl -o konvoy-image-bundle.tar.gz -O downloads.d2iq.com/dkp/v2.2.0/konvoy_image_bundle_v2.2.0_linux_amd64.tar.gz
+    curl -o konvoy-image-bundle.tar.gz -O https://downloads.d2iq.com/dkp/v2.2.0/konvoy_image_bundle_v2.2.0_linux_amd64.tar.gz
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private docker registry.
