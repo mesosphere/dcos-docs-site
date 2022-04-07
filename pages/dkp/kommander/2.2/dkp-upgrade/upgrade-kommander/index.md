@@ -20,6 +20,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 -   Review the [Platform Application version updates][release_notes] that are part of this upgrade.  
 -   For air-gapped environments **with** DKP Catalog Applications in a multi-cluster environment: [Load the Docker images into your Docker registry][load_images_catalog]
 -   For air-gapped environments **without** DKP Catalog Applications: [Load the Docker images into your Docker registry][load_images]
+-   For air-gapped environments only:
 
   Download the Kommander application definitions:
 
