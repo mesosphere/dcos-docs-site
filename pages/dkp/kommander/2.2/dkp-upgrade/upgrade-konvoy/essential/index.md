@@ -109,9 +109,7 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
 
 <p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.2/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
 
-1. Replace `my-aws-cluster` with the name of the cluster.
-
-2. Upgrade the Kubernetes version of the control plane.
+1. Upgrade the Kubernetes version of the control plane.
 
 ```bash
 dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
@@ -125,7 +123,7 @@ Waiting for control plane update to finish.
  ✓ Updating the control plane
 ```
 
-3. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
+2. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
 
 ```bash
 export NODEPOOL_NAME=my-nodepool
@@ -140,6 +138,8 @@ Waiting for node pool update to finish.
 ```
 
 Repeat this step for each additional node pool.
+
+For the overall process for upgrading to the latest version of DKP, refer back to [DKP Upgrade][dkpup] 
 
 [dkpup]: /dkp/kommander/2.2/dkp-upgrade/
 [upgradekomm]: ../../upgrade-kommander/
