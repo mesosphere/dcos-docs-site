@@ -55,9 +55,7 @@ kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/example created
  ✓ Creating default/example nodepool resources
 ```
 
-This example uses default values for brevity. Use flags to define %%% parm1, parm2, and other properties.
-
-Advanced users can use a combination of the `--dry-run` and `--output=yaml` flags to get a complete set of node pool objects to modify locally or store in version control.
+This example uses default values for brevity. Advanced users can use a combination of the `--dry-run` and `--output=yaml` flags to get a complete set of node pool objects to modify locally or store in version control.
 
 [makeselfmanaged]: ../../self-managed/
 [createnewcluster]: ../../new/

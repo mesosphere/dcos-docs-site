@@ -40,7 +40,7 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
 1.  Generate the Kubernetes cluster objects by copying and editing this command to include the correct values, including the VM template name you assigned in the previous procedure:
 
     ```bash
-    konvoy create cluster vsphere \
+    dkp create cluster vsphere \
       --cluster-name ${CLUSTER_NAME} \
       --network <NETWORK_NAME> \
       --control-plane-endpoint-host <xxx.yyy.zzz.000> \
