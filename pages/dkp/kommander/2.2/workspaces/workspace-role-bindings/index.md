@@ -20,4 +20,4 @@ You can assign a role to this Kommander Group:
 
 1.  Select the **Cluster Role Bindings** tab, and then select the **Add Roles** button next to the group you want.
 
-1.  Select the Role, or Roles, you want from the drop-down menu, and then select **Save**.
+1.  Select the Role, or Roles, you want from the drop-down menu and select **Save**.
