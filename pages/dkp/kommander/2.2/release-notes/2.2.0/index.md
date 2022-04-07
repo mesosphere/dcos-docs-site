@@ -12,7 +12,7 @@ beta: false
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
-**Note:** In DKP 2.2 the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above. 
+**Note:** In DKP 2.2 the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above.
 
 [Download](../../download/) and [install](../../install/) the latest version to get started.
 
@@ -52,11 +52,11 @@ You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](
 
 You can now use your laptop or USB drive to transfer pre-created air-gapped bundles, including OS dependencies and DKP binaries into your air-gapped environment with no external connectivity. This improves the availability of the DKP air-gapped deployment and productivity of your IT operations team.
 
-For more information, see the [air-gapped bundle](../../install/air-gapped) documentation. 
+For more information, see the [air-gapped bundle](../../install/air-gapped) documentation.
 
 ### Unified DKP user interfaces
 
-The unified DKP user interface provides a smooth experience independent of where you start your journey. Both DKP Essential and DKP Enterprise customers will have similar experiences in the User Interface, with DKP Enterprise customers gaining access to additional features and benefits simply by entering their DKP Enterprise [license key](../../licensing/). 
+The unified DKP user interface provides a smooth experience independent of where you start your journey. Both DKP Essential and DKP Enterprise customers will have similar experiences in the User Interface, with DKP Enterprise customers gaining access to additional features and benefits simply by entering their DKP Enterprise [license key](../../licensing/).
 
 ### DKP Insights
 
@@ -94,7 +94,7 @@ The following services and service components will be upgraded to the listed ver
 | kubernetes-dashboard                           | 5.0.2   |                                                                                                                           |
 | kubetunnel                                     | 0.0.8   |                                                                                                                           |
 | logging-operator                               | 3.15.0  |                                                                                                                           |
-| metallb                                        | 0.12.2  |                                                                                                                           |
+| metallb                                        | 0.12.1  |                                                                                                                           |
 | minio-operator                                 | 4.1.7   |                                                                                                                           |
 | nfs-server-provisioner                         | 0.6.0   |                                                                                                                           |
 | nvidia                                         | 0.4.3   |                                                                                                                           |
@@ -163,7 +163,7 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     ```bash
     # e.g., this value can be spark-operator-1
     export SPARK_APPD_NAME=$(kubectl get appdeployment -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[*]} {.metadata.name}{"\n"}{end}' | grep spark)
-    ``` 
+    ```
 1. Export the service account name of your `spark-operator`.
     ```bash
     # if your provided values override, please look it up in that ConfigMap
