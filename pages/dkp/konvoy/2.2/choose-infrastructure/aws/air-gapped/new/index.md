@@ -24,7 +24,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 1.  Set the environment variable to the name you assigned this cluster:
 
     ```bash
-    CLUSTER_NAME=my-aws-cluster
+    export CLUSTER_NAME=aws-example
     ```
 
     See [Get Started with AWS][createnewcluster] for information on naming your cluster.
