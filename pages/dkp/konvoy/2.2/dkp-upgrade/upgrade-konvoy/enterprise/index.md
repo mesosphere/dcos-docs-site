@@ -53,7 +53,7 @@ If you are running on more than one management cluster (Kommander cluster), you 
 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-1. Run the following upgrade command for the CAPI components.
+Run the following upgrade command for the CAPI components.
 
 ```bash
 dkp upgrade capi-components
@@ -76,11 +76,11 @@ To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API 
 
 <p class="message--warning"><strong>WARNING:</strong> If you have modified any of the <code>clusterResourceSet</code> definitions, these changes will <strong>not</strong> be preserved when running the command <code>dkp upgrade addons</code>. You must use the <code>--dry-run -o yaml</code> options to save the new configuration to a file and remake the same changes upon each upgrade.</p>
 
-Your cluster comes preconfigured with a few different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may come pre-bundled with newer versions of these addons. Perform the following steps to update these addons. If you have any additional managed clusters, you will need to upgrade the core addons and Kubernetes version for each one. 
+Your cluster comes preconfigured with a few different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may come pre-bundled with newer versions of these addons. Perform the following steps to update these addons. If you have any additional managed or attached clusters, you will need to upgrade the core addons and Kubernetes version for each one.
 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-1. Replace `my-aws-cluster` with the name of the cluster.
+Replace `my-aws-cluster` with the name of the cluster.
 
 ```bash
 export CLUSTER_NAME=my-aws-cluster
@@ -109,7 +109,7 @@ Once complete, begin upgrading the Kubernetes version.
 
 ## Upgrade the Kubernetes version
 
-When upgrading the Kubernetes version of a cluster, first upgrade the control plane and then the node pools. If you have any additional managed clusters, you will need to upgrade the core addons and Kubernetes version for each one.
+When upgrading the Kubernetes version of a cluster, first upgrade the control plane and then the node pools. If you have any additional managed or attached clusters, you will need to upgrade the core addons and Kubernetes version for each one.
 
 <p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.2/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
 
@@ -142,7 +142,7 @@ Waiting for node pool update to finish.
 ```
 Repeat this step for each additional node pool.
 
-If you have any additional management or managed clusters, review the [DKP Upgrade][dkpup] documentation for next steps.
+For the overall process for upgrading to the latest version of DKP, refer back to [DKP Upgrade][dkpup]
 
 [dkpup]: ../../
 [upgradekomm]: ../../upgrade-kommander/
