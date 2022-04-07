@@ -107,7 +107,7 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
           ansible_host: $CONTROL_PLANE_1_ADDRESS
         $CONTROL_PLANE_2_ADDRESS:
           ansible_host: $CONTROL_PLANE_2_ADDRESS
-        $CONTROL_PLANE_2_ADDRESS:
+        $CONTROL_PLANE_3_ADDRESS:
           ansible_host: $CONTROL_PLANE_3_ADDRESS
         $WORKER_1_ADDRESS:
           ansible_host: $WORKER_1_ADDRESS
