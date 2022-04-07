@@ -56,6 +56,7 @@ Datastax
 DC/OS
 dcos
 declaratively
+Devops
 (dex|Dex)
 (dispatch|Dispatch)
 distroless

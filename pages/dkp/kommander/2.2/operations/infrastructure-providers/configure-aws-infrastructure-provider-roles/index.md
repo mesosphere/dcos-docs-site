@@ -313,9 +313,11 @@ Replace `YOURACCOUNTRESTRICTION` with the AWS Account ID where the role you like
 
 ## Create Infrastructure Provider
 
-1.  In Kommander, select the Workspace associated with the credentials you are adding.
+1.  From the top menu bar, select your target workspace.
 
-1.  Go to **Administration > Infrastructure Providers** and select the **Add Infrastructure Provider** button.
+1.  Select **Infrastructure Providers** in the **Administration** section of the sidebar menu.
+
+1.  Select the **Add Infrastructure Provider** button.
 
 1.  Select the **Amazon Web Services (AWS)** option.
 
@@ -325,7 +327,7 @@ Replace `YOURACCOUNTRESTRICTION` with the AWS Account ID where the role you like
 
 1.  Enter the **Role ARN**.
 
-1.  You can add an **External ID** if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Here you can read more about External IDs][external_id].
+1.  You can add an **External ID** if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Read more about External IDs][external_id].
 
 1.  Select **Save** to save your provider.
 
