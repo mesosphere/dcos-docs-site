@@ -109,7 +109,7 @@ Once complete, begin upgrading the Kubernetes version.
 
 ## Upgrade the Kubernetes version
 
-When upgrading the Kubernetes version of a cluster, first upgrade the control plane and then the node pools. If you have any additional managed or attached clusters, you will need to upgrade the core addons and Kubernetes version for each one.
+When upgrading the Kubernetes version of a cluster, first upgrade the control plane and then the node pools. If you have any additional managed clusters, you will need to upgrade the core addons and Kubernetes version for each one.
 
 <p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.2/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
 
