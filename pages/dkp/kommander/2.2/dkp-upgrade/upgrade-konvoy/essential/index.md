@@ -21,7 +21,6 @@ menuWeight: 30
 
 * For AWS, set the required [environment variables][envariables2].
 
-
 The following infrastructure environments are supported:
 
 * Amazon Web Services (AWS)
@@ -88,7 +87,7 @@ The output should be similar to:
 
 ```text
 Generating addon resources
-clusterresourceset.addons.cluster.x-k8s.io/calico-cni-    installation-my-aws-cluster upgraded
+clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-my-aws-cluster upgraded
 configmap/calico-cni-installation-my-aws-cluster upgraded
 clusterresourceset.addons.cluster.x-k8s.io/tigera-operator-my-aws-cluster upgraded
 configmap/tigera-operator-my-aws-cluster upgraded
@@ -123,7 +122,7 @@ The output should be similar to:
 ```text
 Updating control plane resource controlplane.cluster.x-k8s.io/v1beta1, Kind=KubeadmControlPlane default/my-aws-cluster-control-plane
 Waiting for control plane update to finish.
- ✓ Updating the control plane ```
+ ✓ Updating the control plane
 ```
 
 3. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
