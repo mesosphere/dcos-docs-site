@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Cluster Applications
 title: Cluster Applications
 menuWeight: 50
-excerpt:
+excerpt: A guide for applications installed on your cluster
 ---
 
 ## Application Dashboards
@@ -30,5 +30,5 @@ Cluster applications can have one of the following statuses:
 
 Review the [workspace application resource requirements][application_req] to ensure that the attached clusters have sufficient resources. For more information on applications and how to customize them, see [workspace applications][workspace_applications].
 
-[workspace_applications]: ../../workspaces/applications/platform-applications/
-[application_req]: ../../workspaces/applications/platform-applications/platform-service-requirements/
+[workspace_applications]: ../../workspaces/applications/platform-applications
+[application_req]: ../../workspaces/applications/platform-applications/platform-service-requirements

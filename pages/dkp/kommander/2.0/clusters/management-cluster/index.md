@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Management Cluster
 title: Management Cluster
 menuWeight: 7
-excerpt:
+excerpt: A guide to the Management Cluster
 ---
 
 When you install Kommander, the host cluster is attached in the Kommander Workspace as the Management Cluster. This allows the Management Cluster to be included in [Projects](../../projects/)<!-- and enables the management of its [Platform Services](../../workspaces/workspace-platform-services/) from the Kommander Workspace-->.
