@@ -22,7 +22,9 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 1.  Set an environment variable with your registry address.
 
     ```bash
-    export DOCKER_REGISTRY_ADDRESS=registry-address>:<registry-port>
+    export DOCKER_REGISTRY_ADDRESS=<registry-address>:<registry-port>
+    export DOCKER_REGISTRY_USERNAME=<username>
+    export DOCKER_REGISTRY_PASSWORD=<password>
     ```
 
 2.  Run the following command to load the air-gapped image bundle into your private Docker registry.
