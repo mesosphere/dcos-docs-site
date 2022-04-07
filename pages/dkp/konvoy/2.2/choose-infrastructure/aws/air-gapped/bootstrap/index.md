@@ -11,7 +11,7 @@ enterprise: false
 
 Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which deploys a workload cluster. When the workload cluster is ready, move the cluster lifecycle services to the workload cluster, after which the workload cluster manages its own lifecycle.
 
-1.  Download the bootstrap docker image on a machine that has access to the tar.
+1.  Download the bootstrap docker image on a machine that has access to this artifact.
 
     ```docker
     curl -O https://downloads.d2iq.com/dkp/v2.2.0/konvoy-bootstrap_v2.2.0.tar
