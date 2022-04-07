@@ -39,4 +39,4 @@ dkp binary is placed in the local directory, to run:
 ./dkp --help
 ```
 
-You will now see two binaries: `dkp` and `kommander` in your working directory. Follow the [Kommander installation instructions](../install/networked) using these binaries, and then [add your license](../licensing/add/) to Kommander. If you have problems downloading or installing Kommander, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.
+You will now see the dkp binary in your working directory. Follow the [Kommander installation instructions](../install/networked) using these binaries, and then [add your license](../licensing/add/) to Kommander. If you have problems downloading or installing Kommander, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.
