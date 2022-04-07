@@ -49,7 +49,7 @@ New versions of DKP come pre-bundled with newer versions of CAPI, newer versions
 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-1. Run the following upgrade command for the CAPI components.
+Run the following upgrade command for the CAPI components.
 
 ```bash
 dkp upgrade capi-components
@@ -76,7 +76,7 @@ Your cluster comes preconfigured with a few different core addons that provide f
 
 <p class="message--warning"><strong>IMPORTANT:</strong>If you have more than one essential cluster, ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-1. Replace `my-aws-cluster` with the name of the cluster.
+Replace `my-aws-cluster` with the name of the cluster.
 
 ```bash
 export CLUSTER_NAME=my-aws-cluster
@@ -139,7 +139,7 @@ Waiting for node pool update to finish.
 
 Repeat this step for each additional node pool.
 
-For the overall process for upgrading to the latest version of DKP, refer back to [DKP Upgrade][dkpup] 
+For the overall process for upgrading to the latest version of DKP, refer back to [DKP Upgrade][dkpup]
 
 [dkpup]: /dkp/kommander/2.2/dkp-upgrade/
 [upgradekomm]: ../../upgrade-kommander/

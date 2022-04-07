@@ -53,7 +53,7 @@ If you are running on more than one management cluster (Kommander cluster), you 
 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-1. Run the following upgrade command for the CAPI components.
+Run the following upgrade command for the CAPI components.
 
 ```bash
 dkp upgrade capi-components
@@ -80,7 +80,7 @@ Your cluster comes preconfigured with a few different core addons that provide f
 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-1. Replace `my-aws-cluster` with the name of the cluster.
+Replace `my-aws-cluster` with the name of the cluster.
 
 ```bash
 export CLUSTER_NAME=my-aws-cluster
