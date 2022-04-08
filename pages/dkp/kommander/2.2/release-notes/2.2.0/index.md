@@ -278,7 +278,7 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     metadata:
     name: spark-operator
     annotations:
-        "helm.sh/hook": pre-install
+        "helm.sh/hook": pre-install, pre-upgrade
         "helm.sh/hook-delete-policy": hook-failed, before-hook-creation
     labels:
         app.kubernetes.io/instance: spark-operator
