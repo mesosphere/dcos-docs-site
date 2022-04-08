@@ -170,15 +170,6 @@ Once all components have been deployed, you can log in to Kaptain:
     kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
     ```
 
-## Uninstall Kaptain
-
-* Use the following commands to uninstall Kaptain.
-  ```bash
-  kubectl kudo uninstall --instance kaptain --namespace kubeflow --wait
-  kubectl delete operatorversions.kudo.dev kubeflow-1.4.0-1.3.0 --namespace kubeflow
-  kubectl delete operators.kudo.dev kubeflow --namespace kubeflow
-  ```
-
 [download]: ../../download/
 [install-spark-dkp2]: /dkp/kommander/2.1/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
 [install-spark-konvoy1]: /dkp/kommander/1.4/projects/platform-services/platform-services-catalog/kudo-spark/
