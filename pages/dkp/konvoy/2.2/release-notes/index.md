@@ -69,7 +69,7 @@ This new predictive analytics tool provides greater support productivity, speed,
 
 ## Component updates
 
-The following services and service components will be upgraded to the listed version:
+When upgrading to this release, the following services and service components are upgraded to the listed version:
 
 Platform Application | Version | Component Versions |
 |--------------------- |---------|--------------------|
