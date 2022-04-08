@@ -74,7 +74,7 @@ Consider the additional resource requirements for running the platform services 
 
 ## Attach clusters with an existing cert-manager installation
 
-If you are attaching clusters that already have cert-manager installed, the cert-manager HelmRelease provided by Kommander will fail to deploy, due to your existing cert-manager installation. As long as the pre-existing cert-manager functions as expected, you can ignore this.
+If you are attaching clusters that already have cert-manager installed, the cert-manager HelmRelease provided by Kommander will fail to deploy, due to the existing cert-manager installation. As long as the pre-existing cert-manager functions as expected, you can ignore this failure, it will have no impact on the operation of the cluster.
 
 [attach_eks_cluster]: ../attach-eks-cluster
 [attach_with_network_restrictions]: ../cluster-with-network-restrictions
