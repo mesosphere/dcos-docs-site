@@ -8,7 +8,7 @@ enterprise: false
 beta: false
 ---
 
-**D2iQ&reg; Kommander&reg; (DKP&reg;) version 2.2 was released on April 6, 2022.**
+**D2iQ&reg; Kommander&reg; (DKP&reg;) version 2.2 was released on April 8, 2022.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
