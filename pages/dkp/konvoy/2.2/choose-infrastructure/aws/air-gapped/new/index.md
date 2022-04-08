@@ -24,7 +24,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 1.  Set the environment variable to the name you assigned this cluster:
 
     ```bash
-    CLUSTER_NAME=my-aws-cluster
+    export CLUSTER_NAME=aws-example
     ```
 
     See [Get Started with AWS][createnewcluster] for information on naming your cluster.
@@ -41,7 +41,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     - `AWS_VPC_ID`: the VPC ID where the cluster will be created. The VPC requires the `ec2`, `elasticloadbalancing`, `secretsmanager` and `autoscaling` VPC endpoints to be already present.
     - `AWS_SUBNET_IDS`: a comma-separated list of one or more private Subnet IDs with each one in a different Availability Zone. The cluster control-plane and worker nodes will automatically be spread across these Subnets.
     - `AWS_ADDITIONAL_SECURITY_GROUPS`: a comma-seperated list of one or more Security Groups IDs to use in addition to the ones automatically created by [CAPA][capa].
-    - `AWS_AMI_ID`: the AMI ID to use for control-plane and worker nodes. The AMI must be created by the [konvoy-image-builder][konvoy-image-builder] project. They will have container images "baked into" them. You can find the list of container images in this [ansible task][ansible-task-images]
+    - `AWS_AMI_ID`: the AMI ID to use for control-plane and worker nodes. The AMI must be created by the [konvoy-image-builder][konvoy-image-builder] project as described on the previous page.
 
     <p class="message--important"><strong>IMPORTANT: </strong>You must tag the subnets as described below to allow for Kubernetes to create ELBs for services of type <code>LoadBalancer</code> in those subnets. If the subnets are not tagged, they will not receive an ELB and the following error displays: <code>Error syncing load balancer, failed to ensure load balancer; could not find any suitable subnets for creating the  ELB.</code>.</p>
 
@@ -49,23 +49,27 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
     ```bash
     kubernetes.io/cluster = <CLUSTER_NAME>
-    kubernetes.io/cluster/CLUSTER_NAME = owned
+    kubernetes.io/cluster/<CLUSTER_NAME> = owned
     kubernetes.io/role/internal-elb = 1
     ```
 
-1.  Configure your cluster to use an existing Docker registry as a mirror when attempting to pull images:
+2.  Configure your cluster to use an existing Docker registry as a mirror when attempting to pull images:
 
     <p class="message--important"><strong>IMPORTANT: </strong>The AMI must be created by the <a href="https://github.com/mesosphere/konvoy-image-builder">konvoy-image-builder</a> project in order to use the registry mirror feature.</p>
 
     ```bash
     export DOCKER_REGISTRY_ADDRESS=<https/http>://<registry-address>:<registry-port>
     export DOCKER_REGISTRY_CA=<path to the CA on the bastion>
+    export DOCKER_REGISTRY_USERNAME=<username>
+    export DOCKER_REGISTRY_PASSWORD=<password>
     ```
 
     - `DOCKER_REGISTRY_ADDRESS`: the address of an existing Docker registry accessible in the VPC that the new cluster nodes will be configured to use a mirror registry when pulling images.
     - `DOCKER_REGISTRY_CA`: (optional) the path on the bastion machine to the Docker registry CA. Konvoy will configure the cluster nodes to trust this CA. This value is only needed if the registry is using a self-signed certificate and the AMIs are not already configured to trust this CA.
+    - `DOCKER_REGISTRY_USERNAME`: optional, set to a user that has pull access to this registry.
+    - `DOCKER_REGISTRY_PASSWORD`: optional if username is not set.
 
-1.  Create a Kubernetes cluster:
+3.  Create a Kubernetes cluster:
 
     ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
@@ -75,10 +79,12 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     --internal-load-balancer=true \
     --additional-security-group-ids=${AWS_ADDITIONAL_SECURITY_GROUPS} \
     --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
-    --registry-mirror-cacert=${DOCKER_REGISTRY_CA}
+    --registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
+    --registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
+    --registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
     ```
 
-1.  (Optional) The Control Plane and Worker nodes can be configured to use an HTTP proxy:
+4.  (Optional) The Control Plane and Worker nodes can be configured to use an HTTP proxy:
 
     ```bash
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
@@ -99,7 +105,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     - `169.254.169.254` is the AWS metadata server
     - `.elb.amazonaws.com` is for the worker nodes to allow them to communicate directly to the kube-apiserver ELB
 
-1.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
+5.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
 
     ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
@@ -110,6 +116,8 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     --additional-security-group-ids=${AWS_ADDITIONAL_SECURITY_GROUPS} \
     --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
     --registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
+    --registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
+    --registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
     --control-plane-http-proxy="${CONTROL_PLANE_HTTP_PROXY}" \
     --control-plane-https-proxy="${CONTROL_PLANE_HTTPS_PROXY}" \
     --control-plane-no-proxy="${CONTROL_PLANE_NO_PROXY}" \
@@ -118,13 +126,13 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     --worker-no-proxy="${WORKER_NO_PROXY}"
     ```
 
-1.  Inspect the created cluster resources:
+6.  Inspect the created cluster resources:
 
     ```bash
     kubectl get clusters,kubeadmcontrolplanes,machinedeployments
     ```
 
-1.  Wait for the cluster control-plane to be ready:
+7.  Wait for the cluster control-plane to be ready:
 
     ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m

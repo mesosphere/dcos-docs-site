@@ -12,5 +12,7 @@ Konvoy comes with default override files:
 
 - [FIPS](../../../fips/) override file.
 - [Nvidia](../../../choose-infrastructure/aws/gpu/) override file.
+- Offline override file.
+- Offline for FIPS override file.
 
 You can find these override files in the [Konvoy Image Builder repo](https://github.com/mesosphere/konvoy-image-builder/tree/main/overrides).
