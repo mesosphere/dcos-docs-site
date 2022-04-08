@@ -10,7 +10,7 @@ enterprise: false
 
 ## Uninstall Kaptain
 
--   Use the following commands to uninstall Kaptain.
+-   Use the following commands to uninstall Kaptain:
 
     ```bash
     kubectl kudo uninstall --instance kaptain --namespace kubeflow --wait
