@@ -96,6 +96,12 @@ helmrelease.helm.toolkit.fluxcd.io/traefik-forward-auth-mgmt condition met
 helmrelease.helm.toolkit.fluxcd.io/velero condition met
 ```
 
+If you find any `HelmReleases` in a "broken" release state such as "exhausted" or "another rollback/release in progress", you can trigger a reconciliation of the `HelmRelease` using the following command:
+
+```bash
+kubectl annotate --overwrite helmrelease/<HELMRELEASE_NAME> -n <WORKSPACE_NAMESPACE> reconcile.fluxcd.io/requestedAt="$(date +%s)"
+```
+
 ## Access Kommander Web UI
 
 When all the `HelmReleases` are ready, use the following command to open the Kommander dashboard in your browser:
