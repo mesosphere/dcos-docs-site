@@ -90,7 +90,7 @@ The following services and service components will be upgraded to the listed ver
 | kubecost | 0.23.3 | - chart: 0.23.3<br>- cost-analyzer: 1.91.2 |
 | kubefed | 0.9.1 | - chart: 0.9.1<br>- kubefed: 0.9.1 |
 | kubernetes-dashboard | 5.1.1 | - chart: 5.1.1<br>- kubernetes-dashboard: 2.4.0 |
-| kubetunnel | 0.0.11 | kubetunnel: 0.0.11<br>- kubetunnel: 0.0.11 |
+| kubetunnel | 0.0.11 | - chart: 0.0.11<br>- kubetunnel: 0.0.11 |
 | logging-operator | 3.17.2 | - chart: 3.17.2<br>- logging-operator: 3.17.2 |
 | minio-operator | 4.4.10 | - chart: 4.4.10<br>- minio: 4.4.10 |
 | nfs-server-provisioner | 0.6.0 | - chart: 0.6.0<br>- nfs-provisioner: 2.3.0 |
