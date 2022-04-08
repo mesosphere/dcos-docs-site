@@ -76,6 +76,8 @@ Consider the additional resource requirements for running the platform services 
 
 If you are attaching clusters that already have cert-manager installed, the cert-manager `HelmRelease` provided by Kommander will fail to deploy, due to the existing cert-manager installation. As long as the pre-existing cert-manager functions as expected, you can ignore this failure, it will have no impact on the operation of the cluster.
 
+<p class="message--note"><strong>NOTE: </strong>Clusters provisioned using `dkp` (Konvoy2 clusters) have cert-manager installed. Kommander's cert-manager `HelmRelease` will fail to deploy on a Konvoy cluster.</p>
+
 [attach_eks_cluster]: ../attach-eks-cluster
 [attach_with_network_restrictions]: ../cluster-with-network-restrictions
 [existing-clusters]: ../generate-kubeconfig
