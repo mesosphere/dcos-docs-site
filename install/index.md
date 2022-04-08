@@ -9,6 +9,7 @@ enterprise: false
 ---
 
 <p class="message--important"><strong>IMPORTANT: </strong>Refer to the [Kaptain migration instructions], if you already have Kaptain and want to move from 1.x to 2.x.</p>
+<--! need to add a link to migration docs here -->
 
 You can install Kaptain:
 
