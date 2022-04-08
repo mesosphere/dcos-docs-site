@@ -13,12 +13,12 @@ The DKP upgrade represents an important step of your environment's lifecycle, as
 
 Verified upgrade paths are as follows:
 
-| To    | From | 1.8.4 | 1.8.5 | 2.1.0 | 2.1.1 |
-|-------|------|:-----:|:-----:|:-----:|:-----:|
-| 1.8.5 |      | Yes   |       |       |       |
-| 2.1.0 |      | Yes   | Yes   |       |       |
-| 2.1.1 |      | Yes   | Yes   | No    |       |
-| 2.2.0 |      | No    | No    | Yes   | Yes   |
+| From Version | To Version |       |       |
+| :----------: | :--------: | :---: | :---: |
+|    1.8.4     |   1.8.5    | 2.1.0 | 2.1.1 |
+|    1.8.5     |   2.1.0    | 2.1.1 |       |
+|    2.1.0     |   2.2.0    |       |       |
+|    2.1.1     |   2.2.0    |       |       |
 
 ## Understand the upgrade process
 
