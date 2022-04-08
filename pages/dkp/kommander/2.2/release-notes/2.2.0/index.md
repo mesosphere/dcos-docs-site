@@ -315,6 +315,11 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     namespace: $WORKSPACE_NAMESPACE
     EOF
     ```
+1. if you want to force a pod recreation, you can delete the old pod in `CrashLoopBackoff` by running
+   ```bash
+   kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')
+   ```
+
 #### Default update strategy changed to "delete first" for Preprovisioned clusters
 
 A "create first" update strategy first creates a new machine, then deletes the old one. While this strategy works when machine inventory can grow on demand, it does not work if there is a fixed number of machines. Most Preprovisioned clusters have a fixed number of machines. To enable updates for Preprovisioned clusters, DKP uses the "delete first" update strategy, which first deletes an old machine, then creates a new one.
