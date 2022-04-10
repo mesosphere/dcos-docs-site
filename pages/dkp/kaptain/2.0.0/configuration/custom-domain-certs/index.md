@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 Learn how to configure a custom domain name with TLS certificates trusted by your organization.
-This will permit browsers to validate the certificate for the Kaptain endpoint that users log on to to access the main Kaptain UI, the central dashboard.
+This will permit browsers to validate the certificate for the Kaptain endpoint that users log on to access the main Kaptain UI, the central dashboard.
 
 ## Prerequisites
 
