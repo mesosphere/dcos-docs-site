@@ -32,7 +32,7 @@ resources were created, completed, or failed:
 ![Jobs](img/jobs.png)
 
 The "System Resources" section is all about resource consumption. The graphs show how many resources are being used
-by workloads in the user's namespace. There are three graphs for each type of resource:
+by workloads in the user's namespace. Kaptain has three graphs for each type of resource:
 
 ![System Resources](img/system-resources.png)
 
