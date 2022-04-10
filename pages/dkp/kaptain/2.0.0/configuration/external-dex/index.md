@@ -131,7 +131,7 @@ helm status kaptain
 ```
 
 ## Add the redirect URL to Kaptain authentication service in the management cluster
-Once Kaptain is up, get the redirect URL from Kaptain's authservice by running the following command on the managed cluster:
+Once Kaptain is up, get the redirect URL from Kaptain's auth service by running the following command on the managed cluster:
 ```bash
 kubectl exec -it -n kubeflow authservice-0 -- sh -c 'echo $REDIRECT_URL'
 ```
