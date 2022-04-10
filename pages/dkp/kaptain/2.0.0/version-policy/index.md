@@ -19,7 +19,7 @@ Kaptain 1.3.0 runs on DKP 2.1.1, Konvoy 1.7 and 1.8.
 
 ## Supported Kommander Versions
 
-Kaptain 1.3.0 cannot be installed from Kommander or as an add-on.
+Kaptain 1.3.0 cannot be installed from Kommander or as an add on.
 
 Note that it is possible to use [Kommander's Dex instance](../configuration/external-dex) for authenticating users in Kaptain.
 
