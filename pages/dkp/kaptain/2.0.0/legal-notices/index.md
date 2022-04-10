@@ -7,7 +7,7 @@ excerpt: List of Third-party trademarks mentioned in the Kaptain documentation
 render: mustache
 ---
 
-D2iQ&reg; and its licensors are the owners of all right, title and interest in and to D2iQ software products, the documentation, all updates, upgrades, and derivative works thereto, and all intellectual property rights therein.  D2iQ software products may additionally include third-party open source software.
+D2iQ&reg; and its licensors are the owners of all right, title and interest in and to D2iQ software products, the documentation, all updates, upgrades, and derivative works thereto, and all intellectual property rights therein. D2iQ software products may additionally include third-party open source software.
 
 # Trademarks and Registered Trademarks
 
