@@ -25,7 +25,7 @@ For examples of garbage collection for Katib experiments, see the [Hyperparamete
 
 ### Support for model building/deploying using non-deep learning frameworks
 
-With Kaptain SDK version 1.0.0, users can build and deploy models using frameworks even if they aren't supported in Kaptain. The SDK API is made more generic by using Kubernetes Jobs.
+With Kaptain SDK version 1.0.0, users can build and deploy models using frameworks even if they are not supported in Kaptain. The SDK API is made more generic by using Kubernetes Jobs.
 For an example using scikit-learn, see [Quickstart Tutorial](../../tutorials/sdk/quick-start/)
 
 ### Models page
