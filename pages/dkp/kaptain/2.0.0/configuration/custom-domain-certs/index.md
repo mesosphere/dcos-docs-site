@@ -61,7 +61,7 @@ kubectl kudo plan status --instance kaptain -n kubeflow
 
 ## Create or update the DNS record for the Kaptain gateway
 
-To update the DNS record to point at your Kaptain installation, you must obtain either the Kaptain gateway IP, or the Kaptain gateway load balancer hostname if you run Kaptain in a public cloud.  This information can be obtained by running the following commands.
+To update the DNS record to point at your Kaptain installation, you must obtain either the Kaptain gateway IP, or the Kaptain gateway load balancer hostname if you run Kaptain in a public cloud. This information can be obtained by running the following commands.
 
 To obtain the Kaptain gateway IP:
 ```bash
