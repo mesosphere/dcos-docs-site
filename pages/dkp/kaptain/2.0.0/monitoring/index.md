@@ -7,7 +7,7 @@ menuWeight: 12
 ---
 
 Monitoring is one of the most important aspects of any machine learning workflow. Kaptain Dashboard is a single pane
-of glass allowing Kaptain users (e.g., data scientists) to see the current status of their machine learning workloads
+of glass allowing Kaptain users (for example data scientists) to see the current status of their machine learning workloads
 and how many resources they are consuming. With the dashboard, users can observe the state of their ML workloads without
 having to piece together information from various sources.
 
