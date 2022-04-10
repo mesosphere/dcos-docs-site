@@ -26,7 +26,7 @@ number of active notebooks, pipelines, ML experiments, and trials:
 
 ![Data](img/data.png)
 
-In the "Jobs" section, users can get the current state of machine learning jobs, e.g., how many `TFJob` or `PytorchJob`
+In the "Jobs" section, users can get the current state of machine learning jobs, for example how many `TFJob` or `PytorchJob`
 resources were created, completed, or failed:
 
 ![Jobs](img/jobs.png)
