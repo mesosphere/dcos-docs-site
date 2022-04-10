@@ -50,7 +50,7 @@ NAME       READY   AGE
 notebook   0/0     13m
 ```
 
-You can *resume* the notebook from the UI later, and the corresponding StatefulSet is scaled back to 1 replica if there are sufficient resources on the cluster.   The workspace volume is automatically attached to the resumed notebook.
+You can *resume* the notebook from the UI later, and the corresponding StatefulSet is scaled back to 1 replica if there are sufficient resources on the cluster. The workspace volume is automatically attached to the resumed notebook.
 
 The notebook culling feature is disabled by default. To enable it, set the `notebookEnableCulling` parameter to `true` during the installation or update the existing Kaptain instance using the following command:
 
