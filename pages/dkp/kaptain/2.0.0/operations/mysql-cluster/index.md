@@ -25,7 +25,7 @@ Horizontally scaling the database nodes will result in more replicas of the data
 
 To achieve better performance, the database nodes should be scaled vertically by adding more resources, such as CPU and memory.
 
-<p class="message--warning"><strong>WARNING: </strong>The Kaptain MySQL cluster does not support simultaneous changes to the database resources and the number of database nodes at the same time. If changes in both are required, you should perform them sequentially (i.e. increase resources, and then scale, or vice versa.)</p>
+<p class="message--warning"><strong>WARNING: </strong>The Kaptain MySQL cluster does not support simultaneous changes to the database resources and the number of database nodes at the same time. If changes in both are required, you should perform them sequentially (that is increase resources, and then scale, or vice versa.)</p>
 
 <p class="message--warning"><strong>WARNING: </strong>The Kaptain MySQL cluster does not support updates of Proxy nodes and MySQL nodes at the same time. Update operations should be performed for each component independently.</p>
 
