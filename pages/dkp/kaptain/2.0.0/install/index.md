@@ -21,6 +21,7 @@ The infrastructure you select determines the specific requirements for a success
 ## Prerequisites
 
 - A Konvoy 1.8 / DKP 2.1 cluster with the following addons / platform applications enabled:
+
   - Istio
   - Knative
 
