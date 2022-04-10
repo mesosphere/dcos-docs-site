@@ -41,7 +41,7 @@ In DKP 2.1, Kaptain's dependencies are managed through Kommander, the centralize
 
 * Fixed Kaptain redirectUrl is missing the hostname (COPS-7138)
 
-* Fixed the issue with a notebook doesn't mount notebook volume on the correct mountpoint (COPS-7064)
+* Fixed the issue with a notebook does not mount notebook volume on the correct mount point (COPS-7064)
 
 * Document how to use `requirements.txt` to add additional python dependencies to notebooks
 
