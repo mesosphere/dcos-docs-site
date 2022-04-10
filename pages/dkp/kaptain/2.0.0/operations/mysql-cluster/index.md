@@ -81,7 +81,7 @@ kubectl kudo update \
 		--namespace kubeflow
 ```
 
-<p class="message--warning"><strong>WARNING: </strong>When scaling the existing database cluster down (i.e. decreasing the number of nodes), it is possible for clients to lose connectivity if the leader node is decommissioned. Once a new leader is elected, the clients will be able to reconnect.</p>
+<p class="message--warning"><strong>WARNING: </strong>When scaling the existing database cluster down (that is decreasing the number of nodes), it is possible for clients to lose connectivity if the leader node is decommissioned. Once a new leader is elected, the clients will be able to reconnect.</p>
 
 ## Configuring MySQL cluster resources
 
