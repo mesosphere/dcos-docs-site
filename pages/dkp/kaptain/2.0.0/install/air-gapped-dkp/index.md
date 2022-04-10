@@ -17,11 +17,12 @@ Kaptain supports installation on an air-gapped (a.k.a. offline or private) Konvo
 ### Prerequisites for DKP 2.x
 
 For DKP 2.x, ensure the following applications are enabled in Kommander:
-* Use the existing Kommander configuration file, or initialize the default one:  
+
+- Use the existing Kommander configuration file, or initialize the default one:
   ```
   kommander install --init > kommander-config.yaml
   ```
-* Ensure the following applications are enabled in the config:
+- Ensure the following applications are enabled in the config:
   ```yaml
   apiVersion: config.kommander.mesosphere.io/v1alpha1
   kind: Installation
@@ -35,13 +36,13 @@ For DKP 2.x, ensure the following applications are enabled in Kommander:
     minio-operator:
     traefik:
     nvidia:  # to enable GPU support
-    ...   
+    ...
   ```
-* Apply the new configuration to Kommander:
+- Apply the new configuration to Kommander:
   ```
   kommander install --installer-config kommander-config.yaml
   ```
-Check [Kommander installation documentation][kommander-install] for more information.
+  Check [Kommander installation documentation][kommander-install] for more information.
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
@@ -51,38 +52,39 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
 ### Load the Docker images into your Docker registry
 
 1. Download the image bundle file:
-    * Download `kaptain_air_gapped.tar` that will contain the required artifacts to perform an air-gapped installation.
-    * (Optional) Download the custom image artifacts `kaptain_air_gapped_cpu.tar` or `kaptain_air_gapped_gpu.tar` based on whether you need CPU or GPU for your workloads.
+
+   - Download `kaptain_air_gapped.tar` that will contain the required artifacts to perform an air-gapped installation.
+   - (Optional) Download the custom image artifacts `kaptain_air_gapped_cpu.tar` or `kaptain_air_gapped_gpu.tar` based on whether you need CPU or GPU for your workloads.
 
 2. Place the bundle in a location where you can load and push the images to your private Docker registry.
 
 3. Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air gapped image bundle:
 
-    ```bash
-    #!/usr/bin/env bash
-    set -euo pipefail
-    IFS=$'\n\t'
+   ```bash
+   #!/usr/bin/env bash
+   set -euo pipefail
+   IFS=$'\n\t'
 
-    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kaptain-image-bundle.tar"}
-    readonly REGISTRY_URL=${REGISTRY_URL#https://}
+   readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kaptain-image-bundle.tar"}
+   readonly REGISTRY_URL=${REGISTRY_URL#https://}
 
-    docker load --input "${AIRGAPPED_TAR_FILE}"
+   docker load --input "${AIRGAPPED_TAR_FILE}"
 
-    while read -r IMAGE; do
-        echo "Processing ${IMAGE}"
-        REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker|k8s.gcr|nvcr).io|public.ecr.aws|mcr.microsoft.com@${REGISTRY_URL}@")"
-        docker image tag "${IMAGE}" "${REGISTRY_IMAGE}"
-        docker image push "${REGISTRY_IMAGE}"
-    done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
-    ```
+   while read -r IMAGE; do
+       echo "Processing ${IMAGE}"
+       REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker|k8s.gcr|nvcr).io|public.ecr.aws|mcr.microsoft.com@${REGISTRY_URL}@")"
+       docker image tag "${IMAGE}" "${REGISTRY_IMAGE}"
+       docker image push "${REGISTRY_IMAGE}"
+   done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
+   ```
 
-    *Note: this script is slightly different than the Kommander load script and has different image registry filters.*
+   _Note: this script is slightly different than the Kommander load script and has different image registry filters._
 
-    Based on the network latency between the environment of script execution and the Docker registry as well as the disk speed, this can take a while to upload all the images to your image registry.
+   Based on the network latency between the environment of script execution and the Docker registry as well as the disk speed, this can take a while to upload all the images to your image registry.
 
 ### Install Kaptain
 
-* When the Konvoy cluster is ready and the images are pushed to the registry, [install Kaptain][install-kaptain].
+- When the Konvoy cluster is ready and the images are pushed to the registry, [install Kaptain][install-kaptain].
 
 [install-kaptain]: ../konvoy-dkp/
 [install-spark-dkp2]: /dkp/kommander/2.1/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
