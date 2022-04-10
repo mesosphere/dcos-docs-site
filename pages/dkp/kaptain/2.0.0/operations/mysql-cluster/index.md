@@ -200,7 +200,7 @@ aws s3 ls s3://kaptain-backup/
 
 <p class="message--warning"><strong>WARNING: </strong>The restore operation will terminate the running MySQL cluster and delete all the existing data. The data from the backup will be used to bootstrap a new cluster. The restore operation introduces downtime for the duration of the restore process.</p>
 
-There are two options for restoring the database cluster from a backup:
+Restoring the database cluster from a backup is possible in two ways:
 * Using the latest backup created by running a KUDO backup plan
 * Using a selected backup. For example, an older one.
 
