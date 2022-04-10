@@ -21,7 +21,7 @@ By default, the MySQL cluster is based on Percona XtraDB, and consists of 3 data
 
 The database nodes form a primary-primary database cluster. This means there are no secondary nodes; That is all data is consistent across all the cluster nodes whenever a database operation completes successfully.
 
-Horizontally scaling the database nodes will result in more replicas of the data available for recovery in case of a failure.  However, it will not result in better performance because of the replication model.
+Horizontally scaling the database nodes will result in more replicas of the data available for recovery in case of a failure. However, it will not result in better performance because of the replication model.
 
 To achieve better performance, the database nodes should be scaled vertically by adding more resources, such as CPU and memory.
 
