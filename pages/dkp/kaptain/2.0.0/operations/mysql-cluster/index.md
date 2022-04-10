@@ -19,7 +19,7 @@ and Katib experiment results.
 ## Overview
 By default, the MySQL cluster is based on Percona XtraDB, and consists of 3 database nodes and 2 proxy nodes. The database nodes run MySQL daemons and store the data, and the proxy nodes run HAProxy and expose the database to the clients via a Kubernetes Service.
 
-The database nodes form a primary-primary database cluster.  This means there are no secondary nodes; i.e. all data is consistent across all the cluster nodes whenever a database operation completes successfully.
+The database nodes form a primary-primary database cluster. This means there are no secondary nodes; That is all data is consistent across all the cluster nodes whenever a database operation completes successfully.
 
 Horizontally scaling the database nodes will result in more replicas of the data available for recovery in case of a failure.  However, it will not result in better performance because of the replication model.
 
