@@ -176,7 +176,7 @@ the garbage collection settings:
 
 After updating the settings, run `konvoy deploy addons` to apply the changes.
 
-<p class="message--note"><strong>NOTE: </strong>The Knative Controller automatically reloads configuration changes when the addon is updated. However, this doesn't trigger an automatic revision cleanup. The cleanup will be performed upon the next service version deployment.</p>
+<p class="message--note"><strong>NOTE: </strong>The Knative Controller automatically reloads configuration changes when the addon is updated. However, this does not trigger an automatic revision cleanup. The cleanup will be performed upon the next service version deployment.</p>
 
 ### Example configurations
 If you only need to keep the latest revision of each model, the following settings can be used:
