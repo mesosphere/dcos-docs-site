@@ -109,7 +109,7 @@ This setting specifies the `ttlSecondsAfterFinished` property in the Argo Workfl
 ### Setting global TTL for completed Pipelines
 
 Kaptain has a global configuration property that allows you to set the default TTL for all created Pipelines; Workflow objects are deleted after the specified amount of time. The default value for this property is 24 hours. However, this property only affects the Pipeline API Server; the Argo Workflow controller does not use this property.
-While Notebook users can set this property via the DSL, they cannot specify a longer interval than the global property setting.  The Pipeline component always uses the smaller of the two specified TTL values between the DSL config and the global property.  Because workflow objects can be useful in debugging, we recommend choosing a conservative value for the global property value.
+While Notebook users can set this property via the DSL, they cannot specify a longer interval than the global property setting. The Pipeline component always uses the smaller of the two specified TTL values between the DSL config and the global property. Because workflow objects can be useful in debugging, we recommend choosing a conservative value for the global property value.
 <p class="message--note"><strong>NOTE: </strong> The metadata information that belongs to the Pipeline run is available in the Pipeline UI after the Argo Workflow custom resource is deleted. However, the Pipeline task (step)-level Pod information and logs are not available after the workflow deletion because these are retrieved directly from the workflow custom resource.</p>
 
 To set the default TTL for all Pipelines, install or update Kaptain instance with the following parameter:
