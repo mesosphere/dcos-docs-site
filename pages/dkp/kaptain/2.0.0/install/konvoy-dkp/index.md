@@ -82,7 +82,7 @@ For cloud installations, scaling out can be limited by resource quotas.
   1. Apply the new configuration to Kommander:
 
   ```bash
-  kommander install --installer-config kommander-config.yaml
+  dkp install kommander --installer-config kommander-config.yaml
   ```
 
   Check [Kommander installation documentation][kommander-install] for more information.
