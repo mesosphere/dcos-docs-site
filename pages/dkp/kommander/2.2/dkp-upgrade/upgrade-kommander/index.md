@@ -46,7 +46,6 @@ This section describes how to upgrade your Kommander Management cluster and all 
   1. Pause the helm release.
   ```bash
   kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
   ```
   ```sh
   helmrelease.helm.toolkit.fluxcd.io/metallb patched
@@ -125,7 +124,10 @@ Before running the following command, ensure that your `dkp` configuration **ref
     An output similar to this appears:
 
     ```bash
-    $ dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
+    dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
+    ```
+    
+    ```sh
     ✓ Ensuring upgrading conditions are met
     ✓ Ensuring application definitions are updated
     ✓ Ensuring helm-mirror implementation is migrated to chartmuseum
