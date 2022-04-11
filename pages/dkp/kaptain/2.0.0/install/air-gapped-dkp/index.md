@@ -20,7 +20,7 @@ For DKP 2.x, ensure the following applications are enabled in Kommander:
 
 - Use the existing Kommander configuration file, or initialize the default one:
   ```
-  kommander install --init > kommander-config.yaml
+  dkp install kommander --init > kommander-config.yaml
   ```
 - Ensure the following applications are enabled in the config:
   ```yaml
