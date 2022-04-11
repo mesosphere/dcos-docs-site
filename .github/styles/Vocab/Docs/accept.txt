@@ -4,9 +4,10 @@ Airflow
 air gapped bundle
 air gapped environment
 (Alertmanager|alertmanager)
+alice
 ANN(|s)
 (ansible|Ansible)
-archiver
+(archiver|Archiver)
 auto-assign
 Auto-IP
 auto-sync
@@ -82,10 +83,11 @@ Flink
 Fluentd
 (Frontmatter|frontmatter)
 (gcr|GCR)
+Gensim
 Gitea
 (gitops|GitOps)
 (Goboring|goboring)
-golang
+(Golang|golang)
 (grafana|Grafana)
 grayscale
 GRU
@@ -103,6 +105,7 @@ hyperparameter(|s)
 (Imagefs|imagefs)
 io
 iproute
+(Ipywidgets|ipywidgets)
 iptables
 (istio|Istio)
 journald
@@ -110,6 +113,7 @@ Jira
 (json|JSON)
 jq
 (kafka|Kafka)
+Kaniko
 Kaptain
 (Katib|katib)
 Keepalived
@@ -117,13 +121,13 @@ Keras
 keypair
 keyspace
 kfp
-kfserving
+(kfserving|KFServing)
 (kiali|Kiali)
 (kibana|Kibana)
 (kind|KIND)
 kmem
 (knative|Knative)
-Kommander
+(kommander|Kommander)
 Konvoy
 konvoy
 konvoy-image
@@ -155,6 +159,7 @@ LSTM(|s)
 Luigi
 Makefile
 markdownlint
+Matplotlib
 mcr
 Mesos
 Mesosphere
@@ -178,12 +183,14 @@ namespac(e|es|ed|ing)
 (nginx|NGINX)
 Nouveau
 (nvidia|Nvidia|NVIDIA)
-onboarding
+(onboarding|Onboarding)
 openssl
 (OpsPortal|opsportal)
 overfit(|s|ted|ting)
 Papermill
 Percona
+(Plaintext|plaintext)
+png
 Portworx
 PostgreSQL
 preconfigure(|d)
@@ -208,6 +215,7 @@ runc
 Scala
 scikit-learn
 sd_material_ui
+Seaborn
 sed
 serverless
 sigmoidal
@@ -215,13 +223,17 @@ Snapshotter
 socat
 softmax
 Splunk
+(Statsmodels|statsmodels)
 stdout
+(Strftime|strftime)
+Stringify
 subcommand
 (Subnet|Subnets|subnet|subnets)
 subtree
 syncserver
 systemd
 Telegraf
+Tensorboard(|s)
 Tensorflow
 TensorFlow
 (thanos|Thanos)
