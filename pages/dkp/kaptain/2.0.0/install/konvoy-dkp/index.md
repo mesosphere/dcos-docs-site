@@ -56,7 +56,7 @@ For cloud installations, scaling out can be limited by resource quotas.
   1. Use the existing Kommander configuration file, or initialize the default one:
 
   ```bash
-  kommander install --init > kommander-config.yaml
+  dkp install kommander --init > kommander-config.yaml
   ```
 
   1. Ensure the following applications are enabled in the config:
