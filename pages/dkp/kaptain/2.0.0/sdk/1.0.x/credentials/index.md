@@ -142,7 +142,7 @@ There are two ways to make AWS credentials available in a notebook:
 <strong>NOTE: </strong>
 Which method to use depends on what AWS settings you need to configure
 <ul>
-<li>The configuration file method is recommended when working with the default account settings, i.e. when only credentials
+<li>The configuration file method is recommended when working with the default account settings, that is when only credentials
     such as AWS Access Key ID, AWS Secret Access Key, and AWS Session Token are needed to access associated S3
     storage.</li>
 <li>The environment variables method is recommended when additional configuration is required, such as AWS Region, S3 Endpoint
