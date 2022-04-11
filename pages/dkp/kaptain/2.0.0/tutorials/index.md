@@ -158,7 +158,7 @@ This allows for separation of, say, development and production workloads on the 
 It also enables specific workloads to be run on dedicated hardware, for example large-scale image processing on state-of-the-art GPUs that are off limits for other workloads or notebook servers.
 
 Custom configurations, such as for instance [secrets][secrets], can be added to the notebook server with the "Configurations" option.
-The toggle for "Enabled Shared Memory" is recommended as certain machine learning frameworks (e.g. PyTorch) require it.
+The toggle for "Enabled Shared Memory" is recommended as certain machine learning frameworks (for example PyTorch) require it.
 
 ![Notebook Server Setup](./img/notebook-server-setup-2.png)
 
