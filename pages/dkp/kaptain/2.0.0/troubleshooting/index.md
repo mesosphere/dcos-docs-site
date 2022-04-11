@@ -473,7 +473,7 @@ Events:
   Warning  Unschedulable            2m19s  tf-operator  Error pod tfjob-sample-worker-0 condition message: 0/6 nodes are available: 1 node(s) had taint {node-role.kubernetes.io/master: }, that the pod didn't tolerate, 5 Insufficient memory.
 ```
 
-In the `Events` we can find the message explains the cause of the issue - there is insufficient memory to schedule the workload:
+In the `Events` we can find the message explains the cause of the issue, for example, insufficient memory to schedule the workload:
 
 ```
 Events:
