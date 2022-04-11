@@ -24,41 +24,23 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```
 
     ```sh
-    INFO[2021-11-23T15:54:07-08:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
-    INFO[2021-11-23T15:55:01-08:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:94"
-    INFO[2021-11-23T15:56:05-08:00] Created bootstrap controllers                 src="bootstrap/controllers.go:106"
-    INFO[2021-11-23T15:56:05-08:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:110"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Tigera operator               src="bootstrap/clusterresourceset.go:42"
-    INFO[2021-11-23T15:56:05-08:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:95"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated AWS EBS CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:100"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Azure Disk CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:102"
-    INFO[2021-11-23T15:56:05-08:00] Created Azure Disk CustomResourceSet          src="bootstrap/clusterresourceset.go:107"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:109"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:114"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:181"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:186"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:239"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:244"
-    INFO[2021-11-23T15:56:06-08:00] Initializing NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:297"
-    INFO[2021-11-23T15:56:06-08:00] Created/Updated NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:302"
+	✓ Creating a bootstrap cluster
+	✓ Initializing new CAPI components
     ```
 
 1.  Move the Cluster API objects from the workload to the bootstrap cluster:
     The cluster lifecycle services on the bootstrap cluster are ready, but the workload cluster configuration is on the workload cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the workload to the bootstrap cluster. This process is also called a [Pivot][pivot].
 
     ```bash
-    dkp move \
+    dkp move capi-resources \
         --from-kubeconfig ${CLUSTER_NAME}.conf \
-        --from-context konvoy-${CLUSTER_NAME}-admin@konvoy-${CLUSTER_NAME} \
+        --from-context ${CLUSTER_NAME}-admin@${CLUSTER_NAME} \
         --to-kubeconfig $HOME/.kube/config \
         --to-context kind-konvoy-capi-bootstrapper
     ```
 
     ```sh
-    INFO[2021-06-09T11:47:11-07:00] Running pivot command                         fromClusterKubeconfig=azure-example.conf fromClusterContext= src="move/move.go:83" toClusterKubeconfig=/home/clusteradmin/.kube/config toClusterContext=
-    INFO[2021-06-09T11:47:36-07:00] Pivot operation complete.                     src="move/move.go:108"
-    INFO[2021-06-09T11:47:36-07:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/clusteradmin/.kube/config get nodes  src="move/move.go:155"
+    ✓ Moving cluster resources
     ```
 
 1.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:
@@ -68,14 +50,19 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```
 
     ```sh
-    NAME                                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
-    /my-azure-cluster                                                    True                     6m37s
-    ├─ClusterInfrastructure - AzureCluster/my-azure-cluster              True                     13m
-    ├─ControlPlane - KubeadmControlPlane/my-azure-cluster-control-plane  True                     6m37s
-    │ └─3 Machines...                                                    True                     10m    See my-azure-cluster-control-plane-bmc9b, my-azure-cluster-control-plane-msftd, ...
-    └─Workers
-    └─MachineDeployment/my-azure-cluster-md-0                            True                     7m58s
-    └─4 Machines...                                                      True                     8m10s  See my-azure-cluster-md-0-84bd8b5f5b-b8cnq, my-azure-cluster-md-0-84bd8b5f5b-j8ldg, ...
+    NAME                                                              READY  SEVERITY  REASON  SINCE  MESSAGE
+	Cluster/azure-example                                             True                     15s
+	├─ClusterInfrastructure - AzureCluster/azure-example              True                     29s
+	├─ControlPlane - KubeadmControlPlane/azure-example-control-plane  True                     15s
+	│ ├─Machine/azure-example-control-plane-gvj5d                     True                     22s
+	│ ├─Machine/azure-example-control-plane-l8j9r                     True                     23s
+	│ └─Machine/azure-example-control-plane-xhxxg                     True                     23s
+	└─Workers
+	  └─MachineDeployment/azure-example-md-0                          True                     35s
+		├─Machine/azure-example-md-0-d67567c8b-2674r                  True                     24s
+		├─Machine/azure-example-md-0-d67567c8b-n276j                  True                     25s
+		├─Machine/azure-example-md-0-d67567c8b-pzg8k                  True                     23s
+		└─Machine/azure-example-md-0-d67567c8b-z8km9                  True                     24s
     ```
 
      <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use dkp with the workload cluster kubeconfig.</p>
@@ -89,7 +76,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```
 
     ```sh
-    cluster.cluster.x-k8s.io/my-azure-example condition met
+    cluster.cluster.x-k8s.io/azure-example condition met
     ```
 
 ## Delete the workload cluster
@@ -110,9 +97,11 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```
 
     ```sh
-    INFO[2021-06-09T11:53:42-07:00] Running cluster delete command                clusterName=my-azure-example managementClusterKubeconfig= namespace=default src="cluster/delete.go:95"
-    INFO[2021-06-09T11:53:42-07:00] Waiting for cluster to be fully deleted       src="cluster/delete.go:123"
-    INFO[2021-06-09T12:14:03-07:00] Deleted default/my-azure-example cluster  src="cluster/delete.go:129"
+	✓ Deleting Services with type LoadBalancer for Cluster default/azure-example
+	✓ Deleting ClusterResourceSets for Cluster default/azure-example
+	✓ Deleting cluster resources
+	✓ Waiting for cluster to be fully deleted
+	Deleted default/azure-example cluster
     ```
 
     After the workload cluster is deleted, delete the bootstrap cluster.
@@ -124,7 +113,7 @@ dkp delete bootstrap --kubeconfig $HOME/.kube/config
 ```
 
 ```sh
-INFO[2021-06-09T12:15:20-07:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:182"
+✓ Deleting bootstrap cluster
 ```
 
 [pivot]: https://cluster-api.sigs.k8s.io/reference/glossary.html?highlight=pivot#pivot

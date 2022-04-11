@@ -28,31 +28,33 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     The output from this command resembles the following:
 
     ```sh
-    NAME                                         STATUS   ROLES                  AGE   VERSION
-    ip-10-0-102-60.eastus2.compute.internal    Ready    control-plane,master   36m   v1.21.3
-    ip-10-0-118-168.eastus2.compute.internal   Ready    <none>                 42m   v1.21.3
-    ip-10-0-175-114.eastus2.compute.internal   Ready    control-plane,master   44m   v1.21.3
-    ip-10-0-214-26.eastus2.compute.internal    Ready    control-plane,master   40m   v1.21.3
-    ip-10-0-84-17.eastus2.compute.internal     Ready    <none>                 42m   v1.21.3
+	NAME                              STATUS   ROLES   AGE   VERSION
+	aks-cp6dsz8-41174201-vmss000000   Ready    agent   57m   v1.22.6
+	aks-cp6dsz8-41174201-vmss000001   Ready    agent   57m   v1.22.6
+	aks-cp6dsz8-41174201-vmss000002   Ready    agent   57m   v1.22.6
+	aks-mp6gglj-41174201-vmss000000   Ready    agent   56m   v1.22.6
+	aks-mp6gglj-41174201-vmss000001   Ready    agent   57m   v1.22.6
+	aks-mp6gglj-41174201-vmss000002   Ready    agent   56m   v1.22.6
+	aks-mp6gglj-41174201-vmss000003   Ready    agent   57m   v1.22.6
     ```
 
 1.  Export a variable with the node name to use in the next steps:
 
-    This example uses the name `ip-10-0-118-168.eastus2.compute.internal`.
+    This example uses the name `aks-mp6gglj-41174201-vmss000003`.
 
     ```bash
-    export NAME_NODE_TO_DELETE="ip-10-0-118-168.eastus2.compute.internal"
+    export NAME_NODE_TO_DELETE="<aks-mp6gglj-41174201-vmss000003>"
     ```
 
 1.  Delete the Machine resource
 
     ```bash
-    NAME_MACHINE_TO_DELETE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machine -ojsonpath="{.items[?(@.status.nodeRef.name==\"$NAME_NODE_TO_DELETE\")].metadata.name}")
+    export NAME_MACHINE_TO_DELETE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machine -ojsonpath="{.items[?(@.status.nodeRef.name==\"$NAME_NODE_TO_DELETE\")].metadata.name}")
     kubectl --kubeconfig ${CLUSTER_NAME}.conf delete machine "$NAME_MACHINE_TO_DELETE"
     ```
 
     ```sh
-    machine.cluster.x-k8s.io "aks-example-md-0-7fbfb98fcf-4xcv9" deleted
+    machine.cluster.x-k8s.io "aks-mp6gglj-41174201-vmss000003" deleted
     ```
 
     The command will not return immediately. It will return once the Machine resource has been deleted.
@@ -66,8 +68,9 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```
 
     ```sh
-    NAME               PHASE       REPLICAS   READY   UPDATED   UNAVAILABLE
-    aks-example-md-0   ScalingUp   2          1       2         1
+	NAME                 CLUSTER         REPLICAS   READY   UPDATED   UNAVAILABLE   PHASE       AGE     VERSION
+	azure-example-md-0   azure-example   4          3       4         1             ScalingUp   7m30s   v1.22.6
+	long-running-md-0    long-running    4          4       4         0             Running     7m28s   v1.22.6
     ```
 
     You can see there are 2 replicas, but only 1 is ready. There's 1 unavailable replica, and the `ScalingUp` phase means a new Machine is being created.
@@ -86,12 +89,18 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 1.  Identify the replacement Node using this command:
 
     ```bash
-    kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes \
-        -o=jsonpath="{.items[?(@.metadata.annotations.cluster\.x-k8s\.io/machine==\"$NAME_NEW_MACHINE\")].metadata.name}"
+    kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes
     ```
 
     ```sh
-    ip-10-0-85-101.eastus2.compute.internal
+	NAME                              STATUS   ROLES   AGE   VERSION
+	aks-cp6dsz8-41174201-vmss000000   Ready    agent   75m   v1.22.6
+	aks-cp6dsz8-41174201-vmss000001   Ready    agent   74m   v1.22.6
+	aks-cp6dsz8-41174201-vmss000002   Ready    agent   75m   v1.22.6
+	aks-mp6gglj-41174201-vmss000000   Ready    agent   74m   v1.22.6
+	aks-mp6gglj-41174201-vmss000001   Ready    agent   74m   v1.22.6
+	aks-mp6gglj-41174201-vmss000002   Ready    agent   74m   v1.22.6
+	aks-mp6gglj-41174201-vmss000003   Ready    agent   75m   v1.22.6
     ```
 
     If the output is empty, the Node resource is not yet available, or does not yet have the expected annotation, wait a few minutes, then repeat the command.
