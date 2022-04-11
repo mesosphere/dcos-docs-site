@@ -34,7 +34,7 @@ Kaptain version 1.3 has a new 'Models' page for managing model servers.
 
 ### Kaptain support on DKP 2.1
 
-Kaptain 1.3 is supported on version 2.1 of DKP, D2iQ's enterprise Kubernetes platform, in both non-air-gapped and air-gapped environments. For more information on DKP, view Konvoy and Kommander documentation on [docs.d2iq.com](https://docs.d2iq.com/).
+Kaptain 1.3 is supported on version 2.1 of DKP, D2iQ's enterprise Kubernetes platform, in both non air-gapped and air-gapped environments. For more information on DKP, view Konvoy and Kommander documentation on [docs.d2iq.com](https://docs.d2iq.com/).
 In DKP 2.1, Kaptain's dependencies are managed through Kommander, the centralized management plane of DKP which handles application deployments.
 
 ## Fixes and Improvements
