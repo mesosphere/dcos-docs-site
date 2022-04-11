@@ -124,7 +124,10 @@ Before running the following command, ensure that your `dkp` configuration **ref
     An output similar to this appears:
 
     ```bash
-    $ dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
+    dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
+    ```
+    
+    ```sh
     ✓ Ensuring upgrading conditions are met
     ✓ Ensuring application definitions are updated
     ✓ Ensuring helm-mirror implementation is migrated to chartmuseum
