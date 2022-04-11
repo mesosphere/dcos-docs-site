@@ -37,7 +37,7 @@ Running any real world machine learning workloads on Kaptain bumps these require
 In particular, the number of CPU or GPU workers, or both, and RAM, must be increased considerably.
 The amounts depend on the number, complexity, and size of the workloads, in addition to the amount of metadata and log data stored with each run.
 
-For on-premise installations, horizontal scalability is limited by the overall size of the cluster and its quotas.
+For on premise installations, horizontal scalability is limited by the overall size of the cluster and its quotas.
 For cloud installations, scaling out can be limited by resource quotas.
 
 ## Prerequisites for DKP 2.x
