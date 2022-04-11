@@ -80,7 +80,7 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
 
    _Note: this script is slightly different than the Kommander load script and has different image registry filters._
 
-   Based on the network latency between the environment of script execution and the Docker registry as well as the disk speed, this can take a while to upload all the images to your image registry.
+   Based on the network latency between the environment of script execution, the Docker registry, and the disk speed, this can take a while to upload all the images to your image registry.
 
 ### Install Kaptain
 
