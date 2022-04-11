@@ -324,10 +324,6 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     EOF
     ```
 
-### Attach clusters with an existing cert-manager installation
-
-If you are attaching clusters that already have cert-manager installed, it will take at least 20 minutes for Kommander `HelmReleases` to show up (for example, `traefik`, `kube-prometheus-stack` …) This is due to the implementation of the Kommander prerequisite Job that ensures security during Kommander's roll-out to the incoming attached cluster. The team is looking to address this in a future release.
-
 #### Default update strategy changed to "delete first" for Preprovisioned clusters
 
 A "create first" update strategy first creates a new machine, then deletes the old one. While this strategy works when machine inventory can grow on demand, it does not work if there is a fixed number of machines. Most Preprovisioned clusters have a fixed number of machines. To enable updates for Preprovisioned clusters, DKP uses the "delete first" update strategy, which first deletes an old machine, then creates a new one.
