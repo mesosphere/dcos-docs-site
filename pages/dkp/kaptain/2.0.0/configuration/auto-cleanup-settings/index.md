@@ -122,7 +122,7 @@ kubectl kudo update --instance kaptain --namespace kubeflow -p workflowsTTLSecon
 KFServing serves models over HTTP(s) using the Knative Serving component. When a model is deployed to serving,
 KFServing creates a set of Knative resources such as `Service`,`Route`, and `Revision`.
 
-There is always one Knative Service per model deployment, however, the number of Revisions can grow with time
+One Knative Service is always available per model deployment, however, the number of Revisions can grow with time
 because every new deployment (a new model version with a new image name) has its own `Revision`.
 
 When a new `Revision` is deployed, the older one scales the associated deployment to zero replicas, but it does not delete it.
