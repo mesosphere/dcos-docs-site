@@ -95,9 +95,7 @@ The table below lists the third party open source software which is provided by 
 | github.com/modern-go | reflect2 | v1.0.2 | [Apache-2.0](https://pkg.go.dev/github.com/modern-go/reflect2?tab=licenses) |
 | github.com/monochromegane | go-gitignore | v0.0.0-20200626010858-205db1a8cc00 | [MIT](https://pkg.go.dev/github.com/monochromegane/go-gitignore?tab=licenses) |
 | github.com/nxadm | tail | v1.4.8 | [MIT](https://pkg.go.dev/github.com/nxadm/tail?tab=licenses) |
-| github.com/opencontainers | go-digest | v1.0.0 | [Apache-2.0
-      
-        CC-BY-SA-4.0](https://pkg.go.dev/github.com/opencontainers/go-digest?tab=licenses) |
+| github.com/opencontainers | go-digest | v1.0.0 | [Apache-2.0 CC-BY-SA-4.0](https://pkg.go.dev/github.com/opencontainers/go-digest?tab=licenses) |
 | github.com/pelletier | go-toml | v1.9.4 | [Apache-2.0](https://pkg.go.dev/github.com/pelletier/go-toml?tab=licenses), [MIT](https://pkg.go.dev/github.com/pelletier/go-toml?tab=licenses) |
 | github.com/peterbourgon | diskv | v2.0.1+incompatible | [MIT](https://pkg.go.dev/github.com/peterbourgon/diskv?tab=licenses) |
 | github.com/pmezard | go-difflib | v1.0.0 | [BSD-3-Clause](https://pkg.go.dev/github.com/pmezard/go-difflib?tab=licenses) |
