@@ -42,50 +42,50 @@ For cloud installations, scaling out can be limited by resource quotas.
 
 ## Prerequisites for DKP 2.x
 
--   A DKP cluster with the following Platform applications enabled:
+- A DKP cluster with the following Platform applications enabled:
 
-    - Istio
-    - Knative
+  - Istio
+  - Knative
 
--   [`kubectl`][kubectl] on your installation machine
+- [`kubectl`][kubectl] on your installation machine
 
--   For multi-cluster environments (Enterprise license): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex]. 
+- For multi-cluster environments (Enterprise license): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
 
--   For DKP 2.x, ensure the following applications are enabled in Kommander:
+- For DKP 2.x, ensure the following applications are enabled in Kommander:
 
-    1. Use the existing Kommander configuration file, or initialize the default one:
+  1. Use the existing Kommander configuration file, or initialize the default one:
 
-    ```bash
-    kommander install --init > kommander-config.yaml
-    ```
+  ```bash
+  kommander install --init > kommander-config.yaml
+  ```
 
-    1. Ensure the following applications are enabled in the config:
+  1. Ensure the following applications are enabled in the config:
 
-    ```yaml
-    apiVersion: config.kommander.mesosphere.io/v1alpha1
-    kind: Installation
-    apps:
-      ...
-      dex:
-      dex-k8s-authenticator:
-      kube-prometheus-stack:
-      istio:
-      knative:
-      minio-operator:
-      traefik:
-      nvidia:  # to enable GPU support
-      ...
-    ```
+  ```yaml
+  apiVersion: config.kommander.mesosphere.io/v1alpha1
+  kind: Installation
+  apps:
+    ...
+    dex:
+    dex-k8s-authenticator:
+    kube-prometheus-stack:
+    istio:
+    knative:
+    minio-operator:
+    traefik:
+    nvidia:  # to enable GPU support
+    ...
+  ```
 
-    1. For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
+  1. For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
 
-    1. Apply the new configuration to Kommander:
-    
-    ```bash
-    kommander install --installer-config kommander-config.yaml
-    ```
+  1. Apply the new configuration to Kommander:
 
-    Check [Kommander installation documentation][kommander-install] for more information.
+  ```bash
+  kommander install --installer-config kommander-config.yaml
+  ```
+
+  Check [Kommander installation documentation][kommander-install] for more information.
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
@@ -149,11 +149,11 @@ Once all components have been deployed, you can log in to Kaptain:
 - Discover the cluster endpoint and copy it to the clipboard.
   If you are running Kaptain _on-premises_:
   ```bash
-  kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].ip}") && echo "https://${kf_uri}"
+  kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
   ```
   Or if you are running Kaptain on _AWS_:
   ```bash
-  kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}") && echo "https://${kf_uri}"
+  kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
   ```
 - Get the login credentials from Konvoy to authenticate:
   - For Konvoy 1.x:
