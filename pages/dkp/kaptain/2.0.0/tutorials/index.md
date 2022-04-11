@@ -108,7 +108,7 @@ Custom images can also be provided.
 
 ### How to Set Up a Notebook Server
 A notebook server is the entry point to cluster resources for machine learning.
-Each notebook server is a Docker container with Jupyter as well as various frameworks included out of the box.
+Each notebook server is a Docker container with Jupyter and various frameworks included out of the box.
 
 To set up a new notebook server, click on "New Server" at the top right in the _Notebook Servers_ page.
 If no notebook servers have been set up previously, the list is empty:
