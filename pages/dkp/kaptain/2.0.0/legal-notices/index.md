@@ -13,7 +13,7 @@ D2iQ&reg; and its licensors are the owners of all right, title and interest in a
 
 D2iQ, Mesosphere, Konvoy, Kommander, and Kaptain are registered trademarks of D2iQ, Inc.
 
-Amazon Web Services, AWS, AWS CloudFront, CloudFront, Elastic Compute Cloud, Amazon EC2, EC2, Elastic Load Balancer, ELB, and related graphics, logos, page headers, button icons, scripts, and service names are trademarks, registered trademarks, or trade dress of Amazon Web Services in the U.S. and/or other countries.
+Amazon Web Services, AWS, AWS CloudFront, CloudFront, Elastic Compute Cloud, Amazon EC2, EC2, Elastic Load Balancer, ELB, and related graphics, logos, page headers, button icons, scripts, and service names are trademarks, registered trademarks, or trade dress of Amazon Web Services in the U.S. and other countries.
 
 Ansible, CentOS, CoreOS, RHEL, Red Hat Enterprise Linux, and RHCE are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the United States and other countries.
 
@@ -47,7 +47,7 @@ HAProxy is a registered trademark in the United States and France.
 
 Horovod is an open-source distributed training framework for machine learning.
 
-JavaScript, MySQL, and Oracle are trademarks or registered trademarks of the Oracle Corporation and/or its affiliates.
+JavaScript, MySQL, and Oracle are trademarks or registered trademarks of the Oracle Corporation and its affiliates.
 
 JENKINS and Debian are registered trademarks of SOFTWARE IN THE PUBLIC INTEREST, INC.
 
