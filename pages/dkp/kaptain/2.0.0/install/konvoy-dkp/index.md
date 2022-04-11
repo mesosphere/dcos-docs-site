@@ -1,12 +1,16 @@
 ---
 layout: layout.pug
-navigationTitle: Install Kaptain on Konvoy / DKP 2.x
-title: Install Kaptain on Konvoy / DKP 2.x
+navigationTitle: Install Kaptain on DKP 2.x
+title: Install Kaptain on DKP 2.x
 menuWeight: 8
-excerpt: Install Kaptain on Konvoy / DKP 2.x
+excerpt: Install Kaptain on DKP 2.x
 beta: false
 enterprise: false
 ---
+
+<p class="message--warning"><strong>WARNING: </strong>
+Kaptain deploys to all clusters in your selected Workspace. If you do not want to deploy Kaptain to a certain cluster, you must move it to another Workspace.
+</p>
 
 ## Requirements
 
@@ -36,72 +40,57 @@ The amounts depend on the number, complexity, and size of the workloads, as well
 For on-premise installations, horizontal scalability is limited by the overall size of the cluster and quotas therein.
 For cloud installations, scaling out can be limited by resource quotas.
 
-## Prerequisites for Konvoy 1.x
-
-- When installing on Konvoy 1.x, ensure the following Kubernetes base addons that are needed by Kaptain are enabled:
-
-  ```yaml
-  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.20-4.1.0
-    addonsList:
-      - name: istio
-        enabled: true
-      - name: dex
-        enabled: true
-      - name: cert-manager
-        enabled: true
-      - name: prometheus
-        enabled: true
-  ```
-
-- Add the Kaptain addon repository to your Konvoy `cluster.yaml` to install Kaptain dependencies:
-  ```yaml
-  - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
-    configVersion: stable-1.20-1.4.0
-    addonsList:
-      - name: knative
-        enabled: true
-  ```
-- For GPU deployment, follow the instructions in [Konvoy GPU documentation][konvoy-gpu].
-- Then follow the [Konvoy documentation][konvoy_deploy_addons] to deploy the addons.
-
 ## Prerequisites for DKP 2.x
 
-For DKP 2.x, ensure the following applications are enabled in Kommander:
+-   A DKP cluster with the following Platform applications enabled:
 
-- Use the existing Kommander configuration file, or initialize the default one:
-  ```
-  kommander install --init > kommander-config.yaml
-  ```
-- Ensure the following applications are enabled in the config:
-  ```yaml
-  apiVersion: config.kommander.mesosphere.io/v1alpha1
-  kind: Installation
-  apps:
-    ...
-    dex:
-    dex-k8s-authenticator:
-    kube-prometheus-stack:
-    istio:
-    knative:
-    minio-operator:
-    traefik:
-    nvidia:  # to enable GPU support
-    ...
-  ```
-- For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
+    - Istio
+    - Knative
 
-- Apply the new configuration to Kommander:
-  ```
-  kommander install --installer-config kommander-config.yaml
-  ```
-  Check [Kommander installation documentation][kommander-install] for more information.
+-   [`kubectl`][kubectl] on your installation machine
+
+-   For multi-cluster environments (Enterprise license): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex]. 
+
+-   For DKP 2.x, ensure the following applications are enabled in Kommander:
+
+    1. Use the existing Kommander configuration file, or initialize the default one:
+
+    ```bash
+    kommander install --init > kommander-config.yaml
+    ```
+
+    1. Ensure the following applications are enabled in the config:
+
+    ```yaml
+    apiVersion: config.kommander.mesosphere.io/v1alpha1
+    kind: Installation
+    apps:
+      ...
+      dex:
+      dex-k8s-authenticator:
+      kube-prometheus-stack:
+      istio:
+      knative:
+      minio-operator:
+      traefik:
+      nvidia:  # to enable GPU support
+      ...
+    ```
+
+    1. For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
+
+    1. Apply the new configuration to Kommander:
+    
+    ```bash
+    kommander install --installer-config kommander-config.yaml
+    ```
+
+    Check [Kommander installation documentation][kommander-install] for more information.
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
 In case you need to run Spark jobs on Kubernetes using Spark Operator, it needs to be installed separately.
-Use the following instructions to install Spark Operator from Kommander Catalog for your target platform:
-[Konvoy 1.x][install-spark-konvoy1] or [DKP 2.x][install-spark-dkp2]
+Use the following instructions to install Spark Operator from Kommander Catalog [DKP 2.x][install-spark-dkp2]
 
 ## Install Kaptain
 
@@ -193,3 +182,5 @@ Once all components have been deployed, you can log in to Kaptain:
 [konvoy-gpu]: /dkp/konvoy/1.8/gpu/
 [konvoy_deploy_addons]: /dkp/konvoy/1.8/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
 [kudo_cli]: https://kudo.dev/#get-kudo
+[kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+[dex]: https://docs.d2iq.com/dkp/kaptain/2.0.0/configuration/external-dex/
