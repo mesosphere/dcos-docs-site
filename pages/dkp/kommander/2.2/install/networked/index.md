@@ -65,7 +65,7 @@ kubectl -n kommander wait --for condition=Released helmreleases --all --timeout 
 
 This will wait for each of the helm charts to reach their `Released` condition, eventually resulting in something resembling this:
 
-```text
+```sh
 helmrelease.helm.toolkit.fluxcd.io/centralized-grafana condition met
 helmrelease.helm.toolkit.fluxcd.io/dex condition met
 helmrelease.helm.toolkit.fluxcd.io/dex-k8s-authenticator condition met
@@ -94,10 +94,17 @@ helmrelease.helm.toolkit.fluxcd.io/traefik-forward-auth-mgmt condition met
 helmrelease.helm.toolkit.fluxcd.io/velero condition met
 ```
 
-If you find any `HelmReleases` in a "broken" release state such as "exhausted" or "another rollback/release in progress", you can trigger a reconciliation of the `HelmRelease` using the following command:
+You can check the status of a `HelmRelease` with:
 
 ```bash
-kubectl annotate --overwrite helmrelease/<HELMRELEASE_NAME> -n <WORKSPACE_NAMESPACE> reconcile.fluxcd.io/requestedAt="$(date +%s)"
+kubectl -n kommander get helmrelease <HELMRELEASE_NAME>
+```
+
+If you find any `HelmReleases` in a "broken" release state such as "exhausted" or "another rollback/release in progress", you can trigger a reconciliation of the `HelmRelease` using the following commands:
+
+```bash
+kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": true}]'
+kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": false}]'
 ```
 
 ## Access DKP UI

@@ -96,10 +96,17 @@ helmrelease.helm.toolkit.fluxcd.io/traefik-forward-auth-mgmt condition met
 helmrelease.helm.toolkit.fluxcd.io/velero condition met
 ```
 
-If you find any `HelmReleases` in a "broken" release state such as "exhausted" or "another rollback/release in progress", you can trigger a reconciliation of the `HelmRelease` using the following command:
+You can check the status of a `HelmRelease` with:
 
 ```bash
-kubectl annotate --overwrite helmrelease/<HELMRELEASE_NAME> -n <WORKSPACE_NAMESPACE> reconcile.fluxcd.io/requestedAt="$(date +%s)"
+kubectl -n kommander get helmrelease <HELMRELEASE_NAME>
+```
+
+If you find any `HelmReleases` in a "broken" release state such as "exhausted" or "another rollback/release in progress", you can trigger a reconciliation of the `HelmRelease` using the following commands:
+
+```bash
+kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": true}]'
+kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": false}]'
 ```
 
 ## Access Kommander Web UI
