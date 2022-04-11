@@ -104,7 +104,7 @@ If you use these instructions to create a cluster on Azure using the DKP default
     You will see output similar to the following:
 
     ```sh
-    INF Generating cluster resources
+    Generating cluster resources
 	cluster.cluster.x-k8s.io/azure-example created
 	azurecluster.infrastructure.cluster.x-k8s.io/azure-example created
 	kubeadmcontrolplane.controlplane.cluster.x-k8s.io/azure-example-control-plane created

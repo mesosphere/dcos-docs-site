@@ -27,8 +27,8 @@ Before you begin, you must:
     ```
 
     ```sh
-    ✓ Creating a bootstrap cluster
-    ✓ Initializing bootstrap controllers
+	 ✓ Creating a bootstrap cluster
+	 ✓ Initializing new CAPI components
     ```
 
     Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
@@ -45,16 +45,17 @@ Before you begin, you must:
     ```
 
     ```sh
-    NAMESPACE                           NAME                                            READY   UP-TO-DATE   AVAILABLE   AGE
-    capa-system                         capa-controller-manager                         1/1     1            1           5m24s
-    capi-kubeadm-bootstrap-system       capi-kubeadm-bootstrap-controller-manager       1/1     1            1           5m28s
-    capi-kubeadm-control-plane-system   capi-kubeadm-control-plane-controller-manager   1/1     1            1           5m26s
-    capi-system                         capi-controller-manager                         1/1     1            1           5m29s
-    cappp-system                        cappp-controller-manager                        1/1     1            1           5m20s
-    capz-system                         capz-controller-manager                         1/1     1            1           5m21s
-    cert-manager                        cert-manager                                    1/1     1            1           5m52s
-    cert-manager                        cert-manager-cainjector                         1/1     1            1           5m52s
-    cert-manager                        cert-manager-webhook                            1/1     1            1           5m52s
+	NAMESPACE                           NAME                                            READY   UP-TO-DATE   AVAILABLE   AGE
+	capa-system                         capa-controller-manager                         1/1     1            1           2m8s
+	capi-kubeadm-bootstrap-system       capi-kubeadm-bootstrap-controller-manager       1/1     1            1           2m10s
+	capi-kubeadm-control-plane-system   capi-kubeadm-control-plane-controller-manager   1/1     1            1           2m10s
+	capi-system                         capi-controller-manager                         1/1     1            1           2m11s
+	cappp-system                        cappp-controller-manager                        1/1     1            1           2m6s
+	capv-system                         capv-controller-manager                         1/1     1            1           2m5s
+	capz-system                         capz-controller-manager                         1/1     1            1           2m7s
+	cert-manager                        cert-manager                                    1/1     1            1           2m21s
+	cert-manager                        cert-manager-cainjector                         1/1     1            1           2m21s
+	cert-manager                        cert-manager-webhook                            1/1     1            1           2m21s
     ```
 
     Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:

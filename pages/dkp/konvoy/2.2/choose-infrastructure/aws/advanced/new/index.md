@@ -20,7 +20,7 @@ enterprise: false
 1.  Set the environment variable:
 
     ```bash
-    CLUSTER_NAME=my-aws-cluster
+    export CLUSTER_NAME=aws-example
     ```
 
 ## Tips and Tricks
@@ -38,24 +38,19 @@ enterprise: false
     ]
     ```
 
-1.  To create a cluster name that is unique, use the following command:
+1.  (Optional) To create a cluster name that is unique, use the following command:
 
     ```bash
-    CLUSTER_NAME=$(whoami)-aws-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+    export CLUSTER_NAME=$aws-example-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 
     ```sh
-    hunter-aws-cluster-pf4a3
+    aws-example-pf4a3
     ```
 
     This will create a unique name every time you run it, so use it with forethought.
 
-1.  Set the environment variable to the name you assigned this cluster:
-
-    ```bash
-    CLUSTER_NAME=my-aws-cluster
-    ```
 
 ## Create a new AWS Kubernetes cluster
 
@@ -73,6 +68,9 @@ enterprise: false
     --output=yaml \
     > ${CLUSTER_NAME}.yaml
     ```
+	```sh	
+	Generating cluster resources
+	```
 
 1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy:
 
@@ -137,13 +135,25 @@ enterprise: false
     ```
 
     ```sh
-    cluster.cluster.x-k8s.io/aws-example created
-    awscluster.infrastructure.cluster.x-k8s.io/aws-example created
-    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/aws-example-control-plane created
-    awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-control-plane created
-    machinedeployment.cluster.x-k8s.io/aws-example-mp-0 created
-    awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-mp-0 created
-    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-mp-0 created
+	cluster.cluster.x-k8s.io/aws-example created
+	awscluster.infrastructure.cluster.x-k8s.io/aws-example created
+	kubeadmcontrolplane.controlplane.cluster.x-k8s.io/aws-example-control-plane created
+	awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-control-plane created
+	secret/aws-example-etcd-encryption-config created
+	machinedeployment.cluster.x-k8s.io/aws-example-md-0 created
+	awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-md-0 created
+	kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-md-0 created
+	clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-aws-example created
+	configmap/calico-cni-installation-aws-example created
+	configmap/tigera-operator-aws-example created
+	clusterresourceset.addons.cluster.x-k8s.io/aws-ebs-csi-aws-example created
+	configmap/aws-ebs-csi-aws-example created
+	clusterresourceset.addons.cluster.x-k8s.io/cluster-autoscaler-aws-example created
+	configmap/cluster-autoscaler-aws-example created
+	clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-aws-example created
+	configmap/node-feature-discovery-aws-example created
+	clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-aws-example created
+	configmap/nvidia-feature-discovery-aws-example created
     ```
 
 1.  Wait for the cluster control-plane to be ready:
@@ -165,13 +175,19 @@ enterprise: false
     ```
 
     ```sh
-    NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
-    /aws-example                                                    True                     35s
-    ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
-    ├─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     36s
-    │   └─3 Machine...                                              True                     4m20s
-    └─Workers
-        └─MachineDeployment/aws-example-md-0
+	NAME                                                              READY  SEVERITY  REASON  SINCE  MESSAGE
+	Cluster/aws-example                                             True                     60s
+	├─ClusterInfrastructure - AWSCluster/aws-example                True                     5m23s
+	├─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     60s
+	│ ├─Machine/aws-example-control-plane-55jh4                     True                     4m59s
+	│ ├─Machine/aws-example-control-plane-6sn97                     True                     2m49s
+	│ └─Machine/aws-example-control-plane-nx9v5                     True                     66s
+	└─Workers
+	  └─MachineDeployment/aws-example-md-0                          True                     117s
+		├─Machine/aws-example-md-0-cb9c9bbf7-hcl8z                  True                     3m1s
+		├─Machine/aws-example-md-0-cb9c9bbf7-rtdqw                  True                     3m2s
+		├─Machine/aws-example-md-0-cb9c9bbf7-t894m                  True                     3m1s
+		└─Machine/aws-example-md-0-cb9c9bbf7-td29r                  True                     3m1s
     ```
 
 1.  As they progress, the controllers also create Events. List the Events using this command:

@@ -30,30 +30,32 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     ```sh
     NAME                                         STATUS   ROLES                  AGE   VERSION
-    ip-10-0-102-60.us-west-2.compute.internal    Ready    control-plane,master   36m   v1.21.6
-    ip-10-0-118-168.us-west-2.compute.internal   Ready    <none>                 42m   v1.21.6
-    ip-10-0-175-114.us-west-2.compute.internal   Ready    control-plane,master   44m   v1.21.6
-    ip-10-0-214-26.us-west-2.compute.internal    Ready    control-plane,master   40m   v1.21.6
-    ip-10-0-84-17.us-west-2.compute.internal     Ready    <none>                 42m   v1.21.6
+	ip-10-0-100-85.us-west-2.compute.internal    Ready    <none>                 16m   v1.22.8
+	ip-10-0-106-183.us-west-2.compute.internal   Ready    control-plane,master   15m   v1.22.8
+	ip-10-0-158-104.us-west-2.compute.internal   Ready    control-plane,master   17m   v1.22.8
+	ip-10-0-203-138.us-west-2.compute.internal   Ready    control-plane,master   16m   v1.22.8
+	ip-10-0-70-169.us-west-2.compute.internal    Ready    <none>                 16m   v1.22.8
+	ip-10-0-77-176.us-west-2.compute.internal    Ready    <none>                 16m   v1.22.8
+	ip-10-0-96-61.us-west-2.compute.internal     Ready    <none>                 16m   v1.22.8
     ```
 
 1.  Export a variable with the node name to use in the next steps:
 
-    This example uses the name `ip-10-0-118-168.us-west-2.compute.internal`.
+    This example uses the name `ip-10-0-100-85.us-west-2.compute.internal`.
 
     ```bash
-    export NAME_NODE_TO_DELETE="ip-10-0-118-168.us-west-2.compute.internal"
+    export NAME_NODE_TO_DELETE="<ip-10-0-100-85.us-west-2.compute.internal>"
     ```
 
 1.  Delete the Machine resource
 
     ```bash
-    NAME_MACHINE_TO_DELETE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machine -ojsonpath="{.items[?(@.status.nodeRef.name==\"$NAME_NODE_TO_DELETE\")].metadata.name}")
+    export NAME_MACHINE_TO_DELETE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machine -ojsonpath="{.items[?(@.status.nodeRef.name==\"$NAME_NODE_TO_DELETE\")].metadata.name}")
     kubectl --kubeconfig ${CLUSTER_NAME}.conf delete machine "$NAME_MACHINE_TO_DELETE"
     ```
 
     ```sh
-    machine.cluster.x-k8s.io "aws-example-md-0-7fbfb98fcf-4xcv9" deleted
+	machine.cluster.x-k8s.io "aws-example-1-md-0-cb9c9bbf7-t894m" deleted
     ```
 
     The command will not return immediately. It will return once the Machine resource has been deleted.
@@ -67,8 +69,8 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```
 
     ```sh
-    NAME               PHASE       REPLICAS   READY   UPDATED   UNAVAILABLE
-    aws-example-md-0   ScalingUp   2          1       2         1
+    NAME               CLUSTER       REPLICAS   READY   UPDATED   UNAVAILABLE   PHASE       AGE     VERSION
+	aws-example-md-0   aws-example   4          3       4         1             ScalingUp   7m53s   v1.22.8
     ```
 
     In this example, there are two replicas, but only 1 is ready. One replica is unavailable, and the `ScalingUp` phase means a new Machine is being created.
@@ -78,8 +80,11 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```bash
     export NAME_NEW_MACHINE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machines \
         -l=cluster.x-k8s.io/deployment-name=${CLUSTER_NAME}-md-0 \
-        -ojsonpath='{.items[?(@.status.phase=="Provisioning")].metadata.name}{"\n"}')
+        -ojsonpath='{.items[?(@.status.phase=="Running")].metadata.name}{"\n"}')
     echo "$NAME_NEW_MACHINE"
+    ```
+	```sh
+    aws-example-md-0-cb9c9bbf7-hcl8z aws-example-md-0-cb9c9bbf7-rtdqw aws-example-md-0-cb9c9bbf7-td29r aws-example-md-0-cb9c9bbf7-w64kg
     ```
 
     If the output is empty, the new Machine has probably exited the `Provisioning` phase and entered the `Running` phase.
@@ -87,12 +92,18 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 1.  Identify the replacement Node using this command:
 
     ```bash
-    kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes \
-        -o=jsonpath="{.items[?(@.metadata.annotations.cluster\.x-k8s\.io/machine==\"$NAME_NEW_MACHINE\")].metadata.name}"
+    kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes 
     ```
 
     ```sh
-    ip-10-0-85-101.us-west-2.compute.internal
+	NAME                                         STATUS   ROLES                  AGE   VERSION
+	ip-10-0-106-183.us-west-2.compute.internal   Ready    control-plane,master   20m   v1.22.8
+	ip-10-0-158-104.us-west-2.compute.internal   Ready    control-plane,master   23m   v1.22.8
+	ip-10-0-203-138.us-west-2.compute.internal   Ready    control-plane,master   22m   v1.22.8
+	ip-10-0-70-169.us-west-2.compute.internal    Ready    <none>                 22m   v1.22.8
+	ip-10-0-77-176.us-west-2.compute.internal    Ready    <none>                 22m   v1.22.8
+	ip-10-0-86-58.us-west-2.compute.internal     Ready    <none>                 57s   v1.22.8
+	ip-10-0-96-61.us-west-2.compute.internal     Ready    <none>                 22m   v1.22.8
     ```
 
     If the output is empty, the Node resource is not yet available, or does not yet have the expected annotation. Wait a few minutes, then repeat the command.
