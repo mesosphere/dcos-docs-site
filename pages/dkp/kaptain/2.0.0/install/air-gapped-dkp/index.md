@@ -40,7 +40,7 @@ For DKP 2.x, ensure the following applications are enabled in Kommander:
   ```
 - Apply the new configuration to Kommander:
   ```
-  kommander install --installer-config kommander-config.yaml
+  dkp install kommander --installer-config kommander-config.yaml
   ```
   Check [Kommander installation documentation][kommander-install] for more information.
 
