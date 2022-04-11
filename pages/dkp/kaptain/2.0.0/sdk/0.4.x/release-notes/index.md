@@ -19,7 +19,7 @@ Kaptain SDK 0.4.0 Release Notes
   * Generic resource utilities: `list_all_resources, delete_resource`
 * Kaptain uses the Kubeflow Training SDK and now uses the `V1beta1` KFServing API (upgraded from `V1alpha2`)
 * `ModelExportUtil().upload_model` gains an additional parameter: `extra_files` 
-* `kaptain.env` now contains helpers for docker builder resource configuration env vars
+* `kaptain.env` now contains helpers for docker builder resource configuration environment variables
 * The Kaniko Pod is now cleaned up immediately after the Docker build completion
 * `model.tune()` gains an additional parameter: `delete_experiment`
 * `model.requirements` is added to explicitly specify `requirements.txt` for models
@@ -27,5 +27,5 @@ Kaptain SDK 0.4.0 Release Notes
 * `model.train` and `model.tune` now have a parameter to control the TTL for training jobs
 
 ### Improvements
-* Fix an issue that prevented pytorch training single-worker jobs from running
+* Fix an issue that prevented PyTorch training single-worker jobs from running
 * Stringify model hyper-parameters and training function arguments

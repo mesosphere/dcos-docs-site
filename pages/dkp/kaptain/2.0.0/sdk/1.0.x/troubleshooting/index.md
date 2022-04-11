@@ -38,7 +38,7 @@ If the `delete_experiment` flag is set to `True` in the `Model.tune()` function,
 
 ### Serving
 The serving machine learning models is implemented by [KFServing](https://github.com/kserve/kserve), which is the component responsible for model serving over HTTP(s) and relies on Knative Serving. When a model is deployed to serving, KFServing creates a set of Knative resources such as Service, Route, and Revision.
-There is always one Knative Service per model deployment. However, the number of Revisions can grow with time because every new deployment, for example a new model version with a new image name, has its Revision. When a new Revision is deployed, the older one scales the associated deployment to zero replicas and keeps it.
+One Knative Service is always available per model deployment. However, the number of Revisions can grow with time because every new deployment, for example a new model version with a new image name, has its Revision. When a new Revision is deployed, the older one scales the associated deployment to zero replicas and keeps it.
 
 The following are the Kubernetes resources created on model deployment:
 - `Secret` with S3/Minio credentials to access MinIO bucket with a stored model.
