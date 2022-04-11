@@ -171,7 +171,7 @@ The result is as follows:
 
 Please consult Kubeflow's documentation on [setting up notebook servers][kubeflow-docs-notebooks] for additional details. 
 
-Notebook Servers can be stopped and resumed (in other words, scaled-down or up) to free up allocated resources such as GPU or memory and make them available to other workloads. To stop a notebook server, press the "&#9632;" button on the right side of the notebook list.  Resume the notebook by pressing the "&#9658;" button. It is also possible to configure Kaptain to automatically scale down idle notebooks.  More information is located in the [Auto Cleanup Settings][auto-cleanup-settings].
+Notebook Servers can be stopped and resumed (in other words, scaled-down or up) to free up allocated resources such as GPU or memory and make them available to other workloads. To stop a notebook server, press the "&#9632;" button on the right side of the notebook list. Resume the notebook by pressing the "&#9658;" button. It is also possible to configure Kaptain to automatically scale down idle notebooks. More information is located in the [Auto Cleanup Settings][auto-cleanup-settings].
 
 ### Jupyter Notebooks
 Once a notebook server has been set up, a familiar Jupyter notebook environment is available:
