@@ -22,7 +22,7 @@ The Kubeflow _central dashboard_ is the main entry point to Kaptain after loggin
 
 ![Central dashboard](./img/central-dashboard.png)
 
-The central area shows recent pipelines, pipeline runs, and notebooks as well as links to documentation.
+The central area shows recent pipelines, pipeline runs, notebooks and links to documentation.
 
 
 The namespace is shown at the top (`user`) in the image above.
