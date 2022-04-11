@@ -207,7 +207,8 @@ The table below lists the third party open source software which is provided by 
 | github.com/goreleaser | goreleaser | v1.6.3 | [MIT](https://pkg.go.dev/github.com/goreleaser/goreleaser?tab=licenses) |
 | github.com/itchyny | gojq | v0.12.7 | [MIT](https://pkg.go.dev/github.com/itchyny/gojq?tab=licenses) |
 | gotest.tools | gotestsum | v1.7.0 | [Apache-2.0](https://pkg.go.dev/gotest.tools/gotestsum?tab=licenses) |
-
+| Hashicorp | go-multierror | 1.1.1 | [MPL](https://pkg.go.dev/github.com/hashicorp/hcl?tab=licenses) |
+| Hashicorp | hc-install | 0.3.1 | [MPL](https://pkg.go.dev/github.com/hashicorp/hcl?tab=licenses) |
 <!-- vale Vale.Spelling = YES -->
 <!-- vale Vale.Terms = YES -->
 
