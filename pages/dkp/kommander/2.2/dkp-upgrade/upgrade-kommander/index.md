@@ -46,7 +46,6 @@ This section describes how to upgrade your Kommander Management cluster and all 
   1. Pause the helm release.
   ```bash
   kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
   ```
   ```sh
   helmrelease.helm.toolkit.fluxcd.io/metallb patched
