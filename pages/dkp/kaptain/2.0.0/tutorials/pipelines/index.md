@@ -7,6 +7,8 @@ excerpt: Tutorial for End-to-end Pipeline with KFServing
 beta: false
 enterprise: false
 ---
+<!-- vale off -->
+<!-- markdownlint-disable -->
 
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
