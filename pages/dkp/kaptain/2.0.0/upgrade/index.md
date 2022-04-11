@@ -51,20 +51,21 @@ Before you begin, ensure you have:
   kubectl kudo upgrade --instance kaptain --namespace kubeflow ./kubeflow-1.4.0_1.3.0.tgz
   ```
 - Monitor the upgrade process by running:
+
   ```bash
   kubectl kudo plan status --instance kaptain --namespace kubeflow
   ```
 
-After the upgrade completes, log in to Kaptain:
+  After the upgrade completes, log in to Kaptain:
 
 - Discover the cluster endpoint and copy it to the clipboard.
   If you are running Kaptain _on-premises_, use this command:
   ```bash
-  kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].ip}") && echo "https://${kf_uri}"
+  kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
   ```
   Or if you are running Kaptain on _AWS_, use this command:
   ```bash
-  kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}") && echo "https://${kf_uri}"
+  kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
   ```
 - Get the login credentials from Konvoy to authenticate:
   ```bash
