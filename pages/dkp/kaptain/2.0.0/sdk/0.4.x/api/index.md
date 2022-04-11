@@ -6,6 +6,9 @@ beta: false
 menuWeight: 99
 excerpt: Kaptain SDK Python API Documentation
 ---
+<!-- vale off -->
+<!-- markdownlint-disable -->
+
 # Table of Contents
 
 * [kaptain.config](#kaptain.config)
