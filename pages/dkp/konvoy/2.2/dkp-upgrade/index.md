@@ -9,16 +9,56 @@ beta: false
 
 The DKP upgrade represents an important step of your environment's lifecycle, as it ensures that you are up-to-date with the latest features and can benefit from the most recent improvements, enhanced cluster management, and better performance. This section describes how to upgrade your networked, air-gapped, or on-prem environment to the latest version of DKP.
 
-## Upgrade paths
+## Supported upgrade paths
 
-Verified upgrade paths are as follows:
+|**Display Icon** | **Service** |
+|---------- | ------- |
+| ⚫ | Supported |
+| ◯ | Not Supported |
 
-| From Version | To Version |       |       |
-| :----------: | :--------: | :---: | :---: |
-|    1.8.4     |   1.8.5    | 2.1.0 | 2.1.1 |
-|    1.8.5     |   2.1.0    | 2.1.1 |       |
-|    2.1.0     |   2.2.0    |       |       |
-|    2.1.1     |   2.2.0    |       |       |
+<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+   <caption>DKP Upgrade Paths</caption>
+   <tr>
+    <th Rowspan = "20" Align = "center"><strong>Upgrade<br>From</strong></th>
+   <tr>
+    <th></th>
+    <th Colspan = "20" Align = "center"><strong>Upgrade To</strong></th>
+   </tr>
+    <th></th>
+    <th Align = "center">1.8.5</th>
+    <th Align = "center">2.1.0</th>
+    <th Align = "center">2.1.1</th>
+    <th Align = "center">2.2.0</th>
+   </tr>
+   <tr>
+    <th>1.8.4</th>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
+   </tr>
+   <tr>
+    <th>1.8.5</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
+   </tr>
+   <tr>
+    <th>2.1.0</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>2.1.1</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
+  </table>
 
 ## Understand the upgrade process
 
