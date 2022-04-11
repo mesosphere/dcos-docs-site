@@ -17,7 +17,7 @@ to the registry specified in `Model.image` attribute.
 As the image building happens on the cluster, the model files are first
 uploaded to a blob storage such as S3, GCS, or MinIO and then used by
 the builder. By default, the SDK uses a cluster-local MinIO installation
-which doesn't require any additional configuration. If users wish to
+which does not require any additional configuration. If users wish to
 use a specific S3 location instead, then appropriate AWS credentials need
 to be provided.
 
