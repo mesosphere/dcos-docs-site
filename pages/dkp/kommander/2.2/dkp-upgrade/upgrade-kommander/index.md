@@ -138,10 +138,11 @@ Before running the following command, ensure that your `dkp` configuration **ref
     dkp upgrade kommander -v 4
     ```
 
-    If you find any `HelmReleases` in a "broken" release state such as "exhausted" or "another rollback/release in progress", you can trigger a reconciliation of the `HelmRelease` using the following command:
+    If you find any `HelmReleases` in a "broken" release state such as "exhausted" or "another rollback/release in progress", you can trigger a reconciliation of the `HelmRelease` using the following commands:
 
     ```bash
-    kubectl annotate --overwrite helmrelease/<HELMRELEASE_NAME> -n <WORKSPACE_NAMESPACE> reconcile.fluxcd.io/requestedAt="$(date +%s)"
+    kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": true}]'
+    kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": false}]'
     ```
 
 1.  For Enterprise customers (multi-cluster environment): Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster.
