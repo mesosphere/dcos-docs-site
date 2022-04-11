@@ -95,9 +95,9 @@ to a file with a custom inference logic. Examples: `image_classifier` (built-in)
 See [TorchServe documentation](https://github.com/pytorch/serve/blob/master/docs/custom_service.md) for details.
 * `serialized_file` - (optional) a path to the `state_dict` saved locally (for example, `model.pt`).
 If not provided, the SDK will download the model `state_dict` exported at the `train` or `tune` phase.
-* `extra_files` -  (optional) auxiliary files required for inference (e.g. `utils.py`). If not set
+* `extra_files` -  (optional) auxiliary files required for inference (for example, `utils.py`). If not set
 explicitly, the SDK will use the `Model.extra_files` value.
-* `requirements_file` - (optional) auxiliary files required for inference (e.g. `utils.py`). If not set
+* `requirements_file` - (optional) auxiliary files required for inference (for example, `utils.py`). If not set
 explicitly, the SDK will use the `Model.requirements` value.
 
 ### TorchServe configuration options

@@ -21,7 +21,7 @@ In order to use the SDK from a Jupyter Notebook, you must configure credentials 
 registry. It is recommended to distribute registry configuration and credentials by following the
 [Accessing Docker and Cloud Storage][credentials] guide.
 
-However, to hit the ground running, it is also sufficient to create a valid Docker credentials file from a notebook
+However, for a quick start, it is also sufficient to create a valid Docker credentials file from a notebook
 running in Kaptain. The file has the following format and must be saved at `$HOME/.docker/config.json`:
 
     {

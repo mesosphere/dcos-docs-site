@@ -42,6 +42,6 @@ Use the following environment variables to set resources required for image buil
 
 Use the following environment variables to configure automatic cleanup of the resources created by Kaptain SDK at every step of the model lifecycle.
 
-- **KAPTAIN_SDK_DELETE_EXPERIMENT**: If set to "True", delete the `Experiment` resource upon the completion of the tuning step. **Note**: once the experiment is deleted, it won't be available for viewing in the Katib UI.
+- **KAPTAIN_SDK_DELETE_EXPERIMENT**: If set to "True", delete the `Experiment` resource upon the completion of the tuning step. **Note**: once the experiment is deleted, it will not be available for viewing in the Katib UI.
 - **KAPTAIN_SDK_TTL_SECONDS_AFTER_FINISHED**: Number of seconds after which a completed training job gets automatically deleted.
 - **KAPTAIN_SDK_FORCE_CLEANUP**: If set to "True", delete completed training jobs automatically ignoring the TTL.

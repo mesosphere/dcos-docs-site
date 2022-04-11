@@ -180,7 +180,7 @@ config.docker_registry_certificate_provider = DockerRegistryCertificateProvider.
 The code above creates a default `Config` object which automatically
 uses a Docker credentials file (`config.json`) mounted to
 `/home/kubeflow/.docker/config.json`. This configuration works for both self-hosted Docker registries
-as well as public registries.
+and public registries.
 
 In order to add a certificate verification option to the model training
 and tuning steps, it is required to provide two additional properties:
