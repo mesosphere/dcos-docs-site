@@ -34,10 +34,10 @@ Before proceeding, verify that your environment meets the following basic requir
 
 Please note that these numbers are for the bare minimum.
 Running any real world machine learning workloads on Kaptain bumps these requirements for nodes, CPUs, RAM, GPUs, and persistent disks.
-In particular, the number of CPU and/or GPU workers, as well as RAM, must be increased considerably.
-The amounts depend on the number, complexity, and size of the workloads, as well as the amount of metadata and log data stored with each run.
+In particular, the number of CPU or GPU workers, or both, and RAM, must be increased considerably.
+The amounts depend on the number, complexity, and size of the workloads, in addition to the amount of metadata and log data stored with each run.
 
-For on-premise installations, horizontal scalability is limited by the overall size of the cluster and quotas therein.
+For on-premise installations, horizontal scalability is limited by the overall size of the cluster and its quotas.
 For cloud installations, scaling out can be limited by resource quotas.
 
 ## Prerequisites for DKP 2.x
