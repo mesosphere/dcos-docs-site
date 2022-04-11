@@ -155,7 +155,7 @@ These are mounted to each pod on the notebook server.
 
 Affinity and tolerations are advanced configuration options that allow the notebook server's workloads to run on specific resources within the cluster using [toleration groups][toleration-groups].
 This allows for separation of, say, development and production workloads on the same underlying Kubernetes cluster without having to set up multiple clusters.
-It also enables specific workloads to be run on dedicated hardware, e.g. large-scale image processing on state-of-the-art GPUs that are off limits for other workloads or notebook servers.
+It also enables specific workloads to be run on dedicated hardware, for example large-scale image processing on state-of-the-art GPUs that are off limits for other workloads or notebook servers.
 
 Custom configurations, such as for instance [secrets][secrets], can be added to the notebook server with the "Configurations" option.
 The toggle for "Enabled Shared Memory" is recommended as certain machine learning frameworks (e.g. PyTorch) require it.
