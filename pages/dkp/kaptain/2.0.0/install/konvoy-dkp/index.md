@@ -148,21 +148,29 @@ Once all components have been deployed, you can log in to Kaptain:
 
 - Discover the cluster endpoint and copy it to the clipboard.
   If you are running Kaptain _on-premises_:
+
   ```bash
   kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
   ```
+
   Or if you are running Kaptain on _AWS_:
+
   ```bash
   kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
   ```
+
 - Get the login credentials from Konvoy to authenticate:
+
   - For Konvoy 1.x:
+
     ```bash
     konvoy get ops-portal
     ```
+
   - For DKP 2.x:
-    ```
-    kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
+
+    ```bash
+    dkp open dashboard
     ```
 
 ## Uninstall Kaptain
