@@ -248,7 +248,7 @@ The following environment variables are supported and recognized by the SDK:
     `true`\|`false`.
 
 Creating a `Secret` with environment variables requires a YAML
-specification file (e.g. `secret.yaml`) with the following contents:
+specification file (for example `secret.yaml`) with the following contents:
 
     apiVersion: v1
     kind: Secret
