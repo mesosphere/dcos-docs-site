@@ -61,7 +61,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
   3. Delete MetalLB.
   ```bash
-  k -n kommander delete appdeployment metallb
+  kubectl -n kommander delete appdeployment metallb
   ```
 
   ```sh
