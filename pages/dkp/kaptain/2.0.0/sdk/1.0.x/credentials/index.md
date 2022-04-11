@@ -146,7 +146,7 @@ Which method to use depends on what AWS settings you need to configure
     such as AWS Access Key ID, AWS Secret Access Key, and AWS Session Token are needed to access associated S3
     storage.</li>
 <li>The environment variables method is recommended when additional configuration is required, such as AWS Region, S3 Endpoint
-    URL, S3 Bucket Access style (url or path-style), and Protocol Signature version. These additional properties are often required
+    URL, S3 Bucket Access style (URL or path-style), and Protocol Signature version. These additional properties are often required
     when working with non-standard S3-compatible storage solutions such as MinIO.</li>
 </ul>
 </p>
