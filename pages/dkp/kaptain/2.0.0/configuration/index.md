@@ -6,6 +6,8 @@ menuWeight: 10
 excerpt: Configuration settings for Kaptain
 enterprise: false
 ---
+<!-- vale off -->
+<!-- markdownlint-disable -->
 [//]: # "WARNING: This page is auto-generated and should not be modified directly."
 
 This page lists Kaptain configuration properties that can be adjusted during the initial installation or by updating the existing instance of Kaptain. These parameters are typically set in `params.yaml`.
