@@ -134,7 +134,7 @@ to `/home/kubeflow/.docker/`:
 
 ### File-based and environment variable based configuration
 
-There are two ways to make AWS credentials available in a notebook:
+You can make AWS credentials available in a notebook in two different ways:
 * As a configuration file mounted to the `Pod` from a `Secret`
 * As environment variables injected into the `Pod` from a `Secret`
 
