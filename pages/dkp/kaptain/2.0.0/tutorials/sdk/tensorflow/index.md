@@ -7,6 +7,8 @@ excerpt: Tutorial for Kaptain SDK with Tensorflow
 beta: false
 enterprise: false
 ---
+<!-- vale off -->
+<!-- markdownlint-disable -->
 
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
