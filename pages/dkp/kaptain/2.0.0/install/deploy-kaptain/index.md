@@ -40,7 +40,7 @@ Follow these steps to enable Kaptain in air-gapped and non air-gapped environmen
 1.  Confirm the details are correct, and then select the **Enable** button to enable and trigger deployment.
     The status changes to **Enabled**.
 
-1.  If you want to deploy Kaptain to additional Workspaces, repeat these steps for each additional Workspace.
+1.  If you want to deploy Kaptain to other Workspaces, repeat these steps for each additional Workspace.
 
 Alternately, you can use the [CLI](#enable-and-deploy-Kaptain-using-the-dkp-cli) to enable your catalog applications.
 
@@ -54,9 +54,9 @@ Follow these steps to verify the deployment of Kaptain:
 
 1.  Select the **Applications** tab and scroll down to find the Kaptain tile.
 
-1.  If Kaptain was deployed successfully, the status is **Deployed**.
+1.  The status is **Deployed** when Kaptain's deployment is successful.
 
-<p class="message--note"><strong>NOTE: </strong>Depending on the number of clusters, it can take several minutes until provisioning is finished and status is changed to <b>Deployed</b>.</p>
+<p class="message--note"><strong>NOTE: </strong>Depending on the number of clusters, it can take several minutes until provisioning finishes and status changes to <b>Deployed</b>.</p>
 
 ## Enable and deploy Kaptain using the DKP CLI
 
