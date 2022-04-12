@@ -11,49 +11,12 @@ The DKP upgrade represents an important step of your environment's lifecycle, as
 
 ## Supported upgrade paths
 
-<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
-   <caption>DKP Upgrade Paths</caption>
-   <tr>
-    <th Rowspan = "20" Align = "center"><strong>Upgrade<br>From</strong></th>
-   <tr>
-    <th></th>
-    <th Colspan = "20" Align = "center"><strong>Upgrade To</strong></th>
-   </tr>
-    <th></th>
-    <th Align = "center">1.8.5</th>
-    <th Align = "center">2.1.0</th>
-    <th Align = "center">2.1.1</th>
-    <th Align = "center">2.2.0</th>
-   </tr>
-   <tr>
-    <th>1.8.4</th>
-    <td Align = "center">Yes</td>
-    <td Align = "center">Yes</td>
-    <td Align = "center">Yes</td>
-    <td Align = "center">No</td>
-   </tr>
-   <tr>
-    <th>1.8.5</th>
-    <td Align = "center"></td>
-    <td Align = "center">Yes</td>
-    <td Align = "center">Yes</td>
-    <td Align = "center">No</td>
-   </tr>
-   <tr>
-    <th>2.1.0</th>
-    <td Align = "center"></td>
-    <td Align = "center"></td>
-    <td Align = "center">No</td>
-    <td Align = "center">Yes</td>
-   </tr>
-   <tr>
-    <th>2.1.1</th>
-    <td Align = "center"></td>
-    <td Align = "center"></td>
-    <td Align = "center"></td>
-    <td Align = "center">Yes</td>
-   </tr>
-  </table>
+| From Version | To Version |       |       |
+| :----------: | :--------: | :---: | :---: |
+|    1.8.4     |   1.8.5    | 2.1.0 | 2.1.1 |
+|    1.8.5     |   2.1.0    | 2.1.1 |       |
+|    2.1.0     |   2.2.0    |       |       |
+|    2.1.1     |   2.2.0    |       |       |
 
 ## Understand the upgrade process
 
