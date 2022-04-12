@@ -31,6 +31,7 @@ The following table describes all the workspace platform applications that are a
 | kubernetes-dashboard | cpu: 250m<br />memory: 300Mi |  | Yes |
 | logging-operator | cpu: cpu: 350m * # of nodes + 600m<br />memory: 228Mi + 350Mi * # of nodes | # of PVs: 1<br />PV sizes: 10Gi | No |
 | minio-operator |  cpu: 200m<br />memory: 256Mi |  | No |
+| nfs-server-provisioner |  | # of PVs: 1<br />PV sizes: 100Gi | No |
 | nvidia | cpu: 100m<br />memory: 128Mi |  | No |
 | prometheus-adapter | cpu: 1000m<br />memory: 1000Mi |  | Yes |
 | reloader | cpu: 100m<br />memory: 128Mi |  | Yes |

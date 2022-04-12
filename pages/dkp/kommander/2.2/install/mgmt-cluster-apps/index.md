@@ -16,7 +16,8 @@ This table describes the workspace platform applications specific to the managem
 | centralized-grafana       | cpu: 200m<br />memory: 100Mi   |                                     |
 | centralized-kubecost      | cpu: 1200m<br />memory: 4151Mi | # of PVs: 1<br />PV sizes: 32Gi     |
 | chartmuseum               |                                | # of PVs: 1<br />PV sizes: 2Gi      |
-| dkp-insights-management   |                                |                                     |
+| dex                       | cpu: 100m<br />memory: 50Mi    |                                     |
+| dex-k8s-authenticator     | cpu: 100m<br />memory: 128Mi   |                                     |
 | gitea                     | cpu: 500m<br />memory: 512Mi   | # of PVs: 2<br />PV sizes: 10Gi     |
 | karma                     |                                |                                     |
 | kubefed                   | cpu: 300m<br />memory: 192Mi   |                                     |
