@@ -72,6 +72,12 @@ To attach an existing EKS cluster, refer to the specific information in [Attach 
 Consider the additional resource requirements for running the platform services you want Kommander to manage, and ensure that your existing clusters comply.
 -->
 
+## Attach clusters with an existing cert-manager installation
+
+If you are attaching clusters that already have cert-manager installed, the cert-manager `HelmRelease` provided by Kommander will fail to deploy, due to the existing cert-manager installation. As long as the pre-existing cert-manager functions as expected, you can ignore this failure. It will have no impact on the operation of the cluster.
+
+<p class="message--note"><strong>NOTE: </strong>DKP Konvoy clusters already have cert-manager installed, hence Kommander's cert-manager <code>HelmRelease</code> will fail to deploy on a DKP Konvoy cluster.</p>
+
 [attach_eks_cluster]: ../attach-eks-cluster
 [attach_with_network_restrictions]: ../cluster-with-network-restrictions
 [existing-clusters]: ../generate-kubeconfig
