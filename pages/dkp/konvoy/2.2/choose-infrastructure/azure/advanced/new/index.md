@@ -32,7 +32,7 @@ echo $CLUSTER_NAME
 ```sh
 azure-example-pf4a3
 ```
-This will create a unique name every time you run it, so use it with forethought.
+This creates a unique name every time you run it, so use it with forethought.
 
 
 ## Create a new Azure Kubernetes cluster
