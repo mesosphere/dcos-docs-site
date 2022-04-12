@@ -18,20 +18,11 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     By default, `create bootstrap controllers` configures the Cluster API controllers to use the AWS credentials from your environment. We recommend you use the `--with-aws-bootstrap-credentials=false` flag to configure the Cluster API controllers of your self-managed AWS cluster to use AWS IAM Instance Profiles, instead of the AWS credentials from your environment.
 
     ```bash
-    dkp create bootstrap controllers --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
+    dkp create capi-components --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     ```sh
-    INFO[2021-06-07T14:10:08-07:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:88"
-    INFO[2021-06-07T14:11:34-07:00] Created bootstrap controllers                 src="bootstrap/controllers.go:93"
-    INFO[2021-06-07T14:11:34-07:00] Waiting for bootstrap controllers to be ready  src="bootstrap/controllers.go:96"
-    INFO[2021-06-07T14:11:40-07:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:101"
-    INFO[2021-06-07T14:11:40-07:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:35"
-    INFO[2021-06-07T14:11:41-07:00] Created Tigera operator                       src="bootstrap/clusterresourceset.go:40"
-    INFO[2021-06-07T14:11:42-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:107"
-    INFO[2021-06-07T14:11:42-07:00] Created AWS EBS CSI CustomResourceSet         src="bootstrap/clusterresourceset.go:112"
-    INFO[2021-06-07T14:11:42-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:180"
-    INFO[2021-06-07T14:11:42-07:00] Created Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:185"
+	✓ Initializing new CAPI components
     ```
 
 1.  Move the Cluster API objects from the bootstrap to the workload cluster:
@@ -39,12 +30,12 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     The cluster lifecycle services on the workload cluster are ready, but the workload cluster configuration is on the bootstrap cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the bootstrap to the workload cluster. This process is also called a [Pivot][pivot].
 
     ```bash
-    dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
+    dkp move capi-resources --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     ```sh
-    INFO[2021-08-11T12:09:36-07:00] Pivot operation complete.                     src="move/move.go:154"
-    INFO[2021-08-11T12:09:36-07:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/clusteradmin/.kube/config get nodes  src="move/move.go:155"
+     ✓ Moving cluster resources
+	You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=aws-example.conf get nodes
     ```
 
     <p class="message--note"><strong>NOTE: </strong>To ensure only one set of cluster lifecycle services manages the workload cluster, Konvoy first pauses reconciliation of the objects on the bootstrap cluster, then creates the objects on the workload cluster. As Konvoy copies the objects, the cluster lifecycle services on the workload cluster reconcile the objects. The workload cluster becomes self-managed after Konvoy creates all the objects. If it fails, the <code>move</code> command can be safely retried.</p>
@@ -68,13 +59,19 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     ```
 
     ```sh
-    NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
-    /aws-example                                                    True                     35s
-    ├─ClusterInfrastructure - AWSCluster/aws-example                True                     4m47s
-    ├─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     36s
-    │   └─3 Machine...                                              True                     4m20s
-    └─Workers
-        └─MachineDeployment/aws-example-md-0
+	NAME                                                              READY  SEVERITY  REASON  SINCE  MESSAGE
+	Cluster/aws-example                                             True                     109s
+	├─ClusterInfrastructure - AWSCluster/aws-example                True                     112s
+	├─ControlPlane - KubeadmControlPlane/aws-example-control-plane  True                     109s
+	│ ├─Machine/aws-example-control-plane-55jh4                     True                     111s
+	│ ├─Machine/aws-example-control-plane-6sn97                     True                     111s
+	│ └─Machine/aws-example-control-plane-nx9v5                     True                     110s
+	└─Workers
+	  └─MachineDeployment/aws-example-md-0                          True                     114s
+		├─Machine/aws-example-md-0-cb9c9bbf7-hcl8z                  True                     111s
+		├─Machine/aws-example-md-0-cb9c9bbf7-rtdqw                  True                     111s
+		├─Machine/aws-example-md-0-cb9c9bbf7-t894m                  True                     111s
+		└─Machine/aws-example-md-0-cb9c9bbf7-td29r                  True                     111s
     ```
 
 1.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
@@ -84,7 +81,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     ```
 
     ```sh
-    INFO[2021-06-07T14:53:36-07:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:182"
+     ✓ Deleting bootstrap cluster
     ```
 
 ## Known Limitations

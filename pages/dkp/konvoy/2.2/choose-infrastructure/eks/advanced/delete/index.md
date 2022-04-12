@@ -27,9 +27,11 @@ enterprise: false
     ```
 
     ```sh
-    INFO[2021-06-09T11:53:42-07:00] Running cluster delete command                clusterName=aws-example managementClusterKubeconfig= namespace=default src="cluster/delete.go:95"
-    INFO[2021-06-09T11:53:42-07:00] Waiting for cluster to be fully deleted       src="cluster/delete.go:123"
-    INFO[2021-06-09T12:14:03-07:00] Deleted default/aws-example cluster  src="cluster/delete.go:129"
+     ✓ Deleting Services with type LoadBalancer for Cluster default/eks-example
+	 ✓ Deleting ClusterResourceSets for Cluster default/eks-example
+	 ✓ Deleting cluster resources
+	 ✓ Waiting for cluster to be fully deleted
+	Deleted default/eks-example cluster
     ```
 
     After the workload cluster is deleted, delete the bootstrap cluster.
@@ -41,7 +43,7 @@ dkp delete bootstrap --kubeconfig $HOME/.kube/config
 ```
 
 ```sh
-INFO[2021-06-09T12:15:20-07:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:182"
+ ✓ Deleting bootstrap cluster
 ```
 
 ## Known Limitations

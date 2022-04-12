@@ -16,28 +16,10 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 1.  Deploy cluster lifecycle services on the workload cluster:
 
     ```bash
-    dkp create bootstrap controllers --kubeconfig ${CLUSTER_NAME}.conf
-    ```
-
-    ```sh
-    INFO[2021-11-23T15:54:07-08:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:148"
-    INFO[2021-11-23T15:55:01-08:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:94"
-    INFO[2021-11-23T15:56:05-08:00] Created bootstrap controllers                 src="bootstrap/controllers.go:106"
-    INFO[2021-11-23T15:56:05-08:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:110"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:37"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Tigera operator               src="bootstrap/clusterresourceset.go:42"
-    INFO[2021-11-23T15:56:05-08:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:95"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated AWS EBS CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:100"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Azure Disk CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:102"
-    INFO[2021-11-23T15:56:05-08:00] Created Azure Disk CustomResourceSet          src="bootstrap/clusterresourceset.go:107"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:109"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:114"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:181"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:186"
-    INFO[2021-11-23T15:56:05-08:00] Initializing Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:239"
-    INFO[2021-11-23T15:56:05-08:00] Created/Updated Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:244"
-    INFO[2021-11-23T15:56:06-08:00] Initializing NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:297"
-    INFO[2021-11-23T15:56:06-08:00] Created/Updated NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:302"
+    dkp create capi-components --kubeconfig ${CLUSTER_NAME}.conf
+	```
+	```sh
+	✓ Initializing new CAPI components
     ```
 
 1.  Move the Cluster API objects from the bootstrap to the workload cluster:
@@ -45,12 +27,12 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     The cluster lifecycle services on the workload cluster are ready, but the workload cluster configuration is on the bootstrap cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the bootstrap to the workload cluster. This process is also called a [Pivot][pivot].
 
     ```bash
-    dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
+    dkp move capi-resources --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     ```sh
-    INFO[2021-08-11T12:09:36-07:00] Pivot operation complete.                     src="move/move.go:154"
-    INFO[2021-08-11T12:09:36-07:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/clusteradmin/.kube/config get nodes  src="move/move.go:155"
+	✓ Moving cluster resources
+	You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=azure-example.conf get nodes
     ```
 
     <p class="message--note"><strong>NOTE: </strong>To ensure only one set of cluster lifecycle services manages the workload cluster, Konvoy first pauses reconciliation of the objects on the bootstrap cluster, then creates the objects on the workload cluster. As Konvoy copies the objects, the cluster lifecycle services on the workload cluster reconcile the objects. The workload cluster becomes self-managed after Konvoy creates all the objects. If it fails, the <code>move</code> command can be safely retried.</p>
@@ -62,7 +44,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     ```
 
     ```sh
-    cluster.cluster.x-k8s.io/my-azure-example condition met
+    cluster.cluster.x-k8s.io/azure-example condition met
     ```
 
 1.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:
@@ -74,24 +56,29 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     ```
 
     ```sh
-    NAME                                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
-    /my-azure-cluster                                                    True                     6m37s
-    ├─ClusterInfrastructure - AzureCluster/my-azure-cluster              True                     13m
-    ├─ControlPlane - KubeadmControlPlane/my-azure-cluster-control-plane  True                     6m37s
-    │ └─3 Machines...                                                    True                     10m    See my-azure-cluster-control-plane-bmc9b, my-azure-cluster-control-plane-msftd, ...
-    └─Workers
-    └─MachineDeployment/my-azure-cluster-md-0                            True                     7m58s
-    └─4 Machines...                                                      True                     8m10s  See my-azure-cluster-md-0-84bd8b5f5b-b8cnq, my-azure-cluster-md-0-84bd8b5f5b-j8ldg, ...
+	NAME                                                              READY  SEVERITY  REASON  SINCE  MESSAGE
+	Cluster/azure-example                                             True                     55s           
+	├─ClusterInfrastructure - AzureCluster/azure-example              True                     67s           
+	├─ControlPlane - KubeadmControlPlane/azure-example-control-plane  True                     55s           
+	│ ├─Machine/azure-example-control-plane-67f47                     True                     58s           
+	│ ├─Machine/azure-example-control-plane-7pllh                     True                     65s           
+	│ └─Machine/azure-example-control-plane-jtfgv                     True                     65s           
+	└─Workers                                                                                                 
+	  └─MachineDeployment/azure-example-md-0                          True                     67s           
+        ├─Machine/azure-example-md-0-f9cb9c79b-6nsb9                  True                     59s           
+        ├─Machine/azure-example-md-0-f9cb9c79b-jxwl6                  True                     58s           
+        ├─Machine/azure-example-md-0-f9cb9c79b-ktg7z                  True                     59s           
+        └─Machine/azure-example-md-0-f9cb9c79b-nxcm2                  True                     66s           
     ```
 
 1.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
 
     ```bash
-    dkp delete bootstrap
+    dkp delete bootstrap --kubeconfig $HOME/.kube/config
     ```
 
     ```sh
-    INFO[2021-06-07T14:53:36-07:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:182"
+	✓ Deleting bootstrap cluster
     ```
 
 ## Known Limitations

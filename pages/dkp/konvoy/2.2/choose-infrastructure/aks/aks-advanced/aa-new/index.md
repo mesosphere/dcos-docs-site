@@ -51,13 +51,9 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 	azuremanagedcontrolplane.infrastructure.cluster.x-k8s.io/aks-example created
 	azuremanagedcluster.infrastructure.cluster.x-k8s.io/aks-example created
 	machinepool.cluster.x-k8s.io/aks-example created
-	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/cp8j69b created
+	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/cp6dsz8 created
 	machinepool.cluster.x-k8s.io/aks-example-md-0 created
-	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mpqm2d8 created
-	clusterresourceset.addons.cluster.x-k8s.io/calico-installation-aks-example created
-	configmap/calico-cni-aks-example created
-	clusterresourceset.addons.cluster.x-k8s.io/tigera-operator-aks-example created
-	configmap/tigera-operator-aks-example created
+	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mp6gglj created
 	clusterresourceset.addons.cluster.x-k8s.io/cluster-autoscaler-aks-example created
 	configmap/cluster-autoscaler-aks-example created
 	clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-aks-example created
@@ -85,10 +81,10 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     ```
 
     ```sh
-    NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
-    /aks-example                                                    True                     35s
-    ├─ClusterInfrastructure - AzureManagedCluster/aks-example
-    └─ControlPlane - AzureManagedControlPlane/aks-example
+    NAME                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
+	Cluster/aks-example                                        True                     48m
+	├─ClusterInfrastructure - AzureManagedCluster/aks-example
+	└─ControlPlane - AzureManagedControlPlane/aks-example
     ```
 
 1.  As they progress, the controllers also create Events. List the Events using this command:
@@ -100,29 +96,9 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
     For brevity, the example uses `grep`. It is also possible to use separate commands to get Events for specific objects. For example, `kubectl get events --field-selector involvedObject.kind="AKSCluster"` and `kubectl get events --field-selector involvedObject.kind="AKSMachine"`.
 
     ```sh
-    15m         Normal    AzureClusterObjectNotFound                  azurecluster                                          AzureCluster object default/aks-example not found
-    15m         Normal    AzureManagedControlPlaneObjectNotFound      azuremanagedcontrolplane                              AzureManagedControlPlane object default/aks-example not found
-    15m         Normal    AzureClusterObjectNotFound                  azurecluster                                          AzureCluster.infrastructure.cluster.x-k8s.io "aks-example" not found
-    8m22s       Normal    SuccessfulSetNodeRef                        machine/aks-example-control-plane-bmc9b          aks-example-control-plane-fdvnm
-    10m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-control-plane-fdvnm     Machine Controller has not yet set OwnerRef
-    12m         Normal    SuccessfulSetNodeRef                        machine/aks-example-control-plane-msftd          aks-example-control-plane-z9q45
-    10m         Normal    SuccessfulSetNodeRef                        machine/aks-example-control-plane-nrvff          aks-example-control-plane-vmqwx
-    12m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-control-plane-vmqwx     Machine Controller has not yet set OwnerRef
-    14m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-control-plane-z9q45     Machine Controller has not yet set OwnerRef
-    14m         Warning   VMIdentityNone                              azuremachinetemplate/aks-example-control-plane   You are using Service Principal authentication for Cloud Provider Azure which is less secure than Managed Identity. Your Service Principal credentials will be written to a file on the disk of each VM in order to be accessible by Cloud Provider. To learn more, see https://capz.sigs.k8s.io/topics/identities-use-cases.html#azure-host-identity
-    12m         Warning   ControlPlaneUnhealthy                       kubeadmcontrolplane/aks-example-control-plane    Waiting for control plane to pass preflight checks to continue reconciliation: [machine aks-example-control-plane-msftd does not have APIServerPodHealthy condition, machine aks-example-control-plane-msftd does not have ControllerManagerPodHealthy condition, machine aks-example-control-plane-msftd does not have SchedulerPodHealthy condition, machine aks-example-control-plane-msftd does not have EtcdPodHealthy condition, machine aks-example-control-plane-msftd does not have EtcdMemberHealthy condition]
-    11m         Warning   ControlPlaneUnhealthy                       kubeadmcontrolplane/aks-example-control-plane    Waiting for control plane to pass preflight checks to continue reconciliation: [machine aks-example-control-plane-nrvff does not have APIServerPodHealthy condition, machine aks-example-control-plane-nrvff does not have ControllerManagerPodHealthy condition, machine aks-example-control-plane-nrvff does not have SchedulerPodHealthy condition, machine aks-example-control-plane-nrvff does not have EtcdPodHealthy condition, machine aks-example-control-plane-nrvff does not have EtcdMemberHealthy condition]
-    9m52s       Normal    SuccessfulSetNodeRef                        machine/aks-example-md-0-84bd8b5f5b-b8cnq        aks-example-md-0-bsc82
-    9m53s       Normal    SuccessfulSetNodeRef                        machine/aks-example-md-0-84bd8b5f5b-j8ldg        aks-example-md-0-mjcbn
-    9m52s       Normal    SuccessfulSetNodeRef                        machine/aks-example-md-0-84bd8b5f5b-lx89f        aks-example-md-0-pmq8f
-    10m         Normal    SuccessfulSetNodeRef                        machine/aks-example-md-0-84bd8b5f5b-pcv7q        aks-example-md-0-vzprf
-    15m         Normal    SuccessfulCreate                            machineset/aks-example-md-0-84bd8b5f5b           Created machine "aks-example-md-0-84bd8b5f5b-j8ldg"
-    15m         Normal    SuccessfulCreate                            machineset/aks-example-md-0-84bd8b5f5b           Created machine "aks-example-md-0-84bd8b5f5b-lx89f"
-    15m         Normal    SuccessfulCreate                            machineset/aks-example-md-0-84bd8b5f5b           Created machine "aks-example-md-0-84bd8b5f5b-pcv7q"
-    15m         Normal    SuccessfulCreate                            machineset/aks-example-md-0-84bd8b5f5b           Created machine "aks-example-md-0-84bd8b5f5b-b8cnq"
-    15m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-md-0-bsc82              Machine Controller has not yet set OwnerRef
-    15m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-md-0-mjcbn              Machine Controller has not yet set OwnerRef
-    15m         Normal    Machine controller dependency not yet met   azuremachine/aks-example-md-0-pmq8f              Machine Controller has not yet set OwnerRef
+    48m         Normal    SuccessfulSetNodeRefs                machinepool/aks-example-md-0                  [{Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000000 UID:e3c30389-660d-46f5-b9d7-219f80b5674d APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000001 UID:300d71a0-f3a7-4c29-9ff1-1995ffb9cfd3 APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000002 UID:8eae2b39-a415-425d-8417-d915a0b2fa52 APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000003 UID:3e860b88-f1a4-44d1-b674-a54fad599a9d APIVersion: ResourceVersion: FieldPath:}]
+	6m4s        Normal    AzureManagedControlPlane available   azuremanagedcontrolplane/aks-example          successfully reconciled
+	48m         Normal    SuccessfulSetNodeRefs                machinepool/aks-example                       [{Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000000 UID:e3c30389-660d-46f5-b9d7-219f80b5674d APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000001 UID:300d71a0-f3a7-4c29-9ff1-1995ffb9cfd3 APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000002 UID:8eae2b39-a415-425d-8417-d915a0b2fa52 APIVersion: ResourceVersion: FieldPath:}]
     ```
 
 

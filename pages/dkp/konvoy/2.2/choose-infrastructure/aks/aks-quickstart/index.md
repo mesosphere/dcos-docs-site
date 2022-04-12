@@ -70,10 +70,10 @@ Before starting the Konvoy installation, verify that you have:
 1.  Set the required environment variables:
 
     ```bash
-    export AZURE_SUBSCRIPTION_ID=<id> # b1234567-abcd-11a1-a0a0-1234a5678b90
-    export AZURE_TENANT_ID="<tenant>" # a1234567-b132-1234-1a11-1234a5678b90
-    export AZURE_CLIENT_ID="<appId>"  # 7654321a-1a23-567b-b789-0987b6543a21
-    export AZURE_CLIENT_SECRET='<password>' # Z79yVstq_E.R0R7RUUck718vEHSuyhAB0C
+    export AZURE_SUBSCRIPTION_ID="<id>"       # b1234567-abcd-11a1-a0a0-1234a5678b90
+    export AZURE_TENANT_ID="<tenant>"         # a1234567-b132-1234-1a11-1234a5678b90
+    export AZURE_CLIENT_ID="<appId>"          # 7654321a-1a23-567b-b789-0987b6543a21
+    export AZURE_CLIENT_SECRET="<password>"   # Z79yVstq_E.R0R7RUUck718vEHSuyhAB0C
     ```
 
 1.  Base64 encode the same environment variables:
@@ -92,6 +92,10 @@ Before starting the Konvoy installation, verify that you have:
     ```bash
     dkp create bootstrap --kubeconfig $HOME/.kube/config
     ```
+	```sh
+	✓ Creating a bootstrap cluster
+	✓ Initializing new CAPI components
+	```
 
 ## Name your cluster
 
@@ -101,7 +105,7 @@ In AKS it is critical that the name is unique as no two clusters in the same AKS
 Set the environment variable to be used throughout this documentation:
 
 ```bash
-CLUSTER_NAME=my-aks-cluster
+export CLUSTER_NAME=aks-example
 ```
 
 ## Create a new AKS Kubernetes cluster
@@ -111,6 +115,22 @@ CLUSTER_NAME=my-aks-cluster
     ```bash
     dkp create cluster aks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
     ```
+	```sh
+	Generating cluster resources
+	cluster.cluster.x-k8s.io/aks-example created
+	azuremanagedcontrolplane.infrastructure.cluster.x-k8s.io/aks-example created
+	azuremanagedcluster.infrastructure.cluster.x-k8s.io/aks-example created
+	machinepool.cluster.x-k8s.io/aks-example created
+	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/cp4n2bm created
+	machinepool.cluster.x-k8s.io/aks-example-md-0 created
+	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mpn6l25 created
+	clusterresourceset.addons.cluster.x-k8s.io/cluster-autoscaler-aks-example created
+	configmap/cluster-autoscaler-aks-example created
+	clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-aks-example created
+	configmap/node-feature-discovery-aks-example created
+	clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-aks-example created
+	configmap/nvidia-feature-discovery-aks-example created
+	```
 
 1.  (Optional) Specify an authorized key file to have SSH access to the machines.
 
@@ -133,6 +153,9 @@ CLUSTER_NAME=my-aks-cluster
     ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
     ```
+	```sh
+	cluster.cluster.x-k8s.io/aks-example condition met
+	```
 
 ## Explore the new Kubernetes cluster
 
@@ -147,6 +170,16 @@ CLUSTER_NAME=my-aks-cluster
     ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
+	```sh
+	NAME                              STATUS   ROLES   AGE   VERSION
+	aks-cp4n2bm-57672902-vmss000000   Ready    agent   28m   v1.22.6
+	aks-cp4n2bm-57672902-vmss000001   Ready    agent   29m   v1.22.6
+	aks-cp4n2bm-57672902-vmss000002   Ready    agent   29m   v1.22.6
+	aks-mpn6l25-57672902-vmss000000   Ready    agent   29m   v1.22.6
+	aks-mpn6l25-57672902-vmss000001   Ready    agent   29m   v1.22.6
+	aks-mpn6l25-57672902-vmss000002   Ready    agent   29m   v1.22.6
+	aks-mpn6l25-57672902-vmss000003   Ready    agent   29m   v1.22.6
+	```
 
     <p class="message--note"><strong>NOTE: </strong>It may take a couple of minutes for the Status to move to <code>Ready</code> while <code>calico-node</code> pods are being deployed.</p>
 
@@ -155,6 +188,70 @@ CLUSTER_NAME=my-aks-cluster
     ```bash
     kubectl --kubeconfig=${CLUSTER_NAME}.conf get pods -A
     ```
+	```sh
+	NAMESPACE                NAME                                             READY   STATUS     RESTARTS   AGE
+	calico-system            calico-kube-controllers-78f65cd5dd-5m6t2         1/1     Running    0          28m
+	calico-system            calico-node-27h8r                                1/1     Running    0          28m
+	calico-system            calico-node-cn4zw                                1/1     Running    0          28m
+	calico-system            calico-node-fgsqx                                1/1     Running    0          28m
+	calico-system            calico-node-htr4f                                1/1     Running    0          28m
+	calico-system            calico-node-l7skw                                1/1     Running    0          28m
+	calico-system            calico-node-mn67v                                1/1     Running    0          28m
+	calico-system            calico-node-z626n                                1/1     Running    0          28m
+	calico-system            calico-typha-b6c9c78f4-hcnmd                     1/1     Running    0          28m
+	calico-system            calico-typha-b6c9c78f4-pz52w                     1/1     Running    0          28m
+	calico-system            calico-typha-b6c9c78f4-xknwt                     1/1     Running    0          28m
+	kube-system              azure-ip-masq-agent-9hxsr                        1/1     Running    0          30m
+	kube-system              azure-ip-masq-agent-bh5m6                        1/1     Running    0          31m
+	kube-system              azure-ip-masq-agent-c6s4v                        1/1     Running    0          31m
+	kube-system              azure-ip-masq-agent-gg77k                        1/1     Running    0          30m
+	kube-system              azure-ip-masq-agent-k5sl8                        1/1     Running    0          31m
+	kube-system              azure-ip-masq-agent-mmpsp                        1/1     Running    0          31m
+	kube-system              azure-ip-masq-agent-z4n24                        1/1     Running    0          31m
+	kube-system              cloud-node-manager-42shm                         1/1     Running    0          31m
+	kube-system              cloud-node-manager-b9scr                         1/1     Running    0          30m
+	kube-system              cloud-node-manager-ccmwl                         1/1     Running    0          31m
+	kube-system              cloud-node-manager-csrml                         1/1     Running    0          31m
+	kube-system              cloud-node-manager-gkv6x                         1/1     Running    0          31m
+	kube-system              cloud-node-manager-ttxz7                         1/1     Running    0          30m
+	kube-system              cloud-node-manager-twlh8                         1/1     Running    0          31m
+	kube-system              cluster-autoscaler-68c759fbf6-cnkkp              0/1     Init:0/1   0          29m
+	kube-system              coredns-845757d86-brpzs                          1/1     Running    0          33m
+	kube-system              coredns-845757d86-nqmlc                          1/1     Running    0          31m
+	kube-system              coredns-autoscaler-7d56cd888-8bc28               1/1     Running    0          33m
+	kube-system              csi-azuredisk-node-4bl85                         3/3     Running    0          30m
+	kube-system              csi-azuredisk-node-8dw5n                         3/3     Running    0          31m
+	kube-system              csi-azuredisk-node-bg2kb                         3/3     Running    0          31m
+	kube-system              csi-azuredisk-node-fr9bm                         3/3     Running    0          31m
+	kube-system              csi-azuredisk-node-nm4k9                         3/3     Running    0          31m
+	kube-system              csi-azuredisk-node-twvcv                         3/3     Running    0          31m
+	kube-system              csi-azuredisk-node-wgds6                         3/3     Running    0          30m
+	kube-system              csi-azurefile-node-5xv28                         3/3     Running    0          31m
+	kube-system              csi-azurefile-node-9nl7n                         3/3     Running    0          31m
+	kube-system              csi-azurefile-node-c6mn9                         3/3     Running    0          31m
+	kube-system              csi-azurefile-node-q69zr                         3/3     Running    0          31m
+	kube-system              csi-azurefile-node-q894n                         3/3     Running    0          31m
+	kube-system              csi-azurefile-node-v2rmj                         3/3     Running    0          30m
+	kube-system              csi-azurefile-node-wkgck                         3/3     Running    0          30m
+	kube-system              kube-proxy-5kd77                                 1/1     Running    0          31m
+	kube-system              kube-proxy-96jfn                                 1/1     Running    0          30m
+	kube-system              kube-proxy-96pj6                                 1/1     Running    0          30m
+	kube-system              kube-proxy-b8vzs                                 1/1     Running    0          31m
+	kube-system              kube-proxy-fqnw4                                 1/1     Running    0          31m
+	kube-system              kube-proxy-rvpp8                                 1/1     Running    0          31m
+	kube-system              kube-proxy-sfqnm                                 1/1     Running    0          31m
+	kube-system              metrics-server-6576d9ccf8-kfm5q                  1/1     Running    0          33m
+	kube-system              tunnelfront-78777b4fd6-g84wp                     1/1     Running    0          27m
+	node-feature-discovery   node-feature-discovery-master-84c67dcbb6-vgxfm   1/1     Running    0          29m
+	node-feature-discovery   node-feature-discovery-worker-2htgg              1/1     Running    0          29m
+	node-feature-discovery   node-feature-discovery-worker-5cpnt              1/1     Running    0          29m
+	node-feature-discovery   node-feature-discovery-worker-6cjvb              1/1     Running    0          29m
+	node-feature-discovery   node-feature-discovery-worker-jdmkj              1/1     Running    0          29m
+	node-feature-discovery   node-feature-discovery-worker-ms749              1/1     Running    0          29m
+	node-feature-discovery   node-feature-discovery-worker-p2z55              1/1     Running    0          29m
+	node-feature-discovery   node-feature-discovery-worker-wnwfx              1/1     Running    0          29m
+	tigera-operator          tigera-operator-74d785cb58-vbr4d                 1/1     Running    0          33m
+	```
 
 ## Delete the Kubernetes cluster and cleanup your environment
 
@@ -163,12 +260,22 @@ CLUSTER_NAME=my-aks-cluster
     ```bash
     dkp delete cluster --cluster-name=${CLUSTER_NAME}
     ```
+	```sh
+	✓ Deleting Services with type LoadBalancer for Cluster default/aks-example
+	✓ Deleting ClusterResourceSets for Cluster default/aks-example
+	✓ Deleting cluster resources
+	✓ Waiting for cluster to be fully deleted
+	Deleted default/aks-example cluster
+	```
 
 1.  Delete the `kind` Kubernetes cluster:
 
     ```bash
     dkp delete bootstrap --kubeconfig $HOME/.kube/config
     ```
+	```sh
+	✓ Deleting bootstrap cluster
+	```
 
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl

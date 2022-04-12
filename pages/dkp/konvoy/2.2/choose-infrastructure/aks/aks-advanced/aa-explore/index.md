@@ -30,14 +30,14 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    NAME                              STATUS   ROLES   AGE     VERSION
-    aks-cplbnlb-18646133-vmss000000   Ready    agent   2m43s   v1.21.2
-    aks-cplbnlb-18646133-vmss000001   Ready    agent   2m47s   v1.21.2
-    aks-cplbnlb-18646133-vmss000002   Ready    agent   2m58s   v1.21.2
-    aks-mpz427b-18646133-vmss000000   Ready    agent   3m1s    v1.21.2
-    aks-mpz427b-18646133-vmss000001   Ready    agent   3m1s    v1.21.2
-    aks-mpz427b-18646133-vmss000002   Ready    agent   2m47s   v1.21.2
-    aks-mpz427b-18646133-vmss000003   Ready    agent   3m6s    v1.21.2
+	NAME                              STATUS   ROLES   AGE   VERSION
+	aks-cp6dsz8-41174201-vmss000000   Ready    agent   56m   v1.22.6
+	aks-cp6dsz8-41174201-vmss000001   Ready    agent   55m   v1.22.6
+	aks-cp6dsz8-41174201-vmss000002   Ready    agent   56m   v1.22.6
+	aks-mp6gglj-41174201-vmss000000   Ready    agent   55m   v1.22.6
+	aks-mp6gglj-41174201-vmss000001   Ready    agent   55m   v1.22.6
+	aks-mp6gglj-41174201-vmss000002   Ready    agent   55m   v1.22.6
+	aks-mp6gglj-41174201-vmss000003   Ready    agent   56m   v1.22.6
     ```
 
     <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Nodes' Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>

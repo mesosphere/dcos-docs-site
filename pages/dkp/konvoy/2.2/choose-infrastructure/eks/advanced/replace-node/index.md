@@ -29,26 +29,25 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     The output from this command resembles the following:
 
     ```sh
-    NAME                                         STATUS   ROLES                  AGE   VERSION
-    ip-10-0-102-60.us-west-2.compute.internal    Ready    control-plane,master   36m   v1.21.3
-    ip-10-0-118-168.us-west-2.compute.internal   Ready    <none>                 42m   v1.21.3
-    ip-10-0-175-114.us-west-2.compute.internal   Ready    control-plane,master   44m   v1.21.3
-    ip-10-0-214-26.us-west-2.compute.internal    Ready    control-plane,master   40m   v1.21.3
-    ip-10-0-84-17.us-west-2.compute.internal     Ready    <none>                 42m   v1.21.3
+	NAME                                         STATUS   ROLES    AGE    VERSION
+	ip-10-0-118-243.us-west-2.compute.internal   Ready    <none>   107s   v1.21.5-eks-9017834
+	ip-10-0-124-16.us-west-2.compute.internal    Ready    <none>   104s   v1.21.5-eks-9017834
+	ip-10-0-68-238.us-west-2.compute.internal    Ready    <none>   105s   v1.21.5-eks-9017834
+	ip-10-0-74-100.us-west-2.compute.internal    Ready    <none>   113s   v1.21.5-eks-9017834
     ```
 
 1.  Export a variable with the node name to use in the next steps:
 
-    This example uses the name `ip-10-0-118-168.us-west-2.compute.internal`.
+    This example uses the name `ip-10-0-118-243.us-west-2.compute.internal`.
 
     ```bash
-    export NAME_NODE_TO_DELETE="ip-10-0-118-168.us-west-2.compute.internal"
+    export NAME_NODE_TO_DELETE="<ip-10-0-118-243.us-west-2.compute.internal>"
     ```
 
 1.  Delete the Machine resource
 
     ```bash
-    NAME_MACHINE_TO_DELETE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machine -ojsonpath="{.items[?(@.status.nodeRef.name==\"$NAME_NODE_TO_DELETE\")].metadata.name}")
+    export NAME_MACHINE_TO_DELETE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machine -ojsonpath="{.items[?(@.status.nodeRef.name==\"$NAME_NODE_TO_DELETE\")].metadata.name}")
     kubectl --kubeconfig ${CLUSTER_NAME}.conf delete machine "$NAME_MACHINE_TO_DELETE"
     ```
 
@@ -78,7 +77,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```bash
     export NAME_NEW_MACHINE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machines \
         -l=cluster.x-k8s.io/deployment-name=${CLUSTER_NAME}-md-0 \
-        -ojsonpath='{.items[?(@.status.phase=="Provisioning")].metadata.name}{"\n"}')
+        -ojsonpath='{.items[?(@.status.phase=="Running")].metadata.name}{"\n"}')
     echo "$NAME_NEW_MACHINE"
     ```
 
