@@ -94,9 +94,9 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
 
 ## Add Kaptain to your DKP Catalog Applications via CLI 
 
-If you have installed DKP with Kaptain as a Workspace application in the Kommander installation file, you do not need to create a Git Repository for Kaptain. 
+If you installed DKP with Kaptain as a Workspace application in the Kommander installation file, you do not need to create a Git Repository for Kaptain. 
 
-If you have added Kaptain after installing DKP,  you must make it available by creating a Git Repository. Use the CLI to create the GitRepository resource and add a new repository. 
+If you added Kaptain after installing DKP, you must make it available by creating a Git Repository. Use the CLI to create the GitRepository resource and add a new repository. 
 
 ### Create a Git repository for Kaptain
 
