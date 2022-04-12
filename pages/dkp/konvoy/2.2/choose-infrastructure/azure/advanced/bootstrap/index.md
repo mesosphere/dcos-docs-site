@@ -27,8 +27,8 @@ Before you begin, you must:
     ```
 
     ```sh
-    ✓ Creating a bootstrap cluster
-    ✓ Initializing bootstrap controllers
+	✓ Creating a bootstrap cluster
+	✓ Initializing new CAPI components
     ```
 
     Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
@@ -45,16 +45,17 @@ Before you begin, you must:
     ```
 
     ```sh
-    NAMESPACE                           NAME                                            READY   UP-TO-DATE   AVAILABLE   AGE
-    capa-system                         capa-controller-manager                         1/1     1            1           5m24s
-    capi-kubeadm-bootstrap-system       capi-kubeadm-bootstrap-controller-manager       1/1     1            1           5m28s
-    capi-kubeadm-control-plane-system   capi-kubeadm-control-plane-controller-manager   1/1     1            1           5m26s
-    capi-system                         capi-controller-manager                         1/1     1            1           5m29s
-    cappp-system                        cappp-controller-manager                        1/1     1            1           5m20s
-    capz-system                         capz-controller-manager                         1/1     1            1           5m21s
-    cert-manager                        cert-manager                                    1/1     1            1           5m52s
-    cert-manager                        cert-manager-cainjector                         1/1     1            1           5m52s
-    cert-manager                        cert-manager-webhook                            1/1     1            1           5m52s
+	NAMESPACE                           NAME                                            READY   UP-TO-DATE   AVAILABLE   AGE
+	capa-system                         capa-controller-manager                         1/1     1            1           69s
+	capi-kubeadm-bootstrap-system       capi-kubeadm-bootstrap-controller-manager       1/1     1            1           71s
+	capi-kubeadm-control-plane-system   capi-kubeadm-control-plane-controller-manager   1/1     1            1           70s
+	capi-system                         capi-controller-manager                         1/1     1            1           73s
+	cappp-system                        cappp-controller-manager                        1/1     1            1           66s
+	capv-system                         capv-controller-manager                         1/1     1            1           65s
+	capz-system                         capz-controller-manager                         1/1     1            1           67s
+	cert-manager                        cert-manager                                    1/1     1            1           16m
+	cert-manager                        cert-manager-cainjector                         1/1     1            1           16m
+	cert-manager                        cert-manager-webhook                            1/1     1            1           16m
     ```
 
     Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
@@ -64,14 +65,12 @@ Before you begin, you must:
     ```
 
     ```sh
-    NAME                       AGE
-    aws-ebs-csi                5m38s
-    azure-disk-csi             5m38s
-    cluster-autoscaler         5m38s
-    local-volume-provisioner   5m38s
-    node-feature-discovery     5m38s
-    nvidia-feature-discovery   5m37s
-    tigera-operator            5m38s
+	NAME                                    AGE
+	azure-disk-csi-long-running             13m
+	calico-cni-installation-long-running    13m
+	cluster-autoscaler-long-running         13m
+	node-feature-discovery-long-running     13m
+	nvidia-feature-discovery-long-running   13m
     ```
 
     A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.

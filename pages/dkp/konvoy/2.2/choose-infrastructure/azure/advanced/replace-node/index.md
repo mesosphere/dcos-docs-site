@@ -29,31 +29,33 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     The output from this command resembles the following:
 
     ```sh
-    NAME                                         STATUS   ROLES                  AGE   VERSION
-    ip-10-0-102-60.us-west-2.compute.internal    Ready    control-plane,master   36m   v1.21.6
-    ip-10-0-118-168.us-west-2.compute.internal   Ready    <none>                 42m   v1.21.6
-    ip-10-0-175-114.us-west-2.compute.internal   Ready    control-plane,master   44m   v1.21.6
-    ip-10-0-214-26.us-west-2.compute.internal    Ready    control-plane,master   40m   v1.21.6
-    ip-10-0-84-17.us-west-2.compute.internal     Ready    <none>                 42m   v1.21.6
+	NAME                                STATUS   ROLES                  AGE   VERSION
+	azure-example-control-plane-ckwm4   Ready    control-plane,master   35m   v1.22.7
+	azure-example-control-plane-d4fdf   Ready    control-plane,master   31m   v1.22.7
+	azure-example-control-plane-qrvm9   Ready    control-plane,master   33m   v1.22.7
+	azure-example-md-0-4w7gq            Ready    <none>                 33m   v1.22.7
+	azure-example-md-0-6gb9k            Ready    <none>                 33m   v1.22.7
+	azure-example-md-0-p2n8c            Ready    <none>                 11m   v1.22.7
+	azure-example-md-0-s5zbh            Ready    <none>                 33m   v1.22.7
     ```
 
 1.  Export a variable with the node name to use in the next steps:
 
-    This example uses the name `ip-10-0-118-168.us-west-2.compute.internal`.
+    This example uses the name `azure-example-control-plane-ckwm4`.
 
     ```bash
-    export NAME_NODE_TO_DELETE="ip-10-0-118-168.us-west-2.compute.internal"
+    export NAME_NODE_TO_DELETE="<azure-example-control-plane-ckwm4>"
     ```
 
 1.  Delete the Machine resource
 
     ```bash
-    NAME_MACHINE_TO_DELETE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machine -ojsonpath="{.items[?(@.status.nodeRef.name==\"$NAME_NODE_TO_DELETE\")].metadata.name}")
+    export NAME_MACHINE_TO_DELETE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machine -ojsonpath="{.items[?(@.status.nodeRef.name==\"$NAME_NODE_TO_DELETE\")].metadata.name}")
     kubectl --kubeconfig ${CLUSTER_NAME}.conf delete machine "$NAME_MACHINE_TO_DELETE"
     ```
 
     ```sh
-    machine.cluster.x-k8s.io "my-azure-example-md-0-7fbfb98fcf-4xcv9" deleted
+    machine.cluster.x-k8s.io "azure-example-control-plane-slprd" deleted
     ```
 
     The command will not return immediately. It will return once the Machine resource has been deleted.
@@ -67,8 +69,9 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```
 
     ```sh
-    NAME                    PHASE       REPLICAS   READY   UPDATED   UNAVAILABLE
-    my-azure-example-md-0   ScalingUp   2          1       2         1
+	NAME                 CLUSTER         REPLICAS   READY   UPDATED   UNAVAILABLE   PHASE       AGE     VERSION
+	azure-example-md-0   azure-example   4          3       4         1             ScalingUp   7m30s   v1.22.7
+	long-running-md-0    long-running    4          4       4         0             Running     7m28s   v1.22.7
     ```
 
     In this example, there are two replicas, but only 1 is ready. One replica is unavailable, and the `ScalingUp` phase means a new Machine is being created.
@@ -78,21 +81,30 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
     ```bash
     export NAME_NEW_MACHINE=$(kubectl --kubeconfig ${CLUSTER_NAME}.conf get machines \
         -l=cluster.x-k8s.io/deployment-name=${CLUSTER_NAME}-md-0 \
-        -ojsonpath='{.items[?(@.status.phase=="Provisioning")].metadata.name}{"\n"}')
-    echo "$NAME_NEW_MACHINE"
+        -ojsonpath='{.items[?(@.status.phase=="Running")].metadata.name}{"\n"}')
+    echo $NAME_NEW_MACHINE
     ```
-
+	```sh
+	azure-example-md-0-d67567c8b-2674r azure-example-md-0-d67567c8b-n276j azure-example-md-0-d67567c8b-pzg8k azure-example-md-0-d67567c8b-z8km9
+	```
+	
     If the output is empty, the new Machine has probably exited the `Provisioning` phase and entered the `Running` phase.
 
 1.  Identify the replacement Node using this command:
 
     ```bash
-    kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes \
-        -o=jsonpath="{.items[?(@.metadata.annotations.cluster\.x-k8s\.io/machine==\"$NAME_NEW_MACHINE\")].metadata.name}"
+    kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes
     ```
 
     ```sh
-    ip-10-0-85-101.us-west-2.compute.internal
+    NAME                                STATUS   ROLES                  AGE     VERSION
+	azure-example-control-plane-d4fdf   Ready    control-plane,master   43m     v1.22.7
+	azure-example-control-plane-qrvm9   Ready    control-plane,master   45m     v1.22.7
+	azure-example-control-plane-tz56m   Ready    control-plane,master   8m22s   v1.22.7
+	azure-example-md-0-4w7gq            Ready    <none>                 45m     v1.22.7
+	azure-example-md-0-6gb9k            Ready    <none>                 45m     v1.22.7
+	azure-example-md-0-p2n8c            Ready    <none>                 22m     v1.22.7
+	azure-example-md-0-s5zbh            Ready    <none>                 45m     v1.22.7
     ```
 
     If the output is empty, the Node resource is not yet available, or does not yet have the expected annotation. Wait a few minutes, then repeat the command.

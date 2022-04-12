@@ -21,20 +21,18 @@ enterprise: false
     export CLUSTER_NAME=azure-example
     ```
 
-## Tips and Tricks
+## Tips and Tricks 
 
-1.  To create a cluster name that is unique, use the following command:
+(Optional)  To create a cluster name that is unique, use the following command:
 
-    ```bash
-    export CLUSTER_NAME=azure-example-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
-    echo $CLUSTER_NAME
-    ```
-
-    ```sh
-    azure-example-cluster-pf4a3
-    ```
-
-    This will create a unique name every time you run it, so use it with forethought.
+```bash
+export CLUSTER_NAME=azure-example-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+echo $CLUSTER_NAME
+```
+```sh
+azure-example-pf4a3
+```
+This creates a unique name every time you run it, so use it with forethought.
 
 
 ## Create a new Azure Kubernetes cluster
@@ -47,6 +45,10 @@ enterprise: false
     --output=yaml \
     > ${CLUSTER_NAME}.yaml
     ```
+	```sh
+	Generating cluster resources
+	```
+	
 
 1.  (Optional) To configure the Control Plane and Worker nodes to use an HTTP proxy:
 
@@ -111,18 +113,19 @@ enterprise: false
     ```
 
     ```sh
-	Generating cluster resources
 	cluster.cluster.x-k8s.io/azure-example created
-	azuremanagedcontrolplane.infrastructure.cluster.x-k8s.io/azure-example created
-	azuremanagedcluster.infrastructure.cluster.x-k8s.io/azure-example created
-	machinepool.cluster.x-k8s.io/azure-example created
-	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/cp8j69b created
-	machinepool.cluster.x-k8s.io/azure-example-md-0 created
-	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mpqm2d8 created
-	clusterresourceset.addons.cluster.x-k8s.io/calico-installation-azure-example created
-	configmap/calico-cni-azure-example created
-	clusterresourceset.addons.cluster.x-k8s.io/tigera-operator-azure-example created
+	azurecluster.infrastructure.cluster.x-k8s.io/azure-example created
+	kubeadmcontrolplane.controlplane.cluster.x-k8s.io/azure-example-control-plane created
+	azuremachinetemplate.infrastructure.cluster.x-k8s.io/azure-example-control-plane created
+	secret/azure-example-etcd-encryption-config created
+	machinedeployment.cluster.x-k8s.io/azure-example-md-0 created
+	azuremachinetemplate.infrastructure.cluster.x-k8s.io/azure-example-md-0 created
+	kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/azure-example-md-0 created
+	clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-azure-example created
+	configmap/calico-cni-installation-azure-example created
 	configmap/tigera-operator-azure-example created
+	clusterresourceset.addons.cluster.x-k8s.io/azure-disk-csi-azure-example created
+	configmap/azure-disk-csi-azure-example created
 	clusterresourceset.addons.cluster.x-k8s.io/cluster-autoscaler-azure-example created
 	configmap/cluster-autoscaler-azure-example created
 	clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-azure-example created
@@ -148,14 +151,19 @@ enterprise: false
     ```
 
     ```sh
-    NAME                                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
-    /azure-example                                                    True                     6m37s
-    ├─ClusterInfrastructure - AzureCluster/azure-example              True                     13m
-    ├─ControlPlane - KubeadmControlPlane/azure-example-control-plane  True                     6m37s
-    │ └─3 Machines...                                                 True                     10m    See azure-example-control-plane-bmc9b, azure-example-control-plane-msftd, ...
-    └─Workers
-    └─MachineDeployment/azure-example-md-0                            True                     7m58s
-    └─4 Machines...                                                   True                     8m10s  See azure-example-md-0-84bd8b5f5b-b8cnq, azure-example-md-0-84bd8b5f5b-j8ldg, ...
+    NAME                                                              READY  SEVERITY  REASON  SINCE  MESSAGE
+	Cluster/azure-example                                             True                     3m4s
+	├─ClusterInfrastructure - AzureCluster/azure-example              True                     8m26s
+	├─ControlPlane - KubeadmControlPlane/azure-example-control-plane  True                     3m4s
+	│ ├─Machine/azure-example-control-plane-l8j9r                     True                     3m9s
+	│ ├─Machine/azure-example-control-plane-slprd                     True                     7m17s
+	│ └─Machine/azure-example-control-plane-xhxxg                     True                     5m9s
+	└─Workers
+	  └─MachineDeployment/azure-example-md-0                          True                     4m31s
+		├─Machine/azure-example-md-0-d67567c8b-2674r                  True                     5m19s
+		├─Machine/azure-example-md-0-d67567c8b-mbmhk                  True                     5m17s
+		├─Machine/azure-example-md-0-d67567c8b-pzg8k                  True                     5m17s
+		└─Machine/azure-example-md-0-d67567c8b-z8km9                  True                     5m17s
     ```
 
 1.  As they progress, the controllers also create Events. List the Events using this command:

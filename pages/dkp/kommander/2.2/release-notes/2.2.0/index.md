@@ -69,44 +69,41 @@ This new predictive analytics tool provides greater support productivity, speed,
 
 ## Component updates
 
-The following services and service components will be upgraded to the listed version:
+When upgrading to this release, the following services and service components are upgraded to the listed version:
 
-| Platform Application                           | Version | Component Versions                                                                                                        |
-|------------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------|
-| [kube-prometheus-stack][kube-prometheus-stack] | 33.1.4  | chart: 33.1.4- <br>prometheus-operator: 0.57.0<br>prometheus: 2.33.4<br>prometheus alertmanager: 0.23.0<br>grafana: 8.3.6 |
-| centralized-kubecost                           | 0.20.0  |                                                                                                                           |
-| cert-manager                                   | 0.2.7   |                                                                                                                           |
-| dex                                            | 2.9.10  |                                                                                                                           |
-| external-dns                                   | 2.20.5  |                                                                                                                           |
-| fluent-bit                                     | 0.16.2  |                                                                                                                           |
-| gatekeeper                                     | 0.6.8   |                                                                                                                           |
-| grafana-logging                                | 6.16.14 |                                                                                                                           |
-| grafana-loki                                   | 0.33.1  |                                                                                                                           |
-| istio                                          | 1.9.1   |                                                                                                                           |
-| jaeger                                         | 2.21.0  |                                                                                                                           |
-| karma                                          | 2.0.0   |                                                                                                                           |
-| kiali                                          | 1.29.1  |                                                                                                                           |
-| knative                                        | 0.18.3  |                                                                                                                           |
-| kube-oidc-proxy                                | 0.2.5   |                                                                                                                           |
-| kube-prometheus-stack                          | 18.1.1  |                                                                                                                           |
-| kubecost                                       | 0.20.0  |                                                                                                                           |
-| kubefed                                        | 0.9.0   |                                                                                                                           |
-| kubernetes-dashboard                           | 5.0.2   |                                                                                                                           |
-| kubetunnel                                     | 0.0.8   |                                                                                                                           |
-| logging-operator                               | 3.15.0  |                                                                                                                           |
-| metallb                                        | 0.12.1  |                                                                                                                           |
-| minio-operator                                 | 4.1.7   |                                                                                                                           |
-| nfs-server-provisioner                         | 0.6.0   |                                                                                                                           |
-| nvidia                                         | 0.4.3   |                                                                                                                           |
-| project-grafana-logging                        | 6.16.14 |                                                                                                                           |
-| project-grafana-loki                           | 0.33.1  |                                                                                                                           |
-| project-logging                                | 1.0.0   |                                                                                                                           |
-| prometheus-adapter                             | 2.11.1  |                                                                                                                           |
-| reloader                                       | 0.0.99  |                                                                                                                           |
-| thanos                                         | 0.4.5   |                                                                                                                           |
-| traefik                                        | 10.3.0  |                                                                                                                           |
-| traefik-forward-auth                           | 0.3.2   |                                                                                                                           |
-| velero                                         | 3.1.1   |                                                                                                                           |
+| Platform Application | Version | Component Versions |
+|--------------------- |---------|--------------------|
+| cert-manager | 1.7.1 | - chart: 1.7.1<br>- cert-manager: 1.7.1 |
+| dex | 2.9.14  | - chart: 2.9.14<br>- dex: 2.22.0 |
+| external-dns | 6.1.8  | - chart: 6.1.8<br>- external-dns: 0.10.2 |
+| fluent-bit | 0.19.20 | - chart: 0.19.20<br>- fluent-bit: 1.8.13 |
+| gatekeeper | 3.7.0 | - chart: 3.7.0<br>- gatekeeper: 3.7.0 |
+| grafana-logging | 6.22.0 | - chart: 6.22.0<br>- grafana: 8.3.6 |
+| grafana-loki | 0.33.2 | - chart: 0.33.1<br>- loki: 2.2.1  |
+| istio | 1.11.6 | - chart: 1.11.6<br>- istio: 1.11.5 |
+| jaeger | 2.29.0  | - chart: 2.29.0<br>- jaeger: 1.31.0 |
+| karma | 2.0.1 | - chart: 2.0.1<br>- karma: 0.88 |
+| kiali | 1.47.0 | - chart: 1.47.0<br>- kiali: 1.47.0 |
+| knative | 0.3.9 | - chart: 0.3.9<br>- knative: 0.22.3 |
+| kube-oidc-proxy | 0.3.1 | - chart: 0.3.1<br>- kube-oidc-proxy: 0.3.0 |
+| [kube-prometheus-stack][kube-prometheus-stack] | 33.1.5  | - chart: 33.1.5 <br>- prometheus-operator: 0.54.1<br>- prometheus: 2.33.4<br>- prometheus alertmanager: 0.23.0<br>- grafana: 8.3.6 |
+| kubecost | 0.23.3 | - chart: 0.23.3<br>- cost-analyzer: 1.91.2 |
+| kubefed | 0.9.1 | - chart: 0.9.1<br>- kubefed: 0.9.1 |
+| kubernetes-dashboard | 5.1.1 | - chart: 5.1.1<br>- kubernetes-dashboard: 2.4.0 |
+| kubetunnel | 0.0.11 | - chart: 0.0.11<br>- kubetunnel: 0.0.11 |
+| logging-operator | 3.17.2 | - chart: 3.17.2<br>- logging-operator: 3.17.2 |
+| minio-operator | 4.4.10 | - chart: 4.4.10<br>- minio: 4.4.10 |
+| nfs-server-provisioner | 0.6.0 | - chart: 0.6.0<br>- nfs-provisioner: 2.3.0 |
+| nvidia | 0.4.4 | - chart: 0.4.4<br>- nvidia-device-plugin: 0.9.0 |
+| project-grafana-logging| 6.20.6 | - chart: 6.20.6<br>- grafana: 8.3.6 |
+| project-grafana-loki | 0.33.2 | - chart: 0.33.1<br>- loki: 2.2.1 |
+| project-logging | 1.0.0 |  |
+| prometheus-adapter | 2.17.1 | - chart: 2.17.1<br>- prometheus-adapter: 0.9.1 |
+| reloader | 0.0.104 | - chart: 0.0.104<br>- reloader: 0.0.104 |
+| thanos | 0.4.6 | - chart: 0.4.6<br>- thanos: 0.9.0 |
+| traefik | 10.9.1 | - chart: 10.9.1<br>- traefik: 2.5.6 |
+| traefik-forward-auth | 0.3.6 | - chart: 0.3.6<br>- traefik-forward-auth: 3.1.0 |
+| velero | 3.2.0 | - chart: 3.2.0<br>- velero: 1.5.2 |
 
 ## Known issues
 
@@ -149,29 +146,37 @@ spec:
             usernameClaim: email
 [...]
 ```
+
 ### Spark operator failure workaround
 
 Upgrading catalog applications using Spark Operator can fail when running `dkp upgrade catalogapp` due to the operator not starting. If this occurs, use the following workaround:
 
-1. Run the `dkp upgrade catalogapp` command.
-1. Monitor the failure of `spark-operator`.
-1. Get the workspace namespace name and export it.
-   ```bash
-   export WORKSPACE_NAMESPACE=<SPARK_OPERATOR_WS_NS>
-   ```
-1. Export the spark-operator AppDeployment name.
+1.  Run the `dkp upgrade catalogapp` command.
+1.  Monitor the failure of `spark-operator`.
+1.  Get the workspace namespace name and export it.
+
+    ```bash
+    export WORKSPACE_NAMESPACE=<SPARK_OPERATOR_WS_NS>
+    ```
+
+1.  Export the spark-operator AppDeployment name.
+
     ```bash
     # e.g., this value can be spark-operator-1
     export SPARK_APPD_NAME=$(kubectl get appdeployment -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[*]} {.metadata.name}{"\n"}{end}' | grep spark)
     ```
-1. Export the service account name of your `spark-operator`.
+
+1.  Export the service account name of your `spark-operator`.
+
     ```bash
     # if your provided values override, please look it up in that ConfigMap
     # this is the default value defined in spark-operator-1.1.6-d2iq-defaults ConfigMap
     export SPARK_OPERATOR_SERVICE_ACCOUNT=spark-operator-service-account
     ```
-1. Run the following command.
-   ```bash
+
+1.  Run the following command.
+
+    ```bash
     kubectl apply -f - <<EOF
     ---
     apiVersion: rbac.authorization.k8s.io/v1
@@ -315,6 +320,7 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     namespace: $WORKSPACE_NAMESPACE
     EOF
     ```
+
 1. if you want to force a pod recreation, you can delete the old pod in `CrashLoopBackoff` by running
    ```bash
    kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')

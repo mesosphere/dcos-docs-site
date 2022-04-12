@@ -46,7 +46,6 @@ This section describes how to upgrade your Kommander Management cluster and all 
   1. Pause the helm release.
   ```bash
   kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
   ```
   ```sh
   helmrelease.helm.toolkit.fluxcd.io/metallb patched
@@ -62,7 +61,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
   3. Delete MetalLB.
   ```bash
-  k -n kommander delete appdeployment metallb
+  kubectl -n kommander delete appdeployment metallb
   ```
 
   ```sh
@@ -125,7 +124,10 @@ Before running the following command, ensure that your `dkp` configuration **ref
     An output similar to this appears:
 
     ```bash
-    $ dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
+    dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
+    ```
+    
+    ```sh
     ✓ Ensuring upgrading conditions are met
     ✓ Ensuring application definitions are updated
     ✓ Ensuring helm-mirror implementation is migrated to chartmuseum
@@ -136,6 +138,13 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
     ```bash
     dkp upgrade kommander -v 4
+    ```
+
+    If you find any `HelmReleases` in a "broken" release state such as "exhausted" or "another rollback/release in progress", you can trigger a reconciliation of the `HelmRelease` using the following commands:
+
+    ```bash
+    kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": true}]'
+    kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": false}]'
     ```
 
 1.  For Enterprise customers (multi-cluster environment): Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster.

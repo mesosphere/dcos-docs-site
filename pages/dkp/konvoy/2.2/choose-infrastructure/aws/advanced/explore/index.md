@@ -30,9 +30,14 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    NAME                                         STATUS   ROLES                  AGE    VERSION
-    ip-10-0-126-209.us-west-2.compute.internal   Ready    control-plane,master   124m   v1.21.6
-    ip-10-0-204-168.us-west-2.compute.internal   Ready    <none>                 118m   v1.21.6
+	NAME                                         STATUS   ROLES                  AGE     VERSION
+	ip-10-0-100-85.us-west-2.compute.internal    Ready    <none>                 8m13s   v1.22.8
+	ip-10-0-106-183.us-west-2.compute.internal   Ready    control-plane,master   6m22s   v1.22.8
+	ip-10-0-158-104.us-west-2.compute.internal   Ready    control-plane,master   8m58s   v1.22.8
+	ip-10-0-203-138.us-west-2.compute.internal   Ready    control-plane,master   7m52s   v1.22.8
+	ip-10-0-70-169.us-west-2.compute.internal    Ready    <none>                 8m14s   v1.22.8
+	ip-10-0-77-176.us-west-2.compute.internal    Ready    <none>                 8m11s   v1.22.8
+	ip-10-0-96-61.us-west-2.compute.internal     Ready    <none>                 8m12s   v1.22.8
     ```
 
     <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Nodes' Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>
@@ -44,39 +49,57 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    NAMESPACE                           NAME                                                                 READY   STATUS    RESTARTS   AGE
-    calico-system                       calico-kube-controllers-f95867bfb-4vxzz                              1/1     Running   0          124m
-    calico-system                       calico-node-xjqkq                                                    1/1     Running   0          124m
-    calico-system                       calico-node-z2h7c                                                    1/1     Running   0          120m
-    calico-system                       calico-typha-74b6bbd989-5d8lb                                        1/1     Running   0          124m
-    calico-system                       calico-typha-74b6bbd989-zxd94                                        1/1     Running   0          120m
-    capa-system                         capa-controller-manager-7cbc764d6b-5fcb8                             2/2     Running   0          12m
-    capi-kubeadm-bootstrap-system       capi-kubeadm-bootstrap-controller-manager-6cf88b5459-cr46w           2/2     Running   0          12m
-    capi-kubeadm-control-plane-system   capi-kubeadm-control-plane-controller-manager-86f749cf89-dj6vp       2/2     Running   0          12m
-    capi-system                         capi-controller-manager-7c9ff4ddc7-wdz8s                             2/2     Running   0          12m
-    capi-webhook-system                 capa-controller-manager-5848b6b65b-plfbv                             2/2     Running   0          12m
-    capi-webhook-system                 capi-controller-manager-54bf59bd8d-9jv5s                             2/2     Running   0          12m
-    capi-webhook-system                 capi-kubeadm-bootstrap-controller-manager-65c99884-7lcrc             2/2     Running   0          12m
-    capi-webhook-system                 capi-kubeadm-control-plane-controller-manager-5869f67c96-qkhcn       2/2     Running   0          12m
-    capi-webhook-system                 capz-controller-manager-55557b6cdf-29kjf                             2/2     Running   0          12m
-    capz-system                         capz-controller-manager-5b98d9756d-vlgxz                             2/2     Running   0          11m
-    capz-system                         capz-nmi-tbpmr                                                       1/1     Running   0          11m
-    cert-manager                        cert-manager-86cb5dcfdd-f8zb5                                        1/1     Running   0          13m
-    cert-manager                        cert-manager-cainjector-84cf775b89-cdwfk                             1/1     Running   0          13m
-    cert-manager                        cert-manager-webhook-5d5dc765f6-29qqq                                1/1     Running   0          13m
-    kube-system                         coredns-74ff55c5b-9xdnd                                              1/1     Running   0          127m
-    kube-system                         coredns-74ff55c5b-xfkww                                              1/1     Running   0          127m
-    kube-system                         ebs-csi-controller-9c4b68678-2tmpx                                   4/4     Running   0          125m
-    kube-system                         ebs-csi-controller-9c4b68678-lgvnm                                   4/4     Running   0          125m
-    kube-system                         ebs-csi-node-7phdg                                                   3/3     Running   0          125m
-    kube-system                         ebs-csi-node-d9m6p                                                   3/3     Running   0          120m
-    kube-system                         etcd-ip-10-0-126-209.us-west-2.compute.internal                      1/1     Running   0          127m
-    kube-system                         kube-apiserver-ip-10-0-126-209.us-west-2.compute.internal            1/1     Running   0          127m
-    kube-system                         kube-controller-manager-ip-10-0-126-209.us-west-2.compute.internal   1/1     Running   0          127m
-    kube-system                         kube-proxy-744s5                                                     1/1     Running   0          127m
-    kube-system                         kube-proxy-hsmmr                                                     1/1     Running   0          120m
-    kube-system                         kube-scheduler-ip-10-0-126-209.us-west-2.compute.internal            1/1     Running   0          127m
-    tigera-operator                     tigera-operator-675ccbb69c-2cwpn                                     1/1     Running   0          125m
+	NAMESPACE                NAME                                                                 READY   STATUS     RESTARTS        AGE
+	calico-system            calico-kube-controllers-57fbd7bd59-xlnfq                             1/1     Running    0               9m41s
+	calico-system            calico-node-7lfmj                                                    1/1     Running    0               9m2s
+	calico-system            calico-node-8jm52                                                    1/1     Running    0               9m41s
+	calico-system            calico-node-cgrwx                                                    1/1     Running    0               9m23s
+	calico-system            calico-node-g96f6                                                    1/1     Running    0               9m22s
+	calico-system            calico-node-kvwgq                                                    1/1     Running    0               9m21s
+	calico-system            calico-node-nbjr6                                                    1/1     Running    0               7m32s
+	calico-system            calico-node-w5sb5                                                    1/1     Running    0               9m24s
+	calico-system            calico-typha-8699c7db75-645pm                                        1/1     Running    0               9m22s
+	calico-system            calico-typha-8699c7db75-7czwp                                        1/1     Running    0               9m12s
+	calico-system            calico-typha-8699c7db75-xk6wn                                        1/1     Running    0               9m41s
+	kube-system              cluster-autoscaler-68c759fbf6-2bclx                                  0/1     Init:0/1   0               10m
+	kube-system              coredns-78fcd69978-882jg                                             1/1     Running    0               10m
+	kube-system              coredns-78fcd69978-ntp5f                                             1/1     Running    0               10m
+	kube-system              ebs-csi-controller-77574b5cf5-84z7l                                  6/6     Running    0               10m
+	kube-system              ebs-csi-controller-77574b5cf5-tsr5q                                  6/6     Running    0               10m
+	kube-system              ebs-csi-node-2j9pd                                                   3/3     Running    0               9m23s
+	kube-system              ebs-csi-node-6t4sr                                                   3/3     Running    0               9m2s
+	kube-system              ebs-csi-node-8qkpr                                                   3/3     Running    0               10m
+	kube-system              ebs-csi-node-kbq57                                                   3/3     Running    0               9m24s
+	kube-system              ebs-csi-node-qf9mh                                                   3/3     Running    0               9m22s
+	kube-system              ebs-csi-node-v84dd                                                   3/3     Running    0               9m21s
+	kube-system              ebs-csi-node-zqrtp                                                   3/3     Running    0               7m32s
+	kube-system              etcd-ip-10-0-106-183.us-west-2.compute.internal                      1/1     Running    0               7m31s
+	kube-system              etcd-ip-10-0-158-104.us-west-2.compute.internal                      1/1     Running    0               10m
+	kube-system              etcd-ip-10-0-203-138.us-west-2.compute.internal                      1/1     Running    0               9m1s
+	kube-system              kube-apiserver-ip-10-0-106-183.us-west-2.compute.internal            1/1     Running    0               7m31s
+	kube-system              kube-apiserver-ip-10-0-158-104.us-west-2.compute.internal            1/1     Running    0               10m
+	kube-system              kube-apiserver-ip-10-0-203-138.us-west-2.compute.internal            1/1     Running    0               9m1s
+	kube-system              kube-controller-manager-ip-10-0-106-183.us-west-2.compute.internal   1/1     Running    0               7m31s
+	kube-system              kube-controller-manager-ip-10-0-158-104.us-west-2.compute.internal   1/1     Running    1 (8m51s ago)   10m
+	kube-system              kube-controller-manager-ip-10-0-203-138.us-west-2.compute.internal   1/1     Running    0               9m2s
+	kube-system              kube-proxy-4j9s5                                                     1/1     Running    0               9m23s
+	kube-system              kube-proxy-64svf                                                     1/1     Running    0               9m2s
+	kube-system              kube-proxy-9xghm                                                     1/1     Running    0               7m32s
+	kube-system              kube-proxy-cwbqm                                                     1/1     Running    0               9m24s
+	kube-system              kube-proxy-p6thh                                                     1/1     Running    0               9m22s
+	kube-system              kube-proxy-pgs47                                                     1/1     Running    0               9m21s
+	kube-system              kube-proxy-zrplb                                                     1/1     Running    0               10m
+	kube-system              kube-scheduler-ip-10-0-106-183.us-west-2.compute.internal            1/1     Running    0               7m31s
+	kube-system              kube-scheduler-ip-10-0-158-104.us-west-2.compute.internal            1/1     Running    1 (8m51s ago)   10m
+	kube-system              kube-scheduler-ip-10-0-203-138.us-west-2.compute.internal            1/1     Running    0               9m2s
+	kube-system              snapshot-controller-545b6bf98-k2fbv                                  1/1     Running    0               10m
+	kube-system              snapshot-controller-545b6bf98-nf2m8                                  1/1     Running    0               10m
+	node-feature-discovery   node-feature-discovery-master-84c67dcbb6-gqfq8                       1/1     Running    0               10m
+	node-feature-discovery   node-feature-discovery-worker-46b9r                                  1/1     Running    0               8m12s
+	node-feature-discovery   node-feature-discovery-worker-g6dw7                                  1/1     Running    0               8m12s
+	node-feature-discovery   node-feature-discovery-worker-jzkmt                                  1/1     Running    0               8m12s
+	node-feature-discovery   node-feature-discovery-worker-vmsbm                                  1/1     Running    0               8m12s
+	tigera-operator          tigera-operator-d499f5c8f-glx25                                      1/1     Running    1 (8m51s ago)   10m
     ```
 
 [install_docker]: https://docs.docker.com/get-docker/

@@ -47,6 +47,12 @@ Follow these steps:
         - apiGroups: [""]
           resources: ["services"]
           verbs: ["*"]
+        - apiGroups: [""]
+          resources: ["configmaps"]
+          verbs: ["*"]
+        - apiGroups: [""]
+          resources: ["persistentvolumeclaims"]
+          verbs: ["*"]
         ---
         apiVersion: rbac.authorization.k8s.io/v1
         kind: RoleBinding

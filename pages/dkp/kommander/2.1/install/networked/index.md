@@ -96,6 +96,19 @@ helmrelease.helm.toolkit.fluxcd.io/traefik-forward-auth-mgmt condition met
 helmrelease.helm.toolkit.fluxcd.io/velero condition met
 ```
 
+You can check the status of a `HelmRelease` with:
+
+```bash
+kubectl -n kommander get helmrelease <HELMRELEASE_NAME>
+```
+
+If you find any `HelmReleases` in a "broken" release state such as "exhausted" or "another rollback/release in progress", you can trigger a reconciliation of the `HelmRelease` using the following commands:
+
+```bash
+kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": true}]'
+kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": false}]'
+```
+
 ## Access Kommander Web UI
 
 When all the `HelmReleases` are ready, use the following command to open the Kommander dashboard in your browser:
