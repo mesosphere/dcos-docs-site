@@ -100,7 +100,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 
 ### Create a Git repository for Kaptain
 
-1.  Refer to [air-gapped install instructions][<airgapped_install], if you are running in air-gapped environment.
+1.  Refer to [air-gapped install instructions][airgapped_install], if you are running in air-gapped environment.
 
 1.  Adapt the URL of your Git repository:
 
