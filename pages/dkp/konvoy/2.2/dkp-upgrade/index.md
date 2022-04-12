@@ -34,23 +34,23 @@ The DKP upgrade represents an important step of your environment's lifecycle, as
    </tr>
    <tr>
     <th>1.8.5</th>
-    <td Align = "center">N/A</td>
+    <td Align = "center"></td>
     <td Align = "center">Yes</td>
     <td Align = "center">Yes</td>
     <td Align = "center">No</td>
    </tr>
    <tr>
     <th>2.1.0</th>
-    <td Align = "center">N/A</td>
-    <td Align = "center">N/A</td>
+    <td Align = "center"></td>
+    <td Align = "center"></td>
     <td Align = "center">No</td>
     <td Align = "center">Yes</td>
    </tr>
    <tr>
     <th>2.1.1</th>
-    <td Align = "center">N/A</td>
-    <td Align = "center">N/A</td>
-    <td Align = "center">N/A</td>
+    <td Align = "center"></td>
+    <td Align = "center"></td>
+    <td Align = "center"></td>
     <td Align = "center">Yes</td>
    </tr>
   </table>
