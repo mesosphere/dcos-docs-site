@@ -65,14 +65,12 @@ Before you begin, you must:
     ```
 
     ```sh
-    NAME                       AGE
-    aws-ebs-csi                5m38s
-    azure-disk-csi             5m38s
-    cluster-autoscaler         5m38s
-    local-volume-provisioner   5m38s
-    node-feature-discovery     5m38s
-    nvidia-feature-discovery   5m37s
-    tigera-operator            5m38s
+	NAME                                   AGE
+	aws-ebs-csi-aws-example                11s
+	calico-cni-installation-aws-example    11s
+	cluster-autoscaler-aws-example         11s
+	node-feature-discovery-aws-example     11s
+	nvidia-feature-discovery-aws-example   11s
     ```
 
     A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.

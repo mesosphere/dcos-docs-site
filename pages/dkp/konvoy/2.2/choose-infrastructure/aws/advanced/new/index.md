@@ -31,17 +31,15 @@ enterprise: false
     aws ec2 describe-vpcs --filter "Name=tag-key,Values=kubernetes.io/cluster" --query "Vpcs[*].Tags[?Key=='kubernetes.io/cluster'].Value | sort(@[*][0])"
     ```
 
-    ```json
-    [
+    ```sh
         "alex-aws-cluster-afe98",
         "sam-aws-cluster-8if9q"
-    ]
     ```
 
 1.  (Optional) To create a cluster name that is unique, use the following command:
 
     ```bash
-    export CLUSTER_NAME=$aws-example-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+    export CLUSTER_NAME=aws-example-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
     echo $CLUSTER_NAME
     ```
 

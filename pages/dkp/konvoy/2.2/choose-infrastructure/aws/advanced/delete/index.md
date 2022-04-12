@@ -114,9 +114,8 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
 ```bash
 dkp delete bootstrap --kubeconfig $HOME/.kube/config
 ```
-✓ Deleting bootstrap cluster
 ```sh
-
+✓ Deleting bootstrap cluster
 ```
 
 [pivot]: https://cluster-api.sigs.k8s.io/reference/glossary.html?highlight=pivot#pivot
