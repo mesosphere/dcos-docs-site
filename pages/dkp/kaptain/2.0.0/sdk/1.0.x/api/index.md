@@ -599,7 +599,7 @@ True if successful, otherwise False
 #### train
 
 ```python
- | train(hyperparameters: Dict[str, Any], args: Optional[Dict[str, Any]] = None, gpus: Optional[int] = None, cpu: Optional[str] = None, memory: Optional[str] = None, resources: Optional[Resources] = None, workers: int = 2, verbose: Optional[bool] = None, ttl_seconds_after_finished: Optional[int] = None, force_cleanup: Optional[bool] = None) -> bool
+ | train(hyperparameters: Dict[str, Any], args: Optional[Dict[str, Any]] = None, gpus: Optional[int] = None, cpu: Optional[str] = None, memory: Optional[str] = None, resources: Optional[Resources] = None, workers: int = 2, verbose: Optional[bool] = None, ttl_seconds_after_finished: Optional[int] = None, force_cleanup: Optional[bool] = None, timeout: Optional[int] = constants.DEFAULT_TIMEOUT_SECONDS) -> bool
 ```
 
 Train a model in a distributed manner.
@@ -632,6 +632,7 @@ Can be set via 'KAPTAIN_SDK_TTL_SECONDS_AFTER_FINISHED' environment variable.
 - `verbose`: Enable verbose output (can also be set via environment variable KAPTAIN_SDK_VERBOSE).
 - `ttl_seconds_after_finished`: Number of seconds after which a completed training job gets automatically deleted.
 - `force_cleanup`: If set to True, delete completed training jobs automatically ignoring the TTL (can also be set via 'KAPTAIN_SDK_FORCE_CLEANUP' environment variable).
+- `timeout`: Number of seconds to wait for the training job to complete before timing-out
 
 **Returns**:
 
@@ -641,7 +642,7 @@ True if successful, otherwise False
 #### tune
 
 ```python
- | tune(hyperparameters: Dict[str, Domain], objectives: List[str], objective_goal: Optional[float] = None, objective_type: str = "maximize", workers: int = 2, gpus: Optional[int] = None, cpu: Optional[str] = None, memory: Optional[str] = None, resources: Optional[Resources] = None, trials: int = 16, parallel_trials: int = 2, failed_trials: int = 4, algorithm: Optional[str] = Algorithm.RANDOM.value, algorithm_setting: Optional[dict] = None, args: Optional[Dict[str, Any]] = None, verbose: Optional[bool] = None, delete_experiment: Optional[bool] = None, ttl_seconds_after_finished: Optional[int] = None) -> bool
+ | tune(hyperparameters: Dict[str, Domain], objectives: List[str], objective_goal: Optional[float] = None, objective_type: str = "maximize", workers: int = 2, gpus: Optional[int] = None, cpu: Optional[str] = None, memory: Optional[str] = None, resources: Optional[Resources] = None, trials: int = 16, parallel_trials: int = 2, failed_trials: int = 4, algorithm: Optional[str] = Algorithm.RANDOM.value, algorithm_setting: Optional[dict] = None, args: Optional[Dict[str, Any]] = None, verbose: Optional[bool] = None, delete_experiment: Optional[bool] = None, ttl_seconds_after_finished: Optional[int] = None, timeout: Optional[int] = constants.DEFAULT_TIMEOUT_SECONDS) -> bool
 ```
 
 Tunes a model with parallel trials and possibly distributed trials.
@@ -684,6 +685,7 @@ It is illegal to specify both the 'resources' parameter or any 'simple' resource
 - `verbose`: Enable verbose output (can also be set via environment variable KAPTAIN_SDK_VERBOSE).
 - `delete_experiment`: Delete the experiment resource upon the completion of the tuning step. Can be set via 'KAPTAIN_SDK_DELETE_EXPERIMENT' environment variable. Note: once the experiment is deleted, it won't be available for viewing in the Katib UI.
 - `ttl_seconds_after_finished`: Number of seconds after which a completed training job gets automatically deleted.
+- `timeout`: Number of seconds to wait for the experiment to complete before timing-out.
 
 **Returns**:
 
