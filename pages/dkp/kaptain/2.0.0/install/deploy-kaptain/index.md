@@ -1,0 +1,103 @@
+---
+layout: layout.pug
+navigationTitle: Deploy Kaptain on DKP 2.x
+title: Deploy Kaptain on DKP 2.x
+menuWeight: 9
+excerpt: Deploy Kaptain on air-gapped and non air-gapped environments
+beta: false
+enterprise: false
+---
+
+<p class="message--warning"><strong>WARNING: </strong>
+Kaptain deploys to all clusters in your selected Workspace. If you do not want to deploy Kaptain to a certain cluster, you must move it to another Workspace.
+</p>
+
+## Enable and deploy Kaptain using the DKP UI
+
+Follow these steps to enable Kaptain in air-gapped and non air-gapped environments from the DKP UI:
+
+1.  **Enterprise only**: From the top menu bar, select your target Workspace.
+
+1.  From the sidebar menu, select **Applications**.
+
+1.  Type Kaptain in the **Applications** search bar. If Kaptain is not available in the UI, [add Kaptain to your DKP catalog][add_Kaptain] via CLI first.
+
+1.  From the Kaptain tile, select the three dot menu > **Enable**.
+    The `Enable Workspace Catalog Application` page is displayed.
+
+1.  Verify that you deploy to the correct target Workspace and Clusters.
+    - If the Workspace is incorrect, go back to the main dashboard and select the correct Workspace as in step 1.
+    - If you don’t want to deploy Kaptain to all clusters, interrupt deployment and manually move the clusters where you don’t want to deploy Kaptain to another Workspace.
+
+1.  If available, select a version from the drop-down menu. This drop-down menu will only be visible if there is more than one version.
+
+1.  (Optional) If you want to override the default configuration values, copy your customized values into the text editor under **Configure Service** or upload your yaml file that contains the values:
+
+    ```yaml
+    someField: someValue
+    ```
+
+1.  Confirm the details are correct, and then select the **Enable** button to enable and trigger deployment.
+    The status changes to **Enabled**.
+
+1.  If you want to deploy Kaptain to additional Workspaces, repeat these steps for each additional Workspace.
+
+Alternately, you can use the [CLI](#enable-and-deploy-Kaptain-using-the-dkp-cli) to enable your catalog applications.
+
+### Verify the status of deployment using the DKP UI
+
+Follow these steps to verify the deployment of Kaptain:
+
+1.  From the sidebar menu, select **Clusters**.
+
+1.  From your clusters tile, select **View Details**.
+
+1.  Select the **Applications** tab and scroll down to find the Kaptain tile.
+
+1.  If Kaptain was deployed successfully, the status is **Deployed**.
+
+<p class="message--note"><strong>NOTE: </strong>Depending on the number of clusters, it can take several minutes until provisioning is finished and status is changed to <b>Deployed</b>.</p>
+
+## Enable and deploy Kaptain using the DKP CLI
+
+Follow these steps to enable Kaptain in air-gapped and non air-gapped environments from the DKP CLI:
+
+1.  Enable Kaptain to deploy to [your existing Managed and Attached clusters][existcluster] with an `AppDeployment` resource.
+
+<!-- why are we referring to attached clusters only and not to managed? -->
+
+1.  Within the `AppDeployment`, define the `appRef` to specify which `App` to enable:
+
+    ```yaml
+    cat <<EOF | kubectl apply -f -
+    apiVersion: apps.kommander.d2iq.io/v1alpha2
+    kind: AppDeployment
+    metadata:
+      name: kaptain
+    spec:
+      appRef:
+        kind: App
+        name: kaptain-2.0.0
+      configOverrides:
+        name: kaptain-overrides
+    ```
+
+1.  Create the resource in the Workspace you just created, which instructs Kommander to deploy the `AppDeployment` to the `KommanderCluster`s in the same Workspace.
+
+## Enable an application with a custom configuration using the CLI
+
+<!-- Could dev please provide the steps here? -->
+
+### Verify the status of deployment using the DKP CLI
+
+Kaptain is now enabled. Connect to the cluster and check the `HelmReleases` to verify the deployment:
+
+```bash
+kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
+NAMESPACE               NAME               READY   STATUS                             AGE
+workspace-test-vjsfq    spark-operator     True    Release reconciliation succeeded   7m3s
+```
+
+[add_Kaptain]: ../konvoy-dkp/
+<!-- this will change to ../dkp/ once other PR is merged -->
+[existcluster]: ../../../../kommander/2.2/clusters/attach-cluster/
