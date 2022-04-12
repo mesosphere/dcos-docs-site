@@ -14,24 +14,26 @@ Workspace platform applications require more resources than solely deploying or 
 
 The following table describes all the workspace platform applications that are available to the clusters in a workspace, minimum resource requirements, and whether they are enabled by default.
 
-| Name                  | Minimum Resources Suggested                    | Minimum Persistent Storage Required                                        | Deployed by Default |
-| --------------------- | ---------------------------------------------- | -------------------------------------------------------------------------- | ------------------- |
-| cert-manager          | <p>cpu: 10m<br />memory: 32Mi </p>     |                                                                            | Yes                 |
-| reloader              | <p>cpu: 100m<br />memory: 128Mi </p>   |                                                                            | Yes                 |
-| traefik               | cpu: 500m                                      |                                                                            | Yes                 |
-| kubecost              | <p>cpu: 700m<br />memory: 1700Mi</p>  | <p># of PVs: 3<br />PV sizes: 0.2Gi, 2Gi, 32Gi (total: 34.2Gi)</p> | Yes                 |
-| kube-prometheus-stack | <p>cpu: 300m<br />memory: 1500Mi </p>  | <p># of PVs: 1<br />PV sizes: 50Gi </p>                            | Yes                 |
-| kube-oidc-proxy       |                                                |                                                                            |                     |
-| prometheusadapter     | <p>cpu: 1000m<br />memory: 1000Mi </p> |                                                                            | Yes                 |
-| kubernetes-dashboard  |                                                |                                                                            | Yes                 |
-| nvidia                |                                                |                                                                            | No                  |
-| logging-operator      |                                                |                                                                            | No                  |
-| grafana-loki          |                                                |                                                                            | No                  |
-| grafana-logging       |                                                |                                                                            | No                  |
-| fluentbit             | <p>cpu: 350m<br />memory: 350Mi </p>       |                                                                            | No                  |
-| minio-operator        |                                                |                                                                            | No                  |
-| gatekeeper            |                                                |                                                                            | No                  |
-| kube-oidc-proxy       |                                                |                                                                            | Yes                 |
-| traefik               |                                                |                                                                            |                     |
-| traefik-forward-auth  | <p>cpu: 100m<br />memory: 128Mi </p>   |                                                                            | Yes                 |
-| velero                |                                                |                                                                            | No                  |
+| Name | Minimum Resources Suggested | Minimum Persistent Storage Required | Deployed by Default |
+| --- | --- | --- | --- |
+| cert-manager| cpu: 10m<br />memory: 32Mi |  | Yes |
+| fluentbit | cpu: 350m<br />memory: 350Mi |  | No |
+| gatekeeper | cpu: 300m<br />memory: 768Mi | | Yes |
+| grafana-logging | cpu: 200m<br />memory: 100Mi |  | No |
+| grafana-loki | | # of PVs: 4<br />PV sizes: 10Gi x 4 (total: 40Gi) | No |
+| istio | cpu: 1270m<br />memory: 4500Mi |  | No |
+| jaeger |  | | No |
+| kiali | cpu: 20m<br />memory: 128Mi | | No |
+| knative | cpu: 610m<br />memory: 400Mi | | No |
+| kube-prometheus-stack | cpu: 1210m<br />memory: 4150Mi | # of PVs: 1<br />PV sizes: 100Gi | Yes |
+| kube-oidc-proxy |  |  | Yes |
+| kubecost | cpu: 700m<br />memory: 1700Mi | # of PVs: 3<br />PV sizes: 2Gi, 32Gi, 32Gi (total: 66Gi) | Yes |
+| kubernetes-dashboard | cpu: 250m<br />memory: 300Mi |  | Yes |
+| logging-operator | cpu: cpu: 350m * # of nodes + 600m<br />memory: 228Mi + 350Mi * # of nodes | # of PVs: 1<br />PV sizes: 10Gi | No |
+| minio-operator |  cpu: 200m<br />memory: 256Mi |  | No |
+| nvidia | cpu: 100m<br />memory: 128Mi |  | No |
+| prometheus-adapter | cpu: 1000m<br />memory: 1000Mi |  | Yes |
+| reloader | cpu: 100m<br />memory: 128Mi |  | Yes |
+| traefik | cpu: 500m |  | Yes |
+| traefik-forward-auth | cpu: 100m<br />memory: 128Mi |  | Yes |
+| velero | cpu: 1000m<br />memory: 1024Mi | PV sizes: 10Gi x 4 (total: 40Gi) | No |
