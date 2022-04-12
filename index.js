@@ -50,8 +50,8 @@ MS.metadata({
   dcosCNDocsLatest: "2.1",
   dcosDocsLatest: "2.2",
   dispatchDocsLatest: "1.4",
-  kommanderDocsLatest: "2.1",
-  konvoyDocsLatest: "2.1",
+  kommanderDocsLatest: "2.2",
+  konvoyDocsLatest: "2.2",
   kaptainDocsLatest: "1.3.0",
   Utils,
 });
