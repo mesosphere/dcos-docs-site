@@ -13,9 +13,6 @@ enterprise: false
 This page lists Kaptain configuration properties that can be adjusted during the initial installation or by updating the existing instance of Kaptain. These parameters are typically set in `values.yaml`.
 
 ### Kaptain Chart Values
-
-## Values
-
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | global.clusterDomainName | string | `"cluster.local"` | Kubernetes cluster domain name |
@@ -35,7 +32,12 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | core.enabled | bool | `true` |  |
 | core.namespace | string | `"kubeflow"` |  |
 | core.notebook.defaultImage | string | `"mesosphere/kubeflow-dev:b66cecc3-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0"` | Default image to use when creating a new notebook server |
-| core.notebook.images | list | `["mesosphere/kubeflow-dev:b66cecc3-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0","mesosphere/kubeflow-dev:c15bf3fa-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu","mesosphere/kubeflow-dev:22caa41c-jupyter-spark-3.0.0-horovod-0.24.2-pytorch-1.11.0","mesosphere/kubeflow-dev:d431dd5f-jupyter-spark-3.0.0-horovod-0.24.2-pytorch-1.11.0-gpu","mesosphere/kubeflow-dev:44625480-jupyter-spark-3.0.0-horovod-0.24.2-mxnet-1.9.0","mesosphere/kubeflow-dev:e6c6aec9-jupyter-spark-3.0.0-horovod-0.24.2-mxnet-1.9.0-gpu"]` | The list of available standard notebook Images |
+| core.notebook.images[0] | string | `"mesosphere/kubeflow-dev:b66cecc3-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0"` | JupyterLab with Tensorflow, Spark and Horovod pre-installed |
+| core.notebook.images[1] | string | `"mesosphere/kubeflow-dev:c15bf3fa-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu"` | JupyterLab with Tensorflow, CUDA, Spark and Horovod pre-installed with GPU support |
+| core.notebook.images[2] | string | `"mesosphere/kubeflow-dev:22caa41c-jupyter-spark-3.0.0-horovod-0.24.2-pytorch-1.11.0"` | JupyterLab with Pytorch, Spark and Horovod pre-installed |
+| core.notebook.images[3] | string | `"mesosphere/kubeflow-dev:d431dd5f-jupyter-spark-3.0.0-horovod-0.24.2-pytorch-1.11.0-gpu"` | JupyterLab with Pytorch, CUDA, Spark and Horovod pre-installed with GPU support |
+| core.notebook.images[4] | string | `"mesosphere/kubeflow-dev:44625480-jupyter-spark-3.0.0-horovod-0.24.2-mxnet-1.9.0"` | JupyterLab with MXNet, Spark and Horovod pre-installed |
+| core.notebook.images[5] | string | `"mesosphere/kubeflow-dev:e6c6aec9-jupyter-spark-3.0.0-horovod-0.24.2-mxnet-1.9.0-gpu"` | JupyterLab with Tensorflow, CUDA, Spark and Horovod pre-installed with GPU support |
 | core.notebook.tolerationGroups | list | `[]` | Pod toleration group configurations for Notebook servers |
 | core.notebook.affinityConfig | list | `[]` | Pod affinity configurations for Notebook servers |
 | core.notebook.enableCulling | bool | `false` | Enables scale down idling notebooks to freeing up the allocated resources. |
@@ -50,19 +52,19 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | core.dashboard.gunicornThreads | int | `3` |  |
 | core.dashboard.logLevel | string | `"debug"` |  |
 | core.workflows.executorImage | string | `"gcr.io/ml-pipeline/argoexec:v3.2.3-license-compliance"` |  |
-| core.workflows.containerRuntimeExecutor | string | `"emissary"` |  |
-| core.workflows.artifactRepository.bucket | string | `"mlpipeline"` |  |
-| core.workflows.artifactRepository.keyPrefix | string | `"artifacts/{{workflow.name}}/{{workflow.creationTimestamp.Y}}/{{workflow.creationTimestamp.m}}/{{workflow.creationTimestamp.d}}/{{pod.name}}"` |  |
-| core.workflows.artifactRepository.endpoint | string | `"minio.kubeflow"` |  |
-| core.workflows.artifactRepository.insecure | bool | `true` |  |
+| core.workflows.containerRuntimeExecutor | string | `"emissary"` | Argo Workflows Executor |
+| core.workflows.artifactRepository.bucket | string | `"mlpipeline"` | Bucket to store artifacts |
+| core.workflows.artifactRepository.keyPrefix | string | <code>"artifacts/{{worklow.name}}/yyyy/mm/dd/{{pod.name}}"</code> | Bucket prefix |
+| core.workflows.artifactRepository.endpoint | string | `"minio.kubeflow"` | S3-compatible storage endpoint |
+| core.workflows.artifactRepository.insecure | bool | `true` | Disable SSL |
 | core.workflows.artifactRepository.accessKeySecretName | string | `"minio-creds-secret"` |  |
 | core.workflows.artifactRepository.accessKeySecretKey | string | `"accesskey"` |  |
 | core.workflows.artifactRepository.secretKeySecretName | string | `"minio-creds-secret"` |  |
 | core.workflows.artifactRepository.secretKeySecretKey | string | `"secretkey"` |  |
 | core.db.user | string | `"cm9vdA=="` | MySQL Username |
 | core.db.password | string | <hidden> | MySQL Password |
-| core.db.port | int | `3306` |  |
-| core.db.host | string | `"kaptain-mysql-store-haproxy"` |  |
+| core.db.port | int | `3306` | MySQL Port |
+| core.db.host | string | `"kaptain-mysql-store-haproxy"` | MySQL Service name in the cluster |
 | core.db.nodes.count | int | `3` | Number of MySQL nodes in the HA MySQL cluster |
 | core.db.nodes.diskSize | string | `"30Gi"` | Disk size of a single database node in the MySQL cluster |
 | core.db.nodes.memory | string | `"2G"` | Memory per single database node in the MySQL cluster |
