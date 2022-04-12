@@ -195,6 +195,11 @@ Apply the modifications to the yaml file and make Kaptain available in the DKP C
 kubectl apply -f gitrepository.yaml
 ```
 
+## Deploy Kaptain on selected Workspaces
+
+Refer to [Deploy Kaptain] instructions to enable and deploy Kaptain on all clusters in a selected Workspace. 
+<!-- Need to add link to this topic once it is created -->
+
 [download]: ../../download/
 [install-spark-dkp2]: /dkp/kommander/2.1/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
 [install-spark-konvoy1]: /dkp/kommander/1.4/projects/platform-services/platform-services-catalog/kudo-spark/
