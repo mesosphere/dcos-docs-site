@@ -8,8 +8,8 @@ jobs:
     continue-on-error: true
     steps:
     - name: Checkout
-      uses: actions/checkout@master
-    - uses: pierrebeitz/vale-action@ce94dd2b4ef576bf1237f45bf2bbd9ed4877e740
+      uses: actions/checkout@v3
+    - uses: errata-ai/vale-action@v1
       with:
         onlyAnnotateModifiedLines: true
       env:
