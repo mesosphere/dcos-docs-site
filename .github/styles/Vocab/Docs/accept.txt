@@ -137,7 +137,7 @@ kubefedctl
 kubelet(|s)
 (Kubeflow|kubeflow)
 (kubernetes|Kubernetes)
-kubetunnel
+(Kubetunnel|kubetunnel)
 kustomize
 KUDO
 Kustomization
@@ -244,6 +244,6 @@ unpause(|s)
 xfsprogs
 XGBoost
 xlarge
-yakcl
+(Yakcl|yakcl)
 yq
 (zookeeper|Zookeeper|ZooKeeper)
