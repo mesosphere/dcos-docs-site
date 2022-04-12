@@ -10,10 +10,9 @@ enterprise: false
 <!-- markdownlint-disable -->
 [//]: # "WARNING: This page is auto-generated and should not be modified directly."
 
-This page lists Kaptain configuration properties that can be adjusted during the initial installation or by updating the existing instance of Kaptain. These parameters are typically set in `params.yaml`.
-To learn more about overriding default parameter values as well as updating parameter on the existing Kaptain instance, refer to the [Overriding parameters][kudo_docs] and the [Update Parameters on Instance][kudo_docs_2] pages in KUDO documentation.
+This page lists Kaptain configuration properties that can be adjusted during the initial installation or by updating the existing instance of Kaptain. These parameters are typically set in `values.yaml`.
 
-### Kaptain Chart Valueszzz
+### Kaptain Chart Values
 
 ## Values
 
