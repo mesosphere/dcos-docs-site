@@ -23,13 +23,13 @@ The infrastructure you select determines the specific requirements for a success
 
 ## Before you begin
 
-Kaptain is a DKP Catalog application. To use it, add it to your repository and then deploy it on selected Workspaces. No downloads are necessary.
+Kaptain is a DKP Catalog application. To use it, add it to your repository and then deploy it on selected workspaces. No downloads are necessary.
 
-You can deploy Kaptain to single and multi-clusters environments. The difference between these setups is the following: In a single-cluster environment (with an Essential license), you run on one Management cluster only. In a multi-cluster environment (with an Enterprise license), you run Kaptain on one or several Managed and Attached clusters.
+You can deploy Kaptain to single and multi-clusters environments. The difference between these setups is the following: In a single-cluster environment (with an Essential license), you deploy on one Management cluster only. In a multi-cluster environment (with an Enterprise license), you deploy Kaptain to one or several Managed or Attached clusters.
 
-You can deploy Kaptain on a per-workspace basis. If you are running a multi-cluster environment, Kaptain is deployed to every cluster within the selected workspace.
+You can deploy Kaptain on a per-workspace basis.
 
-<p class="message--warning"><strong>WARNING: </strong>Kaptain deploys to all clusters in your selected Workspace. If you do not want to deploy Kaptain to a certain cluster, you must move it to another Workspace.</p>
+<p class="message--warning"><strong>WARNING: </strong>You can deploy Kaptain to a cluster in a selected Workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the Workspace you are deploying to or move that cluster to another Workspace.</p>
 
 ## Prerequisites
 
