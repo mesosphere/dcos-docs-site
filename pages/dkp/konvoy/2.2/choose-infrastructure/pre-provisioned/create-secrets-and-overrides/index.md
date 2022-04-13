@@ -40,16 +40,19 @@ preprovisioned-example-pf4a3
 
 Create a secret that contains the SSH key with these commands:
 
-```bash 
+```bash
 export SSH_PRIVATE_KEY_FILE="<path-to-ssh-private-key>" 
 ```
-```bash 
+
+```bash
 export SSH_PRIVATE_KEY_SECRET_NAME=$CLUSTER_NAME-ssh-key
 ```
+
 ```bash
 kubectl create secret generic ${SSH_PRIVATE_KEY_SECRET_NAME} --from-file=ssh-privatekey=${SSH_PRIVATE_KEY_FILE}
 kubectl label secret ${SSH_PRIVATE_KEY_SECRET_NAME} clusterctl.cluster.x-k8s.io/move=
 ```
+
 ```sh
 secret/preprovisioned-example-ssh-key created
 secret/preprovisioned-example-ssh-key labeled

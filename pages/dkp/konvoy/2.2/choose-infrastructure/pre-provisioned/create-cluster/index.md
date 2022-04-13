@@ -10,81 +10,82 @@ enterprise: false
 
 1.  With the inventory, and the control plane endpoint defined, use the `dkp` binary to create a Konvoy cluster. The following command relies on the pre-provisioned cluster API infrastructure provider to initialize the Kubernetes control plane and worker nodes on the hosts defined in the inventory.
 
-	<p class="message--note"><strong>NOTE: </strong>When specifying the <code>cluster-name</code>, you must use the same <code>cluster-name</code> as used when defining your inventory objects.</p>
+    <p class="message--note"><strong>NOTE: </strong>When specifying the <code>cluster-name</code>, you must use the same <code>cluster-name</code> as used when defining your inventory objects.</p>
 
-	```bash
-	dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443>
-	```
+    ```bash
+    dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443>
+    ```
 
-	```bash
-	Generating cluster resources
-	cluster.cluster.x-k8s.io/preprovisioned-example created
-	kubeadmcontrolplane.controlplane.cluster.x-k8s.io/preprovisioned-example-control-plane created
-	preprovisionedcluster.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example created
-	preprovisionedmachinetemplate.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-control-plane created
-	secret/preprovisioned-example-etcd-encryption-config created
-	machinedeployment.cluster.x-k8s.io/preprovisioned-example-md-0 created
-	preprovisionedmachinetemplate.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-md-0 created
-	kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/preprovisioned-example-md-0 created
-	clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-preprovisioned-example created
-	configmap/calico-cni-installation-preprovisioned-example created
-	configmap/tigera-operator-preprovisioned-example created
-	clusterresourceset.addons.cluster.x-k8s.io/local-volume-provisioner-preprovisioned-example created
-	configmap/local-volume-provisioner-preprovisioned-example created
-	clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-preprovisioned-example created
-	configmap/node-feature-discovery-preprovisioned-example created
-	clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-preprovisioned-example created
-	configmap/nvidia-feature-discovery-preprovisioned-example created
-	clusterresourceset.addons.cluster.x-k8s.io/metallb-preprovisioned-example created
-	configmap/metallb-installation-preprovisioned-example created
-	```
+    ```bash
+    Generating cluster resources
+    cluster.cluster.x-k8s.io/preprovisioned-example created
+    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/preprovisioned-example-control-plane created
+    preprovisionedcluster.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example created
+    preprovisionedmachinetemplate.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-control-plane created
+    secret/preprovisioned-example-etcd-encryption-config created
+    machinedeployment.cluster.x-k8s.io/preprovisioned-example-md-0 created
+    preprovisionedmachinetemplate.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-md-0 created
+    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/preprovisioned-example-md-0 created
+    clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-preprovisioned-example created
+    configmap/calico-cni-installation-preprovisioned-example created
+    configmap/tigera-operator-preprovisioned-example created
+    clusterresourceset.addons.cluster.x-k8s.io/local-volume-provisioner-preprovisioned-example created
+    configmap/local-volume-provisioner-preprovisioned-example created
+    clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-preprovisioned-example created
+    configmap/node-feature-discovery-preprovisioned-example created
+    clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-preprovisioned-example created
+    configmap/nvidia-feature-discovery-preprovisioned-example created
+    clusterresourceset.addons.cluster.x-k8s.io/metallb-preprovisioned-example created
+    configmap/metallb-installation-preprovisioned-example created
+    ```
 
-1. Use the wait command to monitor the cluster control-plane readiness:
+1.  Use the wait command to monitor the cluster control-plane readiness:
 
-	```bash
-	kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=30m
-	```
-	```sh
-	cluster.cluster.x-k8s.io/preprovisioned-example condition met
-	```
+    ```bash
+    kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=30m
+    ```
+
+    ```sh
+    cluster.cluster.x-k8s.io/preprovisioned-example condition met
+    ```
 
 1.  (Optional) If you have <a href="../create-secrets-and-overrides">overrides for your clusters</a>, you must specify the secret as part of the create cluster command.
 
-	<p class="message--note"><strong>NOTE: </strong> If these are not specified, the overrides for your nodes will not be applied. </p>
+    <p class="message--note"><strong>NOTE: </strong> If these are not specified, the overrides for your nodes will not be applied. </p>
 
-	```bash
-	dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443> --override-secret-name=$CLUSTER_NAME-user-overrides
-	```
+    ```bash
+    dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443> --override-secret-name=$CLUSTER_NAME-user-overrides
+    ```
 
-	<p class="message--note"><strong>NOTE: </strong>If your cluster is air-gapped or you have a local docker registry you must provide additional arguments when creating the cluster. </p>
+    <p class="message--note"><strong>NOTE: </strong>If your cluster is air-gapped or you have a local docker registry you must provide additional arguments when creating the cluster.</p>
 
-	```bash
-	export DOCKER_REGISTRY_ADDRESS="<https/http>://<registry-address>:<registry-port>"
-	export DOCKER_REGISTRY_CA="<path to the CA on the bastion>"
-	export DOCKER_REGISTRY_USERNAME="<username>"
-	export DOCKER_REGISTRY_USERNAME="<password>"
-	```
-		
-	- `DOCKER_REGISTRY_ADDRESS`: the address of an existing Docker registry accessible in the VPC that the new cluster nodes will be configured to use a mirror registry when pulling images.
-	- `DOCKER_REGISTRY_CA`: (optional) the path on the bastion machine to the Docker registry CA. Konvoy will configure the cluster nodes to trust this CA. This value is only needed if the registry is using a self-signed certificate and the AMIs are not already configured to trust this CA.
-	- `DOCKER_REGISTRY_USERNAME`: optional, set to a user that has pull access to this registry.
-	- `DOCKER_REGISTRY_PASSWORD`: optional if username is not set.
+    ```bash
+    export DOCKER_REGISTRY_ADDRESS="<https/http>://<registry-address>:<registry-port>"
+    export DOCKER_REGISTRY_CA="<path to the CA on the bastion>"
+    export DOCKER_REGISTRY_USERNAME="<username>"
+    export DOCKER_REGISTRY_USERNAME="<password>"
+    ```
 
-		```bash
-		dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} \
-		--control-plane-endpoint-host <control plane endpoint host> \
-		--control-plane-endpoint-port <control plane endpoint port, if different than 6443> \
-		--registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
-		--registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
-		--registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
-		--registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
-		```
+    - `DOCKER_REGISTRY_ADDRESS`: the address of an existing Docker registry accessible in the VPC that the new cluster nodes will be configured to use a mirror registry when pulling images.
+    - `DOCKER_REGISTRY_CA`: (optional) the path on the bastion machine to the Docker registry CA. Konvoy will configure the cluster nodes to trust this CA. This value is only needed if the registry is using a self-signed certificate and the AMIs are not already configured to trust this CA.
+    - `DOCKER_REGISTRY_USERNAME`: optional, set to a user that has pull access to this registry.
+    - `DOCKER_REGISTRY_PASSWORD`: optional if username is not set.
 
-1. Depending on the cluster size, it will take a few minutes to create. After the creation, use this command to get the Kubernetes kubeconfig for the new cluster and begin deploying workloads:
+    ```bash
+    dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} \
+    --control-plane-endpoint-host <control plane endpoint host> \
+    --control-plane-endpoint-port <control plane endpoint port, if different than 6443> \
+    --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
+    --registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
+    --registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
+    --registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
+    ```
 
-	```bash
-	dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
-	```
+1.  Depending on the cluster size, it will take a few minutes to create. After the creation, use this command to get the Kubernetes kubeconfig for the new cluster and begin deploying workloads:
+
+    ```bash
+    dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
+    ```
 
 ### Verify your Calico installation
 
@@ -98,7 +99,7 @@ Get the pods running on your cluster with this command:
    kubectl get pods -A --kubeconfig ${CLUSTER_NAME}.conf
    ```
 
-   ```bash
+   ```sh
    NAMESPACE                NAME                                                                READY   STATUS            RESTARTS        AGE
    calico-system            calico-kube-controllers-57fbd7bd59-vpn8b                            1/1     Running           0               16m
    calico-system            calico-node-5tbvl                                                   1/1     Running           0               16m
@@ -159,7 +160,6 @@ Save this file. You may need to delete the node feature discovery worker pod in 
 
 As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. The built-in virtual IP uses the [kube-vip][kube-vip] project.
 To use the virtual IP, add these flags to the `create cluster` command:
-
 
 | Virtual IP Configuration                 | Flag                                 |
 | ---------------------------------------- | ------------------------------------ |

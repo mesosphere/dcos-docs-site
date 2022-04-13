@@ -53,7 +53,7 @@ kubectl get nodes
 
 The output should look similar to this, with all statuses set to `Ready`
 
-```bash
+```sh
 NAME                                         STATUS   ROLES                  AGE    VERSION
 ip-10-0-112-116.us-west-2.compute.internal   Ready    <none>                 135m   v1.21.6
 ip-10-0-122-142.us-west-2.compute.internal   Ready    <none>                 135m   v1.21.6

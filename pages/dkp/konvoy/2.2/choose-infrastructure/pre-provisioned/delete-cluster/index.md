@@ -12,32 +12,32 @@ enterprise: false
 
 If you have a need to remove the Kubernetes cluster, such as for environment cleanup, use this command:
 
-1.  Delete the provisioned Kubernetes cluster with the command:
+Delete the provisioned Kubernetes cluster with the command:
 
-    ```bash
-    dkp delete cluster --cluster-name=${CLUSTER_NAME}
-    ```
-	```sh
-	✓ Deleting Services with type LoadBalancer for Cluster default/preprovisioned-example
-	✓ Deleting ClusterResourceSets for Cluster default/preprovisioned-example
-	✓ Deleting cluster resources
-	✓ Waiting for cluster to be fully deleted
-	Deleted default/preprovisioned-example cluster
-	```
+```bash
+dkp delete cluster --cluster-name=${CLUSTER_NAME}
+```
 
-    This command may take a few minutes to complete:
+```sh
+✓ Deleting Services with type LoadBalancer for Cluster default/preprovisioned-example
+✓ Deleting ClusterResourceSets for Cluster default/preprovisioned-example
+✓ Deleting cluster resources
+✓ Waiting for cluster to be fully deleted
+Deleted default/preprovisioned-example cluster
+```
+
+This command may take a few minutes to complete.
 
 ## Delete the Kubernetes cluster and cleanup your environment
 
 After you have moved the workload resources back to a bootstrap cluster and deleted the workload cluster, you no longer need the bootstrap cluster. You can safely delete the bootstrap cluster with this command:
 
-1.  Delete the `kind` Kubernetes cluster:
+Delete the `kind` Kubernetes cluster:
 
-    ```bash
-    dkp delete bootstrap
-    ```
-	
-	```sh
-	✓ Deleting bootstrap cluster
-	```
-	
+```bash
+dkp delete bootstrap
+```
+
+```sh
+✓ Deleting bootstrap cluster
+```
