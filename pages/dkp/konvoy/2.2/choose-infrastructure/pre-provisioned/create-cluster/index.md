@@ -80,7 +80,7 @@ enterprise: false
 		--registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
 		```
 
-1. Depending on the cluster size, it will take a few minutes to be created. After the creation, use this command to get the Kubernetes kubeconfig for the new cluster and begin deploying workloads:
+1. Depending on the cluster size, it will take a few minutes to create. After the creation, use this command to get the Kubernetes kubeconfig for the new cluster and begin deploying workloads:
 
 	```bash
 	dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
