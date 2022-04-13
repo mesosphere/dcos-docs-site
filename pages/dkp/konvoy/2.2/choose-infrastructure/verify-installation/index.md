@@ -15,10 +15,10 @@ In this section we show you how to verify a Konvoy installation.
 DKP ships with some default diagnosis tools to check your cluster, such as the `describe` command.
 You can use those tools to validate your installation.
 
-If you have not done so already, set the environment variable for your cluster name, substituting `my-dkp-cluster` with the name of your cluster:
+If you have not done so already, set the environment variable for your cluster name, substituting `dkp-example` with the name of your cluster:
 
 ```bash
-export CLUSTER_NAME=my-dkp-cluster
+export CLUSTER_NAME=dkp-example
 ```
 
 Then, run this command to check the health of the cluster infrastructure:
@@ -30,19 +30,19 @@ dkp describe cluster --cluster-name=${CLUSTER_NAME}
 A healthy cluster returns an output similar to:
 
 ```sh
-NAME                                                               READY  SEVERITY  REASON  SINCE  MESSAGE
-Cluster/my-dkp-cluster                                             True                     121m          
-├─ClusterInfrastructure - AWSCluster/my-dkp-cluster                True                     121m          
-├─ControlPlane - KubeadmControlPlane/my-dkp-cluster-control-plane  True                     121m          
-│ ├─Machine/my-dkp-cluster-control-plane-h52t6                     True                     121m          
-│ ├─Machine/my-dkp-cluster-control-plane-knrrh                     True                     121m          
-│ └─Machine/my-dkp-cluster-control-plane-zmjjx                     True                     121m          
+NAME                                                            READY  SEVERITY  REASON  SINCE  MESSAGE
+Cluster/dkp-example                                             True                     121m          
+├─ClusterInfrastructure - AWSCluster/dkp-example                True                     121m          
+├─ControlPlane - KubeadmControlPlane/dkp-example-control-plane  True                     121m          
+│ ├─Machine/dkp-example-control-plane-h52t6                     True                     121m          
+│ ├─Machine/dkp-example-control-plane-knrrh                     True                     121m          
+│ └─Machine/dkp-example-control-plane-zmjjx                     True                     121m          
 └─Workers                                                                                              
-  └─MachineDeployment/my-dkp-cluster-md-0                          True                     121m          
-    ├─Machine/my-dkp-cluster-md-0-88488cb74-2vxjq                  True                     121m          
-    ├─Machine/my-dkp-cluster-md-0-88488cb74-84xsd                  True                     121m          
-    ├─Machine/my-dkp-cluster-md-0-88488cb74-9xmc6                  True                     121m          
-    └─Machine/my-dkp-cluster-md-0-88488cb74-mjf6s                  True                     121m     
+  └─MachineDeployment/dkp-example-md-0                          True                     121m          
+    ├─Machine/dkp-example-md-0-88488cb74-2vxjq                  True                     121m          
+    ├─Machine/dkp-example-md-0-88488cb74-84xsd                  True                     121m          
+    ├─Machine/dkp-example-md-0-88488cb74-9xmc6                  True                     121m          
+    └─Machine/dkp-example-md-0-88488cb74-mjf6s                  True                     121m     
 ```
 
 Use this `kubectl` command to check to see if all cluster nodes are ready:

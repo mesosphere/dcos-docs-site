@@ -15,7 +15,7 @@ You can use a single command line entry to delete a Kubernetes cluster on any of
 The basic DKP `delete` command structure is:
 
 ```bash
-dkp delete cluster --cluster-name=clustername --self-managed --kubeconfig=cluster_name.conf
+dkp delete cluster --cluster-name=${CLUSTER_NAME} --self-managed --kubeconfig=${CLUSTER_NAME}.conf
 ```
 
 When you use the `--self-managed` flag, the prerequisite components and resources are moved from the self-managed cluster before deleting. When you omit this flag, which is the default value - false, the resources are assumed to be installed in a management cluster. The default value is false, or no flag.
