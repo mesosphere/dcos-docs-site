@@ -79,8 +79,10 @@ apps:
 
 Add the `--installer-config` flag to the `kommander install` command to use a custom configuration file. To reconfigure applications, you can also run this command after the initial installation.
 
+<p class="message--note"><strong>NOTE: </strong>An alternative to using the <code>--kubeconfig=&lt;cluster-config&gt;</code> flag is to initialize the KUBECONFIG environment variable. You can do this by running <code>export KUBECONFIG=&lt;cluster-config&gt;</code>. Setting your KUBECONFIG (either by flag or by environment variable) ensures that Kommander is installed on the workload cluster.</p>
+
 ```bash
-kommander install --installer-config kommander.yaml
+kommander install --installer-config kommander.yaml --kubeconfig=<cluster-kubeconfig>
 ```
 
 When completed, you can [verify your installation](../networked#verify-installation).

@@ -53,9 +53,9 @@ Kommander installs with the DKP CLI.
     ./dkp install kommander --init > install.yaml
     ```
 
-1. Append the `apps` section in `install.yaml` with the following values to enable Gatekeeper and configure it to add HTTP proxy settings to the pods.
+1.  Append the `apps` section in `install.yaml` with the following values to enable Gatekeeper and configure it to add HTTP proxy settings to the pods.
 
-   <p class="message--note"><strong>NOTE: </strong>Only pods created after applying this setting will be mutated. Also, this will only impact pods in the namespace with the <code>"gatekeeper.d2iq.com/mutate=pod-proxy"</code> label.</p>
+    <p class="message--note"><strong>NOTE: </strong>Only pods created after applying this setting will be mutated. Also, this will only impact pods in the namespace with the <code>"gatekeeper.d2iq.com/mutate=pod-proxy"</code> label.</p>
 
     ```yaml
     apps:
@@ -73,20 +73,22 @@ Kommander installs with the DKP CLI.
               "gatekeeper.d2iq.com/mutate": "pod-proxy"
     ```
 
-1. You can create a `kommander` namespace, or the namespace where Kommander will be installed, and then label it such that the Gatekeeper mutation is active on the namespace.
+1.  You can create a `kommander` namespace, or the namespace where Kommander will be installed, and then label it such that the Gatekeeper mutation is active on the namespace.
 
     ```bash
     kubectl create namespace kommander
     kubectl label namespace kommander gatekeeper.d2iq.com/mutate=pod-proxy
     ```
 
-1. Install Kommander using the above configuration file:
+1.  Install Kommander using the above configuration file:
+
+    <p class="message--note"><strong>NOTE: </strong>An alternative to initializing the KUBECONFIG environment variable (by running <code>export KUBECONFIG=cluster_name.conf</code>) is to use the <code>--kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
 
     ```bash
     ./dkp install kommander --installer-config ./install.yaml
     ```
 
-# Configure Workspace (or Project) in which you want to use proxy
+## Configure Workspace (or Project) in which you want to use proxy
 
 To have Gatekeeper mutate the manifests, create the `Workspace` (or `Project`) with the following label:
 

@@ -23,6 +23,8 @@ clusterHostname: mycluster.domain.dom
 
 This configuration can be used when installing or reconfiguring Kommander by passing it to the `kommander install` command:
 
+<p class="message--note"><strong>NOTE: </strong>An alternative to initializing the KUBECONFIG environment variable (by running <code>export KUBECONFIG=cluster_name.conf</code>) is to use the <code>--kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
+
 ```bash
 kommander install --installer-config <config_file.yaml>
 ```
