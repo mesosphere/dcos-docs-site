@@ -180,7 +180,7 @@ kubectl apply -f gitrepository.yaml
 
 ## Deploy Kaptain on selected Workspaces
 
-Refer to [Deploy Kaptain] instructions to enable and deploy Kaptain on all clusters in a selected Workspace. 
+You have installed Kaptain by adding it to the DKP Catalog applications. The next step is to enable and deploy Kaptain on all clusters in a selected Workspace. For this, refer to [Deploy Kaptain] instructions. 
 <!-- Need to add link to this topic once it is created -->
 
 [download]: ../../download/
