@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Install Kaptain on DKP 2.x
-title: Install Kaptain on DKP 2.x (non air-gapped)
+title: Install Kaptain on DKP 2.x in a networked environment
 menuWeight: 8
 excerpt: Install Kaptain on DKP 2.x
 beta: false
