@@ -24,11 +24,11 @@ Before you start, make sure you have created a workload cluster, as described in
 
     ```sh
     ✓ Upgrading CAPI components
-	✓ Waiting for CAPI components to be upgraded
-	✓ Initializing new CAPI components
+    ✓ Waiting for CAPI components to be upgraded
+    ✓ Initializing new CAPI components
     ```
 
-2.  Move the Cluster API objects from the bootstrap to the workload cluster:
+1.  Move the Cluster API objects from the bootstrap to the workload cluster:
 
     The cluster lifecycle services on the workload cluster are ready, but the workload cluster configuration is on the bootstrap cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the bootstrap to the workload cluster. This process is also called a [Pivot][pivot].
 
@@ -37,13 +37,13 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-	✓ Moving cluster resources
+    ✓ Moving cluster resources
     You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=preprovisioned-example.conf get nodes
     ```
 
     <p class="message--note"><strong>NOTE: </strong>To ensure only one set of cluster lifecycle services manages the workload cluster, Konvoy first pauses reconciliation of the objects on the bootstrap cluster, then creates the objects on the workload cluster. As Konvoy copies the objects, the cluster lifecycle services on the workload cluster reconcile the objects. The workload cluster becomes self-managed after Konvoy creates all the objects. If it fails, the <code>move</code> command can be safely retried.</p>
 
-3.  Wait for the cluster control-plane to be ready:
+1.  Wait for the cluster control-plane to be ready:
 
     ```bash
     kubectl --kubeconfig ${CLUSTER_NAME}.conf wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=20m
@@ -53,7 +53,7 @@ Before you start, make sure you have created a workload cluster, as described in
     cluster.cluster.x-k8s.io preprovisioned-example condition met
     ```
 
-4.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:
+1.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:
 
     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use Konvoy with the workload cluster kubeconfig.</p>
 
@@ -62,19 +62,19 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-	NAME                                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
-	Cluster/preprovisioned-example                                             True                     2m31s         
-	├─ClusterInfrastructure - PreprovisionedCluster/preprovisioned-example                                            
-	├─ControlPlane - KubeadmControlPlane/preprovisioned-example-control-plane  True                     2m31s         
-	│ ├─Machine/preprovisioned-example-control-plane-6g6nr                     True                     2m33s         
-	│ ├─Machine/preprovisioned-example-control-plane-8lhcv                     True                     2m33s         
-	│ └─Machine/preprovisioned-example-control-plane-kk2kg                     True                     2m33s         
-	└─Workers                                                                                                
-	  └─MachineDeployment/preprovisioned-example-md-0                          True                     2m34s         
-		└─Machine/preprovisioned-example-md-0-77f667cd9-tnctd                  True                     2m33s  
+    NAME                                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
+    Cluster/preprovisioned-example                                             True                     2m31s         
+    ├─ClusterInfrastructure - PreprovisionedCluster/preprovisioned-example                                            
+    ├─ControlPlane - KubeadmControlPlane/preprovisioned-example-control-plane  True                     2m31s         
+    │ ├─Machine/preprovisioned-example-control-plane-6g6nr                     True                     2m33s         
+    │ ├─Machine/preprovisioned-example-control-plane-8lhcv                     True                     2m33s         
+    │ └─Machine/preprovisioned-example-control-plane-kk2kg                     True                     2m33s         
+    └─Workers                                                                                                
+      └─MachineDeployment/preprovisioned-example-md-0                          True                     2m34s         
+        └─Machine/preprovisioned-example-md-0-77f667cd9-tnctd                  True                     2m33s  
     ```
 
-5.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
+1.  Remove the bootstrap cluster, as the workload cluster is now self-managed:
 
     ```bash
     dkp delete bootstrap 
