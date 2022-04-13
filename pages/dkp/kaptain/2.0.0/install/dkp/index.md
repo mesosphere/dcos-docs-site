@@ -134,23 +134,6 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     example-repo https://github.com/example-org/example-repo                True    Fetched revision: master/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   11m
     ```
 
-- Install Kaptain:
-  ```bash
-  kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace \
-    ./kubeflow-1.4.0_1.3.0.tgz \
-    -P parameters.yaml
-  ```
-- If you would like to inject additional annotations to Kaptain's default `kubeflow-ingressgateway` `Gateway`, you can pass in the service annotations as parameters:
-  ```bash
-  kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace \
-    ./kubeflow-1.4.0_1.3.0.tgz \
-    -P parameters.yaml \
-    -p kubeflowIngressGatewayServiceAnnotations='{"foo": "abc","bar": "xyz"}'
-  ```
-- Monitor the installation by running:
-  ```bash
-  kubectl kudo plan status --instance kaptain -n kubeflow
-  ```
 ### Enable Kaptain with a custom configuration
 
 <!-- Is this an alternative or an additional step to the section above: Create a Git repository for Kaptain? -->
