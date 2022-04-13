@@ -110,6 +110,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     kind: GitRepository
     metadata:
       name: kaptain-catalog-applications
+      namespace: ${WORKSPACE_NAMESPACE}
       labels: 
         kommander.d2iq.io/gitrepository-type: catalog
     spec:
