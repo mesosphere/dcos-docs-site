@@ -49,7 +49,7 @@ For cloud installations, scaling out can be limited by resource quotas.
 
 - [`kubectl`][kubectl] on your installation machine
 
-- For customers running on a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
+- For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
 
 - For DKP 2.x, ensure the following applications are enabled in Kommander:
 
