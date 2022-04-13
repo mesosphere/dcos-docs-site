@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-D2iQ&reg; supports N-2 of the latest `MAJOR.MINOR` version of Kommander. For example, if the current version of Kommander&reg; is version 2.2, then D2iQ supports all patch versions of Kommander 2.2, 2.21, and 2.0.
+D2iQ&reg; supports N-2 of the latest `MAJOR.MINOR` version of Kommander. For example, if the current version of Kommander&reg; is version 2.2, then D2iQ supports all patch versions of Kommander 2.2, 2.1, and 1.4.
 
 When the 2.3 version releases, support continues for 2.2, and 2.1. Support for Kommander version 1.4.x expires. Users should upgrade Kommander with every new release to stay up-to-date with the latest features and bug fixes.
 
