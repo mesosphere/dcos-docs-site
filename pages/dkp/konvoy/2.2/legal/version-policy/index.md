@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-D2iQ&reg; supports N-2 of the latest `MAJOR.MINOR` version of Konvoy. For example, if the current GA version of Konvoy&reg; is 2.2, then D2iQ supports all patch versions of Konvoy 2.1, and 1.8.
+D2iQ&reg; supports N-2 of the latest `MAJOR.MINOR` version of Konvoy. For example, if the current GA version of Konvoy&reg; is 2.2, then D2iQ supports all patch versions of Konvoy 2.1, and 1.8. 
 
 When the next version releases, support continues for 2.2, and 2.1. Support for Konvoy version 1.8.x expires. You should upgrade Konvoy with every new release to stay up-to-date with the latest features and bug fixes.
 
