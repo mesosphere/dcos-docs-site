@@ -19,17 +19,17 @@ enterprise: false
 
 # Create a StorageClass with a vSphere Datastore
 
-1.   Access the Datastore tab in the vSphere client and select a datastore by name.
+1. Access the Datastore tab in the vSphere client and select a datastore by name.
 
-1.   Copy the URL for that datastore from the information dialog that displays.
+1. Copy the URL for that datastore from the information dialog that displays.
 
-1.   Return to the DKP CLI, and delete the existing `StorageClass` with the commmand:
+1. Return to the DKP CLI, and delete the existing `StorageClass` with the commmand:
 
    ```bash
    kubectl delete storageclass vsphere-raw-block-sc
    ```
 
-1.   Run the following command to create a new StorageClass, supplying the correct values for your environment:
+1. Run the following command to create a new StorageClass, supplying the correct values for your environment:
 
    ```yaml
    cat <<EOF > vsphere-raw-block-sc.yaml
@@ -48,11 +48,11 @@ enterprise: false
 
 ## Explore Nodes and Pods in the New Cluster
 
-1.  List the Nodes with the command:
+1. List the Nodes with the command:
 
-    ```bash
-    kubectl --kubeconfig=${air-gapped_NAME}.conf get nodes
-    ```
+   ```bash
+   kubectl --kubeconfig=${air-gapped_NAME}.conf get nodes
+   ```
 
     <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Node's Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>
 
@@ -69,7 +69,7 @@ enterprise: false
     d2iq-e2e-air-gapped-1-md-0-74c849dc8c-sqklv   Ready    <none>                 19h   v1.22.8
     ```
 
-1.  List the Pods with the command:
+1. List the Pods with the command:
 
     ```bash
     kubectl --kubeconfig=${air-gapped_NAME}.conf get pods -A
