@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 beta: false
-navigationTitle: Insight licensing
+navigationTitle: Insights licensing
 title: Insight licensing
 excerpt: Insight licensing
 menuWeight: 10
