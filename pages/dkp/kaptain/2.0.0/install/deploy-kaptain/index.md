@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Deploy Kaptain on DKP 2.x
 title: Deploy Kaptain on DKP 2.x
 menuWeight: 9
-excerpt: Deploy Kaptain on air-gapped and non air-gapped environments
+excerpt: Deploy Kaptain in air-gapped and networked environments
 beta: false
 enterprise: false
 ---
@@ -14,7 +14,7 @@ Kaptain deploys to all clusters in your selected Workspace. If you do not want t
 
 ## Enable and deploy Kaptain using the DKP UI
 
-Follow these steps to enable Kaptain in air-gapped and non air-gapped environments from the DKP UI:
+Follow these steps to enable Kaptain in air-gapped and networked environments from the DKP UI:
 
 1.  **Enterprise only**: From the top menu bar, select your target Workspace.
 
@@ -60,7 +60,7 @@ Follow these steps to verify the deployment of Kaptain:
 
 ## Enable and deploy Kaptain using the DKP CLI
 
-Follow these steps to enable Kaptain in air-gapped and non air-gapped environments from the DKP CLI:
+Follow these steps to enable Kaptain in air-gapped and networked environments from the DKP CLI:
 
 1.  Enable Kaptain to deploy to [your existing Managed and Attached clusters][existcluster] with an `AppDeployment` resource.
 
