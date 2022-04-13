@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 <p class="message--warning"><strong>WARNING: </strong>
-Kaptain deploys to all clusters in your selected Workspace. If you do not want to deploy Kaptain to a certain cluster, you must move it to another Workspace.
+You can deploy Kaptain to a cluster in a selected Workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the Workspace you are deploying to or move that cluster to another Workspace.
 </p>
 
 ## Enable and deploy Kaptain using the DKP UI
@@ -56,7 +56,7 @@ Follow these steps to verify the deployment of Kaptain:
 
 1.  The status is **Deployed** when Kaptain's deployment is successful.
 
-<p class="message--note"><strong>NOTE: </strong>Depending on the number of clusters, it can take several minutes until provisioning finishes and status changes to <b>Deployed</b>.</p>
+<p class="message--note"><strong>NOTE: </strong>It can take several minutes until provisioning finishes and status changes to <b>Deployed</b>.</p>
 
 ## Enable and deploy Kaptain using the DKP CLI
 
@@ -84,7 +84,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Create the resource in the Workspace you just created, which instructs Kommander to deploy the `AppDeployment` to the `KommanderCluster`s in the same Workspace.
 
-## Enable an application with a custom configuration using the CLI
+## Enable Kaptain with a custom configuration using the CLI
 
 If you want to customize your installation and modify the custom domain name, external Dex, creation of profiles, certificates, etc. continue with these steps:
 
