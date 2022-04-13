@@ -66,10 +66,8 @@ This software is provided "as is" and without any express or implied warranties 
 
 ### Technical preview
 
-Technical Preview, or Tech Preview, is similar to Experimental status, but with the following differences:
+We provide Technical Preview, or Tech Preview, features to showcase capabilities that might be added to future versions of the product. As they are not yet production-ready, the support terms are the same as defined for experimental features. Technical Preview features are not guaranteed to move forward, so could be removed from future versions of the product.```
 
-- Tech Previews can be used in Production Environments.
-- The licensing is subject to change in future versions.
 
 ## Support for KUDO - Cassandra, Kafka & Spark
 
