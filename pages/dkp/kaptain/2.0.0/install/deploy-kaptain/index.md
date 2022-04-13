@@ -66,7 +66,27 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 <!-- why are we referring to attached clusters only and not to managed? -->
 
-### Enable Kaptain with a custom configuration
+1.  Within the `AppDeployment`, define the `appRef` to specify which `App` to enable:
+
+    ```yaml
+    cat <<EOF | kubectl apply -f -
+    apiVersion: apps.kommander.d2iq.io/v1alpha2
+    kind: AppDeployment
+    metadata:
+      name: kaptain
+    spec:
+      appRef:
+        kind: App
+        name: kaptain-2.0.0
+      configOverrides:
+        name: kaptain-overrides
+    ```
+
+1.  Create the resource in the Workspace you just created, which instructs Kommander to deploy the `AppDeployment` to the `KommanderCluster`s in the same Workspace.
+
+## Enable an application with a custom configuration using the CLI
+
+If you want to customize your installation to change the custome domain name, certificates, creations of profiles, external Dex, etc. continue with these steps:
 
 1.  Provide the name of a `ConfigMap` in the `AppDeployment`, which provides custom configuration on top of the default configuration:
 
@@ -103,28 +123,6 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
     ```
 
 Kommander waits for the `ConfigMap` to be present before deploying the `AppDeployment` to the attached clusters.
-
-1.  Within the `AppDeployment`, define the `appRef` to specify which `App` to enable:
-
-    ```yaml
-    cat <<EOF | kubectl apply -f -
-    apiVersion: apps.kommander.d2iq.io/v1alpha2
-    kind: AppDeployment
-    metadata:
-      name: kaptain
-    spec:
-      appRef:
-        kind: App
-        name: kaptain-2.0.0
-      configOverrides:
-        name: kaptain-overrides
-    ```
-
-1.  Create the resource in the Workspace you just created, which instructs Kommander to deploy the `AppDeployment` to the `KommanderCluster`s in the same Workspace.
-
-## Enable an application with a custom configuration using the CLI
-
-<!-- Could dev please provide the steps here? -->
 
 ### Verify the status of deployment using the DKP CLI
 
