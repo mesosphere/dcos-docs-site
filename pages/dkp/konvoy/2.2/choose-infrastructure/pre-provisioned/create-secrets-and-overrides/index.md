@@ -19,28 +19,40 @@ Give your cluster a unique name suitable for your environment.
 Set the environment variable to be used throughout this procedure:
 
 ```bash
-export CLUSTER_NAME=my-preprovisioned-cluster
+export CLUSTER_NAME=preprovisioned-example
 ```
+
+## Tips and Tricks
 
 (Optional) If you want to create a unique cluster name, use this command.
 This creates a unique name every time you run it, so use it carefully.
 
 ```bash
-export CLUSTER_NAME=my-preprovisioned-cluster-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
+export CLUSTER_NAME=preprovisioned-example-$(LC_CTYPE=C tr -dc 'a-z0-9' </dev/urandom | fold -w 5 | head -n1)
 echo $CLUSTER_NAME
 ```
 
 ```sh
-my-preprovisioned-cluster-pf4a3
+preprovisioned-example-pf4a3
 ```
 
 ## Create a secret
 
 Create a secret that contains the SSH key with these commands:
 
+```bash 
+export SSH_PRIVATE_KEY_FILE="<path-to-ssh-private-key>" 
+```
+```bash 
+export SSH_PRIVATE_KEY_SECRET_NAME=$CLUSTER_NAME-ssh-key
+```
 ```bash
-kubectl create secret generic $CLUSTER_NAME-ssh-key --from-file=ssh-privatekey=<path-to-ssh-private-key>
-kubectl label secret $CLUSTER_NAME-ssh-key clusterctl.cluster.x-k8s.io/move=
+kubectl create secret generic ${SSH_PRIVATE_KEY_SECRET_NAME} --from-file=ssh-privatekey=${SSH_PRIVATE_KEY_FILE}
+kubectl label secret ${SSH_PRIVATE_KEY_SECRET_NAME} clusterctl.cluster.x-k8s.io/move=
+```
+```sh
+secret/preprovisioned-example-ssh-key created
+secret/preprovisioned-example-ssh-key labeled
 ```
 
 ## Create overrides
@@ -56,7 +68,6 @@ image_registries_with_auth:
   identityToken: ""
 
 epel_centos_7_rpm: https://my-rpm-repostory.org/epel/epel-release-latest-7.noarch.rpm
-
 ```
 
 You can then create the related secret by running the following command:
@@ -64,6 +75,11 @@ You can then create the related secret by running the following command:
 ```bash
 kubectl create secret generic $CLUSTER_NAME-user-overrides --from-file=overrides.yaml=overrides.yaml
 kubectl label secret $CLUSTER_NAME-user-overrides clusterctl.cluster.x-k8s.io/move=
+```
+
+```sh
+secret/preprovisioned-example-user-overrides-md-1 created
+secret/preprovisioned-example-user-overrides-md-1 labeled
 ```
 
 When this step is complete, [define the infrastructure nodes and partitions](../define-infrastructure).

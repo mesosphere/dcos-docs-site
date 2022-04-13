@@ -17,6 +17,13 @@ If you have a need to remove the Kubernetes cluster, such as for environment cle
     ```bash
     dkp delete cluster --cluster-name=${CLUSTER_NAME}
     ```
+	```sh
+	✓ Deleting Services with type LoadBalancer for Cluster default/preprovisioned-example
+	✓ Deleting ClusterResourceSets for Cluster default/preprovisioned-example
+	✓ Deleting cluster resources
+	✓ Waiting for cluster to be fully deleted
+	Deleted default/preprovisioned-example cluster
+	```
 
     This command may take a few minutes to complete:
 
@@ -29,3 +36,8 @@ After you have moved the workload resources back to a bootstrap cluster and dele
     ```bash
     dkp delete bootstrap
     ```
+	
+	```sh
+	✓ Deleting bootstrap cluster
+	```
+	
