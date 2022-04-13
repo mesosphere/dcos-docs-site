@@ -73,13 +73,13 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
     apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
-      name: kaptain
+        name: kaptain
+        namespace: ${WORKSPACE_NAMESPACE}
     spec:
-      appRef:
-        kind: App
-        name: kaptain-2.0.0
-      configOverrides:
-        name: kaptain-overrides
+        appRef:
+            kind: App
+            name: kaptain-2.0.0
+    EOF 
     ```
 
 1.  Create the resource in the Workspace you just created, which instructs Kommander to deploy the `AppDeployment` to the `KommanderCluster`s in the same Workspace.
