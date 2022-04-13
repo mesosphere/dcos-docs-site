@@ -28,6 +28,7 @@ After the initial deployment of Kommander, you can find the application Helm Cha
 kubectl get helmreleases <application> -o yaml -n kommander
 ```
 
+
 ### Inline configuration (using values)
 
 In this example, you configure the `centralized-grafana` application with resource limits by defining the Helm Chart values in the Kommander configuration file.
@@ -80,7 +81,7 @@ apps:
 Add the `--installer-config` flag to the `kommander install` command to use a custom configuration file. To reconfigure applications, you can also run this command after the initial installation.
 
 ```bash
-dkp install kommander --installer-config kommander.yaml
+dkp install kommander --installer-config kommander.yaml --kubeconfig <cluster-kubeconfig>
 ```
 
 When completed, you can [verify your installation](../networked#verify-installation).
