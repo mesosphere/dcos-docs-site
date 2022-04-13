@@ -283,7 +283,7 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     metadata:
     name: spark-operator
     annotations:
-        "helm.sh/hook": pre-install
+        "helm.sh/hook": pre-install, pre-upgrade
         "helm.sh/hook-delete-policy": hook-failed, before-hook-creation
     labels:
         app.kubernetes.io/instance: spark-operator
@@ -320,6 +320,11 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     namespace: $WORKSPACE_NAMESPACE
     EOF
     ```
+
+1. if you want to force a pod recreation, you can delete the old pod in `CrashLoopBackoff` by running
+   ```bash
+   kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')
+   ```
 
 #### Default update strategy changed to "delete first" for Preprovisioned clusters
 
