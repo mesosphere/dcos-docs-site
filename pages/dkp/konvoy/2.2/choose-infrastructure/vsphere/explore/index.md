@@ -25,17 +25,17 @@ Before you start, make sure you have [created a workload cluster][create-new-clu
 
 # Create a StorageClass with a vSphere Datastore
 
-1.   Access the Datastore tab in the vSphere client and select a datastore by name.
+1. Access the Datastore tab in the vSphere client and select a datastore by name.
 
-1.   Copy the URL for that datastore from the information dialog that displays.
+1. Copy the URL for that datastore from the information dialog that displays.
 
-1.   Return to the DKP CLI, and delete the existing `StorageClass` with the commmand:
+1. Return to the DKP CLI, and delete the existing `StorageClass` with the commmand:
 
    ```bash
    kubectl delete storageclass vsphere-raw-block-sc
    ```
 
-1.   Run the following command to create a new StorageClass, supplying the correct values for your environment:
+1. Run the following command to create a new StorageClass, supplying the correct values for your environment:
 
    ```yaml
    cat <<EOF > vsphere-raw-block-sc.yaml
