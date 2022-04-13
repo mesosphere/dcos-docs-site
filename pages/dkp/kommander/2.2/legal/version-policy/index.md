@@ -64,6 +64,11 @@ Support for Experimental components is provided on a Standard level, Severity 4 
 
 This software is provided "as is" and without any express or implied warranties including, without limitation, the implied warranties of merchantability and fitness for a particular purpose.
 
+### Technical preview
+
+We provide Technical Preview, or Tech Preview, features to showcase capabilities that might be added to future versions of the product. As they are not yet production-ready, the support terms are the same as defined for experimental features. Technical Preview features are not guaranteed to move forward, so could be removed from future versions of the product.
+
+
 ## Support for KUDO - Cassandra, Kafka & Spark
 
 ### Support Definition - Secondary Support
