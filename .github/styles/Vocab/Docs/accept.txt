@@ -54,6 +54,7 @@ D2iQ
 daemonsets
 Datadog
 Datastax
+(Datastore|datastore)
 DC/OS
 dcos
 declaratively
