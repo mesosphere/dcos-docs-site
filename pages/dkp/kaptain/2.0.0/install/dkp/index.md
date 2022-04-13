@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: Install Kaptain on DKP 2.x
-title: Install Kaptain on DKP 2.x in a networked environment
+navigationTitle: Add Kaptain to DKP Catalog Applications
+title: Add Kaptain to DKP Catalog Applications
 menuWeight: 8
-excerpt: Install Kaptain on DKP 2.x
+excerpt: Add Kaptain to DKP Catalog Applications before deploying to clusters.
 beta: false
 enterprise: false
 ---
 
 <p class="message--warning"><strong>WARNING: </strong>
-Kaptain deploys to all clusters in your selected Workspace. If you do not want to deploy Kaptain to a certain cluster, you must move it to another Workspace.
+You can deploy Kaptain to a cluster in a selected Workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the Workspace you are deploying to or move that cluster to another Workspace.
 </p>
 
 ## Requirements
@@ -134,42 +134,6 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     NAME         URL                                                        READY   STATUS                                                              AGE
     example-repo https://github.com/example-org/example-repo                True    Fetched revision: master/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   11m
     ```
-
-### Enable Kaptain with a custom configuration
-
-<!-- Is this an alternative or an additional step to the section above: Create a Git repository for Kaptain? -->
-
-1.  Provide the name of a `ConfigMap` in the `AppDeployment`, which provides custom configuration on top of the default configuration:
-
-    ```yaml
-    cat <<EOF | kubectl apply -f -
-    apiVersion: apps.kommander.d2iq.io/v1alpha2
-    kind: AppDeployment
-    metadata:
-      name: kaptain
-    spec:
-      appRef:
-        kind: App
-        name: kaptain-2.0.0
-      configOverrides:
-        name: kaptain-overrides
-    EOF
-    ```
-
-1.  Create the `ConfigMap` with the name provided in the step above, with the custom configuration:
-
-    ```yaml
-    cat <<EOF | kubectl apply -f -
-    apiVersion: v1
-    data:
-      values.yaml: 
-    kind: ConfigMap
-    metadata:
-      name: kaptain-overrides
-    EOF
-    ```
-
-Kommander waits for the `ConfigMap` to be present before deploying the `AppDeployment` to the attached clusters.
 
 ### Add Kaptain 
 
