@@ -59,3 +59,16 @@ The following table describes the list of platform applications that are deploye
 <p class="message--note"><strong>NOTE: </strong>Kommander automatically manages the deployment of <code>traefik-forward-auth</code> and <code>kube-oidc-proxy</code> when clusters are attached to the workspace. These applications are not shown in the DKP UI.</p>
 
 <p class="message--note"><strong>NOTE: </strong>Applications are enabled in DKP and then deployed to attached clusters. To confirm that your enabled application has successfully deployed, you should <a href="../platform-applications/application-deployment#verify-applications">verify via the CLI</a>.</p>
+
+## Upgrade Platform applications from the CLI
+
+The [DKP upgrade](../../../dkp-upgrade) process deploys and upgrades Platform applications as a bundle for each cluster or workspace. For the Management Cluster or workspace, DKP upgrade handles all Platform applications; no other steps are necessary to upgrade the Platform application bundle. However, for managed or attached clusters or workspaces, you MUST manually upgrade the Platform applications bundle with the following command.
+
+<p class="message--warning"><strong>WARNING: </strong>If you are upgrading your Platform applications as part of the <a href="../../../dkp-upgrade">DKP upgrade</a>, upgrade your Platform applications on any additional Workspaces before proceeding with the Konvoy upgrade. Some applications in the previous release are not compatible with the <a href="../../../release-notes/">Kubernetes version</a> of this release, and upgrading Kubernetes is part of the DKP Konvoy upgrade process.
+</p>
+
+Use this command to upgrade all platform applications in the given workspace and its projects to the same version as platform applications running on the management cluster:
+
+```bash
+dkp upgrade workspace WORKSPACE_NAME [--dry-run] [flags]
+```
