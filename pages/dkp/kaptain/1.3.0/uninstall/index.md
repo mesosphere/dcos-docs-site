@@ -95,7 +95,7 @@ Sometimes, uninstall steps fail or hang because a cleanup task gets stuck. In th
 
 If KUDO Kaptain uninstall hangs and fails to properly uninstall, force the removal of the Kaptain instance, and manually clean up volumes and namespaces.
 
-1.  Find the KUDE instance which is stuck:
+1.  Find the KUDO instance which is stuck:
 
     ```bash
     kubectl get instances -n kubeflow
@@ -110,7 +110,7 @@ If KUDO Kaptain uninstall hangs and fails to properly uninstall, force the remov
 
 1.  Repeat the above until `kubectl get instances -n kubeflow` returns an empty list.
 
-1.  Find and make record all persistent volumes IDs associated with Kubeflow. Look at the CLAIM column and look for values `kubeflow/datadir-kaptain-mysql-store-pxc-0`. Delete these volumes later.
+1.  Find and make record of all persistent volumes IDs associated with Kubeflow. Look at the CLAIM column and look for values `kubeflow/datadir-kaptain-mysql-store-pxc-0`. Delete these volumes later.
 
     ```bash
     kubectl get persistentvolume
