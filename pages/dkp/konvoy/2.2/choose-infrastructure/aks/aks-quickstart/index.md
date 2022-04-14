@@ -157,6 +157,8 @@ export CLUSTER_NAME=aks-example
 	cluster.cluster.x-k8s.io/aks-example condition met
 	```
 
+<p class="message--warning"><strong>WARNING: </strong>Pivoting is not supported in AKS.</p>
+
 ## Explore the new Kubernetes cluster
 
 1.  Fetch the kubeconfig file:
