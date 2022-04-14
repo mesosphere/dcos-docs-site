@@ -22,7 +22,7 @@ Uninstalling Kaptain requires the execution of a few manual steps in addition to
     done
     ```
 
-**DO NOT** proceed until all profiles are removed. If a profile fails to remove, see below for instructions to forcibly delete a profile.
+**DO NOT** proceed until all profiles are removed. If a profile cannot be removed, review the troubleshooting section for instructions to [forcibly delete a profile][#### Removing a profile gets stuck].
 
 1.  Uninstall Kaptain using KUDO. This command deletes the Kaptain Percona DB store, all deployments, statefulsets, jobs, and volumes associated with the kubeflow namespace.
 
