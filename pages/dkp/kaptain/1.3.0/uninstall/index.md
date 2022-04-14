@@ -57,73 +57,73 @@ Uninstalling Kaptain requires the execution of a few manual steps in addition to
 
 ### Troubleshooting and overcoming failures
 
-Sometimes, for various reasons, uninstall steps may fail or hang because a cleanup task gets stuck. You may need to take steps for force Kubernetes to uninstall resources. Some cleanup may not be fully run.
+Sometimes, uninstall steps fail or hang because a cleanup task gets stuck. In that case, force Kubernetes to uninstall resources. Some cleanup may not be fully run.
 
 #### Removing a profile gets stuck
 
-If a profile fails to remove, you can skip the finalizer and manually clean up the namespace and related persistent volumes.
+1.  Skip the finalizer and manually clean up the namespace and related persistent volumes.
 
-```
-kubectl patch profile <profile-name> -p '{"metadata":{"finalizers":null}}' --type=merge
-```
+    ```
+    kubectl patch profile <profile-name> -p '{"metadata":{"finalizers":null}}' --type=merge
+    ```
 
-Then, try to delete it again:
+1.  Try to delete the profile again:
 
-```
-kubectl delete profile <profile-name>
-```
+    ```
+    kubectl delete profile <profile-name>
+    ```
 
-Next, find and make record of all persistent volumes ids associated with this profile. You will want to delete these volumes later.
+1.  Find and make record of all persistent volumes IDs associated with this profile. Delete these volumes later.
 
-```
-kubectl get persistentvolume
-```
+    ```
+    kubectl get persistentvolume
+    ```
 
-Now, delete the namespace associated with the profile.
+1.  Delete the namespace associated with the profile.
 
-```
-kubectl delete namespace <profile-name>
-```
+    ```
+    kubectl delete namespace <profile-name>
+    ```
 
-Finally, delete any persistent volumes that were associated with this profile
+1.  Delete any persistent volumes that were associated with this profile.
 
-```
-kubectl delete persistentvolume <persistent-volume-id>
-```
+    ```
+    kubectl delete persistentvolume <persistent-volume-id>
+    ```
 
 #### KUDO Kaptain uninstall fails
 
-If Kudo Kaptain uninstall hangs and fails to properly uninstall, you can force the removal of the Kaptain instance, and then manually clean up volumes and namespaces.
+If KUDO Kaptain uninstall hangs and fails to properly uninstall, force the removal of the Kaptain instance, and manually clean up volumes and namespaces.
 
-Find the Kudo instance which is stuck:
+1.  Find the KUDE instance which is stuck:
 
-```
-kubectl get instances -n kubeflow
-```
+    ```
+    kubectl get instances -n kubeflow
+    ```
 
-Patch it, and remove it:
+1.  Patch it, and remove it:
 
-```
-kubectl patch instances -n kubeflow <instance-name> -p '{"metadata":{"finalizers":null}}' --type=merge
-kubectl delete instance <instance-name>
-```
+    ```
+    kubectl patch instances -n kubeflow <instance-name> -p '{"metadata":{"finalizers":null}}' --type=merge
+    kubectl delete instance <instance-name>
+    ```
 
-Repeat the above until `kubectl get instances -n kubeflow` returns an empty list.
+1.  Repeat the above until `kubectl get instances -n kubeflow` returns an empty list.
 
-Next, find and make record all persistent volumes ids associated with Kubeflow. Look at the CLAIM column and look for values `kubeflow/datadir-kaptain-mysql-store-pxc-0`. You will want to delete these volumes later.
+1.  Find and make record all persistent volumes IDs associated with Kubeflow. Look at the CLAIM column and look for values `kubeflow/datadir-kaptain-mysql-store-pxc-0`. Delete these volumes later.
 
-```
-kubectl get persistentvolume
-```
+    ```
+    kubectl get persistentvolume
+    ```
 
-Next, remove the kubeflow namespace:
+1.  Remove the kubeflow namespace:
 
-```
-kubectl delete namespace kubeflow
-```
+    ```
+    kubectl delete namespace kubeflow
+    ```
 
-Finally, remove all dangling persistent volumes:
+1.  Remove all dangling persistent volumes:
 
-```
-kubectl delete persistentvolume <persistentvolumeid>
-```
+    ```
+    kubectl delete persistentvolume <persistentvolumeid>
+    ```
