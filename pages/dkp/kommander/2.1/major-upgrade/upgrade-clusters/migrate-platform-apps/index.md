@@ -23,6 +23,22 @@ To successfully adapt your applications, you must have:
 
 - [Download](../../../download) and install the Kommander CLI binary on your computer.
 
+- Sufficient disk and resource capacity to support the following applications that come installed by default with Kommander:
+
+    | Name                      | Minimum Resources Suggested    | Minimum Persistent Storage Required |
+    | ------------------------- | ------------------------------ | ----------------------------------- |
+    | centralized-grafana       | cpu: 200m<br />memory: 100Mi   |                                     |
+    | centralized-kubecost      | cpu: 1200m<br />memory: 4151Mi | # of PVs: 1<br />PV sizes: 32Gi     |
+    | dex                       | cpu: 100m<br />memory: 50Mi    |                                     |
+    | dex-k8s-authenticator     | cpu: 100m<br />memory: 128Mi   |                                     |
+    | gitea                     | cpu: 500m<br />memory: 512Mi   | # of PVs: 2<br />PV sizes: 10Gi     |
+    | karma                     |                                |                                     |
+    | kubefed                   | cpu: 300m<br />memory: 192Mi   |                                     |
+    | thanos                    |                                |                                     |
+    | traefik-forward-auth-mgmt | cpu: 100m<br />memory: 128Mi   |                                     |
+
+    Please see [workspace platform application requirements][../workspaces/applications/platform-applications/platform-application-requirements] to plan for additional requirements your custom workloads may demand.
+
 ## Prepare your cluster
 
 Check for the following on your existing `cluster.yaml`:
