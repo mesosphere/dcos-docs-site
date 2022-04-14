@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-### Uninstall Kaptain 1.3.0
+### Uninstall Kaptain
 
 Uninstalling Kaptain requires the execution of a few manual steps in addition to the regular "kudo uninstall" command.
 
@@ -93,7 +93,7 @@ kubectl delete persistentvolume <persistent-volume-id>
 
 #### Kudo Kaptain uninstall fails
 
-If Kudo Kaptain uninstall hangs and fails to properly uninstall, you can force the removal of the kaptain instance, and then manually clean up volumes and namespaces.
+If Kudo Kaptain uninstall hangs and fails to properly uninstall, you can force the removal of the Kaptain instance, and then manually clean up volumes and namespaces.
 
 Find the Kudo instance which is stuck:
 
