@@ -124,7 +124,7 @@ Kommander waits for the `ConfigMap` to be present before deploying the `AppDeplo
 
 ### Verify the status of deployment using the DKP CLI
 
-Kaptain is now enabled. Connect to the cluster and check the `HelmReleases` to verify the deployment:
+With Kaptain enabled, connect to the cluster and check the `HelmReleases` to verify the deployment:
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
