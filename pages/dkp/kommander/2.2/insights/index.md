@@ -9,7 +9,7 @@ enterprise: false
 techPreview: true
 ---
 
-<p class="message--note"><strong>NOTE:</strong> We are offering DKP Insights with this release as a [Technical Preview](../../legal/version-policy/#technical-preview) only.</p>
+<p class="message--note"><strong>NOTE:</strong> We are offering DKP Insights with this release as a <a href="../legal/version-policy#technical-preview">Technical Preview</a> only.</p>
 
 DKP Insights assists Kubernetes Administrators with routine tasks:
 
