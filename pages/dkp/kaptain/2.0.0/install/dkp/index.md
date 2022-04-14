@@ -132,7 +132,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 
     ```sh
     NAME         URL                                                        READY   STATUS                                                              AGE
-    example-repo https://github.com/example-org/example-repo                True    Fetched revision: master/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   11m
+    kaptain-catalog-applications https://github.com/mesosphere/kaptain-catalog-applications                True    Fetched revision: master/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   11m
     ```
 
 ### Add Kaptain 
