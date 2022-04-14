@@ -84,7 +84,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 ## Enable Kaptain with a custom configuration using the CLI
 
-If you want to customize your installation and modify the custom domain name, external Dex, creation of profiles, certificates, etc. continue with these steps:
+If you want to customize your installation and modify the custom domain name, external Dex, creation of profiles, certificates, for example, continue with these steps:
 
 1.  Provide the name of a `ConfigMap` in the `AppDeployment`, which provides custom configuration on top of the default configuration:
 
