@@ -18,7 +18,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  **Enterprise only**: From the top menu bar, select your target workspace.
 
-1.  From the sidebar menu, select **Applications**.
+1.  Select **Applications** from the sidebar menu.
 
 1.  Type Kaptain in the **Applications** search bar. If Kaptain is not available in the UI, [add Kaptain to your DKP catalog][add_Kaptain] via CLI first.
 
