@@ -63,31 +63,31 @@ Sometimes, uninstall steps fail or hang because a cleanup task gets stuck. In th
 
 1.  Skip the finalizer and manually clean up the namespace and related persistent volumes.
 
-    ```
+    ```bash
     kubectl patch profile <profile-name> -p '{"metadata":{"finalizers":null}}' --type=merge
     ```
 
 1.  Try to delete the profile again:
 
-    ```
+    ```bash
     kubectl delete profile <profile-name>
     ```
 
 1.  Find and make record of all persistent volumes IDs associated with this profile. Delete these volumes later.
 
-    ```
+    ```bash
     kubectl get persistentvolume
     ```
 
 1.  Delete the namespace associated with the profile.
 
-    ```
+    ```bash
     kubectl delete namespace <profile-name>
     ```
 
 1.  Delete any persistent volumes that were associated with this profile.
 
-    ```
+    ```bash
     kubectl delete persistentvolume <persistent-volume-id>
     ```
 
@@ -97,13 +97,13 @@ If KUDO Kaptain uninstall hangs and fails to properly uninstall, force the remov
 
 1.  Find the KUDE instance which is stuck:
 
-    ```
+    ```bash
     kubectl get instances -n kubeflow
     ```
 
 1.  Patch it, and remove it:
 
-    ```
+    ```bash
     kubectl patch instances -n kubeflow <instance-name> -p '{"metadata":{"finalizers":null}}' --type=merge
     kubectl delete instance <instance-name>
     ```
@@ -112,18 +112,18 @@ If KUDO Kaptain uninstall hangs and fails to properly uninstall, force the remov
 
 1.  Find and make record all persistent volumes IDs associated with Kubeflow. Look at the CLAIM column and look for values `kubeflow/datadir-kaptain-mysql-store-pxc-0`. Delete these volumes later.
 
-    ```
+    ```bash
     kubectl get persistentvolume
     ```
 
 1.  Remove the kubeflow namespace:
 
-    ```
+    ```bash
     kubectl delete namespace kubeflow
     ```
 
 1.  Remove all dangling persistent volumes:
 
-    ```
+    ```bash
     kubectl delete persistentvolume <persistentvolumeid>
     ```
