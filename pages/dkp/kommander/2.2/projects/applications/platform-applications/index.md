@@ -50,6 +50,6 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 
 ## Upgrade Platform applications from the CLI
 
-Platform Applications within a Project are automatically upgraded when the Workspace the Project belongs to is upgraded. See [Upgrading Workspace Platform Applications][upgrade_workspaces] for more information on how to upgrade these applications.
+Platform Applications within a Project are automatically upgraded when the Workspace that a Project belongs to is upgraded. See [Upgrading Workspace Platform Applications][upgrade_workspaces] for more information on how to upgrade these applications.
 
 [upgrade_workspaces]: ../../workspaces/applications/platform-applications#upgrade-platform-applications-from-the-cli
