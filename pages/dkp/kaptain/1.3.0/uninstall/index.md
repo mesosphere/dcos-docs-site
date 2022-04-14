@@ -91,7 +91,7 @@ Finally, delete any persistent volumes that were associated with this profile
 kubectl delete persistentvolume <persistent-volume-id>
 ```
 
-#### Kudo Kaptain uninstall fails
+#### KUDO Kaptain uninstall fails
 
 If Kudo Kaptain uninstall hangs and fails to properly uninstall, you can force the removal of the Kaptain instance, and then manually clean up volumes and namespaces.
 
