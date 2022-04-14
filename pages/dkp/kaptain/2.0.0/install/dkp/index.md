@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: Install Kaptain on DKP 2.x
-title: Install Kaptain on DKP 2.x
+navigationTitle: Add Kaptain to DKP Catalog Applications
+title: Add Kaptain to DKP Catalog Applications
 menuWeight: 8
-excerpt: Install Kaptain on DKP 2.x
+excerpt: Add Kaptain to DKP Catalog Applications before deploying to clusters.
 beta: false
 enterprise: false
 ---
 
 <p class="message--warning"><strong>WARNING: </strong>
-Kaptain deploys to all clusters in your selected Workspace. If you do not want to deploy Kaptain to a certain cluster, you must move it to another Workspace.
+You can deploy Kaptain to a cluster in a selected Workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the Workspace you are deploying to or move that cluster to another Workspace.
 </p>
 
 ## Requirements
@@ -49,7 +49,7 @@ For cloud installations, scaling out can be limited by resource quotas.
 
 - [`kubectl`][kubectl] on your installation machine
 
-- For multi-cluster environments (Enterprise license): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
+- For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
 
 - For DKP 2.x, ensure the following applications are enabled in Kommander:
 
@@ -92,95 +92,53 @@ For cloud installations, scaling out can be limited by resource quotas.
 In case you need to run Spark jobs on Kubernetes using Spark Operator, it needs to be installed separately.
 Use the following instructions to install Spark Operator from Kommander Catalog [DKP 2.x][install-spark-dkp2]
 
-## Install Kaptain
+## Add Kaptain to your DKP Catalog Applications via CLI 
 
-- Install the [kubectl-kudo CLI plugin][kudo_cli]
+If you installed DKP with Kaptain as a Workspace application in the Kommander installation file, you do not need to create a Git Repository for Kaptain. 
 
-- After the Konvoy cluster has been deployed (including Istio and KNative), install KUDO:
+If you added Kaptain after installing DKP, you must make it available by creating a Git Repository. Use the CLI to create the GitRepository resource and add a new repository. 
 
-  ```bash
-  kubectl kudo init --wait
-  ```
+### Create a Git repository for Kaptain
 
-- Download [kubeflow-1.4.0_1.3.0.tgz][download] tarball.
-<p class="message--note"><strong>NOTE: </strong>Starting with Kaptain 1.2.0, automatic profile creation on initial login is now disabled by default. See <a href="../../user-management">User Management</a> for more details.</p>
+1.  Refer to [air-gapped install instructions][airgapped_install], if you are running in air-gapped environment.
 
-- Set required configuration based on the target platform:
-  - When installing on Konvoy 1.x, add the following configuration to `parameters.yaml` file:
-  ```bash
-  cat >> parameters.yaml << END
-  dkpPlatformVersion: 1
-  installMinioOperator: true
-  END
-  ```
-- When installing on DKP 2.x, add the following configuration to `parameters.yaml` file:
+1.  Adapt the URL of your Git repository:
 
-  ```bash
-  # set the OIDC Provider CA bundle
-  OIDC_PROVIDER_CA_BUNDLE=$(kubectl get secret kommander-traefik-certificate -n kommander -o jsonpath="{.data.ca\.crt}")
-
-  cat >> parameters.yaml << END
-  oidcProviderBase64CaBundle: ${OIDC_PROVIDER_CA_BUNDLE}
-  END
-  ```
-
-- Install Kaptain:
-  ```bash
-  kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace \
-    ./kubeflow-1.4.0_1.3.0.tgz \
-    -P parameters.yaml
-  ```
-- If you would like to inject additional annotations to Kaptain's default `kubeflow-ingressgateway` `Gateway`, you can pass in the service annotations as parameters:
-  ```bash
-  kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace \
-    ./kubeflow-1.4.0_1.3.0.tgz \
-    -P parameters.yaml \
-    -p kubeflowIngressGatewayServiceAnnotations='{"foo": "abc","bar": "xyz"}'
-  ```
-- Monitor the installation by running:
-  ```bash
-  kubectl kudo plan status --instance kaptain -n kubeflow
-  ```
-
-## Log in to Kaptain
-
-Once all components have been deployed, you can log in to Kaptain:
-
-- Discover the cluster endpoint and copy it to the clipboard.
-  If you are running Kaptain _on-premises_:
-
-  ```bash
-  kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
-  ```
-
-  Or if you are running Kaptain on _AWS_:
-
-  ```bash
-  kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
-  ```
-
-- Get the login credentials from Konvoy to authenticate:
-
-  - For Konvoy 1.x:
-
-    ```bash
-    konvoy get ops-portal
+    ```yaml
+    cat <<EOF | kubectl apply -f -
+    apiVersion: source.toolkit.fluxcd.io/v1beta1
+    kind: GitRepository
+    metadata:
+      name: kaptain-catalog-applications
+      namespace: ${WORKSPACE_NAMESPACE}
+      labels: 
+        kommander.d2iq.io/gitrepository-type: catalog
+    spec:
+      interval: 1m0s
+      ref: 
+        tag: v2.0.0
+      timeout: 20s
+      url: https://github.com/mesosphere/kaptain-catalog-applications
+    EOF
     ```
 
-  - For DKP 2.x:
+1.  Ensure the status of the `GitRepository` signals a ready state:
 
     ```bash
-    dkp open dashboard
+    kubectl get gitrepository kaptain-catalog-applications -n ${WORKSPACE_NAMESPACE}
     ```
 
-## Uninstall Kaptain
+    The repository commit displays the ready state:
 
-- Use the following commands to uninstall Kaptain.
-  ```bash
-  kubectl kudo uninstall --instance kaptain --namespace kubeflow --wait
-  kubectl delete operatorversions.kudo.dev kubeflow-1.4.0-1.3.0 --namespace kubeflow
-  kubectl delete operators.kudo.dev kubeflow --namespace kubeflow
-  ```
+    ```sh
+    NAME         URL                                                        READY   STATUS                                                              AGE
+    kaptain-catalog-applications https://github.com/mesosphere/kaptain-catalog-applications                True    Fetched revision: master/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   11m
+    ```
+
+## Deploy Kaptain on selected Workspaces
+
+You have installed Kaptain by adding it to the DKP Catalog applications. The next step is to enable and deploy Kaptain on all clusters in a selected Workspace. For this, refer to [Deploy Kaptain] instructions. 
+<!-- Need to add link to this topic once it is created -->
 
 [download]: ../../download/
 [install-spark-dkp2]: /dkp/kommander/2.1/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
@@ -192,3 +150,4 @@ Once all components have been deployed, you can log in to Kaptain:
 [kudo_cli]: https://kudo.dev/#get-kudo
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [dex]: https://docs.d2iq.com/dkp/kaptain/2.0.0/configuration/external-dex/
+[airgapped_install]: ../air-gapped-dkp/
