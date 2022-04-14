@@ -128,8 +128,8 @@ Kaptain is now enabled. Connect to the cluster and check the `HelmReleases` to v
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
-NAMESPACE               NAME               READY   STATUS                             AGE
-workspace-test-vjsfq    spark-operator     True    Release reconciliation succeeded   7m3s
+NAME                      AGE     READY   STATUS
+kaptain-1                 3m40s   True    Release reconciliation succeeded
 ```
 
 [add_Kaptain]: ../konvoy-dkp/
