@@ -22,8 +22,7 @@ dkp scale nodepools ${NODEPOOL_NAME} --replicas=5 --cluster-name=${CLUSTER_NAME}
 Your output should be similar to this example, indicating the scaling is in progress:
 
 ```sh
-INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:82"
-INFO[2021-07-26T08:54:35-07:00] Nodepool example scaled to 5 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
+✓ Scaling node pool example to 5 replicas
 ```
 
 After a few minutes you can list the node pools to:
@@ -35,9 +34,9 @@ dkp get nodepools --cluster-name=${CLUSTER_NAME} --kubeconfig=${CLUSTER_NAME}.co
 Your output should be similar to this example, with the number of DESIRED and READY replicas increased to 5:
 
 ```sh
-NODEPOOL                        DESIRED               READY               KUBERNETES VERSION
-example                         5                     5                   v1.21.6
-demo-cluster-md-0               4                     4                   v1.21.6
+NODEPOOL                           DESIRED               READY               KUBERNETES VERSION               
+example                            5                     5                   v1.22.8                          
+aws-example-md-0                   4                     4                   v1.22.8
 ```
 
 ### Scaling Down Node Pools
@@ -49,8 +48,21 @@ dkp scale nodepools ${NODEPOOL_NAME} --replicas=4 --cluster-name=${CLUSTER_NAME}
 ```
 
 ```sh
-INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:82"
-INFO[2021-07-26T08:54:35-07:00] Nodepool example scaled to 4 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
+✓ Scaling node pool example to 4 replicas
+```
+
+After a few minutes you can list the node pools to:
+
+```bash
+dkp get nodepools --cluster-name=${CLUSTER_NAME} --kubeconfig=${CLUSTER_NAME}.conf
+```
+
+Your output should be similar to this example, with the number of DESIRED and READY replicas decreased to 4:
+
+```sh
+NODEPOOL                           DESIRED               READY               KUBERNETES VERSION               
+example                            4                     4                   v1.22.8                          
+aws-example-md-0                   4                     4                   v1.22.8
 ```
 
 In a default cluster, the nodes to delete are selected at random. This behavior is controller by [CAPI's delete policy][capi_delete_policy]. However, when using the Konvoy CLI to scale down a node pool it is also possible to specify the Kubernetes Nodes you want to delete.
@@ -63,8 +75,7 @@ dkp scale nodepools ${NODEPOOL_NAME} --replicas=3 --nodes-to-delete=<> --cluster
 ```
 
 ```sh
-INFO[2021-07-26T08:54:35-07:00] Running scale nodepool command                clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:82"
-INFO[2021-07-26T08:54:35-07:00] Nodepool example scaled to 3 replicas  clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:94"
+✓ Scaling node pool example to 3 replicas
 ```
 
 ### Scaling Node Pools When Using Cluster Autoscaler
@@ -87,8 +98,8 @@ dkp scale nodepools ${NODEPOOL_NAME} --replicas=7 -c demo-cluster
 Which results in an error similar to:
 
 ```sh
-INFO[2021-07-26T09:46:37-07:00] Running scale nodepool command                clusterName=demo-cluster managementClusterKubeconfig= namespace=default src="nodepool/scale.go:82"
-Error: failed to scale nodepool: scaling MachineDeployment is forbidden: desired replicas 7 is greater than the configured max size annotation cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size: 6
+ ✗ Scaling node pool example to 7 replicas
+failed to scale nodepool: scaling MachineDeployment is forbidden: desired replicas 7 is greater than the configured max size annotation cluster.x-k8s.io/cluster-api-autoscaler-node-group-max-size: 6
 ```
 
 Similarly, scaling down to a number of replicas less than the configured `min-size` also returns an error.

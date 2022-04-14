@@ -14,7 +14,7 @@ Creating a node pool is useful when you need to run workloads that require machi
 1.  Set the environment variable to the name you assigned this cluster.
 
     ```bash
-    CLUSTER_NAME=my-aws-cluster
+    export CLUSTER_NAME=aws-example
     ```
 
     See [Get Started with AWS][createnewcluster_name] for information on naming your cluster.
@@ -42,11 +42,10 @@ dkp create nodepool aws ${NODEPOOL_NAME} \
 ```
 
 ```sh
-INFO[2021-08-02T12:16:26-07:00] Running nodepool create command               clusterName=dlipovetsky-demo managementClusterKubeconfig= namespace=default src="nodepool/create.go:264"
 machinedeployment.cluster.x-k8s.io/example created
-awsmachinetemplate.infrastructure.cluster.x-k8s.io/example created
-kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/example created
-INFO[2021-08-02T12:16:26-07:00] Created default/example nodepool          src="nodepool/create.go:318"
+⠈⠁ Creating default/example nodepool resources awsmachinetemplate.infrastructure.cluster.x-k8s.io/example created
+⠈⠑ Creating default/example nodepool resources kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/example created
+ ✓ Creating default/example nodepool resources
 ```
 
 This example uses default values for brevity. Use flags to define custom instance types, AMIs, and other properties.
