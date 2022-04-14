@@ -23,6 +23,8 @@ Before starting the Konvoy installation, verify that you have:
 - [kubectl][install_kubectl] for interacting with the running cluster.
 - A valid Azure account [used to sign in with the Azure CLI][azure_credentials].
 
+<p class="message--warning"><strong>WARNING: </strong>Pivoting is not supported in AKS.</p>
+
 ## Configure AKS prerequisites
 
 1.  Log in to Azure:
