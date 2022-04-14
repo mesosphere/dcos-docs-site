@@ -133,5 +133,4 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
 ```
 
 [add_Kaptain]: ../dkp/
-<!-- this will change to ../dkp/ once other PR is merged -->
 [existcluster]: ../../../../kommander/2.2/clusters/attach-cluster/
