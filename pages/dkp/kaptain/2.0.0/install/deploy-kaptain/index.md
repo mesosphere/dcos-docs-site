@@ -62,7 +62,7 @@ Follow these steps to verify the deployment of Kaptain:
 
 Follow these steps to enable Kaptain in air-gapped and networked environments from the DKP CLI:
 
-1.  Enable Kaptain to deploy to [your existing Managed and Attached clusters][existcluster] with an `AppDeployment` resource.
+1.  Enable Kaptain to deploy to [your existing Management, Managed and Attached clusters][existcluster] with an `AppDeployment` resource.
 
 <!-- why are we referring to attached clusters only and not to managed? -->
 
