@@ -9,14 +9,14 @@ enterprise: false
 ---
 
 <p class="message--warning"><strong>WARNING: </strong>
-You can deploy Kaptain to a cluster in a selected Workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the Workspace you are deploying to or move that cluster to another Workspace.
+You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.
 </p>
 
 ## Enable and deploy Kaptain using the DKP UI
 
 Follow these steps to enable Kaptain in air-gapped and networked environments from the DKP UI:
 
-1.  **Enterprise only**: From the top menu bar, select your target Workspace.
+1.  **Enterprise only**: From the top menu bar, select your target workspace.
 
 1.  From the sidebar menu, select **Applications**.
 
@@ -25,9 +25,9 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 1.  From the Kaptain tile, select the three dot menu > **Enable**.
     The `Enable Workspace Catalog Application` page is displayed.
 
-1.  Verify that you deploy to the correct target Workspace and Clusters.
-    - If the Workspace is incorrect, go back to the main dashboard and select the correct Workspace as in step 1.
-    - If you don’t want to deploy Kaptain to all clusters, interrupt deployment and manually move the clusters where you don’t want to deploy Kaptain to another Workspace.
+1.  Verify that you deploy to the correct target workspace and Clusters.
+    - If the workspace is incorrect, go back to the main dashboard and select the correct workspace as in step 1.
+    - If you don’t want to deploy Kaptain to all clusters, interrupt deployment and manually move the clusters where you don’t want to deploy Kaptain to another workspace.
 
 1.  If available, select a version from the drop-down menu. This drop-down menu will only be visible if there is more than one version.
 
@@ -40,7 +40,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 1.  Confirm the details are correct, and then select the **Enable** button to enable and trigger deployment.
     The status changes to **Enabled**.
 
-1.  If you want to deploy Kaptain to other Workspaces, repeat these steps for each additional Workspace.
+1.  If you want to deploy Kaptain to other workspaces, repeat these steps for each additional workspace.
 
 Alternately, you can use the [CLI](#enable-and-deploy-Kaptain-using-the-dkp-cli) to enable your catalog applications.
 
@@ -64,8 +64,6 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Enable Kaptain to deploy to [your existing Management, Managed and Attached clusters][existcluster] with an `AppDeployment` resource.
 
-<!-- why are we referring to attached clusters only and not to managed? -->
-
 1.  Within the `AppDeployment`, define the `appRef` to specify which `App` to enable:
 
     ```yaml
@@ -82,7 +80,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
     EOF 
     ```
 
-1.  Create the resource in the Workspace you just created, which instructs Kommander to deploy the `AppDeployment` to the `KommanderCluster`s in the same Workspace.
+1.  Create the resource in the workspace you just created, which instructs Kommander to deploy the `AppDeployment` to the `KommanderCluster`s in the same workspace.
 
 ## Enable Kaptain with a custom configuration using the CLI
 
