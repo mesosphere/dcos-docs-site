@@ -82,6 +82,7 @@ Flink
 (fluentbit|Fluentbit)
 Fluentd
 (Frontmatter|frontmatter)
+gapped 
 (gcr|GCR)
 (Gensim|gensim)
 Gitea
