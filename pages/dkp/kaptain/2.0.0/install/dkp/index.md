@@ -125,7 +125,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 1.  Ensure the status of the `GitRepository` signals a ready state:
 
     ```bash
-    kubectl get gitrepository example-repo -n ${PROJECT_NAMESPACE}
+    kubectl get gitrepository kaptain-catalog-applications -n ${WORKSPACE_NAMESPACE}
     ```
 
     The repository commit displays the ready state:
