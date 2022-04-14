@@ -9,7 +9,7 @@ enterprise: false
 techPreview: true
 ---
 
-<p class="message--note"><strong>NOTE:</strong> We are offering DKP Insights with this release as a [Technical Preview](https://docs.d2iq.com/dkp/kommander/2.2/legal/version-policy/#technical-preview) only.</p>
+<p class="message--note"><strong>NOTE:</strong> We are offering DKP Insights with this release as a <a href="../legal/version-policy#technical-preview">Technical Preview</a> only.</p>
 
 DKP Insights assists Kubernetes Administrators with routine tasks:
 
