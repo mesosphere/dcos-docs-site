@@ -38,41 +38,48 @@ For cloud installations, scaling out can be limited by resource quotas.
 
 ## Prerequisites for Konvoy 1.x
 
-* When installing on Konvoy 1.x, ensure the following Kubernetes base addons that are needed by Kaptain are enabled:
-    ```yaml
-      - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-        configVersion: stable-1.20-4.1.0
-        addonsList:
-          - name: istio
-            enabled: true
-          - name: dex
-            enabled: true
-          - name: cert-manager
-            enabled: true
-          - name: prometheus
-            enabled: true
-    ```
+- When installing on Konvoy 1.x, ensure the following Kubernetes base addons that are needed by Kaptain are enabled:
 
-* Add the Kaptain addon repository to your Konvoy `cluster.yaml` to install Kaptain dependencies:
-    ```yaml
-      - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
-        configVersion: stable-1.20-1.4.0
-        addonsList:
-          - name: knative
-            enabled: true
-    ```
-* For GPU deployment, follow the instructions in [Konvoy GPU documentation][konvoy-gpu].
+  ```yaml
+  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    configVersion: stable-1.20-4.1.0
+    addonsList:
+      - name: istio
+        enabled: true
+      - name: dex
+        enabled: true
+      - name: cert-manager
+        enabled: true
+      - name: prometheus
+        enabled: true
+  ```
 
-* Then follow the [Konvoy documentation][konvoy_deploy_addons] to deploy the addons.
+- Add the Kaptain addon repository to your Konvoy `cluster.yaml` to install Kaptain dependencies:
+
+  ```yaml
+  - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
+    configVersion: stable-1.20-1.4.0
+    addonsList:
+      - name: knative
+        enabled: true
+  ```
+
+- For GPU deployment, follow the instructions in [Konvoy GPU documentation][konvoy-gpu].
+
+- Then follow the [Konvoy documentation][konvoy_deploy_addons] to deploy the addons.
 
 ## Prerequisites for DKP 2.x
 
 For DKP 2.x, ensure the following applications are enabled in Kommander:
-* Use the existing Kommander configuration file, or initialize the default one:  
+
+- Use the existing Kommander configuration file, or initialize the default one:
+
   ```
   kommander install --init > kommander-config.yaml
   ```
-* Ensure the following applications are enabled in the config:
+
+- Ensure the following applications are enabled in the config:
+
   ```yaml
   apiVersion: config.kommander.mesosphere.io/v1alpha1
   kind: Installation
@@ -86,15 +93,18 @@ For DKP 2.x, ensure the following applications are enabled in Kommander:
     minio-operator:
     traefik:
     nvidia:  # to enable GPU support
-    ...   
+    ...
   ```
-* For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu]. 
 
-* Apply the new configuration to Kommander:
+- For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
+
+- Apply the new configuration to Kommander:
+
   ```
   kommander install --installer-config kommander-config.yaml
   ```
-Check [Kommander installation documentation][kommander-install] for more information.
+
+  Check [Kommander installation documentation][kommander-install] for more information.
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
@@ -102,27 +112,32 @@ In case you need to run Spark jobs on Kubernetes using Spark Operator, it needs 
 Use the following instructions to install Spark Operator from Kommander Catalog for your target platform:
 [Konvoy 1.x][install-spark-konvoy1] or [DKP 2.x][install-spark-dkp2]
 
-
 ## Install Kaptain
-* Install the [kubectl-kudo CLI plugin][kudo_cli]
 
-* After the Konvoy cluster has been deployed (including Istio and KNative), install KUDO:
+- Install the [kubectl-kudo CLI plugin][kudo_cli]
+
+- After the Konvoy cluster has been deployed (including Istio and KNative), install KUDO:
+
   ```bash
   kubectl kudo init --wait
   ```
 
-* Download [kubeflow-1.4.0_1.3.0.tgz][download] tarball.
+- Download [kubeflow-1.4.0_1.3.0.tgz][download] tarball.
 <p class="message--note"><strong>NOTE: </strong>Starting with Kaptain 1.2.0, automatic profile creation on initial login is now disabled by default. See <a href="../../user-management">User Management</a> for more details.</p>
 
-* Set required configuration based on the target platform:
-  * When installing on Konvoy 1.x, add the following configuration to `parameters.yaml` file:
+- Set required configuration based on the target platform:
+
+  - When installing on Konvoy 1.x, add the following configuration to `parameters.yaml` file:
+
   ```bash
   cat >> parameters.yaml << END
   dkpPlatformVersion: 1
   installMinioOperator: true
   END
   ```
-* When installing on DKP 2.x, add the following configuration to `parameters.yaml` file:
+
+- When installing on DKP 2.x, add the following configuration to `parameters.yaml` file:
+
   ```bash
   # set the OIDC Provider CA bundle
   OIDC_PROVIDER_CA_BUNDLE=$(kubectl get secret kommander-traefik-certificate -n kommander -o jsonpath="{.data.ca\.crt}")
@@ -131,49 +146,65 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
   oidcProviderBase64CaBundle: ${OIDC_PROVIDER_CA_BUNDLE}
   END
   ```
-* Install Kaptain:
+
+- Install Kaptain:
+
   ```bash
   kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace \
     ./kubeflow-1.4.0_1.3.0.tgz \
     -P parameters.yaml
   ```
-* If you would like to inject additional annotations to Kaptain's default `kubeflow-ingressgateway` `Gateway`, you can pass in the service annotations as parameters:
+
+- If you would like to inject additional annotations to Kaptain's default `kubeflow-ingressgateway` `Gateway`, you can pass in the service annotations as parameters:
+
   ```bash
   kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace \
     ./kubeflow-1.4.0_1.3.0.tgz \
     -P parameters.yaml \
     -p kubeflowIngressGatewayServiceAnnotations='{"foo": "abc","bar": "xyz"}'
   ```
-* Monitor the installation by running:
+
+- Monitor the installation by running:
+
   ```bash
   kubectl kudo plan status --instance kaptain -n kubeflow
   ```
 
 ## Log in to Kaptain
+
 Once all components have been deployed, you can log in to Kaptain:
 
-* Discover the cluster endpoint and copy it to the clipboard.
+- Discover the cluster endpoint and copy it to the clipboard.
   If you are running Kaptain _on-premises_:
+
   ```bash
   kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].ip}") && echo "https://${kf_uri}"
   ```
+
   Or if you are running Kaptain on _AWS_:
+
   ```bash
   kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}") && echo "https://${kf_uri}"
   ```
-* Get the login credentials from Konvoy to authenticate:
-  * For Konvoy 1.x:
+
+- Get the login credentials from Konvoy to authenticate:
+
+  - For Konvoy 1.x:
+
     ```bash
     konvoy get ops-portal
     ```
-  * For DKP 2.x:
+
+  - For DKP 2.x:
+
     ```
     kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}')
     ```
 
 ## Uninstall Kaptain
 
-* Use the following commands to uninstall Kaptain.
+- Use the following commands to uninstall Kaptain.
+
   ```bash
   kubectl kudo uninstall --instance kaptain --namespace kubeflow --wait
   kubectl delete operatorversions.kudo.dev kubeflow-1.4.0-1.3.0 --namespace kubeflow
