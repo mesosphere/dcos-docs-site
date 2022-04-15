@@ -88,8 +88,8 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
     ```
 
     ```sh
-	preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-control-plane created
-	preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-md-0 created
+    preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-control-plane created
+    preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-md-0 created
     ```
 
 ## Prepare your machines

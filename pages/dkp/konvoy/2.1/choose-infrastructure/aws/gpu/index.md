@@ -22,14 +22,14 @@ Kommander also accesses [GPU](/dkp/kommander/2.1/gpu/) resources.
 
 Using the [Konvoy Image Builder](../../../image-builder), you can build an image that has support to use Nvidia GPU hardware to support GPU workloads.
 
-1. In your `overrides/nvidia.yaml` file add the following to enable GPU builds. You can also access and use the overrides [repo.](https://github.com/mesosphere/konvoy-image-builder/tree/main/overrides)
+1.  In your `overrides/nvidia.yaml` file add the following to enable GPU builds. You can also access and use the overrides [repo.](https://github.com/mesosphere/konvoy-image-builder/tree/main/overrides)
 
     ```yaml
     gpu:
       type: nvidia
     ```
 
-1. Build your image using the following Konvoy image builder commands:
+1.  Build your image using the following Konvoy image builder commands:
 
     ```bash
     konvoy-image build --region us-west-2 --source-ami=ami-12345abcdef images/ami/centos-7.yaml --overrides overrides/nvidia.yaml
@@ -49,6 +49,4 @@ Using the [Konvoy Image Builder](../../../image-builder), you can build an image
 
     ```bash
     dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --region us-west-2 --ami <ami>
-    ```
-
     ```

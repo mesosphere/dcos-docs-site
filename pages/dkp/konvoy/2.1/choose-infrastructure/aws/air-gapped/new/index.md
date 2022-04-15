@@ -53,7 +53,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     kubernetes.io/role/internal-elb = 1
     ```
 
-2.  Configure your cluster to use an existing Docker registry as a mirror when attempting to pull images:
+1.  Configure your cluster to use an existing Docker registry as a mirror when attempting to pull images:
 
     <p class="message--important"><strong>IMPORTANT: </strong>The AMI must be created by the <a href="https://github.com/mesosphere/konvoy-image-builder">konvoy-image-builder</a> project in order to use the registry mirror feature.</p>
 
@@ -69,7 +69,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     - `DOCKER_REGISTRY_USERNAME`: optional, set to a user that has pull access to this registry.
     - `DOCKER_REGISTRY_PASSWORD`: optional if username is not set.
 
-3.  Create a Kubernetes cluster:
+1.  Create a Kubernetes cluster:
 
     ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
@@ -84,7 +84,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     --registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
     ```
 
-4.  (Optional) The Control Plane and Worker nodes can be configured to use an HTTP proxy:
+1.  (Optional) The Control Plane and Worker nodes can be configured to use an HTTP proxy:
 
     ```bash
     export CONTROL_PLANE_HTTP_PROXY=http://example.org:8080
@@ -105,7 +105,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     - `169.254.169.254` is the AWS metadata server
     - `.elb.amazonaws.com` is for the worker nodes to allow them to communicate directly to the kube-apiserver ELB
 
-5.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
+1.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
 
     ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
@@ -126,13 +126,13 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     --worker-no-proxy="${WORKER_NO_PROXY}"
     ```
 
-6.  Inspect the created cluster resources:
+1.  Inspect the created cluster resources:
 
     ```bash
     kubectl get clusters,kubeadmcontrolplanes,machinedeployments
     ```
 
-7.  Wait for the cluster control-plane to be ready:
+1.  Wait for the cluster control-plane to be ready:
 
     ```bash
     kubectl wait --for=condition=ControlPlaneReady "clusters/${CLUSTER_NAME}" --timeout=60m

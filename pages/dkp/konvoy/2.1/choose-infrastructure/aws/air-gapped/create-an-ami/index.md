@@ -21,19 +21,19 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
 1.  Define an environment variable for the Kubernetes version that corresponds with Konvoy release you are installing. You can find the correct Kubernetes version by checking the release notes for the release you are installing.
 
     ```bash
-    export VERSION=1.22.8
+    export VERSION=1.21.6
     ```
 
 1.  Set an environment variable for the AMI's OS you are will be using.
     The OS packages bundles will contain the RPMs for Containerd, Kubernetes and all of their dependencies required to install these packages without access to any external RPM repositories.
     The available options are:
 
-    * `centos_7_x86_64`
-    * `centos_7_x86_64_fips`
-    * `redhat_7_x86_64`
-    * `redhat_7_x86_64_fips`
-    * `redhat_8_x86_64`
-    * `redhat_8_x86_64_fips`
+    - `centos_7_x86_64`
+    - `centos_7_x86_64_fips`
+    - `redhat_7_x86_64`
+    - `redhat_7_x86_64_fips`
+    - `redhat_8_x86_64`
+    - `redhat_8_x86_64_fips`
 
     ```bash
     export BUNDLE_OS=centos_7_x86_64
@@ -49,14 +49,14 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
 
     The available options for each Kubernetes version are:
 
-    * `<version>_images.tar.gz`
-    * `<version>_images_fips.tar.gz`
+    - `<version>_images.tar.gz`
+    - `<version>_images_fips.tar.gz`
 
     ```bash
     curl --output artifacts/images/"$VERSION"_images.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/kubernetes-images/"$VERSION"_images.tar.gz
     ```
 
-1.  Download the PIP packages. This bundle includes a few packages required by DKP to boostrap machines.
+1.  Download the PIP packages. This bundle includes a few packages required by DKP to bootstrap machines.
 
     ```bash
     curl --output artifacts/pip-packages.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz

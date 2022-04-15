@@ -32,9 +32,9 @@ Before you begin, you must have:
 
 1.  Export the AWS profile with the credentials you want to use to create the Kubernetes cluster:
 
-     ```bash
-     export AWS_PROFILE=<profile>
-     ```
+    ```bash
+    export AWS_PROFILE=<profile>
+    ```
 
 Then, you can [create an AMI][create-an-ami].
 
