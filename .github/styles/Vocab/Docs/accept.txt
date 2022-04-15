@@ -227,7 +227,6 @@ Snapshotter
 socat
 softmax
 Splunk
-(Statefulset|statefulset)
 statefulset(|s)
 Statefulset(|s)
 (Statsmodels|statsmodels)
