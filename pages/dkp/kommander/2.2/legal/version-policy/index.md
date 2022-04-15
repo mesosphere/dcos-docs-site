@@ -20,15 +20,15 @@ The following chart identifies which version of Konvoy supports which version of
 
 | Konvoy Version | Kommander Version |
 | -------------- | ----------------- |
+| 2.2.x | 2.2.x |
 | 2.1.x | 2.1.x |
 | 2.0.x | 2.0.x |
 | 1.8.x | 1.4.x |
-| 1.7.x | 1.3.x |
 
-Konvoy and Kommander release `MAJOR.MINOR` versions together and are compatible with each other for that version set. This means, Kommander 1.3, and all of its patch versions (for example, 1.3.0, 1.3.1), can deploy successfully on any version of Konvoy 1.7. Mixing minor versions is prohibited and the following is not supported:
+Konvoy and Kommander release `MAJOR.MINOR` versions together and are compatible with each other for that version set. This means, Kommander 1.4, and all of its patch versions (for example, 1.4.0, 1.4.1), can deploy successfully on any version of Konvoy 1.8. Mixing minor versions is prohibited and the following is not supported:
 
+- You cannot deploy Kommander 1.3.x on Konvoy 1.8.x
 - You cannot deploy Kommander 1.2.x on Konvoy 1.7.x
-- You cannot deploy Kommander 1.1.x on Konvoy 1.6.x
 
 <!--- ## Supported operating systems
 
