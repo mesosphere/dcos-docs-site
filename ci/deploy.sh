@@ -5,7 +5,8 @@ set -ex
 npm run build
 echo "google-site-verification: google48ddb4a5390a503f.html" > ./build/google48ddb4a5390a503f.html
 
-apk add --update-cache gettext
+apt-get update
+apt-get install -y gettext
 envsubst < s3bucketpolicy > .policy
 envsubst < s3config.json > .s3config.json
 

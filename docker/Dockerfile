@@ -1,4 +1,4 @@
-FROM node:lts-buster-slim
+FROM node:gallium-buster-slim
 
 RUN mkdir /dcos-docs-site
 WORKDIR /dcos-docs-site
