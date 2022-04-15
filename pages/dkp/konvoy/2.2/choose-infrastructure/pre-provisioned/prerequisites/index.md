@@ -39,7 +39,7 @@ Each worker node should have at least:
 
 - 8 cores
 - 32 GiB memory
-- Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
+- Around 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
 - Disk usage must be below 85% on the root volume.
 
 If you plan to use local volume provisioning to provide persistent volumes for the workloads, you must mount at least four volumes to the `/mnt/disks/` mount point on each node. Each volume must have at least 55 GiB of capacity if you are using default addon configurations.
