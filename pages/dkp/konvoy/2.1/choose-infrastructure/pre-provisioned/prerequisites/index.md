@@ -17,3 +17,8 @@ Before you begin using Konvoy, you must have:
 - An unencrypted SSH private key, whose public key is configured on the above hosts.
 
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+
+When air-gapped, you must follow the steps described in the [air-gapped prerequisites page][prerequisites-airgapped], otherwise [begin creating the bootstrap cluster][bootstrap].
+
+[prerequisites-airgapped]: ../prerequisites-airgapped
+[bootstrap]: ../bootstrap

@@ -38,7 +38,7 @@ Using the [Konvoy Image Builder](../../../image-builder), you can build an image
     By default, your image builds in the `us-west-2` region. To specify another region, set the `--region` flag:
 
     ```bash
-    konvoy-image build --region us-east-1 --overrides override-source-ami.yaml --overrides override-images.yaml images/ami/<Your OS>.yaml
+    konvoy-image build --region us-east-1 --overrides override-source-ami.yaml images/ami/<Your OS>.yaml
     ```
 
     <p class="message--note"><strong>NOTE: </strong>Ensure that an AMI file is available for your OS selection.</p>
@@ -49,4 +49,6 @@ Using the [Konvoy Image Builder](../../../image-builder), you can build an image
 
     ```bash
     dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --region us-west-2 --ami <ami>
+    ```
+
     ```

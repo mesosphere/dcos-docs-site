@@ -12,7 +12,7 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
 
 ## Define your infrastructure
 
-1.  Export these environment variables:
+1.  Export the following environment variables, ensuring that all control plane and worker nodes are included:
 
     ```bash
     export CONTROL_PLANE_1_ADDRESS="<control-plane-address-1>"
@@ -42,7 +42,7 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
     spec:
       hosts:
         # Create as many of these as needed to match your infrastructure
-        # Note that the command line parameter `--control-plane-replicas` determines how many control plane nodes will actually be used.
+        # Note that the command line parameter --control-plane-replicas determines how many control plane nodes will actually be used.
         #
         - address: $CONTROL_PLANE_1_ADDRESS
         - address: $CONTROL_PLANE_2_ADDRESS
@@ -88,8 +88,8 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
     ```
 
     ```sh
-    preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/my-preprovisioned-cluster-control-plane created
-    preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/my-preprovisioned-cluster-md-0 created
+	preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-control-plane created
+	preprovisionedinventory.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-md-0 created
     ```
 
 ## Prepare your machines
