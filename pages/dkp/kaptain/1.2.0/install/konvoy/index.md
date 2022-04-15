@@ -36,74 +36,86 @@ The amounts depend on the number, complexity, and size of the workloads, as well
 For on-premise installations, horizontal scalability is limited by the overall size of the cluster and quotas therein.
 For cloud installations, scaling out can be limited by resource quotas.
 
-* Ensure the following Kubernetes base addons that are needed by Kaptain are enabled:
-    ```yaml
-    - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: stable-1.20-4.1.0
-      addonsList:
-        - name: istio
-          enabled: true
-        - name: dex
-          enabled: true
-        - name: cert-manager
-          enabled: true
-        - name: prometheus
-          enabled: true
-    ```
+- Ensure the following Kubernetes base addons that are needed by Kaptain are enabled:
 
-* Add the Kaptain addon repository to your Konvoy `cluster.yaml` to install Kaptain dependencies,
-then follow the [Konvoy documentation][konvoy_deploy_addons] to deploy the addons:
   ```yaml
-      - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
-        configVersion: stable-1.20-1.3.0
-        addonsList:
-          - name: knative
-            enabled: true
+  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    configVersion: stable-1.20-4.1.0
+    addonsList:
+      - name: istio
+        enabled: true
+      - name: dex
+        enabled: true
+      - name: cert-manager
+        enabled: true
+      - name: prometheus
+        enabled: true
   ```
 
-* Install the [kubectl-kudo CLI plugin][kudo_cli]
+- Add the Kaptain addon repository to your Konvoy `cluster.yaml` to install Kaptain dependencies,
+  then follow the [Konvoy documentation][konvoy_deploy_addons] to deploy the addons:
 
-* After the Konvoy cluster has been deployed (including Istio and Knative), install KUDO:
+  ```yaml
+  - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
+    configVersion: stable-1.20-1.3.0
+    addonsList:
+      - name: knative
+        enabled: true
+  ```
+
+- Install the [kubectl-kudo CLI plugin][kudo_cli]
+
+- After the Konvoy cluster has been deployed (including Istio and Knative), install KUDO:
+
   ```bash
   kubectl kudo init --wait
   ```
 
-* Download [kubeflow-1.3.0_1.2.0.tgz][download] tarball.
-* Install Kaptain:
-<p class="message--note"><strong>NOTE: </strong>Starting with Kaptain 1.2.0, automatic profile creation on initial login is now disabled by default. See <a href="../../user-management">User Management</a> for more details.</p>
+- Download [kubeflow-1.3.0_1.2.0.tgz][download] tarball.
+- Install Kaptain:
+  <p class="message--note"><strong>NOTE: </strong>Starting with Kaptain 1.2.0, automatic profile creation on initial login is now disabled by default. See <a href="../../user-management">User Management</a> for more details.</p>
 
   ```bash
   kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace ./kubeflow-1.3.0_1.2.0.tgz
   ```
-* If you would like to inject additional annotations to Kaptain's default gateway `kubeflow-ingressgateway`, you can pass in the service annotations as parameters:
+
+- If you would like to inject additional annotations to Kaptain's default gateway `kubeflow-ingressgateway`, you can pass in the service annotations as parameters:
+
   ```bash
   kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace ./kubeflow-1.3.0_1.2.0.tgz -p kubeflowIngressGatewayServiceAnnotations='{"foo": "abc","bar": "xyz"}'
   ```
-* Monitor the installation by running:
+
+- Monitor the installation by running:
   ```bash
   kubectl kudo plan status --instance kaptain  -n kubeflow
   ```
 
 ## Log in to Kaptain
+
 Once all components have been deployed, you can log in to Kaptain:
 
-* Discover the cluster endpoint and copy it to the clipboard.
+- Discover the cluster endpoint and copy it to the clipboard.
   If you are running Kaptain _on-premises_:
+
   ```bash
   kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].ip}") && echo "https://${kf_uri}"
   ```
+
   Or if you are running Kaptain on _AWS_:
+
   ```bash
   kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}") && echo "https://${kf_uri}"
   ```
-* Get the login credentials from Konvoy to authenticate:
+
+- Get the login credentials from Konvoy to authenticate:
+
   ```bash
   konvoy get ops-portal
   ```
 
 ## Uninstall Kaptain
 
-* Use the following commands to uninstall Kaptain.
+- Use the following commands to uninstall Kaptain.
   ```bash
   kubectl kudo uninstall --instance kaptain --namespace kubeflow --wait
   kubectl delete operatorversions.kudo.dev kubeflow-1.3.0-1.2.0 --namespace kubeflow
