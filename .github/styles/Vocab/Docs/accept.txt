@@ -86,7 +86,7 @@ Fluentd
 gapped 
 (gcr|GCR)
 (Gensim|gensim)
-Gitea
+(Gitea|gitea)
 (gitops|GitOps)
 (Goboring|goboring)
 (Golang|golang)
