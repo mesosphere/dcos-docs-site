@@ -17,7 +17,7 @@ To delete a node pool from a managed cluster, run:
 dkp delete nodepool ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME}
 ```
 
-Here `example` is the node pool to be deleted.
+Here, `example` is the node pool to be deleted.
 
 The expected output will be similar to the following example, indicating the node pool is being deleted:
 
