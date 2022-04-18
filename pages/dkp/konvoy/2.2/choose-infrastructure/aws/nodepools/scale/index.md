@@ -51,7 +51,7 @@ dkp scale nodepools ${NODEPOOL_NAME} --replicas=4 --cluster-name=${CLUSTER_NAME}
 ✓ Scaling node pool example to 4 replicas
 ```
 
-After a few minutes you can list the node pools to:
+After a few minutes, you can list the node pools using this command:
 
 ```bash
 dkp get nodepools --cluster-name=${CLUSTER_NAME} --kubeconfig=${CLUSTER_NAME}.conf
@@ -65,10 +65,10 @@ example                            4                     4                   v1.
 aws-example-md-0                   4                     4                   v1.22.8
 ```
 
-In a default cluster, the nodes to delete are selected at random. This behavior is controller by [CAPI's delete policy][capi_delete_policy]. However, when using the Konvoy CLI to scale down a node pool it is also possible to specify the Kubernetes Nodes you want to delete.
+In a default cluster, the nodes to delete are selected at random. This behavior is controlled by [CAPI's delete policy][capi_delete_policy]. However, when using the DKP CLI to scale down a node pool, it is also possible to specify the Kubernetes Nodes you want to delete.
 
 To do this, set the flag `--nodes-to-delete` with a list of nodes as below.
-This adds an annotation `cluster.x-k8s.io/delete-machine=yes` to the matching Machine object that contain `status.NodeRef` with the node names from `--nodes-to-delete`.
+This adds an annotation `cluster.x-k8s.io/delete-machine=yes` to the matching Machine object that contains `status.NodeRef` with the node names from `--nodes-to-delete`.
 
 ```bash
 dkp scale nodepools ${NODEPOOL_NAME} --replicas=3 --nodes-to-delete=<> --cluster-name=${CLUSTER_NAME}
@@ -82,7 +82,7 @@ dkp scale nodepools ${NODEPOOL_NAME} --replicas=3 --nodes-to-delete=<> --cluster
 
 If you [configured the cluster autoscaler](../cluster-autoscaler) for the `demo-cluster-md-0` node pool, the value of `--replicas` must be within the minimum and maximum bounds.
 
-For example, assuming you have the these annotations:
+For example, assuming you have these annotations:
 
 ```bash
 kubectl --kubeconfig=${CLUSTER_NAME}.conf annotate machinedeployment ${NODEPOOL_NAME} cluster.x-k8s.io/cluster-api-autoscaler-node-group-min-size=2
