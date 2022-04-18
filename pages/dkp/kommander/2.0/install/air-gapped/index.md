@@ -137,6 +137,5 @@ Based on the network latency between the environment of script execution and the
 
 1. [Verify your installation](../networked#verify-installation).
 
-[air-gap-konvoy]: /dkp/konvoy/2.0/install/air-gapped/
-[air-gap-before-you-begin]: /dkp/konvoy/2.0/install/air-gapped/prerequisites/
-[konvoy_self_managing]: /dkp/konvoy/2.0/install/networked/self-managing/
+[air-gap-konvoy]: /dkp/konvoy/2.0/choose_infrastructure/aws/air-gapped/
+[air-gap-before-you-begin]: /dkp/konvoy/2.0/choose_infrastructure/aws/air-gapped/prerequisites/
