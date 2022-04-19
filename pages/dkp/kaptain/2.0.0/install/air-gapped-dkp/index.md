@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Install air-gapped on DKP 2.x
-title: Install Kaptain on an air-gapped DKP 2.x cluster
+navigationTitle: Add Kaptain on air-gapped
+title: Add Kaptain to DKP Catalog Applications on air-gapped environments
 menuWeight: 10
-excerpt: Install Kaptain on an air-gapped DKP 2.x cluster
+excerpt: Add Kaptain to your DKP Catalog Applications on air-gapped environments
 beta: false
 enterprise: false
 ---
