@@ -24,6 +24,6 @@ Refer to [Uninstall documentation] for instructions on how to uninstall your KUD
 
 ## Install Kaptain 2.x
 
-Refer to [Install Kaptain documentation] for instructions on how to install your Helm-based Kaptain installation.
+Refer to [Install Kaptain documentation][install_kap] for instructions on how to install your Helm-based Kaptain installation.
 
 <!-- TODO: add link to install topic    [kap_install]: ../install/dkp/ -->
