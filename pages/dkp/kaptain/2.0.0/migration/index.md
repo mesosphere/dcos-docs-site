@@ -22,7 +22,7 @@ Refer to [Uninstall documentation][uninstall_kap] for instructions on how to uni
 
 ## Install Kaptain 2.x
 
-Refer to [Install Kaptain documentation][install_kap] for instructions on how to install your Helm-based Kaptain version.
+Refer to [Install Kaptain documentation][install_kap] for instructions on how to install your Helm-based Kaptain version in networked, on-premises and air-gapped environments.
 
 [install_kap]: ../install
 [uninstall_kap]: ../../1.3.0/uninstall
