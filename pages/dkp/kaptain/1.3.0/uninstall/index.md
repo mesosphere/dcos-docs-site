@@ -8,13 +8,17 @@ beta: false
 enterprise: false
 ---
 
-### Uninstall Kaptain
+## Prerequisites
+
+-   Ensure you have a backup of your Kaptain installation if you are migrating to Kaptain 2.x.
+
+## Uninstall Kaptain
 
 Uninstalling Kaptain requires the execution of some manual steps in addition to the regular "KUDO uninstall" command.
 
 1.  Delete all profiles configured with Kaptain. Profiles have dependencies (such as finalizers) associated with Kaptain, and removing Kaptain before removing your profiles will put your cluster in a broken state.
 
-    The following command deletes all notebooks, pipelines and deployed models. Notebook volumes created when deploying notebooks are cleaned up and deleted. Ensure you have backed up anything that is not in managed storage (even if model artifacts are stored in your object store, and your notebook code is in version control).
+    The following command deletes all notebooks, pipelines and deployed models. Notebook volumes created when deploying notebooks are cleaned up and deleted. **Ensure you have backed up** anything that is not in managed storage (even if model artifacts are stored in your object store, and your notebook code is in version control).
 
     ```bash
     kubectl get profile --output name | while read name; do
@@ -22,7 +26,7 @@ Uninstalling Kaptain requires the execution of some manual steps in addition to 
     done
     ```
 
-**DO NOT** proceed until all profiles are removed. If a profile cannot be removed, review the troubleshooting section for instructions to [forcibly delete a profile][#### Removing a profile gets stuck].
+**DO NOT** proceed until all profiles are removed. If a profile cannot be removed, review the troubleshooting section for instructions to [forcibly delete a profile][#cannot-finalize-removing-a-profile].
 
 1.  Uninstall Kaptain using KUDO. This command deletes the Kaptain Percona DB store, all deployments, statefulsets, jobs, and volumes associated with the kubeflow namespace.
 
@@ -55,11 +59,11 @@ Uninstalling Kaptain requires the execution of some manual steps in addition to 
     kubectl kudo init --upgrade --dry-run --output yaml | kubectl delete -f -
     ```
 
-### Troubleshooting and overcoming failures
+## Troubleshooting and overcoming failures
 
-Sometimes, uninstall steps fail or hang because a cleanup task gets stuck. In that case, force Kubernetes to uninstall resources. Some cleanup may not be fully run.
+Sometimes, uninstall steps fail or hang because a cleanup task gets stuck. In that case, force Kubernetes to uninstall resources. Some cleanup tasks may not be fully run.
 
-#### Removing a profile gets stuck
+### Cannot finalize removing a profile
 
 1.  Skip the finalizer and manually clean up the namespace and related persistent volumes.
 
@@ -91,7 +95,7 @@ Sometimes, uninstall steps fail or hang because a cleanup task gets stuck. In th
     kubectl delete persistentvolume <persistent-volume-id>
     ```
 
-#### KUDO Kaptain uninstall fails
+### KUDO Kaptain uninstall fails
 
 If KUDO Kaptain uninstall hangs and fails to properly uninstall, force the removal of the Kaptain instance, and manually clean up volumes and namespaces.
 
