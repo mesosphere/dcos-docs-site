@@ -34,7 +34,7 @@ Konvoy supports the following base Operating Systems.
 | [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64           | Yes            | Yes  | Yes        |                      |             |
 | [RHEL 7.9][rhel_7_9]  | 3.10.0-1160.el7.x86_64           | Yes            |      |            |                      | Yes         |
 | [RHEL 8.4][rhel_8_4]  | 4.18.0-193.6.3.el8_4.x86_64      | Yes            |      |            |                      | Yes         |
-| [Flatcar][flatcar]    | 3033.2.0                         | Yes            |      |            |                      |             |
+| [Flatcar][flatcar]    | 3033.2.x                         | Yes            |      |            |                      |             |
 | [SLES 15][sles_15]    |                                  | Yes            |      |            |                      |             |
 
 ## vSphere
@@ -52,7 +52,6 @@ Konvoy supports the following base Operating Systems.
 | Operating System      | Kernel                           | Default Config | FIPS | Air Gapped | FIPS with Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> |
 |-----------------------|----------------------------------|----------------|------|------------|----------------------|-------------|
 | [Amazon Linux 2][amzn_2] |                               | Yes            |      |            |                      |             |
-
 
 ## AKS
 
