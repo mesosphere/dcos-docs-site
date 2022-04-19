@@ -8,9 +8,7 @@ beta: false
 enterprise: false
 ---
 
-## Prerequisites
-
--   Ensure you have a backup of your Kaptain installation if you are migrating to Kaptain 2.x.
+<p class="message--warning"><strong>WARNING: </strong>When uninstalling Kaptain, all data, the current state, and configuration of your application will be lost.</p>
 
 ## Uninstall Kaptain
 
