@@ -53,7 +53,6 @@ Konvoy supports the following base Operating Systems.
 |-----------------------|----------------------------------|----------------|------|------------|----------------------|-------------|
 | [Amazon Linux 2][amzn_2] |                               | Yes            |      |            |                      |             |
 
-
 ## AKS
 
 <!-- vale Vale.Spelling = NO -->
