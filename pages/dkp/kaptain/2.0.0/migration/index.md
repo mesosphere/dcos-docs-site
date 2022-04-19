@@ -8,13 +8,13 @@ beta: false
 enterprise: false
 ---
 
-Due to a major update in Kaptain's lifecycle management tool, migrating your 1.x installation to 2.x is **not possible**. To ensure that you are up-to-date with the latest features, and can benefit from the most recent performance improvements, we recommend that you uninstall your previous Kaptain version and do a fresh install of the latest available version. 
+Due to a major update in Kaptain's lifecycle management tool, migrating your 1.x installation to 2.x is **not possible**. To ensure that you are up-to-date with the latest features, and can benefit from the most recent performance improvements, we recommend that you uninstall your Kaptain version and do a fresh install of the latest available version. 
 
 <p class="message--warning"><strong>WARNING: </strong>For this release, you will have to uninstall and install Kaptain to get to the latest version. When uninstalling Kaptain, all data, the current state, and configuration of your application will be lost.</p>
 
 ## Background
 
-Previous versions of Kaptain were installed with KUDO. From 2.0.0 and later, you can install Kaptain with Helm. As a result, migrating currently requires that you fully remove your prior Kaptain 1.x installation (including deployed models, profiles, notebooks, pipelines, etc.), and install Kaptain 2.0.0. Model artifacts are stored in your object store, therefore, you will not lose these as long as your model store is not deployed to the Kaptain namespace (that is, you are not using the MinIO server). However, **create a backup** of anything you want to keep or migrate to your new Kaptain installation.
+Previous versions of Kaptain were installed with KUDO. From 2.0.0 and later, you can install Kaptain with Helm. As a result, migrating currently requires that you fully remove your prior Kaptain 1.x installation (including deployed models, profiles, notebooks, pipelines, etc.), and install Kaptain 2.0.0. Model artifacts are stored in your object store, therefore, you will not lose these as long as your model store is not deployed to the Kaptain namespace (that is, you are not using the MinIO server). However, **create a backup** of all your required data.
 
 ## Uninstall Kaptain 1.x
 
