@@ -12,7 +12,7 @@ enterprise: false
 You can deploy Kaptain to a cluster in a selected Workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the Workspace you are deploying to or move that cluster to another Workspace.
 </p>
 
-## DKP 2.x air-gapped installation
+## DKP air-gapped installation
 
 Refer to [DKP install instructions][dkp_install], if you are running in a networked environment.
 
