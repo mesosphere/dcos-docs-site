@@ -20,10 +20,9 @@ Previous versions of Kaptain were installed with KUDO. From 2.0.0 and later you 
 
 Refer to [Uninstall documentation][uninstall_kap] for instructions on how to uninstall your KUDO-based Kaptain installation.
 
-<!-- TODO: Links to 1.3.0/uninstall. -->
-
 ## Install Kaptain 2.x
 
 Refer to [Install Kaptain documentation][install_kap] for instructions on how to install your Helm-based Kaptain installation.
 
 [install_kap]: ../install
+[uninstall_kap]: ../../1.3.0/uninstall
