@@ -82,7 +82,7 @@ Kommander installs with the DKP CLI.
 
 1.  Install Kommander using the above configuration file:
 
-    <p class="message--note"><strong>NOTE: </strong>An alternative to initializing the KUBECONFIG environment variable (by running <code>export KUBECONFIG=cluster_name.conf</code>) is to use the <code>--kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
+    <p class="message--note"><strong>NOTE: </strong>To ensure Kommander is installed on the workload cluster, use the <code>--kubeconfig=cluster_name.conf</code> flag. This ensures that Kommander is installed on the workload cluster.</p>
 
     ```bash
     ./dkp install kommander --installer-config ./install.yaml
