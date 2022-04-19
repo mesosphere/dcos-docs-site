@@ -163,6 +163,7 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
 
     ```bash
     # e.g., this value can be spark-operator-1
+    # if your spark-operator appdeployment name doesn't contains spark, you need to adjust the grep command accordingly
     export SPARK_APPD_NAME=$(kubectl get appdeployment -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[*]} {.metadata.name}{"\n"}{end}' | grep spark)
     ```
 
@@ -323,7 +324,11 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
 
 1. if you want to force a pod recreation, you can delete the old pod in `CrashLoopBackoff` by running
    ```bash
-   kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')
+   # spark-operator is the default value
+   # if you override the HelmRelease name in your override configmap, use that value here 
+   export SPARK_OPERATOR_RELEASE_NAME=spark-operator
+   # We always want to only deploy 1 spark operator per cluster
+   kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -l app.kubernetes.io/name=$SPARK_OPERATOR_RELEASE_NAME -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')
    ```
 
 #### Default update strategy changed to "delete first" for Preprovisioned clusters
