@@ -322,7 +322,7 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     EOF
     ```
 
-1. if you want to force a pod recreation, you can delete the old pod in `CrashLoopBackoff` by running
+1. If you want to force a pod recreation, you can delete the old pod in `CrashLoopBackoff` by running:
    ```bash
    # spark-operator is the default value
    # if you override the HelmRelease name in your override configmap, use that value here 
