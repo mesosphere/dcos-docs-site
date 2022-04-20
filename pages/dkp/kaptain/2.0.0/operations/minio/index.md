@@ -14,7 +14,7 @@ Kaptain includes the MinIO Object Store running in a distributed mode which allo
 
 ## Prerequisites
 
--   You already provisioned a DKP cluster using at least `v2.1.0`.
+-   You already provisioned a DKP cluster using at least `v2.1.1`.
 
 ## Configuring MinIO cluster
 By default, the MinIO cluster consists of 2 servers, each with 2 volumes and a total capacity of 40Gi. Half of the storage will be used for [erasure coding][erasure-coding] sets, which is generally sufficient for storing semi-structured and small binary data, such as pipeline artifacts and model files. 
@@ -79,4 +79,4 @@ This command will update the existing Kaptain instance and double the MinIO clus
 
 [erasure-coding]: https://docs.min.io/docs/minio-erasure-code-quickstart-guide
 [minio-docs]: https://docs.min.io/docs/
-[deploy-kaptain]: ../install/deploy-kaptain
+[deploy-kaptain]: ../../install/deploy-kaptain
