@@ -23,9 +23,7 @@ Before you start, make sure you have created a workload cluster, as described in
     ```
 
     ```sh
-    ✓ Upgrading CAPI components
-    ✓ Waiting for CAPI components to be upgraded
-    ✓ Initializing new CAPI components
+    ✓ Initializing new CAPI components 
     ```
 
 1.  Move the Cluster API objects from the bootstrap to the workload cluster:
@@ -88,8 +86,8 @@ Before you start, make sure you have created a workload cluster, as described in
 
 <p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of Konvoy.</p>
 
-- Konvoy supports moving only one set of cluster objects from the bootstrap cluster to the workload cluster, or vice-versa.
-- Konvoy only supports moving all namespaces in the cluster; Konvoy does not support migration of individual namespaces.
+- DKP supports moving only one set of cluster objects from the bootstrap cluster to the workload cluster, or vice-versa.
+- DKP only supports moving all namespaces in the cluster; DKP does not support migration of individual namespaces.
 
 [pivot]: https://cluster-api.sigs.k8s.io/reference/glossary.html?highlight=pivot#pivot
 [createthecluster]: ../create-cluster
