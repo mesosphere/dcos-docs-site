@@ -12,7 +12,7 @@ enterprise: false
 
 ## Uninstall Kaptain
 
-Uninstalling Kaptain requires the execution of some manual steps in addition to the regular "KUDO uninstall" command.
+Uninstalling Kaptain requires the execution of several manual steps.
 
 1.  Delete all profiles configured with Kaptain. Profiles have dependencies (such as finalizers) associated with Kaptain, and removing Kaptain before removing your profiles will put your cluster in a broken state.
 
