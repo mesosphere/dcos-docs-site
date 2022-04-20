@@ -19,9 +19,7 @@ Uninstalling Kaptain requires the execution of several manual steps.
     The following command deletes all notebooks, pipelines and deployed models. Notebook volumes created when deploying notebooks are cleaned up and deleted. **Ensure you have backed up** anything that is not in managed storage (even if model artifacts are stored in your object store, and your notebook code is in version control).
 
     ```bash
-    kubectl get profile --output name | while read name; do
-      kubectl delete $name
-    done
+    kubectl delete profiles.kubeflow.org --all
     ```
 
 **DO NOT** proceed until all profiles are removed. If a profile cannot be removed, review the troubleshooting section for instructions to [forcibly delete a profile][#cannot-finalize-removing-a-profile].
