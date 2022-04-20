@@ -73,7 +73,7 @@ Sometimes, the uninstall steps will fail or hang because a cleanup task gets stu
     kubectl delete profile <profile-name>
     ```
 
-1.  Find and make record of all persistent volumes IDs associated with this profile. Delete these volumes later.
+1.  Find, and make a record of all persistent volumes IDs associated with this profile. You will delete these volumes later.
 
     ```bash
     kubectl get persistentvolume
