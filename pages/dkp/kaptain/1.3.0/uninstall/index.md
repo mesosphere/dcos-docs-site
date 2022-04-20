@@ -14,7 +14,7 @@ enterprise: false
 
 Uninstalling Kaptain requires the execution of several manual steps.
 
-1.  Delete all profiles configured with Kaptain. Profiles have dependencies (such as finalizers) associated with Kaptain, and removing Kaptain before removing your profiles will put your cluster in a broken state.
+1.  Delete all profiles configured with Kaptain. Profiles have dependencies (such as finalizers) associated with Kaptain, so they must be removed before uninstalling Kaptain. Attempting to uninstall Kaptain without removing the profiles will fail and leave many resources in a broken state.
 
     The following command deletes all notebooks, pipelines and deployed models. Notebook volumes created when deploying notebooks are cleaned up and deleted. **Ensure you have backed up** anything that is not in managed storage (even if model artifacts are stored in your object store, and your notebook code is in version control).
 
