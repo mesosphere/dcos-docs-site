@@ -92,11 +92,11 @@ For cloud installations, scaling out can be limited by resource quotas.
 In case you need to run Spark jobs on Kubernetes using Spark Operator, it needs to be installed separately.
 Use the following instructions to install Spark Operator from Kommander Catalog [DKP 2.x][install-spark-dkp2]
 
-## Add Kaptain to your DKP Catalog Applications via CLI 
+## Add Kaptain to your DKP Catalog Applications via CLI
 
-If you installed DKP with Kaptain as a workspace application in the Kommander installation file, you do not need to create a Git Repository for Kaptain. 
+If you installed DKP with Kaptain as a workspace application in the Kommander installation file, you do not need to create a Git Repository for Kaptain.
 
-If you added Kaptain after installing DKP, you must make it available by creating a Git Repository. Use the CLI to create the GitRepository resource and add a new repository. 
+If you added Kaptain after installing DKP, you must make it available by creating a Git Repository. Use the CLI to create the GitRepository resource and add a new repository.
 
 ### Create a Git repository for Kaptain
 
@@ -111,11 +111,11 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     metadata:
       name: kaptain-catalog-applications
       namespace: ${WORKSPACE_NAMESPACE}
-      labels: 
+      labels:
         kommander.d2iq.io/gitrepository-type: catalog
     spec:
       interval: 1m0s
-      ref: 
+      ref:
         tag: v2.0.0
       timeout: 20s
       url: https://github.com/mesosphere/kaptain-catalog-applications
@@ -137,13 +137,14 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 
 ## Deploy Kaptain on selected workspaces
 
-You have now added Kaptain to your DKP Catalog applications. The next step is to enable and deploy Kaptain on all clusters in a selected workspace. For this, refer to [Deploy Kaptain][deploy] instructions. 
+You have now added Kaptain to your DKP Catalog applications. The next step is to enable and deploy Kaptain on all clusters in a selected workspace. For this, refer to [Deploy Kaptain][deploy] instructions.
 
 [download]: ../../download/
-[install-spark-dkp2]: /dkp/kommander/latest/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
+[install-spark-dkp2]: /dkp/kommander/2.1/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
 [kommander-install]: /dkp/kommander/latest/install/
 [kommander-gpu]: /dkp/kommander/latest/gpu/
-[kudo_cli]: https://kudo.dev/#get-kudo
+[konvoy-gpu]: /dkp/konvoy/1.8/gpu/
+[konvoy_deploy_addons]: /dkp/konvoy/1.8/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [dex]: ../../configuration/external-dex/
 [airgapped_install]: ../air-gapped-dkp/
