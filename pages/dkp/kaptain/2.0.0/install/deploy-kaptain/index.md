@@ -18,7 +18,7 @@ Ensure you add Kaptain to your DKP Catalog applications before you deploy it to 
 
 -   [Add Kaptain to your DKP Catalog applications (networked and on-premise)][add_dkp]
 
-OR
+**OR**
 
 -   [Add Kaptain to your DKP Catalog applications in an air-gapped environment][add-air]
 
