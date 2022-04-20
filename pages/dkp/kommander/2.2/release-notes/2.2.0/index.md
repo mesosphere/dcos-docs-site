@@ -117,7 +117,7 @@ kubectl edit federatedconfigmap kube-oidc-proxy-overrides -n kommander
 
 Modify `oidc.issuerUrl` under the `values.yaml` key to override it for the `host-cluster` cluster:
 
-```sh
+```yaml
 apiVersion: types.kubefed.io/v1beta1
 kind: FederatedConfigMap
 metadata:
@@ -183,11 +183,11 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     apiVersion: rbac.authorization.k8s.io/v1
     kind: ClusterRole
     metadata:
-    name: spark-operator
-    annotations:
+      name: spark-operator
+      annotations:
         "helm.sh/hook": pre-install, pre-upgrade
         "helm.sh/hook-delete-policy": hook-failed, before-hook-creation
-    labels:
+      labels:
         app.kubernetes.io/instance: spark-operator
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: spark-operator
@@ -197,96 +197,96 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
         helm.toolkit.fluxcd.io/namespace: $WORKSPACE_NAMESPACE
     rules:
     - apiGroups:
-    - ""
-    resources:
-    - pods
-    verbs:
-    - "*"
+      - ""
+      resources:
+      - pods
+      verbs:
+      - "*"
     - apiGroups:
-    - ""
-    resources:
-    - services
-    - configmaps
-    - secrets
-    verbs:
-    - create
-    - get
-    - delete
-    - update
+      - ""
+      resources:
+      - services
+      - configmaps
+      - secrets
+      verbs:
+      - create
+      - get
+      - delete
+      - update
     - apiGroups:
-    - extensions
-    - networking.k8s.io
-    resources:
-    - ingresses
-    verbs:
-    - create
-    - get
-    - delete
+      - extensions
+      - networking.k8s.io
+      resources:
+      - ingresses
+      verbs:
+      - create
+      - get
+      - delete
     - apiGroups:
-    - ""
-    resources:
-    - nodes
-    verbs:
-    - get
+      - ""
+      resources:
+      - nodes
+      verbs:
+      - get
     - apiGroups:
-    - ""
-    resources:
-    - events
-    verbs:
-    - create
-    - update
-    - patch
+      - ""
+      resources:
+      - events
+      verbs:
+      - create
+      - update
+      - patch
     - apiGroups:
-    - ""
-    resources:
-    - resourcequotas
-    verbs:
-    - get
-    - list
-    - watch
+      - ""
+      resources:
+      - resourcequotas
+      verbs:
+      - get
+      - list
+      - watch
     - apiGroups:
-    - apiextensions.k8s.io
-    resources:
-    - customresourcedefinitions
-    verbs:
-    - create
-    - get
-    - update
-    - delete
+      - apiextensions.k8s.io
+      resources:
+      - customresourcedefinitions
+      verbs:
+      - create
+      - get
+      - update
+      - delete
     - apiGroups:
-    - admissionregistration.k8s.io
-    resources:
-    - mutatingwebhookconfigurations
-    - validatingwebhookconfigurations
-    verbs:
-    - create
-    - get
-    - update
-    - delete
+      - admissionregistration.k8s.io
+      resources:
+      - mutatingwebhookconfigurations
+      - validatingwebhookconfigurations
+      verbs:
+      - create
+      - get
+      - update
+      - delete
     - apiGroups:
-    - sparkoperator.k8s.io
-    resources:
-    - sparkapplications
-    - sparkapplications/status
-    - scheduledsparkapplications
-    - scheduledsparkapplications/status
-    verbs:
-    - "*"
+      - sparkoperator.k8s.io
+      resources:
+      - sparkapplications
+      - sparkapplications/status
+      - scheduledsparkapplications
+      - scheduledsparkapplications/status
+      verbs:
+      - "*"
     - apiGroups:
-    - batch
-    resources:
-    - jobs
-    verbs:
-    - delete
+      - batch
+      resources:
+      - jobs
+      verbs:
+      - delete
     ---
     apiVersion: rbac.authorization.k8s.io/v1
     kind: ClusterRoleBinding
     metadata:
-    name: spark-operator
-    annotations:
+      name: spark-operator
+      annotations:
         "helm.sh/hook": pre-install, pre-upgrade
         "helm.sh/hook-delete-policy": hook-failed, before-hook-creation
-    labels:
+      labels:
         app.kubernetes.io/instance: spark-operator
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: spark-operator
@@ -296,20 +296,20 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
         helm.toolkit.fluxcd.io/namespace: $WORKSPACE_NAMESPACE
     subjects:
     - kind: ServiceAccount
-        name: $SPARK_OPERATOR_SERVICE_ACCOUNT
-        namespace: $WORKSPACE_NAMESPACE
+      name: $SPARK_OPERATOR_SERVICE_ACCOUNT
+      namespace: $WORKSPACE_NAMESPACE
     roleRef:
-    kind: ClusterRole
-    name: spark-operator
-    apiGroup: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: spark-operator
+      apiGroup: rbac.authorization.k8s.io
     ---
     apiVersion: v1
     kind: ServiceAccount
     metadata:
-    annotations:
+      annotations:
         helm.sh/hook: pre-install, pre-upgrade
         helm.sh/hook-delete-policy: hook-failed
-    labels:
+      labels:
         app.kubernetes.io/instance: spark-operator
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: spark-operator
@@ -317,8 +317,8 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
         helm.sh/chart: spark-operator-1.1.17
         helm.toolkit.fluxcd.io/name: $SPARK_APPD_NAME
         helm.toolkit.fluxcd.io/namespace: $WORKSPACE_NAMESPACE
-    name: $SPARK_OPERATOR_SERVICE_ACCOUNT
-    namespace: $WORKSPACE_NAMESPACE
+      name: $SPARK_OPERATOR_SERVICE_ACCOUNT
+      namespace: $WORKSPACE_NAMESPACE
     EOF
     ```
 
