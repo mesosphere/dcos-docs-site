@@ -306,7 +306,7 @@ You need certain software configurations and settings before you start this proc
     kubectl get pods
     ```
 
-1. Confirm you can use the token to make http calls to the Kubernetes api. Use the following command:
+1. Confirm you can use the token to make HTTP calls to the Kubernetes API. Use the following command:
 
     ```bash
     curl -H "Authorization: Bearer $TOKEN" https://api.cluster-address/api/v1/pods -k
