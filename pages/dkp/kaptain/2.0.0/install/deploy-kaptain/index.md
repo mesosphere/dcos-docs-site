@@ -17,7 +17,9 @@ You can deploy Kaptain to a cluster in a selected workspace. If you do not inten
 Ensure you add Kaptain to your DKP Catalog applications before you deploy it to your clusters. Refer to the corresponding documentation for your environment:
 
 -   [Add Kaptain to your DKP Catalog applications (networked and on-premise)][add_dkp]
+
 OR
+
 -   [Add Kaptain to your DKP Catalog applications in an air-gapped environment][add-air]
 
 ## Enable and deploy Kaptain using the DKP UI
