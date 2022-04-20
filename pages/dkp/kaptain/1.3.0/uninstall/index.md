@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--warning"><strong>WARNING: </strong>When uninstalling Kaptain, all data, the current state, and configuration of your application will be lost.</p>
+<p class="message--warning"><strong>WARNING: </strong>When uninstalling Kaptain, all Kaptain related data, state, and configuration of your Kaptain applications will be lost.</p>
 
 ## Uninstall Kaptain
 
