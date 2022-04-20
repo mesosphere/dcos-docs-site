@@ -30,7 +30,7 @@ The minimum total number of disks required for MinIO in distributed mode is 4, w
 
 <p class="message--warning"><strong>WARNING: </strong>By default, MinIO shards the objects across N/2 data and N/2 parity drives. Therefore, it is recommended to specify the <code>minioStorageCapacity</code> property as twice the intended usage.</p>
 
-To change the default MinIO cluster settings, create configuration file with the properties described above:
+To change the default MinIO cluster settings, create a configuration file with the properties described below:
     
 ```yaml
 cat <<EOF | kubectl apply -f -
@@ -59,10 +59,10 @@ The MinIO cluster can be expanded by increasing the number of server pools in th
 
 <p class="message--warning"><strong>WARNING: </strong>Expanding an existing server pool is not supported. The cluster can only by expanded by adding additional server pools.</p>
 
-To update an existing deployment of Kaptain, edit the `ConfigMap` with the custom configuration (if it was provided during the installation) or the default one 
+To update an existing deployment of Kaptain, edit the `ConfigMap` with the custom configuration you provided during the installation, or the default one:
 
 ```bash
-kubectl edit configmap -n <WORKSPACE_NAMESPACE> <name of the ConfigMap, e.g. kaptain-overrides or kaptain-2.0.0-defaults>
+kubectl edit configmap -n <WORKSPACE_NAMESPACE> <name of the ConfigMap, for example, kaptain-overrides or kaptain-2.0.0-defaults>
 ...
 data:
   values.yaml: |
