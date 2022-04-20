@@ -51,7 +51,7 @@ For cloud installations, scaling out can be limited by resource quotas.
 
 - For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
 
-- Ensure the following applications are enabled in Kommander:
+- Ensure you enable the following applications in Kommander:
 
   1. Use the existing Kommander configuration file, or initialize the default one:
 
