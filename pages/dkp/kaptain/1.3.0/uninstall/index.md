@@ -59,7 +59,7 @@ Uninstalling Kaptain requires the execution of several manual steps.
 
 ## Troubleshooting and overcoming failures
 
-Sometimes, uninstall steps fail or hang because a cleanup task gets stuck. In that case, force Kubernetes to uninstall resources. Some cleanup tasks may not be fully run.
+Sometimes, the uninstall steps will fail or hang because a cleanup task gets stuck. In that case, you will need to force Kubernetes to uninstall the resources.  In such cases, you may need to clean up things manually.  Follow the steps below as necessary.
 
 ### Cannot finalize removing a profile
 
