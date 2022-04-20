@@ -12,6 +12,14 @@ enterprise: false
 You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.
 </p>
 
+## Prerequisite
+
+Ensure you have added Kaptain to your DKP Catalog applications before you deploy it to your clusters. Refer to the corresponding documentation depending on your environment:
+
+-   [Add Kaptain to your DKP Catalog applications (networked and on-premises)][add_dkp]
+OR
+-   [Add Kaptain to your DKP Catalog applications in an air-gapped environment][add-air]
+
 ## Enable and deploy Kaptain using the DKP UI
 
 Follow these steps to enable Kaptain in air-gapped and networked environments from the DKP UI:
@@ -134,3 +142,5 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
 
 [add_Kaptain]: ../dkp/
 [existcluster]: ../../../../kommander/2.2/clusters/attach-cluster/
+[add_dkp]: ../dkp/
+[add-air]: ../air-gapped-dkp/
