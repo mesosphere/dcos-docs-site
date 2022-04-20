@@ -117,7 +117,7 @@ kubectl edit federatedconfigmap kube-oidc-proxy-overrides -n kommander
 
 Modify `oidc.issuerUrl` under the `values.yaml` key to override it for the `host-cluster` cluster:
 
-```sh
+```yaml
 apiVersion: types.kubefed.io/v1beta1
 kind: FederatedConfigMap
 metadata:
