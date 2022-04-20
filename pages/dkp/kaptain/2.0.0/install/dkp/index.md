@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Add Kaptain to DKP Catalog Applications
+navigationTitle: Add Kaptain to DKP Catalog Apps
 title: Add Kaptain to DKP Catalog Applications
-menuWeight: 8
+menuWeight: 5
 excerpt: Add Kaptain to DKP Catalog Applications before deploying to clusters.
 beta: false
 enterprise: false
@@ -149,5 +149,5 @@ You have installed Kaptain by adding it to the DKP Catalog applications. The nex
 [konvoy_deploy_addons]: /dkp/konvoy/1.8/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
 [kudo_cli]: https://kudo.dev/#get-kudo
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
-[dex]: https://docs.d2iq.com/dkp/kaptain/2.0.0/configuration/external-dex/
+[dex]: ../../configuration/external-dex/
 [airgapped_install]: ../air-gapped-dkp/

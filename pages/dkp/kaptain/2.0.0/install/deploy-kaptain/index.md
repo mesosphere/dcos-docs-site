@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Deploy Kaptain on DKP 2.x
 title: Deploy Kaptain on DKP 2.x
-menuWeight: 9
+menuWeight: 15
 excerpt: Deploy Kaptain in air-gapped and networked environments
 beta: false
 enterprise: false
