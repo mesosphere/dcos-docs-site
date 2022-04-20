@@ -33,33 +33,33 @@ Kaptain supports installation on an air-gapped (a.k.a. offline or private) Konvo
 
     1. Use the existing Kommander configuration file, or initialize the default one:
 
-    ```bash
-    dkp install kommander --init > kommander-config.yaml
-    ```
+		```bash
+		dkp install kommander --init > kommander-config.yaml
+		```
 
     1. Ensure the following applications are enabled in the config:
 
-    ```yaml
-    apiVersion: config.kommander.mesosphere.io/v1alpha1
-    kind: Installation
-    apps:
-      ...
-      dex:
-      dex-k8s-authenticator:
-      kube-prometheus-stack:
-      istio:
-      knative:
-      minio-operator:
-      traefik:
-      nvidia:  # to enable GPU support
-      ...
-    ```
+		```yaml
+		apiVersion: config.kommander.mesosphere.io/v1alpha1
+		kind: Installation
+		apps:
+		  ...
+		  dex:
+		  dex-k8s-authenticator:
+		  kube-prometheus-stack:
+		  istio:
+		  knative:
+		  minio-operator:
+		  traefik:
+		  nvidia:  # to enable GPU support
+		  ...
+		```
 
     1. Apply the new configuration to Kommander:
 
-    ```bash
-    dkp install kommander --installer-config kommander-config.yaml
-    ```
+		```bash
+		dkp install kommander --installer-config kommander-config.yaml
+		```
 
   Review the [Kommander installation documentation][kommander-install] for more information.
 
@@ -138,7 +138,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     The repository commit displays the ready state:
 
     ```sh
-    NAME         URL                                                        READY   STATUS                                                              AGE
+    NAME                         URL                                                                       READY   STATUS                                                              AGE
     kaptain-catalog-applications https://github.com/mesosphere/kaptain-catalog-applications                True    Fetched revision: master/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   11m
     ```
 

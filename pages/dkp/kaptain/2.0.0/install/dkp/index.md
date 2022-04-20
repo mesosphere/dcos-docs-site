@@ -55,27 +55,27 @@ For cloud installations, scaling out can be limited by resource quotas.
 
     1. Use the existing Kommander configuration file, or initialize the default one:
 
-      ```bash
-      dkp install kommander --init > kommander-config.yaml
-      ```
+		  ```bash
+		  dkp install kommander --init > kommander-config.yaml
+		  ```
 
     1. Ensure the following applications are enabled in the config:
 
-      ```yaml
-      apiVersion: config.kommander.mesosphere.io/v1alpha1
-      kind: Installation
-      apps:
-        ...
-        dex:
-        dex-k8s-authenticator:
-        kube-prometheus-stack:
-        istio:
-        knative:
-        minio-operator:
-        traefik:
-        nvidia:  # to enable GPU support
-        ...
-      ```
+		  ```yaml
+          apiVersion: config.kommander.mesosphere.io/v1alpha1
+		  kind: Installation
+		  apps:
+			...
+			dex:
+			dex-k8s-authenticator:
+			kube-prometheus-stack:
+			istio:
+			knative:
+			minio-operator:
+			traefik:
+			nvidia:  # to enable GPU support
+			...
+		  ```
 
     1. For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
 
