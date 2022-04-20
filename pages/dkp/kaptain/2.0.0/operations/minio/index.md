@@ -59,7 +59,7 @@ The MinIO cluster can be expanded by increasing the number of server pools in th
 
 <p class="message--warning"><strong>WARNING: </strong>Expanding an existing server pool is not supported. The cluster can only by expanded by adding additional server pools.</p>
 
-To update an existing deployment of Kaptain, edit the `ConfigMap` with the custom configuration (if it was provided duringthe installation) or the defaul one 
+To update an existing deployment of Kaptain, edit the `ConfigMap` with the custom configuration (if it was provided during the installation) or the default one 
 
 ```bash
 kubectl edit configmap -n <WORKSPACE_NAMESPACE> <name of the ConfigMap, e.g. kaptain-overrides or kaptain-2.0.0-defaults>
