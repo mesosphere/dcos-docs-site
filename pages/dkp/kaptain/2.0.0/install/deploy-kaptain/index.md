@@ -30,7 +30,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Select **Applications** from the sidebar menu.
 
-1.  Type Kaptain in the **Applications** search bar. If Kaptain is not available in the UI, [add Kaptain to your DKP catalog][add_Kaptain] via CLI first.
+1.  Type Kaptain in the **Applications** search bar. If Kaptain is not available in the UI, add Kaptain to your DKP catalog as stated in the [prerequisites][#prerequisite].
 
 1.  Select the three dot menu > **Enable**, in the Kaptain tile.
     The `Enable Workspace Catalog Application` page is displayed.
@@ -52,7 +52,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Repeat these steps for each additional workspace, if you want to deploy Kaptain to other workspaces.
 
-Alternately, you can use the [CLI](#enable-and-deploy-Kaptain-using-the-dkp-cli) to enable your catalog applications.
+Alternately, you can use the [CLI](#enable-and-deploy-kaptain-using-the-dkp-cli) to enable your catalog applications.
 
 ### Verify the status of deployment using the DKP UI
 
