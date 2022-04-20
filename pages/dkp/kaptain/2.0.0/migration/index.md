@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-Due to a major update in Kaptain's lifecycle management tool, migrating your 1.x installation to 2.x is **not possible**. To ensure that you are up-to-date with the latest features, and can benefit from the most recent performance improvements, we recommend that you uninstall your Kaptain version and do a fresh install of the latest available version. 
+Due to a major update in Kaptain's lifecycle management tooling, migrating your 1.x installation to 2.x is **not possible**. To ensure that you are up-to-date with the latest features, and can benefit from the most recent performance improvements, we recommend that you uninstall your Kaptain version and do a fresh install of the latest available version. 
 
 <p class="message--warning"><strong>WARNING: </strong>For this release, you will have to uninstall and install Kaptain to get to the latest version. Because this is a fresh install, ensure you back up all of your data before proceeding.</p>
 
