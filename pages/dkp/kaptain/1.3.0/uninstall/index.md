@@ -10,6 +10,13 @@ enterprise: false
 
 <p class="message--warning"><strong>WARNING: </strong>When uninstalling Kaptain, all Kaptain related data, state, and configuration of your Kaptain applications will be lost.</p>
 
+## Prerequisites
+
+Before performing the uninstall, you will need:
+
+* `kubectl` installed, configured to connect to your cluster.
+* `jq` installed, and available in your Linux PATH.
+
 ## Uninstall Kaptain
 
 Uninstalling Kaptain requires the execution of several manual steps.
@@ -39,7 +46,7 @@ Uninstalling Kaptain requires the execution of several manual steps.
 1.  Clean up additional configuration resources left behind by KUDO-managed Kaptain, so you can install Helm-managed Kaptain correctly. This command selects various resource types with the label `kudo.dev/instance` of either `"kaptain"` or beginning with `"kaptain-"`.
 
     ```bash
-    for type in clusterrole customresourcedefinition clusterrolebinding clusterrole mutatingwebhookconfiguration ValidatingWebhookConfiguration; do
+    for type in clusterrole customresourcedefinition clusterrolebinding clusterrole mutatingwebhookconfiguration ValidatingWebhookConfiguration operators; do
       INSTANCES=$(kubectl get $type  --output json | jq '.items[].metadata.labels["kudo.dev/instance"] | select(. != null)'  -r | egrep '^kaptain(-|$)' | tr "\n" ",")
       kubectl delete $type --selector "kudo.dev/instance in ($INSTANCES)"
     done
