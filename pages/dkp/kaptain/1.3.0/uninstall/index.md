@@ -30,12 +30,10 @@ Uninstalling Kaptain requires the execution of several manual steps.
     kubectl kudo uninstall --instance "kaptain" --namespace kubeflow --wait --wait-time=600
     ```
 
-1.  Ensure that the following namespaces are removed:
+1.  Ensure that the `kubeflow` namespace is removed:
 
     ```bash
-    for ns in kubeflow kaptain-ingres kserve; do
-      kubectl delete namespace $ns
-    done
+    kubectl delete namespace kubeflow
     ```
 
 1.  Clean up additional configuration resources left behind by KUDO-managed Kaptain, so you can install Helm-managed Kaptain correctly. This command selects various resource types with the label `kudo.dev/instance` of either `"kaptain"` or beginning with `"kaptain-"`.
