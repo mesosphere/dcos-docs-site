@@ -177,7 +177,7 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
 
 1.  Run the following command.
 
-    ```bash
+    ```yaml
     kubectl apply -f - <<EOF
     ---
     apiVersion: rbac.authorization.k8s.io/v1
@@ -322,14 +322,15 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     EOF
     ```
 
-1. If you want to force a pod recreation, you can delete the old pod in `CrashLoopBackoff` by running:
-   ```bash
-   # spark-operator is the default value
-   # if you override the HelmRelease name in your override configmap, use that value in the following command 
-   export SPARK_OPERATOR_RELEASE_NAME=spark-operator
-   # only one instance of spark operator should be deployed per cluster
-   kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -l app.kubernetes.io/name=$SPARK_OPERATOR_RELEASE_NAME -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')
-   ```
+1.  If you want to force a pod recreation, you can delete the old pod in `CrashLoopBackoff` by running:
+
+    ```bash
+    # spark-operator is the default value
+    # if you override the HelmRelease name in your override configmap, use that value in the following command 
+    export SPARK_OPERATOR_RELEASE_NAME=spark-operator
+    # only one instance of spark operator should be deployed per cluster
+    kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -l app.kubernetes.io/name=$SPARK_OPERATOR_RELEASE_NAME -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')
+    ```
 
 #### Default update strategy changed to "delete first" for Preprovisioned clusters
 
