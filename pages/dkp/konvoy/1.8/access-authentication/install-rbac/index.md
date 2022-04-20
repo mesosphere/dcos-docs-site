@@ -22,7 +22,7 @@ You need certain software configurations and settings before you start this proc
 
 - Install and configure `kubectl` and [`kubectx`](https://github.com/ahmetb/kubectx).
 
-- Access to a Kubernetes cluster with Authorization mode as `RBAC`. Refer to this [link](https://docs.d2iq.com/mesosphere/dcos/services/kubernetes/2.7.0-1.18.6/operations/authn-and-authz/#rbac) for information.
+- Access to a Kubernetes cluster with Authorization mode as `RBAC`. Refer to this [link](https://docs.d2iq.com/mesosphere/dcos/services/kubernetes/2.7.0-1.18.6/operations/authn-and-authz/#rbac) for information. (Also see the [Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/authorization/#authorization-modules) site)
 
 - Vim or some other text editor.
 
@@ -107,7 +107,7 @@ You need certain software configurations and settings before you start this proc
 1. Verify the token authenticates for the Service Account. Describe the secret, using your own secret name, using the following command:
 
     ```bash
-    kubect describe secret <secret-name>
+    kubectl describe secret <secret-name>
     ```
 
     The output from the commands should look like the following:
@@ -132,7 +132,7 @@ You need certain software configurations and settings before you start this proc
 1. Add the token as an environment variable. Having it as an environment variable reduces copying and pasting token operations. Use the following command:
 
     ```bash
-    export TOKEN=$(kubectl get secret john-sa-token-rq4ls -o=jsonpath="{.data.token}" | base64 -d -i -)
+    export TOKEN=$(kubectl get secret <secret name> -o=jsonpath="{.data.token}" | base64 -d -i -)
     ```
 
 1. Review your kubeconfig file. Notice the file defines 1 user and 1 cluster. Use the following command:
