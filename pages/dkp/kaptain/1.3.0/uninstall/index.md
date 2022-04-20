@@ -12,9 +12,9 @@ enterprise: false
 
 ## Prerequisites
 
-Before performing the uninstall, you will need:
+Before performing the uninstall, ensure you have:
 
-* `kubectl` installed, configured to connect to your cluster.
+* `kubectl` installed, and configured to connect to your cluster.
 * `jq` installed, and available in your Linux PATH.
 
 ## Uninstall Kaptain
