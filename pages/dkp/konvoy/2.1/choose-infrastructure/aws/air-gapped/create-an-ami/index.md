@@ -24,21 +24,6 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
     export VERSION=1.21.6
     ```
 
-1.  Set an environment variable for the AMI's OS you are will be using.
-    The OS packages bundles will contain the RPMs for Containerd, Kubernetes and all of their dependencies required to install these packages without access to any external RPM repositories.
-    The available options are:
-
-    - `centos_7_x86_64`
-    - `centos_7_x86_64_fips`
-    - `redhat_7_x86_64`
-    - `redhat_7_x86_64_fips`
-    - `redhat_8_x86_64`
-    - `redhat_8_x86_64_fips`
-
-    ```bash
-    export BUNDLE_OS=centos_7_x86_64
-    ```
-
 1.  Download the OS packages bundle:
 
     ```bash
