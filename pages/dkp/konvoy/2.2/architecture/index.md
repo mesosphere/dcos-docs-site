@@ -17,7 +17,6 @@ The following diagram provides a simplified architectural overview to help you v
 ![Architectural overview](../img/DKP2ArchDiag.png)
 
 
-[DKP Architecture](img/DKP2ArchDiag.png)
 Figure 1 - Architectural overview
 
 
