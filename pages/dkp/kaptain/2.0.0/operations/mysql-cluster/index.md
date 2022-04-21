@@ -53,14 +53,14 @@ core:
       count: "5"
 ```
 
-The `core.db.nodes.count` property determines the number of MySQL instances in the cluster. The higher the number, the more copies of the data that will be stored. The default number of nodes is set to 3 for the best redundancy/throughput ratio. It is recommended to increase the number of replicas if you have unstable physical infrastructure or there is a high risk of data loss because of the unstable storage layers.
+The `core.db.nodes.count` property determines the number of MySQL instances in the cluster. The higher the number, the more copies of the data will be stored. The default number of nodes is set to 3 for the best redundancy/throughput ratio. We recommend you increase the number of replicas if you have an unstable physical infrastructure or if there is a high risk of data loss as a result of unstable storage layers.
 
 <p class="message--warning"><strong>WARNING: </strong>When scaling the existing database cluster down (that is decreasing the number of nodes), it is possible for clients to lose connectivity if the leader node is decommissioned. Once a new leader is elected, the clients will be able to reconnect.</p>
 
 ## Configuring MySQL cluster resources
 
 ### Configuring resources for Proxy nodes
-To change the compute resources for the proxy nodes, create or update a `ConfigMap` with Kaptain configuration and include the following values:
+To change the compute resources for the proxy nodes, create or update the `ConfigMap` with Kaptain's configuration and include the following values:
 ```yaml
 core:
   db:
@@ -72,7 +72,7 @@ core:
 The `core.db.proxy.cpu` and `core.db.proxy.memory` properties set the CPU and memory requests for the HAProxy instances in the cluster.
 
 ### Configuring resources for MySQL nodes
-To change the compute resources for the database nodes, create or update a `ConfigMap` with Kaptain configuration and include the following values:
+To change the compute resources for the database nodes, create or update the`ConfigMap` with Kaptain's configuration and include the following values:
 ```yaml
 core:
   db:
@@ -86,7 +86,7 @@ The `core.db.nodes.cpu` and `core.db.nodes.memory` properties set the CPU and me
 <p class="message--warning"><strong>WARNING: </strong>To update the parameters, the existing database cluster will be restarted in a rolling manner, that is, one node at a time. It is possible for clients to lose connectivity when the leader node is restarted. Once a new leader is elected, clients will be able to reconnect.</p>
 
 ## Creating a backup for the MySQL cluster
-Kaptain uses Percona Operator to backup and restore the state of MySQL database.
+Kaptain uses Percona Operator to back up and restore the state of MySQL database.
 
 You must create a Kubernetes `Secret` with AWS access credentials for the backup and then update the Kaptain configuration to enable backup and configure the storage location.
 
@@ -103,7 +103,7 @@ data:
   AWS_SECRET_ACCESS_KEY: <base64-enconded AWS Secret Access Key>
 ```
 
-To enable backups and configure backup location, create or update a `ConfigMap` with Kaptain configuration and include the following values:
+To enable backups and configure their location, create or update the `ConfigMap` with Kaptain's configuration and include the following values:
 ```yaml
 core:
   db:
@@ -142,7 +142,7 @@ aws s3 ls s3://kaptain-backup/
 <p class="message--warning"><strong>WARNING: </strong>The restore operation will terminate the running MySQL cluster and delete all the existing data. The data from the backup will be used to bootstrap a new cluster. The restore operation introduces downtime for the duration of the restore process.</p>
 
 Restoring the database cluster from a backup is possible in two ways:
-* Using the latest backup created by the `PerconaXtraDBClusterBackup` custom resource
+* Using the latest backup created by the `PerconaXtraDBClusterBackup` custom resource.
 * Using a selected backup. For example, an older one.
 
 Both approaches assume the backup has been performed at least once, and the data is available in S3.
@@ -176,18 +176,18 @@ The operation will use the latest backup data created by the backup referenced i
 
 ### Restoring the MySQL cluster from a specific S3 backup
 
-To restore from a specific backup location, set the `BACKUP_RESTORE_SOURCE` variable to point to the location of a backup which should be used for restoring the cluster.
+To restore from a specific backup location, set the `BACKUP_RESTORE_SOURCE` variable to point to the location of the backup you want to use to restore your cluster.
 ```bash
-# Full path to the backup folder, e.g.s3://mysql-store-backup/kaptain-mysql-store-2021-04-05-21:47:24-full
+# Full path to the backup folder, for example, s3://mysql-store-backup/kaptain-mysql-store-2021-04-05-21:47:24-full
 export BACKUP_RESTORE_SOURCE=""
-# Secret name with AWS credentials, e.g. "mysql-backup-secret"
+# Secret name with AWS credentials, for example, "mysql-backup-secret"
 export BACKUP_CREDENTIALS_SECRET=""
-# Bucket region, e,g. "us-west-2"
+# Bucket region, for example, "us-west-2"
 export BACKUP_BUCKET_REGION=""
 # URL of the S3-compatible storage, if needed 
 export BACKUP_ENDPOINT_URL=""
 ```
-Apply the following manifest to restore MySQL cluster:
+Apply the following manifest to restore the MySQL cluster:
 ```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: pxc.percona.com/v1
@@ -208,6 +208,6 @@ spec:
 EOF
 ```
 
-The operation will use the backup data from the location specified in `BACKUP_RESTORE_SOURCE` variable.
+The operation will use the backup data from the location specified in the `BACKUP_RESTORE_SOURCE` variable.
 
 [deploy-kaptain]: ../../install/deploy-kaptain
