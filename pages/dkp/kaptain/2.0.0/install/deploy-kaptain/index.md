@@ -12,6 +12,16 @@ enterprise: false
 You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.
 </p>
 
+## Prerequisite
+
+Ensure you add Kaptain to your DKP Catalog applications before you deploy it to your clusters. Refer to the corresponding documentation for your environment:
+
+-   [Add Kaptain to your DKP Catalog applications (networked and on-premise)][add_dkp]
+
+**OR**
+
+-   [Add Kaptain to your DKP Catalog applications in an air-gapped environment][add-air]
+
 ## Enable and deploy Kaptain using the DKP UI
 
 Follow these steps to enable Kaptain in air-gapped and networked environments from the DKP UI:
@@ -20,7 +30,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Select **Applications** from the sidebar menu.
 
-1.  Type Kaptain in the **Applications** search bar. If Kaptain is not available in the UI, [add Kaptain to your DKP catalog][add_Kaptain] via CLI first.
+1.  Type Kaptain in the **Applications** search bar. If Kaptain is not available in the UI, add Kaptain to your DKP catalog as stated in the [prerequisite section](#prerequisite).
 
 1.  Select the three dot menu > **Enable**, in the Kaptain tile.
     The `Enable Workspace Catalog Application` page is displayed.
@@ -42,7 +52,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Repeat these steps for each additional workspace, if you want to deploy Kaptain to other workspaces.
 
-Alternately, you can use the [CLI](#enable-and-deploy-Kaptain-using-the-dkp-cli) to enable your catalog applications.
+Alternately, you can use the [CLI](#enable-and-deploy-kaptain-using-the-dkp-cli) to enable your catalog applications.
 
 ### Verify the status of deployment using the DKP UI
 
@@ -134,3 +144,5 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
 
 [add_Kaptain]: ../dkp/
 [existcluster]: ../../../../kommander/2.2/clusters/attach-cluster/
+[add_dkp]: ../dkp/
+[add-air]: ../air-gapped-dkp/

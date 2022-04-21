@@ -8,8 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--important"><strong>IMPORTANT: </strong>Refer to the [Kaptain migration instructions], if you already have Kaptain and want to move from 1.x to 2.x.</p>
-<--! need to add a link to migration docs here -->
+<p class="message--important"><strong>IMPORTANT: </strong>Refer to the <a href="../migration">Kaptain migration instructions</a>, if you already have Kaptain and want to move from 1.x to 2.x.</p>
 
 How do you want to deploy Kaptain?
 
@@ -29,7 +28,7 @@ You can deploy Kaptain to single and multi-cluster environments. The difference 
 
 You can deploy Kaptain on a per-workspace basis.
 
-<p class="message--warning"><strong>WARNING: </strong>You can deploy Kaptain to a cluster in a selected Workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the Workspace you are deploying to or move that cluster to another Workspace.</p>
+<p class="message--warning"><strong>WARNING: </strong>You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.</p>
 
 ## Prerequisites
 
@@ -44,14 +43,16 @@ You can deploy Kaptain on a per-workspace basis.
 
 To install and deploy Kaptain for the first time, proceed with these steps:
 
-1.  Add Kaptain to your DKP Catalog Applications / Add Kaptain to your DKP Catalog Application in an air-gapped environment.
-    <!-- need to add links to these topics once created -->
+1.  [Add Kaptain to your DKP Catalog Applications][add_dkp]
 
-1.  Deploy Kaptain on a per-Workspace basis and verify the status of deployment.
-    <!-- need to add links to these topics once created -->
+    OR
 
-[airgap]: ./air-gapped-dkp
+    [Add Kaptain to your DKP Catalog Application in an air-gapped environment][add_air].
+
+1.  [Deploy Kaptain on a per-Workspace basis and verify the status of deployment][deploy].
+
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
-[kudo]: https://kudo.dev/docs/cli/installation.html#cli-installation
-[networked]: ./konvoy-dkp
 [on-prem]: ./on-premise
+[add_dkp]: dkp/
+[add_air]: air-gapped-dkp
+[deploy]: deploy-kaptain
