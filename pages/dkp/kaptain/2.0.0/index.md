@@ -2,8 +2,9 @@
 layout: layout.pug
 navigationTitle: Kaptain 2.0.0
 title: Welcome to Kaptain 2.0.0
+version: 2.0
 beta: false
-menuWeight: 0
+menuWeight: 2
 ---
 
 ![Kaptain](img/d2iq-kaptain.png)
