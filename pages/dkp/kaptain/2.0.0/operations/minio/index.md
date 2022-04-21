@@ -62,7 +62,7 @@ The MinIO cluster can be expanded by increasing the number of server pools in th
 To update an existing deployment of Kaptain, edit the `ConfigMap` with the custom configuration you provided during the installation, or the default one:
 
 ```bash
-kubectl edit configmap -n <WORKSPACE_NAMESPACE> <name of the ConfigMap, for example, kaptain-overrides or kaptain-2.0.0-defaults>
+kubectl edit configmap -n ${WORKSPACE_NAMESPACE} kaptain-overrides
 ...
 data:
   values.yaml: |
