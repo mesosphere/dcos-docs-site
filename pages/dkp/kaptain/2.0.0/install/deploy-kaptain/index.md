@@ -128,6 +128,9 @@ With Kaptain enabled, connect to the cluster and check the `HelmReleases` to ver
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
+```
+
+```sh
 NAME                      AGE     READY   STATUS
 kaptain-1                 3m40s   True    Release reconciliation succeeded
 ```
