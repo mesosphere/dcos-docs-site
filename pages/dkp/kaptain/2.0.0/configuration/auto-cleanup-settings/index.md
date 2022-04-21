@@ -58,7 +58,7 @@ The notebook culling feature is disabled by default. To enable it, set the `note
 kubectl kudo update --instance kaptain --namespace kubeflow -p notebookEnableCulling=true
 ```
 
-See the [Configuration Reference](../../configuration/#kaptain-operator-parameters) for additional parameters for this functionality. 
+See the [Configuration Reference](../../configuration#kaptain-chart-values) for additional parameters for this functionality. 
 
 ## Automatic cleanup of completed Pipeline Runs (Workflows)
 ### Overview
@@ -157,6 +157,9 @@ Knative Addon that ships with Kaptain has a set of parameters to control the gar
 
 
 ### Update Knative addon configuration
+
+<p class="message--note"><strong>NOTE: Starting from the current release, Knative is optional if KServe is configured to work in `RawDeployment` mode.</strong>text</p>
+
 To specify or update the Knative addon configuration, edit the `cluster.yaml` section and specify the values for
 the garbage collection settings:
 ```
