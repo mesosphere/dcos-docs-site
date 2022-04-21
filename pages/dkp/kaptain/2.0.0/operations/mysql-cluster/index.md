@@ -25,7 +25,7 @@ Horizontally scaling the database nodes will result in more replicas of the data
 
 To achieve better performance, the database nodes should be scaled vertically by adding more resources, such as CPU and memory.
 
-To get more information about installing Kaptain with custom configuration, refer to [Deploy Kaptain][deploy-kaptain] documentation page.
+Refer to the [Deploy Kaptain][deploy-kaptain] documentation page for more information about installing Kaptain with a custom configuration.
 
 <p class="message--warning"><strong>WARNING: </strong>The Kaptain MySQL cluster does not support simultaneous changes to the database resources and the number of database nodes at the same time. If changes in both are required, you should perform them sequentially (that is increase resources, and then scale, or vice versa.)</p>
 
@@ -34,7 +34,7 @@ To get more information about installing Kaptain with custom configuration, refe
 ## Scaling the MySQL cluster horizontally
 
 ### Scaling Proxy nodes
-To change the number of the proxy nodes, create or update a `ConfigMap` with Kaptain configuration and include the following values:
+To change the number of the proxy nodes, create or update the `ConfigMap` with Kaptain's configuration and include the following values:
 ```yaml
 core:
   db:
@@ -45,7 +45,7 @@ core:
 The `core.db.proxy.count` property controls the number of HAProxy replicas which serve as the database endpoint and are exposed via a Kubernetes `Service`. Increasing the number of proxy replicas is recommended if you observe a consistently high connection failure rate.
 
 ### Scaling MySQL nodes
-To change the number of the database nodes, create or update a `ConfigMap` with Kaptain configuration and include the following values:
+To change the number of the database nodes, create or update the `ConfigMap` with Kaptain's configuration and include the following values:
 ```yaml
 core:
   db:
