@@ -16,7 +16,7 @@ You can deploy Kaptain to a cluster in a selected Workspace. If you do not inten
 
 Refer to [DKP install instructions][dkp_install], if you are running in a networked environment.
 
-Kaptain supports installation on an air-gapped (a.k.a. offline or private) Konvoy managed cluster. Before installing Kaptain, please follow the [Konvoy air-gapped installation guide][konvoy-air-gap] to set up the air-gapped Konvoy managed cluster. The cluster admin is responsible for configuring the Konvoy cluster correctly and ensuring container images have been pre-loaded to the private registry before installing Kaptain.
+Kaptain supports installation on an air-gapped (a.k.a. offline or private) DKP managed cluster. Before installing Kaptain, please follow the [air-gapped installation guide][konvoy-air-gap] to set up the air-gapped DKP managed cluster. The cluster admin is responsible for configuring the DKP cluster correctly and ensuring container images have been pre-loaded to the private registry before installing Kaptain.
 
 ### Prerequisites
 
