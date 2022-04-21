@@ -30,9 +30,11 @@ When a notebook is up and running, it is displayed as active in the UI and has o
 
 ```bash
 kubectl get notebooks.kubeflow.org && kubectl get statefulsets
-
+```
+```sh
 NAME       AGE
 notebook   9m36s
+
 NAME       READY   AGE
 notebook   1/1     9m37s
 ```
@@ -43,9 +45,11 @@ After the notebook has idled longer than the specified culling time, it is scale
 
 ```bash
 kubectl get notebooks.kubeflow.org && kubectl get statefulsets
-
+```
+```sh
 NAME       AGE
 notebook   12m
+
 NAME       READY   AGE
 notebook   0/0     13m
 ```
@@ -64,9 +68,11 @@ See the [Configuration Reference](../../configuration#kaptain-chart-values) for 
 ### Overview
 
 Kubeflow Pipelines rely on Argo Workflows for running workloads. Starting with Kaptain 1.1, Kubeflow Pipelines schedule the workflows in the user namespace, providing better multi-tenant isolation and workload locality. Once all the steps in the pipeline are complete, the Pods corresponding to the pipeline terminate, but the Argo Workflow custom resources (`workflow.argoproj.io`) remain in the namespace:
-```
-kubectl get workflows.argoproj.io
 
+```bash
+kubectl get workflows.argoproj.io
+```
+```sh
 NAME                                          STATUS      AGE
 data-passing-btwn-componefjdf8-1-3068851699   Running     17s
 dsl-control-structures-rugqkrh-1-2276733026   Succeeded   111s
@@ -74,9 +80,10 @@ dsl-control-structures-rugqkrh-2-2259955407   Succeeded   51s
 end-to-end-mnist-pipeline-mnrr6
 ```
 Each step of the pipeline is implemented using a `Pod.`  Pipeline pods are not deleted as long as the workflow that created them is present. Without cleanup, your namespace can become filled with completed pods:
-```
+```bash
 kubectl get pods -l workflows.argoproj.io/workflow=dsl-control-structures-rugqkrh-1-2276733026
-
+```
+```sh
 NAME                                                     READY   STATUS      RESTARTS   AGE
 dsl-control-structures-rugqkrh-1-2276733026-2018045073   0/2     Completed   0          4m11s
 dsl-control-structures-rugqkrh-1-2276733026-2405487652   0/2     Completed   0          3m40s
@@ -86,7 +93,7 @@ dsl-control-structures-rugqkrh-1-2276733026-4042755208   0/2     Completed   0  
 
 ### Using Python DSL for setting Pipeline TTL 
 Kubeflow Pipelines provide a Python Domain Specific Language (DSL) that allows you to specify a time-to-live (TTL) for the submitted Pipeline. Here is an excerpt from the [Pipeline tutorial][pipeline-tutorial]:
-```python
+```bash
 @dsl.pipeline(
     name="End-to-End MNIST Pipeline",
     description="A sample pipeline to demonstrate multi-step model training, evaluation, export, and serving",
@@ -130,14 +137,19 @@ Over time, the number of Revisions and associated deployments can grow significa
 is recommended to garbage collect the outdated Revisions.
 
 For example:
+```bash
+kubectl get revisions
 ```
-$> kubectl get revisions
+```sh
 NAME                          CONFIG NAME              K8S SERVICE NAME               GENERATION   READY
 dev-mnist-predictor-c5kzr   dev-mnist-predictor   dev-mnist-predictor-c5kzr                1       True
 dev-mnist-predictor-d6tdr   dev-mnist-predictor   dev-mnist-predictor-d6tdr                2       True
 dev-mnist-predictor-tqzqw   dev-mnist-predictor   dev-mnist-predictor-tqzqw                3       True
-
-$> kubectl get deployments
+```
+```bash
+kubectl get deployments
+```
+```sh
 NAME                                                  READY   UP-TO-DATE   AVAILABLE   AGE
 dev-mnist-predictor-c5kzr-deployment                   0/0        0            0       33m
 dev-mnist-predictor-d6tdr-deployment                   0/0        0            0       18m
@@ -162,7 +174,7 @@ Knative Addon that ships with Kaptain has a set of parameters to control the gar
 
 To specify or update the Knative addon configuration, edit the `cluster.yaml` section and specify the values for
 the garbage collection settings:
-```
+```bash
 - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
   configVersion: stable-1.20-1.3.0
   addonsList:
@@ -184,7 +196,7 @@ After updating the settings, run `konvoy deploy addons` to apply the changes.
 ### Example configurations
 If you only need to keep the latest revision of each model, the following settings can be used:
 
-```
+```bash
 - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
   configVersion: stable-1.20-1.3.0
   addonsList:
@@ -199,7 +211,7 @@ If you only need to keep the latest revision of each model, the following settin
 ```
 
 Example configuration that retains the last ten non-active revisions:
-```
+```bash
 - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
   configVersion: stable-1.20-1.3.0
   addonsList:
