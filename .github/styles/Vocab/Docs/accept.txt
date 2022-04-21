@@ -243,7 +243,8 @@ Tensorboard(|s)
 Tensorflow
 TensorFlow
 (thanos|Thanos)
-Toree
+toolkit(|s)
+Toolkit(|s)
 tqdm
 (traefik|Traefik)
 triaging
