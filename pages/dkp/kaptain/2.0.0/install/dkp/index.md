@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Add Kaptain to DKP Catalog Apps
 title: Add Kaptain to DKP Catalog Applications
-menuWeight: 8
+menuWeight: 5
 excerpt: Add Kaptain to DKP Catalog Applications before deploying to clusters.
 beta: false
 enterprise: false

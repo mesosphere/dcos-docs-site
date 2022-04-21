@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Deploy Kaptain on DKP 2.x
 title: Deploy Kaptain on DKP 2.x
-menuWeight: 9
+menuWeight: 15
 excerpt: Deploy Kaptain in air-gapped and networked environments
 beta: false
 enterprise: false
@@ -138,6 +138,9 @@ With Kaptain enabled, connect to the cluster and check the `HelmReleases` to ver
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
+```
+
+```sh
 NAME                      AGE     READY   STATUS
 kaptain-1                 3m40s   True    Release reconciliation succeeded
 ```
