@@ -8,7 +8,7 @@ excerpt: Information about Kaptain
 
 ## Overview
 
-Kaptain is a DKP platform application that allows data scientists to extract value from data immediately by providing a familiar environment for development and all the technologies needed to deploy and scale models in production. To find out more about Kaptain, refer to the [Kaptain documentation][kaptain].
+Kaptain is a DKP catalog application that allows data scientists to implement machine learning models from Jupyter notebooks with KubeFlow. Kaptain packages together many key libraries and toolkits needed to deploy models at scale. To find out more about Kaptain, refer to the [Kaptain documentation][kaptain].
 
 ## Install
 
