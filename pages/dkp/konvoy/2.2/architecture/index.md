@@ -2,19 +2,19 @@
 layout: layout.pug
 navigationTitle: Architecture
 title: Concepts and architecture
-menuWeight: 40
+menuWeight: 30
 excerpt: Learn the key concepts and architectural components of a Konvoy cluster
 beta: false
 enterprise: false
 ---
 
-Kubernetes provides the foundation of a Konvoy cluster.
+Kubernetes provides the foundation of a DKP cluster.
 Because of this fundamental relationship, you should be familiar with a few key concepts and terms.
-The topics in this section provide a brief overview of the native Kubernetes architecture, the core components of the Konvoy cluster, and a simplified view of the Konvoy architecture and the operational workflow for a Konvoy cluster.
+The topics in this section provide a brief overview of the native Kubernetes architecture, a simplified view of the DKP architecture - both Essential and Enterprise versions.  Also, the it shows the operational workflow for a DKP cluster.
 
 The following diagram provides a simplified architectural overview to help you visualize the key components of the cluster:
 
-![Architectural overview](../img/Konvoy-arch-diagram.png)
+![Architectural overview](../img/DKP2ArchDiag.png)
 
 Figure 1 - Architectural overview
 
@@ -59,9 +59,10 @@ Each work node includes the following key components:
 The native Kubernetes cluster supports a set of **addons**.
 Addons use Kubernetes resources to implement specific cluster-level features; because they provide cluster-level features, addons are defined in the `kube-system` namespace.
 
-Konvoy supplements the native Kubernetes cluster by providing a predefined and pre-configured set of addons.
-Because this predefined set of addons provides critical features for managing a Kubernetes cluster in a production environment, the default set of addons is identified as Konvoy **platform services** which are a key part of delivering an **opinionated Kubernetes** solution.
+DKP supplements the native Kubernetes cluster by providing a predefined and pre-configured set of addons.
+Because this predefined set of addons provides critical features for managing a Kubernetes cluster in a production environment, the default set of addons is identified as DKP **platform services** which are a key part of delivering an **opinionated Kubernetes** solution.
 See [Kubernetes Base Addons Requirements](../addons/requirements) for the full set of Konvoy platform services that are enabled by default.
+
 
 ## Related information
 
