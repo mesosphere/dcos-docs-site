@@ -14,7 +14,7 @@ Due to a major update in Kaptain's lifecycle management tooling, migrating your 
 
 ## Background
 
-Previous versions of Kaptain were installed with KUDO. From 2.0.0 and later, you can install Kaptain with Helm. As a result, migrating currently requires that you fully remove your prior Kaptain 1.x installation (including deployed models, profiles, notebooks, pipelines, etc.), and install Kaptain 2.0.0. Model artifacts are stored in your object store, therefore, you will not lose these as long as your model store is not deployed to the Kaptain namespace (that is, you are not using the MinIO server). However, **create a backup** of all your required data.
+Previous versions of Kaptain were installed with KUDO. From 2.0.0 and later, you can install Kaptain with Helm. As a result, migrating currently requires that you fully remove your prior Kaptain 1.x installation (including deployed models, profiles, notebooks, pipelines, etc.), and do a fresh install of Kaptain. Ensure you have **created a backup** of all your data, if required.
 
 ## Uninstall Kaptain
 
