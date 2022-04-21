@@ -14,9 +14,12 @@ The topics in this section provide a brief overview of the native Kubernetes arc
 
 The following diagram provides a simplified architectural overview to help you visualize the key components of the cluster:
 
+![Architectural overview](../img/DKP2ArchDiag.png)
+
 
 [DKP Architecture](img/DKP2ArchDiag.png)
 Figure 1 - Architectural overview
+
 
 ## Master components for the Kubernetes control plane
 
