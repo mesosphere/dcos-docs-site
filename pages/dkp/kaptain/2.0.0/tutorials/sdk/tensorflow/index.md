@@ -55,7 +55,7 @@ All you need is this notebook.
 Before proceeding, check you are using the correct notebook image, that is, [TensorFlow](https://www.tensorflow.org/api_docs/) is available:
 
 
-```sh
+```bash
 %%sh
 pip list | grep tensorflow
 ```
@@ -329,7 +329,7 @@ model.train(
     args={}, # additional command line arguments for the training job. 
 )
 ```
-
+```sh
     ...
     10/10 [==============================] - 0s 48ms/step - accuracy: 0.2516 - loss: 2.2895
     [I 201214 11:18:01 kubernetes:190] Epoch 2/5
@@ -344,7 +344,7 @@ model.train(
     [I 201214 11:18:06 kubernetes:190] INFO:root:Metrics saved.
     [I 201214 11:18:07 job_runner:58] Waiting for the training job to complete...
     [I 201214 11:18:07 models:332] Training result: Succeeded
-
+```
 
 The default `gpus` argument is 0, but it is shown here as an explicit option.
 Use `?Model.train` to see all supported arguments.
@@ -360,7 +360,7 @@ The low accuracy of the model is to make the demonstration of distributed traini
 ### Verify the Model is Exported to MinIO
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 
@@ -503,7 +503,7 @@ with open("input.json", "w") as json_file:
 ```
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 model_name="dev-mnist"
