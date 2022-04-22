@@ -39,7 +39,7 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
 1.  Download the PIP packages. This bundle includes a few packages required by DKP to bootstrap machines.
 
     ```bash
-    curl --output artifacts/pip-packages.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
+    curl --output artifacts/pip-packages.tar.gz -O http://downloads.d2iq.com/konvoy/airgapped/pip-packages.tar.gz
     ```
 
 1.  Follow the instructions to [build an AMI][kib_create_ami] in the setting an additional `--overrides overrides/offline.yaml` flag.
