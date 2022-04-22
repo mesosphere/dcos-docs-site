@@ -116,3 +116,5 @@ spec:
     tolerationSeconds: 300
   ...
 ```
+
+[deploy-kaptain]: ../../install/deploy-kaptain/
