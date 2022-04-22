@@ -52,4 +52,4 @@ To use the CLI to enable or disable applications, see [Application Deployment](.
 
 Platform Applications within a Project are automatically upgraded when the Workspace that a Project belongs to is upgraded. See [Upgrade Kommander][upgrade_workspaces] for more information on how to upgrade these applications.
 
-[upgrade_workspaces]: ../../dkp-upgrade/upgrade-kommander/
+[upgrade_workspaces]: ../../../dkp-upgrade/upgrade-kommander/
