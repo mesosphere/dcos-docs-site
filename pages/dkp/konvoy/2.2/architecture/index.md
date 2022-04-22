@@ -10,7 +10,7 @@ enterprise: false
 
 Kubernetes provides the foundation of a DKP cluster.
 Because of this fundamental relationship, you should be familiar with a few key concepts and terms.
-The topics in this section provide a brief overview of the native Kubernetes architecture, a simplified view of the DKP architecture - both Essential and Enterprise versions.  Also, the it shows the operational workflow for a DKP cluster.
+The topics in this section provide a brief overview of the native Kubernetes architecture, a simplified view of the DKP architecture - both Essential and Enterprise versions. Also, it shows the operational workflow for a DKP cluster.
 
 The following diagram provides a simplified architectural overview to help you visualize the flow of the key components:
 
