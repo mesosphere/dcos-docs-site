@@ -15,7 +15,7 @@ D2iQ recommends that you install the newest Kaptain version available to stay up
 
 ## Supported DKP Versions
 
-Kaptain 2.0.0 runs on DKP 2.1.2 and newer and can be installed as a workspace catalog application.
+You can deploy Kaptain 2.0.0 on DKP 2.1.2 and later versions as a DKP workspace catalog application.
 
 ## Experimental Status
 
