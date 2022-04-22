@@ -10,7 +10,7 @@ enterprise: false
 
 Due to a major update in Kaptain's lifecycle management tooling, migrating and upgrading your 1.x installation to 2.x is **not possible**. To ensure that you are up-to-date with the latest features, and can benefit from the most recent performance improvements, we recommend that you uninstall your Kaptain version and do a fresh install of the latest available version.
 
-<p class="message--warning"><strong>WARNING: </strong>For this release, you will have to do a fresh install. By uninstalling Kaptain 1.x, all of your Kaptain-related data such as user profiles, notebooks, pipelines, deployed models, etc. will be lost <strong>permanently<?strong>.</p>
+<p class="message--warning"><strong>WARNING: </strong>For this release, you will have to do a fresh install. By uninstalling Kaptain 1.x, all of your Kaptain-related data such as user profiles, notebooks, pipelines, deployed models, etc. will be lost <strong>permanently</strong>.</p>
 
 ## Background
 
