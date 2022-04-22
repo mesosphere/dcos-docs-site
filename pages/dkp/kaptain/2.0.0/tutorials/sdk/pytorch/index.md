@@ -444,9 +444,9 @@ Finally, a `Model` instance requires providing a base Docker image (`base_image`
 ```python
 # as the trainer file depends on the model file, the model file should be provided as a dependency via 'extra_files'
 extra_files = ["datasets/MNIST", "model.py"]
-base_image = "mesosphere/kubeflow:1.3.0-pytorch-1.7.1"
+base_image = "mesosphere/kubeflow:2.0.0-pytorch-1.11.0"
 # replace with your docker repository with a tag (optional), e.g. "repository/image"  or "repository/image:tag"
-image_name = "mesosphere/kubeflow:mnist-sdk-pytorch-example"
+image_name = "mesosphere/kubeflow:mnist-sdk-example-pytorch"
 # name of the file with additional python packages to install into the model image (e.g. "requirements.txt")
 requirements = "requirements.txt"
 ```
@@ -462,7 +462,7 @@ model = Model(
     description="MNIST Model",
     version="0.0.1",
     framework=ModelFramework.PYTORCH,
-    framework_version="1.7.1",
+    framework_version="1.11.0",
     main_file="trainer.py",
     extra_files=extra_files,
     image_name=image_name,
@@ -516,7 +516,7 @@ model.train(
 ```
 
     ...
-    INFO:root:Image build completed successfully. Image pushed: mesosphere/kubeflow:mnist-sdk-pytorch-example
+    INFO:root:Image build completed successfully. Image pushed: mesosphere/kubeflow:mnist-sdk-example-pytorch
     INFO:root:Submitting a new training job "mnist-pytorchjob-de194a8f".
     ...
     INFO:root:INFO:root:Epoch: 1 (  0.0%) - Loss: 2.3082287311553955

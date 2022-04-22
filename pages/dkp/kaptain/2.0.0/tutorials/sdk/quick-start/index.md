@@ -238,7 +238,7 @@ Finally, a `Model` instance requires providing a base Docker image (`base_image`
 
 
 ```python
-base_image = "mesosphere/kubeflow:1.3.0-base"
+base_image = "mesosphere/kubeflow:2.0.0-base"
 image_name = "mesosphere/kubeflow:mnist-sklearn-sdk"
 
 # name of the file with additional python packages to install into the model image (e.g. "requirements.txt")

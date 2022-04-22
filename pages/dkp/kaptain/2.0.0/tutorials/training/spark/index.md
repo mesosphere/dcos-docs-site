@@ -319,7 +319,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow-dev:1b046795-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu
+FROM mesosphere/kubeflow:2.0.0-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -336,7 +336,7 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow-dev:c36ad777-mnist-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow:2.0.0-mnist-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu` in case you want to skip it for now.
 
 ## How to Create a Distributed `SparkApplication`
 The [KUDO Spark Operator](https://github.com/kudobuilder/operators/tree/master/repository/spark/docs) manages Spark applications in a similar way as the [PyTorch](../pytorch) or [TensorFlow](../tensorflow) operators manage `PyTorchJob`s and `TFJob`s, respectively. 
@@ -354,7 +354,7 @@ It exposes a resource called `SparkApplication` that you will use to train the m
 ```python
 # set this to 0 when running on CPU.
 GPUS = 1
-IMAGE = "mesosphere/kubeflow-dev:c36ad777-mnist-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu"
+IMAGE = "mesosphere/kubeflow:2.0.0-mnist-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu"
 ```
 
 

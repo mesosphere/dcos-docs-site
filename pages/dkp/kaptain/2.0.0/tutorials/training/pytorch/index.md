@@ -659,7 +659,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow-dev:e2a898ff-pytorch-1.11.0-gpu
+FROM mesosphere/kubeflow:2.0.0-pytorch-1.11.0-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -676,11 +676,11 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow-dev:d6b2c5c6-mnist-pytorch-1.11.0-gpu` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow:2.0.0-mnist-pytorch-1.11.0-gpu` in case you want to skip it for now.
 
 
 ```python
-%env IMAGE mesosphere/kubeflow-dev:d6b2c5c6-mnist-pytorch-1.11.0-gpu
+%env IMAGE mesosphere/kubeflow:2.0.0-mnist-pytorch-1.11.0-gpu
 ```
 
 ## How to Create a Distributed `PyTorchJob`

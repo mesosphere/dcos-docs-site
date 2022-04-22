@@ -274,10 +274,10 @@ requirements = "requirements.txt"
 extra_files = [requirements, "mnist.py", "datasets"]
 
 # Image used in the FROM instruction of the Dockerfile
-base_image = "mesosphere/kubeflow:1.3.0-tensorflow-2.5.0"
+base_image = "mesosphere/kubeflow:2.0.0-tensorflow-2.8.0"
 
 # Name of the final image
-image_name = f"mesosphere/kubeflow:kaptain-sdk-mnist-tensorflow-{timestamp}"
+image_name = f"mesosphere/kubeflow:kaptain-sdk-mnist-tf-{timestamp}"
 ```
 
 Create a requirements file with Python packages that need to be included in the resulting image. For the purpose of this example, we will specify packages already installed into the base image:
@@ -348,16 +348,16 @@ builder.build_image()
     2021-11-02 14:11:59,918 kaptain-log[INFO]: Waiting for Image Build to start...
     2021-11-02 14:12:03,869 kaptain-log[INFO]: Image Build started in pod: kaniko-ffccde4355a4a541-hz9pl.
     2021-11-02 14:12:05,996 kaptain-log[INFO]: [kaniko-ffccde4355a4a541-hz9pl/kaniko] logs:
-    [0001] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
-    [0001] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
-    [0001] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
-    [0001] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
+    [0001] Retrieving image manifest mesosphere/kubeflow:2.0.0-tensorflow-2.8.0 
+    [0001] Retrieving image mesosphere/kubeflow:2.0.0-tensorflow-2.8.0 
+    [0001] Retrieving image manifest mesosphere/kubeflow:2.0.0-tensorflow-2.8.0 
+    [0001] Retrieving image mesosphere/kubeflow:2.0.0-tensorflow-2.8.0 
     [0002] Built cross stage deps: map[]                
     2021-11-02 14:12:57,247 kaptain-log[INFO]: [kaniko-ffccde4355a4a541-hz9pl/kaniko] logs:
-    [0002] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
-    [0002] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
-    [0003] Retrieving image manifest mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
-    [0003] Retrieving image mesosphere/kubeflow:1.3.0-tensorflow-2.5.0 
+    [0002] Retrieving image manifest mesosphere/kubeflow:2.0.0-tensorflow-2.8.0 
+    [0002] Retrieving image mesosphere/kubeflow:2.0.0-tensorflow-2.8.0 
+    [0003] Retrieving image manifest mesosphere/kubeflow:2.0.0-tensorflow-2.8.0 
+    [0003] Retrieving image mesosphere/kubeflow:2.0.0-tensorflow-2.8.0 
     [0004] Executing 0 build triggers                   
     [0004] Unpacking rootfs as cmd COPY . /workdir requires it. 
     [0054] Taking snapshot of full filesystem...        
@@ -382,7 +382,7 @@ builder.build_image()
     [0113] LABEL checksum=dd270080d096520306e0cb72857bd859 
     [0113] Applying label checksum=dd270080d096520306e0cb72857bd859 
     [0113] Taking snapshot of full filesystem...        
-    2021-11-02 14:15:06,233 kaptain-log[INFO]: Image build completed successfully. Image pushed: mesosphere/kubeflow:kaptain-sdk-mnist-tensorflow-1635862297
+    2021-11-02 14:15:06,233 kaptain-log[INFO]: Image build completed successfully. Image pushed: mesosphere/kubeflow:kaptain-sdk-mnist-tf-1635862297
     2021-11-02 14:15:06,234 kaptain-log[INFO]: Deleting job kaniko-ffccde4355a4a541 in namespace user1.
     2021-11-02 14:15:06,243 kaptain-log[INFO]: Deleting secret docker-ffccde4355a4a541 in namespace user1.
     2021-11-02 14:15:06,253 kaptain-log[INFO]: Deleting secret context-ffccde4355a4a541 in namespace user1.
@@ -423,7 +423,7 @@ model.train(
 )
 ```
 
-    2021-11-02 18:37:40,752 kaptain-log[INFO]: Skipping image build for the model - the image 'mesosphere/kubeflow:kaptain-sdk-mnist-tensorflow-1635862297' with the same contents has already been published to the registry.
+    2021-11-02 18:37:40,752 kaptain-log[INFO]: Skipping image build for the model - the image 'mesosphere/kubeflow:kaptain-sdk-mnist-tf-1635862297' with the same contents has already been published to the registry.
     2021-11-02 18:37:40,755 kaptain-log[INFO]: Creating secret train-d5fd784b5409a57f in namespace user1.
     2021-11-02 18:37:40,768 kaptain-log[INFO]: Creating secret train-registry-c33ad3a574d5dee2 in namespace user1.
     2021-11-02 18:37:40,775 kaptain-log[INFO]: Submitting a new training job "mnist-tfjob-30f13374".
