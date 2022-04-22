@@ -116,7 +116,7 @@ kubectl describe secret mysql-backup-secret -n ${WORKSPACE_NAMESPACE}
 
 The output should look like this:
 
-```yaml
+```sh
 Name:         mysql-backup-secret
 Namespace:    kubeflow
 Labels:       <none>
@@ -158,7 +158,7 @@ EOF
 ```
 
 After the backup completes, it will be uploaded to the configured S3 bucket, for example:
-```bash
+```sh
 aws s3 ls s3://kaptain-backup/
   28KiB kaptain-mysql-store-2021-04-05-23:49:57-full.md5
      0B kaptain-mysql-store-2021-04-05-23:49:57-full.sst_info/
