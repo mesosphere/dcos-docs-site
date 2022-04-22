@@ -59,7 +59,7 @@ If you prefer to create your Docker image locally, you must also have a Docker c
 Before proceeding, check you are using the correct notebook image, that is, [PyTorch](https://pytorch.org/docs/stable/torch.html) is available:
 
 
-```sh
+```bash
 %%sh
 pip list | grep torch
 ```
@@ -119,7 +119,7 @@ mnist
 ```
 
 
-
+```sh
 
     Dataset MNIST
         Number of datapoints: 60000
@@ -127,7 +127,7 @@ mnist
         Split: Train
         StandardTransform
     Transform: ToTensor()
-
+```
 
 
 
@@ -137,9 +137,9 @@ list(mnist.data.size())
 
 
 
-
+```sh
     [60000, 28, 28]
-
+```
 
 
 That shows there are 60,000 28&times;28 pixel grayscale images.
@@ -152,9 +152,9 @@ mnist.data.float().min(), mnist.data.float().max()
 
 
 
-
+```sh
     (tensor(0.), tensor(255.))
-
+```
 
 
 
@@ -188,9 +188,9 @@ example_label
 
 
 
-
+```sh
     7
-
+```
 
 
 Normalize the data set to improve the training speed, which means you need to know the mean and standard deviation:
@@ -202,9 +202,9 @@ mnist.data.float().mean() / 255, mnist.data.float().std() / 255
 
 
 
-
+```sh
     (tensor(0.1307), tensor(0.3081))
-
+```
 
 
 These are the values hard-coded in the transformations within the model.
@@ -257,10 +257,10 @@ Make the defined constants available as shell environment variables. They parame
 %env EPOCHS $EPOCHS
 %env GPUS $GPUS
 ```
-
+```sh
     env: EPOCHS=5
     env: GPUS=1
-
+```
 
 ## How to Train the Model in the Notebook
 
@@ -519,9 +519,9 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-
+```sh
     Writing mnist.py
-
+```
 
 That saves the file as defined by `TRAINER_FILE` but it does not run it.
 
@@ -580,7 +580,7 @@ Run the code from within the notebook to check that it is correct:
 ```python
 %run $TRAINER_FILE --epochs $EPOCHS --log-interval 128
 ```
-
+``sh
     INFO:root:Epoch: 1 (  0.0%) - Loss: 2.293032646179199
     INFO:root:Epoch: 1 ( 13.6%) - Loss: 0.5257666110992432
     INFO:root:Epoch: 1 ( 27.3%) - Loss: 0.08510863780975342
@@ -636,7 +636,7 @@ Run the code from within the notebook to check that it is correct:
     INFO:root:Test accuracy: 9909/10000 ( 99.1%)
     INFO:root:loss=0.0306
     INFO:root:accuracy=0.9909
-
+```
 
 
     <Figure size 432x288 with 0 Axes>
@@ -797,7 +797,7 @@ kubectl create -f "${KUBERNETES_FILE}"
 Check the status like so:
 
 
-```sh
+```bash
 %%sh
 kubectl describe $PYTORCH_JOB
 ```
@@ -821,16 +821,16 @@ Events:
 You should now be able to see the pods created, matching the specified number of replicas.
 
 
-```sh
+```bash
 %%sh
 kubectl get pods -l job-name=pytorchjob-mnist
 ```
-
+```sh
     NAME                         READY   STATUS    RESTARTS   AGE
-    pytorchjob-mnist-master-0   1/1     Running   0          34s
-    pytorchjob-mnist-worker-0   1/1     Running   0          34s
-    pytorchjob-mnist-worker-1   1/1     Running   0          34s
-
+    pytorchjob-mnist-master-0    1/1     Running   0          34s
+    pytorchjob-mnist-worker-0    1/1     Running   0          34s
+    pytorchjob-mnist-worker-1    1/1     Running   0          34s
+```
 
 The job name matches `metadata.name` from the YAML.
 
@@ -838,11 +838,11 @@ As per the specification, the training runs for 15 epochs.
 During that time, stream the logs from the `Master` pod to follow the progress:
 
 
-```sh
+```bash
 %%sh
 kubectl logs -f pytorchjob-mnist-master-0
 ```
-
+```sh
     Using distributed PyTorch with gloo backend
     Epoch: 1 (  0.0%) - Loss: 2.3082287311553955
     Epoch: 1 ( 81.8%) - Loss: 0.04400685429573059
@@ -919,7 +919,7 @@ kubectl logs -f pytorchjob-mnist-master-0
     Test accuracy: 9911/10000 ( 99.1%)
     loss=0.0267
     accuracy=0.9911
-
+```
 
 Note that it may take a while when the image has to be pulled from the registry.
 It usually takes a few minutes, depending on the arguments and resources of the cluster, for the status for all pods to be 'Running'.
@@ -927,11 +927,11 @@ It usually takes a few minutes, depending on the arguments and resources of the 
 The setting `spec.ttlSecondsAfterFinished` will result in the cleanup of the created job:
 
 
-```sh
+```bash
 %%sh
 kubectl get pytorchjobs -w
 ```
-
+```sh
     NAME               STATE     AGE
     pytorchjob-mnist   Created   0s
     pytorchjob-mnist   Running   2s
@@ -939,10 +939,10 @@ kubectl get pytorchjobs -w
     pytorchjob-mnist   Succeeded   70s
     pytorchjob-mnist   Succeeded   70s
     pytorchjob-mnist   Succeeded   11m
+```
 
 
-
-```sh
+```bash
 %%sh
 kubectl get pytorchjob pytorchjob-mnist
 ```
@@ -950,7 +950,7 @@ kubectl get pytorchjob pytorchjob-mnist
 To delete the job manually, execute:
 
 
-```sh
+```bash
 %%sh
 kubectl delete $PYTORCH_JOB
 ```
