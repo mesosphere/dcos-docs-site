@@ -12,7 +12,7 @@ Learn how to configure automatic cleanup of completed and idle workloads created
 
 ## Prerequisites
 
-- A Provisioned Konvoy cluster running Konvoy v1.7.0 or above.
+- A Provisioned DKP cluster with version v2.1.1 or above.
 
 ## Automatically cleanup idle Notebooks
 
