@@ -20,6 +20,6 @@ This table describes the workspace platform applications specific to the managem
 | dex-k8s-authenticator     | cpu: 100m<br />memory: 128Mi   |                                     |
 | gitea                     | cpu: 500m<br />memory: 512Mi   | # of PVs: 2<br />PV sizes: 10Gi     |
 | karma                     |                                |                                     |
-| kubefed                   | cpu: 300m<br />memory: 192Mi   |                                     |
+| kommander-flux            | cpu: 4000m<br />memory: 4Gi    |                                     |
 | thanos                    |                                |                                     |
 | traefik-forward-auth-mgmt | cpu: 100m<br />memory: 128Mi   |                                     |
