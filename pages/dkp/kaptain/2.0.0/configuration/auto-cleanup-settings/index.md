@@ -12,7 +12,7 @@ Learn how to configure automatic cleanup of completed and idle workloads created
 
 ## Prerequisites
 
-- A Provisioned Konvoy cluster running Konvoy v1.7.0 or above.
+- A Provisioned DKP cluster with version v2.1.1 or above.
 
 ## Automatically cleanup idle Notebooks
 
@@ -30,9 +30,11 @@ When a notebook is up and running, it is displayed as active in the UI and has o
 
 ```bash
 kubectl get notebooks.kubeflow.org && kubectl get statefulsets
-
+```
+```sh
 NAME       AGE
 notebook   9m36s
+
 NAME       READY   AGE
 notebook   1/1     9m37s
 ```
@@ -43,30 +45,36 @@ After the notebook has idled longer than the specified culling time, it is scale
 
 ```bash
 kubectl get notebooks.kubeflow.org && kubectl get statefulsets
-
+```
+```sh
 NAME       AGE
 notebook   12m
+
 NAME       READY   AGE
 notebook   0/0     13m
 ```
 
 You can *resume* the notebook from the UI later, and the corresponding StatefulSet is scaled back to 1 replica if there are sufficient resources on the cluster. The workspace volume is automatically attached to the resumed notebook.
 
-The notebook culling feature is disabled by default. To enable it, set the `notebookEnableCulling` parameter to `true` during the installation or update the existing Kaptain instance using the following command:
+The notebook culling feature is disabled by default. To enable it, set the `core.notebook.enableCulling` parameter to `true`:
 
 ```bash
-kubectl kudo update --instance kaptain --namespace kubeflow -p notebookEnableCulling=true
+core:
+  notebook:
+    enableCulling: true
 ```
 
-See the [Configuration Reference](../../configuration/#kaptain-operator-parameters) for additional parameters for this functionality. 
+See the [Configuration Reference](../../configuration#kaptain-chart-values) for additional parameters for this functionality. 
 
 ## Automatic cleanup of completed Pipeline Runs (Workflows)
 ### Overview
 
 Kubeflow Pipelines rely on Argo Workflows for running workloads. Starting with Kaptain 1.1, Kubeflow Pipelines schedule the workflows in the user namespace, providing better multi-tenant isolation and workload locality. Once all the steps in the pipeline are complete, the Pods corresponding to the pipeline terminate, but the Argo Workflow custom resources (`workflow.argoproj.io`) remain in the namespace:
-```
-kubectl get workflows.argoproj.io
 
+```bash
+kubectl get workflows.argoproj.io
+```
+```sh
 NAME                                          STATUS      AGE
 data-passing-btwn-componefjdf8-1-3068851699   Running     17s
 dsl-control-structures-rugqkrh-1-2276733026   Succeeded   111s
@@ -74,9 +82,10 @@ dsl-control-structures-rugqkrh-2-2259955407   Succeeded   51s
 end-to-end-mnist-pipeline-mnrr6
 ```
 Each step of the pipeline is implemented using a `Pod.`  Pipeline pods are not deleted as long as the workflow that created them is present. Without cleanup, your namespace can become filled with completed pods:
-```
+```bash
 kubectl get pods -l workflows.argoproj.io/workflow=dsl-control-structures-rugqkrh-1-2276733026
-
+```
+```sh
 NAME                                                     READY   STATUS      RESTARTS   AGE
 dsl-control-structures-rugqkrh-1-2276733026-2018045073   0/2     Completed   0          4m11s
 dsl-control-structures-rugqkrh-1-2276733026-2405487652   0/2     Completed   0          3m40s
@@ -86,7 +95,7 @@ dsl-control-structures-rugqkrh-1-2276733026-4042755208   0/2     Completed   0  
 
 ### Using Python DSL for setting Pipeline TTL 
 Kubeflow Pipelines provide a Python Domain Specific Language (DSL) that allows you to specify a time-to-live (TTL) for the submitted Pipeline. Here is an excerpt from the [Pipeline tutorial][pipeline-tutorial]:
-```python
+```bash
 @dsl.pipeline(
     name="End-to-End MNIST Pipeline",
     description="A sample pipeline to demonstrate multi-step model training, evaluation, export, and serving",
@@ -112,15 +121,17 @@ Kaptain has a global configuration property that allows you to set the default T
 While Notebook users can set this property via the DSL, they cannot specify a longer interval than the global property setting. The Pipeline component always uses the smaller of the two specified TTL values between the DSL config and the global property. Because workflow objects can be useful in debugging, we recommend choosing a conservative value for the global property value.
 <p class="message--note"><strong>NOTE: </strong> The metadata information that belongs to the Pipeline run is available in the Pipeline UI after the Argo Workflow custom resource is deleted. However, the Pipeline task (step)-level Pod information and logs are not available after the workflow deletion because these are retrieved directly from the workflow custom resource.</p>
 
-To set the default TTL for all Pipelines, install or update Kaptain instance with the following parameter:
+To set the default TTL for all Pipelines, install or update Kaptain deployment with the following parameter:
 ```bash
-kubectl kudo update --instance kaptain --namespace kubeflow -p workflowsTTLSecondsAfterFinish="<ttl seconds>"
+core:
+  pipelines:
+    workflowsTTLSecondsAfterFinish: "<ttl seconds>"
 ```
 
-## Automatic cleanup for resources created by KFServing
+## Automatic cleanup for resources created by KServe
 ### Overview
-KFServing serves models over HTTP(s) using the Knative Serving component. When a model is deployed to serving,
-KFServing creates a set of Knative resources such as `Service`,`Route`, and `Revision`.
+KServe serves models over HTTP(s) using the Knative Serving component. When a model is deployed to serving,
+KServe creates a set of Knative resources such as `Service`,`Route`, and `Revision`.
 
 One Knative Service is always available per model deployment, however, the number of Revisions can grow with time
 because every new deployment (a new model version with a new image name) has its own `Revision`.
@@ -130,14 +141,19 @@ Over time, the number of Revisions and associated deployments can grow significa
 is recommended to garbage collect the outdated Revisions.
 
 For example:
+```bash
+kubectl get revisions
 ```
-$> kubectl get revisions
+```sh
 NAME                          CONFIG NAME              K8S SERVICE NAME               GENERATION   READY
 dev-mnist-predictor-c5kzr   dev-mnist-predictor   dev-mnist-predictor-c5kzr                1       True
 dev-mnist-predictor-d6tdr   dev-mnist-predictor   dev-mnist-predictor-d6tdr                2       True
 dev-mnist-predictor-tqzqw   dev-mnist-predictor   dev-mnist-predictor-tqzqw                3       True
-
-$> kubectl get deployments
+```
+```bash
+kubectl get deployments
+```
+```sh
 NAME                                                  READY   UP-TO-DATE   AVAILABLE   AGE
 dev-mnist-predictor-c5kzr-deployment                   0/0        0            0       33m
 dev-mnist-predictor-d6tdr-deployment                   0/0        0            0       18m
@@ -145,7 +161,7 @@ dev-mnist-predictor-tqzqw-deployment                   1/1        1            1
 ```
 
 ### Configure Knative addon cleanup
-KFServing itself doesn’t provide controls for garbage collection of stale Revisions, however, the underlying
+KServe itself doesn’t provide controls for garbage collection of stale Revisions, however, the underlying
 Knative Addon that ships with Kaptain has a set of parameters to control the garbage collection of stale revisions:
 
 | Parameter                       | Default | Description |
@@ -156,58 +172,57 @@ Knative Addon that ships with Kaptain has a set of parameters to control the gar
 | maxNonActiveRevisions           | 1000    | Maximum number of non-active revisions to retain. If the maximum number of revisions reached, the oldest non-active revision will be deleted disregarding the other settings. |
 
 
-### Update Knative addon configuration
-To specify or update the Knative addon configuration, edit the `cluster.yaml` section and specify the values for
+### Update Knative Application configuration
+
+<p class="message--note"><strong>NOTE: Starting from the current release, Knative is optional if KServe is configured to work in `RawDeployment` mode.</strong>text</p>
+
+To specify or update the Knative Application configuration, edit the Kommander config file and specify the values for
 the garbage collection settings:
-```
-- configRepository: https://github.com/mesosphere/kubeaddons-kaptain
-  configVersion: stable-1.20-1.3.0
-  addonsList:
-    - name: knative
-      enabled: true
-      values: |
-        serving:
-          gc:
-            retainSinceCreateTime: "48h"
-            retainSinceLastActiveTime: "15h"
-            minNonActiveRevisions: "20"
-            maxNonActiveRevisions: "1000"
+```yaml
+apps:
+  knative:
+    values: |
+      serving:
+        gc:
+          responsiveRevisionGC: "allowed"
+          retainSinceCreateTime: "48h"
+          retainSinceLastActiveTime: "15h"
+          minNonActiveRevisions: "20"
+          maxNonActiveRevisions: "1000"
+    
 ```
 
-After updating the settings, run `konvoy deploy addons` to apply the changes.
+After updating the settings, apply the new configuration to Kommander:
+```bash
+dkp install kommander --installer-config kommander-config.yaml
+```
 
 <p class="message--note"><strong>NOTE: </strong>The Knative Controller automatically reloads configuration changes when the addon is updated. However, this does not trigger an automatic revision cleanup. The cleanup will be performed upon the next service version deployment.</p>
 
 ### Example configurations
 If you only need to keep the latest revision of each model, the following settings can be used:
 
-```
-- configRepository: https://github.com/mesosphere/kubeaddons-kaptain
-  configVersion: stable-1.20-1.3.0
-  addonsList:
-    - name: knative
-      enabled: true
-      values: |
-        serving:
-          gc:
-            minNonActiveRevisions: "0"
-            retainSinceCreateTime: "1s"
-            retainSinceLastActiveTime: "1s"
+```bash
+apps:
+  knative:
+    values: |
+      serving:
+        gc:
+          minNonActiveRevisions: "0"
+          retainSinceCreateTime: "1s"
+          retainSinceLastActiveTime: "1s"
 ```
 
 Example configuration that retains the last ten non-active revisions:
-```
-- configRepository: https://github.com/mesosphere/kubeaddons-kaptain
-  configVersion: stable-1.20-1.3.0
-  addonsList:
-    - name: knative
-      enabled: true
-      values: |
-        serving:
-          gc:
-            minNonActiveRevisions: "10"
-            retainSinceCreateTime: "1s"
-            retainSinceLastActiveTime: "1s"
+```bash
+apps:
+  knative:
+    values: |
+      serving:
+        gc:
+          minNonActiveRevisions: "10"
+          retainSinceCreateTime: "1s"
+          retainSinceLastActiveTime: "1s"
 ```
 
 [pipeline-tutorial]: ../../tutorials/pipelines/
