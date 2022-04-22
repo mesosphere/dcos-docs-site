@@ -7,9 +7,6 @@ beta: false
 enterprise: false
 menuWeight: 60
 ---
-
-This procedure describes how to use the Konvoy Image Builder to create a [Cluster API](https://cluster-api.sigs.k8s.io/) compliant Azure Virtual Machine (VM) Image. The VM Image contains the base operating system you specify and all the necessary Kubernetes components. The Konvoy Image Builder uses variable [`overrides`][overrides] to specify the base image and container images to use in your new Azure VM image.
-
 ## Prerequisites
 
 Before you begin, you must:
