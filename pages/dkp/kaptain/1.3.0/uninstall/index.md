@@ -8,14 +8,14 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--warning"><strong>WARNING: </strong>When uninstalling Kaptain, all Kaptain related data, state, and configuration of your Kaptain applications will be lost.</p>
+<p class="message--warning"><strong>WARNING: </strong>When uninstalling Kaptain, all Kaptain-related data of your Kaptain applications such as user profiles, notebooks, pipelines, deployed models, etc. will be lost.</p>
 
 ## Prerequisites
 
 Before performing the uninstall, ensure you have:
 
-* `kubectl` installed, and configured to connect to your cluster.
-* `jq` installed, and available in your Linux PATH.
+- `kubectl` installed, and configured to connect to your cluster.
+- `jq` installed, and available in your Linux PATH.
 
 ## Uninstall Kaptain
 
@@ -23,7 +23,7 @@ Uninstalling Kaptain requires the execution of several manual steps.
 
 1.  Delete all profiles configured with Kaptain. Profiles have dependencies (such as finalizers) associated with Kaptain, so they must be removed before uninstalling Kaptain. Attempting to uninstall Kaptain without removing the profiles will fail and leave many resources in a broken state.
 
-    The following command deletes all notebooks, pipelines and deployed models. Notebook volumes created when deploying notebooks are cleaned up and deleted. **Ensure you have backed up** anything that is not in managed storage (even if model artifacts are stored in your object store, and your notebook code is in version control).
+    The following command deletes all notebooks, pipelines and deployed models **permanently**. Notebook volumes created when deploying notebooks are cleaned up and deleted.
 
     ```bash
     kubectl delete profiles.kubeflow.org --all
@@ -33,7 +33,7 @@ Uninstalling Kaptain requires the execution of several manual steps.
 
 1.  Uninstall Kaptain using KUDO. This command deletes the Kaptain Percona DB store, all deployments, statefulsets, jobs, and volumes associated with the kubeflow namespace.
 
-    ```
+    ```bash
     kubectl kudo uninstall --instance "kaptain" --namespace kubeflow --wait --wait-time=600
     ```
 
@@ -43,7 +43,7 @@ Uninstalling Kaptain requires the execution of several manual steps.
     kubectl delete namespace kubeflow
     ```
 
-1.  Clean up additional configuration resources left behind by KUDO-managed Kaptain, so you can install Helm-managed Kaptain correctly. This command selects various resource types with the label `kudo.dev/instance` of either `"kaptain"` or beginning with `"kaptain-"`.
+1.  Clean up any additional configuration resources left behind by KUDO-managed Kaptain, so you can install Helm-managed Kaptain correctly. This command selects various resource types with the label `kudo.dev/instance` of either `"kaptain"` or beginning with `"kaptain-"`.
 
     ```bash
     for type in clusterrole customresourcedefinition clusterrolebinding clusterrole mutatingwebhookconfiguration ValidatingWebhookConfiguration operators; do
