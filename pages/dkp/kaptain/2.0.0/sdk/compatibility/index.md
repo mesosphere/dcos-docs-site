@@ -12,5 +12,5 @@ the SDK will function for most tasks, but newer features introduced in the SDK o
 |               | Kaptain 2.0.0     | Kaptain 1.3.0     | Kaptain 1.2.0     |
 | ------------- | ----------------- | ----------------- | ----------------- |
 | SDK 1.0.1     | Full              | Partial           | Partial           |
-| SDK 1.0.0     | Full              | Full              | Partial           |
-| SDK 0.4.0     | Full              | Full              | Partial           |
+| SDK 1.0.0     | Partial           | Full              | Partial           |
+| SDK 0.4.0     | Partial           | Full              | Partial           |
