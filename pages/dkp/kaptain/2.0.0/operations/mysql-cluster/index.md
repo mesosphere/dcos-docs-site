@@ -91,7 +91,11 @@ Kaptain uses Percona Operator to back up and restore the state of MySQL database
 You must create a Kubernetes `Secret` with AWS access credentials for the backup and then update the Kaptain configuration to enable backup and configure the storage location.
 
 Create a Kubernetes `Secret` in the same namespace where Kaptain is installed using the AWS credentials as follows:
-```yaml
+```bash
+AWS_ACCESS_KEY_ID=<aws_access_key_id>
+AWS_SECRET_ACCESS_KEY=<aws_secret_access_key>
+WORKSPACE_NAMESPACE=<workspace_namespace>
+cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Secret
 metadata:
@@ -99,9 +103,33 @@ metadata:
   namespace: ${WORKSPACE_NAMESPACE}
 type: Opaque
 data:
-  AWS_ACCESS_KEY_ID: <base64-enconded AWS Access Key ID>
-  AWS_SECRET_ACCESS_KEY: <base64-enconded AWS Secret Access Key>
+  AWS_ACCESS_KEY_ID: $(echo -n "$AWS_ACCESS_KEY_ID" | base64)
+  AWS_SECRET_ACCESS_KEY: $(echo -n "$AWS_SECRET_ACCESS_KEY" | base64)
+EOF
 ```
+
+Confirm that your secret is configured correctly:
+
+```bash
+kubectl describe secret mysql-backup-secret -n ${WORKSPACE_NAMESPACE}
+```
+
+The output should look like this:
+
+```yaml
+Name:         mysql-backup-secret
+Namespace:    kubeflow
+Labels:       <none>
+Annotations:  <none>
+
+Type:  Opaque
+
+Data
+====
+AWS_SECRET_ACCESS_KEY:  40 bytes
+AWS_ACCESS_KEY_ID:      20 bytes
+```
+
 
 To enable backups and configure their location, create or update the `ConfigMap` with Kaptain's configuration and include the following values:
 ```yaml
@@ -117,7 +145,7 @@ core:
 
 To perform a backup, apply the following manifest to trigger the backup plan for the MySQL cluster component:
 ```bash
-export WORKSPACE_NAMESPACE=<workspace_namespace>
+WORKSPACE_NAMESPACE=<workspace_namespace>
 cat <<EOF | kubectl apply -f -
 apiVersion: pxc.percona.com/v1
 kind: PerconaXtraDBClusterBackup
@@ -179,13 +207,13 @@ The operation will use the latest backup data created by the backup referenced i
 To restore from a specific backup location, set the `BACKUP_RESTORE_SOURCE` variable to point to the location of the backup you want to use to restore your cluster.
 ```bash
 # Full path to the backup folder, for example, s3://mysql-store-backup/kaptain-mysql-store-2021-04-05-21:47:24-full
-export BACKUP_RESTORE_SOURCE=""
+BACKUP_RESTORE_SOURCE=""
 # Secret name with AWS credentials, for example, "mysql-backup-secret"
-export BACKUP_CREDENTIALS_SECRET=""
+BACKUP_CREDENTIALS_SECRET=""
 # Bucket region, for example, "us-west-2"
-export BACKUP_BUCKET_REGION=""
+BACKUP_BUCKET_REGION=""
 # URL of the S3-compatible storage, if needed 
-export BACKUP_ENDPOINT_URL=""
+BACKUP_ENDPOINT_URL=""
 ```
 Apply the following manifest to restore the MySQL cluster:
 ```bash
