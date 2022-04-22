@@ -20,7 +20,7 @@ gateway load balancer hostname if you installed Kaptain in a cloud prover.
 
 ## Setting up the Kaptain hostname and certificates
 
-A custom domain name and certificates can be configured at installation time of Kaptain. create or update the `ConfigMap` with Kaptain’s configuration and include the following values:
+A custom domain name and certificates can be configured at installation time of Kaptain. Create or update the `ConfigMap` with Kaptain’s configuration and include the following values:
 
 ```yaml
 ingress:
