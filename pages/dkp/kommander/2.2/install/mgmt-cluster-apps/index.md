@@ -21,5 +21,6 @@ This table describes the workspace platform applications specific to the managem
 | gitea                     | cpu: 500m<br />memory: 512Mi   | # of PVs: 2<br />PV sizes: 10Gi     |
 | karma                     |                                |                                     |
 | kommander-flux            | cpu: 4000m<br />memory: 4Gi    |                                     |
+| kubefed                   | cpu: 300m<br />memory: 192Mi   |                                     |
 | thanos                    |                                |                                     |
 | traefik-forward-auth-mgmt | cpu: 100m<br />memory: 128Mi   |                                     |
