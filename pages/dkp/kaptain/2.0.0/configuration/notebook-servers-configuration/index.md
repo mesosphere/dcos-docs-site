@@ -64,7 +64,7 @@ Please refer to the [Toleration v1 core](https://kubernetes.io/docs/reference/ge
 and [Affinity v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#affinity-v1-core)
 pages in the Kubernetes API documentation to see all the supported fields.
 
-Install Kaptain by following the [Deploy Kaptian][deploy-kaptain] documentation. In case of update, edit the `ConfigMap` used for Kaptain installation (or the default one, created by Flux controller). 
+Install Kaptain by following the [Deploy Kaptain][deploy-kaptain] documentation. In case of update, edit the `ConfigMap` used for Kaptain installation (or the default one, created by Flux controller). 
 
 After the installation is complete, the newly added configuration should be available in the Notebook Servers UI:
 
