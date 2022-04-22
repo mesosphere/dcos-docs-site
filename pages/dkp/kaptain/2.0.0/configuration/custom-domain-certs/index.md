@@ -73,7 +73,7 @@ kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.statu
 
 The output will be something like the following:
 
-```bash
+```sh
 a070604cbbd7e4c96bf203b9d5069730-259996044.us-west-2.elb.amazonaws.com
 ```
 
