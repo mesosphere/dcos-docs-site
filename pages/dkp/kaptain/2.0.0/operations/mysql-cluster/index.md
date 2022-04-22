@@ -130,7 +130,6 @@ AWS_SECRET_ACCESS_KEY:  40 bytes
 AWS_ACCESS_KEY_ID:      20 bytes
 ```
 
-
 To enable backups and configure their location, create or update the `ConfigMap` with Kaptain's configuration and include the following values:
 ```yaml
 core:
