@@ -71,7 +71,7 @@ This notebook.
 Ensure Kubeflow Pipelines is available:
 
 
-```sh
+```bash
 %%sh
 pip show kfp
 ```
@@ -97,7 +97,7 @@ In order for KFServing to access MinIO, the credentials must be added to the def
 </p>
 
 
-```python
+```bash
 %%writefile minio_secret.yaml
 apiVersion: v1
 kind: Secret
@@ -123,7 +123,7 @@ secrets:
 
 
 
-```sh
+```bash
 %%sh
 kubectl apply -f minio_secret.yaml
 ```
@@ -137,7 +137,7 @@ kubectl apply -f minio_secret.yaml
 First, configure credentials for `mc`, the MinIO command line client.
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 
@@ -157,18 +157,18 @@ Use it to create a bucket, upload the dataset to it, and set access policy so th
 You may want to change the default bucket names used by this tutorial, since MinIO buckets are global resources shared between all cluster users.
 
 
-```python
+```bash
 INPUT_BUCKET = "pipelines-tutorial-data"
 EXPORT_BUCKET = "pipelines-tutorial-model"
 ```
 
 
-```python
+```bash
 %env INPUT_BUCKET $INPUT_BUCKET
 ```
 
 
-```sh
+```bash
 %%sh
 mc --no-color mb "minio/${INPUT_BUCKET}"
 ```
@@ -177,7 +177,7 @@ mc --no-color mb "minio/${INPUT_BUCKET}"
 
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 tar --dereference -czf datasets.tar.gz ./datasets
@@ -687,7 +687,7 @@ with open("input.json", "w") as json_file:
 ```
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 model="mnist"
@@ -702,7 +702,7 @@ curl --fail -L "${url}" -d@input.json -o output.json
 
 
 
-```sh
+```bash
 %%sh
 jq -M . output.json
 ```
@@ -729,7 +729,7 @@ The probabilities for each class (0-9) are shown in the `predictions` response.
 The model believes the image shows a "9", which indeed it does!
 
 
-```sh
+```bash
 %%sh
 jq -M --exit-status '.predictions[0] | indices(max)[0] == 9' output.json
 ```
