@@ -11,16 +11,16 @@ This section only details requirements for management cluster-specific applicati
 
 This table describes the workspace platform applications specific to the management cluster, minimum resource requirements, and minimum persistent storage requirements.
 
-| Name                      | Minimum Resources Suggested    | Minimum Persistent Storage Required |
-| ------------------------- | ------------------------------ | ----------------------------------- |
-| centralized-grafana       | cpu: 200m<br />memory: 100Mi   |                                     |
-| centralized-kubecost      | cpu: 1200m<br />memory: 4151Mi | # of PVs: 1<br />PV sizes: 32Gi     |
-| chartmuseum               |                                | # of PVs: 1<br />PV sizes: 2Gi      |
-| dex                       | cpu: 100m<br />memory: 50Mi    |                                     |
-| dex-k8s-authenticator     | cpu: 100m<br />memory: 128Mi   |                                     |
-| gitea                     | cpu: 500m<br />memory: 512Mi   | # of PVs: 2<br />PV sizes: 10Gi     |
-| karma                     |                                |                                     |
-| kommander-flux            | cpu: 4000m<br />memory: 4Gi    |                                     |
-| kubefed                   | cpu: 300m<br />memory: 192Mi   |                                     |
-| thanos                    |                                |                                     |
-| traefik-forward-auth-mgmt | cpu: 100m<br />memory: 128Mi   |                                     |
+| Common Name       | Application Name          | Minimum Resources Suggested | Minimum Persistent Storage Required |
+|-------------------|---------------------------|-----------------------------|-------------------------------------|
+| Grafana           | centralized-grafana       | cpu: 200m memory: 100Mi     |                                     |
+| Kubecost          | centralized-kubecost      | cpu: 1200m memory: 4151Mi   | # of PVs: 1 PV sizes: 32Gi          |
+| Chartmuseum       | chartmuseum               |                             | # of PVs: 1 PV sizes: 2Gi           |
+| Dex               | dex                       | cpu: 100m memory: 50Mi      |                                     |
+| Dex Authenticator | dex-k8s-authenticator     | cpu: 100m memory: 128Mi     |                                     |
+| Gitea             | gitea                     | cpu: 500m memory: 512Mi     | # of PVs: 2 PV sizes: 10Gi          |
+| Karma             | karma                     |                             |                                     |
+| Flux              | kommander-flux            | cpu: 4000m memory: 4Gi      |                                     |
+| Kubefed           | kubefed                   | cpu: 300m memory: 192Mi     |                                     |
+| Thanos            | thanos                    |                             |                                     |
+| Traefik ForwardAuth | traefik-forward-auth-mgmt | cpu: 100m memory: 128Mi     |                                     |
