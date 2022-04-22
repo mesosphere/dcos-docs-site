@@ -52,7 +52,7 @@ For more information about any of the master components or Kubernetes control pl
 Worker nodes maintain running pods and provide the runtime environment for the native Kubernetes cluster.
 Each work node includes the following key components:
 
-- The `kubelet` agent runs on each node in the cluster to ensure that the containers created by Kubernetes for a pod are running  and in a healthy state.
+- The `kubelet` agent runs on each node in the cluster to ensure that the containers created by Kubernetes for a pod are running and in a healthy state.
 - The `kube-proxy` serves as a network proxy that runs on each node in the cluster to enforce network routing and connection forwarding rules.
 - The Kubernetes container runtime manages any supported type of container, such as Docker or `containerd`, that runs on the cluster.
 
