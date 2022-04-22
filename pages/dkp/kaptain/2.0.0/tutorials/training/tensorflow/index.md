@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-1.3.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.0.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-1.3.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.0.0.tar.gz | tar xz
 ```
 
 </p>
@@ -71,7 +71,7 @@ For Kubernetes commands to run outside of the cluster, you need [`kubectl`](http
 Before proceeding, check you are using the correct notebook image, that is, [TensorFlow](https://www.tensorflow.org/api_docs/) is available:
 
 
-```sh
+```bash
 %%sh
 pip list | grep tensorflow
 ```
@@ -413,7 +413,7 @@ Ensure the code is correct by running it from within the notebook:
 ```python
 %run $TRAINER_FILE --epochs $EPOCHS
 ```
-
+```sh
     Train for 10 steps
     Epoch 1/5
     10/10 [==============================] - 5s 450ms/step - loss: 2.1215 - accuracy: 0.2875
@@ -429,7 +429,7 @@ Ensure the code is correct by running it from within the notebook:
 
     INFO:root:loss=0.4222
     INFO:root:accuracy=0.8769
-
+```
 
 This trains the model in the notebook, but does not distribute it across nodes (a.k.a. pods) in the cluster.
 To that end, first create a Docker image with the code, push it to a registry (e.g. [Docker Hub](https://hub.docker.com/), [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/), [ECR](https://aws.amazon.com/ecr/), [GCR](https://cloud.google.com/container-registry/)), and then define the Kubernetes resource that uses the image.
@@ -448,8 +448,8 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 
 The Dockerfile looks as follows:
 
-```
-FROM mesosphere/kubeflow-dev:7b771523-tensorflow-2.8.0-gpu
+```sh
+FROM mesosphere/kubeflow:2.0.0-tensorflow-2.8.0-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -466,11 +466,11 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow-dev:51d57053-mnist-tensorflow-2.8.0-gpu` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow:2.0.0-mnist-tensorflow-2.8.0-gpu` in case you want to skip it for now.
 
 
 ```python
-%env IMAGE mesosphere/kubeflow-dev:51d57053-mnist-tensorflow-2.8.0-gpu
+%env IMAGE mesosphere/kubeflow:2.0.0-mnist-tensorflow-2.8.0-gpu
 ```
 
 ## How to Create a Distributed `TFJob`
@@ -563,7 +563,7 @@ If you do run these locally, you cannot rely on cell magic, so you have to manua
 If you execute the following commands on your own machine (and not inside the notebook), you obviously do not need the cell magic `%%` lines either.
 In that case, you have to set the user namespace for all subsequent commands:
 
-```
+```bash
 kubectl config set-context --current --namespace=<insert-namespace>
 ```
 
@@ -588,7 +588,7 @@ spec:
 ```
 
 
-```sh
+```bash
 %%sh
 kubectl apply -f pvc.yaml
 ```
@@ -610,7 +610,7 @@ kubectl create -f "${KUBERNETES_FILE}"
 To see the job status, use the following command:
 
 
-```sh
+```bash
 %%sh
 kubectl describe ${TF_JOB}
 ```
@@ -618,20 +618,20 @@ kubectl describe ${TF_JOB}
 You should now be able to see the created pods matching the specified number of workers.
 
 
-```sh
+```bash
 %%sh
 kubectl get pods -l job-name=tfjob-mnist
 ```
-
+```sh
     NAME                   READY   STATUS    RESTARTS   AGE
     tfjob-mnist-worker-0   1/2     Running   0          8s
     tfjob-mnist-worker-1   1/2     Running   0          8s
-
+```
 
 In case of issues, it may be helpful to see the last ten events within the cluster:
 
 
-```sh
+```bash
 %%sh
 kubectl get events --sort-by='{.metadata.creationTimestamp}'
 ```
@@ -639,7 +639,7 @@ kubectl get events --sort-by='{.metadata.creationTimestamp}'
 Wait until the chief pod is ready:
 
 
-```sh
+```bash
 %%sh
 for i in $(seq 1 5); do kubectl wait pod/tfjob-mnist-chief-0 --for=condition=Ready --timeout=10m && break || sleep 5; done
 ```
@@ -647,11 +647,11 @@ for i in $(seq 1 5); do kubectl wait pod/tfjob-mnist-chief-0 --for=condition=Rea
 To stream logs from the chief pod to check the training progress, run the following command:
 
 
-```sh
+```bash
 %%sh
 kubectl logs -f tfjob-mnist-chief-0 -c tensorflow
 ```
-
+```sh
     Train for 250 steps
     Epoch 1/15
     250/250 [==============================] - 12s 47ms/step - loss: 0.5652 - accuracy: 0.8220
@@ -685,16 +685,16 @@ kubectl logs -f tfjob-mnist-chief-0 -c tensorflow
     250/250 [==============================] - 3s 13ms/step - loss: 0.0185 - accuracy: 0.9945
     INFO:root:loss=0.0521
     INFO:root:accuracy=0.9838
-
+```
 
 The setting `spec.runPolicy.ttlSecondsAfterFinished` will result in the cleanup of the created job:
 
 
-```sh
+```bash
 %%sh
 kubectl get tfjobs -w
 ```
-
+```sh
     NAME          STATE     AGE
     tfjob-mnist   Created   0s
     tfjob-mnist   Running   2s
@@ -702,10 +702,10 @@ kubectl get tfjobs -w
     tfjob-mnist   Succeeded   70s
     tfjob-mnist   Succeeded   70s
     tfjob-mnist   Succeeded   11m
+```
 
 
-
-```sh
+```bash
 %%sh
 kubectl get tfjob tfjob-mnist
 ```
@@ -713,7 +713,7 @@ kubectl get tfjob tfjob-mnist
 To delete the job manually, run the following command:
 
 
-```sh
+```bash
 %%sh
 kubectl delete ${TF_JOB}
 ```
@@ -736,7 +736,7 @@ spec:
 ```
 
 
-```sh
+```bash
 %%sh
 kubectl apply -f tensorboard.yaml
 ```
