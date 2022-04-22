@@ -12,7 +12,7 @@ Configure Notebook Servers controls and settings.
 
 ## Prerequisites
 
--   A Provisioned Konvoy cluster running Konvoy `v1.7.0` or above.
+-   A Provisioned DKP cluster using version `v2.1.1` or above.
 
 ## Creating custom Toleration Groups and Affinity Configurations
 
@@ -22,39 +22,41 @@ This allows notebook-specific workloads to run on specific nodes from a pool of 
 
 For more information about the pod scheduling controls, please refer to the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/).
 
-Toleration groups and affinity configs can be configured via the `notebookTolerationGroups` and `notebookAffinityConfig` parameters, respectively.
+Toleration groups and affinity configs can be configured via the `core.notebook.tolerationGroups` and `core.notebook.affinityConfig` parameters, respectively.
 
-To configure these resources, create a file named `parameters.yaml` with the following contents:
+To configure these resources, create or update the ConfigMap with Kaptain’s configuration and include the following values:
 ```yaml
-notebookTolerationGroups:
-  - groupKey: "notebooks"
-    displayName: "Notebooks Node Group"
-    tolerations:
-      - key: "dedicated"
-        operator: "Equal"
-        value: "notebook"
-        effect: "NoExecute"
-notebookAffinityConfig:
-  - configKey: "notebook-affinity-config"
-    displayName: "Notebook Affinity Configuration"
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: topology.kubernetes.io/region
-              operator: In
-              values:
-              - us-west-1
-              - us-west-2
-        preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 1
-          preference:
-            matchExpressions:
-            - key: another-node-label-key
-              operator: In
-              values:
-              - another-node-label-value
+core:
+  notebook:
+    notebookTolerationGroups:
+      - groupKey: "notebooks"
+        displayName: "Notebooks Node Group"
+        tolerations:
+          - key: "dedicated"
+            operator: "Equal"
+            value: "notebook"
+            effect: "NoExecute"
+    notebookAffinityConfig:
+      - configKey: "notebook-affinity-config"
+        displayName: "Notebook Affinity Configuration"
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: topology.kubernetes.io/region
+                  operator: In
+                  values:
+                  - us-west-1
+                  - us-west-2
+            preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              preference:
+                matchExpressions:
+                - key: another-node-label-key
+                  operator: In
+                  values:
+                  - another-node-label-value
 ```
 
 You can set any other desired operator parameters in this file as well, so that you have a single file with all the operator configurations.
@@ -62,14 +64,7 @@ Please refer to the [Toleration v1 core](https://kubernetes.io/docs/reference/ge
 and [Affinity v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#affinity-v1-core)
 pages in the Kubernetes API documentation to see all the supported fields.
 
-Specify the parameters file as an argument to the `kubectl kudo install` command during the installation:
-```bash
-kubectl kudo install \
-    --instance kaptain \
-    --namespace kubeflow \
-    --create-namespace ./kubeflow-1.4.0_1.3.0.tgz \
-    --parameter-file parameters.yaml
-```
+Install Kaptain by following the [Deploy Kaptian][deploy-kaptain] documentation. In case of update, edit the `ConfigMap` used for Kaptain installation (or the default one, created by Flux controller). 
 
 After the installation is complete, the newly added configuration should be available in the Notebook Servers UI:
 
