@@ -51,11 +51,11 @@ Please note that this notebook is interactive!
 Kaptain SDK 1.0.0 or later:
 
 
-```sh
+```bash
 %%sh
 pip show d2iq-kaptain
 ```
-
+```sh
     Name: d2iq-kaptain
     Version: 1.0.0
     Summary: A pack-and-ship SDK for Kaptain
@@ -66,7 +66,7 @@ pip show d2iq-kaptain
     Location: /opt/conda/lib/python3.7/site-packages
     Requires: python-dxf, retrying, botocore, kubernetes, types-requests, object-mapper, boto3, torch-model-archiver, kfserving, kubeflow-katib, kubeflow-training, tqdm, humanize, tenacity, typing
     Required-by: 
-
+```
 
 ### Prepare the training code and datasets
 The examples in this tutorial require a trainer code file `mnist.py` and a dataset to be present in the current folder.
@@ -340,7 +340,7 @@ Finally, the following cell will run the image build using the Dockerfile with a
 ```python
 builder.build_image()
 ```
-
+```sh
     2021-11-02 14:11:59,714 kaptain-log[INFO]: Building Docker image.
     2021-11-02 14:11:59,714 kaptain-log[INFO]: Creating secret docker-ffccde4355a4a541 in namespace user1.
     2021-11-02 14:11:59,728 kaptain-log[INFO]: Creating secret context-ffccde4355a4a541 in namespace user1.
@@ -386,7 +386,7 @@ builder.build_image()
     2021-11-02 14:15:06,234 kaptain-log[INFO]: Deleting job kaniko-ffccde4355a4a541 in namespace user1.
     2021-11-02 14:15:06,243 kaptain-log[INFO]: Deleting secret docker-ffccde4355a4a541 in namespace user1.
     2021-11-02 14:15:06,253 kaptain-log[INFO]: Deleting secret context-ffccde4355a4a541 in namespace user1.
-
+```
 
 That's it! Image build has been completed and the image with required packages and files has been pushed to the Docker registry. 
 
@@ -422,7 +422,7 @@ model.train(
     hyperparameters={"--learning-rate": 0.1, "--momentum": 0.02, "--epochs": 5,},
 )
 ```
-
+```sh
     2021-11-02 18:37:40,752 kaptain-log[INFO]: Skipping image build for the model - the image 'mesosphere/kubeflow:kaptain-sdk-mnist-tf-1635862297' with the same contents has already been published to the registry.
     2021-11-02 18:37:40,755 kaptain-log[INFO]: Creating secret train-d5fd784b5409a57f in namespace user1.
     2021-11-02 18:37:40,768 kaptain-log[INFO]: Creating secret train-registry-c33ad3a574d5dee2 in namespace user1.
@@ -450,6 +450,6 @@ model.train(
     2021-11-02 18:38:30,371 kaptain-log[INFO]: Deleting secret train-d5fd784b5409a57f in namespace user1.
     2021-11-02 18:38:30,378 kaptain-log[INFO]: Deleting secret train-registry-c33ad3a574d5dee2 in namespace user1.
     2021-11-02 18:38:30,384 kaptain-log[INFO]: Model training is completed.
-
+```
 
 To learn more about creating and deploying machine learninig models with Kaptain SDK, refer to [Kaptain SDK with Tensorflow](../tensorflow) or [Kaptain SDK with Pytorch](../pytorch) tutorials.
