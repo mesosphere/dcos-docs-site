@@ -81,12 +81,12 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
     apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
-        name: kaptain
-        namespace: ${WORKSPACE_NAMESPACE}
+      name: kaptain
+      namespace: ${WORKSPACE_NAMESPACE}
     spec:
-        appRef:
-            kind: App
-            name: kaptain-2.0.0
+      appRef:
+        kind: App
+        name: kaptain-2.0.0
     EOF 
     ```
 
@@ -121,12 +121,12 @@ If you want to customize your installation and modify the custom domain name, ex
     apiVersion: v1
     kind: ConfigMap
     metadata:
-        namespace: ${WORKSPACE_NAMESPACE}
-        name: kaptain-overrides
+      namespace: ${WORKSPACE_NAMESPACE}
+      name: kaptain-overrides
     data:
-        values.yaml: |
-            core:
-                registrationFlow: true
+      values.yaml: |
+        core:
+          registrationFlow: true
     EOF
     ```
 
