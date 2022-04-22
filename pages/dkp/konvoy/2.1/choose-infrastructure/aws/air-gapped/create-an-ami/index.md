@@ -33,7 +33,7 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
 1.  Download the Kubernetes images bundle. This bundle includes the necessary images for `kubeadm` to bootstrap a Kubernetes `Node`.
 
     ```bash
-    curl --output artifacts/images/"$VERSION"_images.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/kubernetes-images/"$VERSION"_images.tar.gz
+    curl --output artifacts/images/"$VERSION"_images.tar.gz -O http://downloads.d2iq.com/konvoy/airgapped/kubernetes_image_bundle_v"$VERSION"_linux_amd64.tar.gz
     ```
 
 1.  Download the PIP packages. This bundle includes a few packages required by DKP to bootstrap machines.
