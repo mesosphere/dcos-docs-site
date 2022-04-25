@@ -23,7 +23,7 @@ Starting with Kaptain 2.0, it can be easily installed via the DKP workspace cata
 
 ### Support for Amazon EKS, Azure EKS and DKP multi-cluster
 
-Kaptain 2.0 can be deployed on attached clusters running on Amazon EKS and Azure AKS. 
+Kaptain 2.0 can be deployed on attached clusters running on Amazon AWS EKS and Microsoft Azure AKS.  This extends D2iQ’s openness to support Kubernetes platforms beyond DKP with Kaptain.
 
 ### Helm based deployment
 
