@@ -84,7 +84,7 @@ When upgrading to this release, the following services and service components ar
 | Jaeger               | jaeger                                         | 2.29.0  | - chart: 2.29.0 - jaeger: 1.31.0                                                                                       |
 | Karma                | karma                                          | 2.0.1   | - chart: 2.0.1 - karma: 0.88                                                                                           |
 | Kiali                | kiali                                          | 1.47.0  | - chart: 1.47.0 - kiali: 1.47.0                                                                                        |
-| KNative              | knative                                        | 0.3.9   | - chart: 0.3.9 - knative: 0.22.3                                                                                       |
+| Knative              | knative                                        | 0.3.9   | - chart: 0.3.9 - knative: 0.22.3                                                                                       |
 |                      | kube-oidc-proxy                                | 0.3.1   | - chart: 0.3.1 - kube-oidc-proxy: 0.3.0                                                                                |
 | Prometheus           | [kube-prometheus-stack][kube-prometheus-stack] | 33.1.5  | - chart: 33.1.5  - prometheus-operator: 0.54.1 - prometheus: 2.33.4 - prometheus alertmanager: 0.23.0 - grafana: 8.3.6 |
 | Kubecost             | kubecost                                       | 0.23.3  | - chart: 0.23.3 - cost-analyzer: 1.91.2                                                                                |
