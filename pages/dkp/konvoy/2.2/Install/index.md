@@ -30,7 +30,7 @@ As an example, this Installation guide provides simplified instructions to get y
 
 Before installing DKP, ensure you have the [following](../prerequisites) items.
 
-# Installing Konvoy
+# Installing DKP
 
 1.  Install required packages. In most cases, you can install the required software using your preferred package manager. For example, on a macOS computer, you can use [Homebrew][brew] to install `kubectl` and the `aws` command-line utility by running the following command:
 
