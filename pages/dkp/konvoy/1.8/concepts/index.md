@@ -61,7 +61,7 @@ Addons use Kubernetes resources to implement specific cluster-level features; be
 
 Konvoy supplements the native Kubernetes cluster by providing a predefined and pre-configured set of addons.
 Because this predefined set of addons provides critical features for managing a Kubernetes cluster in a production environment, the default set of addons is identified as Konvoy **platform services** which are a key part of delivering an **opinionated Kubernetes** solution.
-See [Kubernetes Base Addons Requirements](../addons/requirements) for the full set of Konvoy platform services that are enabled by default.
+See [Kubernetes Base Addons Requirements](../kommander/2.2/projects/applications/platform-applications/) for the full set of Konvoy platform services that are enabled by default.
 
 ## Related information
 
