@@ -28,7 +28,7 @@ As an example, this Installation guide provides simplified instructions to get y
 
 # Before you begin
 
-Before installing Konvoy, ensure you have the [following](../prerequisites) items.
+Before installing DKP, ensure you have the [following](../prerequisites) items.
 
 # Installing Konvoy
 
