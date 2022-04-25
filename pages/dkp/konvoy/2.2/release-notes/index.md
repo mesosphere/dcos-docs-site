@@ -95,8 +95,8 @@ When upgrading to this release, the following services and service components ar
 | Minio                | minio-operator                                 | 4.4.10  | - chart: 4.4.10<br>- minio: 4.4.10                                                                                        |
 | NFS Server Provisioner | nfs-server-provisioner                         | 0.6.0   | - chart: 0.6.0<br>- nfs-provisioner: 2.3.0                                                                                |
 | Nvidia               | nvidia                                         | 0.4.4   | - chart: 0.4.4<br>- nvidia-device-plugin: 0.9.0                                                                           |
-| Grafana (Project)    | project-grafana-logging                        | 6.20.6  | - chart: 6.20.6<br>- grafana: 8.3.6                                                                                       |
-| Loki                 | project-grafana-loki                           | 0.33.2  | - chart: 0.33.1<br>- loki: 2.2.1                                                                                          |
+| Grafana (project)    | project-grafana-logging                        | 6.20.6  | - chart: 6.20.6<br>- grafana: 8.3.6                                                                                       |
+| Loki (project)       | project-grafana-loki                           | 0.33.2  | - chart: 0.33.1<br>- loki: 2.2.1                                                                                          |
 |                      | project-logging                                | 1.0.0   |                                                                                                                        |
 | Prometheus Adapter   | prometheus-adapter                             | 2.17.1  | - chart: 2.17.1<br>- prometheus-adapter: 0.9.1                                                                            |
 | Reloader             | reloader                                       | 0.0.104 | - chart: 0.0.104<br>- reloader: 0.0.104                                                                                   |
