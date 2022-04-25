@@ -91,7 +91,7 @@ Kaptain uses Percona Operator to back up and restore the state of MySQL database
 You must create a Kubernetes `Secret` with AWS access credentials for the backup and then update the Kaptain configuration to enable backup and configure the storage location.
 
 Create a Kubernetes `Secret` in the same namespace where Kaptain is installed using the AWS credentials as follows:
-```bash
+```sh
 export AWS_ACCESS_KEY_ID="<aws_access_key_id>"
 export AWS_SECRET_ACCESS_KEY="<aws_secret_access_key>"
 export WORKSPACE_NAMESPACE="<workspace_namespace>"
@@ -110,7 +110,7 @@ EOF
 
 Confirm that your secret is configured correctly:
 
-```bash
+```sh
 kubectl describe secret mysql-backup-secret -n ${WORKSPACE_NAMESPACE}
 ```
 
