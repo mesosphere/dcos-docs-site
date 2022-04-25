@@ -19,19 +19,19 @@ This release provides new features and capabilities that improve user experience
 
 ### Added Kaptain as DKP Catalog application
 
-TBD
+Starting with Kaptain 2.0, it can be easily installed via the DKP catalog. [something something something]. Kaptain 2.0 is supported on DKP 2.1.2 onwards.
 
 ### Extended Support for Amazon EKS, Azure EKS and DKP multi-cluster
 
-TBD
+Kaptain 2.0 is now validated (verified?) to be deployed on attached clusters running on Amazon EKS and Azure AKS. 
 
 ### Helm based deployment
 
-TBD
+Kaptain 2.0 now uses helm based deployment which makes it easier to integrate into DKP and other platforms.
 
 ### Support for Kubernetes 1.22 and Kubeflow 1.5
 
-TBD
+Kaptain 2.0 now comes with Kubeflow 1.5 and supports Kubernetes 1.22
 
 ### Missed something?
 
@@ -44,12 +44,14 @@ TBD
 ## Software updates
 
 - Kubeflow 1.5.0
-- Argo Workflows 3.1.6
-- Katib 0.TBD.0
-- KServe TBD
+- Argo Workflows 3.2.3
+- Katib 0.13.0
+- KServe 0.7.0
 - Percona Kubernetes Operator 1.10.0
 - Kubeflow Pipelines 1.8.1
-- Training Operator 1.3.0
-- Tensorflow 2.5.0
+- Training Operator 1.4.0
+- Tensorflow 2.8.0
+- Pytorch 1.11.0
 - CUDA 11.4
 - MXNet 1.9
+- Horovod 0.24.2
