@@ -24,6 +24,7 @@ bootup
 calicoctl
 Cassandra
 CentOS
+(Chartmuseum|chartmuseum)
 checkpoint(|s|ed|ing)
 (chronos|Chronos)
 (Chrony|chrony)
@@ -134,6 +135,7 @@ kmem
 Konvoy
 konvoy
 konvoy-image
+(Kube|kube)
 (Kubeadm|kubeadm)
 (Kubectl|kubectl)
 (kubelet|Kubelet)
