@@ -31,7 +31,7 @@ Kaptain 2.0 now uses helm based deployment which makes it easier to integrate in
 
 ### Support for Kubernetes 1.22 and Kubeflow 1.5
 
-Kaptain 2.0 now comes with Kubeflow 1.5 and supports Kubernetes 1.22
+Kaptain 2.0 comes with Kubeflow 1.5, which includes expanded user control over mounted volumes, increased visibility into idle notebooks, UI improvements, and improvements to hyperparameter tuning. Kaptain 2.0 also supports Kubernetes 1.22 which contains upstream improvements such as security enhancements.
 
 ### Bundle size reduction
 
