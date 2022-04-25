@@ -19,11 +19,11 @@ This release provides new features and capabilities that improve user experience
 
 ### Added Kaptain as DKP Catalog application
 
-Starting with Kaptain 2.0, it can be easily installed via the DKP catalog. [something something something]. Kaptain 2.0 is supported on DKP 2.1.2 onwards.
+Starting with Kaptain 2.0, it can be easily installed via the DKP workspace catalog in both single and multi-cluster experiences. Kaptain 2.0 is supported on DKP 2.1.2 onwards.
 
-### Extended Support for Amazon EKS, Azure EKS and DKP multi-cluster
+### Support for Amazon EKS, Azure EKS and DKP multi-cluster
 
-Kaptain 2.0 is now validated (verified?) to be deployed on attached clusters running on Amazon EKS and Azure AKS. 
+Kaptain 2.0 can be deployed on attached clusters running on Amazon EKS and Azure AKS. 
 
 ### Helm based deployment
 
