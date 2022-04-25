@@ -92,9 +92,9 @@ You must create a Kubernetes `Secret` with AWS access credentials for the backup
 
 Create a Kubernetes `Secret` in the same namespace where Kaptain is installed using the AWS credentials as follows:
 ```bash
-AWS_ACCESS_KEY_ID="<aws_access_key_id>"
-AWS_SECRET_ACCESS_KEY="<aws_secret_access_key>"
-WORKSPACE_NAMESPACE="<workspace_namespace>"
+export AWS_ACCESS_KEY_ID="<aws_access_key_id>"
+export AWS_SECRET_ACCESS_KEY="<aws_secret_access_key>"
+export WORKSPACE_NAMESPACE="<workspace_namespace>"
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Secret
