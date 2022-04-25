@@ -43,7 +43,8 @@ Kaptain 2.0 drastically reduces the bundle sizes improving download times, espec
 
 ## Fixes and Improvements
 
-- Moved from KFServing to KServe
+* Moved from KFServing to KServe
+* Fixed the cudatoolkit version regression (COPS-7219)
 
 ## Software updates
 
