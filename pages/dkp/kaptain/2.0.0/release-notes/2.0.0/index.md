@@ -13,7 +13,7 @@ To get started with Kaptain, [download](../../download) and [install](../../inst
 
 # Release Summary
 
-This release provides new features and capabilities that improve user experience, resolves reported issues, and changes the way Kaptain is deployed. This release supports Kubeflow 1.5 and a new version of the Kaptain SDK, 1.0.1. For more information on SDK 1.0.1, see [SDK release notes](../../sdk/1.0.x/release-notes).
+D2iQ is announcing Kaptain 2.0 which includes several user experience features, additional platforms supported, and resolves reported issues. This continues our tradition of customer-led development making Kaptain even easier to deploy, supporting more platforms, and incorporating the latest innovations from the open source community in the hot AI/ML marketplace. Kaptain 2.0 supports Kubeflow 1.5 and a new version of the Kaptain SDK, 1.0.1. For more information on SDK 1.0.1, see [SDK release notes](../../sdk/1.0.x/release-notes).
 
 ## New features and capabilities
 
