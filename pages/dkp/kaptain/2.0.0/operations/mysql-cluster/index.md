@@ -144,7 +144,7 @@ core:
 
 To perform a backup, apply the following manifest to trigger the backup plan for the MySQL cluster component:
 ```bash
-WORKSPACE_NAMESPACE="<workspace_namespace>"
+export WORKSPACE_NAMESPACE="<workspace_namespace>"
 cat <<EOF | kubectl apply -f -
 apiVersion: pxc.percona.com/v1
 kind: PerconaXtraDBClusterBackup
