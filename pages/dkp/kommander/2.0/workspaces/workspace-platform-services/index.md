@@ -28,10 +28,11 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 <p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the applications, which are listed <a href="./platform-service-dependencies/">here</a>. Review them carefully prior to customizing to ensure that the applications are deployed successfully.</p>
 
 ## Workspace platform applications
-| Common Name          | Application Version           | APP ID                | Deployed by default |
+
+| Common Name          | APP NAME                      | APP ID                | Deployed by default |
 |----------------------|-------------------------------|-----------------------|---------------------|
 | Cert Manager         | cert-manager-0.2.7            | cert-manager          | True                |
-| DNS                  | external-dns-2.20.5           | external-dns          | False               |
+| External DNS         | external-dns-2.20.5           | external-dns          | False               |
 | Fluent Bit           | fluent-bit-0.16.2             | fluent-bit            | False               |
 | Gatekeeper           | gatekeeper-0.6.8              | gatekeeper            | False               |
 | Grafana              | grafana-logging-6.13.9        | grafana-logging       | False               |
@@ -52,6 +53,7 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 | Traefik              | traefik-10.3.0                | traefik               | True                |
 | Traefik ForwardAuth  | traefik-forward-auth-0.3.2    | traefik-forward-auth  | True                |
 | Velero               | velero-3.1.3                  | velero                | False               |
+
 <p class="message--note"><strong>NOTE: </strong>Currently, Kommander only supports a single deployment of <code>cert-manager</code> per cluster. Because of this, <code>cert-manager</code> cannot be installed on <code>Konvoy</code> managed <code>AWS</code> clusters.</p>
 
 <p class="message--note"><strong>NOTE: </strong>Only a single deployment of <code>traefik</code> per cluster is supported.</p>
