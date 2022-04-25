@@ -44,7 +44,7 @@ Before installing DKP, ensure you have the [following](../prerequisites) items.
     kubectl version --short=true
     ```
 
-1.  To download Konvoy, see the [Download Konvoy](../download) topic for information. You will need to download and extract the Konvoy package tarball.
+1.  To download DKP, see the [Download Konvoy](../download) topic for information. You will need to download and extract the DKP binary package tarball.
 
 1.  Install with default settings.
 
