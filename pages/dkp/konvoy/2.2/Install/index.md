@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Install
 title: Install
 menuWeight: 80
-excerpt: Install a Konvoy cluster
+excerpt: Install a DKP cluster
 beta: false
 enterprise: false
 ---
