@@ -71,7 +71,7 @@ This new predictive analytics tool provides greater support productivity, speed,
 
 When upgrading to this release, the following services and service components are upgraded to the listed version:
 
-| Platform Application | Version | Component Versions |
+| Application | Version | Component Versions |
 |--------------------- |---------|--------------------|
 | cert-manager | 1.7.1 | - chart: 1.7.1<br>- cert-manager: 1.7.1 |
 | dex | 2.9.14  | - chart: 2.9.14<br>- dex: 2.22.0 |

@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Application Deployment
-title: Deployment of Applications
+navigationTitle: Workspace Platform Application Deployment
+title: Deployment of Workspace Platform Applications
 menuWeight: 5
 beta: false
-excerpt: Deploy applications to attached clusters using the CLI
+excerpt: Deploy platform applications to attached clusters using the CLI
 ---
 
 <!-- markdownlint-disable MD004 MD040 -->
