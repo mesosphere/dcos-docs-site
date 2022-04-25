@@ -35,7 +35,7 @@ Kaptain 2.0 now comes with Kubeflow 1.5 and supports Kubernetes 1.22
 
 ### Bundle size reduction
 
-Kaptain 2.0 drastically reduces the bundle sizes improving download times, especially for the GPU bundle:
+Kaptain 2.0 drastically reduces the bundle sizes improving download times, especially for the CPU and GPU bundle:
 
 - Base installation: 31.8 GB (down from 33.2 GB)
 - CPU bundle: 12.4 GB (down from 34.3 GB)
