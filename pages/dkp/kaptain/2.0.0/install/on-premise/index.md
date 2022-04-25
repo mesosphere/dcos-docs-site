@@ -18,6 +18,6 @@ Please note that the IP address of the Kaptain UI will come from the IP address 
 
 When your cluster is ready, [install Kaptain](../) by adding Kaptain to your DKP Catalog Applications and deploying it to your clusters.
 
-[konvoy-on-prem]: /dkp/konvoy/1.8/install/install-onprem/
+[konvoy-on-prem]: ../../../../konvoy/2.2/choose-infrastructure/on-prem/
 [dkp-install]: /dkp/kommander/latest/networking/load-balancing#on-premises
-[metallb-load-balancer]: /dkp/konvoy/1.8/install/install-onprem/#configure-metallb-load-balancing
+[metallb-load-balancer]: ../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/metal-lb/
