@@ -24,7 +24,7 @@ By combining a native Kubernetes cluster as its foundation with a default set of
 DKP provides a complete out-of-the-box solution for organizations that want to deploy production-ready
 Kubernetes.
 
-As an example, this Installation guide provides simplified instructions to get your Konvoy cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) public cloud instance. For information about installing on a different platform, see [Choose Infrastructure](../choose-infrastructure/). Also, for instructions about an on-premises environment, see [Install on-premises](../install/install-onprem). 
+As an example, this Installation guide provides simplified instructions to get your DKP cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) public cloud instance. For information about installing on a different platform, see [Choose Infrastructure](../choose-infrastructure/). Also, for instructions about an on-premises environment, see [Install on-premises](../install/install-onprem). 
 
 # Before you begin
 
