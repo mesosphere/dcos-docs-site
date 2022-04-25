@@ -39,7 +39,7 @@ If the `delete_experiment` flag is set to `True` in the `Model.tune()` function,
 ### Serving
 The serving machine learning models is implemented by [KServe](https://github.com/kserve/kserve), which is the component responsible for model serving over HTTP(s) and relies on Knative Serving. When a model is deployed to serving, KServe creates a set of Knative resources such as Service, Route, and Revision.
 
-<p class="message--note"><strong>NOTE: Starting from the current release, Knative is optional if KServe is configured to work in `RawDeployment` mode.</strong>text</p>
+<p class="message--note"><strong>NOTE: </strong>Starting from the current release, Knative is optional if KServe is configured to work in `RawDeployment` mode.</p>
 
 One Knative Service is always available per model deployment. However, the number of Revisions can grow with time because every new deployment, for example a new model version with a new image name, has its Revision. When a new Revision is deployed, the older one scales the associated deployment to zero replicas and keeps it.
 
