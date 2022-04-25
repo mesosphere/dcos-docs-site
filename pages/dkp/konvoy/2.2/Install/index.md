@@ -19,9 +19,9 @@ For example, you can:
 <p class="message--important"><strong>IMPORTANT: </strong>The infrastructure you select then determines the specific requirements for a successful installation.</p>
 
 
-Konvoy is a tool for provisioning Kubernetes clusters with a suite of pre-selected [Cloud Native Computing Foundation (CNCF)][cncf] and community-contributed tools.
+DKP is a tool for provisioning Kubernetes clusters with a suite of pre-selected [Cloud Native Computing Foundation (CNCF)][cncf] and community-contributed tools.
 By combining a native Kubernetes cluster as its foundation with a default set of cluster extensions,
-Konvoy provides a complete out-of-the-box solution for organizations that want to deploy production-ready
+DKP provides a complete out-of-the-box solution for organizations that want to deploy production-ready
 Kubernetes.
 
 As an example, this Installation guide provides simplified instructions to get your Konvoy cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) public cloud instance. For information about installing on a different platform, see [Choose Infrastructure](../choose-infrastructure/). Also, for instructions about an on-premises environment, see [Install on-premises](../install/install-onprem). 
