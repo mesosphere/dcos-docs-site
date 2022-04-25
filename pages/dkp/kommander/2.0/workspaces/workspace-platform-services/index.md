@@ -43,14 +43,14 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 | Prometheus           | kube-prometheus-stack-16.13.1 | kube-prometheus-stack | True                |
 | Kubecost             | kubecost-0.17.1               | kubecost              | True                |
 | Kubernetes Dashboard | kubernetes-dashboard-4.0.3    | kubernetes-dashboard  | True                |
-|                      | logging-operator-3.13.0       | logging-operator      | False               |
+| Logging Operator     | logging-operator-3.13.0       | logging-operator      | False               |
 | Metal LB             | metallb-0.12.2                | metallb               | False               |
 | Minio                | minio-operator-4.1.7          | minio-operator        | False               |
 | Nvidia               | nvidia-0.4.2                  | nvidia                | False               |
 | Prometheus           | prometheus-adapter-2.11.1     | prometheus-adapter    | True                |
 | Reloader             | reloader-0.0.99               | reloader              | True                |
 | Traefik              | traefik-10.3.0                | traefik               | True                |
-| Traefik              | traefik-forward-auth-0.3.2    | traefik-forward-auth  | True                |
+| Traefik ForwardAuth  | traefik-forward-auth-0.3.2    | traefik-forward-auth  | True                |
 | Velero               | velero-3.1.3                  | velero                | False               |
 <p class="message--note"><strong>NOTE: </strong>Currently, Kommander only supports a single deployment of <code>cert-manager</code> per cluster. Because of this, <code>cert-manager</code> cannot be installed on <code>Konvoy</code> managed <code>AWS</code> clusters.</p>
 
