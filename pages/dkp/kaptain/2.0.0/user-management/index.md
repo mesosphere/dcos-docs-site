@@ -18,7 +18,7 @@ D2iQ recommends appropriately configured `ClusterRole` objects. As with all matt
 we encourage you to thoroughly review permissions set by our predefined `ClusterRoles` in conjunction with your security team.
 
 _NB: The following tutorial assumes you have already connected an OIDC provider to your Konvoy/Kommander cluster via Konvoy's
-built-in Dex integration. If you have not yet done so, please review the relevant documentation for [OpenID Connect][oidc] before proceeding._
+built-in Dex integration. If you have not yet done so, please review the relevant documentation for Konvoy [konvoy-oidc] or Kommander [kommander-oidc] before proceeding._
 
 ## Kubeflow Predefined `ClusterRoles`
 Kaptain comes with a set of predefined Kubernetes `ClusterRoles` designed to simplify the workflow of administrators who manage permissions of users.
@@ -245,4 +245,5 @@ clusterrolebinding.rbac.authorization.k8s.io/<name of user> created
 
 [go-resourcequotaspec]: https://godoc.org/k8s.io/api/core/v1#ResourceQuotaSpec
 [k8s-limit-range]: https://kubernetes.io/docs/concepts/policy/limit-range/
-[oidc]: ../../../kommander/2.2/security/oidc/
+[konvoy-oidc]: /dkp/konvoy/1.8/access-authentication/oidc/
+[kommander-oidc]: /dkp/kommander/latest/security/oidc/

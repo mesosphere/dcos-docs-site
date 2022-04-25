@@ -143,6 +143,8 @@ You have now added Kaptain to your DKP Catalog applications. The next step is to
 [install-spark-dkp2]: /dkp/kommander/2.1/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
 [kommander-install]: /dkp/kommander/latest/install/
 [kommander-gpu]: /dkp/kommander/latest/gpu/
+[konvoy-gpu]: /dkp/konvoy/1.8/gpu/
+[konvoy_deploy_addons]: /dkp/konvoy/1.8/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [dex]: ../../configuration/external-dex/
 [airgapped_install]: ../air-gapped-dkp/
