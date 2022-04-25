@@ -49,7 +49,7 @@ types are enabled:
 ## Grafana Dashboards
 
 Kaptain installation also includes two Grafana dashboards, which are automatically imported to Grafana and ready-to-use.
-To access the dashboard, follow the [Access a Konvoy cluster][access_konvoy] or [Access Kommander Web UI][access_kommander]
+To access the dashboard, follow the [Access DKP UI instructions][access_dkp].
 documentation page to access the operations portal, and then click on the "Dashboard" button on the Grafana tile on
 the "Platform Services" tab.
 
@@ -66,5 +66,4 @@ Kaptain provides the following dashboards:
 
 ![Kaptain Profiles Dashboard](img/kaptain-profiles-dashboard-2.png)
 
-[access_konvoy]: /dkp/konvoy/1.8/access-authentication/access-konvoy/
-[access_kommander]: /dkp/kommander/latest/install/networked/#access-kommander-web-ui
+[access_dkp]: /dkp/kommander/latest/install/networked#access-dkp-ui
