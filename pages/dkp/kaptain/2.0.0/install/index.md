@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--important"><strong>IMPORTANT: </strong>Refer to the <a href="../migration">Kaptain migration instructions</a>, if you already have Kaptain and want to move from 1.x to 2.x.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Refer to the <a href="../fresh-install">Kaptain fresh install instructions</a>, if you already have Kaptain and want to move from 1.x to 2.x. Keep in mind. that it is not possible to migrate your data at this point.</p>
 
 How do you want to deploy Kaptain?
 
