@@ -13,6 +13,7 @@ Before you begin using Kommander, you must:
 
 - Configure a Konvoy cluster using the [Konvoy Install](/dkp/konvoy/2.1/choose-infrastructure/) instructions.
 - Install `cert-manager` prior to installing Kommander. (Konvoy does this as part of its install process).
+- Review the [Management cluster application requirements](../mgmt-cluster-apps) and [Workspace platform application requirements](../../workspaces/applications/platform-applications/platform-application-requirements) to ensure that your cluster has sufficient resources.
 - Install Kommander before executing any `kommander` commands. Ensure you have the version of the CLI that matches the Kommander version you want to install.
 
 ### Default StorageClass

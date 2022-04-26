@@ -33,6 +33,8 @@ Before installing, ensure you have:
 
 -   [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
 
+-   Sufficient resources on your cluster to run Kommander. Review the [Management cluster application requirements](../mgmt-cluster-apps) and [Workspace platform application requirements](../../workspaces/applications/platform-applications/platform-application-requirements) for application requirements.
+
 ### Kommander charts bundle
 
 The charts bundle is a gzipped Tar archive containing Helm charts, which are required during Kommander installation.
