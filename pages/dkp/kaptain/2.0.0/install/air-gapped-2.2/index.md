@@ -33,7 +33,21 @@ Kaptain supports installation on an air-gapped (a.k.a. offline or private) DKP m
 
     Review the [Kommander installation documentation][kommander-install] for more information.
 
-<!-- TODO: Clarify which DKP doc to reference here. -->
+		```yaml
+		apiVersion: config.kommander.mesosphere.io/v1alpha1
+		kind: Installation
+		apps:
+		  ...
+		  dex:
+		  dex-k8s-authenticator:
+		  kube-prometheus-stack:
+		  istio:
+		  knative:
+		  minio-operator:
+		  traefik:
+		  nvidia:  # to enable GPU support
+		  ...
+		```
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
