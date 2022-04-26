@@ -91,7 +91,11 @@ Kaptain uses Percona Operator to back up and restore the state of MySQL database
 You must create a Kubernetes `Secret` with AWS access credentials for the backup and then update the Kaptain configuration to enable backup and configure the storage location.
 
 Create a Kubernetes `Secret` in the same namespace where Kaptain is installed using the AWS credentials as follows:
-```yaml
+```sh
+export AWS_ACCESS_KEY_ID="<aws_access_key_id>"
+export AWS_SECRET_ACCESS_KEY="<aws_secret_access_key>"
+export WORKSPACE_NAMESPACE="<workspace_namespace>"
+cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Secret
 metadata:
@@ -99,8 +103,31 @@ metadata:
   namespace: ${WORKSPACE_NAMESPACE}
 type: Opaque
 data:
-  AWS_ACCESS_KEY_ID: <base64-enconded AWS Access Key ID>
-  AWS_SECRET_ACCESS_KEY: <base64-enconded AWS Secret Access Key>
+  AWS_ACCESS_KEY_ID: $(echo -n "$AWS_ACCESS_KEY_ID" | base64)
+  AWS_SECRET_ACCESS_KEY: $(echo -n "$AWS_SECRET_ACCESS_KEY" | base64)
+EOF
+```
+
+Confirm that your secret is configured correctly:
+
+```sh
+kubectl describe secret mysql-backup-secret -n ${WORKSPACE_NAMESPACE}
+```
+
+The output should be similar to this:
+
+```sh
+Name:         mysql-backup-secret
+Namespace:    kubeflow
+Labels:       <none>
+Annotations:  <none>
+
+Type:  Opaque
+
+Data
+====
+AWS_SECRET_ACCESS_KEY:  40 bytes
+AWS_ACCESS_KEY_ID:      20 bytes
 ```
 
 To enable backups and configure their location, create or update the `ConfigMap` with Kaptain's configuration and include the following values:
@@ -117,7 +144,7 @@ core:
 
 To perform a backup, apply the following manifest to trigger the backup plan for the MySQL cluster component:
 ```bash
-export WORKSPACE_NAMESPACE=<workspace_namespace>
+export WORKSPACE_NAMESPACE="<workspace_namespace>"
 cat <<EOF | kubectl apply -f -
 apiVersion: pxc.percona.com/v1
 kind: PerconaXtraDBClusterBackup
@@ -131,7 +158,7 @@ EOF
 ```
 
 After the backup completes, it will be uploaded to the configured S3 bucket, for example:
-```bash
+```sh
 aws s3 ls s3://kaptain-backup/
   28KiB kaptain-mysql-store-2021-04-05-23:49:57-full.md5
      0B kaptain-mysql-store-2021-04-05-23:49:57-full.sst_info/
