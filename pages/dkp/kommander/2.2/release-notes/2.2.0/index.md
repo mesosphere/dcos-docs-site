@@ -431,7 +431,7 @@ Your cert-manager will renew your certificates successfully after 60 days, but t
     kube-federation-system        kubefed-root-certificate                    True    kubefed-root-ca                          kubefed-ca-issuer                      Certificate is up to date and has not expired   165m
     ```
 
-1.  Run the following command to restart the affected pods:
+1.  Create the following CronJob to monthly restart pods, letting them reload their new certificate:
 
     ```bash
 kubectl apply -f - <<EOF
@@ -557,7 +557,7 @@ EOF
     ```bash
     kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}'
     # Example Output
-    LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJiekNDQVJXZ0F3SUJBZ0lSQUlwSTRRWUY0QmZSRzNZUUxqUkFNQWt3Q2dZSUtvWkl6ajBFQXdJd0Z6RVYKTUJNR0ExVUVBeE1NYTI5dGJXRnVaR1Z5TFdOaE1CNFhEVEl5TURReU5qRXlORGN5TVZvWERUTXlNRFF5TXpFeQpORGN5TVZvd0Z6RVZNQk1HQTFVRUF4TU1hMjl0YldGdVpHVnlMV05oTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJCnpqMERBUWNEUWdBRTRWWE9Ka1VJNXlkNm9BVTFDYnQySEEzZ2xnUFlpYkl1OXNmQTgvMTFDckNnandtZFE3Ym8KbzNIQUdEOE9vZlU5VnlvZWIzQzJiZ2UxbWlmeUxXK013S05DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4RwpBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZPVFB0NlJzSlhNMEIxTEJZWjA3RXltLzZ2MjVNQW9HCkNDcUdTTTQ5QkFNQ0EwZ0FNRVVDSUZnWjRmYi80VWtNYVNyTWRzY0M5QTVCa2Y4MkdhQm1qMDRYS2ZWM2Zya24KQWlFQTRqNHNtc3psTGZpUHd2NGpSSHkxa010ZTZnY0V2ME81emdhdVljaU96dk09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K 
+LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJiekNDQVJXZ0F3SUJBZ0lSQUlwSTRRWUY0QmZSRzNZUUxqUkFNQWt3Q2dZSUtvWkl6ajBFQXdJd0Z6RVYKTUJNR0ExVUVBeE1NYTI5dGJXRnVaR1Z5TFdOaE1CNFhEVEl5TURReU5qRXlORGN5TVZvWERUTXlNRFF5TXpFeQpORGN5TVZvd0Z6RVZNQk1HQTFVRUF4TU1hMjl0YldGdVpHVnlMV05oTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJCnpqMERBUWNEUWdBRTRWWE9Ka1VJNXlkNm9BVTFDYnQySEEzZ2xnUFlpYkl1OXNmQTgvMTFDckNnandtZFE3Ym8KbzNIQUdEOE9vZlU5VnlvZWIzQzJiZ2UxbWlmeUxXK013S05DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4RwpBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZPVFB0NlJzSlhNMEIxTEJZWjA3RXltLzZ2MjVNQW9HCkNDcUdTTTQ5QkFNQ0EwZ0FNRVVDSUZnWjRmYi80VWtNYVNyTWRzY0M5QTVCa2Y4MkdhQm1qMDRYS2ZWM2Zya24KQWlFQTRqNHNtc3psTGZpUHd2NGpSSHkxa010ZTZnY0V2ME81emdhdVljaU96dk09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K 
     ```
 
 <!-- Can we get an example output -->
@@ -578,7 +578,7 @@ EOF
 1.  Patch the secret temporarily (since Flux is not able to clone the repository):
 
     ```bash
-    kubectl patch secret -nkommander-flux kommander-git-credentials --type='json' -p="[{\"op\": \"replace\", \"path\": \"/data/caFile\", \"value\": \"$(kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}')\"}]"
+    kubectl patch secret -n kommander-flux kommander-git-credentials --type='json' -p="[{\"op\": \"replace\", \"path\": \"/data/caFile\", \"value\": \"$(kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}')\"}]"
     ```
 
 1.  Optional: Force reconciliation of the updated Git repository for quicker results:
