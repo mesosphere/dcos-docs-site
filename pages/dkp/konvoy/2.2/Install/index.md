@@ -48,7 +48,7 @@ Before installing DKP, ensure you have the [following](../prerequisites) items.
 
 1.  Install with default settings.
 
-1.  Verify you have valid **CLOUD PROVIDER security credentials** to deploy the cluster on that platform. This step is not required if you are installing Konvoy on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../install/install-onprem).
+1.  Verify you have valid **CLOUD PROVIDER security credentials** to deploy the cluster on that platform. This step is not required if you are installing DKP on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../install/install-onprem).
 
 1.  Create a directory for storing state information for your cluster by running the following commands:
 
@@ -94,7 +94,7 @@ The `konvoy up` command produces output from Terraform and Ansible provisioning 
 When deployment is complete, you should see a confirmation message similar to the following:
 
 ```text
-Kubernetes cluster and addons deployed successfully!
+Kubernetes cluster deployed successfully!
 
 Run `konvoy apply kubeconfig` to update kubectl credentials.
 
@@ -113,7 +113,7 @@ For a production cluster, you can modify the cluster configuration to use your o
 
 You can then use this information to access the operations portal and associated dashboards.
 
-## Explore the cluster and addons
+## Explore the cluster and platform applications
 
 Use the URL you copied from the deployment output (for example, `https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/landing`) to access the cluster's dashboards using the **operations portal**.
 
@@ -129,7 +129,7 @@ After you log in to the operations portal, you can view the [dashboards](../acce
 cluster activity performance.
 
 Although these are the most common next steps, you do not need to log in to the operations portal or run basic diagnostics to verify a successful installation.
-If there were issues with installing or bringing the Kubernetes cluster online, the addons installation would fail.
+If there were issues with installing or bringing the Kubernetes cluster online, the platform applications installation would fail.
 
 # Merge the kubeconfig
 
@@ -196,7 +196,6 @@ For more details, see the following topics:
 
 - [Deploy a sample application](../deployments/deploy-sample-app/)
 - [Provision a customized cluster](../install/provision-a-custom-cluster/)
-- [Check component integrity](../install/tips-tricks/check-components/)
 - [Troubleshooting](../troubleshooting/)
 
 [cncf]: https://www.cncf.io
