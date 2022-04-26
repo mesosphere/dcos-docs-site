@@ -114,7 +114,7 @@ Confirm that your secret is configured correctly:
 kubectl describe secret mysql-backup-secret -n ${WORKSPACE_NAMESPACE}
 ```
 
-The output should look like this:
+The output should be similar to this:
 
 ```sh
 Name:         mysql-backup-secret
