@@ -104,29 +104,29 @@ Based on the network latency between the environment of script execution, the Do
 
 ### Install Kaptain using helm
 
-Download the `kaptain-2.0.0.tgz` chart archive from the link obtained from support.
+1.  Download the `kaptain-2.0.0.tgz` chart archive from the link obtained from support.
 
-Add the following to a file named 'values.yaml' to pass to the helm install with the following contents:
+1.  Add the following to a file named 'values.yaml' to pass to the helm install with the following contents:
 
-```yaml
-ingress:
-  kubeflowIngressGatewayServiceAnnotations:
-    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-```
+    ```yaml
+    ingress:
+      kubeflowIngressGatewayServiceAnnotations:
+        service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+    ```
 
-Use helm to install kaptain to your airgapped cluster.
+1.  Use helm to install kaptain to your airgapped cluster.
 
-```bash
-helm install kaptain kaptain-2.0.0.tgz --values values.yaml
-```
+    ```bash
+    helm install kaptain kaptain-2.0.0.tgz --values values.yaml
+    ```
 
-You may need to specify `--kubeconfig=my-air-gap-cluster.conf` for the install.
+    You may need to specify `--kubeconfig=my-air-gap-cluster.conf` for the install.
 
-You can check the status of the install with:
+1.  You can check the status of the install with:
 
-```bash
-helm status kaptain
-```
+    ```bash
+    helm status kaptain
+    ```
 
 ## Uninstall Kaptain
 
