@@ -32,12 +32,12 @@ You can deploy Kaptain on a per-workspace basis.
 
 ## Prerequisites
 
--   A DKP cluster with the following Platform applications enabled:
+- A DKP cluster with the following Platform applications enabled:
 
-    - Istio
-    - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
+  - Istio
+  - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
 
--   [`kubectl`][kubectl] on your installation machine
+- [`kubectl`][kubectl] on your installation machine
 
 ## Install overview
 

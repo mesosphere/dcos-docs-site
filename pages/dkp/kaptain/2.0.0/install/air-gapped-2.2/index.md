@@ -20,34 +20,34 @@ Kaptain supports installation on an air-gapped (a.k.a. offline or private) DKP m
 
 ## Prerequisites
 
--   [A DKP cluster][dkp-install] with the following Platform applications enabled:
+- [A DKP cluster][dkp-install] with the following Platform applications enabled:
 
-    - Istio
-    - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
+  - Istio
+  - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
 
--   [`kubectl`][kubectl] on your installation machine
+- [`kubectl`][kubectl] on your installation machine
 
--   For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
+- For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
 
--   Ensure the following applications are enabled in Kommander. 
+- Ensure the following applications are enabled in Kommander.
 
-    Review the [Kommander installation documentation][kommander-install] for more information.
+  Review the [Kommander installation documentation][kommander-install] for more information.
 
-		```yaml
-		apiVersion: config.kommander.mesosphere.io/v1alpha1
-		kind: Installation
-		apps:
-		  ...
-		  dex:
-		  dex-k8s-authenticator:
-		  kube-prometheus-stack:
-		  istio:
-		  knative:
-		  minio-operator:
-		  traefik:
-		  nvidia:  # to enable GPU support
-		  ...
-		```
+      ```yaml
+      apiVersion: config.kommander.mesosphere.io/v1alpha1
+      kind: Installation
+      apps:
+        ...
+        dex:
+        dex-k8s-authenticator:
+        kube-prometheus-stack:
+        istio:
+        knative:
+        minio-operator:
+        traefik:
+        nvidia:  # to enable GPU support
+        ...
+      ```
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
@@ -59,19 +59,18 @@ The folloing catalog will need to be added to the Komamnder install configuratio
 
 ```yaml
 catalog:
-...
-  repositories:
-    - name: dkp-catalog-applications
-      labels:
-        kommander.d2iq.io/gitapps-gitrepository-type: dkp
-        kommander.d2iq.io/workspace-default-catalog-repository: "true"
-      path: ./dkp-catalog-applications
-    - name: kaptain-catalog-applications
-      labels:
-        kommander.d2iq.io/gitapps-gitrepository-type: dkp
-        kommander.d2iq.io/workspace-default-catalog-repository: "true"
-      path: ./kaptain-catalog-applications
-...
+---
+repositories:
+  - name: dkp-catalog-applications
+    labels:
+      kommander.d2iq.io/gitapps-gitrepository-type: dkp
+      kommander.d2iq.io/workspace-default-catalog-repository: "true"
+    path: ./dkp-catalog-applications
+  - name: kaptain-catalog-applications
+    labels:
+      kommander.d2iq.io/gitapps-gitrepository-type: dkp
+      kommander.d2iq.io/workspace-default-catalog-repository: "true"
+    path: ./kaptain-catalog-applications
 ```
 
 If you added Kaptain after installing DKP, you must make it available by rerunning the Kommander installation with the updated configuration file.
@@ -97,10 +96,10 @@ If you added Kaptain after installing DKP, you must make it available by rerunni
 
 1.  Download the application bundles and chart archive (get links from support)
 
-1.  Extract the application bundle to the location referenced in the Kommander configuration file above. 
+1.  Extract the application bundle to the location referenced in the Kommander configuration file above.
 
     ```bash
-    mkdir kaptain-catalog-applications 
+    mkdir kaptain-catalog-applications
     tar -xvf kaptain-catalog-applications.tar.gz --strip-components 1 -C kaptain-catalog-applications
     ```
 

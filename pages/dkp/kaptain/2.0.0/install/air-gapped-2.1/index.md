@@ -20,50 +20,50 @@ Kaptain supports installation on an air-gapped (offline or private) DKP managed 
 
 ## Prerequisites
 
--   [A DKP cluster][dkp-install] with the following Platform applications enabled:
+- [A DKP cluster][dkp-install] with the following Platform applications enabled:
 
-    - Istio
-    - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
+  - Istio
+  - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
 
--   [`kubectl`][kubectl] on your installation machine
+- [`kubectl`][kubectl] on your installation machine
 
--   For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
+- For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
 
--   Ensure the following applications are enabled in Kommander:
+- Ensure the following applications are enabled in Kommander:
 
-    1. Use the existing Kommander configuration file, or initialize the default one:
+  1. Use the existing Kommander configuration file, or initialize the default one:
 
-		```bash
-		dkp install kommander --init > kommander-config.yaml
-		```
+     ```bash
+     dkp install kommander --init > kommander-config.yaml
+     ```
 
-    1. Ensure the following applications are enabled in the config:
+  1. Ensure the following applications are enabled in the config:
 
-		```yaml
-		apiVersion: config.kommander.mesosphere.io/v1alpha1
-		kind: Installation
-		apps:
-		  ...
-		  dex:
-		  dex-k8s-authenticator:
-		  kube-prometheus-stack:
-		  istio:
-		  knative:
-		  minio-operator:
-		  traefik:
-		  nvidia:  # to enable GPU support
-		  ...
-		```
+     ```yaml
+     apiVersion: config.kommander.mesosphere.io/v1alpha1
+     kind: Installation
+     apps:
+       ...
+       dex:
+       dex-k8s-authenticator:
+       kube-prometheus-stack:
+       istio:
+       knative:
+       minio-operator:
+       traefik:
+       nvidia:  # to enable GPU support
+       ...
+     ```
 
-    1. Apply the new configuration to Kommander:
+  1. Apply the new configuration to Kommander:
 
-		```bash
-		dkp install kommander --installer-config kommander-config.yaml
-		```
+     ```bash
+     dkp install kommander --installer-config kommander-config.yaml
+     ```
 
 <!-- TODO: Reference doc for DKP, as commands are different depending on the installation and delete only this step or the whole "Ensure the following applications are enabled in Kommander:" part?-->
 
-  Review the [Kommander installation documentation][kommander-install] for more information.
+Review the [Kommander installation documentation][kommander-install] for more information.
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
@@ -80,27 +80,27 @@ If you need to run Spark jobs on Kubernetes using Spark Operator, you must insta
 
 1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
 
-   ```bash
-   #!/usr/bin/env bash
-   set -euo pipefail
-   IFS=$'\n\t'
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
 
-   readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kaptain-image-bundle.tar"}
-   readonly REGISTRY_URL=${REGISTRY_URL#https://}
+readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kaptain-image-bundle.tar"}
+readonly REGISTRY_URL=${REGISTRY_URL#https://}
 
-   docker load --input "${AIRGAPPED_TAR_FILE}"
+docker load --input "${AIRGAPPED_TAR_FILE}"
 
-   while read -r IMAGE; do
-       echo "Processing ${IMAGE}"
-       REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker|k8s.gcr|nvcr).io|public.ecr.aws|mcr.microsoft.com@${REGISTRY_URL}@")"
-       docker image tag "${IMAGE}" "${REGISTRY_IMAGE}"
-       docker image push "${REGISTRY_IMAGE}"
-   done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
-   ```
+while read -r IMAGE; do
+    echo "Processing ${IMAGE}"
+    REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker|k8s.gcr|nvcr).io|public.ecr.aws|mcr.microsoft.com@${REGISTRY_URL}@")"
+    docker image tag "${IMAGE}" "${REGISTRY_IMAGE}"
+    docker image push "${REGISTRY_IMAGE}"
+done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
+```
 
 <p class="message--note"><strong>NOTE: </strong>This script is slightly different than the Kommander load script and has different image registry filters.</p>
 
-   Based on the network latency between the environment of script execution, the Docker registry, and the disk speed, this can take a while to upload all the images to your image registry.
+Based on the network latency between the environment of script execution, the Docker registry, and the disk speed, this can take a while to upload all the images to your image registry.
 
 ### Install Kaptain using helm
 
