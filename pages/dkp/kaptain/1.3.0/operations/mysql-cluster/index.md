@@ -19,13 +19,13 @@ and Katib experiment results.
 ## Overview
 By default, the MySQL cluster is based on Percona XtraDB, and consists of 3 database nodes and 2 proxy nodes. The database nodes run MySQL daemons and store the data, and the proxy nodes run HAProxy and expose the database to the clients via a Kubernetes Service.
 
-The database nodes form a primary-primary database cluster.  This means there are no secondary nodes; i.e. all data is consistent across all the cluster nodes whenever a database operation completes successfully.
+The database nodes form a primary-primary database cluster. This means there are no secondary nodes, and all data is consistent across all the cluster nodes whenever a database operation completes successfully.
 
-Horizontally scaling the database nodes will result in more replicas of the data available for recovery in case of a failure.  However, it will not result in better performance because of the replication model.
+Horizontally scaling the database nodes will result in more replicas of the data available for recovery in case of a failure. However, it will not result in better performance because of the replication model.
 
 To achieve better performance, the database nodes should be scaled vertically by adding more resources, such as CPU and memory.
 
-<p class="message--warning"><strong>WARNING: </strong>The Kaptain MySQL cluster does not support simultaneous changes to the database resources and the number of database nodes at the same time. If changes in both are required, you should perform them sequentially (i.e. increase resources, and then scale, or vice versa.)</p>
+<p class="message--warning"><strong>WARNING: </strong>The Kaptain MySQL cluster does not support simultaneous changes to the database resources and the number of database nodes at the same time. If changes in both are required, you should perform them sequentially (for example, increase resources, and then scale, or vice versa.)</p>
 
 <p class="message--warning"><strong>WARNING: </strong>The Kaptain MySQL cluster does not support updates of Proxy nodes and MySQL nodes at the same time. Update operations should be performed for each component independently.</p>
 
@@ -81,7 +81,7 @@ kubectl kudo update \
 		--namespace kubeflow
 ```
 
-<p class="message--warning"><strong>WARNING: </strong>When scaling the existing database cluster down (i.e. decreasing the number of nodes), it is possible for clients to lose connectivity if the leader node is decommissioned. Once a new leader is elected, the clients will be able to reconnect.</p>
+<p class="message--warning"><strong>WARNING: </strong>When scaling the existing database cluster down (for example, decreasing the number of nodes), it is possible for clients to lose connectivity if the leader node is decommissioned. Once a new leader is elected, the clients will be able to reconnect.</p>
 
 ## Configuring MySQL cluster resources
 
@@ -145,16 +145,40 @@ Kaptain provides dedicated KUDO plans for on-demand backup and restore operation
 You must create a Kubernetes `Secret` with AWS access credentials for the backup and then update the Kaptain configuration to enable backup and configure the storage location.
 
 Create a Kubernetes `Secret` in the same namespace where Kaptain is installed using the AWS credentials as follows:
-```yaml
+```sh
+export AWS_ACCESS_KEY_ID="<aws_access_key_id>"
+export AWS_SECRET_ACCESS_KEY="<aws_secret_access_key>"
+export WORKSPACE_NAMESPACE="<workspace_namespace>"
+cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Secret
 metadata:
   name: mysql-backup-secret
 type: Opaque
 data:
-  AWS_ACCESS_KEY_ID: <base64-enconded AWS Access Key ID>
-  AWS_SECRET_ACCESS_KEY: <base64-enconded AWS Secret Access Key>
+  AWS_ACCESS_KEY_ID: $(echo -n "$AWS_ACCESS_KEY_ID" | base64)
+  AWS_SECRET_ACCESS_KEY: $(echo -n "$AWS_SECRET_ACCESS_KEY" | base64)
+EOF
 ```
+
+Confirm that your secret is configured correctly:
+
+```sh
+kubectl describe secret mysql-backup-secret -n ${WORKSPACE_NAMESPACE}
+```
+
+The output should be similar to this:
+
+```sh
+Name:         mysql-backup-secret
+Namespace:    kubeflow
+Labels:       <none>
+Annotations:  <none>
+Type:  Opaque
+Data
+====
+AWS_SECRET_ACCESS_KEY:  40 bytes
+AWS_ACCESS_KEY_ID:      20 bytes
 
 To enable backups and configure backup location, create or update a configuration file named `parameters.yaml` and include the following properties:
 ```yaml
@@ -190,7 +214,7 @@ kubectl kudo plan trigger --name=backup \
 ```
 
 After the backup completes, it will be uploaded to the configured S3 bucket, for example:
-```bash
+```sh
 aws s3 ls s3://kaptain-backup/
   28KiB kaptain-mysql-store-2021-04-05-23:49:57-full.md5
      0B kaptain-mysql-store-2021-04-05-23:49:57-full.sst_info/
@@ -200,7 +224,7 @@ aws s3 ls s3://kaptain-backup/
 
 <p class="message--warning"><strong>WARNING: </strong>The restore operation will terminate the running MySQL cluster and delete all the existing data. The data from the backup will be used to bootstrap a new cluster. The restore operation introduces downtime for the duration of the restore process.</p>
 
-There are two options for restoring the database cluster from a backup:
+You have two options for restoring the database cluster from a backup:
 * Using the latest backup created by running a KUDO backup plan
 * Using a selected backup. For example, an older one.
 
