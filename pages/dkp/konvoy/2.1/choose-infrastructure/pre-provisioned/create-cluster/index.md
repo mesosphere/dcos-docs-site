@@ -112,7 +112,7 @@ kube-system              kube-apiserver-ip-10-0-121-16.us-west-2.compute.interna
 kube-system              kube-apiserver-ip-10-0-46-17.us-west-2.compute.internal             1/1     Running           1               16m
 kube-system              kube-apiserver-ip-10-0-88-238.us-west-2.compute.internal            1/1     Running           1               5m34s
 kube-system              kube-controller-manager-ip-10-0-121-16.us-west-2.compute.internal   0/1     Running           0               7s
-   kube-system              kube-controller-manager-ip-10-0-46-17.us-west-2.compute.internal    1/1     Running           1 (5m25s ago)   15m
+kube-system              kube-controller-manager-ip-10-0-46-17.us-west-2.compute.internal    1/1     Running           1 (5m25s ago)   15m
 kube-system              kube-controller-manager-ip-10-0-88-238.us-west-2.compute.internal   1/1     Running           0               5m34s
 kube-system              kube-proxy-gclmt                                                    1/1     Running           0               16m
 kube-system              kube-proxy-gptd4                                                    1/1     Running           0               9s
