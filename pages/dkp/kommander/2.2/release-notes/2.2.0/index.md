@@ -346,9 +346,9 @@ Proceed with the following instructions if you have configured an [ACME issuer t
 
 To **prevent your applications from breaking**, or to **get them up and running again**, restart the corresponding pods and have the cert-manager create a new certificate. This forces the applications to reconcile and recognize the renewed certificate.
 
-### Extend CA duration
+#### Extend CA duration
 
-If you are relying on self-signed kommander-ca, you should first extend the lifespan of your Certification Authority (CA) which is by default 90d. Since cert-manager does not rotate CA bundles inside certificates this may lead to broken chains of trust for newly issued certificates.
+If you are relying on a self-signed kommander-ca, extend the lifespan of your Certification Authority (CA) before you restart your pods. By default, the validity period is set at 90d. Since cert-manager does not rotate CA bundles inside certificates, this can lead to broken chains of trust for newly issued certificates.
 
 First, download the cert-manager client:
 
