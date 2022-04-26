@@ -48,7 +48,7 @@ Before installing DKP, ensure you have the [following](../prerequisites) items.
 
 1.  Install with default settings.  The Container Network Interface (CNI) which is satisfied by Calico, the Container Storage Interface (CSI) which is satisfied by drivers specific to the cloud provider that's selected, CoreDNS (recursive DNS resolver that serves cluster Service Endpoints), and Cert Manager (for TLS Certificate management).
 
-1.  Verify you have valid **CLOUD PROVIDER security credentials** to deploy the cluster on that platform. This step is not required if you are installing DKP on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../install/install-onprem).
+1.  Verify you have valid **CLOUD PROVIDER security credentials** to deploy the cluster on that platform. This step is not required if you are installing DKP on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../choose-infrastructure/on-prem).
 
 1.  Create a directory for storing state information for your cluster by running the following commands:
 
