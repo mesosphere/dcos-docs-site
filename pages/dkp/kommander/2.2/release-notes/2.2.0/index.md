@@ -86,7 +86,7 @@ When upgrading to this release, the following services and service components ar
 | kiali | 1.47.0 | - chart: 1.47.0<br>- kiali: 1.47.0 |
 | knative | 0.3.9 | - chart: 0.3.9<br>- knative: 0.22.3 |
 | kube-oidc-proxy | 0.3.1 | - chart: 0.3.1<br>- kube-oidc-proxy: 0.3.0 |
-| [kube-prometheus-stack][kube-prometheus-stack] | 33.1.5  | - chart: 33.1.5 <br>- prometheus-operator: 0.54.1<br>- prometheus: 2.33.4<br>- prometheus alertmanager: 0.23.0<br>- grafana: 8.3.6 |
+| [kube-prometheus-stack] | 33.1.5  | - chart: 33.1.5 <br>- prometheus-operator: 0.54.1<br>- prometheus: 2.33.4<br>- prometheus alertmanager: 0.23.0<br>- grafana: 8.3.6 |
 | kubecost | 0.23.3 | - chart: 0.23.3<br>- cost-analyzer: 1.91.2 |
 | kubefed | 0.9.1 | - chart: 0.9.1<br>- kubefed: 0.9.1 |
 | kubernetes-dashboard | 5.1.1 | - chart: 5.1.1<br>- kubernetes-dashboard: 2.4.0 |
@@ -151,7 +151,10 @@ spec:
 
 Upgrading catalog applications using Spark Operator can fail when running `dkp upgrade catalogapp` due to the operator not starting. If this occurs, use the following workaround:
 
-1.  Run the `dkp upgrade catalogapp` command.
+1.  Run the command.
+	```bash
+	dkp upgrade catalogapp
+	```
 1.  Monitor the failure of `spark-operator`.
 1.  Get the workspace namespace name and export it.
 
@@ -433,7 +436,7 @@ Your cert-manager will renew your certificates successfully after 60 days, but t
 
 1.  Create the following CronJob to monthly restart pods, letting them reload their new certificate:
 
-    ```bash
+```yaml
 kubectl apply -f - <<EOF
 ---
 apiVersion: v1
@@ -527,23 +530,23 @@ spec:
 EOF
 ```
 
-    Now you must fix the certificate issues with the Gitrepository by committing the updated secret to Git.
+Now you must fix the certificate issues with the Gitrepository by committing the updated secret to Git.
 
 1.  Clone the management repository:
 
-    ```bash
-    kubectl -n kommander get secret kommander-traefik-certificate -o go-template='{{index .data "ca.crt"|base64decode}}' > ca.crt && git clone -c http.sslCAInfo=$(pwd)/ca.crt https://$(kubectl -n kommander get secret admin-git-crede
-    ntials -o go-template='{{.data.username|base64decode}}:{{.data.password|base64decode}}')@$((kubectl -n kommander get cm konvoyconfig-kubeaddons -o go-template='{{if ne .data.clusterHostname ""}}{{.data.clusterHostname}}{{"\n"}}{{end}}' &&
-    kubectl -n kommander get ingress gitea -o jsonpath="{.status.loadBalancer.ingress[0]['ip','hostname']}") | head -1)/dkp/kommander/git/kommander/kommander
-    ```
+	```bash
+	kubectl -n kommander get secret kommander-traefik-certificate -o go-template='{{index .data "ca.crt"|base64decode}}' > ca.crt && git clone -c http.sslCAInfo=$(pwd)/ca.crt https://$(kubectl -n kommander get secret admin-git-crede
+	ntials -o go-template='{{.data.username|base64decode}}:{{.data.password|base64decode}}')@$((kubectl -n kommander get cm konvoyconfig-kubeaddons -o go-template='{{if ne .data.clusterHostname ""}}{{.data.clusterHostname}}{{"\n"}}{{end}}' &&
+	kubectl -n kommander get ingress gitea -o jsonpath="{.status.loadBalancer.ingress[0]['ip','hostname']}") | head -1)/dkp/kommander/git/kommander/kommander
+	```
 
 1.  Change into the directory containing the credentials manifest: `kommander/shared/kommander-git-repository`
 
 1.  Update the manifest file with what is stored in the cluster:
 
-    ```bash
-    kubectl -n kommander-flux get secret kommander-git-credentials -o yaml > git-credentials.yaml
-    ```
+	```bash
+	kubectl -n kommander-flux get secret kommander-git-credentials -o yaml > git-credentials.yaml
+	```
 
 1.  Delete the following fields from the `git-credentials.yaml` file:
 
@@ -554,38 +557,40 @@ EOF
 
 1.  Replace the content of the field "data.ca" file with the output of this command:
 
-    ```bash
-    kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}'
-    # Example Output
-LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJiekNDQVJXZ0F3SUJBZ0lSQUlwSTRRWUY0QmZSRzNZUUxqUkFNQWt3Q2dZSUtvWkl6ajBFQXdJd0Z6RVYKTUJNR0ExVUVBeE1NYTI5dGJXRnVaR1Z5TFdOaE1CNFhEVEl5TURReU5qRXlORGN5TVZvWERUTXlNRFF5TXpFeQpORGN5TVZvd0Z6RVZNQk1HQTFVRUF4TU1hMjl0YldGdVpHVnlMV05oTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJCnpqMERBUWNEUWdBRTRWWE9Ka1VJNXlkNm9BVTFDYnQySEEzZ2xnUFlpYkl1OXNmQTgvMTFDckNnandtZFE3Ym8KbzNIQUdEOE9vZlU5VnlvZWIzQzJiZ2UxbWlmeUxXK013S05DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4RwpBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZPVFB0NlJzSlhNMEIxTEJZWjA3RXltLzZ2MjVNQW9HCkNDcUdTTTQ5QkFNQ0EwZ0FNRVVDSUZnWjRmYi80VWtNYVNyTWRzY0M5QTVCa2Y4MkdhQm1qMDRYS2ZWM2Zya24KQWlFQTRqNHNtc3psTGZpUHd2NGpSSHkxa010ZTZnY0V2ME81emdhdVljaU96dk09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K 
-    ```
+	```bash
+	kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}'
+	```
 
-<!-- Can we get an example output -->
+	```sh
+	LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJiekNDQVJXZ0F3SUJBZ0lSQUlwSTRRWUY0QmZSRzNZUUxqUkFNQWt3Q2dZSUtvWkl6ajBFQXdJd0Z6RVYKTUJNR0ExVUVBeE1NYTI5dGJXRnVaR1Z5TFdOaE1CNFhEVEl5TURReU5qRXlORGN5TVZvWERUTXlNRFF5TXpFeQpORGN5TVZvd0Z6RVZNQk1HQTFVRUF4TU1hMjl0YldGdVpHVnlMV05oTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJCnpqMERBUWNEUWdBRTRWWE9Ka1VJNXlkNm9BVTFDYnQySEEzZ2xnUFlpYkl1OXNmQTgvMTFDckNnandtZFE3Ym8KbzNIQUdEOE9vZlU5VnlvZWIzQzJiZ2UxbWlmeUxXK013S05DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4RwpBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZPVFB0NlJzSlhNMEIxTEJZWjA3RXltLzZ2MjVNQW9HCkNDcUdTTTQ5QkFNQ0EwZ0FNRVVDSUZnWjRmYi80VWtNYVNyTWRzY0M5QTVCa2Y4MkdhQm1qMDRYS2ZWM2Zya24KQWlFQTRqNHNtc3psTGZpUHd2NGpSSHkxa010ZTZnY0V2ME81emdhdVljaU96dk09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K 
+	```
+
+	<!-- Can we get an example output -->
 1.  Encrypt the file again:
 
-    ```bash
-    sops --age=$(k -n kommander get secret sops-age -o jsonpath='{.data.age\.agekey}'|base64 -d|age-keygen -y) --encrypt --encrypted-regex '^(data|stringData)$' --in-place git-credentials.yaml
-    ```
+	```bash
+	sops --age=$(k -n kommander get secret sops-age -o jsonpath='{.data.age\.agekey}'|base64 -d|age-keygen -y) --encrypt --encrypted-regex '^(data|stringData)$' --in-place git-credentials.yaml
+	```
 
 1.  Commit and push the updated file:
 
-    ```bash
-    git add git-credentials.yaml
-    git commit -m 'update git credentials'
-    git push
-    ```
+	```bash
+	git add git-credentials.yaml
+	git commit -m 'update git credentials'
+	git push
+	```
 
 1.  Patch the secret temporarily (since Flux is not able to clone the repository):
 
-    ```bash
-    kubectl patch secret -n kommander-flux kommander-git-credentials --type='json' -p="[{\"op\": \"replace\", \"path\": \"/data/caFile\", \"value\": \"$(kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}')\"}]"
-    ```
+	```bash
+	kubectl patch secret -n kommander-flux kommander-git-credentials --type='json' -p="[{\"op\": \"replace\", \"path\": \"/data/caFile\", \"value\": \"$(kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}')\"}]"
+	```
 
-1.  Optional: Force reconciliation of the updated Git repository for quicker results:
+1.  (Optional) Force reconciliation of the updated Git repository for quicker results:
 
-    ```bash
-    flux -n kommander-flux reconcile source git management
-    ```
+	```bash
+	flux -n kommander-flux reconcile source git management
+	```
 
     Flux should be able to connect to the Git server again.
 
