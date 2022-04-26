@@ -51,8 +51,7 @@ Kaptain supports installation on an air-gapped (a.k.a. offline or private) DKP m
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
-In case you need to run Spark jobs on Kubernetes using Spark Operator, it needs to be installed separately.
-Use the following instructions to install Spark Operator from Kommander Catalog for [DKP 2.x][install-spark-dkp2].
+If you need to run Spark jobs on Kubernetes using Spark Operator, you must install it separately. Use the following instructions to install Spark Operator from Kommander Catalog for [DKP 2.x][install-spark-dkp2].
 
 ## Add Kaptain to your Kommander Install
 
@@ -81,8 +80,8 @@ If you added Kaptain after installing DKP, you must make it available by rerunni
 
 1.  Download the image bundle file:
 
-    - Download `kaptain_air_gapped.tar` that will contain the required artifacts to perform an air-gapped installation.
-    - (Optional) Download the custom image artifacts `kaptain_air_gapped_cpu.tar` or `kaptain_air_gapped_gpu.tar` based on whether you need CPU or GPU for your workloads.
+    - Download `kaptain-air-gapped-2.0.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
+    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads.
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 

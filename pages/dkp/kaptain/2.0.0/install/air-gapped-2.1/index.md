@@ -16,7 +16,7 @@ You can deploy Kaptain to a cluster in a selected workspace. If you do not inten
 
 Refer to [DKP install instructions][dkp_install], if you want to deploy Kaptain in a networked environment or to [DKP 2.2 air-gapped instructions][2.2_air] if you are deploying in DKP 2.2.
 
-Kaptain supports installation on an air-gapped (a.k.a. offline or private) DKP managed cluster. Before installing Kaptain, please follow the [air-gapped installation guide][konvoy-air-gap] to set up the air-gapped DKP managed cluster. The cluster admin is responsible for configuring the DKP cluster correctly and ensuring container images have been pre-loaded to the private registry before installing Kaptain.
+Kaptain supports installation on an air-gapped (offline or private) DKP managed cluster. Before installing Kaptain, follow the [air-gapped installation guide][konvoy-air-gap] to set up the air-gapped DKP managed cluster. The cluster admin is responsible for configuring the DKP cluster correctly and ensuring container images have been pre-loaded to the private registry, before installing Kaptain.
 
 ## Prerequisites
 
@@ -67,15 +67,14 @@ Kaptain supports installation on an air-gapped (a.k.a. offline or private) DKP m
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
-In case you need to run Spark jobs on Kubernetes using Spark Operator, it needs to be installed separately.
-Use the following instructions to install Spark Operator from Kommander Catalog for [DKP 2.x][install-spark-dkp2].
+If you need to run Spark jobs on Kubernetes using Spark Operator, you must install it separately. Use the following instructions to install Spark Operator from Kommander Catalog for [DKP 2.x][install-spark-dkp2].
 
 ### Load the Docker images into your Docker registry
 
 1.  Download the image bundle file:
 
-    - Download `kaptain_air_gapped.tar` that will contain the required artifacts to perform an air-gapped installation.
-    - (Optional) Download the custom image artifacts `kaptain_air_gapped_cpu.tar` or `kaptain_air_gapped_gpu.tar` based on whether you need CPU or GPU for your workloads.
+    - Download `kaptain-air-gapped-2.0.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
+    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads.
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 
@@ -99,13 +98,13 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
    done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
    ```
 
-   _Note: this script is slightly different than the Kommander load script and has different image registry filters._
+<p class="message--note"><strong>NOTE: </strong>This script is slightly different than the Kommander load script and has different image registry filters.</p>
 
    Based on the network latency between the environment of script execution, the Docker registry, and the disk speed, this can take a while to upload all the images to your image registry.
 
 ### Install Kaptain using helm
 
-Download the kaptain-2.0.0.tgz chart archive from the link obtained from support.
+Download the `kaptain-2.0.0.tgz` chart archive from the link obtained from support.
 
 Add the following to a file named 'values.yaml' to pass to the helm install with the following contents:
 
@@ -118,10 +117,10 @@ ingress:
 Use helm to install kaptain to your airgapped cluster.
 
 ```bash
-helm install kaptain kaptain-2.0.0.tgz -values values.yaml
+helm install kaptain kaptain-2.0.0.tgz --values values.yaml
 ```
 
-You may need to specify `--kubecofnig=my-air-gap-cluster.conf` for the install.
+You may need to specify `--kubeconfig=my-air-gap-cluster.conf` for the install.
 
 You can check the status of the install with:
 
