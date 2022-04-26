@@ -14,7 +14,7 @@ You can deploy Kaptain to a cluster in a selected workspace. If you do not inten
 
 ## Requirements
 
-Before proceeding, verify that your cluster has freely available the following resources:
+Before proceeding, verify that your cluster has the following resources freely available:
 
 - 3 worker nodes
 - 4 CPU cores
