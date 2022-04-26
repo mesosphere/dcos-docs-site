@@ -413,7 +413,7 @@ Your cert-manager will renew your certificates successfully after 60 days, but t
     kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}'
     ```
 
-<!-- Can we get an example output? -->
+<!-- Can we get an example output -->
 1.  Encrypt the file again:
 
     ```bash
