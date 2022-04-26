@@ -34,11 +34,11 @@ Before you begin, you must:
     kubectl run --restart=Never --image hashicorp/http-echo --labels app=http-echo-2 --port 80 http-echo-2 -- -listen=:80 --text="Hello from http-echo-2"
     ```
 
-1. Expose the Pods with a service type of NodePort by running the following commands:
+1. Expose the Pods with a service type of ClusterIP by running the following commands:
 
     ```bash
-    kubectl expose pod http-echo-1 --port 80 --target-port 80 --type NodePort --name "http-echo-1"
-    kubectl expose pod http-echo-2 --port 80 --target-port 80 --type NodePort --name "http-echo-2"
+    kubectl expose pod http-echo-1 --port 80 --target-port 80 --name "http-echo-1"
+    kubectl expose pod http-echo-2 --port 80 --target-port 80 --name "http-echo-2"
     ```
 
 1. Create the Ingress to expose the application to the outside world by running the following command:
@@ -48,27 +48,32 @@ Before you begin, you must:
     apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
+      annotations:
+        kubernetes.io/ingress.class: kommander-traefik
+        traefik.ingress.kubernetes.io/router.tls: "true"
+      generation: 7
       name: echo
+      namespace: default
     spec:
       rules:
-      - host: "http-echo-1.com"
-        http:
+      - http:
           paths:
           - backend:
               service:
                 name: http-echo-1
                 port:
                   number: 80
-            pathType: ImplementationSpecific
-      - host: "http-echo-2.com"
-        http:
+            path: /echo1
+            pathType: Prefix
+      - http:
           paths:
           - backend:
               service:
                 name: http-echo-2
                 port:
                   number: 80
-            pathType: ImplementationSpecific
+            path: /echo2
+            pathType: Prefix
     EOF
     ```
 
@@ -94,6 +99,6 @@ Before you begin, you must:
   (Note that IP addresses and host names are for illustrative purposes. Always use the information from your own cluster)
 
     ```bash
-    curl -k -H "Host: http-echo-1.com" http://abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com
-    curl -k -H "Host: http-echo-2.com" http://abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com
+    curl -k https://abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com/echo1
+    curl -k https://abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com/echo2
     ```
