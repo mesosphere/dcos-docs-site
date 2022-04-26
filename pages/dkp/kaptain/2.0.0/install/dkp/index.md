@@ -42,7 +42,7 @@ For cloud installations, scaling out can be limited by resource quotas.
 
 ## Prerequisites
 
--   A DKP cluster with the following Platform applications enabled:
+-   [A DKP cluster][dkp-install] with the following Platform applications enabled:
 
     - Istio
     - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
@@ -102,7 +102,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 
 1.  Refer to [air-gapped install instructions][airgapped_install], if you are running in air-gapped environment.
 
-1.  Adapt the URL of your Git repository:
+1.  Add the Flux GitRepository to your Kommander install:
 
     ```yaml
     cat <<EOF | kubectl apply -f -
@@ -110,9 +110,11 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     kind: GitRepository
     metadata:
       name: kaptain-catalog-applications
-      namespace: ${WORKSPACE_NAMESPACE}
+      namespace: kommander
       labels: 
         kommander.d2iq.io/gitrepository-type: catalog
+        kommander.d2iq.io/gitapps-gitrepository-type: dkp
+        kommander.d2iq.io/workspace-default-catalog-repository: "true"
     spec:
       interval: 1m0s
       ref: 
@@ -125,7 +127,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 1.  Ensure the status of the `GitRepository` signals a ready state:
 
     ```bash
-    kubectl get gitrepository kaptain-catalog-applications -n ${WORKSPACE_NAMESPACE}
+    kubectl get gitrepository kaptain-catalog-applications -n kommander
     ```
 
     The repository commit displays the ready state:
@@ -148,3 +150,4 @@ You have now added Kaptain to your DKP catalog applications. The next step is to
 [dex]: ../../configuration/external-dex/
 [airgapped_install]: ../air-gapped-dkp/
 [deploy]: ../deploy-kaptain/
+[dkp-install]: /dkp/konvoy/2.2/choose-infrastructure/
