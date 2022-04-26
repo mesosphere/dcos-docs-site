@@ -107,7 +107,7 @@ You need certain software configurations and settings before you start this proc
 1. Verify the token authenticates for the Service Account. Describe the secret, using your own secret name, using the following command:
 
     ```bash
-    kubect describe secret <secret-name>
+    kubectl describe secret <secret-name>
     ```
 
     The output from the commands should look like the following:
@@ -132,7 +132,7 @@ You need certain software configurations and settings before you start this proc
 1. Add the token as an environment variable. Having it as an environment variable reduces copying and pasting token operations. Use the following command:
 
     ```bash
-    export TOKEN=$(kubectl get secret john-sa-token-rq4ls -o=jsonpath="{.data.token}" | base64 -d -i -)
+    export TOKEN=$(kubectl get secret <secret name> -o=jsonpath="{.data.token}" | base64 -d -i -)
     ```
 
 1. Review your kubeconfig file. Notice the file defines 1 user and 1 cluster. Use the following command:
@@ -306,7 +306,7 @@ You need certain software configurations and settings before you start this proc
     kubectl get pods
     ```
 
-1. Confirm you can use the token to make http calls to the Kubernetes api. Use the following command:
+1. Confirm you can use the token to make HTTP calls to the Kubernetes API. Use the following command:
 
     ```bash
     curl -H "Authorization: Bearer $TOKEN" https://api.cluster-address/api/v1/pods -k

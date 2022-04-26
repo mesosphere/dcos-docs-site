@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-1.3.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.0.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-1.3.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.0.0.tar.gz | tar xz
 ```
 
 </p>
@@ -243,9 +243,9 @@ if __name__ == "__main__":
     predict_number(model, x_test, image_index)
     spark.stop()
 ```
-
+```sh        
     Writing mnist.py
-
+```
 
 [Several things](https://github.com/horovod/horovod#concepts) are worth highlighting:
 
@@ -267,9 +267,9 @@ Horovod relies on [MPI](https://github.com/horovod/horovod/blob/master/docs/conc
 ```python
 %env HOROVOD_JOB=$TRAINER_FILE
 ```
-
+```sh
     env: HOROVOD_JOB=mnist.py
-
+```
 
 To verify the training job, first run it on Spark in local mode:
 
@@ -277,16 +277,16 @@ To verify the training job, first run it on Spark in local mode:
 ```python
 %env PYSPARK_DRIVER_PYTHON=/opt/conda/bin/python
 ```
-
-    env: PYSPARK_DRIVER_PYTHON=/opt/conda/bin/python
-
-
-
 ```sh
+    env: PYSPARK_DRIVER_PYTHON=/opt/conda/bin/python
+```
+
+
+```bash
 %%sh
 "${SPARK_HOME}/bin/spark-submit" --master "local[1]" "${HOROVOD_JOB}" --epochs=1
 ```
-
+```sh
     Expected prediction for index 100: 6
     Running 1 processes (inferred from spark.default.parallelism)...
     20/06/18 16:09:21 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
@@ -296,7 +296,7 @@ To verify the training job, first run it on Spark in local mode:
     Model prediction for index 100: 6
     ...
     20/06/18 16:09:30 INFO SparkContext: Successfully stopped SparkContext
-
+```
 
 This trains the model in the notebook, but does not distribute the procedure.
 To that end, build-and-push a container image that contains the code and input dataset.
@@ -319,7 +319,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow-dev:1b046795-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu
+FROM mesosphere/kubeflow:2.0.0-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -336,7 +336,7 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow-dev:c36ad777-mnist-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow:2.0.0-mnist-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu` in case you want to skip it for now.
 
 ## How to Create a Distributed `SparkApplication`
 The [KUDO Spark Operator](https://github.com/kudobuilder/operators/tree/master/repository/spark/docs) manages Spark applications in a similar way as the [PyTorch](../pytorch) or [TensorFlow](../tensorflow) operators manage `PyTorchJob`s and `TFJob`s, respectively. 
@@ -354,7 +354,7 @@ It exposes a resource called `SparkApplication` that you will use to train the m
 ```python
 # set this to 0 when running on CPU.
 GPUS = 1
-IMAGE = "mesosphere/kubeflow-dev:c36ad777-mnist-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu"
+IMAGE = "mesosphere/kubeflow:2.0.0-mnist-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu"
 ```
 
 
@@ -425,9 +425,9 @@ spec:
       port: 8090
 END
 ```
-
+```sh
     Writing sparkapp-mnist.yaml
-
+```
 
 The operator's user guide explains [how to configure the application](https://github.com/mesosphere/spark-on-k8s-operator/blob/master/docs/user-guide.md).
 
@@ -441,7 +441,7 @@ If you do run these locally, you cannot rely on cell magic, so you have to manua
 If you execute the following commands on your own machine (and not inside the notebook), you obviously do not need the cell magic `%%` either.
 In that case, you have to set the user namespace for all subsequent commands:
 
-```
+```bash
 kubectl config set-context --current --namespace=<insert-namespace>
 ```
 
@@ -464,14 +464,14 @@ kubectl create -f "${KUBERNETES_FILE}"
 Check the pods are being created according to the specification:
 
 
-```sh
+```bash
 %%sh
 kubectl get pods -l sparkoperator.k8s.io/app-name=horovod-mnist
 ```
-
+```sh
     NAME                   READY   STATUS      RESTARTS   AGE
     horovod-mnist-driver   0/1     Completed   0          64s
-
+```
 
 Wait for the `SparkApplication` to complete:
 
@@ -490,11 +490,11 @@ for attempt in range(1, 60):
 See the status of the `horovod-mnist` `SparkApplication`:
 
 
-```sh
+```bash
 %%sh
 kubectl describe ${HVD_JOB}
 ```
-
+```sh
     Name:         horovod-mnist
     ...
     API Version:  sparkoperator.k8s.io/v1beta2
@@ -518,24 +518,24 @@ kubectl describe ${HVD_JOB}
       Normal  SparkExecutorRunning       61s   spark-operator  Executor horovod-mnist-1592496574728-exec-5 is running
       Normal  SparkDriverCompleted       23s   spark-operator  Driver horovod-mnist-driver completed
       Normal  SparkApplicationCompleted  23s   spark-operator  SparkApplication horovod-mnist completed
-
+```
 
 Check the model prediction (as before) by looking at the logs of the driver:
 
 
-```sh
+```bash
 %%sh
 kubectl logs horovod-mnist-driver | grep 'Model prediction'
 ```
-
-    Model prediction for index 100: 6
-
-
-
 ```sh
+    Model prediction for index 100: 6
+```
+
+
+```bash
 %%sh
 kubectl delete ${HVD_JOB}
 ```
-
+```sh
     sparkapplication.sparkoperator.k8s.io "horovod-mnist" deleted
-
+```

@@ -44,7 +44,6 @@ kube-public       Active   108m
 kube-system       Active   108m
 kubeaddons        Active   107m
 kubeflow          Active   66m
-kudo-system       Active   64m
 ```
 
 ### Step 2 - Create a secret in Kubeflow tenant's namespace

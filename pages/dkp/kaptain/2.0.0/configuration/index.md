@@ -31,13 +31,13 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | ingress.namespace | string | `"kaptain-ingress"` | Namespace to install Kaptain Ingress resources |
 | core.enabled | bool | `true` |  |
 | core.namespace | string | `"kubeflow"` |  |
-| core.notebook.defaultImage | string | `"mesosphere/kubeflow-dev:b66cecc3-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0"` | Default image to use when creating a new notebook server |
-| core.notebook.images[0] | string | `"mesosphere/kubeflow-dev:b66cecc3-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0"` | JupyterLab with Tensorflow, Spark and Horovod pre-installed |
-| core.notebook.images[1] | string | `"mesosphere/kubeflow-dev:c15bf3fa-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu"` | JupyterLab with Tensorflow, CUDA, Spark and Horovod pre-installed with GPU support |
-| core.notebook.images[2] | string | `"mesosphere/kubeflow-dev:22caa41c-jupyter-spark-3.0.0-horovod-0.24.2-pytorch-1.11.0"` | JupyterLab with Pytorch, Spark and Horovod pre-installed |
-| core.notebook.images[3] | string | `"mesosphere/kubeflow-dev:d431dd5f-jupyter-spark-3.0.0-horovod-0.24.2-pytorch-1.11.0-gpu"` | JupyterLab with Pytorch, CUDA, Spark and Horovod pre-installed with GPU support |
-| core.notebook.images[4] | string | `"mesosphere/kubeflow-dev:44625480-jupyter-spark-3.0.0-horovod-0.24.2-mxnet-1.9.0"` | JupyterLab with MXNet, Spark and Horovod pre-installed |
-| core.notebook.images[5] | string | `"mesosphere/kubeflow-dev:e6c6aec9-jupyter-spark-3.0.0-horovod-0.24.2-mxnet-1.9.0-gpu"` | JupyterLab with Tensorflow, CUDA, Spark and Horovod pre-installed with GPU support |
+| core.notebook.defaultImage | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0"` | Default image to use when creating a new notebook server |
+| core.notebook.images[0] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0"` | JupyterLab with Tensorflow, Spark and Horovod pre-installed |
+| core.notebook.images[1] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu"` | JupyterLab with Tensorflow, CUDA, Spark and Horovod pre-installed with GPU support |
+| core.notebook.images[2] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-pytorch-1.11.0"` | JupyterLab with Pytorch, Spark and Horovod pre-installed |
+| core.notebook.images[3] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-pytorch-1.11.0-gpu"` | JupyterLab with Pytorch, CUDA, Spark and Horovod pre-installed with GPU support |
+| core.notebook.images[4] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-mxnet-1.9.0"` | JupyterLab with MXNet, Spark and Horovod pre-installed |
+| core.notebook.images[5] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-mxnet-1.9.0-gpu"` | JupyterLab with MXNet, CUDA, Spark and Horovod pre-installed with GPU support |
 | core.notebook.tolerationGroups | list | `[]` | Pod toleration group configurations for Notebook servers |
 | core.notebook.affinityConfig | list | `[]` | Pod affinity configurations for Notebook servers |
 | core.notebook.enableCulling | bool | `false` | Enables scale down idling notebooks to freeing up the allocated resources. |
@@ -77,7 +77,6 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | core.db.backup.region | string | `""` | Backup bucket region name for the MySQL cluster |
 | core.db.backup.secretName | string | `""` | Name of the secret with access credentials for the MySQL cluster backup bucket |
 | core.db.backup.endpointUrl | string | `""` | Custom endpoint URL for the MySQL cluster backup bucket |
-| core.db.backup.restoreSource | string | `""` | Full path to the backup folder, for example `s3://mysql-store-backup/kaptain-mysql-store-2021-04-05-21:47:24-full` |
 | core.minio.serverPools | int | `1` | Number of MinIO server pools |
 | core.minio.servers | int | `2` | Number of MinIO server pods to deploy in the pool |
 | core.minio.volumesPerServer | int | `2` | Number of Persistent Volume Claims to generate for each MinIO server pod in the pool |

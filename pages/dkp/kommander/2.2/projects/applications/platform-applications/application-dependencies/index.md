@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Platform Application Dependencies
-title: Platform Application Dependencies
+navigationTitle: Project Platform Application Dependencies
+title: Project Platform Application Dependencies
 menuWeight: 8
-excerpt: Dependencies between Platform applications
+excerpt: Dependencies between project platform applications
 ---
 
 There are many dependencies between the applications that are deployed to a project's attached clusters. It is important to note these dependencies when customizing the platform applications to ensure that your services are properly deployed to the clusters. For more information on how to customize platform applications, see [Platform Application Deployment](../application-deployment#deploy-an-application-with-a-custom-configuration).
