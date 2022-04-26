@@ -62,8 +62,6 @@ enterprise: false
     ```bash
     export DOCKER_REGISTRY_ADDRESS="<https/http>://<registry-address>:<registry-port>"
     export DOCKER_REGISTRY_CA="<path to the CA on the bastion>"
-    export DOCKER_REGISTRY_USERNAME="<username>"
-    export DOCKER_REGISTRY_USERNAME="<password>"
     ```
 
     - `DOCKER_REGISTRY_ADDRESS`: the address of an existing Docker registry accessible in the VPC that the new cluster nodes will be configured to use a mirror registry when pulling images.
