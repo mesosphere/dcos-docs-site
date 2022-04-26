@@ -111,13 +111,39 @@ If you installed DKP with Kaptain as a workspace application in the Kommander in
 
 If you added Kaptain after installing DKP, you must make it available by creating a Git Repository. Use the CLI to create the GitRepository resource and add a new repository.
 
-### Create a Git repository for Kaptain
+### Install Kaptain using helm
 
-<!-- TODO: 1.  add a section for the helm install for DKP 2.1 -->
+Download the kaptain-2.0.0.tgz chart archive from the link obtained from support.
 
-## Deploy Kaptain on selected workspaces
+Add the following to a file named 'values.yaml' to pass to the helm install with the following contents:
 
-You have installed Kaptain by adding it to the DKP Catalog applications. The next step is to enable and deploy Kaptain on all clusters in a selected workspace. For this, refer to [Deploy Kaptain][deploy] instructions.
+```yaml
+ingress:
+  kubeflowIngressGatewayServiceAnnotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+```
+
+Use helm to install kaptain to your airgapped cluster.
+
+```bash
+helm install kaptain kaptain-2.0.0.tgz -values values.yaml
+```
+
+You may need to specify `--kubecofnig=my-air-gap-cluster.conf` for the install.
+
+You can check the status of the install with:
+
+```bash
+helm status kaptain
+```
+
+## Uninstall Kaptain
+
+If Kaptain was installed using helm, it can be unstalled with the following:
+
+```bash
+helm uninstall kaptain
+```
 
 [install-spark-dkp2]: /dkp/kommander/2.2/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
 [kommander-install]: /dkp/kommander/latest/install/
