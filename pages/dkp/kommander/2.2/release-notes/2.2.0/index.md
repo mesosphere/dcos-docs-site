@@ -399,7 +399,7 @@ chmod +x renew-certs.sh
 
 Your cert-manager will renew your certificates successfully after 60 days, but the pods will use the previous certificates until day 90, so **you will have to restart your cluster anytime between days 60 and 90** after Kommander has been installed on your cluster (which usually coincides with the date you created your cluster), or after the last time you restarted your cluster.
 
-#### Restart your pods
+### Restart your pods
 
 1.  Ensure that your DKP configuration references the correct cluster. You can do this by setting the KUBECONFIG environment variable, or using the `--kubeconfig` flag, [in accordance with Kubernetes conventions][config_kub].
 
