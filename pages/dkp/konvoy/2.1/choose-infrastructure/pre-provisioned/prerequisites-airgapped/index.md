@@ -13,7 +13,7 @@ beta: false
 1.  Download the bootstrap docker image on a machine that has access to this artifact:
 
     ```docker
-    curl -O https://downloads.d2iq.com/dkp/v2.1.1/konvoy-bootstrap_v2.1.1.tar
+    curl -O http://downloads.mesosphere.io/konvoy/airgapped/v2.1.1/konvoy-bootstrap_v2.1.1.tar
     ```
 
 1.  Load the bootstrap docker image on your bastion machine:
@@ -37,21 +37,6 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 
     ```bash
     export VERSION=1.21.6
-    ```
-
-1.  Set an environment variable for the image's OS you want to use.
-    The OS packages bundles will contain the RPMs for Containerd, Kubernetes and all of their dependencies required to install these packages without access to any external RPM repositories.
-    The available options are:
-
-    - `centos_7_x86_64`
-    - `centos_7_x86_64_fips`
-    - `redhat_7_x86_64`
-    - `redhat_7_x86_64_fips`
-    - `redhat_8_x86_64`
-    - `redhat_8_x86_64_fips`
-
-    ```bash
-    export BUNDLE_OS=centos_7_x86_64
     ```
 
 1.  Download the OS packages bundle:
