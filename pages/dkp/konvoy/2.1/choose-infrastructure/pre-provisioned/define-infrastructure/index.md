@@ -42,7 +42,9 @@ Konvoy needs to know how to access your cluster hosts. This is done using invent
     spec:
       hosts:
         # Create as many of these as needed to match your infrastructure
-        # Note that the command line parameter --control-plane-replicas determines how many control plane nodes will actually be used.
+
+        # Note that the command line parameter "--control-plane-replicas" determines how many control plane nodes will actually be used.
+
         #
         - address: $CONTROL_PLANE_1_ADDRESS
         - address: $CONTROL_PLANE_2_ADDRESS
