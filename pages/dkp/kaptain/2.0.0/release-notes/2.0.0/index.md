@@ -45,6 +45,7 @@ Kaptain 2.0 drastically reduces the bundle sizes improving download times, espec
 
 * Moved from KFServing to KServe
 * Fixed the cudatoolkit version regression (COPS-7219)
+* Bumped Pytorch to 1.11.0 and CUDA to 11.4 to support modern multi-instance GPUs, such as Nvidia A100 (COPS-7211)
 
 ## Software updates
 
