@@ -33,7 +33,7 @@ Before installing, ensure you have:
 
 -   [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
 
--   Sufficient resources on your cluster to run Kommander. Review [Management cluster application requirements](../mgmt-cluster-apps) and [Workspace platform application requirements](../../workspaces/applications/platform-applications/platform-application-requirements) for application requirements.
+-   Sufficient resources on your cluster to run Kommander. Review the [Management cluster application requirements](../mgmt-cluster-apps) and [Workspace platform application requirements](../../workspaces/applications/platform-applications/platform-application-requirements) for application requirements.
 
 ### Kommander charts bundle
 
