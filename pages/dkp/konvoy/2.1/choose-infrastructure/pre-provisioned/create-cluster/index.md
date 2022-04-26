@@ -72,9 +72,7 @@ enterprise: false
     --control-plane-endpoint-host <control plane endpoint host> \
     --control-plane-endpoint-port <control plane endpoint port, if different than 6443> \
     --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
-    --registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
-    --registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
-    --registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
+    --registry-mirror-cacert=${DOCKER_REGISTRY_CA}
     ```
 
 1.  Depending on the cluster size, it will take a few minutes to create. After the creation, use this command to get the Kubernetes kubeconfig for the new cluster and begin deploying workloads:
