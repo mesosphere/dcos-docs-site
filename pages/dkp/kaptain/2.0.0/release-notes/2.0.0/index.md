@@ -7,7 +7,7 @@ beta: false
 excerpt: View release-specific information for Kaptain
 ---
 
-**D2iQ&reg; Kaptain&reg; version 2.0.0 was released on April 25, 2022.**
+**D2iQ&reg; Kaptain&reg; version 2.0.0 was released on April 26, 2022.**
 
 To get started with Kaptain, [download](../../download) and [install](../../install) the latest version of Kaptain.
 
