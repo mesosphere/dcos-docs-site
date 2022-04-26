@@ -45,7 +45,7 @@ Automatic profile creation is disabled by default. To enable it, set the `regist
 registrationFlow: true
 ```
 
-See [Deploy Kaptain][deploy-kaptain] for information about configuring Kaptain.
+Refer to [Deploy Kaptain documentation][deploy-kaptain] for information on how to configure Kaptain.
 
 ### Manual profile creation
 For a finer-grain control and per-namespace resource quota management, profiles for the new users can be created
