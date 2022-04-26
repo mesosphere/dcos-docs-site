@@ -52,7 +52,7 @@ MS.metadata({
   dispatchDocsLatest: "1.4",
   kommanderDocsLatest: "2.2",
   konvoyDocsLatest: "2.2",
-  kaptainDocsLatest: "2.2.0",
+  kaptainDocsLatest: "2.0.0",
   Utils,
 });
 MS.use(timer("Init"));
