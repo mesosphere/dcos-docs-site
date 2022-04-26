@@ -18,7 +18,7 @@ Before proceeding, verify that your cluster has freely available the following r
 
 - 4 CPU cores
 - 16 GiB of RAM
-- 170 GiB or Storage Memory
+- 170 GiB of Storage
 - GPUs (optional)
   - NVIDIA only
   - min. 200 GiB free disk space per instance
