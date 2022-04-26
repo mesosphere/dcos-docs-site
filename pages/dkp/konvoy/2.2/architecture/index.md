@@ -63,7 +63,7 @@ Addons use Kubernetes resources to implement specific cluster-level features; be
 
 DKP supplements the native Kubernetes cluster by providing a predefined and pre-configured set of applications.
 Because this predefined set of applications provides critical features for managing a Kubernetes cluster in a production environment, the default set is identified as DKP **platform services**.
-See [Kubernetes platform applications](../../dkp/kommander/2.2/projects/applications/platform-applications/) for the full set of DKP platform services.
+See [Platform applications](/../../dkp/kommander/2.2/projects/applications/platform-applications/) for the full set of DKP platform services.
 
 
 ## Related information
