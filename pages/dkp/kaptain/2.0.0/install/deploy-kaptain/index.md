@@ -41,10 +41,14 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Select a version from the drop-down menu, if available. This drop-down menu will only be visible if there is more than one version.
 
-1.  (Optional) If you want to override the default configuration values, copy your customized values into the text editor under **Configure Service** or upload your yaml file that contains the values:
+1.  (Optional) If you want to override the default configuration values, copy your customized values into the text editor under **Configure Service** or upload your yaml file that contains the values. For example:
 
     ```yaml
-    someField: someValue
+    ingress:
+        externalDexClientId: dex-controller-kubeflow-authservice
+        externalDexClientSecret: kubeflow-authservice
+        oidcProviderEndpoint: https://a0d231e9c62a4487dad581981c82719f-19533575.us-west-2.elb.amazonaws.com/dex
+        oidcProviderBase64CaBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJiekNDQVJXZ0F3SUJBZ0lSQUlGbWwrS0JXYmtSY0NlOUJuWXpXNVF3Q2dZSUtvWkl6ajBFQXdJd0Z6RVYKTUJNR0ExVUVBeE1NYTI5dGJXRnVaR1Z5TFdOaE1CNFhEVEl5TURReE9ERTROREkxTkZvWERUSXlNRGN4TnpFNApOREkxTkZvd0Z6RVZNQk1HQTFVRUF4TU1hMjl0YldGdVpHVnlMV05oTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJCnpqMERBUWNEUWdBRTAwMk1KVEYyUGZoNWRIdjZBSzhudFlCQmtoK3RMQ3Q3TzNmNVN1b1RWMVI4UW1UcE9uTVEKWEduY3NqN1hhY3hWUSt2L0xUTzlzN1lGUkZTMVcrZ1dsS05DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4RwpBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZPYkVuMUkzZFFaOGZQUW1ad3RpZFJyVSsxekFNQW9HCkNDcUdTTTQ5QkFNQ0EwZ0FNRVVDSUE3QXR2c21BUkwzUFJDLzhVanV0SGFXc1BudGVqRnh4N0JieDZVVmF2NlcKQWlFQTFoQTdKamd4d2tJV01uSmlUM0ViVmdDaEo4bWV2NGRjOU1VZVp0VFV5YUU9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
     ```
 
 1.  Confirm the details are correct, and then select the **Enable** button to enable and trigger deployment.
