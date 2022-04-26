@@ -20,7 +20,7 @@ Kaptain supports installation on an air-gapped (a.k.a. offline or private) DKP m
 
 ## Prerequisites
 
--   A DKP cluster with the following Platform applications enabled:
+-   [A DKP cluster][dkp-install] with the following Platform applications enabled:
 
     - Istio
     - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
@@ -148,3 +148,4 @@ helm uninstall kaptain
 [konvoy-air-gap]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/
 [deploy]: ../deploy-kaptain/
 [2.2_air]: ../air-gapped-2.2
+[dkp-install]: /dkp/konvoy/2.2/choose-infrastructure/

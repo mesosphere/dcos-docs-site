@@ -14,13 +14,13 @@ You can deploy Kaptain to a cluster in a selected workspace. If you do not inten
 
 ## DKP 2.2 air-gapped installation
 
-Refer to [DKP install instructions][dkp_install], if you want to deploy Kaptain in a networked environment or to [DKP 2.2 air-gapped instructions][2.1_air] if you are deploying in DKP 2.1.
+Refer to [DKP install instructions][dkp_install], if you want to deploy Kaptain in a networked environment or to [DKP 2.1 air-gapped instructions][2.1_air] if you are deploying with DKP 2.1.
 
 Kaptain supports installation on an air-gapped (a.k.a. offline or private) DKP managed cluster. Before installing Kaptain, please follow the [air-gapped installation guide][konvoy-air-gap] to set up the air-gapped DKP managed cluster. The cluster admin is responsible for configuring the DKP cluster correctly and ensuring container images have been pre-loaded to the private registry before installing Kaptain.
 
 ## Prerequisites
 
--   A DKP cluster with the following Platform applications enabled:
+-   [A DKP cluster][dkp-install] with the following Platform applications enabled:
 
     - Istio
     - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
@@ -40,6 +40,29 @@ Kaptain supports installation on an air-gapped (a.k.a. offline or private) DKP m
 In case you need to run Spark jobs on Kubernetes using Spark Operator, it needs to be installed separately.
 Use the following instructions to install Spark Operator from Kommander Catalog for [DKP 2.x][install-spark-dkp2].
 
+## Add Kaptain to your Kommander Install
+
+The folloing catalog will need to be added to the Komamnder install configuration file alonig with the DKP applications catalog:
+
+```yaml
+catalog:
+...
+  repositories:
+    - name: dkp-catalog-applications
+      labels:
+        kommander.d2iq.io/gitapps-gitrepository-type: dkp
+        kommander.d2iq.io/workspace-default-catalog-repository: "true"
+      path: ./dkp-catalog-applications
+    - name: kaptain-catalog-applications
+      labels:
+        kommander.d2iq.io/gitapps-gitrepository-type: dkp
+        kommander.d2iq.io/workspace-default-catalog-repository: "true"
+      path: ./kaptain-catalog-applications
+...
+```
+
+If you added Kaptain after installing DKP, you must make it available by rerunning the Kommander installation with the updated configuration file.
+
 ### Load the Docker images into your Docker registry
 
 1.  Download the image bundle file:
@@ -49,38 +72,30 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 
-1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
-
-   ```bash
-   dkp push image-bundle --image-bundle ${AIRGAPPED_TAR_FILE} --to-registry ${REGISTRY_URL}
-   ```
-
-   _Note: this script is slightly different than the Kommander load script and has different image registry filters._
-
-   Based on the network latency between the environment of script execution, the Docker registry, and the disk speed, this can take a while to upload all the images to your image registry.
-
-1.  Download the application and chart bundles, and extract the application bundle to the location referenced in the Kommander configuration file above.  
+1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle and the cpu or gpu bundle:
 
     ```bash
-    mkdir -p kaptain-catalog-applications 
-    tar -xvf ./kaptain-catalog-applications.tar.gz --strip-components 1 -C ./kaptain-catalog-applications
+    dkp push image-bundle --image-bundle ${AIRGAPPED_TAR_FILE} --to-registry ${REGISTRY_URL}
     ```
 
-1.  Load the Kaptain charts after the DKP installation with:
+    _Note: this command is new in DKP 2.2._
 
-```bash
-dkp push chart-bundle kaptain-charts-bundle.tar.gz
-```
+    Based on the network latency between the environment of script execution, the Docker registry, and the disk speed, this can take a while to upload all the images to your image registry.
 
-## Add Kaptain to your DKP Catalog Applications via CLI
+1.  Download the application bundles and chart archive (get links from support)
 
-If you installed DKP with Kaptain as a workspace application in the Kommander installation file, you do not need to create a Git Repository for Kaptain.
+1.  Extract the application bundle to the location referenced in the Kommander configuration file above. 
 
-If you added Kaptain after installing DKP, you must make it available by creating a Git Repository. Use the CLI to create the GitRepository resource and add a new repository.
+    ```bash
+    mkdir kaptain-catalog-applications 
+    tar -xvf kaptain-catalog-applications.tar.gz --strip-components 1 -C kaptain-catalog-applications
+    ```
 
-### Create a Git repository for Kaptain
+1.  Load the Kaptain chart archive after the Kommander installation with:
 
-<!-- TODO: use config file above -->
+    ```bash
+    dkp push chart kaptain-2.0.0.tgz
+    ```
 
 ## Deploy Kaptain on selected workspaces
 
@@ -88,9 +103,10 @@ You have installed Kaptain by adding it to the DKP Catalog applications. The nex
 
 [dkp_install]: ../dkp
 [2.1_air]: ../air-gapped-2.1
-[kommander-install]: /dkp/kommander/2.2/install/air-gapped/
+[kommander-install]: /dkp/kommander/2.2/install/air-gapped/catalog/
 [install-spark-dkp2]: /dkp/kommander/2.2/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
 [deploy]: ../deploy-kaptain/
 [konvoy-air-gap]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [dex]: ../../configuration/external-dex/
+[dkp-install]: /dkp/konvoy/2.2/choose-infrastructure/
