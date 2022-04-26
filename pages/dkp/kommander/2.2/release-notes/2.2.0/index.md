@@ -42,7 +42,7 @@ The following features and capabilities are new for Version 2.2.
 
 You can now upgrade Konvoy and Kommander as a single fluid process using a combination of the [DKP CLI](../../cli/dkp) and the UI to upgrade your environment.
 
-For more information, see [DKP Upgrade](../../dkp-upgrade)
+For more information, see [DKP Upgrade](../../dkp-upgrade).
 
 ### Integration with VMware vSphere
 
@@ -338,11 +338,118 @@ A "create first" update strategy first creates a new machine, then deletes the o
 
 New clusters use the "delete first" strategy by default. Existing clusters are switched to the "delete first" strategy whenever their machines are updated with `update controlplane` and `update nodepool`.
 
-## Additional resources
+### Cert-manager expiration workaround
 
-<!-- Add links to external documentation as needed -->
+`cert-manager` renews all certificates 60 days after Kommander has been installed on your cluster. Unfortunately, some applications or pods fail to receive the renewed certificate information, causing them to break upon expiration (90 days after creation). As a result, your cluster stops running, and in some cases, you are unable to access the UI.
+
+Proceed with the following instructions if you have configured an [ACME issuer type][acme], a [SelfSigned issuer type][selfsigned] (for example, in air-gapped environments), or are using a certificate you configured separately for your own institution.
+
+To **prevent your applications from breaking**, or to **get them up and running again**, restart the corresponding pods and have the cert-manager create a new certificate. This forces the applications to reconcile and recognize the renewed certificate.
+
+Your cert-manager will renew your certificates successfully after 60 days, but the pods will use the previous certificates until day 90, so **you will have to restart your cluster anytime between days 60 and 90** after Kommander has been installed on your cluster (which usually coincides with the date you created your cluster), or after the last time you restarted your cluster.
+
+#### Restart your pods
+
+1.  Ensure that your DKP configuration references the correct cluster. You can do this by setting the KUBECONFIG environment variable, or using the `--kubeconfig` flag, [in accordance with Kubernetes conventions][config_kub].
+
+1.  Ensure the certificate issuance is working properly:
+
+    ```bash
+    kubectl get certificates.cert-manager.io -A -o wide
+    ```
+
+    The output should look similar to this:
+
+    ```sh
+    NAMESPACE      NAME                READY   SECRET                          ISSUER              STATUS                                          AGE
+    cert-manager   kommander-ca        True    kommander-ca                    selfsigned-issuer   Certificate is up to date and has not expired   59m
+    kommander      git-tls             True    git-tls                         kommander-ca        Certificate is up to date and has not expired   59m
+    kommander      kommander-traefik   True    kommander-traefik-certificate   kommander-ca        Certificate is up to date and has not expired   59m
+    ```
+
+1.  Run the following command to restart the affected pods:
+
+    ```bash
+    OS=linux; ARCH=amd64; curl -sSL -o cmctl.tar.gz https://github.com/cert-manager/cert-manager/releases/download/v1.7.2/cmctl-$OS-$ARCH.tar.gz
+    tar xzf cmctl.tar.gz
+    ./cmctl renew -A -l helm.toolkit.fluxcd.io/namespace=kommander
+    kubectl patch secret -n kommander traefik-forward-auth-ca-certificate --type json --patch '[{ "op": "replace", "path": "/data/ca.crt", "value": "'`kubectl get secret -n cert-manager kommander-ca -o go-template='{{index .data "ca.crt"}}'`'" }]'
+    
+    deploymentsKommander="kommander-cm kommander-traefik dex dex-dex-controller kommander-licensing-cm kube-oidc-proxy traefik-forward-auth-mgmt kommander-webhook dex-k8s-authenticator kubetunnel-webhook traefik-forward-auth"
+    for deployment in $deploymentsKommander; do
+      kubectl rollout restart deployment -n kommander $deployment
+    done
+    kubectl rollout restart statefulset -n kommander gitea
+    ```
+
+    Now you must fix the certificate issues with the Gitrepository by committing the updated secret to Git.
+
+1.  Clone the management repository:
+
+    ```bash
+    kubectl -n kommander get secret kommander-traefik-certificate -o go-template='{{index .data "ca.crt"|base64decode}}' > ca.crt && git clone -c http.sslCAInfo=$(pwd)/ca.crt https://$(kubectl -n kommander get secret admin-git-crede
+    ntials -o go-template='{{.data.username|base64decode}}:{{.data.password|base64decode}}')@$((kubectl -n kommander get cm konvoyconfig-kubeaddons -o go-template='{{if ne .data.clusterHostname ""}}{{.data.clusterHostname}}{{"\n"}}{{end}}' &&
+    kubectl -n kommander get ingress gitea -o jsonpath="{.status.loadBalancer.ingress[0]['ip','hostname']}") | head -1)/dkp/kommander/git/kommander/kommander
+    ```
+
+1.  Change into the directory containing the credentials manifest: `kommander/shared/kommander-git-repository`
+
+1.  Update the manifest file with what is stored in the cluster:
+
+    ```bash
+    kubectl -n kommander-flux get secret kommander-git-credentials -o yaml > git-credentials.yaml
+    ```
+
+1.  Delete the following fields from the `git-credentials.yaml` file:
+
+    - metadata.labels
+    - metadata.resourceVersion
+    - metadata.uid
+    - type
+
+1.  Replace the content of the field "data.ca" file with the output of this command:
+
+    ```bash
+    kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}'
+    ```
+
+<!-- Can we get an example output? -->
+1.  Encrypt the file again:
+
+    ```bash
+    sops --age=$(k -n kommander get secret sops-age -o jsonpath='{.data.age\.agekey}'|base64 -d|age-keygen -y) --encrypt --encrypted-regex '^(data|stringData)$' --in-place git-credentials.yaml
+    ```
+
+1.  Commit and push the updated file:
+
+    ```bash
+    git add git-credentials.yaml
+    git commit -m 'update git credentials'
+    git push
+    ```
+
+1.  Patch the secret temporarily (since Flux is not able to clone the repository):
+
+    ```bash
+    kubectl patch secret -nkommander-flux kommander-git-credentials --type='json' -p="[{\"op\": \"replace\", \"path\": \"/data/caFile\", \"value\": \"$(kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}')\"}]"
+    ```
+
+1.  Optional: Force reconciliation of the updated Git repository for quicker results:
+
+    ```bash
+    flux -n kommander-flux reconcile source git management
+    ```
+
+    Flux should be able to connect to the Git server again.
+
+1.  Set yourself a reminder to repeat this process in days 60 to 90 after you have restarted the affected pods.
+
+## Additional resources
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [kube-prometheus-stack]: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 [kubernetes-doc]: https://kubernetes.io/docs/home/
+[config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
+[acme]: https://cert-manager.io/docs/configuration/acme/
+[selfsigned]: https://cert-manager.io/docs/configuration/selfsigned/
