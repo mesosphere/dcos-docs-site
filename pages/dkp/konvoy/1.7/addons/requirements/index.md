@@ -1,0 +1,22 @@
+---
+layout: layout.pug
+navigationTitle: Configuration Requirements
+title: Configuration Requirements
+menuWeight: 7
+excerpt: KBA Descriptions and Resource Requirements
+beta: false
+enterprise: false
+---
+
+<!-- markdownlint-disable MD018 -->
+
+#include /dkp/konvoy/1.7/include/kba-requirements.tmpl
+
+#include /dkp/konvoy/1.7/include/kba-addons-versions.tmpl
+
+## Related information
+
+For information on related topics or procedures, refer to the following:
+
+- [Introduction to KBA](../../addons)
+- [Current KBA Release Information](../../release-notes/kubernetes-base-addon)

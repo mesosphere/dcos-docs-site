@@ -1,0 +1,21 @@
+Here is a status summary of all plans after installation in the KUDO Cassandra Operator
+```
+$ kubectl kudo plan status --instance cassandra -n test-project-zc6tc
+Plan(s) for "cassandra" in namespace "test-project-zc6tc":
+.
+└── cassandra (Operator-Version: "cassandra-1.0.0" Active-Plan: "deploy")
+    ├── Plan backup (serial strategy) [NOT ACTIVE]
+    │   └── Phase backup (serial strategy) [NOT ACTIVE]
+    │       ├── Step cleanup [NOT ACTIVE]
+    │       └── Step backup [NOT ACTIVE]
+    ├── Plan deploy (serial strategy) [COMPLETE], last updated 2021-03-25 01:50:31
+    │   ├── Phase rbac (parallel strategy) [COMPLETE]
+    │   │   └── Step rbac-deploy [COMPLETE]
+    │   └── Phase nodes (serial strategy) [COMPLETE]
+    │       ├── Step pre-node [COMPLETE]
+    │       └── Step node [COMPLETE]
+    └── Plan repair (serial strategy) [NOT ACTIVE]
+        └── Phase repair (serial strategy) [NOT ACTIVE]
+            ├── Step cleanup [NOT ACTIVE]
+            └── Step repair [NOT ACTIVE]
+```
