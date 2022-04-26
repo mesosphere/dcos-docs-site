@@ -19,11 +19,9 @@ Before proceeding, verify that your cluster has freely available the following r
 - 4 CPU cores
 - 16 GiB of RAM
 - 170 GiB of Storage
-- GPUs (optional)
-  - NVIDIA only
-  - min. 200 GiB free disk space per instance
-  - min. 64 GiB RAM per instance
-  - min. 12 GiB GPU RAM per instance
+- 1 GPU core is the minimum for GPU assisted installations.  Please note NVIDIA cards are supported only.
+
+
 
 Please note that these numbers are for the bare minimum.
 Running any real world machine learning workloads on Kaptain bumps these requirements for nodes, CPUs, RAM, GPUs, and persistent disks.
