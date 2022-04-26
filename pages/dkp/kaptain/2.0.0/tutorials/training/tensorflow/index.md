@@ -27,7 +27,7 @@ tested on D2iQ's Kaptain. Without the requisite Kubernetes operators and custom 
 will likely not work.</p>
 
 
-<p class="message--warning"><strong>NOTE: </strong>
+<p class="message--note"><strong>NOTE: </strong>
     This notebook is for TensorFlow 2 only.
     TensorFlow 1 does not support data auto-sharding.
 </p>

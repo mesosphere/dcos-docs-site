@@ -114,7 +114,7 @@ dialogue, create a file named `pod_default.yaml` with the following contents:
           secret:
             secretName: docker-secret
 
-<p class="message--warning">
+<p class="message--note">
 <strong>WARNING: </strong>
 The volume name and <code>mountPath</code> must be unique across all <code>PodDefault</code>
 objects to avoid conflicts when mounting <code>Secrets</code> to <code>Pods</code>.
