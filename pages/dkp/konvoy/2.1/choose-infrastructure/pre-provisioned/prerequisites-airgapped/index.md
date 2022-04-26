@@ -47,11 +47,6 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 
 1.  Download the Kubernetes images bundle. This bundle includes the necessary images for `kubeadm` to bootstrap a Kubernetes `Node`.
 
-    The available options for each Kubernetes version are:
-
-    - `<version>_images.tar.gz`
-    - `<version>_images_fips.tar.gz`
-
     ```bash
     curl --output artifacts/images/"$VERSION"_images.tar.gz -O http://downloads.d2iq.com/konvoy/airgapped/kubernetes_image_bundle_v"$VERSION"_linux_amd64.tar.gz
     ```
