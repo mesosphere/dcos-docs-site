@@ -19,19 +19,6 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 
 1.  Place the bundle in a location where you can load and push the images to your private docker registry.
 
-1.  Set an environment variable with your registry address.
-
-    ```bash
-    export DOCKER_REGISTRY_ADDRESS=<registry-address>:<registry-port>
-    export DOCKER_REGISTRY_USERNAME=<username>
-    export DOCKER_REGISTRY_PASSWORD=<password>
-    ```
-
-1.  Run the following command to load the air-gapped image bundle into your private Docker registry.
-
-    ```bash
-    dkp push image-bundle --image-bundle konvoy-image-bundle.tar.gz --to-registry $DOCKER_REGISTRY_ADDRESS --to-registry-username $DOCKER_REGISTRY_USERNAME --to-registry-password $DOCKER_REGISTRY_PASSWORD
-    ```
 
 It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
 
