@@ -195,7 +195,7 @@ Go to the Choose Infrastructure section of the documentation for further steps o
 For more details, see the following topics:
 
 - [Deploy a sample application](../deployments/deploy-sample-app/)
-- [Provision a customized cluster](../install/provision-a-custom-cluster/)
+- [Platform application deployment](../dkp/kommander/2.2/projects/applications/platform-applications/application-deployment/)
 - [Troubleshooting](../troubleshooting/)
 
 [cncf]: https://www.cncf.io
