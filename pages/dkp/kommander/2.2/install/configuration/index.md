@@ -10,7 +10,7 @@ enterprise: false
 
 You can configure Kommander during the initial installation, and also post-installation using the Kommander CLI.
 
-<p class="message--note"><strong>NOTE:</strong> Review <a href="../mgmt-cluster-apps">Management cluster application requirements</a> and <a href="../../workspaces/applications/platform-applications/platform-application-requirements">Workspace platform application requirements</a>> to ensure that your cluster has sufficient resources.</p>
+<p class="message--note"><strong>NOTE:</strong> Review the <a href="../mgmt-cluster-apps">Management cluster application requirements</a> and <a href="../../workspaces/applications/platform-applications/platform-application-requirements">Workspace platform application requirements</a> to ensure that your cluster has sufficient resources.</p>
 
 ## Initializing a configuration file
 
