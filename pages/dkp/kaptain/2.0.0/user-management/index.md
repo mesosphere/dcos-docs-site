@@ -39,11 +39,13 @@ Kubeflow grants users with namespace admin permissions for their namespaces.
 
 ### Automatic profile creation
 When an authenticated user logs into the system and visits the central dashboard for the first time, they trigger a profile creation automatically, this is referred to as a "Registration Flow".
-Automatic profile creation is disabled by default. To enable it, set the `registrationFlow` parameter to `true`:
+Automatic profile creation is disabled by default. To enable it, set the `registrationFlow` parameter to `true` by specifying it in the `ConfigMap` for Kaptain's configuration:
 
 ```
-kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace ./kubeflow-1.4.0_1.3.0.tgz -p registrationFlow=true
+registrationFlow: true
 ```
+
+Refer to [Deploy Kaptain documentation][deploy-kaptain] for information on how to configure Kaptain.
 
 ### Manual profile creation
 For a finer-grain control and per-namespace resource quota management, profiles for the new users can be created
@@ -246,3 +248,4 @@ clusterrolebinding.rbac.authorization.k8s.io/<name of user> created
 [go-resourcequotaspec]: https://godoc.org/k8s.io/api/core/v1#ResourceQuotaSpec
 [k8s-limit-range]: https://kubernetes.io/docs/concepts/policy/limit-range/
 [oidc]: ../../../kommander/2.2/security/oidc/
+[deploy-kaptain]: ../install/deploy-kaptain/
