@@ -54,6 +54,7 @@ D2iQ
 daemonsets
 Datadog
 Datastax
+(Datastore|datastore)
 DC/OS
 dcos
 declaratively
@@ -85,7 +86,7 @@ Fluentd
 gapped 
 (gcr|GCR)
 (Gensim|gensim)
-Gitea
+(Gitea|gitea)
 (gitops|GitOps)
 (Goboring|goboring)
 (Golang|golang)
@@ -226,6 +227,8 @@ Snapshotter
 socat
 softmax
 Splunk
+statefulset(|s)
+Statefulset(|s)
 (Statsmodels|statsmodels)
 stdout
 (Strftime|strftime)
@@ -240,7 +243,8 @@ Tensorboard(|s)
 Tensorflow
 TensorFlow
 (thanos|Thanos)
-Toree
+toolkit(|s)
+Toolkit(|s)
 tqdm
 (traefik|Traefik)
 triaging

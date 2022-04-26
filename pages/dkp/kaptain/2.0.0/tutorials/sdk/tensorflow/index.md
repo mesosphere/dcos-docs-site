@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-1.3.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.0.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-1.3.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.0.0.tar.gz | tar xz
 ```
 
 </p>
@@ -27,7 +27,7 @@ tested on D2iQ's Kaptain. Without the requisite Kubernetes operators and custom 
 will likely not work.</p>
 
 
-<p class="message--warning"><strong>NOTE: </strong>This notebook requires Kaptain SDK 0.4.x or later.
+<p class="message--note"><strong>NOTE: </strong>This notebook requires Kaptain SDK 0.4.x or later.
 </p>
 
 # Kaptain SDK: Training, Tuning, and Deploying
@@ -55,7 +55,7 @@ All you need is this notebook.
 Before proceeding, check you are using the correct notebook image, that is, [TensorFlow](https://www.tensorflow.org/api_docs/) is available:
 
 
-```sh
+```bash
 %%sh
 pip list | grep tensorflow
 ```
@@ -263,7 +263,7 @@ The central abstraction of the Kaptain SDK is a model:
 
 ```python
 extra_files = ["datasets/mnist"]
-base_image = "mesosphere/kubeflow:1.3.0-tensorflow-2.5.0"
+base_image = "mesosphere/kubeflow:2.0.0-tensorflow-2.8.0"
 # replace with your docker repository with a tag (optional), e.g. "repository/image"  or "repository/image:tag"
 image_name = "mesosphere/kubeflow:mnist-sdk-example"
 # name of the file with additional python packages to install into model image (e.g. "requirements.txt")
@@ -281,7 +281,7 @@ model = Model(
     description="MNIST Model",
     version="0.0.1",
     framework=ModelFramework.TENSORFLOW,
-    framework_version="2.5.0",
+    framework_version="2.8.0",
     main_file="trainer.py",
     extra_files=extra_files,
     image_name=image_name,
@@ -329,7 +329,7 @@ model.train(
     args={}, # additional command line arguments for the training job. 
 )
 ```
-
+```sh
     ...
     10/10 [==============================] - 0s 48ms/step - accuracy: 0.2516 - loss: 2.2895
     [I 201214 11:18:01 kubernetes:190] Epoch 2/5
@@ -344,7 +344,7 @@ model.train(
     [I 201214 11:18:06 kubernetes:190] INFO:root:Metrics saved.
     [I 201214 11:18:07 job_runner:58] Waiting for the training job to complete...
     [I 201214 11:18:07 models:332] Training result: Succeeded
-
+```
 
 The default `gpus` argument is 0, but it is shown here as an explicit option.
 Use `?Model.train` to see all supported arguments.
@@ -360,7 +360,7 @@ The low accuracy of the model is to make the demonstration of distributed traini
 ### Verify the Model is Exported to MinIO
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 
@@ -445,7 +445,7 @@ Available options are:
 
 The Kaptain SDK allows individual trials to be run in parallel as well as trained in a distributed manner each.
 
-<p class="message--warning"><strong>BEWARE! </strong>With a large number of parallel trials <i>and</i> a fair number of workers per trial, it is easy to max out on the available resources.
+<p class="message--warning"><strong>WARNING: </strong>With a large number of parallel trials <i>and</i> a fair number of workers per trial, it is easy to max out on the available resources.
     If the worker quota for the namespace is <i>Q</i>, the number of parallel trials is <i>P</i>, and the number of workers per trial is <i>W</i>, please ensure that <i>P</i> &times; <i>W</i> &leq; <i>Q</i></p>
 
 ## Run canary rollout
@@ -503,7 +503,7 @@ with open("input.json", "w") as json_file:
 ```
 
 
-```sh
+```bash
 %%sh
 set -o errexit
 model_name="dev-mnist"

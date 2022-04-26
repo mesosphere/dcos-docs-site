@@ -8,12 +8,12 @@ beta: false
 enterprise: false
 ---
 
-## Kaptain and KUDO
+## Kaptain
 
-To print the status of the Kaptain operator instance:
+To print the status of the Kaptain helm installation:
 
 ```bash
-kubectl kudo plan status -n kubeflow --instance kaptain
+helm status kaptain
 ```
 
 To show deployments and pods in the Kaptain operator instance:
@@ -25,13 +25,6 @@ kubectl get pods -n kubeflow
 
 kubectl describe pod <pod_name> -n kubeflow
 ```
-
-To print the logs from the KUDO controller:
-
-```bash
-kubectl logs -n kudo-system kudo-controller-manager-0 -f
-```
-
 
 ## Konvoy
 
@@ -521,7 +514,6 @@ Kaptain includes:
   - MinIO Operator 4.0.3
   - MinIO RELEASE.2021-03-01T04-20-55Z
 - kubectl 1.21
-- Kudobuilder 0.19.0
 - Kaniko 1.3.0
 - TensorFlow Serving 1.14.0
 - ONNX server 0.5.1

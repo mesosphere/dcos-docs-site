@@ -1,17 +1,17 @@
 ---
 layout: layout.pug
-navigationTitle: Platform Application Deployment
-title: Platform Application Deployment
+navigationTitle: Project Platform Application Deployment
+title: Project Platform Application Deployment
 menuWeight: 5
 beta: false
-excerpt: Deploy applications to attached clusters using the CLI
+excerpt: Deploy applications to attached clusters in a project using the CLI
 ---
 <!-- markdownlint-disable MD004 MD040 -->
 
 This topic describes how to use the CLI to deploy an application to attached clusters within a project.
 To use the DKP UI to deploy applications, see [Deploy applications in a project](../../platform-applications).
 
-See [Platform Applications](../../platform-applications#platform-applications) for a list of all applications and those that are enabled by default.
+See [Project Platform Applications](../../platform-applications#platform-applications) for a list of all applications and those that are enabled by default.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ export PROJECT_NAMESPACE=<project_namespace>
 
 ## Deploy the application
 
-The list of available applications that can be deployed on the attached cluster can be found [in the platform applications topic](../../platform-applications#platform-applications).
+The list of available applications that can be deployed on the attached clusters in a project can be found [in the project platform applications topic](../../platform-applications#platform-applications).
 
 1.  Deploy one of the supported applications to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 

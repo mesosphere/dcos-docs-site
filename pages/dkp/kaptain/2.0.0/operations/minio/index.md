@@ -14,7 +14,7 @@ Kaptain includes the MinIO Object Store running in a distributed mode which allo
 
 ## Prerequisites
 
--   You already provisioned a Konvoy cluster using at least `v1.7.0`.
+-   You already provisioned a DKP cluster using at least `v2.1.1`.
 
 ## Configuring MinIO cluster
 By default, the MinIO cluster consists of 2 servers, each with 2 volumes and a total capacity of 40Gi. Half of the storage will be used for [erasure coding][erasure-coding] sets, which is generally sufficient for storing semi-structured and small binary data, such as pipeline artifacts and model files. 
@@ -30,23 +30,28 @@ The minimum total number of disks required for MinIO in distributed mode is 4, w
 
 <p class="message--warning"><strong>WARNING: </strong>By default, MinIO shards the objects across N/2 data and N/2 parity drives. Therefore, it is recommended to specify the <code>minioStorageCapacity</code> property as twice the intended usage.</p>
 
- To change the default MinIO cluster settings, create a configuration file `parameters.yaml` with the properties described above:
+To change the default MinIO cluster settings, create a configuration file with the properties described below:
+    
 ```yaml
-minioServers: 4
-minioVolumesPerServer: 4
-minioStorageCapacity: 160Gi
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: ${WORKSPACE_NAMESPACE}
+  name: kaptain-overrides
+data:
+  values.yaml: |
+    core:
+      minio:
+        servers: 4
+        volumesPerServer: 4
+        storageCapacity: 160Gi
+EOF
 ```
 This configuration will deploy 4 MinIO servers; each server will use 4 volumes with 10Gi capacity per volume.  
 To learn more about MinIO distributed mode and replication see the [official documentation][minio-docs].
 
-To install Kaptain with the provided parameters, run the following command on the cluster:
-```bash
-kubectl kudo install ./kubeflow-1.4.0_1.3.0.tgz \
-      --instance kaptain \
-      -P parameters.yaml \
-      --namespace kubeflow \
-      --create-namespace
-```
+To install Kaptain with the provided parameters, refer to the [Deploy Kaptain documentation][deploy-kaptain].
 
 ## Expanding the MinIO cluster
 
@@ -54,9 +59,17 @@ The MinIO cluster can be expanded by increasing the number of server pools in th
 
 <p class="message--warning"><strong>WARNING: </strong>Expanding an existing server pool is not supported. The cluster can only by expanded by adding additional server pools.</p>
 
-To update an already installed Kaptain instance with the provided parameters, run the following command on the cluster:
+To update an existing deployment of Kaptain, edit the `ConfigMap` with the custom configuration you provided during the installation, or the default one:
+
 ```bash
-kubectl kudo update --instance kaptain --namespace kubeflow -p minioServerPools=2
+kubectl edit configmap -n ${WORKSPACE_NAMESPACE} kaptain-overrides
+...
+data:
+  values.yaml: |
+    core:
+      minio:
+        serverPools: 2
+...
 ```
 This command will update the existing Kaptain instance and double the MinIO cluster capacity with almost no downtime.  
 
@@ -66,3 +79,4 @@ This command will update the existing Kaptain instance and double the MinIO clus
 
 [erasure-coding]: https://docs.min.io/docs/minio-erasure-code-quickstart-guide
 [minio-docs]: https://docs.min.io/docs/
+[deploy-kaptain]: ../../install/deploy-kaptain

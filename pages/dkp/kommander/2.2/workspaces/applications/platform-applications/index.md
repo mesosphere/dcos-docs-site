@@ -12,6 +12,8 @@ Currently, the monitoring stack is deployed by default. The logging stack is not
 
 Review the [workspace platform application resource requirements](./platform-application-requirements/) to ensure that the attached clusters have sufficient resources.
 
+When deploying and upgrading applications, platform applications come as a bundle; they are tested as a single unit and you must deploy or upgrade them in a single process, for each workspace. This means all clusters in a workspace have the same set and versions of platform applications deployed.
+
 ### Customize a workspace's applications
 
 You can customize the applications that are deployed to a workspace's clusters using the DKP UI:
