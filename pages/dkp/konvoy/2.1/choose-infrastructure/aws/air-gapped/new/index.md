@@ -110,8 +110,6 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     --additional-security-group-ids=${AWS_ADDITIONAL_SECURITY_GROUPS} \
     --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
     --registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
-    --registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
-    --registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
     --control-plane-http-proxy="${CONTROL_PLANE_HTTP_PROXY}" \
     --control-plane-https-proxy="${CONTROL_PLANE_HTTPS_PROXY}" \
     --control-plane-no-proxy="${CONTROL_PLANE_NO_PROXY}" \
