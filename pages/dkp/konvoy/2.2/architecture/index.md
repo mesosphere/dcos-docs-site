@@ -61,15 +61,13 @@ Each work node includes the following key components:
 The native Kubernetes cluster supports a set of **addons**.
 Addons use Kubernetes resources to implement specific cluster-level features; because they provide cluster-level features, addons are defined in the `kube-system` namespace.
 
-DKP supplements the native Kubernetes cluster by providing a predefined and pre-configured set of addons.
-Because this predefined set of addons provides critical features for managing a Kubernetes cluster in a production environment, the default set of addons is identified as DKP **platform services** which are a key part of delivering an **opinionated Kubernetes** solution.
-See [Kubernetes Base Addons Requirements](../dkp/kommander/2.2/projects/applications/platform-applications/) for the full set of DKP platform services that are enabled by default.
+DKP supplements the native Kubernetes cluster by providing a predefined and pre-configured set of applications.
+Because this predefined set of applications provides critical features for managing a Kubernetes cluster in a production environment, the default set is identified as DKP **platform services**.
+See [Kubernetes platform applications](../../dkp/kommander/2.2/projects/applications/platform-applications/) for the full set of DKP platform services.
 
 
 ## Related information
 
 For information on related topics or procedures, refer to the following:
-
-- [Kubernetes Base Addons](../addons)
 
 [kubedoc]:https://kubernetes.io/docs/concepts/overview/components/
