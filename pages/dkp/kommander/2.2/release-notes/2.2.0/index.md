@@ -151,11 +151,14 @@ spec:
 
 Upgrading catalog applications using Spark Operator can fail when running `dkp upgrade catalogapp` due to the operator not starting. If this occurs, use the following workaround:
 
-1.  Run the command.
+1.  Run the command:
+
 	```bash
 	dkp upgrade catalogapp
 	```
+
 1.  Monitor the failure of `spark-operator`.
+
 1.  Get the workspace namespace name and export it.
 
     ```bash
@@ -345,61 +348,61 @@ New clusters use the "delete first" strategy by default. Existing clusters are s
 
 `cert-manager` renews all certificates 60 days after Kommander has been installed on your cluster. Unfortunately, some applications or pods fail to receive the renewed certificate information, causing them to break upon expiration (90 days after creation). As a result, your cluster stops running, and in some cases, you are unable to access the UI.
 
-Proceed with the following instructions if you have configured an [ACME issuer type][acme], a [SelfSigned issuer type][selfsigned] (for example, in air-gapped environments), or are using a certificate you configured separately for your own institution.
-
 To **prevent your applications from breaking**, or to **get them up and running again**, restart the corresponding pods and have the cert-manager create a new certificate. This forces the applications to reconcile and recognize the renewed certificate.
+
+If you have configured a [SelfSigned issuer type][selfsigned] (for example, in air-gapped environments), you will need to [extend the CA duration][#extend-ca-duration] and then [restart your pods][#restart-your-pods]. If you are using an [ACME issuer type][acme], or a certificate you configured separately for your own institution, skip to [restarting your pods][#restart-your-pods] directly.
 
 #### Extend CA duration
 
 If you are relying on a self-signed kommander-ca, extend the lifespan of your Certification Authority (CA) before you restart your pods. By default, the validity period is set at 90d. Since cert-manager does not rotate CA bundles inside certificates, this can lead to broken chains of trust for newly issued certificates.
 
-First, download the cert-manager client:
+1.  Download the cert-manager client:
 
-```bash
-OS=linux; ARCH=amd64; curl -sSL -o cmctl.tar.gz https://github.com/cert-manager/cert-manager/releases/download/v1.7.2/cmctl-$OS-$ARCH.tar.gz
-tar xzf cmctl.tar.gz
-```
+    ```bash
+    OS=linux; ARCH=amd64; curl -sSL -o cmctl.tar.gz https://github.com/cert-manager/cert-manager/releases/download/v1.7.2/cmctl-$OS-$ARCH.tar.gz
+    tar xzf cmctl.tar.gz
+    ```
 
-Then, modify the default value for the kommander-ca certification authority. The authority is responsible to sign all the kommander related certificates and should remain valid for an extended time to sign kommander certificates:
+1.  Modify the default value for the kommander-ca certification authority. The authority is responsible to sign all the kommander related certificates and should remain valid for an extended time to sign kommander certificates:
 
-```bash
-kubectl patch certificate -n cert-manager kommander-ca --type json --patch '[{ "op": "replace", "path": "/spec/duration", "value": "87600h0m0s" }]'
-./cmctl renew -n cert-manager kommander-ca
-```
+    ```bash
+    kubectl patch certificate -n cert-manager kommander-ca --type json --patch '[{ "op": "replace", "path": "/spec/duration", "value": "87600h0m0s" }]'
+    ./cmctl renew -n cert-manager kommander-ca
+    ```
 
 The new lifespan will be 87600h0m0s corresponding to a 10 years validity.
 
-Now, renew all the certificates to be signed by the new Certification Authority:
+1.  Renew all the certificates to be signed by the new Certification Authority:
 
-```bash
-cat << EOF > renew-certs.sh
-#!/bin/bash
-kubectl patch certificate -n cert-manager kommander-ca --type json --patch '[{ "op": "replace", "path": "/spec/duration", "value": "87600h0m0s" }]'
-./cmctl renew -n cert-manager kommander-ca
-namespaces=\$(kubectl get ns -o custom-columns=NAME:.metadata.name --no-headers)
-while IFS= read -r namespace; do
-    certificates=\$(kubectl get certificates -n \$namespace -o custom-columns=NAME:.metadata.name --no-headers)
-    while IFS= read -r cert; do
-        signer=\$(kubectl get certificate -n \$namespace \$cert -o go-template='{{.spec.issuerRef.name}}')
-        secret_name=\$(kubectl get certificate -n \$namespace \$cert -o go-template='{{.spec.secretName}}')
-        # Workaround for the dex secret collisions
+    ```bash
+    cat << EOF > renew-certs.sh
+    #!/bin/bash
+    kubectl patch certificate -n cert-manager kommander-ca --type json --patch '[{ "op": "replace", "path": "/spec/duration", "value": "87600h0m0s" }]'
+    ./cmctl renew -n cert-manager kommander-ca
+    namespaces=\$(kubectl get ns -o custom-columns=NAME:.metadata.name --no-headers)
+    while IFS= read -r namespace; do
+        certificates=\$(kubectl get certificates -n \$namespace -o custom-columns=NAME:.metadata.name --no-headers)
+        while IFS= read -r cert; do
+            signer=\$(kubectl get certificate -n \$namespace \$cert -o go-template='{{.spec.issuerRef.name}}')
+            secret_name=\$(kubectl get certificate -n \$namespace \$cert -o go-template='{{.spec.secretName}}')
+            # Workaround for the dex secret collisions
 
-        if [[ \$signer =  "kommander-ca" ]]; then
-            kubectl patch secret \$secret_name -n \$namespace --type json --patch '[{ "op": "replace", "path": "/data/ca.crt", "value": "'\$(kubectl get secret -n cert-manager kommander-ca -o go-template='{{index .data "ca.crt"}}')'" }]'
-            ./cmctl renew -n \$namespace \$cert
-        fi
+            if [[ \$signer =  "kommander-ca" ]]; then
+                kubectl patch secret \$secret_name -n \$namespace --type json --patch '[{ "op": "replace", "path": "/data/ca.crt", "value": "'\$(kubectl get secret -n cert-manager kommander-ca -o go-template='{{index .data "ca.crt"}}')'" }]'
+                ./cmctl renew -n \$namespace \$cert
+            fi
 
-    done <<< "\$certificates"
-done <<< "\$namespaces"
-EOF
+        done <<< "\$certificates"
+    done <<< "\$namespaces"
+    EOF
 
-chmod +x renew-certs.sh
-./renew-certs.sh
-```
+    chmod +x renew-certs.sh
+    ./renew-certs.sh
+    ```
 
 Your cert-manager will renew your certificates successfully after 60 days, but the pods will use the previous certificates until day 90, so **you will have to restart your cluster anytime between days 60 and 90** after Kommander has been installed on your cluster (which usually coincides with the date you created your cluster), or after the last time you restarted your cluster.
 
-### Restart your pods
+#### Restart your pods
 
 1.  Ensure that your DKP configuration references the correct cluster. You can do this by setting the KUBECONFIG environment variable, or using the `--kubeconfig` flag, [in accordance with Kubernetes conventions][config_kub].
 
