@@ -342,8 +342,6 @@ New clusters use the "delete first" strategy by default. Existing clusters are s
 
 ## Additional resources
 
-<!-- Add links to external documentation as needed -->
-
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [kube-prometheus-stack]: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
