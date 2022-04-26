@@ -16,29 +16,6 @@ enterprise: false
     dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443>
     ```
 
-    ```sh
-    Generating cluster resources
-    cluster.cluster.x-k8s.io/preprovisioned-example created
-    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/preprovisioned-example-control-plane created
-    preprovisionedcluster.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example created
-    preprovisionedmachinetemplate.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-control-plane created
-    secret/preprovisioned-example-etcd-encryption-config created
-    machinedeployment.cluster.x-k8s.io/preprovisioned-example-md-0 created
-    preprovisionedmachinetemplate.infrastructure.cluster.konvoy.d2iq.io/preprovisioned-example-md-0 created
-    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/preprovisioned-example-md-0 created
-    clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-preprovisioned-example created
-    configmap/calico-cni-installation-preprovisioned-example created
-    configmap/tigera-operator-preprovisioned-example created
-    clusterresourceset.addons.cluster.x-k8s.io/local-volume-provisioner-preprovisioned-example created
-    configmap/local-volume-provisioner-preprovisioned-example created
-    clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-preprovisioned-example created
-    configmap/node-feature-discovery-preprovisioned-example created
-    clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-preprovisioned-example created
-    configmap/nvidia-feature-discovery-preprovisioned-example created
-    clusterresourceset.addons.cluster.x-k8s.io/metallb-preprovisioned-example created
-    configmap/metallb-installation-preprovisioned-example created
-    ```
-
 1.  Use the wait command to monitor the cluster control-plane readiness:
 
     ```bash
