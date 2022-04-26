@@ -346,6 +346,54 @@ Proceed with the following instructions if you have configured an [ACME issuer t
 
 To **prevent your applications from breaking**, or to **get them up and running again**, restart the corresponding pods and have the cert-manager create a new certificate. This forces the applications to reconcile and recognize the renewed certificate.
 
+### Extend CA duration
+
+If you are relying on self-signed kommander-ca, you should first extend the lifespan of your Certification Authority (CA) which is by default 90d. Since cert-manager does not rotate CA bundles inside certificates this may lead to broken chains of trust for newly issued certificates.
+
+First, download the cert-manager client:
+
+```bash
+OS=linux; ARCH=amd64; curl -sSL -o cmctl.tar.gz https://github.com/cert-manager/cert-manager/releases/download/v1.7.2/cmctl-$OS-$ARCH.tar.gz
+tar xzf cmctl.tar.gz
+```
+
+Then, modify the default value for the kommander-ca certification authority. The authority is responsible to sign all the kommander related certificates and should remain valid for an extended time to sign kommander certificates:
+
+```bash
+kubectl patch certificate -n cert-manager kommander-ca --type json --patch '[{ "op": "replace", "path": "/spec/duration", "value": "87600h0m0s" }]'
+./cmctl renew -n cert-manager kommander-ca
+```
+
+The new lifespan will be 87600h0m0s corresponding to a 10 years validity.
+
+Now, renew all the certificates to be signed by the new Certification Authority:
+
+```bash
+cat << EOF > renew-certs.sh
+#!/bin/bash
+kubectl patch certificate -n cert-manager kommander-ca --type json --patch '[{ "op": "replace", "path": "/spec/duration", "value": "87600h0m0s" }]'
+./cmctl renew -n cert-manager kommander-ca
+namespaces=\$(kubectl get ns -o custom-columns=NAME:.metadata.name --no-headers)
+while IFS= read -r namespace; do
+    certificates=\$(kubectl get certificates -n \$namespace -o custom-columns=NAME:.metadata.name --no-headers)
+    while IFS= read -r cert; do
+        signer=\$(kubectl get certificate -n \$namespace \$cert -o go-template='{{.spec.issuerRef.name}}')
+        secret_name=\$(kubectl get certificate -n \$namespace \$cert -o go-template='{{.spec.secretName}}')
+        # Workaround for the dex secret collisions
+
+        if [[ \$signer =  "kommander-ca" ]]; then
+            kubectl patch secret \$secret_name -n \$namespace --type json --patch '[{ "op": "replace", "path": "/data/ca.crt", "value": "'\$(kubectl get secret -n cert-manager kommander-ca -o go-template='{{index .data "ca.crt"}}')'" }]'
+            ./cmctl renew -n \$namespace \$cert
+        fi
+
+    done <<< "\$certificates"
+done <<< "\$namespaces"
+EOF
+
+chmod +x renew-certs.sh
+./renew-certs.sh
+```
+
 Your cert-manager will renew your certificates successfully after 60 days, but the pods will use the previous certificates until day 90, so **you will have to restart your cluster anytime between days 60 and 90** after Kommander has been installed on your cluster (which usually coincides with the date you created your cluster), or after the last time you restarted your cluster.
 
 #### Restart your pods
@@ -361,26 +409,123 @@ Your cert-manager will renew your certificates successfully after 60 days, but t
     The output should look similar to this:
 
     ```sh
-    NAMESPACE      NAME                READY   SECRET                          ISSUER              STATUS                                          AGE
-    cert-manager   kommander-ca        True    kommander-ca                    selfsigned-issuer   Certificate is up to date and has not expired   59m
-    kommander      git-tls             True    git-tls                         kommander-ca        Certificate is up to date and has not expired   59m
-    kommander      kommander-traefik   True    kommander-traefik-certificate   kommander-ca        Certificate is up to date and has not expired   59m
+    NAMESPACE                     NAME                                        READY   SECRET                                   ISSUER                                 STATUS                                          AGE
+    cert-manager                  kommander-ca                                True    kommander-ca                             selfsigned-issuer                      Certificate is up to date and has not expired   3h9m
+    kommander-default-workspace   kommander-karma-server-tls-cert             True    kommander-karma-server-tls               kommander-ca                           Certificate is up to date and has not expired   161m
+    kommander-default-workspace   kommander-kubecost-thanos-server-tls-cert   True    kommander-kubecost-thanos-server-tls     kommander-ca                           Certificate is up to date and has not expired   161m
+    kommander-default-workspace   kommander-thanos-server-tls-cert            True    kommander-thanos-server-tls              kommander-ca                           Certificate is up to date and has not expired   161m
+    kommander                     dex                                         True    dex                                      kommander-ca                           Certificate is up to date and has not expired   165m
+    kommander                     dex-dex-controller-webhook-serving-cert     True    webhook-server-cert                      dex-dex-controller-selfsigned-issuer   Certificate is up to date and has not expired   165m
+    kommander                     git-tls                                     True    git-tls                                  kommander-ca                           Certificate is up to date and has not expired   172m
+    kommander                     kommander-authorizedlister-tls              True    kommander-authorizedlister-tls           kommander-ca                           Certificate is up to date and has not expired   163m
+    kommander                     kommander-gatekeeper-ca                     True    kommander-gatekeeper-ca                  kommander-gatekeeper-selfsign          Certificate is up to date and has not expired   167m
+    kommander                     kommander-gatekeeper-webhook-tls            True    gatekeeper-webhook-server-cert           kommander-gatekeeper-ca                Certificate is up to date and has not expired   167m
+    kommander                     kommander-karma-server-tls-cert             True    kommander-karma-server-tls               kommander-ca                           Certificate is up to date and has not expired   161m
+    kommander                     kommander-kubecost-thanos-server-tls-cert   True    kommander-kubecost-thanos-server-tls     kommander-ca                           Certificate is up to date and has not expired   161m
+    kommander                     kommander-licensing-webhook-tls             True    kommander-licensing-webhook-tls          kommander-ca                           Certificate is up to date and has not expired   163m
+    kommander                     kommander-thanos-server-tls-cert            True    kommander-thanos-server-tls              kommander-ca                           Certificate is up to date and has not expired   161m
+    kommander                     kommander-traefik                           True    kommander-traefik-certificate            kommander-ca                           Certificate is up to date and has not expired   172m
+    kommander                     kommander-webhook-tls                       True    kommander-webhook-tls                    kommander-ca                           Certificate is up to date and has not expired   163m
+    kommander                     kubetunnel-webhook-tls                      True    kubetunnel-webhook-tls                   tunnel                                 Certificate is up to date and has not expired   165m
+    kube-federation-system        kubefed-certificate                         True    kubefed-admission-webhook-serving-cert   kubefed-issuer                         Certificate is up to date and has not expired   165m
+    kube-federation-system        kubefed-root-certificate                    True    kubefed-root-ca                          kubefed-ca-issuer                      Certificate is up to date and has not expired   165m
     ```
 
 1.  Run the following command to restart the affected pods:
 
     ```bash
-    OS=linux; ARCH=amd64; curl -sSL -o cmctl.tar.gz https://github.com/cert-manager/cert-manager/releases/download/v1.7.2/cmctl-$OS-$ARCH.tar.gz
-    tar xzf cmctl.tar.gz
-    ./cmctl renew -A -l helm.toolkit.fluxcd.io/namespace=kommander
-    kubectl patch secret -n kommander traefik-forward-auth-ca-certificate --type json --patch '[{ "op": "replace", "path": "/data/ca.crt", "value": "'`kubectl get secret -n cert-manager kommander-ca -o go-template='{{index .data "ca.crt"}}'`'" }]'
-    
-    deploymentsKommander="kommander-cm kommander-traefik dex dex-dex-controller kommander-licensing-cm kube-oidc-proxy traefik-forward-auth-mgmt kommander-webhook dex-k8s-authenticator kubetunnel-webhook traefik-forward-auth"
-    for deployment in $deploymentsKommander; do
-      kubectl rollout restart deployment -n kommander $deployment
-    done
-    kubectl rollout restart statefulset -n kommander gitea
-    ```
+kubectl apply -f - <<EOF
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: rotate-certificates
+  namespace: kommander
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: rotate-certificates 
+  namespace: kommander
+rules:
+  - apiGroups:
+    - cert-manager.io
+    resources:
+    - certificates
+    verbs:
+    - get
+    - list
+    - watch
+    - update
+  - apiGroups:
+    - apps
+    resources:
+    - deployments
+    verbs:
+    - patch
+    - get 
+    - list
+    - watch
+  - apiGroups:
+    - ""
+    resources:
+    - pods
+    verbs:
+    - create
+    - update
+    - get 
+    - list
+    - watch   
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: rotate-certificates
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: rotate-certificates
+subjects:
+- kind: ServiceAccount
+  name: rotate-certificates
+  namespace: kommander
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: rotate-certificates
+  namespace: kommander
+spec:
+  schedule: "0 0 1 * *"
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 300
+      backoffLimit: 6
+      completions: 1
+      parallelism: 1
+      template:
+        spec:
+          restartPolicy: "OnFailure"
+          containers:
+          - command:
+            - /bin/bash
+            - -exc
+            - |
+              deploymentsKommander="kommander-cm kommander-traefik dex dex-dex-controller kommander-licensing-cm kube-oidc-proxy traefik-forward-auth-mgmt kommander-webhook dex-k8s-authenticator kubetunnel-webhook traefik-forward-auth"
+              for deployment in $deploymentsKommander; do
+                  kubectl rollout restart deployment -n kommander $deployment
+              done
+              kubectl rollout restart statefulset -n kommander gitea
+              kubectl rollout restart deployment -n kube-federation-system kubefed-admission-webhook
+            image: bitnami/kubectl:1.21.3
+            imagePullPolicy: IfNotPresent
+            name: main
+          securityContext:
+            fsGroup: 65534
+            runAsUser: 65534
+          serviceAccount: rotate-certificates 
+EOF
+```
 
     Now you must fix the certificate issues with the Gitrepository by committing the updated secret to Git.
 
@@ -411,6 +556,8 @@ Your cert-manager will renew your certificates successfully after 60 days, but t
 
     ```bash
     kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}'
+    # Example Output
+    LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJiekNDQVJXZ0F3SUJBZ0lSQUlwSTRRWUY0QmZSRzNZUUxqUkFNQWt3Q2dZSUtvWkl6ajBFQXdJd0Z6RVYKTUJNR0ExVUVBeE1NYTI5dGJXRnVaR1Z5TFdOaE1CNFhEVEl5TURReU5qRXlORGN5TVZvWERUTXlNRFF5TXpFeQpORGN5TVZvd0Z6RVZNQk1HQTFVRUF4TU1hMjl0YldGdVpHVnlMV05oTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJCnpqMERBUWNEUWdBRTRWWE9Ka1VJNXlkNm9BVTFDYnQySEEzZ2xnUFlpYkl1OXNmQTgvMTFDckNnandtZFE3Ym8KbzNIQUdEOE9vZlU5VnlvZWIzQzJiZ2UxbWlmeUxXK013S05DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4RwpBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZPVFB0NlJzSlhNMEIxTEJZWjA3RXltLzZ2MjVNQW9HCkNDcUdTTTQ5QkFNQ0EwZ0FNRVVDSUZnWjRmYi80VWtNYVNyTWRzY0M5QTVCa2Y4MkdhQm1qMDRYS2ZWM2Zya24KQWlFQTRqNHNtc3psTGZpUHd2NGpSSHkxa010ZTZnY0V2ME81emdhdVljaU96dk09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K 
     ```
 
 <!-- Can we get an example output -->
@@ -452,4 +599,5 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [acme]: https://cert-manager.io/docs/configuration/acme/
+
 [selfsigned]: https://cert-manager.io/docs/configuration/selfsigned/
