@@ -80,25 +80,25 @@ If you need to run Spark jobs on Kubernetes using Spark Operator, you must insta
 
 1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
 
-```bash
-#!/usr/bin/env bash
-set -euo pipefail
-IFS=$'\n\t'
+    ```bash
+    #!/usr/bin/env bash
+    set -euo pipefail
+    IFS=$'\n\t'
 
-readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kaptain-image-bundle.tar"}
-readonly REGISTRY_URL=${REGISTRY_URL#https://}
+    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kaptain-image-bundle.tar"}
+    readonly REGISTRY_URL=${REGISTRY_URL#https://}
 
-docker load --input "${AIRGAPPED_TAR_FILE}"
+    docker load --input "${AIRGAPPED_TAR_FILE}"
 
-while read -r IMAGE; do
-    echo "Processing ${IMAGE}"
-    REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker|k8s.gcr|nvcr).io|public.ecr.aws|mcr.microsoft.com@${REGISTRY_URL}@")"
-    docker image tag "${IMAGE}" "${REGISTRY_IMAGE}"
-    docker image push "${REGISTRY_IMAGE}"
-done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
-```
+    while read -r IMAGE; do
+        echo "Processing ${IMAGE}"
+        REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker|k8s.gcr|nvcr).io|public.ecr.aws|mcr.microsoft.com@${REGISTRY_URL}@")"
+        docker image tag "${IMAGE}" "${REGISTRY_IMAGE}"
+        docker image push "${REGISTRY_IMAGE}"
+    done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
+    ```
 
-<p class="message--note"><strong>NOTE: </strong>This script is slightly different than the Kommander load script and has different image registry filters.</p>
+    <p class="message--note"><strong>NOTE: </strong>This script is slightly different than the Kommander load script and has different image registry filters.</p>
 
 Based on the network latency between the environment of script execution, the Docker registry, and the disk speed, this can take a while to upload all the images to your image registry.
 
