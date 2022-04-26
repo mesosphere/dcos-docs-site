@@ -64,8 +64,6 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
     - `DOCKER_REGISTRY_ADDRESS`: the address of an existing Docker registry accessible in the VPC that the new cluster nodes will be configured to use a mirror registry when pulling images.
     - `DOCKER_REGISTRY_CA`: (optional) the path on the bastion machine to the Docker registry CA. Konvoy will configure the cluster nodes to trust this CA. This value is only needed if the registry is using a self-signed certificate and the AMIs are not already configured to trust this CA.
-    - `DOCKER_REGISTRY_USERNAME`: optional, set to a user that has pull access to this registry.
-    - `DOCKER_REGISTRY_PASSWORD`: optional if username is not set.
 
 1.  Create a Kubernetes cluster:
 
