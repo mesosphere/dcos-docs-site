@@ -8,21 +8,20 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD018 MD025 MD007 MD030 MD032-->
 This topic shows how to run Kommander on top of an [air-gapped Konvoy cluster][air-gap-konvoy] installation.
 
 ## Prerequisites
 
 Before installing, ensure you have:
 
-- A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander-image-bundle.tar` tarball has the required artifacts.
+-   A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander-image-bundle.tar` tarball has the required artifacts.
 
-- Connectivity with clusters attaching to the management cluster:
-  - Both management and attached clusters must connect to the Docker registry.
-  - Management cluster must connect to the attached cluster's API server.
-  - Management cluster must connect to load balancers created by some platform services.
+-   Connectivity with clusters attaching to the management cluster:
+    - Both management and attached clusters must connect to the Docker registry.
+    - Management cluster must connect to the attached cluster's API server.
+    - Management cluster must connect to load balancers created by some platform services.
 
-- All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
+-   All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
 
 ### Determine the installation version
 
@@ -34,15 +33,15 @@ export VERSION=v2.0.0
 
 ### Load the Docker images into your Docker registry
 
-1. Download the `kommander-image-bundle.tar.gz` file.
+1.  Download the `kommander-image-bundle.tar.gz` file.
 
     ```bash
     wget "https://downloads.d2iq.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O kommander-image-bundle.tar
     ```
 
-1. Place the bundle into a location where you can load and push the images to your private Docker registry.
+1.  Place the bundle into a location where you can load and push the images to your private Docker registry.
 
-1. Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately and then use the following script to load the air-gapped image bundle:
+1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately and then use the following script to load the air-gapped image bundle:
 
     ```bash
     #!/usr/bin/env bash
@@ -66,13 +65,13 @@ Based on the network latency between the environment of script execution and the
 
 ## Install on Konvoy
 
-1. Kommander v2.0 ships in a Helm chart. Prior to installing Kommander, ensure the helm charts for an air-gapped deployment are available locally. To get the latest chart:
+1.  Kommander v2.0 ships in a Helm chart. Prior to installing Kommander, ensure the helm charts for an air-gapped deployment are available locally. To get the latest chart:
 
     ```bash
     wget "https://mesosphere.github.io/kommander/charts/kommander-bootstrap-${VERSION}.tgz"
     ```
 
-1. Create the following `values.yaml` file that can be used for installing Kommander in your air-gapped environment:
+1.  Create the following `values.yaml` file that can be used for installing Kommander in your air-gapped environment:
 
     ```yaml
     export GOARCH=amd64
@@ -111,13 +110,13 @@ Based on the network latency between the environment of script execution and the
     EOF
     ```
 
-1. To install Kommander in your air-gapped environment using the above `values.yaml` file, enter the following command:
+1.  To install Kommander in your air-gapped environment using the above `values.yaml` file, enter the following command:
 
     ```bash
     helm install -n kommander --create-namespace kommander-bootstrap kommander-bootstrap-${VERSION}.tgz --values values-airgapped.yaml
     ```
 
-1. If you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by creating the following configmap in the `kommander` namespace:
+1.  If you are installing Kommander in an AWS VPC, set the Traefik annotation to create an internal facing ELB by creating the following configmap in the `kommander` namespace:
 
     ```yaml
     cat << EOF | kubectl apply -f -
@@ -135,8 +134,7 @@ Based on the network latency between the environment of script execution and the
     EOF
     ```
 
-1. [Verify your installation](../networked#verify-installation).
+1.  [Verify your installation](../networked#verify-installation).
 
-[air-gap-konvoy]: /dkp/konvoy/2.0/install/air-gapped/
-[air-gap-before-you-begin]: /dkp/konvoy/2.0/install/air-gapped/prerequisites/
-[konvoy_self_managing]: /dkp/konvoy/2.0/install/networked/self-managing/
+[air-gap-konvoy]: /dkp/konvoy/2.0/choose_infrastructure/aws/air-gapped/
+[air-gap-before-you-begin]: /dkp/konvoy/2.0/choose_infrastructure/aws/air-gapped/prerequisites/

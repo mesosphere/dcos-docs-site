@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Deploy Kaptain on DKP 2.x
 title: Deploy Kaptain on DKP 2.x
-menuWeight: 9
+menuWeight: 15
 excerpt: Deploy Kaptain in air-gapped and networked environments
 beta: false
 enterprise: false
@@ -12,6 +12,16 @@ enterprise: false
 You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.
 </p>
 
+## Prerequisite
+
+Ensure you add Kaptain to your DKP Catalog applications before you deploy it to your clusters. Refer to the corresponding documentation for your environment:
+
+-   [Add Kaptain to your DKP Catalog applications (networked and on-premise)][add_dkp]
+
+**OR**
+
+-   [Add Kaptain to your DKP Catalog applications in an air-gapped environment][add-air]
+
 ## Enable and deploy Kaptain using the DKP UI
 
 Follow these steps to enable Kaptain in air-gapped and networked environments from the DKP UI:
@@ -20,7 +30,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Select **Applications** from the sidebar menu.
 
-1.  Type Kaptain in the **Applications** search bar. If Kaptain is not available in the UI, [add Kaptain to your DKP catalog][add_Kaptain] via CLI first.
+1.  Type Kaptain in the **Applications** search bar. If Kaptain is not available in the UI, add Kaptain to your DKP catalog as stated in the [prerequisite section](#prerequisite).
 
 1.  Select the three dot menu > **Enable**, in the Kaptain tile.
     The `Enable Workspace Catalog Application` page is displayed.
@@ -42,7 +52,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Repeat these steps for each additional workspace, if you want to deploy Kaptain to other workspaces.
 
-Alternately, you can use the [CLI](#enable-and-deploy-Kaptain-using-the-dkp-cli) to enable your catalog applications.
+Alternately, you can use the [CLI](#enable-and-deploy-kaptain-using-the-dkp-cli) to enable your catalog applications.
 
 ### Verify the status of deployment using the DKP UI
 
@@ -71,12 +81,12 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
     apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
-        name: kaptain
-        namespace: ${WORKSPACE_NAMESPACE}
+      name: kaptain
+      namespace: ${WORKSPACE_NAMESPACE}
     spec:
-        appRef:
-            kind: App
-            name: kaptain-2.0.0
+      appRef:
+        kind: App
+        name: kaptain-2.0.0
     EOF 
     ```
 
@@ -111,12 +121,12 @@ If you want to customize your installation and modify the custom domain name, ex
     apiVersion: v1
     kind: ConfigMap
     metadata:
-        namespace: ${WORKSPACE_NAMESPACE}
-        name: kaptain-overrides
+      namespace: ${WORKSPACE_NAMESPACE}
+      name: kaptain-overrides
     data:
-        values.yaml: |
-            core:
-                registrationFlow: true
+      values.yaml: |
+        core:
+          registrationFlow: true
     EOF
     ```
 
@@ -128,9 +138,14 @@ With Kaptain enabled, connect to the cluster and check the `HelmReleases` to ver
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
+```
+
+```sh
 NAME                      AGE     READY   STATUS
 kaptain-1                 3m40s   True    Release reconciliation succeeded
 ```
 
 [add_Kaptain]: ../dkp/
 [existcluster]: ../../../../kommander/2.2/clusters/attach-cluster/
+[add_dkp]: ../dkp/
+[add-air]: ../air-gapped-dkp/

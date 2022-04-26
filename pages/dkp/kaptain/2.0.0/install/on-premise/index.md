@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Install on-premises
 title: Install Kaptain on an on-premises cluster
-menuWeight: 9
+menuWeight: 3
 excerpt: Install Kaptain on an on-premises cluster
 beta: false
 enterprise: false
@@ -14,65 +14,10 @@ Kaptain natively supports the installation on an on premise cluster. Before inst
 
 Please note that the IP address of the Kaptain UI will come from the IP address range that is configured in the [MetalLB load balancer][metallb-load-balancer].
 
-### Konvoy 1.x
+## Install Kaptain
 
-The steps to install Kaptain on an on-premises cluster are as follows:
+When your cluster is ready, [install Kaptain](../) by adding Kaptain to your DKP Catalog Applications and deploying it to your clusters.
 
-- Follow the [Konvoy On-Premises Installation Guide][konvoy-on-prem] to configure the `cluster.yaml`. An example is shown below.
-
-- Ensure the following base addons that are needed by Kaptain are enabled:
-
-  ```yaml
-  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.20-4.3.0
-    addonsList:
-      - name: istio
-        enabled: true
-      - name: dex
-        enabled: true
-      - name: cert-manager
-        enabled: true
-      - name: prometheus
-        enabled: true
-  ```
-
-- Ensure the Knative and NFS addons that are needed by Kaptain are enabled:
-  ```yaml
-  - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
-    configVersion: stable-1.20-1.4.0
-    addonsList:
-      - name: knative
-        enabled: true
-  ```
-- Spin up the Konvoy cluster:
-  ```bash
-  konvoy up
-  ```
-
-### DKP 2
-
-For DKP 2.x, ensure the following applications are enabled in Kommander:
-
-```yaml
-  apiVersion: config.kommander.mesosphere.io/v1alpha1
-  kind: Installation
-  apps:
-    ...
-    dex:
-    dex-k8s-authenticator:
-    kube-prometheus-stack:
-    istio:
-    knative:
-    minio-operator:
-    traefik:
-    nvidia:  # to enable GPU support
-    ...
-```
-
-### Install Kaptain
-
-When the Konvoy cluster is ready, [install Kaptain](../konvoy-dkp/).
-
-[konvoy-on-prem]: /dkp/konvoy/1.8/install/install-onprem/
-[dkp-install]: /dkp/kommander/latest/install/networked/
-[metallb-load-balancer]: /dkp/konvoy/1.8/install/install-onprem/#configure-metallb-load-balancing
+[konvoy-on-prem]: ../../../../konvoy/2.2/choose-infrastructure/on-prem/
+[dkp-install]: /dkp/kommander/latest/networking/load-balancing#on-premises
+[metallb-load-balancer]: ../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/metal-lb/

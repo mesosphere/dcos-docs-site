@@ -88,7 +88,6 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
 
 [install-kaptain]: ../konvoy-dkp/
 [install-spark-dkp2]: /dkp/kommander/2.1/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
-[install-spark-konvoy1]: /dkp/kommander/1.4/projects/platform-services/platform-services-catalog/kudo-spark/
 [kommander-install]: /dkp/kommander/2.1/install/air-gapped/
 [konvoy-air-gap]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/
 [konvoy_deploy_addons]: /dkp/konvoy/1.8/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade

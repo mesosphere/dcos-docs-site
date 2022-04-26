@@ -43,6 +43,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     - `AWS_ADDITIONAL_SECURITY_GROUPS`: a comma-seperated list of one or more Security Groups IDs to use in addition to the ones automatically created by [CAPA][capa].
     - `AWS_AMI_ID`: the AMI ID to use for control-plane and worker nodes. The AMI must be created by the [konvoy-image-builder][konvoy-image-builder] project as described on the previous page.
 
+
     <p class="message--important"><strong>IMPORTANT: </strong>You must tag the subnets as described below to allow for Kubernetes to create ELBs for services of type <code>LoadBalancer</code> in those subnets. If the subnets are not tagged, they will not receive an ELB and the following error displays: <code>Error syncing load balancer, failed to ensure load balancer; could not find any suitable subnets for creating the  ELB.</code>.</p>
 
     The tags should be set as follows, where `<CLUSTER_NAME>` corresponds to the name set in `CLUSTER_NAME` environment variable:
@@ -131,6 +132,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     ```
 
 Then, [explore your new cluster][explore-cluster].
+
 
 [ansible-task-images]: https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/tasks/main.yaml
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html

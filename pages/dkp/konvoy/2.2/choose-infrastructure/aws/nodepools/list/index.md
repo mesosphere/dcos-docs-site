@@ -20,7 +20,7 @@ dkp get nodepools --cluster-name=${CLUSTER_NAME} --kubeconfig=${CLUSTER_NAME}.co
 The expected output is similar to the following example, indicating the desired size of the node pool, the number of replicas ready in the node pool, and the Kubernetes version those nodes are running:
 
 ```sh
-NODEPOOL                        DESIRED               READY               KUBERNETES VERSION
-demo-cluster-md-0               4                     4                   v1.21.6
-example                         3                     0                   v1.21.6
+NODEPOOL                           DESIRED               READY               KUBERNETES VERSION               
+example                            3                     3                   v1.22.8                          
+aws-example-md-0                   4                     4                   v1.22.8
 ```

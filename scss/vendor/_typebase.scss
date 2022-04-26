@@ -39,7 +39,7 @@ ol {
 
 li {
   p {
-    margin: ($leading / 2) 0 0;
+    margin: calc($leading / 2) 0 0;
   }
 }
 

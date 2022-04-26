@@ -8,9 +8,9 @@ beta: false
 enterprise: false
 ---
 
-D2iQ&reg; supports N-2 of the latest `MAJOR.MINOR` version of Kommander. For example, if the current version of Kommander&reg; is version 2.0, then D2iQ supports all patch versions of Kommander 2.0, 1.4, and 1.3.
+D2iQ&reg; supports N-2 of the latest `MAJOR.MINOR` version of Kommander. For example, if the current version of Kommander&reg; is version 2.2, then D2iQ supports all patch versions of Kommander 2.2, 2.1, and 1.4.
 
-When the 2.1 version releases, support continues for 2.0, and 1.4. Support for Kommander version 1.3.x expires. Users should upgrade their Kommander clusters with every new release to stay up-to-date with the latest features and bug fixes.
+When the 2.3 version releases, support continues for 2.2, and 2.1. Support for Kommander version 1.4.x expires. Users should upgrade Kommander with every new release to stay up-to-date with the latest features and bug fixes.
 
 You can read more about our official support policy in [D2iQ Support and Maintenance Terms](https://d2iq.com/legal/support-terms).
 
@@ -20,15 +20,15 @@ The following chart identifies which version of Konvoy supports which version of
 
 | Konvoy Version | Kommander Version |
 | -------------- | ----------------- |
+| 2.2.x | 2.2.x |
 | 2.1.x | 2.1.x |
 | 2.0.x | 2.0.x |
 | 1.8.x | 1.4.x |
-| 1.7.x | 1.3.x |
 
-Konvoy and Kommander release `MAJOR.MINOR` versions together and are compatible with each other for that version set. This means, Kommander 1.3, and all of its patch versions (for example, 1.3.0, 1.3.1), can deploy successfully on any version of Konvoy 1.7. Mixing minor versions is prohibited and the following is not supported:
+Konvoy and Kommander release `MAJOR.MINOR` versions together and are compatible with each other for that version set. This means, Kommander 1.4, and all of its patch versions (for example, 1.4.0, 1.4.1), can deploy successfully on any version of Konvoy 1.8. Mixing minor versions is prohibited and the following is not supported:
 
+- You cannot deploy Kommander 1.3.x on Konvoy 1.8.x
 - You cannot deploy Kommander 1.2.x on Konvoy 1.7.x
-- You cannot deploy Kommander 1.1.x on Konvoy 1.6.x
 
 <!--- ## Supported operating systems
 

@@ -9,9 +9,8 @@ excerpt: Compares versions of the Kaptain SDK with Kaptain and shows compatibili
 The following chart shows SDK compatibility for the past 3 major releases of Kaptain. Where partial support is noted,
 the SDK will function for most tasks, but newer features introduced in the SDK or in Kaptain may not function properly.
 
-|               | Kaptain 1.3.0     | Kaptain 1.2.0     | Kaptain 1.1.0     |
+|               | Kaptain 2.0.0     | Kaptain 1.3.0     | Kaptain 1.2.0     |
 | ------------- | ----------------- | ----------------- | ----------------- |
-| SDK 1.0.0     | Full              | Partial           | Partial           |
-| SDK 0.4.0     | Full              | Partial           | Partial           |
-| SDK 0.3.0     | Partial           | Full              | Partial           |
-| SDK 0.2.0     | Partial           | Partial           | Full              |
+| SDK 1.0.1     | Full              | Partial           | Partial           |
+| SDK 1.0.0     | Partial           | Full              | Partial           |
+| SDK 0.4.0     | Partial           | Full              | Partial           |

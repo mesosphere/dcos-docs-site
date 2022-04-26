@@ -117,7 +117,7 @@ kubectl edit federatedconfigmap kube-oidc-proxy-overrides -n kommander
 
 Modify `oidc.issuerUrl` under the `values.yaml` key to override it for the `host-cluster` cluster:
 
-```sh
+```yaml
 apiVersion: types.kubefed.io/v1beta1
 kind: FederatedConfigMap
 metadata:
@@ -146,39 +146,48 @@ spec:
             usernameClaim: email
 [...]
 ```
+
 ### Spark operator failure workaround
 
 Upgrading catalog applications using Spark Operator can fail when running `dkp upgrade catalogapp` due to the operator not starting. If this occurs, use the following workaround:
 
-1. Run the `dkp upgrade catalogapp` command.
-1. Monitor the failure of `spark-operator`.
-1. Get the workspace namespace name and export it.
-   ```bash
-   export WORKSPACE_NAMESPACE=<SPARK_OPERATOR_WS_NS>
-   ```
-1. Export the spark-operator AppDeployment name.
+1.  Run the `dkp upgrade catalogapp` command.
+1.  Monitor the failure of `spark-operator`.
+1.  Get the workspace namespace name and export it.
+
+    ```bash
+    export WORKSPACE_NAMESPACE=<SPARK_OPERATOR_WS_NS>
+    ```
+
+1.  Export the spark-operator AppDeployment name.
+
     ```bash
     # e.g., this value can be spark-operator-1
+    # if your spark-operator AppDeployment name doesn't contain "spark", you must adjust the grep command accordingly
     export SPARK_APPD_NAME=$(kubectl get appdeployment -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[*]} {.metadata.name}{"\n"}{end}' | grep spark)
     ```
-1. Export the service account name of your `spark-operator`.
+
+1.  Export the service account name of your `spark-operator`.
+
     ```bash
     # if your provided values override, please look it up in that ConfigMap
     # this is the default value defined in spark-operator-1.1.6-d2iq-defaults ConfigMap
     export SPARK_OPERATOR_SERVICE_ACCOUNT=spark-operator-service-account
     ```
-1. Run the following command.
-   ```bash
+
+1.  Run the following command.
+
+    ```yaml
     kubectl apply -f - <<EOF
     ---
     apiVersion: rbac.authorization.k8s.io/v1
     kind: ClusterRole
     metadata:
-    name: spark-operator
-    annotations:
+      name: spark-operator
+      annotations:
         "helm.sh/hook": pre-install, pre-upgrade
         "helm.sh/hook-delete-policy": hook-failed, before-hook-creation
-    labels:
+      labels:
         app.kubernetes.io/instance: spark-operator
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: spark-operator
@@ -188,96 +197,96 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
         helm.toolkit.fluxcd.io/namespace: $WORKSPACE_NAMESPACE
     rules:
     - apiGroups:
-    - ""
-    resources:
-    - pods
-    verbs:
-    - "*"
+      - ""
+      resources:
+      - pods
+      verbs:
+      - "*"
     - apiGroups:
-    - ""
-    resources:
-    - services
-    - configmaps
-    - secrets
-    verbs:
-    - create
-    - get
-    - delete
-    - update
+      - ""
+      resources:
+      - services
+      - configmaps
+      - secrets
+      verbs:
+      - create
+      - get
+      - delete
+      - update
     - apiGroups:
-    - extensions
-    - networking.k8s.io
-    resources:
-    - ingresses
-    verbs:
-    - create
-    - get
-    - delete
+      - extensions
+      - networking.k8s.io
+      resources:
+      - ingresses
+      verbs:
+      - create
+      - get
+      - delete
     - apiGroups:
-    - ""
-    resources:
-    - nodes
-    verbs:
-    - get
+      - ""
+      resources:
+      - nodes
+      verbs:
+      - get
     - apiGroups:
-    - ""
-    resources:
-    - events
-    verbs:
-    - create
-    - update
-    - patch
+      - ""
+      resources:
+      - events
+      verbs:
+      - create
+      - update
+      - patch
     - apiGroups:
-    - ""
-    resources:
-    - resourcequotas
-    verbs:
-    - get
-    - list
-    - watch
+      - ""
+      resources:
+      - resourcequotas
+      verbs:
+      - get
+      - list
+      - watch
     - apiGroups:
-    - apiextensions.k8s.io
-    resources:
-    - customresourcedefinitions
-    verbs:
-    - create
-    - get
-    - update
-    - delete
+      - apiextensions.k8s.io
+      resources:
+      - customresourcedefinitions
+      verbs:
+      - create
+      - get
+      - update
+      - delete
     - apiGroups:
-    - admissionregistration.k8s.io
-    resources:
-    - mutatingwebhookconfigurations
-    - validatingwebhookconfigurations
-    verbs:
-    - create
-    - get
-    - update
-    - delete
+      - admissionregistration.k8s.io
+      resources:
+      - mutatingwebhookconfigurations
+      - validatingwebhookconfigurations
+      verbs:
+      - create
+      - get
+      - update
+      - delete
     - apiGroups:
-    - sparkoperator.k8s.io
-    resources:
-    - sparkapplications
-    - sparkapplications/status
-    - scheduledsparkapplications
-    - scheduledsparkapplications/status
-    verbs:
-    - "*"
+      - sparkoperator.k8s.io
+      resources:
+      - sparkapplications
+      - sparkapplications/status
+      - scheduledsparkapplications
+      - scheduledsparkapplications/status
+      verbs:
+      - "*"
     - apiGroups:
-    - batch
-    resources:
-    - jobs
-    verbs:
-    - delete
+      - batch
+      resources:
+      - jobs
+      verbs:
+      - delete
     ---
     apiVersion: rbac.authorization.k8s.io/v1
     kind: ClusterRoleBinding
     metadata:
-    name: spark-operator
-    annotations:
-        "helm.sh/hook": pre-install
+      name: spark-operator
+      annotations:
+        "helm.sh/hook": pre-install, pre-upgrade
         "helm.sh/hook-delete-policy": hook-failed, before-hook-creation
-    labels:
+      labels:
         app.kubernetes.io/instance: spark-operator
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: spark-operator
@@ -287,20 +296,20 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
         helm.toolkit.fluxcd.io/namespace: $WORKSPACE_NAMESPACE
     subjects:
     - kind: ServiceAccount
-        name: $SPARK_OPERATOR_SERVICE_ACCOUNT
-        namespace: $WORKSPACE_NAMESPACE
+      name: $SPARK_OPERATOR_SERVICE_ACCOUNT
+      namespace: $WORKSPACE_NAMESPACE
     roleRef:
-    kind: ClusterRole
-    name: spark-operator
-    apiGroup: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: spark-operator
+      apiGroup: rbac.authorization.k8s.io
     ---
     apiVersion: v1
     kind: ServiceAccount
     metadata:
-    annotations:
+      annotations:
         helm.sh/hook: pre-install, pre-upgrade
         helm.sh/hook-delete-policy: hook-failed
-    labels:
+      labels:
         app.kubernetes.io/instance: spark-operator
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/name: spark-operator
@@ -308,10 +317,21 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
         helm.sh/chart: spark-operator-1.1.17
         helm.toolkit.fluxcd.io/name: $SPARK_APPD_NAME
         helm.toolkit.fluxcd.io/namespace: $WORKSPACE_NAMESPACE
-    name: $SPARK_OPERATOR_SERVICE_ACCOUNT
-    namespace: $WORKSPACE_NAMESPACE
+      name: $SPARK_OPERATOR_SERVICE_ACCOUNT
+      namespace: $WORKSPACE_NAMESPACE
     EOF
     ```
+
+1.  If you want to force a pod recreation, you can delete the old pod in `CrashLoopBackoff` by running:
+
+    ```bash
+    # spark-operator is the default value
+    # if you override the HelmRelease name in your override configmap, use that value in the following command 
+    export SPARK_OPERATOR_RELEASE_NAME=spark-operator
+    # only one instance of spark operator should be deployed per cluster
+    kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -l app.kubernetes.io/name=$SPARK_OPERATOR_RELEASE_NAME -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')
+    ```
+
 #### Default update strategy changed to "delete first" for Preprovisioned clusters
 
 A "create first" update strategy first creates a new machine, then deletes the old one. While this strategy works when machine inventory can grow on demand, it does not work if there is a fixed number of machines. Most Preprovisioned clusters have a fixed number of machines. To enable updates for Preprovisioned clusters, DKP uses the "delete first" update strategy, which first deletes an old machine, then creates a new one.

@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: Add Kaptain to DKP Catalog Applications
+navigationTitle: Add Kaptain to DKP Catalog Apps
 title: Add Kaptain to DKP Catalog Applications
-menuWeight: 8
+menuWeight: 5
 excerpt: Add Kaptain to DKP Catalog Applications before deploying to clusters.
 beta: false
 enterprise: false
 ---
 
 <p class="message--warning"><strong>WARNING: </strong>
-You can deploy Kaptain to a cluster in a selected Workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the Workspace you are deploying to or move that cluster to another Workspace.
+You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.
 </p>
 
 ## Requirements
@@ -40,18 +40,18 @@ The amounts depend on the number, complexity, and size of the workloads, in addi
 For on premise installations, horizontal scalability is limited by the overall size of the cluster and its quotas.
 For cloud installations, scaling out can be limited by resource quotas.
 
-## Prerequisites for DKP 2.x
+## Prerequisites
 
 - A DKP cluster with the following Platform applications enabled:
 
   - Istio
-  - Knative
+  - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
 
 - [`kubectl`][kubectl] on your installation machine
 
 - For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
 
-- For DKP 2.x, ensure the following applications are enabled in Kommander:
+- Ensure you enable the following applications in Kommander:
 
   1. Use the existing Kommander configuration file, or initialize the default one:
 
@@ -92,11 +92,11 @@ For cloud installations, scaling out can be limited by resource quotas.
 In case you need to run Spark jobs on Kubernetes using Spark Operator, it needs to be installed separately.
 Use the following instructions to install Spark Operator from Kommander Catalog [DKP 2.x][install-spark-dkp2]
 
-## Add Kaptain to your DKP Catalog Applications via CLI 
+## Add Kaptain to your DKP Catalog Applications via CLI
 
-If you installed DKP with Kaptain as a Workspace application in the Kommander installation file, you do not need to create a Git Repository for Kaptain. 
+If you installed DKP with Kaptain as a workspace application in the Kommander installation file, you do not need to create a Git Repository for Kaptain.
 
-If you added Kaptain after installing DKP, you must make it available by creating a Git Repository. Use the CLI to create the GitRepository resource and add a new repository. 
+If you added Kaptain after installing DKP, you must make it available by creating a Git Repository. Use the CLI to create the GitRepository resource and add a new repository.
 
 ### Create a Git repository for Kaptain
 
@@ -111,11 +111,11 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     metadata:
       name: kaptain-catalog-applications
       namespace: ${WORKSPACE_NAMESPACE}
-      labels: 
+      labels:
         kommander.d2iq.io/gitrepository-type: catalog
     spec:
       interval: 1m0s
-      ref: 
+      ref:
         tag: v2.0.0
       timeout: 20s
       url: https://github.com/mesosphere/kaptain-catalog-applications
@@ -135,19 +135,15 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     kaptain-catalog-applications https://github.com/mesosphere/kaptain-catalog-applications                True    Fetched revision: master/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   11m
     ```
 
-## Deploy Kaptain on selected Workspaces
+## Deploy Kaptain on selected workspaces
 
-You have installed Kaptain by adding it to the DKP Catalog applications. The next step is to enable and deploy Kaptain on all clusters in a selected Workspace. For this, refer to [Deploy Kaptain] instructions. 
-<!-- Need to add link to this topic once it is created -->
+You have now added Kaptain to your DKP Catalog applications. The next step is to enable and deploy Kaptain on all clusters in a selected workspace. For this, refer to [Deploy Kaptain][deploy] instructions.
 
 [download]: ../../download/
 [install-spark-dkp2]: /dkp/kommander/2.1/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
-[install-spark-konvoy1]: /dkp/kommander/1.4/projects/platform-services/platform-services-catalog/kudo-spark/
 [kommander-install]: /dkp/kommander/latest/install/
 [kommander-gpu]: /dkp/kommander/latest/gpu/
-[konvoy-gpu]: /dkp/konvoy/1.8/gpu/
-[konvoy_deploy_addons]: /dkp/konvoy/1.8/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
-[kudo_cli]: https://kudo.dev/#get-kudo
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
-[dex]: https://docs.d2iq.com/dkp/kaptain/2.0.0/configuration/external-dex/
+[dex]: ../../configuration/external-dex/
 [airgapped_install]: ../air-gapped-dkp/
+[deploy]: ../deploy-kaptain/

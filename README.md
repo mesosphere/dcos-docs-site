@@ -2,7 +2,7 @@
 
 # D2iQ documentation
 
-D2iQ's documentation is created based on a *docs as code* approach or methodology. In other words, content creators use the same processes and tools as developers. Therefore, there are a few steps you need to follow to be able to contribute to documentation. 
+D2iQ's documentation is created based on a *docs as code* approach or methodology. In other words, content creators use the same processes and tools as developers. Therefore, there are a few steps you need to follow to be able to contribute to documentation.
 
 D2iQ's documentation site uses a JavaScript static site generator called Metalsmith. Here is how you can get started running the repo. Please also read the [contributing guidelines](./CONTRIBUTING.md) for instructions on how to make edits to docs.
 
@@ -12,11 +12,11 @@ D2iQ's documentation site uses a JavaScript static site generator called Metalsm
 1. Create an account on GitHub and activate the 2FA process for added security, or use your personal account and ensure 2FA is active.
 1. Add the GitHub extension to your editor (in VSC: https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 1. Clone the repo (in VSC: select *Clone repo*, enter *mesosphere/dcos-docs-site* in the search bar and save a copy of the repo locally).
-1. Install node.js version 12.22.7 (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf) or [nvm-windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows))
+1. Install node.js version 16.0.0 or higher (consider using a version manager such as [ASDF](https://github.com/asdf-vm/asdf) or [nvm-windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows))
 1. Windows users will need to [install python2](https://github.com/nodejs/node-gyp/tree/v3.8.0#on-windows) globally
 1. Install dependencies via command `npm i`
 1. Install [vale](https://docs.errata.ai/vale/install) (an [ASDF plugin](https://github.com/osg/asdf-vale) is also available).
-1. Your GitHub profile needs to be validate with a GPG certificate. 
+1. Your GitHub profile needs to be validate with a GPG certificate.
 
 ## Development
 
