@@ -20,7 +20,7 @@ Ensure you add Kaptain to your DKP Catalog applications before you deploy it to 
 
 [Add Kaptain to your DKP Catalog Application in an air-gapped environment for 2.1][add_air_2.1]
 
-[Add Kaptain to your DKP Catalog Application in an air-gapped environment for 2.2][add_air_2.2]
+[Add Kaptain to your DKP Catalog applications in an air-gapped environment for 2.2][add_air_2.2]
 
 ## Enable and deploy Kaptain using the DKP UI
 
