@@ -43,16 +43,18 @@ You can deploy Kaptain on a per-workspace basis.
 
 To install and deploy Kaptain for the first time, proceed with these steps:
 
-1.  [Add Kaptain to your DKP Catalog Applications][add_dkp]
+1.  [Add Kaptain to your DKP Catalog Applications in a networked environment][add_dkp],
 
-    OR
+    [Add Kaptain to your DKP Catalog Application in an air-gapped environment for 2.1][add_air_2.1], 
 
-    [Add Kaptain to your DKP Catalog Application in an air-gapped environment][add_air].
+    OR 
+
+    [Add Kaptain to your DKP Catalog Application in an air-gapped environment for 2.2][add_air_2.2].
 
 1.  [Deploy Kaptain on a per-Workspace basis and verify the status of deployment][deploy].
 
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
-[on-prem]: ./on-premise
 [add_dkp]: dkp/
-[add_air]: air-gapped-dkp
+[add_air_2.1]: air-gapped-2.1/
+[add_air_2.2]: air-gapped-2.2/
 [deploy]: deploy-kaptain

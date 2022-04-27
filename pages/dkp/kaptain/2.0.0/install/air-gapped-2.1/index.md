@@ -114,7 +114,7 @@ Based on the network latency between the environment of script execution, the Do
         service.beta.kubernetes.io/aws-load-balancer-internal: "true"
     ```
 
-1.  Use helm to install kaptain to your airgapped cluster.
+1.  Use helm to install Kaptain to your air-gapped cluster:
 
     ```bash
     helm install kaptain kaptain-2.0.0.tgz --values values.yaml
@@ -122,7 +122,7 @@ Based on the network latency between the environment of script execution, the Do
 
     You may need to specify `--kubeconfig=my-air-gap-cluster.conf` for the install.
 
-1.  You can check the status of the install with:
+1.  Check the status of the install with:
 
     ```bash
     helm status kaptain
@@ -130,7 +130,7 @@ Based on the network latency between the environment of script execution, the Do
 
 ## Uninstall Kaptain
 
-If Kaptain was installed using helm, it can be unstalled with the following:
+If Kaptain was installed using helm, it can be uninstalled with the following:
 
 ```bash
 helm uninstall kaptain

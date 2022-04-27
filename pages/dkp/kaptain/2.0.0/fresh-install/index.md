@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Fresh install
 title: Fresh install of Kaptain
-menuWeight: 7
+menuWeight: 8
 excerpt: Do a fresh install of Kaptain on your DKP cluster
 beta: false
 enterprise: false
