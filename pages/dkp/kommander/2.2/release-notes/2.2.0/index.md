@@ -370,7 +370,7 @@ If you are relying on a self-signed kommander-ca, extend the lifespan of your Ce
     ./cmctl renew -n cert-manager kommander-ca
     ```
 
-The new lifespan will be 87600h0m0s corresponding to a 10 years validity.
+	The new lifespan will be 87600h0m0s corresponding to a 10 years validity.
 
 1.  Renew all the certificates to be signed by the new Certification Authority:
 
@@ -439,101 +439,101 @@ Your cert-manager will renew your certificates successfully after 60 days, but t
 
 1.  Create the following CronJob to monthly restart pods, letting them reload their new certificate:
 
-```yaml
-kubectl apply -f - <<EOF
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: rotate-certificates
-  namespace: kommander
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: rotate-certificates 
-  namespace: kommander
-rules:
-  - apiGroups:
-    - cert-manager.io
-    resources:
-    - certificates
-    verbs:
-    - get
-    - list
-    - watch
-    - update
-  - apiGroups:
-    - apps
-    resources:
-    - deployments
-    verbs:
-    - patch
-    - get 
-    - list
-    - watch
-  - apiGroups:
-    - ""
-    resources:
-    - pods
-    verbs:
-    - create
-    - update
-    - get 
-    - list
-    - watch   
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: rotate-certificates
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: rotate-certificates
-subjects:
-- kind: ServiceAccount
-  name: rotate-certificates
-  namespace: kommander
----
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: rotate-certificates
-  namespace: kommander
-spec:
-  schedule: "0 0 1 * *"
-  jobTemplate:
-    spec:
-      activeDeadlineSeconds: 300
-      backoffLimit: 6
-      completions: 1
-      parallelism: 1
-      template:
-        spec:
-          restartPolicy: "OnFailure"
-          containers:
-          - command:
-            - /bin/bash
-            - -exc
-            - |
-              deploymentsKommander="kommander-cm kommander-traefik dex dex-dex-controller kommander-licensing-cm kube-oidc-proxy traefik-forward-auth-mgmt kommander-webhook dex-k8s-authenticator kubetunnel-webhook traefik-forward-auth"
-              for deployment in $deploymentsKommander; do
-                  kubectl rollout restart deployment -n kommander $deployment
-              done
-              kubectl rollout restart statefulset -n kommander gitea
-              kubectl rollout restart deployment -n kube-federation-system kubefed-admission-webhook
-            image: bitnami/kubectl:1.21.3
-            imagePullPolicy: IfNotPresent
-            name: main
-          securityContext:
-            fsGroup: 65534
-            runAsUser: 65534
-          serviceAccount: rotate-certificates 
-EOF
-```
+	```yaml
+	kubectl apply -f - <<EOF
+	---
+	apiVersion: v1
+	kind: ServiceAccount
+	metadata:
+	  name: rotate-certificates
+	  namespace: kommander
+	---
+	apiVersion: rbac.authorization.k8s.io/v1
+	kind: ClusterRole
+	metadata:
+	  name: rotate-certificates 
+	  namespace: kommander
+	rules:
+	  - apiGroups:
+		- cert-manager.io
+		resources:
+		- certificates
+		verbs:
+		- get
+		- list
+		- watch
+		- update
+	  - apiGroups:
+		- apps
+		resources:
+		- deployments
+		verbs:
+		- patch
+		- get 
+		- list
+		- watch
+	  - apiGroups:
+		- ""
+		resources:
+		- pods
+		verbs:
+		- create
+		- update
+		- get 
+		- list
+		- watch   
+	---
+	apiVersion: rbac.authorization.k8s.io/v1
+	kind: ClusterRoleBinding
+	metadata:
+	  name: rotate-certificates
+	roleRef:
+	  apiGroup: rbac.authorization.k8s.io
+	  kind: ClusterRole
+	  name: rotate-certificates
+	subjects:
+	- kind: ServiceAccount
+	  name: rotate-certificates
+	  namespace: kommander
+	---
+	apiVersion: batch/v1
+	kind: CronJob
+	metadata:
+	  name: rotate-certificates
+	  namespace: kommander
+	spec:
+	  schedule: "0 0 1 * *"
+	  jobTemplate:
+		spec:
+		  activeDeadlineSeconds: 300
+		  backoffLimit: 6
+		  completions: 1
+		  parallelism: 1
+		  template:
+			spec:
+			  restartPolicy: "OnFailure"
+			  containers:
+			  - command:
+				- /bin/bash
+				- -exc
+				- |
+				  deploymentsKommander="kommander-cm kommander-traefik dex dex-dex-controller kommander-licensing-cm kube-oidc-proxy traefik-forward-auth-mgmt kommander-webhook dex-k8s-authenticator kubetunnel-webhook traefik-forward-auth"
+				  for deployment in $deploymentsKommander; do
+					  kubectl rollout restart deployment -n kommander $deployment
+				  done
+				  kubectl rollout restart statefulset -n kommander gitea
+				  kubectl rollout restart deployment -n kube-federation-system kubefed-admission-webhook
+				image: bitnami/kubectl:1.21.3
+				imagePullPolicy: IfNotPresent
+				name: main
+			  securityContext:
+				fsGroup: 65534
+				runAsUser: 65534
+			  serviceAccount: rotate-certificates 
+	EOF
+	```
 
-Now you must fix the certificate issues with the Gitrepository by committing the updated secret to Git.
+	Now you must fix the certificate issues with the Gitrepository by committing the updated secret to Git.
 
 1.  Clone the management repository:
 
