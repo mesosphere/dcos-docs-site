@@ -39,13 +39,13 @@ Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS
 Run the `konvoy-image` command to build and validate the image.
 
 ```bash
-konvoy-image build --overrides override-source-ami.yaml --overrides override-images.yaml images/ami/centos-7.yaml
+konvoy-image build images/ami/centos-7.yaml
 ```
 
 By default it builds in the `us-west-2` region. to specify another region set the `--region` flag:
 
 ```bash
-konvoy-image build --region us-east-1 --overrides override-source-ami.yaml --overrides override-images.yaml images/ami/centos-7.yaml
+konvoy-image build --region us-east-1 images/ami/centos-7.yaml
 ```
 
 When the command is complete the `ami` id is printed and written to `./manifest.json`.
