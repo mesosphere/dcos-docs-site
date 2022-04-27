@@ -71,6 +71,7 @@ a simple, sample application, customizing the cluster configuration, or checking
 For more details, see the following topics:
 
 - [Deploy a sample application](../deployments/deploy-sample-app/)
+- [Install Kommander](/../../dkp/kommander/2.2/install/
 - [Platform application deployment](/../../dkp/kommander/2.2/projects/applications/platform-applications/)
 - [Troubleshooting](../troubleshooting/)
 
