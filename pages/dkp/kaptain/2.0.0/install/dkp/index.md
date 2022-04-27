@@ -90,7 +90,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 
 ### Create a Git repository for Kaptain
 
-1.  Refer to [air-gapped in 2.1][air2.1_install] or [air-gapped in 2.2][air2.2_install] install instructions, if you are deploying in an air-gapped environment.
+1.  Refer to [air-gapped for DKP 2.1][air2.1_install] or [air-gapped for DKP 2.2][air2.2_install] install instructions, if you are deploying in an air-gapped environment.
 
 1.  Add the Flux GitRepository to your Kommander install:
 
