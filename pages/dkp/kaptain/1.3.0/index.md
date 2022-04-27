@@ -4,7 +4,7 @@ navigationTitle: Kaptain 1.3.0
 title: Welcome to Kaptain 1.3.0
 version: 1.3
 beta: false
-menuWeight: 1
+menuWeight: 4
 
 ---
 
