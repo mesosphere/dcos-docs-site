@@ -4,7 +4,7 @@ navigationTitle: Kaptain 1.2.0
 title: Welcome to Kaptain 1.2.0
 version: 1.2
 beta: false
-menuWeight: 3
+menuWeight: 2
 ---
 
 ![Kaptain](img/d2iq-kaptain.png)
