@@ -58,6 +58,10 @@ For more information, see the [air-gapped bundle](../../install/air-gapped) docu
 
 The unified DKP user interface provides a smooth experience independent of where you start your journey. Both DKP Essential and DKP Enterprise customers will have similar experiences in the User Interface, with DKP Enterprise customers gaining access to additional features and benefits simply by entering their DKP Enterprise [license key](../../licensing/).
 
+### Kaptain AI/ML, D2iQ’s AI/ML offering
+
+For better integration with DKP 2.2, you can launch Kaptain as a catalog application. It also supports other platforms such as Amazon AWS EKS and Microsoft Azure AKS. Kaptain extends D2iQ’s ability to support Kubernetes platforms beyond DKP. It further enables an organization to develop, deploy and run entire ML workloads in production, at scale, with consistency and reliability.
+
 ### DKP Insights
 
 This new predictive analytics tool provides greater support productivity, speed, and reduced costs. The [DKP Insights](../../insights) Engine collects events and metrics on the Attached cluster, and uses rule-based heuristics on potential problems of varying criticality, so they can be quickly identified and resolved. These Insights are then forwarded and displayed in the DKP Insights Dashboard, where it assists you with routine tasks such as:
