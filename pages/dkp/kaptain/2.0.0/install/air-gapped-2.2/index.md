@@ -55,7 +55,7 @@ If you need to run Spark jobs on Kubernetes using Spark Operator, you must insta
 
 ## Add Kaptain to your Kommander Install
 
-The folloing catalog will need to be added to the Komamnder install configuration file alonig with the DKP applications catalog:
+Add the Kaptain catalog to the Kommander install configuration file along with the DKP applications catalog:
 
 ```yaml
 catalog:
@@ -103,7 +103,7 @@ If you added Kaptain after installing DKP, you must make it available by rerunni
     tar -xvf kaptain-catalog-applications.tar.gz --strip-components 1 -C kaptain-catalog-applications
     ```
 
-1.  Load the Kaptain chart archive after the Kommander installation with:
+1.  Load the Kaptain chart archive after the Kommander installation:
 
     ```bash
     dkp push chart kaptain-2.0.0.tgz

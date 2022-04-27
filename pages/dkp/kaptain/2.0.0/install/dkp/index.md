@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Add Kaptain to DKP Catalog Apps
 title: Add Kaptain to DKP Catalog Applications
 menuWeight: 5
-excerpt: Add Kaptain to DKP Catalog Applications before deploying to clusters.
+excerpt: Add Kaptain to DKP Catalog Applications in networked environments before deploying to clusters.
 beta: false
 enterprise: false
 ---
@@ -80,7 +80,7 @@ For cloud installations, scaling out can be limited by resource quotas.
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
 In case you need to run Spark jobs on Kubernetes using Spark Operator, it needs to be installed separately.
-Use the following instructions to install Spark Operator from Kommander Catalog [DKP 2.x][install-spark-dkp2]
+Use the following instructions to install Spark Operator from Kommander Catalog [DKP 2.x][install-spark-dkp2].
 
 ## Add Kaptain to your DKP Catalog Applications via CLI
 
@@ -90,7 +90,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 
 ### Create a Git repository for Kaptain
 
-1.  Refer to [air-gapped install instructions][airgapped_install], if you are running in air-gapped environment.
+1.  Refer to [air-gapped for DKP 2.1][air2.1_install] or [air-gapped for DKP 2.2][air2.2_install] install instructions, if you are deploying in an air-gapped environment.
 
 1.  Add the Flux GitRepository to your Kommander install:
 
@@ -132,11 +132,12 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 You have now added Kaptain to your DKP Catalog applications. The next step is to enable and deploy Kaptain on all clusters in a selected workspace. For this, refer to [Deploy Kaptain][deploy] instructions.
 
 [download]: ../../download/
-[install-spark-dkp2]: /dkp/kommander/2.1/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
+[install-spark-dkp2]: /dkp/kommander/2.2/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
 [kommander-install]: /dkp/kommander/latest/install/
 [kommander-gpu]: /dkp/kommander/latest/gpu/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [dex]: ../../configuration/external-dex/
-[airgapped_install]: ../air-gapped-dkp/
+[air2.1_install]: ../air-gapped-2.1/
+[air2.2_install]: ../air-gapped-2.2/
 [deploy]: ../deploy-kaptain/
 [dkp-install]: /dkp/konvoy/2.2/choose-infrastructure/
