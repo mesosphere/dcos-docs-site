@@ -113,23 +113,29 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 1.  Download the images bundle.
 
     ```bash
-    curl -o konvoy-image-bundle.tar.gz -O https://downloads.d2iq.com/dkp/v2.1.1/konvoy_image_bundle_v2.1.1_linux_amd64.tar.gz
+    curl -o konvoy-image-bundle.tar.gz -O http://downloads.d2iq.com/konvoy/airgapped/v2.1.1/konvoy_image_bundle_v2.1.1_linux_amd64.tar.gz
     ```
 
-1.  Place the bundle in a location where you can load and push the images to your private docker registry.
+1. Place the bundle in a location where you can load and push the images to your private docker registry.
 
-1.  Set an environment variable with your registry address.
+1. Ensure you set the REGISTRY_URL and AIRGAPPED_TAR_FILE variable appropriately, then use the following script to load the air-gapped image bundle:
 
-    ```bash
-    export DOCKER_REGISTRY_ADDRESS=<registry-address>:<registry-port>
-    export DOCKER_REGISTRY_USERNAME=<username>
-    export DOCKER_REGISTRY_PASSWORD=<password>
-    ```
+    ``` sh
+    #!/usr/bin/env bash
+    set -euo pipefail
+    IFS=$'\n\t'
 
-1.  Run the following command to load the air-gapped image bundle into your private Docker registry.
+    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kommander-image-bundle.tar"}
+    readonly REGISTRY_URL=${REGISTRY_URL?"Need to set REGISTRY_URL. E.g: 10.23.45.67:5000"}
 
-    ```bash
-    dkp push image-bundle --image-bundle konvoy-image-bundle.tar.gz --to-registry $DOCKER_REGISTRY_ADDRESS --to-registry-username $DOCKER_REGISTRY_USERNAME --to-registry-password $DOCKER_REGISTRY_PASSWORD
+    docker load <"${AIRGAPPED_TAR_FILE}"
+
+    while read -r IMAGE; do
+      echo "Processing ${IMAGE}"
+      REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker|k8s.gcr).io@${REGISTRY_URL}@")"
+      docker tag "${IMAGE}" "${REGISTRY_IMAGE}"
+      docker push "${REGISTRY_IMAGE}"
+    done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
     ```
 
 It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
