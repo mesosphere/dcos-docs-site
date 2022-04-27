@@ -14,23 +14,13 @@ You can deploy Kaptain to a cluster in a selected workspace. If you do not inten
 
 ## Requirements
 
-Before proceeding, verify that your environment meets the following basic requirements:
+Before proceeding, verify that your cluster has the following resources freely available:
 
-- Control plane
-  - min. 3 nodes
-  - min. 4 cores _per node_
-  - min. 200 GiB free disk space _per node_
-  - min. 16 GiB RAM _per node_
-- Workers
-  - min. 6 nodes
-  - min. 8 cores _per node_
-  - min. 200 GiB free disk space _per node_
-  - min. 32 GiB RAM _per node_
-- GPUs (optional)
-  - NVIDIA only
-  - min. 200 GiB free disk space per instance
-  - min. 64 GiB RAM per instance
-  - min. 12 GiB GPU RAM per instance
+- Cluster consists of at least 3 worker nodes
+- 25 CPU cores
+- 32 GiB of RAM
+- 170 GiB of Storage
+- NVIDIA GPU instances are supported only
 
 Please note that these numbers are for the bare minimum.
 Running any real world machine learning workloads on Kaptain bumps these requirements for nodes, CPUs, RAM, GPUs, and persistent disks.
