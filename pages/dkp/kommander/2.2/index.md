@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Kommander 2.2
 title: Kommander 2.2
 version: 2.2
-menuWeight: 0
+menuWeight: 20
 subtree:
   beta: false
   draft: false
