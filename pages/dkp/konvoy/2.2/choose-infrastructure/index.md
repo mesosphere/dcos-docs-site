@@ -10,6 +10,6 @@ enterprise: false
 
 When installing DKP Konvoy for a project, line-of-business, or enterprise, the first step is to determine the infrastructure on which you want to deploy.
 
-The infrastructure you select then determines the specific requirements for a successful installation.
+The infrastructure you select then determines the specific requirements for a successful installation. If you have decided to uninstall DKP Konvoy, refer to the same infrastructure documentation you have selected for specific steps to take down your cluster.
 
-The different types of infrastructures supported in Konvoy are listed below:
+The different types of infrastructures supported in DKP are listed below:
