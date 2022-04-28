@@ -48,7 +48,6 @@ Before installing DKP, ensure you have the [following](../supported-operating-sy
 
 1.  Verify you have valid **CLOUD PROVIDER security credentials** to deploy the cluster on that platform. This step is not required if you are installing DKP on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../choose-infrastructure/on-prem).
 
-
 1.  Deploy with all of the default settings depending on which infrastructure you have.  Go to the Choose Infrastructure section of the documentation for further steps on creating a cluster on your Cloud platform. [Choose Infrastructure](../choose-infrastructure/) 
   
 1.  Lastly, you will want to [Install Kommander](/../../dkp/kommander/2.2/install/)   
@@ -64,28 +63,3 @@ For more details, see the following topics:
 - [Platform application deployment](/../../dkp/kommander/2.2/projects/applications/platform-applications/)
 - [Troubleshooting](../troubleshooting/)
 
-
-[cncf]: https://www.cncf.io
-[install_docker]: https://docs.docker.com/get-docker/
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
-[install_aws]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
-[calico]: https://www.projectcalico.org/
-[coredns]: https://coredns.io/
-[aws_ebs_csi]: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
-[elasticsearch]: https://www.elastic.co/products/elastic-stack
-[elasticsearch_exporter]: https://www.elastic.co/guide/en/elasticsearch/reference/7.2/es-monitoring-exporters.html
-[helm]: https://helm.sh/
-[kibana]: https://www.elastic.co/products/kibana
-[fluentbit]: https://fluentbit.io/
-[prometheus_operator]: https://prometheus.io/
-[grafana]: https://grafana.com/
-[prometheus_adapter]: https://github.com/DirectXMan12/k8s-prometheus-adapter
-[traefik]: https://traefik.io/
-[osi]: https://en.wikipedia.org/wiki/OSI_model
-[kubernetes_dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
-[velero]: https://velero.io/
-[dex]: https://github.com/dexidp/dex
-[dex_k8s_authenticator]: https://github.com/mesosphere/dex-k8s-authenticator
-[traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
-[brew]: https://brew.sh/
