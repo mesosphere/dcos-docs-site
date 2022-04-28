@@ -1,3 +1,5 @@
+##All DKP Commands on this page assum "KUBECONFIG=clusterKubeconfig.conf" is set
+
 ---
 layout: layout.pug
 navigationTitle: Add Kaptain to DKP Catalog Apps
