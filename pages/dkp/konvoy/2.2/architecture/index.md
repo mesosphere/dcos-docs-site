@@ -24,41 +24,10 @@ Figure 1 - Architectural overview
 
 The native Kubernetes cluster consists of **components** that provide the cluster’s **control plane** and **worker nodes** that run users' containers and maintain the runtime environment.
 
-The components in a native Kubernetes cluster include the following:
-
-- `kube-apiserver` exposes the Kubernetes application programming interface (API) and provides a web-based front-end for the Kubernetes control plane.
-- `etcd` provides a key value store that you can use to store all Kubernetes cluster data.
-- `kube-scheduler` monitors the cluster to detect newly-created pods that have no node assigned, and selects a node for those pods to run on.
-- `kube-controller-manager` manages the collection of individual controller processes as a single binary.
-
-The controllers include:
-
-- A node controller that keeps track of node status and responds if nodes go down.
-- A replication controller that maintains the correct number of pods for every replication controller object in the system.
-- An endpoints controller that populates endpoints.
-- A service account and token controller that creates default accounts and access tokens for new service namespaces.
-- `cloud-controller-manager` runs controllers that interact with the underlying cloud providers.
-
-For more information about any of components or Kubernetes control plane, see the [Kubernetes][kubedoc] documentation.
-
-## Worker nodes
-
-Worker nodes maintain running pods and provide the runtime environment for the native Kubernetes cluster.
-Each work node includes the following key components:
-
-- The `kubelet` agent runs on each node in the cluster to ensure that the containers created by Kubernetes for a pod are running and in a healthy state.
-- The `kube-proxy` serves as a network proxy that runs on each node in the cluster to enforce network routing and connection forwarding rules.
-- The Kubernetes container runtime manages any supported type of container, such as Docker or `containerd`, that runs on the cluster.
-
-## Platform service addons
-
-The native Kubernetes cluster supports a set of **addons**.
-Addons use Kubernetes resources to implement specific cluster-level features; because they provide cluster-level features, addons are defined in the `kube-system` namespace.
-
 DKP supplements the native Kubernetes cluster by providing a predefined and pre-configured set of applications.
 Because this predefined set of applications provides critical features for managing a Kubernetes cluster in a production environment, the default set is identified as DKP **platform services**.
-See [Platform applications](/../../dkp/kommander/2.2/projects/applications/platform-applications/) for the full set of DKP platform services.
 
+See [Platform applications](/../../dkp/kommander/2.2/projects/applications/platform-applications/) for the full set of DKP platform services.
 
 ## Related information
 
