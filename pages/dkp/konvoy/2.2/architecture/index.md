@@ -20,9 +20,9 @@ The following diagram provides a simplified architectural overview to help you v
 Figure 1 - Architectural overview
 
 
-## Master components for the Kubernetes control plane
+## Components for the Kubernetes control plane
 
-The native Kubernetes cluster consists of **master components** that provide the cluster’s **control plane** and **worker nodes** that run users' containers and maintain the runtime environment.
+The native Kubernetes cluster consists of **components** that provide the cluster’s **control plane** and **worker nodes** that run users' containers and maintain the runtime environment.
 
 The master components in your cluster manage activities that affect the cluster as a whole.
 For example, master components handle scheduling and changes to workload requirements in response to cluster events.
@@ -30,7 +30,7 @@ For example, master components handle scheduling and changes to workload require
 Technically, you can deploy master components on any machine in the cluster.
 By default, however, master components are only deployed on the machines you designate as control plane servers.
 
-The master components in a native Kubernetes cluster include the following:
+The components in a native Kubernetes cluster include the following:
 
 - `kube-apiserver` exposes the Kubernetes application programming interface (API) and provides a web-based front-end for the Kubernetes control plane.
 - `etcd` provides a key value store that you can use to store all Kubernetes cluster data.
