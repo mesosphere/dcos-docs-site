@@ -17,7 +17,7 @@ If you already have a license, downloads are available in the [Support Portal][s
 
 Follow the instructions on the AWS console to download the container image. This container image contains a helm chart that can be used to install Kaptain in an air-gapped environment.
 
-After downloading the image, run the following command to copy the binaries onto your host to obtain the chart archive.
+After downloading the image, run the following command to copy the binaries onto your host and obtain the chart archive.
 
 ```sh
 docker run -it --rm -v $(pwd):/kaptain <container_image_name>
