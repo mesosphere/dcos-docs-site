@@ -27,7 +27,7 @@ These steps can be triggered automatically by a CI/CD workflow or on demand from
 
 Kubeflow Pipelines (`kfp`) comes with a user interface for managing and tracking experiments, jobs, and runs.
 A pipeline is a description of a machine learning workflow, replete with all inputs and outputs.
-In Kubeflow Pipelines, an **experiment** is a [workspace](../metadata) where you can _experiment with_ different configurations of your pipelines.
+In Kubeflow Pipelines, an **experiment** is a workspace where you can _experiment with_ different configurations of your pipelines.
 Experiments are a way to organize runs of jobs into logical groups.
 A **run** is simply a single execution (instance) of a pipeline.
 Kubeflow Pipelines also supports recurring runs, which is a repeatable run of a pipeline.
@@ -707,4 +707,4 @@ jq -M --exit-status '.predictions[0] | indices(max)[0] == 9' output.json
     true
 
 
-For more details on the URL, please check out this [example](https://github.com/kubeflow/kfserving/tree/master/docs/samples/tensorflow#run-a-prediction).
+For more details on the URL, please check out this [example](https://github.com/kserve/kserve/tree/master/docs/samples/v1beta1/tensorflow#run-a-prediction).

@@ -214,4 +214,4 @@ model = Model(
 )
 ```
 [credentials]: ../credentials/
-[konvoy_airgapped_guide]: /dkp/konvoy/latest/choose_infrastructure/aws/air-gapped/
+[konvoy_airgapped_guide]: ../../../../../konvoy/2.0/choose_infrastructure/aws/air-gapped/

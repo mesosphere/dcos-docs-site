@@ -105,4 +105,4 @@ Discover the Kaptain endpoint:
 When accessing Kaptain via `https://<Kaptain endpoint>`, you will be redirected to the login page of the management cluster's Dex instance.
 
 [attached-cluster]: /dkp/kommander/latest/clusters/attach-cluster/
-[create-managed-cluster]: /dkp/kommander/latest/clusters/create-connect-clusters/
+[create-managed-cluster]: ../../../../dkp/kommander/1.4/clusters/create-connect-clusters/
