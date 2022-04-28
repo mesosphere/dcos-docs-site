@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Install
 title: Install
-menuWeight: 80
+menuWeight: 30
 excerpt: Install a DKP cluster
 beta: false
 enterprise: false
