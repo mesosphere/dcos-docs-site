@@ -24,12 +24,6 @@ Figure 1 - Architectural overview
 
 The native Kubernetes cluster consists of **components** that provide the cluster’s **control plane** and **worker nodes** that run users' containers and maintain the runtime environment.
 
-The master components in your cluster manage activities that affect the cluster as a whole.
-For example, master components handle scheduling and changes to workload requirements in response to cluster events.
-
-Technically, you can deploy master components on any machine in the cluster.
-By default, however, master components are only deployed on the machines you designate as control plane servers.
-
 The components in a native Kubernetes cluster include the following:
 
 - `kube-apiserver` exposes the Kubernetes application programming interface (API) and provides a web-based front-end for the Kubernetes control plane.
@@ -45,7 +39,7 @@ The controllers include:
 - A service account and token controller that creates default accounts and access tokens for new service namespaces.
 - `cloud-controller-manager` runs controllers that interact with the underlying cloud providers.
 
-For more information about any of the master components or Kubernetes control plane, see the [Kubernetes][kubedoc] documentation.
+For more information about any of components or Kubernetes control plane, see the [Kubernetes][kubedoc] documentation.
 
 ## Worker nodes
 
