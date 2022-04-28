@@ -33,4 +33,4 @@ See [Platform applications](/../../dkp/kommander/2.2/projects/applications/platf
 
 For information on related topics or procedures, refer to the following:
 
-[kubedoc]:https://kubernetes.io/docs/concepts/overview/components/
+[kubedoc](https://kubernetes.io/docs/concepts/overview/components/)
