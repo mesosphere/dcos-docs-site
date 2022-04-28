@@ -50,16 +50,6 @@ Before installing DKP, ensure you have the [following](../supported-operating-sy
 
 1.  Verify you have valid **CLOUD PROVIDER security credentials** to deploy the cluster on that platform. This step is not required if you are installing DKP on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../choose-infrastructure/on-prem).
 
-1.  Create a directory for storing state information for your cluster by running the following commands:
-
-    ```bash
-    mkdir konvoy-quickstart
-    cd konvoy-quickstart
-    ```
-
-    This directory for state information is required for performing future operations on your cluster.
-    For example, state files stored in this directory are required to tear down a cluster.
-    If you were to delete the state information or this directory, destroying the cluster would require you to manually perform clean-up tasks.
 
 1.  Deploy with all of the default settings depending on which infrastructure you have.  Go to the Choose Infrastructure section of the documentation for further steps on creating a cluster on your Cloud platform. [Choose Infrastructure](../choose-infrastructure/)    
 
