@@ -1,5 +1,3 @@
-##All DKP Commands on this page assum "KUBECONFIG=clusterKubeconfig.conf" is set
-
 ---
 layout: layout.pug
 navigationTitle: Add Kaptain to DKP Catalog Apps
@@ -9,6 +7,10 @@ excerpt: Add Kaptain to DKP Catalog Applications in networked environments befor
 beta: false
 enterprise: false
 ---
+
+<p class="message--note"><strong>NOTE: </strong>
+<strong>All DKP Commands on this page</strong> assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
+</p>
 
 <p class="message--warning"><strong>WARNING: </strong>
 You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.
@@ -34,48 +36,52 @@ For cloud installations, scaling out can be limited by resource quotas.
 
 ## Prerequisites
 
-- [A DKP cluster][dkp-install] with the following Platform applications enabled:
+-   [A DKP cluster][dkp-install] with the following Platform applications enabled:
 
-  - Istio
-  - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
+    - Istio
+    - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
 
-- [`kubectl`][kubectl] on your installation machine
+-   [`kubectl`][kubectl] on your installation machine
 
-- For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
+-   For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
 
-- Ensure you enable the following applications in Kommander:
+-   Ensure you enable the following applications in Kommander:
 
-  1. Use the existing Kommander configuration file, or initialize the default one:
+    <p class="message--note"><strong>NOTE: </strong>
+    All DKP Commands in this section assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
+    </p>
 
-     ```bash
-     dkp install kommander --init > kommander-config.yaml
-     ```
+    1.  Use the existing Kommander configuration file, or initialize the default one:
 
-  1. Ensure the following applications are enabled in the config:
+        ```bash
+        dkp install kommander --init > kommander-config.yaml
+        ```
 
-     ```yaml
-     apiVersion: config.kommander.mesosphere.io/v1alpha1
-     kind: Installation
-     apps:
-     	...
-     	dex:
-     	dex-k8s-authenticator:
-     	kube-prometheus-stack:
-     	istio:
-     	knative:
-     	minio-operator:
-     	traefik:
-     	nvidia:  # to enable GPU support
-     	...
-     ```
+    1.  Ensure the following applications are enabled in the config:
 
-  1. For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
+        ```yaml
+        apiVersion: config.kommander.mesosphere.io/v1alpha1
+        kind: Installation
+        apps:
+          ...
+          dex:
+          dex-k8s-authenticator:
+          kube-prometheus-stack:
+          istio:
+          knative:
+          minio-operator:
+          traefik:
+          nvidia:  # to enable GPU support
+          ...
+        ```
 
-  1. Apply the new configuration to Kommander:
+    1.  For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
 
-     ```bash
-     dkp install kommander --installer-config kommander-config.yaml
-     ```
+    1.  Apply the new configuration to Kommander:
+
+        ```bash
+        dkp install kommander --installer-config kommander-config.yaml
+        ```
 
   Check [Kommander installation documentation][kommander-install] for more information.
 
@@ -91,6 +97,10 @@ If you installed DKP with Kaptain as a workspace application in the Kommander in
 If you added Kaptain after installing DKP, you must make it available by creating a Git Repository. Use the CLI to create the GitRepository resource and add a new repository.
 
 ### Create a Git repository for Kaptain
+
+<p class="message--note"><strong>NOTE: </strong>
+All DKP Commands in this section assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
+</p>
 
 1.  Refer to [air-gapped for DKP 2.1][air2.1_install] or [air-gapped for DKP 2.2][air2.2_install] install instructions, if you are deploying in an air-gapped environment.
 
