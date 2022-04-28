@@ -13,7 +13,7 @@ enterprise: false
 
 If you are deploying in a networked environment, downloads are not required and you can refer to the [install documentation][install] directly. Downloads are only necessary for customers deploying in air-gapped environments.
 
-If you already have a license, downloads are available in the [Support Portal][support-portal].
+Downloads are available in the [Support Portal][support-portal].
 
 ## Download from the AWS Marketplace
 
