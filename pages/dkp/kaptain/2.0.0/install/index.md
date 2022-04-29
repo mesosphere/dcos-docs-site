@@ -22,7 +22,7 @@ The infrastructure you select determines the specific requirements for a success
 
 ## Before you begin
 
-Kaptain is a DKP Catalog application. To use it, add it to your repository and then deploy it on selected workspaces. No downloads are necessary for networked environments. For user deploying to air-gapped environments, refer to the [download][download] page.
+Kaptain is a DKP Catalog application. To use it, add it to your repository and then deploy it on selected workspaces. No downloads are necessary for networked environments. For users deploying to air-gapped environments, refer to the [download][download] page.
 
 You can deploy Kaptain to single and multi-cluster environments. The difference between these setups is the following: In a single-cluster environment (with an Essential license), you deploy on one Management cluster only. In a multi-cluster environment (with an Enterprise license), Kaptain is deployed to either one or several Managed clusters or to Attached clusters.
 
