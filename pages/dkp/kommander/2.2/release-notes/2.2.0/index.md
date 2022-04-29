@@ -153,9 +153,9 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
 
 1.  Run the command:
 
-	```bash
-	dkp upgrade catalogapp
-	```
+    ```bash
+    dkp upgrade catalogapp
+    ```
 
 1.  Monitor the failure of `spark-operator`.
 
@@ -370,7 +370,7 @@ If you are relying on a self-signed kommander-ca, extend the lifespan of your Ce
     ./cmctl renew -n cert-manager kommander-ca
     ```
 
-	The new lifespan will be 87600h0m0s corresponding to a 10 years validity.
+    The new lifespan will be 87600h0m0s corresponding to a 10 years validity.
 
 1.  Renew all the certificates to be signed by the new Certification Authority:
 
@@ -439,117 +439,116 @@ Your cert-manager will renew your certificates successfully after 60 days, but t
 
 1.  Create the following CronJob to monthly restart pods, letting them reload their new certificate:
 
-	```yaml
-	kubectl apply -f - <<EOF
-	---
-	apiVersion: v1
-	kind: ServiceAccount
-	metadata:
-	  name: rotate-certificates
-	  namespace: kommander
-	---
-	apiVersion: rbac.authorization.k8s.io/v1
-	kind: ClusterRole
-	metadata:
-	  name: rotate-certificates 
-	  namespace: kommander
-	rules:
-	  - apiGroups:
-		- cert-manager.io
-		resources:
-		- certificates
-		verbs:
-		- get
-		- list
-		- watch
-		- update
-	  - apiGroups:
-		- apps
-		resources:
-		- deployments
-		verbs:
-		- patch
-		- get 
-		- list
-		- watch
-	  - apiGroups:
-		- ""
-		resources:
-		- pods
-		verbs:
-		- create
-		- update
-		- get 
-		- list
-		- watch   
-	---
-	apiVersion: rbac.authorization.k8s.io/v1
-	kind: ClusterRoleBinding
-	metadata:
-	  name: rotate-certificates
-	roleRef:
-	  apiGroup: rbac.authorization.k8s.io
-	  kind: ClusterRole
-	  name: rotate-certificates
-	subjects:
-	- kind: ServiceAccount
-	  name: rotate-certificates
-	  namespace: kommander
-	---
-	apiVersion: batch/v1
-	kind: CronJob
-	metadata:
-	  name: rotate-certificates
-	  namespace: kommander
-	spec:
-	  schedule: "0 0 1 * *"
-	  jobTemplate:
-		spec:
-		  activeDeadlineSeconds: 300
-		  backoffLimit: 6
-		  completions: 1
-		  parallelism: 1
-		  template:
-			spec:
-			  restartPolicy: "OnFailure"
-			  containers:
-			  - command:
-				- /bin/bash
-				- -exc
-				- |
-				  deploymentsKommander="kommander-cm kommander-traefik dex dex-dex-controller kommander-licensing-cm kube-oidc-proxy traefik-forward-auth-mgmt kommander-webhook dex-k8s-authenticator kubetunnel-webhook traefik-forward-auth"
-				  for deployment in $deploymentsKommander; do
-					  kubectl rollout restart deployment -n kommander $deployment
-				  done
-				  kubectl rollout restart statefulset -n kommander gitea
-				  kubectl rollout restart deployment -n kube-federation-system kubefed-admission-webhook
-				image: bitnami/kubectl:1.21.3
-				imagePullPolicy: IfNotPresent
-				name: main
-			  securityContext:
-				fsGroup: 65534
-				runAsUser: 65534
-			  serviceAccount: rotate-certificates 
-	EOF
-	```
+    ```yaml
+    kubectl apply -f - <<EOF
+    ---
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: rotate-certificates
+      namespace: kommander
+    ---
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRole
+    metadata:
+      name: rotate-certificates 
+      namespace: kommander
+    rules:
+      - apiGroups:
+        - cert-manager.io
+        resources:
+        - certificates
+        verbs:
+        - get
+        - list
+        - watch
+        - update
+      - apiGroups:
+        - apps
+        resources:
+        - deployments
+        verbs:
+        - patch
+        - get 
+        - list
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - pods
+        verbs:
+        - create
+        - update
+        - get 
+        - list
+        - watch
+    ---
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    metadata:
+      name: rotate-certificates
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: rotate-certificates
+    subjects:
+    - kind: ServiceAccount
+      name: rotate-certificates
+      namespace: kommander
+    ---
+    apiVersion: batch/v1
+    kind: CronJob
+    metadata:
+      name: rotate-certificates
+      namespace: kommander
+    spec:
+      schedule: "0 0 1 * *"
+      jobTemplate:
+        spec:
+          activeDeadlineSeconds: 300
+          backoffLimit: 6
+          completions: 1
+          parallelism: 1
+          template:
+            spec:
+              restartPolicy: "OnFailure"
+              containers:
+              - command:
+                - /bin/bash
+                - -exc
+                - |
+                  deploymentsKommander="kommander-cm kommander-traefik dex dex-dex-controller kommander-licensing-cm kube-oidc-proxy traefik-forward-auth-mgmt kommander-webhook dex-k8s-authenticator kubetunnel-webhook traefik-forward-auth"
+                  for deployment in $deploymentsKommander; do
+                      kubectl rollout restart deployment -n kommander $deployment
+                  done
+                  kubectl rollout restart statefulset -n kommander gitea
+                  kubectl rollout restart deployment -n kube-federation-system kubefed-admission-webhook
+                image: bitnami/kubectl:1.21.3
+                imagePullPolicy: IfNotPresent
+                name: main
+              securityContext:
+                fsGroup: 65534
+                runAsUser: 65534
+              serviceAccount: rotate-certificates
+    EOF
+    ```
 
-	Now you must fix the certificate issues with the Gitrepository by committing the updated secret to Git.
+    Now you must fix the certificate issues with the Gitrepository by committing the updated secret to Git.
 
 1.  Clone the management repository:
 
-	```bash
-	kubectl -n kommander get secret kommander-traefik-certificate -o go-template='{{index .data "ca.crt"|base64decode}}' > ca.crt && git clone -c http.sslCAInfo=$(pwd)/ca.crt https://$(kubectl -n kommander get secret admin-git-crede
-	ntials -o go-template='{{.data.username|base64decode}}:{{.data.password|base64decode}}')@$((kubectl -n kommander get cm konvoyconfig-kubeaddons -o go-template='{{if ne .data.clusterHostname ""}}{{.data.clusterHostname}}{{"\n"}}{{end}}' &&
-	kubectl -n kommander get ingress gitea -o jsonpath="{.status.loadBalancer.ingress[0]['ip','hostname']}") | head -1)/dkp/kommander/git/kommander/kommander
-	```
+    ```bash
+    kubectl -n kommander get secret kommander-traefik-certificate -o go-template='{{index .data "ca.crt"|base64decode}}' > ca.crt && git clone -c http.sslCAInfo=$(pwd)/ca.crt https://$(kubectl -n kommander get secret admin-git-credentials -o go-template='{{.data.username|base64decode}}:{{.data.password|base64decode}}')@$((kubectl -n kommander get cm konvoyconfig-kubeaddons -o go-template='{{if ne .data.clusterHostname ""}}{{.data.clusterHostname}}{{"\n"}}{{end}}' &&
+    kubectl -n kommander get ingress gitea -o jsonpath="{.status.loadBalancer.ingress[0]['ip','hostname']}") | head -1)/dkp/kommander/git/kommander/kommander
+    ```
 
 1.  Change into the directory containing the credentials manifest: `kommander/shared/kommander-git-repository`
 
 1.  Update the manifest file with what is stored in the cluster:
 
-	```bash
-	kubectl -n kommander-flux get secret kommander-git-credentials -o yaml > git-credentials.yaml
-	```
+    ```bash
+    kubectl -n kommander-flux get secret kommander-git-credentials -o yaml > git-credentials.yaml
+    ```
 
 1.  Delete the following fields from the `git-credentials.yaml` file:
 
@@ -560,40 +559,41 @@ Your cert-manager will renew your certificates successfully after 60 days, but t
 
 1.  Replace the content of the field "data.ca" file with the output of this command:
 
-	```bash
-	kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}'
-	```
+    ```bash
+    kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}'
+    ```
 
-	```sh
-	LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJiekNDQVJXZ0F3SUJBZ0lSQUlwSTRRWUY0QmZSRzNZUUxqUkFNQWt3Q2dZSUtvWkl6ajBFQXdJd0Z6RVYKTUJNR0ExVUVBeE1NYTI5dGJXRnVaR1Z5TFdOaE1CNFhEVEl5TURReU5qRXlORGN5TVZvWERUTXlNRFF5TXpFeQpORGN5TVZvd0Z6RVZNQk1HQTFVRUF4TU1hMjl0YldGdVpHVnlMV05oTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJCnpqMERBUWNEUWdBRTRWWE9Ka1VJNXlkNm9BVTFDYnQySEEzZ2xnUFlpYkl1OXNmQTgvMTFDckNnandtZFE3Ym8KbzNIQUdEOE9vZlU5VnlvZWIzQzJiZ2UxbWlmeUxXK013S05DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4RwpBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZPVFB0NlJzSlhNMEIxTEJZWjA3RXltLzZ2MjVNQW9HCkNDcUdTTTQ5QkFNQ0EwZ0FNRVVDSUZnWjRmYi80VWtNYVNyTWRzY0M5QTVCa2Y4MkdhQm1qMDRYS2ZWM2Zya24KQWlFQTRqNHNtc3psTGZpUHd2NGpSSHkxa010ZTZnY0V2ME81emdhdVljaU96dk09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K 
-	```
+    ```sh
+    LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJiekNDQVJXZ0F3SUJBZ0lSQUlwSTRRWUY0QmZSRzNZUUxqUkFNQWt3Q2dZSUtvWkl6ajBFQXdJd0Z6RVYKTUJNR0ExVUVBeE1NYTI5dGJXRnVaR1Z5TFdOaE1CNFhEVEl5TURReU5qRXlORGN5TVZvWERUTXlNRFF5TXpFeQpORGN5TVZvd0Z6RVZNQk1HQTFVRUF4TU1hMjl0YldGdVpHVnlMV05oTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJCnpqMERBUWNEUWdBRTRWWE9Ka1VJNXlkNm9BVTFDYnQySEEzZ2xnUFlpYkl1OXNmQTgvMTFDckNnandtZFE3Ym8KbzNIQUdEOE9vZlU5VnlvZWIzQzJiZ2UxbWlmeUxXK013S05DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4RwpBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZPVFB0NlJzSlhNMEIxTEJZWjA3RXltLzZ2MjVNQW9HCkNDcUdTTTQ5QkFNQ0EwZ0FNRVVDSUZnWjRmYi80VWtNYVNyTWRzY0M5QTVCa2Y4MkdhQm1qMDRYS2ZWM2Zya24KQWlFQTRqNHNtc3psTGZpUHd2NGpSSHkxa010ZTZnY0V2ME81emdhdVljaU96dk09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K 
+    ```
 
-	<!-- Can we get an example output -->
+    <!-- Can we get an example output -->
+
 1.  Encrypt the file again:
 
-	```bash
-	sops --age=$(k -n kommander get secret sops-age -o jsonpath='{.data.age\.agekey}'|base64 -d|age-keygen -y) --encrypt --encrypted-regex '^(data|stringData)$' --in-place git-credentials.yaml
-	```
+    ```bash
+    sops --age=$(k -n kommander get secret sops-age -o jsonpath='{.data.age\.agekey}'|base64 -d|age-keygen -y) --encrypt --encrypted-regex '^(data|stringData)$' --in-place git-credentials.yaml
+    ```
 
 1.  Commit and push the updated file:
 
-	```bash
-	git add git-credentials.yaml
-	git commit -m 'update git credentials'
-	git push
-	```
+    ```bash
+    git add git-credentials.yaml
+    git commit -m 'update git credentials'
+    git push
+    ```
 
 1.  Patch the secret temporarily (since Flux is not able to clone the repository):
 
-	```bash
-	kubectl patch secret -n kommander-flux kommander-git-credentials --type='json' -p="[{\"op\": \"replace\", \"path\": \"/data/caFile\", \"value\": \"$(kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}')\"}]"
-	```
+    ```bash
+    kubectl patch secret -n kommander-flux kommander-git-credentials --type='json' -p="[{\"op\": \"replace\", \"path\": \"/data/caFile\", \"value\": \"$(kubectl -n kommander get secret git-tls -o jsonpath='{.data.ca\.crt}')\"}]"
+    ```
 
 1.  (Optional) Force reconciliation of the updated Git repository for quicker results:
 
-	```bash
-	flux -n kommander-flux reconcile source git management
-	```
+    ```bash
+    flux -n kommander-flux reconcile source git management
+    ```
 
     Flux should be able to connect to the Git server again.
 
@@ -603,9 +603,8 @@ Your cert-manager will renew your certificates successfully after 60 days, but t
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
+[acme]: https://cert-manager.io/docs/configuration/acme/
+[config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [kube-prometheus-stack]: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 [kubernetes-doc]: https://kubernetes.io/docs/home/
-[config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
-[acme]: https://cert-manager.io/docs/configuration/acme/
-
 [selfsigned]: https://cert-manager.io/docs/configuration/selfsigned/
