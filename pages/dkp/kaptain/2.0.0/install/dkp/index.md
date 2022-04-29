@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>
-<strong>All DKP Commands on this page</strong> assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
+<strong>All DKP commands on this page</strong> assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
 </p>
 
 <p class="message--warning"><strong>WARNING: </strong>
@@ -48,7 +48,7 @@ For cloud installations, scaling out can be limited by resource quotas.
 -   Ensure you enable the following applications in Kommander:
 
     <p class="message--note"><strong>NOTE: </strong>
-    All DKP Commands in this section assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
+    All DKP commands in this section assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
     </p>
 
     1.  Use the existing Kommander configuration file, or initialize the default one:
@@ -98,9 +98,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 
 ### Create a Git repository for Kaptain
 
-<p class="message--note"><strong>NOTE: </strong>
-All DKP Commands in this section assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
-</p>
+1.  Ensure the `KUBECONFIG=clusterKubeconfig.conf` is set.
 
 1.  Refer to [air-gapped for DKP 2.1][air2.1_install] or [air-gapped for DKP 2.2][air2.2_install] install instructions, if you are deploying in an air-gapped environment.
 
