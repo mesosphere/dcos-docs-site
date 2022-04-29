@@ -54,7 +54,7 @@ All you need is this notebook.
 
 ## Prerequisites
 
-<p class="message--warning"><strong>NOTE: </strong>This notebook requires Kaptain SDK 1.0.0 or later.</p>
+<p class="message--note"><strong>NOTE: </strong>This notebook requires Kaptain SDK 1.0.0 or later.</p>
 
 Before proceeding, check you are using the correct notebook image, that is, [scikit-learn](https://scikit-learn.org/stable/) is available:
 

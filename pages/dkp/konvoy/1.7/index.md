@@ -6,7 +6,7 @@ featureMaturity:
 enterprise: false
 category: K-Sphere
 beta: false
-menuWeight: 0
+menuWeight: 24
 ---
 
 Konvoy is a complete, standalone distribution of Kubernetes that enables you to provision native Kubernetes clusters with a suite of [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) and community tools.

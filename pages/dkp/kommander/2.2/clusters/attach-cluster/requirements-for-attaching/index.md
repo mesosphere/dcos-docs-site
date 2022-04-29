@@ -52,9 +52,9 @@ Before you attach clusters, you need to create one or more Workspaces, and we re
 
 ### Platform application requirements
 
-In addition to the basic cluster requirements, the platform services you want Kommander to manage on those clusters will have an impact on the total cluster requirements. The specific combinations of platform services will make a difference in the requirements for the cluster nodes and their resources (CPU, memory, and storage).
+In addition to the basic cluster requirements, the platform services you want Kommander to manage on those clusters will have an impact on the total cluster requirements. The specific combinations of platform applications will make a difference in the requirements for the cluster nodes and their resources (CPU, memory, and storage).
 
-See [this table of platform services][workspace-platform-applications-table] that Kommander provides by default.
+See [this table of platform applications][workspace-platform-applications-table] that Kommander provides by default.
 
 ## Attaching existing AWS and EKS clusters
 

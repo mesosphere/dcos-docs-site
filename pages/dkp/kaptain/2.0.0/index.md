@@ -4,12 +4,11 @@ navigationTitle: Kaptain 2.0.0
 title: Welcome to Kaptain 2.0.0
 version: 2.0
 beta: false
-menuWeight: 2
+menuWeight: 20
 ---
 
-![Kaptain](img/d2iq-kaptain.png)
 
-Kaptain is a general cloud native, enterprise-grade, and end-to-end ML/AI platform. The product is a set of open
+Kaptain is a general cloud native, enterprise-grade, and end-to-end AI/ML platform. The product is a set of open
 source products, including Kubeflow, with optimized configurations that supports end-to-end machine learning workflows.
 
 Kaptain empowers Data Scientists and ML Engineers to run and scale their entire ML stack with much higher velocity on Kubernetes and Cloud-Native ecosystems.

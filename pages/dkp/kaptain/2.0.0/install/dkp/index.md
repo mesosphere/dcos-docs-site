@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Add Kaptain to DKP Catalog Apps
 title: Add Kaptain to DKP Catalog Applications
 menuWeight: 5
-excerpt: Add Kaptain to DKP Catalog Applications before deploying to clusters.
+excerpt: Add Kaptain to DKP Catalog Applications in networked environments before deploying to clusters.
 beta: false
 enterprise: false
 ---
@@ -14,23 +14,13 @@ You can deploy Kaptain to a cluster in a selected workspace. If you do not inten
 
 ## Requirements
 
-Before proceeding, verify that your environment meets the following basic requirements:
+Before proceeding, verify that your cluster has the following resources freely available:
 
-- Control plane
-  - min. 3 nodes
-  - min. 4 cores _per node_
-  - min. 200 GiB free disk space _per node_
-  - min. 16 GiB RAM _per node_
-- Workers
-  - min. 6 nodes
-  - min. 8 cores _per node_
-  - min. 200 GiB free disk space _per node_
-  - min. 32 GiB RAM _per node_
-- GPUs (optional)
-  - NVIDIA only
-  - min. 200 GiB free disk space per instance
-  - min. 64 GiB RAM per instance
-  - min. 12 GiB GPU RAM per instance
+- Cluster consists of at least 3 worker nodes
+- 25 CPU cores
+- 32 GiB of RAM
+- 170 GiB of Storage
+- NVIDIA GPU instances are supported only
 
 Please note that these numbers are for the bare minimum.
 Running any real world machine learning workloads on Kaptain bumps these requirements for nodes, CPUs, RAM, GPUs, and persistent disks.
@@ -42,7 +32,7 @@ For cloud installations, scaling out can be limited by resource quotas.
 
 ## Prerequisites
 
-- A DKP cluster with the following Platform applications enabled:
+- [A DKP cluster][dkp-install] with the following Platform applications enabled:
 
   - Istio
   - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
@@ -55,42 +45,42 @@ For cloud installations, scaling out can be limited by resource quotas.
 
   1. Use the existing Kommander configuration file, or initialize the default one:
 
-  ```bash
-  dkp install kommander --init > kommander-config.yaml
-  ```
+     ```bash
+     dkp install kommander --init > kommander-config.yaml
+     ```
 
   1. Ensure the following applications are enabled in the config:
 
-  ```yaml
-  apiVersion: config.kommander.mesosphere.io/v1alpha1
-  kind: Installation
-  apps:
-    ...
-    dex:
-    dex-k8s-authenticator:
-    kube-prometheus-stack:
-    istio:
-    knative:
-    minio-operator:
-    traefik:
-    nvidia:  # to enable GPU support
-    ...
-  ```
+     ```yaml
+     apiVersion: config.kommander.mesosphere.io/v1alpha1
+     kind: Installation
+     apps:
+     	...
+     	dex:
+     	dex-k8s-authenticator:
+     	kube-prometheus-stack:
+     	istio:
+     	knative:
+     	minio-operator:
+     	traefik:
+     	nvidia:  # to enable GPU support
+     	...
+     ```
 
   1. For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
 
   1. Apply the new configuration to Kommander:
 
-  ```bash
-  dkp install kommander --installer-config kommander-config.yaml
-  ```
+     ```bash
+     dkp install kommander --installer-config kommander-config.yaml
+     ```
 
   Check [Kommander installation documentation][kommander-install] for more information.
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
 In case you need to run Spark jobs on Kubernetes using Spark Operator, it needs to be installed separately.
-Use the following instructions to install Spark Operator from Kommander Catalog [DKP 2.x][install-spark-dkp2]
+Use the following instructions to install Spark Operator from Kommander Catalog [DKP 2.x][install-spark-dkp2].
 
 ## Add Kaptain to your DKP Catalog Applications via CLI
 
@@ -100,9 +90,9 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 
 ### Create a Git repository for Kaptain
 
-1.  Refer to [air-gapped install instructions][airgapped_install], if you are running in air-gapped environment.
+1.  Refer to [air-gapped for DKP 2.1][air2.1_install] or [air-gapped for DKP 2.2][air2.2_install] install instructions, if you are deploying in an air-gapped environment.
 
-1.  Adapt the URL of your Git repository:
+1.  Add the Flux GitRepository to your Kommander install:
 
     ```yaml
     cat <<EOF | kubectl apply -f -
@@ -110,9 +100,11 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     kind: GitRepository
     metadata:
       name: kaptain-catalog-applications
-      namespace: ${WORKSPACE_NAMESPACE}
+      namespace: kommander
       labels:
         kommander.d2iq.io/gitrepository-type: catalog
+        kommander.d2iq.io/gitapps-gitrepository-type: dkp
+        kommander.d2iq.io/workspace-default-catalog-repository: "true"
     spec:
       interval: 1m0s
       ref:
@@ -125,7 +117,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 1.  Ensure the status of the `GitRepository` signals a ready state:
 
     ```bash
-    kubectl get gitrepository kaptain-catalog-applications -n ${WORKSPACE_NAMESPACE}
+    kubectl get gitrepository kaptain-catalog-applications -n kommander
     ```
 
     The repository commit displays the ready state:
@@ -140,12 +132,12 @@ If you added Kaptain after installing DKP, you must make it available by creatin
 You have now added Kaptain to your DKP Catalog applications. The next step is to enable and deploy Kaptain on all clusters in a selected workspace. For this, refer to [Deploy Kaptain][deploy] instructions.
 
 [download]: ../../download/
-[install-spark-dkp2]: /dkp/kommander/2.1/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
+[install-spark-dkp2]: /dkp/kommander/2.2/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
 [kommander-install]: /dkp/kommander/latest/install/
 [kommander-gpu]: /dkp/kommander/latest/gpu/
-[konvoy-gpu]: /dkp/konvoy/1.8/gpu/
-[konvoy_deploy_addons]: /dkp/konvoy/1.8/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [dex]: ../../configuration/external-dex/
-[airgapped_install]: ../air-gapped-dkp/
+[air2.1_install]: ../air-gapped-2.1/
+[air2.2_install]: ../air-gapped-2.2/
 [deploy]: ../deploy-kaptain/
+[dkp-install]: /dkp/konvoy/2.2/choose-infrastructure/

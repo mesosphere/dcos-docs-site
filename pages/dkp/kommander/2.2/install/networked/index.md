@@ -13,6 +13,7 @@ Before you begin using Kommander, you must:
 
 - Configure a Konvoy cluster using the [Konvoy Install](/dkp/konvoy/2.1/choose-infrastructure/) instructions.
 - Install `cert-manager` prior to installing Kommander. (Konvoy does this as part of its install process).
+- Review the [Management cluster application requirements](../mgmt-cluster-apps) and [Workspace platform application requirements](../../workspaces/applications/platform-applications/platform-application-requirements) to ensure that your cluster has sufficient resources.
 - Install Kommander before executing any `kommander` commands. Ensure you have the version of the CLI that matches the Kommander version you want to install.
 
 ### Default StorageClass
@@ -117,7 +118,7 @@ dkp open dashboard
 
 This command opens the URL of the Kommander web interface in your default browser, and prints the username and password in the CLI.
 
-If you prefer not to open your browser, run this command to retrieve the URL used for accessing Kommander's web interface:
+If you prefer not to open your browser, or are running the DKP CLI from a host that does not have a browser installed, run this command to retrieve the URL used for accessing the DKP UI:
 
 ```bash
 kubectl -n kommander get svc kommander-traefik -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}/dkp/kommander/dashboard{{ "\n"}}'

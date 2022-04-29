@@ -29,30 +29,30 @@ To use the CLI to deploy or uninstall applications, see [Application Deployment]
 
 ## Workspace platform applications
 
-| NAME                          | APP ID                | Deployed by default |
-| ----------------------------- | --------------------- | ------------------- |
-| cert-manager-0.2.7            | cert-manager          | True                |
-| external-dns-2.20.5           | external-dns          | False               |
-| fluent-bit-0.16.2             | fluent-bit            | False               |
-| gatekeeper-0.6.8              | gatekeeper            | False               |
-| grafana-logging-6.13.9        | grafana-logging       | False               |
-| grafana-loki-0.33.1           | grafana-loki          | False               |
-| istio-1.9.1                   | istio                 | False               |
-| jaeger-2.21.0                 | jaeger                | False               |
-| kiali-1.29.0                  | kiali                 | False               |
-| kube-oidc-proxy-0.2.5         | kube-oidc-proxy       | False               |
-| kube-prometheus-stack-16.13.1 | kube-prometheus-stack | True                |
-| kubecost-0.17.1               | kubecost              | True                |
-| kubernetes-dashboard-4.0.3    | kubernetes-dashboard  | True                |
-| logging-operator-3.13.0       | logging-operator      | False               |
-| metallb-0.12.2                | metallb               | False               |
-| minio-operator-4.1.7          | minio-operator        | False               |
-| nvidia-0.4.2                  | nvidia                | False               |
-| prometheus-adapter-2.11.1     | prometheus-adapter    | True                |
-| reloader-0.0.99               | reloader              | True                |
-| traefik-10.3.0                | traefik               | True                |
-| traefik-forward-auth-0.3.2    | traefik-forward-auth  | True                |
-| velero-3.1.3                  | velero                | False               |
+| Common Name           | APP NAME                      | APP ID                | Deployed by default |
+|-----------------------|-------------------------------|-----------------------|---------------------|
+| Cert Manager          | cert-manager-0.2.7            | cert-manager          | True                |
+| External DNS          | external-dns-2.20.5           | external-dns          | False               |
+| Fluent Bit            | fluent-bit-0.16.2             | fluent-bit            | False               |
+| Gatekeeper            | gatekeeper-0.6.8              | gatekeeper            | False               |
+| Grafana               | grafana-logging-6.13.9        | grafana-logging       | False               |
+| Loki                  | grafana-loki-0.33.1           | grafana-loki          | False               |
+| Istio                 | istio-1.9.1                   | istio                 | False               |
+| Jaeger                | jaeger-2.21.0                 | jaeger                | False               |
+| Kiali                 | kiali-1.29.0                  | kiali                 | False               |
+| Kube OIDC Proxy       | kube-oidc-proxy-0.2.5         | kube-oidc-proxy       | False               |
+| Kube Prometheus Stack | kube-prometheus-stack-16.13.1 | kube-prometheus-stack | True                |
+| Kubecost              | kubecost-0.17.1               | kubecost              | True                |
+| Kubernetes Dashboard  | kubernetes-dashboard-4.0.3    | kubernetes-dashboard  | True                |
+| Logging Operator      | logging-operator-3.13.0       | logging-operator      | False               |
+| Metal LB              | metallb-0.12.2                | metallb               | False               |
+| Minio                 | minio-operator-4.1.7          | minio-operator        | False               |
+| Nvidia                | nvidia-0.4.2                  | nvidia                | False               |
+| Prometheus Adapter    | prometheus-adapter-2.11.1     | prometheus-adapter    | True                |
+| Reloader              | reloader-0.0.99               | reloader              | True                |
+| Traefik               | traefik-10.3.0                | traefik               | True                |
+| Traefik ForwardAuth   | traefik-forward-auth-0.3.2    | traefik-forward-auth  | True                |
+| Velero                | velero-3.1.3                  | velero                | False               |
 
 <p class="message--note"><strong>NOTE: </strong>Currently, Kommander only supports a single deployment of <code>cert-manager</code> per cluster. Because of this, <code>cert-manager</code> cannot be installed on <code>Konvoy</code> managed <code>AWS</code> clusters.</p>
 

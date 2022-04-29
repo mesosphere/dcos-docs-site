@@ -16,7 +16,7 @@
     "DO_NOT_BUILD": [
       "dkp/kommander/2.3/**",
       "dkp/konvoy/2.3/**",
-      "dkp/kaptain/2.0.0/**"
+      "dkp/kaptain/2.1.0/**"
     ]
   }
 }

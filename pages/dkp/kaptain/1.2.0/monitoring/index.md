@@ -66,4 +66,4 @@ Kaptain provides the following dashboards:
 
 ![Kaptain Profiles Dashboard](img/kaptain-profiles-dashboard-2.png)
 
-[access_konvoy]: https://docs.d2iq.com/dkp/konvoy/latest/access-authentication/access-konvoy/
+[access_konvoy]: ../../../konvoy/1.8/access-authentication/access-konvoy/

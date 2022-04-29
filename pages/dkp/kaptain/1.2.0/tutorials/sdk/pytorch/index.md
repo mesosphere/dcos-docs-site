@@ -25,7 +25,7 @@ will likely not work.</p>
 # Kaptain SDK: Training, Tuning, and Deploying
 
 ## Introduction
-To perform [distributed training](../training/) on a cluster's resources, conduct [experiments with multiple parallel trials](../katib/) to obtain the best hyperparameters, and [deploying a trained or tuned model](../pipelines/) typically requires additional steps, such as [building a Docker image](../fairing/) and providing framework-specific specifications for Kubernetes.
+To perform [distributed training](../../training/) on a cluster's resources, conduct [experiments with multiple parallel trials](../../katib/) to obtain the best hyperparameters, and [deploying a trained or tuned model](../../pipelines/) typically requires additional steps, such as [building a Docker image](../../fairing/) and providing framework-specific specifications for Kubernetes.
 This places the burden on each data scientist to learn all the details of all the components.
 
 Instead of doing all the work, using the Kaptain SDK, you can `train`, `tune`, and `deploy` from within a notebook without having to worry about framework specifics, Kubeflow-native SDKs, or even thinking about Kubernetes
@@ -35,7 +35,7 @@ The Kaptain SDK provides a data science-friendly user experience from within a n
 A model can be trained, tuned, deployed, and tracked.
 
 The example is based on Pytorch, but it works equally for Tensorflow.
-The original model code can be found in the tutorials [MNIST with PyTorch](../training/pytorch) and [MNIST with TensorFlow](../training/tensorflow).
+The original model code can be found in the tutorials [MNIST with PyTorch](../../training/pytorch/) and [MNIST with TensorFlow](../../training/tensorflow).
 
 The SDK relies on [MinIO](https://min.io/), an open-source S3-compliant object storage tool, that is already included with your Kaptain installation.
 

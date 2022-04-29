@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--important"><strong>IMPORTANT: </strong>Refer to the <a href="../migration">Kaptain migration instructions</a>, if you already have Kaptain and want to move from 1.x to 2.x.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Refer to the <a href="../fresh-install">Kaptain fresh install instructions</a>, if you already have Kaptain and want to move from 1.x to 2.x. Note that it is not possible to migrate your data.</p>
 
 How do you want to deploy Kaptain?
 
@@ -22,7 +22,7 @@ The infrastructure you select determines the specific requirements for a success
 
 ## Before you begin
 
-Kaptain is a DKP Catalog application. To use it, add it to your repository and then deploy it on selected workspaces. No downloads are necessary.
+Kaptain is a DKP Catalog application. To use it, add it to your repository and then deploy it on selected workspaces. No downloads are necessary for networked environments. For users deploying to air-gapped environments, refer to the [download][download] page.
 
 You can deploy Kaptain to single and multi-cluster environments. The difference between these setups is the following: In a single-cluster environment (with an Essential license), you deploy on one Management cluster only. In a multi-cluster environment (with an Enterprise license), Kaptain is deployed to either one or several Managed clusters or to Attached clusters.
 
@@ -32,27 +32,30 @@ You can deploy Kaptain on a per-workspace basis.
 
 ## Prerequisites
 
--   A DKP cluster with the following Platform applications enabled:
+- A DKP cluster with the following Platform applications enabled:
 
-    - Istio
-    - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
+  - Istio
+  - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
 
--   [`kubectl`][kubectl] on your installation machine
+- [`kubectl`][kubectl] on your installation machine
 
 ## Install overview
 
 To install and deploy Kaptain for the first time, proceed with these steps:
 
-1.  [Add Kaptain to your DKP Catalog Applications][add_dkp]
+1.  [Add Kaptain to your DKP Catalog applications in a networked environment][add_dkp],
+
+    [Add Kaptain to your DKP Catalog applications in an air-gapped environment for DKP 2.1][add_air_2.1],
 
     OR
 
-    [Add Kaptain to your DKP Catalog Application in an air-gapped environment][add_air].
+    [Add Kaptain to your DKP Catalog applications in an air-gapped environment for DKP 2.2][add_air_2.2].
 
 1.  [Deploy Kaptain on a per-Workspace basis and verify the status of deployment][deploy].
 
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
-[on-prem]: ./on-premise
 [add_dkp]: dkp/
-[add_air]: air-gapped-dkp
+[add_air_2.1]: air-gapped-2.1/
+[add_air_2.2]: air-gapped-2.2/
 [deploy]: deploy-kaptain
+[download]: ../download/

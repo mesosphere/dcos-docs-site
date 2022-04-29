@@ -216,7 +216,7 @@ Based on the network latency between the environment of script execution and the
 1.  Download and extract the `kommander-applications` bundle.
 
     ```bash
-    mkdir kommander-applications && wget https://downloads.d2iq.com/dkp/kommander-applications_${VERSION}.tar.gz -O - | tar xvzf - -C kommander-applications --strip-components 1
+    mkdir kommander-applications && wget https://downloads.d2iq.com/dkp/kommander-applications_${VERSION}.tar.gz -O - | tar xvzf - -C kommander-applications
     ```
 
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:

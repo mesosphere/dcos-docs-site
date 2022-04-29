@@ -24,6 +24,7 @@ bootup
 calicoctl
 Cassandra
 CentOS
+(Chartmuseum|chartmuseum)
 checkpoint(|s|ed|ing)
 (chronos|Chronos)
 (Chrony|chrony)
@@ -86,6 +87,7 @@ Fluentd
 (Frontmatter|frontmatter)
 gapped 
 (gcr|GCR)
+(Generalizability|generalizability)
 (Gensim|gensim)
 (Gitea|gitea)
 (gitops|GitOps)
@@ -135,6 +137,7 @@ kmem
 Konvoy
 konvoy
 konvoy-image
+(Kube|kube)
 (Kubeadm|kubeadm)
 (Kubectl|kubectl)
 (kubelet|Kubelet)

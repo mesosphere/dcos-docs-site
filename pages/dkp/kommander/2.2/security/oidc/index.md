@@ -73,6 +73,24 @@ apps:
 [...]
 ```
 
+## Change the access token lifetime
+
+By default, the client access token lifetime is 24 hours. After this time, the token expires and cannot be used to authenticate. See the [Dex documentation](https://dexidp.io/docs/id-tokens/#expiration-and-rotation-settings) for more information on access token expiration and rotation settings.
+
+Here is an example configuration for extending the token lifetime to 48 hours:
+
+```yaml
+apiVersion: config.kommander.mesosphere.io/v1alpha1
+kind: Installation
+apps:
+  dex:
+    values: |
+      config:
+        expiry:
+          idTokens: "48h"
+[...]
+```
+
 ## Authentication
 
 OpenID Connect is an extension of the [OAuth2 authentication protocol](https://oauth.net/2/). As required by OAuth2, the client must be registered with Dex. Do this by passing the name of the application and a callback/redirect URI. These handle the processing of the OpenID token after the user authenticates successfully. After registration, Dex returns a `client_id` and a `secret`. Authentication requests use these between the client and Dex to identify the client.
@@ -83,7 +101,7 @@ Users access Kommander in two ways:
 
 -   To interact with the DKP UI, which has GUI dashboards for Prometheus, Grafana, etc.
 
-In Kommander, Dex comes pre-configured with a client for these access use cases. The clients talk to Dex for authentication. Dex talks to the configured Identity Provider, or IdP, (for example LDAP, SAML and so on) to perform the actual task of authenticating the user.
+In Kommander, Dex comes pre-configured with a client for these access use cases. The clients talk to Dex for authentication. Dex talks to the configured Identity Provider, or IdP, (for example LDAP, SAML, etc) to perform the actual task of authenticating the user.
 
 If the user authenticates successfully, Dex pulls the user’s information from the IdP and forms an OpenID token. The token contains this information and returns it to the respective client’s callback URL. The client or end user uses this token for communicating with the DKP UI or Kubernetes API respectively.
 

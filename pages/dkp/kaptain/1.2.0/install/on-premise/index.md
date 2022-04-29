@@ -47,5 +47,5 @@ The steps to install Kaptain on an on-premises cluster are as follows:
     ```
 * When the Konvoy cluster is ready, [install Kaptain](../konvoy/).
 
-[konvoy-on-prem]: /dkp/konvoy/latest/install/install-onprem/
+[konvoy-on-prem]: ../../../../konvoy/1.8/install/install-onprem/
 [metallb-load-balancer]: /dkp/konvoy/1.8/install/install-onprem/#configure-metallb-load-balancing

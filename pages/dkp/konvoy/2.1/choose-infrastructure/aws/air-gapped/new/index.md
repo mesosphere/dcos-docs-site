@@ -10,10 +10,21 @@ enterprise: false
 
 ## Create a new AWS Kubernetes cluster in an existing infrastructure
 
+When you use existing infrastructure, DKP does _not_ create, modify, or delete the following AWS resources:
+
+- Internet Gateways
+- NAT Gateways
+- Routing tables
+- Subnets
+- VPC
+- VPC Endpoints (for subnets without NAT Gateways)
+
+<p class="message--note"><strong>NOTE: </strong>An AWS subnet has Network ACLs that can control traffic in and out of the subnet. DKP does not modify the Network ACLs of an existing subnet. DKP uses Security Groups to control traffic. If a Network ACL denies traffic that is allowed by DKP-managed Security Groups, the cluster may not work correctly.</p>
+
 1.  Set the environment variable to the name you assigned this cluster:
 
     ```bash
-    CLUSTER_NAME=my-aws-cluster
+    export CLUSTER_NAME=aws-example
     ```
 
     See [Get Started with AWS][createnewcluster] for information on naming your cluster.
@@ -30,15 +41,16 @@ enterprise: false
     - `AWS_VPC_ID`: the VPC ID where the cluster will be created. The VPC requires the `ec2`, `elasticloadbalancing`, `secretsmanager` and `autoscaling` VPC endpoints to be already present.
     - `AWS_SUBNET_IDS`: a comma-separated list of one or more private Subnet IDs with each one in a different Availability Zone. The cluster control-plane and worker nodes will automatically be spread across these Subnets.
     - `AWS_ADDITIONAL_SECURITY_GROUPS`: a comma-seperated list of one or more Security Groups IDs to use in addition to the ones automatically created by [CAPA][capa].
-    - `AWS_AMI_ID`: the AMI ID to use for control-plane and worker nodes. The AMI must be created by the [konvoy-image-builder][konvoy-image-builder] project. They will have container images "baked into" them.
+    - `AWS_AMI_ID`: the AMI ID to use for control-plane and worker nodes. The AMI must be created by the [konvoy-image-builder][konvoy-image-builder] project as described on the previous page.
+
 
     <p class="message--important"><strong>IMPORTANT: </strong>You must tag the subnets as described below to allow for Kubernetes to create ELBs for services of type <code>LoadBalancer</code> in those subnets. If the subnets are not tagged, they will not receive an ELB and the following error displays: <code>Error syncing load balancer, failed to ensure load balancer; could not find any suitable subnets for creating the  ELB.</code>.</p>
 
     The tags should be set as follows, where `<CLUSTER_NAME>` corresponds to the name set in `CLUSTER_NAME` environment variable:
 
-    ```text
+    ```bash
     kubernetes.io/cluster = <CLUSTER_NAME>
-    kubernetes.io/cluster/CLUSTER_NAME = owned
+    kubernetes.io/cluster/<CLUSTER_NAME> = owned
     kubernetes.io/role/internal-elb = 1
     ```
 
@@ -121,6 +133,8 @@ enterprise: false
 
 Then, [explore your new cluster][explore-cluster].
 
+
+[ansible-task-images]: https://github.com/mesosphere/konvoy-image-builder/blob/main/ansible/roles/images/tasks/main.yaml
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
 [createnewcluster]: ../../advanced/new/index.md#create-a-new-aws-kubernetes-cluster
