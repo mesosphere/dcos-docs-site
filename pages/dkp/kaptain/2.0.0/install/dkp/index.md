@@ -16,11 +16,10 @@ You can deploy Kaptain to a cluster in a selected workspace. If you do not inten
 
 Before proceeding, verify that your cluster has the following resources freely available:
 
-###Need to CHOOSE either "Per Host" or "Aggregate" requirements and stick to it (see comments)
-- Cluster consists of at least 3 worker nodes
-- 25 CPU cores
-- 32 GiB of RAM
-- 170 GiB of Storage
+- Cluster consists of at least 3 worker nodes, each has at least:
+  - 8 CPU cores
+  - 16 GiB of RAM
+  - 60 GiB of Storage
 - NVIDIA GPU instances are supported only
 
 Please note that these numbers are for the bare minimum.
