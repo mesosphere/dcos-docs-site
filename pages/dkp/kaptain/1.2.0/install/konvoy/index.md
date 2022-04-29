@@ -127,4 +127,4 @@ Once all components have been deployed, you can log in to Kaptain:
 
 [download]: ../../download/
 [kudo_cli]: https://kudo.dev/#get-kudo
-[konvoy_deploy_addons]: ../../../konvoy/1.8/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
+[konvoy_deploy_addons]: ../../../../konvoy/1.8/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
