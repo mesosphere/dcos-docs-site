@@ -245,4 +245,4 @@ clusterrolebinding.rbac.authorization.k8s.io/<name of user> created
 
 [go-resourcequotaspec]: https://godoc.org/k8s.io/api/core/v1#ResourceQuotaSpec
 [k8s-limit-range]: https://kubernetes.io/docs/concepts/policy/limit-range/
-[konvoy-oidc]: /dkp/konvoy/latest/access-authentication/oidc/
+[konvoy-oidc]: ../../../konvoy/1.8/access-authentication/oidc/

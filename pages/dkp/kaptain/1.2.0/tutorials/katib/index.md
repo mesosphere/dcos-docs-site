@@ -39,8 +39,8 @@ At the end of the experiment, Katib outputs the optimized values, which are also
     The training data set is, as always, to learn parameters (weights and biases) from data.
     The test data set is also known as the hold-out set and its sole purpose is to check the model's hypothesis of parameter values in terms of how well it generalizes to data it has never come across.
     The point of the validation data set is to cross-validate the model and tweak the hyperparameters.
-    Since information from this data set is used to adjust the model, it is not an objective test of the model's <a href=\"https://www.sciencedirect.com/topics/mathematics/generalizability/">generalizability</a>.
-    It is not unlike a <a href=\"https://www.linkedin.com/posts/activity-6424581736302284800-Kdas/">teacher checking up on students</a>:
+    Since information from this data set is used to adjust the model, it is not an objective test of the model's <a href="https://www.sciencedirect.com/topics/mathematics/generalizability/">generalizability</a>.
+    It is not unlike a <a href="https://www.linkedin.com/posts/activity-6424581736302284800-Kdas/">teacher checking up on students</a>:
     <ul>
       <li>The training data set is the text book to learn the theory from</li>
       <li>The validation data set comprises the exercises to practice the theory</li>
