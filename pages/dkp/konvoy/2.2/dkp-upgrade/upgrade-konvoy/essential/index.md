@@ -64,7 +64,22 @@ The command should output something similar to the following:
 ✓ Initializing new CAPI components
 ✓ Deleting Outdated Global ClusterResourceSets
 ```
+<p class="message--warning"><strong>WARNING:</strong> If you upgraded 1.8 to 2.1 before upgrading to 2.2, run the following upgrade commands instead.</p>
+ 
+  ```bash
+  helm -n cert-manager get manifest cert-manager-kubeaddons | kubectl label -f - clusterctl.cluster.x-k8s.io/core=cert-manager
+kubectl delete validatingwebhookconfigurations/cert-manager-kubeaddons-webhook mutatingwebhookconfigurations/cert-manager-kubeaddons-webhook
+```
 
+```bash
+dkp upgrade capi-components
+```
+
+```bash
+  helm -n cert-manager delete cert-manager-kubeaddons
+  ```
+
+ 
 If the upgrade fails, review the prerequisites section and ensure that you've followed the steps in the [DKP upgrade overview][dkpup].
 
 ## Upgrade the core addons
