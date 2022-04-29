@@ -37,6 +37,8 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Verify that you deploy to the correct target workspace and Clusters.
 
+I am adding a line 
+
     - If the workspace is incorrect, go back to the main dashboard and select the correct workspace as in step 1.
     - If you don’t want to deploy Kaptain to all clusters, interrupt deployment and manually move the clusters where you don’t want to deploy Kaptain to another workspace.
 
