@@ -7,28 +7,28 @@ beta: false
 enterprise: false
 menuWeight: 30
 ---
+
 ## Prerequisites
 
-* Create an [on-demand backup][backup] of your current configuration with Velero.
+-   Create an [on-demand backup][backup] of your current configuration with Velero.
 
-* Follow the steps listed in the [DKP upgrade overview][dkpup].
+-   Follow the steps listed in the [DKP upgrade overview][dkpup].
 
-* Ensure that all platform applications in the management cluster have been upgraded to avoid compatibility issues with the [Kubernetes version][releasenotes] included in this release. This is done automatically when [upgrading Kommander][upgradekomm], so ensure that you upgrade Kommander prior to upgrading Konvoy.
+-   Ensure that all platform applications in the management cluster have been upgraded to avoid compatibility issues with the [Kubernetes version][releasenotes] included in this release. This is done automatically when [upgrading Kommander][upgradekomm], so ensure that you upgrade Kommander prior to upgrading Konvoy.
 
-* For air-gapped: Download the required bundles either at our [support site][supportsite] or by using the CLI.
+-   For air-gapped: Download the required bundles either at our [support site][supportsite] or by using the CLI.
 
-* For Azure, set the required [environment variables][envariables].
+-   For Azure, set the required [environment variables][envariables].
 
-* For AWS, set the required [environment variables][envariables2].
-
+-   For AWS, set the required [environment variables][envariables2].
 
 The following infrastructure environments are supported:
 
-* Amazon Web Services (AWS)
+-   Amazon Web Services (AWS)
 
-* Microsoft Azure
+-   Microsoft Azure
 
-* Pre-provisioned environments
+-   Pre-provisioned environments
 
 ## Overview
 
@@ -58,16 +58,17 @@ dkp upgrade capi-components
 
 The command should output something similar to the following:
 
-```text
+```sh
 ✓ Upgrading CAPI components
 ✓ Waiting for CAPI components to be upgraded
 ✓ Initializing new CAPI components
 ✓ Deleting Outdated Global ClusterResourceSets
 ```
+
 <p class="message--warning"><strong>WARNING:</strong> If you upgraded 1.8 to 2.1 before upgrading to 2.2, run the following upgrade commands instead.</p>
- 
-  ```bash
-  helm -n cert-manager get manifest cert-manager-kubeaddons | kubectl label -f - clusterctl.cluster.x-k8s.io/core=cert-manager
+
+```bash
+helm -n cert-manager get manifest cert-manager-kubeaddons | kubectl label -f - clusterctl.cluster.x-k8s.io/core=cert-manager
 kubectl delete validatingwebhookconfigurations/cert-manager-kubeaddons-webhook mutatingwebhookconfigurations/cert-manager-kubeaddons-webhook
 ```
 
@@ -76,10 +77,9 @@ dkp upgrade capi-components
 ```
 
 ```bash
-  helm -n cert-manager delete cert-manager-kubeaddons
-  ```
+helm -n cert-manager delete cert-manager-kubeaddons
+```
 
- 
 If the upgrade fails, review the prerequisites section and ensure that you've followed the steps in the [DKP upgrade overview][dkpup].
 
 ## Upgrade the core addons
@@ -101,7 +101,7 @@ dkp upgrade addons aws --cluster-name=${CLUSTER_NAME}
 
 The output should be similar to:
 
-```text
+```sh
 Generating addon resources
 clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-my-aws-cluster upgraded
 configmap/calico-cni-installation-my-aws-cluster upgraded
@@ -125,33 +125,34 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
 
 <p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.2/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
 
-1. Upgrade the Kubernetes version of the control plane.
+1.  Upgrade the Kubernetes version of the control plane.
 
-```bash
-dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
-```
+    ```bash
+    dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
+    ```
 
-The output should be similar to:
+    The output should be similar to:
 
-```text
-Updating control plane resource controlplane.cluster.x-k8s.io/v1beta1, Kind=KubeadmControlPlane default/my-aws-cluster-control-plane
-Waiting for control plane update to finish.
- ✓ Updating the control plane
-```
+    ```sh
+    Updating control plane resource controlplane.cluster.x-k8s.io/v1beta1, Kind=KubeadmControlPlane default/my-aws-cluster-control-plane
+    Waiting for control plane update to finish.
+     ✓ Updating the control plane
+    ```
 
-2. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
+1.  Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
 
-```bash
-export NODEPOOL_NAME=my-nodepool
-dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
-```
-The output should be similar to:
+    ```bash
+    export NODEPOOL_NAME=my-nodepool
+    dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
+    ```
 
-```text
-Updating node pool resource cluster.x-k8s.io/v1beta1, Kind=MachineDeployment default/my-aws-cluster-my-nodepool
-Waiting for node pool update to finish.
- ✓ Updating the my-aws-cluster-my-nodepool node pool
-```
+    The output should be similar to:
+
+    ```sh
+    Updating node pool resource cluster.x-k8s.io/v1beta1, Kind=MachineDeployment default/my-aws-cluster-my-nodepool
+    Waiting for node pool update to finish.
+     ✓ Updating the my-aws-cluster-my-nodepool node pool
+    ```
 
 Repeat this step for each additional node pool.
 
