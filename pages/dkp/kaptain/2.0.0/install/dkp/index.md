@@ -16,11 +16,11 @@ You can deploy Kaptain to a cluster in a selected workspace. If you do not inten
 
 Before proceeding, verify that your cluster has the following resources freely available:
 
-- Cluster consists of at least 3 worker nodes, each has at least:
-  - 8 CPU cores
-  - 16 GiB of RAM
-  - 60 GiB of Storage
-- NVIDIA GPU instances are supported only
+-   Cluster consists of at least 3 worker nodes, each has at least:
+    - 8 CPU cores
+    - 16 GiB of RAM
+    - 60 GiB of Storage
+-   NVIDIA GPU instances are supported only
 
 Please note that these numbers are for the bare minimum.
 Running any real world machine learning workloads on Kaptain bumps these requirements for nodes, CPUs, RAM, GPUs, and persistent disks.
@@ -32,50 +32,50 @@ For cloud installations, scaling out can be limited by resource quotas.
 
 ## Prerequisites
 
-- [A DKP cluster][dkp-install] with the following Platform applications enabled:
+-   [A DKP cluster][dkp-install] with the following Platform applications enabled:
 
-  - Istio
-  - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
+    - Istio
+    - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
 
-- [`kubectl`][kubectl] on your installation machine
+-   [`kubectl`][kubectl] on your installation machine
 
-- For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
+-   For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
 
-- Ensure you enable the following applications in Kommander:
+-   Ensure you enable the following applications in Kommander:
 
-  1. Use the existing Kommander configuration file, or initialize the default one:
+    1.  Use the existing Kommander configuration file, or initialize the default one:
 
-     ```bash
-     dkp install kommander --init > kommander-config.yaml
-     ```
+        ```bash
+        dkp install kommander --init > kommander-config.yaml
+        ```
 
-  1. Ensure the following applications are enabled in the config:
+    1.  Ensure the following applications are enabled in the config:
 
-     ```yaml
-     apiVersion: config.kommander.mesosphere.io/v1alpha1
-     kind: Installation
-     apps:
-     	...
-     	dex:
-     	dex-k8s-authenticator:
-     	kube-prometheus-stack:
-     	istio:
-     	knative:
-     	minio-operator:
-     	traefik:
-     	nvidia:  # to enable GPU support
-     	...
-     ```
+        ```yaml
+        apiVersion: config.kommander.mesosphere.io/v1alpha1
+        kind: Installation
+        apps:
+          ...
+          dex:
+          dex-k8s-authenticator:
+          kube-prometheus-stack:
+          istio:
+          knative:
+          minio-operator:
+          traefik:
+          nvidia:  # to enable GPU support
+          ...
+        ```
 
-  1. For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
+    1.  For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
 
-  1. Apply the new configuration to Kommander:
+    1.  Apply the new configuration to Kommander:
 
-     ```bash
-     dkp install kommander --installer-config kommander-config.yaml
-     ```
+        ```bash
+        dkp install kommander --installer-config kommander-config.yaml
+        ```
 
-  Check [Kommander installation documentation][kommander-install] for more information.
+Check [Kommander installation documentation][kommander-install] for more information.
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
