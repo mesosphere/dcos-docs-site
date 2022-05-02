@@ -122,7 +122,7 @@ For more information about a command, use:
 dkp ugrade addons [command] --help
 ```
     
-###See also###
+### See also ###
 
 [DKP upgrade addons](/../../dkp/konvoy/2.2/cli/dkp/upgrade/addons/)
 
