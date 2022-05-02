@@ -59,7 +59,7 @@ When an authenticated user logs into the system and visits the central dashboard
 
     <p class="message--note"><strong>NOTE: </strong>Refer to KUDO documentation to obtain additional information on the <a href="https://kudo.dev/docs/cli/commands.html#plan"><code>kudo plans</code>.</a></p>
 
-    After running this command, log out and back into the kubeflow dashboard. You will be prompted to create a profile.
+    After running this command, log out and back into the kubeflow dashboard. You are prompted to create a profile.
 
 -   To **disable** it, set the `registrationFlow` parameter back to `false`:
 
