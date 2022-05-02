@@ -16,6 +16,9 @@ You can deploy Kaptain to a cluster in a selected workspace. If you do not inten
 
 Refer to [DKP install instructions][dkp_install], if you want to deploy Kaptain in a networked environment or to [DKP 2.2 air-gapped instructions][2.2_air] if you are deploying in DKP 2.2.
 
+<p class="message--note"><strong>NOTE: </strong>
+All DKP commands in this page assume the <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.</p>
+
 Kaptain supports installation on an air-gapped (offline or private) DKP managed cluster. Before installing Kaptain, follow the [air-gapped installation guide][konvoy-air-gap] to set up the air-gapped DKP managed cluster. The cluster admin is responsible for configuring the DKP cluster correctly and ensuring container images have been pre-loaded to the private registry, before installing Kaptain.
 
 ## Prerequisites
@@ -103,6 +106,8 @@ If you need to run Spark jobs on Kubernetes using Spark Operator, you must insta
 Based on the network latency between the environment of script execution, the Docker registry, and the disk speed, this can take a while to upload all the images to your image registry.
 
 ### Install Kaptain using helm
+
+1.  Ensure the `KUBECONFIG=clusterKubeconfig.conf` is set.
 
 1.  Download the `kaptain-2.0.0.tgz` chart archive from the link obtained from support.
 
