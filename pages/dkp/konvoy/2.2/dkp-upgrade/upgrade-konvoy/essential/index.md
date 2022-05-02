@@ -77,12 +77,21 @@ Your cluster comes preconfigured with a few different core addons that provide f
 
 <p class="message--warning"><strong>IMPORTANT:</strong>If you have more than one essential cluster, ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-Replace `my-aws-cluster` with the name of the cluster.
+Upgrade the core addons in a cluster with one of the choices [aws, azure, preprovisioned] by replacing `my-provider-cluster` with the desired cluster name.
+
+Examples:
+
+```bash
+export CLUSTER_NAME=my-azure-cluster
+dkp upgrade addons azure --cluster-name=${CLUSTER_NAME}
+```
+OR
 
 ```bash
 export CLUSTER_NAME=my-aws-cluster
 dkp upgrade addons aws --cluster-name=${CLUSTER_NAME}
 ```
+
 
 The output should be similar to:
 
@@ -100,6 +109,17 @@ clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-my-aws-cluster
 configmap/node-feature-discovery-my-aws-cluster upgraded
 clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-my-aws-cluster upgraded
 configmap/nvidia-feature-discovery-my-aws-cluster upgraded
+```
+Flags:
+    -h, --help  Help for addons
+
+Global Flags:
+    -v, --verbose int   Output verbostiy
+
+For more information about a command, use:
+
+```sh
+dkp ugrade addons [command] --help
 ```
 
 Once complete, begin upgrading the Kubernetes version.
