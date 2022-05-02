@@ -45,7 +45,7 @@ Kubeflow grants users with namespace admin permissions for their namespaces.
 
 When an authenticated user logs into the system and visits the central dashboard for the first time, they trigger a profile creation. This is referred to as a "Registration Flow." However, automatic profile creation is disabled by default [for security reasons](https://d2iq.com/blog/what-you-need-to-know-about-cryptomining-attacks-on-kubeflow).
 
--   To **enable it during a fresh installation**, run this command:
+-   To **enable it when installing Kaptain**, run this command:
 
     ```bash
     kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace ./kubeflow-1.4.0_1.3.0.tgz -p registrationFlow=true
