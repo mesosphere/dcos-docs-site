@@ -352,7 +352,7 @@ New clusters use the "delete first" strategy by default. Existing clusters are s
 
 ### Cert-manager expiration workaround
 
-`cert-manager` renews all certificates 60 days after Kommander has been installed on your cluster. Unfortunately, some applications or pods fail to receive the renewed certificate information, causing them to break upon expiration (90 days after Kommander was installed, which usually coincides with the date the cluster was created). As a result, your cluster stops running, and in some cases, you are unable to access the UI.
+`cert-manager` renews all certificates 60 days after Kommander has been installed on your cluster. Unfortunately, some applications or pods fail to receive the renewed certificate information, causing them to break upon expiration (90 days after Kommander was installed, which normally coincides with the date you created the cluster). As a result, your cluster stops running, and in some cases, you are unable to access the UI.
 
 D2iQ provides a workaround that forces the applications to reconcile and recognize the renewed certificate. This workaround extends the validity of the certificates to 10 years, fixes the certification reload issue, and restarts the affected pods once the new certificate is issued.
 
