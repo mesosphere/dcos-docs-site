@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Introducing the D2iQ Kubernetes Platform
 title: Introducing the D2iQ Kubernetes Platform
-menuWeight: 2
+menuWeight: 0
 excerpt: Introducing the D2iQ Kubernetes Platform
 beta: false
 enterprise: false
