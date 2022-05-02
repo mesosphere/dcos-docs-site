@@ -43,7 +43,7 @@ Kubeflow grants users with namespace admin permissions for their namespaces.
 
 ### Automatic profile creation
 
-When an authenticated user logs into the system and visits the central dashboard for the first time, they trigger a profile creation. This is referred to as a "Registration Flow". However, automatic profile creation is [disabled by default](https://d2iq.com/blog/what-you-need-to-know-about-cryptomining-attacks-on-kubeflow).
+When an authenticated user logs into the system and visits the central dashboard for the first time, they trigger a profile creation. This is referred to as a "Registration Flow." However, automatic profile creation is [disabled by default](https://d2iq.com/blog/what-you-need-to-know-about-cryptomining-attacks-on-kubeflow).
 
 -   To **enable it during a fresh installation**, run this command:
 
