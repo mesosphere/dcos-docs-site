@@ -115,7 +115,7 @@ When upgrading to this release, the following services and service components ar
 
 ## Known issues
 
-### Cert-Manager issue from 1.8-2.1 then to 2.2
+### Work around to upgrade from 1.8.x > 2.1.x > 2.2.0 
 
 <p class="message--warning"><strong>WARNING:</strong> If you upgraded 1.8 to 2.1 before upgrading to 2.2, run the following upgrade commands instead.  This is relevant for both DKP Essential and Enterprise.</p>
 
