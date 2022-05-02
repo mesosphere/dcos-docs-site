@@ -358,7 +358,7 @@ D2iQ provides a workaround that forces the applications to reconcile and recogni
 
 It applies to any environment setup (networked, air-gapped, on-prem, etc.) and fixes the issue regardless of your issuer type ([SelfSigned][selfsigned] for air-gapped environments, [ACME][acme], or your own certificate issuer configured separately for your institution).
 
-To **prevent your applications from breaking**, or to **get them up and running again**, and fix this issue permanently, run this command:
+To **prevent your applications from breaking**, or to **get the nodes up and running again**, and fix this issue permanently, run this command:
 
 <p class="message--note"><strong>NOTE: </strong>Replace -v with the <code>--kubeconfig</code> flag of the target cluster.</p>
 
