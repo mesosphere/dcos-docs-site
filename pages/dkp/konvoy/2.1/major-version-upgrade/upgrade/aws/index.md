@@ -18,7 +18,7 @@ After adopting the cluster, you use this AMI to scale up, or replace a failed in
 
 <p class="message--note"><strong>NOTE: </strong>Konvoy v1.8.4 and v1.8.5 uses Kubernetes version 1.20.13 by default. If upgrading from Konvoy v1.8.3, use Kubernetes version 1.20.11 for the below commands.</p>
 
-1.  Create the AMI using [Konvoy Image Builder][kib] (you must [use the Konvoy Image Builder v1.5.0 release, downloadable from GitHub][kib-releases]):
+1.  Create the AMI using [Konvoy Image Builder][kib] (you **must [use the Konvoy Image Builder v1.5.0 release, downloadable from GitHub][kib-releases]**):
 
     ```bash
     echo "kubernetes_version: 1.20.13" > kubever.yaml
@@ -428,7 +428,7 @@ pod "capi-controller-manager-d4b9c7c4c-hkqfl" deleted
 
 You use this AMI to update the cluster Kubernetes version to v1.21.6.
 
-1.  Create the AMI using [Konvoy Image Builder][kib] (you must [use the Konvoy Image Builder v1.5.0 release, downloadable from GitHub][kib-releases]):
+1.  Create the AMI using [Konvoy Image Builder][kib] (you **must [use the Konvoy Image Builder v1.5.0 release, downloadable from GitHub][kib-releases]**):
 
     ```bash
     echo "kubernetes_version: 1.21.6" > kubever.yaml
@@ -684,4 +684,4 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
     ```
 
 [kib]: ../../../image-builder
-[kib-releases]: https://github.com/mesosphere/konvoy-image-builder/releases
+[kib-releases]: https://github.com/mesosphere/konvoy-image-builder/releases/tag/v1.5.0
