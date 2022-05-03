@@ -55,7 +55,7 @@ If you are running on more than one management cluster (Kommander cluster), you 
 
 1.  If your cluster was upgraded to 2.1 from 1.8, prepare the old cert-manager installation for removal:
 
-```bash
+    ```bash
     helm -n cert-manager get manifest cert-manager-kubeaddons | kubectl label -f - clusterctl.cluster.x-k8s.io/core=cert-manager
     kubectl delete validatingwebhookconfigurations/cert-manager-kubeaddons-webhook mutatingwebhookconfigurations/cert-manager-kubeaddons-webhook
     ```
@@ -71,6 +71,7 @@ If you are running on more than one management cluster (Kommander cluster), you 
     ```bash
     helm -n cert-manager delete cert-manager-kubeaddons
     ```
+    
 The output resembles the following:
 
 ```text
@@ -78,23 +79,7 @@ The output resembles the following:
 ✓ Waiting for CAPI components to be upgraded
 ✓ Initializing new CAPI components
 ✓ Deleting Outdated Global ClusterResourceSets
-```
-
- <p class="message--warning"><strong>WARNING:</strong> If you upgraded 1.8 to 2.1 before upgrading to 2.2, run the following upgrade commands instead.</p>
- 
-  ```bash
-  helm -n cert-manager get manifest cert-manager-kubeaddons | kubectl label -f - clusterctl.cluster.x-k8s.io/core=cert-manager
-kubectl delete validatingwebhookconfigurations/cert-manager-kubeaddons-webhook mutatingwebhookconfigurations/cert-manager-kubeaddons-webhook
-```
-
-```bash
-dkp upgrade capi-components
-```
-
-```bash
-  helm -n cert-manager delete cert-manager-kubeaddons
-  ```
-  
+``` 
  
 If the upgrade fails, review the prerequisites section and ensure that you've followed the steps in the [DKP upgrade overview][dkpup].
 
