@@ -114,7 +114,7 @@ Flags:
     -h, --help  Help for addons
 
 Global Flags:
-    -v, --verbose int   Output verbostiy
+    -v, --verbose int   Output verbosity
 
 For more information about a command, use:
 
