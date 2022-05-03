@@ -52,6 +52,7 @@ New versions of DKP come pre-bundled with newer versions of CAPI, newer versions
 If you are running on more than one management cluster (Kommander cluster), you must upgrade the CAPI components on each of these clusters.
 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
+    
 
 1.  If your cluster was upgraded to 2.1 from 1.8, prepare the old cert-manager installation for removal:
 
@@ -71,18 +72,19 @@ If you are running on more than one management cluster (Kommander cluster), you 
     ```bash
     helm -n cert-manager delete cert-manager-kubeaddons
     ```
-    
-The output resembles the following:
 
-```text
+The command should output something similar to the following:
+
+```sh
 ✓ Upgrading CAPI components
 ✓ Waiting for CAPI components to be upgraded
 ✓ Initializing new CAPI components
 ✓ Deleting Outdated Global ClusterResourceSets
-``` 
- 
-If the upgrade fails, review the prerequisites section and ensure that you've followed the steps in the [DKP upgrade overview][dkpup].
+```
 
+If the upgrade fails, review the prerequisites section and ensure that you've followed the steps in the [DKP upgrade overview][dkpup].
+    
+    
 ## Upgrade the core addons
 
 To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API feature][CAPI]. In the CAPI component upgrade, we deleted the previous set of outdated global `ClusterResourceSets` because prior to DKP 2.2 some addons were installed using a global configuration. In order to support individual cluster upgrades, DKP 2.2 now installs all addons with a unique set of `ClusterResourceSet` and corresponding referenced resources, all named using the cluster’s name as a suffix. For example: `calico-cni-installation-my-aws-cluster`.
