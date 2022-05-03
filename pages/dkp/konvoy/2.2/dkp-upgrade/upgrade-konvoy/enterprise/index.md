@@ -56,9 +56,21 @@ If you are running on more than one management cluster (Kommander cluster), you 
 Run the following upgrade command for the CAPI components.
 
 ```bash
-dkp upgrade capi-components
-```
+    helm -n cert-manager get manifest cert-manager-kubeaddons | kubectl label -f - clusterctl.cluster.x-k8s.io/core=cert-manager
+    kubectl delete validatingwebhookconfigurations/cert-manager-kubeaddons-webhook mutatingwebhookconfigurations/cert-manager-kubeaddons-webhook
+    ```
 
+1.  For <strong>all</strong> clusters, upgrade capi-components:
+
+    ```bash
+    dkp upgrade capi-components
+    ```
+
+1.  If your cluster was upgraded to 2.1 from 1.8, remove the old cert-manager you marked in step 1:
+
+    ```bash
+    helm -n cert-manager delete cert-manager-kubeaddons
+    ```
 The output resembles the following:
 
 ```text
