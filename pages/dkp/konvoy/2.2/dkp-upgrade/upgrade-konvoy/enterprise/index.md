@@ -95,7 +95,7 @@ export CLUSTER_NAME=my-aws-cluster
 dkp upgrade addons aws --cluster-name=${CLUSTER_NAME}
 ```
 
-The output for AWS example should be similar to:
+The output for the AWS example should be similar to:
 
 ```text
 Generating addon resources
