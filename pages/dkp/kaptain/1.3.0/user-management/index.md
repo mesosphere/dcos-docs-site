@@ -10,7 +10,8 @@ enterprise: false
 
 # Manage Kubeflow Users and Permissions
 
-Prerequisites: 
+Prerequisites:
+
 - Administrative access to a properly configured Konvoy cluster via `kubectl`
 
 Because a single Kubeflow user needs to interact with Kubernetes resources across their own Kubeflow `Profile` namespace,
@@ -21,6 +22,7 @@ _NB: The following tutorial assumes you have already connected an OIDC provider 
 built-in Dex integration. If you have not yet done so, please review the relevant documentation for Konvoy [konvoy-oidc] or Kommander [kommander-oidc] before proceeding._
 
 ## Kubeflow Predefined `ClusterRoles`
+
 Kaptain comes with a set of predefined Kubernetes `ClusterRoles` designed to simplify the workflow of administrators who manage permissions of users.
 
 Predefined `ClusterRoles` for Kubeflow tenants are as follows:
@@ -32,20 +34,41 @@ Predefined `ClusterRoles` for Kubeflow tenants are as follows:
 For a chart of the permissions granted to each `ClusterRole`, see the [Permissions Charts](#permissions-charts).
 
 ## Onboarding new users
+
 ### Overview
+
 Kaptain provides an abstraction called `Profile` which is assigned to a user and bound to a namespace along with additional
 resources such as namespace-scoped service accounts, RBAC `RoleBinding`s, Istio `ServiceRole` and `ServiceRoleBinding`.
 Kubeflow grants users with namespace admin permissions for their namespaces.
 
 ### Automatic profile creation
-When an authenticated user logs into the system and visits the central dashboard for the first time, they trigger a profile creation automatically, this is referred to as a "Registration Flow".
-Automatic profile creation is disabled by default. To enable it, set the `registrationFlow` parameter to `true`:
 
-```
-kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace ./kubeflow-1.4.0_1.3.0.tgz -p registrationFlow=true
-```
+When an authenticated user logs into the system and visits the central dashboard for the first time, they trigger a profile creation. This is referred to as a "Registration Flow." However, [for security reasons](https://d2iq.com/blog/what-you-need-to-know-about-cryptomining-attacks-on-kubeflow), automatic profile creation is disabled by default.
+
+-   To **enable automatic profile creation when installing Kaptain**, run this command:
+
+    ```bash
+    kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace ./kubeflow-1.4.0_1.3.0.tgz -p registrationFlow=true
+    ```
+
+-   To **enable automatic profile creation later on**, ensure all `kudo plans` [have been completed](https://docs.d2iq.com/dkp/kaptain/1.3.0/install/konvoy-dkp/#:~:text=Monitor%20the%20installation%20by%20running), and then set the `registrationFlow` parameter to `true`:
+
+    ```bash
+    kubectl kudo update --instance kaptain -p registrationFlow=true --namespace kubeflow
+    ```
+
+    <p class="message--note"><strong>NOTE: </strong>Refer to KUDO documentation to obtain additional information on the <a href="https://kudo.dev/docs/cli/commands.html#plan"><code>kudo plans</code>.</a></p>
+
+    After running this command, log out and back into the kubeflow dashboard. You are prompted to create a profile.
+
+-   To **disable automatic profile creation**, set the `registrationFlow` parameter back to `false`:
+
+    ```bash
+    kubectl kudo update --instance kaptain -p registrationFlow=false --namespace kubeflow
+    ```
 
 ### Manual profile creation
+
 For a finer-grain control and per-namespace resource quota management, profiles for the new users can be created
 before onboarding them.
 
@@ -134,7 +157,7 @@ profile.kubeflow.org/<name of profile> created
 
 ## Modifying Permissions of existing Users
 
-### Adding Permissions for a Kubeflow Administrator     
+### Adding Permissions for a Kubeflow Administrator
 
 #### Step 1 - Create the `ClusterRoleBinding` YAML manifest
 
@@ -159,7 +182,7 @@ EOF
 
 #### Step 2 - Edit `add-kubeflow-admin.yaml` with details for the new user
 
-Edit the `metadata.name` to the name of the user you want to add. 
+Edit the `metadata.name` to the name of the user you want to add.
 
 <p class="message--note"><strong>NOTE: </strong>This name should be globally unique across your Konvoy cluster, otherwise you may overwrite another user's permissions.</p>
 
@@ -206,16 +229,15 @@ EOF
 
 #### Step 2 - Edit `add-kubeflow-user.yaml` with details for the new user
 
-Edit the `metadata.name` to the name of the user you want to add. 
+Edit the `metadata.name` to the name of the user you want to add.
 
 <p class="message--note"><strong>NOTE: </strong>This name should be globally unique across your Konvoy cluster, otherwise you may overwrite another user's permissions.</p>
 
 Edit `subjects.apiGroup.name` to match the email address associated with the user's OIDC account.
 
-
 #### Step 3 - Apply `add-kubeflow-user.yaml` to your Konvoy cluster
 
-In your terminal shell, run: 
+In your terminal shell, run:
 
 ```bash
 kubectl apply -f add-kubeflow-user.yaml
@@ -247,3 +269,4 @@ clusterrolebinding.rbac.authorization.k8s.io/<name of user> created
 [k8s-limit-range]: https://kubernetes.io/docs/concepts/policy/limit-range/
 [konvoy-oidc]: /dkp/konvoy/1.8/access-authentication/oidc/
 [kommander-oidc]: /dkp/kommander/latest/security/oidc/
+[kudoplan]: https://kudo.dev/docs/cli/commands.html#plan
