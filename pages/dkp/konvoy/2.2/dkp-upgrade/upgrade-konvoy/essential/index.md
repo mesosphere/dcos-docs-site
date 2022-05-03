@@ -63,7 +63,7 @@ New versions of DKP come pre-bundled with newer versions of CAPI, newer versions
     dkp upgrade capi-components
     ```
 
-1.  If your cluster was upgraded to 2.1 from 1.8, remove the old cert-manager you marked in step 1:
+1.  If your cluster was upgraded to 2.1 from 1.8, remove the remaining old cert-manager resources from 1.8:
 
     ```bash
     helm -n cert-manager delete cert-manager-kubeaddons
