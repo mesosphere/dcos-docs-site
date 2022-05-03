@@ -115,9 +115,9 @@ When upgrading to this release, the following services and service components ar
 
 ## Known issues
 
-### Work around to upgrade from 1.8.x > 2.1.x > 2.2.0 
+### NOTE: Ensure performing all steps if upgraded from 1.8.x > 2.1.x before 2.2.0 
 
-<p class="message--warning"><strong>WARNING:</strong> If you upgraded 1.8 to 2.1 before upgrading to 2.2, run the following upgrade commands instead.  This is relevant for both DKP Essential and Enterprise.</p>
+<p class="message--warning"><strong>WARNING:</strong> If you upgraded 1.8 to 2.1 before upgrading to 2.2, run the following upgrade commands in regards to upgrading CAPI components.  This is relevant for both DKP Essential and Enterprise.</p>
 
 1.  If you cluster was upgraded to 2.1 from 1.8, prepare the old cert-manager installation for removal:
 
