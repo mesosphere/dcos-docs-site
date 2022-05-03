@@ -16,8 +16,8 @@ Kaptain SDK 1.0.1 Release Notes
 * Migrate to KServe v0.7.0
 * Use default minio tenant image
 * Upgrade training operator to 1.4.0
-* Don't mutate constants in _check_label_exists
+* Do not mutate constants in _check_label_exists
 * Handle missing / problem values more gracefully in utilities methods
 
 ### Breaking changes
-Given the migration from KFServing toi KServe this SDK version is only compatible with Kaptain 2.0
+Given the migration from KFServing to KServe this SDK version is only compatible with Kaptain 2.0
