@@ -50,11 +50,24 @@ New versions of DKP come pre-bundled with newer versions of CAPI, newer versions
 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-Run the following upgrade command for the CAPI components.
+1.  If you cluster was upgraded to 2.1 from 1.8, prepare the old cert-manager installation for removal:
 
-```bash
-dkp upgrade capi-components
-```
+    ```bash
+    helm -n cert-manager get manifest cert-manager-kubeaddons | kubectl label -f - clusterctl.cluster.x-k8s.io/core=cert-manager
+    kubectl delete validatingwebhookconfigurations/cert-manager-kubeaddons-webhook mutatingwebhookconfigurations/cert-manager-kubeaddons-webhook
+    ```
+
+1.  For <strong>all</strong> clusters, upgrade capi-components:
+
+    ```bash
+    dkp upgrade capi-components
+    ```
+
+1.  If your cluster was upgraded to 2.1 from 1.8, remove the old cert-manager you marked in step 1:
+
+    ```bash
+    helm -n cert-manager delete cert-manager-kubeaddons
+    ```
 
 The command should output something similar to the following:
 
