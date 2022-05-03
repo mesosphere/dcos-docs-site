@@ -126,7 +126,6 @@ dkp ugrade addons [command] --help
 ```
 
 ### See also ###
-
 [DKP upgrade addons](/../../dkp/konvoy/2.2/cli/dkp/upgrade/addons/)
     
 Once complete, begin upgrading the Kubernetes version.
