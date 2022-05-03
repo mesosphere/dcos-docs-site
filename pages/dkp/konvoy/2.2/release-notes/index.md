@@ -115,29 +115,6 @@ When upgrading to this release, the following services and service components ar
 
 ## Known issues
 
-### NOTE: Ensure performing all steps if upgraded from 1.8.x > 2.1.x before 2.2.0 
-
-<p class="message--warning"><strong>WARNING:</strong> If you upgraded 1.8 to 2.1 before upgrading to 2.2, run the following upgrade commands in regards to upgrading CAPI components.  This is relevant for both DKP Essential and Enterprise.</p>
-
-1.  If you cluster was upgraded to 2.1 from 1.8, prepare the old cert-manager installation for removal:
-
-    ```bash
-    helm -n cert-manager get manifest cert-manager-kubeaddons | kubectl label -f - clusterctl.cluster.x-k8s.io/core=cert-manager
-    kubectl delete validatingwebhookconfigurations/cert-manager-kubeaddons-webhook mutatingwebhookconfigurations/cert-manager-kubeaddons-webhook
-    ```
-
-1.  For all clusters, upgrade capi-components:
-
-    ```bash
-    dkp upgrade capi-components
-    ```
-
-1.  If your cluster was upgraded to 2.1 from 1.8, remove the old cert-manager you marked in step 1:
-
-    ```bash
-    helm -n cert-manager delete cert-manager-kubeaddons
-    ```
-
 ### Overriding configuration for kube-oidc-proxy and traefik-forward-auth
 
 Configuration overrides for kube-oidc-proxy and traefik-forward-auth platform applications must be manually applied for each cluster that requires custom configuration on top of the default configuration. Passing in the configuration via the CLI installer *will not work*. Instead, you must edit the cluster's custom configuration in the appropriate `FederatedConfigMap`'s `spec.overrides` list. For kube-oidc-proxy, the `FederatedConfigMap` is called `kube-oidc-proxy-overrides`, and for traefik-forward-auth, it is called `traefik-forward-auth-kommander-overrides`. See below for an example to override the kube-oidc-proxy configuration to use a custom domain `mycluster.domain.dom`:
