@@ -21,6 +21,3 @@ Kaptain SDK 1.0.1 Release Notes
 
 ### Breaking changes
 Given the migration from KFServing toi KServe this SDK version is only compatible with Kaptain 2.0
-
-[quick-start]: ../../../tutorials/sdk/quick-start
-[image-builder]: ../../../tutorials/sdk/image-builder
