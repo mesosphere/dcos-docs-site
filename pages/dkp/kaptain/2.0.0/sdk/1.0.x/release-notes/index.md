@@ -12,12 +12,9 @@ Kaptain SDK 1.0.1 Release Notes
 
 ### Improvements and Fixes
 * Fix incorrect handling of the S3 endpoint string
-* Remove `FailedScheduling` from the events list, introduce timeout for train and tune methods
-* Migrate to KServe v0.7.0
-* Use default minio tenant image
-* Upgrade training operator to 1.4.0
-* Do not mutate constants in _check_label_exists
-* Handle missing / problem values more gracefully in utilities methods
+* New `timeout` parameter for `Model.train` and `Model.tune` methods
+* Upgrade from KFServing 0.6.1 to Kserve 0.7.0
+* Upgrade kubeflow-training to 1.4.0
 
 ### Breaking changes
 Given the migration from KFServing to KServe this SDK version is only compatible with Kaptain 2.0
