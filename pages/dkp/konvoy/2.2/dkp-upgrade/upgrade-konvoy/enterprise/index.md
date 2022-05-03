@@ -54,7 +54,7 @@ If you are running on more than one management cluster (Kommander cluster), you 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
     
 
-1.  If your cluster was upgraded to 2.1 from 1.8, prepare the old cert-manager installation for removal:
+1.  If your cluster was upgraded to 2.1 from 1.8, prepare the old cert-manager installation for upgrade:
 
     ```bash
     helm -n cert-manager get manifest cert-manager-kubeaddons | kubectl label -f - clusterctl.cluster.x-k8s.io/core=cert-manager
