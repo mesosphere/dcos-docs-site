@@ -7,7 +7,6 @@ excerpt: View release-specific information for Kommander 2.1.2
 enterprise: false
 beta: false
 ---
-
 **D2iQ&reg; Kommander&reg; version 2.1.2 was released on May 11, 2022.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
@@ -20,11 +19,91 @@ To get started with Kommander, [download](../../download/) and [install](../../i
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Kommander.
 
-## New features and capabilities
-
-### 
-
 ## Fixes and Improvements
+
+### Flux proxy configuration results in failure to install applications (COPS-7236)
+
+Incorrect Flux proxy configuration was resulting in Kommander applications not pulling and installing.
+
+### Broken FIPS images (COPS-7225)
+
+FIPS images for DKP were overwritten with blank docker images, making deployment fail.
+
+### kube-oidc-proxy error: certificate signed by unknown authority (COPS-7217)
+
+When using a custom domain and TLS certificate issued by Let's Encrypt, the `kube-oidc-proxy` helm chart in the attached cluster did not complete installation and the associated pod has an error.
+
+### Certificate objects updated but not reloading in Kommander pods (COPS-7212)
+
+When looking at the certificate objects from a bundle, none are expired but the pods in the cluster do not reload with current/new certificates, and also display that the certificates were expired.
+
+### Konvoy-image-builder 1.7.0 fails in certain situatios (COPS-7207)
+
+This issue is resolved.
+
+### KIB fails to pull images in airgapped using ct (COPS-7198)
+
+This lead to a problem in air-gapped environments where the images failed to pull in KIB, when using registry mirrors and/or credentials.
+
+### Dashboards redirecting to wrong URL (COPS-7197)
+
+The `traefik-forward-auth-kommander` helm value was overriding ConfigMap with an incorrect authHost value.
+
+### Kommander fails after a clean reinstall (COPS-7193)
+
+There was an unintended name collision between two separate secrets.
+
+### Upgrade konvoy 1.8.4 to 2.1.1 index out of range error (COPS-7183)
+
+When a 1.8 deployment used an existing VPC, the `prepare-to-adopt` command triggered an error.
+
+### Pulling search path from Bastion host breaks DKP cluster (COPS-7181)
+
+When creating an air-gapped cluster on preprovisioned machines, the first control plane machine is created but subsequent machines are not created.
+
+### CPU requirements are not listed in the documentation (COPS-7168)
+
+This issue is corrected in the documentation.
+
+### machine stuck in provisioned state after pivot (COPS-7166)
+
+After performing a Pivot operation to migrate cluster resources in DKP 2.1.1, some machines could be stuck in the provisioning state.
+
+### kube-prometheus-stack error with fresh on-prem install (COPS-7163)
+
+[This fix](https://github.com/prometheus-operator/prometheus-operator/pull/4221) from Prometheus resolves the issue.
+
+### http(s)_proxy variables missing from capa pods (COPS-7158)
+
+When deploying a 2.1.1 Konvoy cluster, the local environment variables for http_proxy, https_proxy and no_proxy were not propagated to CAPI/CAPI provider pods outside the kube-system namespace, which lead to timeouts in the capa pod.
+
+### Nvidia addon works poorly if gpus are scarce (COPS-7142)
+
+In DKP 2.x, Nvidia had no notion of which nodes have gpus and which nodes dont, resulting in it deploying the nvidia driver and dcgm reporter to every worker node in the cluster.
+
+### Document how to add multiple node pools in DKP 2.X (COPS-7140)
+
+This process was not fully documented in the 2.1 documentation.
+
+### Minio CVE-2021-21287 (COPS-7134)
+
+The Minio subchart deployed with Velero was running an old version.
+
+### Kommander Install gets stuck if http_proxy injection is enabled in Gatekeeper (COPS-7127)
+
+Kommander Install was getting stuck if http_proxy injection was enabled in Gatekeeper. The `mutatingwebhookconfiguration` for Gatekeeper is updated to explicitly set `sideEffects` to `None`.
+
+### DKP cli cannot add Azure credentials to a bootstrap cluster (COPS-7108)
+
+There is no option in the DKP CLI to add Azure credentials to an existing bootstrap cluster. The only option was to manually create the secret.
+
+### Prometheus/Grafana kubeaddons cronjob spawns excessive pods (COPS-7105)
+
+The `prometheus-kubeaddons-set-grafana-home-dashboard` was stuck in a pending state due to a stale DNS entry for the private Docker repo. The cronjob associated with Grafana kept spawning a pod every 5 minutes, which resulted in an excessive number of pods to spawn.
+
+### the oneliner dkp 2.1 installer doesn't obey "--region" flag	(COPS-7101)
+
+Regardless the `--region` flag, the target AWS cluster was deploying in the default AWS region.
 
 ## Component updates
 
@@ -36,7 +115,7 @@ The following services and service components have been upgraded to the listed v
 - dex: 2.9.10
 - external-dns: 2.20.5
 - fluent-bit: 0.16.2
-- gatekeeper: 0.6.8
+- gatekeeper: 0.6.9
 - grafana-logging: 6.16.14
 - grafana-loki: 0.33.1
 - istio: 1.9.1
@@ -45,7 +124,7 @@ The following services and service components have been upgraded to the listed v
 - kiali: 1.29.1
 - knative: 0.18.3
 - kube-oidc-proxy: 0.2.5
-- kube-prometheus-stack: 18.1.1
+- kube-prometheus-stack: 18.1.2
 - kubecost: 0.20.0
 - kubefed: 0.9.0
 - kubernetes-dashboard: 5.0.2
@@ -63,7 +142,7 @@ The following services and service components have been upgraded to the listed v
 - thanos: 0.4.5
 - traefik: 10.3.0
 - traefik-forward-auth: 0.3.2
-- velero: 3.1.3
+- velero: 3.1.5
 
 ## Known Issues
 
@@ -172,7 +251,7 @@ The deployment fails, because the managed cluster uses the wrong CA certificate 
 kubectl --kubeconfig=MANAGED_KUBECONFIG patch secret -n kommander-flux gitserver-ca -p '{"data":{"caFile":"'$(kubectl --kubeconfig=MANAGER_KUBECONFIG get secret -n kommander kommander-traefik-certificate -o go-template='{{index .data "ca.crt"}}')'"}}'
 ```
 
-You may need to trigger a reconciliation of the flux controller on the managed cluster if you do not want to wait for its regular interval to occur. Use the [`flux` CLI utility][flux-cli]:
+You may need to trigger a reconciliation of the flux controller on the managed cluster if you do not want to wait for its regular interval to occur. Use the [ CLI utility][flux-cli]:
 
 ```bash
 flux reconcile -n kommander-flux source git management --kubeconfig MANAGED_KUBECONFIG
