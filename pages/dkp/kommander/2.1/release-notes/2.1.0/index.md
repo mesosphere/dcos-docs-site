@@ -202,6 +202,22 @@ flux reconcile -n kommander-flux source git management --kubeconfig MANAGED_KUBE
 ✔ fetched revision main/GIT_HASH
 ```
 
+### Cert-manager expiration workaround
+
+`cert-manager` renews all certificates 60 days after you install Kommander on your cluster. Unfortunately, some applications or pods fail to receive the renewed certificate information, causing them to break upon expiration (90 days after Kommander was installed, which normally coincides with the date you created the cluster). As a result, your cluster stops running, and sometimes, you are unable to access the UI.
+
+D2iQ provides a workaround that forces the applications to reconcile and recognize the renewed certificate. This workaround extends the validity of the certificates to 10 years, fixes the certification reload issue, and restarts the affected pods once the new certificate is issued.
+
+It applies to any environment setup (networked, air-gapped, on-prem, etc.) and fixes the issue regardless of your issuer type ([SelfSigned][selfsigned] for air-gapped environments, [ACME][acme], or your own certificate issuer configured separately for your institution).
+
+To **prevent your applications from breaking**, or to **get the nodes up and running again**, and fix this issue permanently, run this command:
+
+<p class="message--important"><strong>IMPORTANT: </strong>If you have changed the default location of your <code>kubeconfig</> file, replace <code>~/.kube/config</code> with the absolute path of your file's location. For example, use <code>/home/example/my-kubeconfig.yaml<code> instead of <code>my-kubeconfig.yaml</code>.</p>
+
+```bash
+docker run -v ~/.kube/config:/kubeconfig -e KUBECONFIG=/kubeconfig mesosphere/rotate-certificate-hotfix:2.1.1
+```
+
 ### Additional resources
 
 <!-- Add links to external documentation as needed -->
@@ -210,6 +226,9 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
-[konvoy-self-managed]: ../../choose-infrastructure/aws/quick-start-aws/#optional-move-controllers-to-the-newly-created-cluster
+[konvoy-self-managed]: ../../../../konvoy/2.1/choose-infrastructure/aws/quick-start-aws#create-a-new-aws-kubernetes-cluster
 [project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
 [flux-cli]: https://fluxcd.io/docs/installation/
+[acme]: https://cert-manager.io/docs/configuration/acme/
+[config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
+[selfsigned]: https://cert-manager.io/docs/configuration/selfsigned/
