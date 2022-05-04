@@ -14,7 +14,7 @@ beta: false
 
 **Note:** In DKP 2.2 the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above.
 
-[Download](../download/) and [install](../choose-infrastructure) the latest version to get started.
+[Download](../../download/) and [install](../../choose-infrastructure) the latest version to get started.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download Kommander. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.</p>
 
@@ -40,7 +40,7 @@ The following features and capabilities are new for Version 2.2.
 
 ### Integrated DKP Upgrade
 
-You can now upgrade Konvoy and Kommander as a single fluid process using a combination of the [DKP CLI](../cli/dkp) and the UI to upgrade your environment.
+You can now upgrade Konvoy and Kommander as a single fluid process using a combination of the [DKP CLI](../../cli/dkp) and the UI to upgrade your environment.
 
 For more information, see [DKP Upgrade](/dkp/kommander/2.2/dkp-upgrade)
 
@@ -52,7 +52,7 @@ You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](
 
 You can now use your laptop or USB drive to transfer pre-created air-gapped bundles, including OS dependencies and DKP binaries into your air-gapped environment with no external connectivity. This improves the availability of the DKP air-gapped deployment and productivity of your IT operations team.
 
-For more information, see the [air-gapped bundle](../choose-infrastructure) documentation in the choose infrastructure topics.
+For more information, see the [air-gapped bundle](../../choose-infrastructure) documentation in the choose infrastructure topics.
 
 ### Unified DKP user interfaces
 
@@ -346,9 +346,28 @@ A "create first" update strategy first creates a new machine, then deletes the o
 
 New clusters use the "delete first" strategy by default. Existing clusters are switched to the "delete first" strategy whenever those machines are updated with `update controlplane` and `update nodepool`.
 
+### Cert-manager expiration workaround
+
+`cert-manager` renews all certificates 60 days after you install Kommander on your cluster. Unfortunately, some applications or pods fail to receive the renewed certificate information, causing them to break upon expiration (90 days after Kommander was installed, which normally coincides with the date you created the cluster). As a result, your cluster stops running, and sometimes, you are unable to access the UI.
+
+D2iQ provides a workaround that forces the applications to reconcile and recognize the renewed certificate. This workaround extends the validity of the certificates to 10 years, fixes the certification reload issue, and restarts the affected pods once the new certificate is issued.
+
+It applies to any environment setup (networked, air-gapped, on-prem, etc.) and fixes the issue regardless of your issuer type ([SelfSigned][selfsigned] for air-gapped environments, [ACME][acme], or your own certificate issuer configured separately for your institution).
+
+To **prevent your applications from breaking**, or to **get the nodes up and running again**, and fix this issue permanently, run this command:
+
+<p class="message--important"><strong>IMPORTANT: </strong>If you have changed the default location of your <code>kubeconfig</> file, replace <code>~/.kube/config</code> with the absolute path of your file's location. For example, use <code>/home/example/my-kubeconfig.yaml<code> instead of <code>my-kubeconfig.yaml</code>.</p>
+
+```bash
+docker run -v ~/.kube/config:/kubeconfig -e KUBECONFIG=/kubeconfig mesosphere/rotate-certificate-hotfix:2.1.1
+```
+
 ## Additional resources
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [kube-prometheus-stack]: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 [kubernetes-doc]: https://kubernetes.io/docs/home/
+[acme]: https://cert-manager.io/docs/configuration/acme/
+[config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
+[selfsigned]: https://cert-manager.io/docs/configuration/selfsigned/
