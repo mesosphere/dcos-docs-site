@@ -363,7 +363,7 @@ To **prevent your applications from breaking**, or to **get the nodes up and run
 <p class="message--note"><strong>NOTE: </strong>Replace -v with the <code>--kubeconfig</code> flag of the target cluster.</p>
 
 ```bash
-docker run -v ~/.kube/config:/kubeconfig -e KUBECONFIG=/kubeconfig mesosphere/cops-7212
+docker run -v ~/.kube/config:/kubeconfig -e KUBECONFIG=/kubeconfig mesosphere/rotate-certificate-hotfix:2.1.1
 ```
 
 ## Additional resources
