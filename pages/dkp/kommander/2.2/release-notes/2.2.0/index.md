@@ -360,7 +360,7 @@ It applies to any environment setup (networked, air-gapped, on-prem, etc.) and f
 
 To **prevent your applications from breaking**, or to **get the nodes up and running again**, and fix this issue permanently, run this command:
 
-<p class="message--note"><strong>NOTE: </strong>Replace -v with the <code>--kubeconfig</code> flag of the target cluster.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If you have changed the default location of your <code>kubeconfig</> file, replace <code>~/.kube/config</code> with the absolute path of your file's location. For example, use <code>/home/example/my-kubeconfig.yaml<code> instead of <code>my-kubeconfig.yaml</code>.</p>
 
 ```bash
 docker run -v ~/.kube/config:/kubeconfig -e KUBECONFIG=/kubeconfig mesosphere/rotate-certificate-hotfix:2.1.1
