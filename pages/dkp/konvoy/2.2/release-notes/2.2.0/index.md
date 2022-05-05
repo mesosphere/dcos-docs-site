@@ -352,7 +352,7 @@ Due to an oversight, Kommander 2.1.0 and 2.1.1 installations do not properly han
 
 A permanent fix for the issue requires upgrading to Kommander 2.2.1 or higher. In the meantime, there is a workaround available that forces the applications to reconcile and recognize the renewed certificate. This workaround also extends the validity of the certificates to 10 years, fixes the certification reload issue, and restarts the affected pods once the new certificate is issued.
 
-It applies to any environment setup (networked, air-gapped, on-prem, etc.) and fixes the issue regardless of your issuer type ([SelfSigned][selfsigned] for air-gapped environments, [ACME][acme], or your own certificate issuer configured separately for your institution).
+The workaround applies to any environment (networked, air-gapped, on-prem, etc.) and fixes the issue regardless of your issuer type ([SelfSigned][selfsigned] for air-gapped environments, [ACME][acme], or your own certificate issuer configured separately for your institution).
 
 To **prevent your applications from breaking**, or to **get the nodes up and running again**, and fix this issue permanently, run this command:
 
