@@ -354,7 +354,7 @@ New clusters use the "delete first" strategy by default. Existing clusters are s
 
 Due to an oversight, Kommander 2.1.0 and 2.1.1 installations do not properly handle certificate renewal for kommander applications. The`cert-manager` component renews all certificates 60 days after you install Kommander on your cluster. When this occurs, some of the kommander applications and pods fail to receive the renewed certificate information, causing them to stop working upon expiration. This occurs 90 days after Kommander was installed, which normally would coincide with the date you created the cluster. While the effects can vary, the most common failure is the inability to login to the UI due to an expired certificate in the dex-k8s-authenticator pod.
 
-D2iQ provides a workaround that forces the applications to reconcile and recognize the renewed certificate. This workaround extends the validity of the certificates to 10 years, fixes the certification reload issue, and restarts the affected pods once the new certificate is issued.
+A permanent fix for the issue requires upgrading to Kommander 2.2.1 or higher. In the meantime, there is a workaround available that forces the applications to reconcile and recognize the renewed certificate. This workaround also extends the validity of the certificates to 10 years, fixes the certification reload issue, and restarts the affected pods once the new certificate is issued.
 
 It applies to any environment setup (networked, air-gapped, on-prem, etc.) and fixes the issue regardless of your issuer type ([SelfSigned][selfsigned] for air-gapped environments, [ACME][acme], or your own certificate issuer configured separately for your institution).
 
