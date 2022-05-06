@@ -91,7 +91,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
     spec:
       appRef:
         kind: App
-        name: kaptain-2.0.0
+        name: kaptain-2.1.0
     EOF
     ```
 
@@ -113,7 +113,7 @@ If you want to customize your installation and modify the custom domain name, ex
     spec:
       appRef:
         kind: App
-        name: kaptain-2.0.0
+        name: kaptain-2.1.0
       configOverrides:
         name: kaptain-overrides
     EOF

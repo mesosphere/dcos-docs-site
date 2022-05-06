@@ -118,7 +118,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     spec:
       interval: 1m0s
       ref:
-        tag: v2.0.0
+        tag: v2.1.0
       timeout: 20s
       url: https://github.com/mesosphere/kaptain-catalog-applications
     EOF

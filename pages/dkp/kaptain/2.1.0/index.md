@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Kaptain 2.0.0
-title: Welcome to Kaptain 2.0.0
-version: 2.0
+navigationTitle: Kaptain 2.1.0
+title: Welcome to Kaptain 2.1.0
+version: 2.1
 beta: false
 menuWeight: 20
 ---

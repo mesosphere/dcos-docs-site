@@ -31,7 +31,7 @@ You will then see the following output:
 Kaptain install package placed in the local directory. See install instructions at: https://docs.d2iq.com/dkp/kaptain/
 ```
 
-You will now see the `kaptain-2.0.0.tgz` file in your working directory. Follow the [Kaptain installation instructions][install] to install Kaptain. If you have problems downloading or installing Kaptain, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.
+You will now see the `kaptain-2.1.0.tgz` file in your working directory. Follow the [Kaptain installation instructions][install] to install Kaptain. If you have problems downloading or installing Kaptain, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.
 
 [support-portal]: https://support.d2iq.com/hc/en-us/
 [install]: ../install/

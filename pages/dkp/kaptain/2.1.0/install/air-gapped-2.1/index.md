@@ -76,8 +76,8 @@ If you need to run Spark jobs on Kubernetes using Spark Operator, you must insta
 
 1.  Download the image bundle file:
 
-    - Download `kaptain-air-gapped-2.0.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
-    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads.
+    - Download `kaptain-air-gapped-2.1.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
+    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.1.0_cpu.tar.gz` or `kaptain-air-gapped-2.1.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads.
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 
@@ -109,7 +109,7 @@ Based on the network latency between the environment of script execution, the Do
 
 1.  Ensure the `KUBECONFIG=clusterKubeconfig.conf` is set.
 
-1.  Download the `kaptain-2.0.0.tgz` chart archive from the link obtained from support.
+1.  Download the `kaptain-2.1.0.tgz` chart archive from the link obtained from support.
 
 1.  Add the following to a file named 'values.yaml' to pass to the helm install with the following contents:
 
@@ -122,7 +122,7 @@ Based on the network latency between the environment of script execution, the Do
 1.  Use helm to install Kaptain to your air-gapped cluster:
 
     ```bash
-    helm install kaptain kaptain-2.0.0.tgz --values values.yaml
+    helm install kaptain kaptain-2.1.0.tgz --values values.yaml
     ```
 
     You may need to specify `--kubeconfig=my-air-gap-cluster.conf` for the install.

@@ -9,13 +9,13 @@ enterprise: false
 ---
 
 D2iQ supports `N-2` of the latest `MAJOR.MINOR` release of Kaptain.
-With the GA release of Kaptain 2.0.0, support continues for Kaptain 1.3, and 1.2, including all patch releases. Support for Kaptain 1.1 expires.
+With the GA release of Kaptain 2.1.0, support continues for Kaptain 1.3, and 1.2, including all patch releases. Support for Kaptain 1.1 expires.
 
 D2iQ recommends that you install the newest Kaptain version available to stay up to date with the latest features and bug fixes.
 
 ## Supported DKP Versions
 
-You can deploy Kaptain 2.0.0 on DKP 2.1.2 and later versions as a DKP workspace catalog application.
+You can deploy Kaptain 2.1.0 on DKP 2.1.2 and later versions as a DKP workspace catalog application.
 
 ## Experimental Status
 

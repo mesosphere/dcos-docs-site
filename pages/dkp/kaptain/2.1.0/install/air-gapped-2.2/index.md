@@ -81,8 +81,8 @@ If you added Kaptain after installing DKP, you must make it available by rerunni
 
 1.  Download the image bundle file:
 
-    - Download `kaptain-air-gapped-2.0.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
-    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads.
+    - Download `kaptain-air-gapped-2.1.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
+    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.1.0_cpu.tar.gz` or `kaptain-air-gapped-2.1.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads.
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 
@@ -108,7 +108,7 @@ If you added Kaptain after installing DKP, you must make it available by rerunni
 1.  Load the Kaptain chart archive after the Kommander installation:
 
     ```bash
-    dkp push chart kaptain-2.0.0.tgz
+    dkp push chart kaptain-2.1.0.tgz
     ```
 
 ## Deploy Kaptain on selected workspaces

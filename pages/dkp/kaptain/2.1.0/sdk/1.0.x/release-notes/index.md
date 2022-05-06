@@ -17,4 +17,4 @@ Kaptain SDK 1.0.1 Release Notes
 
 ## Breaking changes
 
-Due to the migration from KFServing to KServe, this SDK version is only compatible with Kaptain 2.0.
+Due to the migration from KFServing to KServe, this SDK version is only compatible with Kaptain 2.1.
