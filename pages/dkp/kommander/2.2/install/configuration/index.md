@@ -77,6 +77,10 @@ apps:
 ...
 ```
 
+### Minimal Kommander installation
+
+You can install Kommander with a bare minimum of applications on a small environment with smaller memory, storage, and CPU requirements like a laptop for testing and demo purposes. Refer to the [Install Kommander on a small environment][small_env] documentation.
+
 ## Install with configuration file
 
 Add the `--installer-config` flag to the `kommander install` command to use a custom configuration file. To reconfigure applications, you can also run this command after the initial installation.
@@ -88,3 +92,5 @@ dkp install kommander --installer-config kommander.yaml --kubeconfig=<cluster-ku
 ```
 
 When completed, you can [verify your installation](../networked#verify-installation).
+
+[small_env]: ../small-environment/
