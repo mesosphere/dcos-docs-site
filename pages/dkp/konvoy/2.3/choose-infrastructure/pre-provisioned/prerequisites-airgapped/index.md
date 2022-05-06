@@ -13,13 +13,13 @@ beta: false
 1.  Download the bootstrap docker image on a machine that has access to this artifact:
 
     ```docker
-    curl -O https://downloads.d2iq.com/dkp/v2.2.0/konvoy-bootstrap_v2.2.0.tar
+    curl -O https://downloads.d2iq.com/dkp/v2.3.0/konvoy-bootstrap_v2.3.0.tar
     ```
 
 1.  Load the bootstrap docker image on your bastion machine:
 
     ```docker
-    docker load -i konvoy-bootstrap_v2.2.0.tar
+    docker load -i konvoy-bootstrap_v2.3.0.tar
     ```
 
 ## Copy air-gapped artifacts onto cluster hosts 
@@ -134,7 +134,7 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 1.  Download the images bundle:
 
     ```bash
-    curl -o konvoy-image-bundle.tar.gz -O downloads.d2iq.com/dkp/v2.2.0/konvoy_image_bundle_v2.2.0_linux_amd64.tar.gz
+    curl -o konvoy-image-bundle.tar.gz -O downloads.d2iq.com/dkp/v2.3.0/konvoy_image_bundle_v2.3.0_linux_amd64.tar.gz
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private docker registry.

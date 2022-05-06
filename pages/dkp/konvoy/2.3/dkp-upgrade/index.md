@@ -15,8 +15,8 @@ The DKP upgrade represents an important step of your environment's lifecycle, as
 | :----------: | :--------: | :---: | :---: |
 |    1.8.4     |   1.8.5    | 2.1.0 | 2.1.1 |
 |    1.8.5     |   2.1.0    | 2.1.1 |       |
-|    2.1.0     |   2.2.0    |       |       |
-|    2.1.1     |   2.2.0    |       |       |
+|    2.1.0     |   2.3.0    |       |       |
+|    2.1.1     |   2.3.0    |       |       |
 
 ## Understand the upgrade process
 
@@ -61,11 +61,11 @@ The overall process for upgrading to the latest version of DKP is done on each W
 1.  [**Upgrade the Kubernetes version**][upgrade_konvoy_kubernetes]. This upgrades your cluster’s control plane and node pools. We recommend you upgrade your Kubernetes version on any attached clusters.
 
 [custom_apps]: custom-apps
-[catalog_apps_projects]: ../../../kommander/2.2/projects/applications/catalog-applications/upgrading-applications/
-[catalog_apps_workspaces]: ../../../kommander/2.2/workspaces/applications/catalog-applications/upgrading-applications/
+[catalog_apps_projects]: ../../../kommander/2.3/projects/applications/catalog-applications/upgrading-applications/
+[catalog_apps_workspaces]: ../../../kommander/2.3/workspaces/applications/catalog-applications/upgrading-applications/
 [upgrade_kommander]: upgrade-kommander/
 [release_notes]: ../release-notes
-[upgrade_workspaces]: ../../../kommander/2.2/cli/dkp/upgrade/workspace
+[upgrade_workspaces]: ../../../kommander/2.3/cli/dkp/upgrade/workspace
 [upgrade_konvoy_capi]: upgrade-konvoy
 [upgrade_konvoy_core]: upgrade-konvoy
 [upgrade_konvoy_kubernetes]: upgrade-konvoy

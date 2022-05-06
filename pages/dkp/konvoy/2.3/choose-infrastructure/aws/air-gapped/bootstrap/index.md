@@ -14,13 +14,13 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which depl
 1.  Download the bootstrap docker image on a machine that has access to this artifact.
 
     ```docker
-    curl -O https://downloads.d2iq.com/dkp/v2.2.0/konvoy-bootstrap_v2.2.0.tar
+    curl -O https://downloads.d2iq.com/dkp/v2.3.0/konvoy-bootstrap_v2.3.0.tar
     ```
 
 1.  Load the bootstrap docker image on your bastion machine.
 
     ```docker
-    docker load -i konvoy-bootstrap_v2.2.0.tar
+    docker load -i konvoy-bootstrap_v2.3.0.tar
     ```
 
 1.  Create a bootstrap cluster:

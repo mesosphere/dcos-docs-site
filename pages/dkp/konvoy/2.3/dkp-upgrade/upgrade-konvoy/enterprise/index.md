@@ -87,7 +87,7 @@ If the upgrade fails, review the prerequisites section and ensure that you've fo
     
 ## Upgrade the core addons
 
-To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API feature][CAPI]. In the CAPI component upgrade, we deleted the previous set of outdated global `ClusterResourceSets` because prior to DKP 2.2 some addons were installed using a global configuration. In order to support individual cluster upgrades, DKP 2.2 now installs all addons with a unique set of `ClusterResourceSet` and corresponding referenced resources, all named using the cluster’s name as a suffix. For example: `calico-cni-installation-my-aws-cluster`.
+To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API feature][CAPI]. In the CAPI component upgrade, we deleted the previous set of outdated global `ClusterResourceSets` because prior to DKP 2.3 some addons were installed using a global configuration. In order to support individual cluster upgrades, DKP 2.3 now installs all addons with a unique set of `ClusterResourceSet` and corresponding referenced resources, all named using the cluster’s name as a suffix. For example: `calico-cni-installation-my-aws-cluster`.
 
 <p class="message--warning"><strong>WARNING:</strong> If you have modified any of the <code>clusterResourceSet</code> definitions, these changes will <strong>not</strong> be preserved when running the command <code>dkp upgrade addons</code>. You must use the <code>--dry-run -o yaml</code> options to save the new configuration to a file and remake the same changes upon each upgrade.</p>
 
@@ -141,7 +141,7 @@ dkp ugrade addons [command] --help
 ```
 
 ### See also ###
-[DKP upgrade addons](/../../dkp/konvoy/2.2/cli/dkp/upgrade/addons/)
+[DKP upgrade addons](/../../dkp/konvoy/2.3/cli/dkp/upgrade/addons/)
     
 Once complete, begin upgrading the Kubernetes version.
 
@@ -150,7 +150,7 @@ Once complete, begin upgrading the Kubernetes version.
 
 When upgrading the Kubernetes version of a cluster, first upgrade the control plane and then the node pools. If you have any additional managed or attached clusters, you will need to upgrade the core addons and Kubernetes version for each one.
 
-<p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.2/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
+<p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.3/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
 
 1. Upgrade the Kubernetes version of the control plane.
 
@@ -186,10 +186,10 @@ For the overall process for upgrading to the latest version of DKP, refer back t
 [dkpup]: ../../
 [upgradekomm]: ../../upgrade-kommander/
 [supportsite]: https://support.d2iq.com/hc/en-us
-[dkpenterprise]: ../../../../../kommander/2.2/licensing/enterprise/
+[dkpenterprise]: ../../../../../kommander/2.3/licensing/enterprise/
 [kubeconfig]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [CAPI]: https://cluster-api.sigs.k8s.io/
 [releasenotes]: ../../../release-notes
 [envariables]: ../../../choose-infrastructure/azure/quick-start-azure#configure-azure-prerequisites
-[backup]: ../../../../../kommander/2.2/backup-and-restore#back-up-on-demand
+[backup]: ../../../../../kommander/2.3/backup-and-restore#back-up-on-demand
 [envariables2]: ../../../choose-infrastructure/aws/quick-start-aws#configure-aws-prerequisites

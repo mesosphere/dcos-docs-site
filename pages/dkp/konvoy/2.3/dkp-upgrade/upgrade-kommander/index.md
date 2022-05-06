@@ -25,23 +25,23 @@ This section describes how to upgrade your Kommander Management cluster and all 
   Download the Kommander application definitions:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-applications-v2.3.0.tar.gz"
   ```
 
   Download the Kommander charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.3.0/dkp-kommander-charts-bundle-v2.3.0.tar.gz"
   ```
 
   If you have any DKP Catalog Applications, download the DKP Catalog Application charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.3.0/dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz"
   ```
 ## Detach MetalLB from Kommander
 
-  <p class="message--important"><strong>IMPORTANT:</strong> Beginning with DKP version 2.2, MetalLB is no longer managed as a platform application. If you installed  MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.</p>
+  <p class="message--important"><strong>IMPORTANT:</strong> Beginning with DKP version 2.3, MetalLB is no longer managed as a platform application. If you installed  MetalLB on the cluster that you're upgrading prior to DKP version 2.3, you will need to detach MetalLB from the cluster prior to upgrading.</p>
 
   1. Pause the helm release.
   ```bash
@@ -103,16 +103,16 @@ Before running the following command, ensure that your `dkp` configuration **ref
     -   For air-gapped:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.3.0.tar.gz --kommander-applications-repository kommander-applications-v2.3.0.tar.gz
         ```
 
     -   For air-gapped **with** DKP Catalog Applications in a multi-cluster environment:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.3.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz --kommander-applications-repository kommander-applications-v2.3.0.tar.gz
         ```
 
-        After the upgrade, follow the [DKP Catalog Applications configuration page](../../../../kommander/2.2/install/configuration/enterprise-catalog#air-gapped-catalog-configuration) to update the Git repository.
+        After the upgrade, follow the [DKP Catalog Applications configuration page](../../../../kommander/2.3/install/configuration/enterprise-catalog#air-gapped-catalog-configuration) to update the Git repository.
 
     -   For non air-gapped:
 
@@ -120,7 +120,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
         dkp upgrade kommander
         ```
 
-        If you have DKP Catalog Applications deployed, follow the [DKP Catalog Applications configuration page](../../../../kommander/2.2/install/configuration/enterprise-catalog#configure-a-default-enterprise-catalog) to update the Git repository after the upgrade.
+        If you have DKP Catalog Applications deployed, follow the [DKP Catalog Applications configuration page](../../../../kommander/2.3/install/configuration/enterprise-catalog#configure-a-default-enterprise-catalog) to update the Git repository after the upgrade.
 
     An output similar to this appears:
 
@@ -150,10 +150,10 @@ You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
 [pre_provisioned]: ../../choose-infrastructure/pre-provisioned/upgrade/control-plane/
 [k8s_access_to_clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
-[upgrade_workspaces]: ../../../../kommander/2.2/projects/applications/platform-applications#upgrade-platform-applications-from-the-cli
+[upgrade_workspaces]: ../../../../kommander/2.3/projects/applications/platform-applications#upgrade-platform-applications-from-the-cli
 [release_notes]: ../../release-notes/
 [konvoy_upgrade]: ../upgrade-konvoy/
-[load_images]: ../../../../kommander/2.2/install/air-gapped#load-the-docker-images-into-your-docker-registry
+[load_images]: ../../../../kommander/2.3/install/air-gapped#load-the-docker-images-into-your-docker-registry
 [dkp_upgrade]: ../
-[load_images_catalog]: ../../../../kommander/2.2/install/air-gapped/catalog#load-the-docker-images-into-your-docker-registry
-[backup]: ../../../../kommander/2.2/backup-and-restore#back-up-on-demand
+[load_images_catalog]: ../../../../kommander/2.3/install/air-gapped/catalog#load-the-docker-images-into-your-docker-registry
+[backup]: ../../../../kommander/2.3/backup-and-restore#back-up-on-demand

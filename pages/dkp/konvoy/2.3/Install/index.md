@@ -50,7 +50,7 @@ Before installing DKP, ensure you have the [following](../supported-operating-sy
 
 1.  Deploy with all of the default settings depending on which infrastructure you have. Go to the Choose Infrastructure section of the documentation for further steps on creating a cluster on your Cloud platform. [Choose Infrastructure](../choose-infrastructure/) 
   
-1.  Lastly, you will want to [Install Kommander](/../../dkp/kommander/2.2/install/)   
+1.  Lastly, you will want to [Install Kommander](/../../dkp/kommander/2.3/install/)   
 
 # Next steps
 
@@ -60,6 +60,6 @@ a simple, sample application, customizing the cluster configuration, or checking
 For more details, see the following topics:
 
 - [Deploy a sample application](../deployments/deploy-sample-app/)
-- [Platform application deployment](/../../dkp/kommander/2.2/projects/applications/platform-applications/)
+- [Platform application deployment](/../../dkp/kommander/2.3/projects/applications/platform-applications/)
 - [Troubleshooting](../troubleshooting/)
 

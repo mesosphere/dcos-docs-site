@@ -30,7 +30,7 @@ The overall process for configuring vSphere and DKP together includes the follow
 
 This diagram illustrates the image creation process:
 
-![vSphere Image Creation](/dkp/konvoy/2.2/img/build-vsphere-ova.png)
+![vSphere Image Creation](/dkp/konvoy/2.3/img/build-vsphere-ova.png)
 
 The workflow on the left shows the creation of a base OS image in the vCenter vSphere client using inputs from Packer. The workflow on the right shows how DKP uses that same base OS image to create CAPI-enabled VM images for your cluster.
 

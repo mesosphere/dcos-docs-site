@@ -1,18 +1,18 @@
 ---
 layout: layout.pug
-navigationTitle: DKP 2.2.0 Release Notes
-title: DKP 2.2 Release Notes
+navigationTitle: DKP 2.3.0 Release Notes
+title: DKP 2.3 Release Notes
 menuWeight: 10
-excerpt: View release-specific information for DKP 2.2.0
+excerpt: View release-specific information for DKP 2.3.0
 enterprise: false
 beta: false
 ---
 
-**D2iQ&reg; Kommander&reg; (DKP&reg;) version 2.2 was released on April 8, 2022.**
+**D2iQ&reg; Kommander&reg; (DKP&reg;) version 2.3 was released on April 8, 2022.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
-**Note:** In DKP 2.2 the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above.
+**Note:** In DKP 2.3 the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above.
 
 [Download](../download/) and [install](../choose-infrastructure) the latest version to get started.
 
@@ -20,11 +20,11 @@ beta: false
 
 ## Release summary
 
-Welcome to D2iQ Kubernetes Platform (DKP) 2.2! This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Konvoy. In this release, we are beginning the process of combining our two flagship products, Konvoy and Kommander, into a single DKP product with two service level options: DKP Enterprise for multi-cluster environments, and DKP Essential for single-cluster environments.
+Welcome to D2iQ Kubernetes Platform (DKP) 2.3! This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Konvoy. In this release, we are beginning the process of combining our two flagship products, Konvoy and Kommander, into a single DKP product with two service level options: DKP Enterprise for multi-cluster environments, and DKP Essential for single-cluster environments.
 
 For this release, we are maintaining the documentation sets for individual platform components Konvoy and Kommander, while publishing some combined DKP documentation for processes, such as Upgrading DKP version.
 
-DKP 2.2 supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using DKP 2.2 must be running a Kubernetes version in this range.
+DKP 2.3 supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using DKP 2.3 must be running a Kubernetes version in this range.
 
 ### Supported versions
 
@@ -36,17 +36,17 @@ DKP 2.2 supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you 
 
 ## New features and capabilities
 
-The following features and capabilities are new for Version 2.2.
+The following features and capabilities are new for Version 2.3.
 
 ### Integrated DKP Upgrade
 
 You can now upgrade Konvoy and Kommander as a single fluid process using a combination of the [DKP CLI](../cli/dkp) and the UI to upgrade your environment.
 
-For more information, see [DKP Upgrade](/dkp/kommander/2.2/dkp-upgrade)
+For more information, see [DKP Upgrade](/dkp/kommander/2.3/dkp-upgrade)
 
 ### Integration with VMware vSphere
 
-You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](/dkp/konvoy/2.2/choose-infrastructure/vsphere/), which allows you to manage bootstrapping of VMs on a DKP cluster. This gives you improved productivity and speed of deploying VMs on DKP in a VMWare environment, including FIPS builds and air-gapped deployments.
+You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](/dkp/konvoy/2.3/choose-infrastructure/vsphere/), which allows you to manage bootstrapping of VMs on a DKP cluster. This gives you improved productivity and speed of deploying VMs on DKP in a VMWare environment, including FIPS builds and air-gapped deployments.
 
 ### Zero downtime upgrades for air-gapped deployments
 
@@ -56,15 +56,15 @@ For more information, see the [air-gapped bundle](../choose-infrastructure) docu
 
 ### Unified DKP user interfaces
 
-The unified DKP user interface provides a smooth experience independent of where you start your journey. Both DKP Essential and DKP Enterprise customers will have similar experiences in the User Interface, with DKP Enterprise customers gaining access to additional features and benefits simply by entering their DKP Enterprise [license key](/dkp/kommander/2.2/licensing/).
+The unified DKP user interface provides a smooth experience independent of where you start your journey. Both DKP Essential and DKP Enterprise customers will have similar experiences in the User Interface, with DKP Enterprise customers gaining access to additional features and benefits simply by entering their DKP Enterprise [license key](/dkp/kommander/2.3/licensing/).
 
 ### Kaptain AI/ML, D2iQ’s AI/ML offering
 
-For better integration with DKP 2.2, you can launch Kaptain as a catalog application. It also supports other platforms such as Amazon AWS EKS and Microsoft Azure AKS. Kaptain extends D2iQ’s ability to support Kubernetes platforms beyond DKP. It further enables an organization to develop, deploy and run entire ML workloads in production, at scale, with consistency and reliability.
+For better integration with DKP 2.3, you can launch Kaptain as a catalog application. It also supports other platforms such as Amazon AWS EKS and Microsoft Azure AKS. Kaptain extends D2iQ’s ability to support Kubernetes platforms beyond DKP. It further enables an organization to develop, deploy and run entire ML workloads in production, at scale, with consistency and reliability.
  
 ### DKP Insights
 
-This new predictive analytics tool provides greater support productivity, speed, and reduced costs. The [DKP Insights](/dkp/kommander/2.2/insights/) Engine collects events and metrics on the Attached cluster, and uses rule-based heuristics on potential problems of varying criticality, so they can be quickly identified and resolved. These Insights are then forwarded and displayed in the DKP Insights Dashboard, where it assists you with routine tasks such as:
+This new predictive analytics tool provides greater support productivity, speed, and reduced costs. The [DKP Insights](/dkp/kommander/2.3/insights/) Engine collects events and metrics on the Attached cluster, and uses rule-based heuristics on potential problems of varying criticality, so they can be quickly identified and resolved. These Insights are then forwarded and displayed in the DKP Insights Dashboard, where it assists you with routine tasks such as:
 
 - Resolving common issues
 - Monitoring resource usage
