@@ -23,7 +23,7 @@ Before you begin, you must:
 1.  Create a bootstrap cluster:
 
     ```bash
-    dkp create bootstrap --kubeconfig $HOME/.kube/config
+    dkp create bootstrap --with-aws-bootstrap-credentials=true --kubeconfig $HOME/.kube/config
     ```
 
     ```sh

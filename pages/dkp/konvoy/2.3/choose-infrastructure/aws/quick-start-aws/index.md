@@ -61,6 +61,7 @@ We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builde
     dkp create cluster aws \
     --cluster-name=${CLUSTER_NAME} \
     --additional-tags=owner=$(whoami) \
+    --with-aws-bootstrap-credentials=true \    
     --self-managed
     ```
 

@@ -26,7 +26,7 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which depl
 1.  Create a bootstrap cluster:
 
     ```bash
-    dkp create bootstrap --kubeconfig $HOME/.kube/config
+    dkp create bootstrap --with-aws-bootstrap-credentials=true --kubeconfig $HOME/.kube/config
     ```
 
 1.  (Optional) Refresh the credentials used by the AWS provider at any time, using the command:

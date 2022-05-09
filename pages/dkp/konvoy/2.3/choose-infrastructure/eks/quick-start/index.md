@@ -45,7 +45,7 @@ Before starting the Konvoy installation, verify that you have:
 1.  Create a bootstrap cluster:
 
     ```bash
-    dkp create bootstrap --kubeconfig $HOME/.kube/config
+    dkp create bootstrap --with-aws-bootstrap-credentials=true --kubeconfig $HOME/.kube/config
     ```
 	```sh
 	✓ Creating a bootstrap cluster

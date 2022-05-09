@@ -37,6 +37,11 @@ The following features and capabilities are new for Version 2.2.
 
 ### Feature 1
 
+## Deprecations
+
+### Flag default changes
+
+The default value for flag `--with-aws-bootstrap-credentials` changed from `true` to `false`. Set the value to `true` to use AWS credentials from your environment, otherwise the AWS instance profile of the instance where the CAPA controller is running will be used. 
 
 ## Component updates
 

@@ -20,7 +20,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     <p class="message--note"><strong>NOTE: </strong>To avoid using the wrong kubeconfig, the following steps use explicit kubeconfig paths and contexts.</p>
 
     ```bash
-    dkp create bootstrap --kubeconfig $HOME/.kube/config
+    dkp create bootstrap --with-aws-bootstrap-credentials=true --kubeconfig $HOME/.kube/config
     ```
 
     ```sh
