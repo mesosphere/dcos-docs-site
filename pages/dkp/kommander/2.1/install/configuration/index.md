@@ -75,7 +75,7 @@ apps:
 ...
 ```
 
-### Minimal Kommander installation
+## Minimal Kommander installation
 
 You can install Kommander with a bare minimum of applications on a small environment with smaller memory, storage, and CPU requirements for testing and demo purposes. Refer to the [Install Kommander on a small environment][small_env] documentation for more information.
 
