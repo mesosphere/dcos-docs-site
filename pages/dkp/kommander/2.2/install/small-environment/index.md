@@ -75,9 +75,6 @@ For example, if you want to test Grafana to allow monitoring, remove the pound s
     #velero: null
     ageEncryptionSecretName: sops-age
     clusterHostname: ""
-    appManagementImageTag: v2.1.1
-    appManagementImageRepository: mesosphere/kommander2-appmanagement
-    kommanderChartsVersion: v2.1.1
     ```
 
 1.  Create your Kommander cluster using the following command:
