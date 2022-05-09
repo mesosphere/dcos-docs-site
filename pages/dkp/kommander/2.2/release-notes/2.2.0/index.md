@@ -71,6 +71,12 @@ This new predictive analytics tool provides greater support productivity, speed,
 - Checking security issues
 - Verifying workloads and clusters follow best practices
 
+## Deprecations
+
+### Flag default changes
+
+The default value for flag `--with-aws-bootstrap-credentials` will be changing from `true` to `false` in version v2.3.0.
+
 ## Component updates
 
 When upgrading to this release, the following services and service components are upgraded to the listed version:
