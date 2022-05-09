@@ -32,6 +32,7 @@ For example, if you want to test Grafana to allow monitoring, remove the pound s
 
 1.  Edit your `cluster.yaml` file to match the following example:
 
+    ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
     kind: Installation
     apps:
@@ -78,6 +79,7 @@ For example, if you want to test Grafana to allow monitoring, remove the pound s
     appManagementImageTag: v2.1.1
     appManagementImageRepository: mesosphere/kommander2-appmanagement
     kommanderChartsVersion: v2.1.1
+    ```
 
 1.  Create your Kommander cluster using the following command:
 
