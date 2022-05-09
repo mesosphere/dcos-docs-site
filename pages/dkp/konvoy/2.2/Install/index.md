@@ -46,7 +46,7 @@ Before installing DKP, ensure you have the [following](../supported-operating-sy
 
 1.  To download DKP, see the [Download Konvoy](../download) topic for information. You will need to download and extract the DKP binary package tarball.
 
-1.  Verify you have valid **CLOUD PROVIDER security credentials** to deploy the cluster on that platform. This step is not required if you are installing DKP on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../choose-infrastructure/on-prem).
+1.  Verify you have valid **cloud provider security credentials** to deploy the cluster on that platform. This step is not required if you are installing DKP on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../choose-infrastructure/on-prem).
 
 1.  Deploy with all of the default settings depending on which infrastructure you have. Go to the Choose Infrastructure section of the documentation for further steps on creating a cluster on your Cloud platform. [Choose Infrastructure](../choose-infrastructure/) 
   
