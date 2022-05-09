@@ -32,7 +32,7 @@ Before installing DKP, ensure you have the [following](../supported-operating-sy
 
 # Installing DKP
 
-1.  Install required packages. In most cases, you can install the required software using your preferred package manager. For example, on a macOS computer, you can use [Homebrew][brew] to install `kubectl` and the `aws` command-line utility by running the following command:
+1.  Install required packages. In most cases, you can install the required software using your preferred package manager. For example, on a macOS computer, you can use [Homebrew](https://docs.brew.sh/Installation) to install `kubectl` and the `aws` command-line utility by running the following command:
 
     ```bash
     brew install kubernetes-cli awscli
