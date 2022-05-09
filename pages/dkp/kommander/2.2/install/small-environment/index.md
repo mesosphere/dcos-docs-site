@@ -25,7 +25,7 @@ Ensure you have done the following:
 
 The `yaml` file that is used to install a minimal configuration of Kommander contains the bare minimum setup that allows you to deploy applications, access the DKP UI, create and attach clusters. It does **NOT** include applications for cost monitoring, logging, alerting, object storage, etc.
 
-In this `yaml` file you can find commented lines, that correspond to all platform applications which would be included in normal Kommander setup. Since these lines are commented, they are not taken into account during installation. If you want to test an additional platform application, you can enable it individually to be installed by uncommenting the corresponding line in the `yaml` file.
+In this `yaml` file you can find commented lines, that correspond to all platform applications which would be included in a normal Kommander setup. Since these lines are commented, they are not taken into account during installation. If you want to test an additional platform application, you can enable it individually to be installed by uncommenting the corresponding line in the `yaml` file.
 
 <p class="message--important"><strong>IMPORTANT: </strong>Some applications depend on other applications to work properly. Refer to the <a href="../../workspaces/applications/platform-applications/platform-application-dependencies/">dependencies documentation</a> to find out which other applications you need to enable to test the target application.</p>
 
