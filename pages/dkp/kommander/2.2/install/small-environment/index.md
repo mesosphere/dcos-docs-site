@@ -30,7 +30,7 @@ In this `yaml` file you can find commented lines, that correspond to all platfor
 
 For example, if you want to test Grafana to allow monitoring, remove the pound sign preceding `grafana-logging: null`. Since Grafana depends on Loki, you also have to remove the pound preceding `grafana-loki: null` and `minio-operator: null`. Note that depending on the size of the Kubernetes cluster, enabling several platform applications could exhaust your cluster’s resources.
 
-1.  Edit your `cluster.yaml` file to match the following example:
+1.  Edit your `install.yaml` file to match the following example:
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
