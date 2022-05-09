@@ -77,7 +77,7 @@ For example, if you want to test Grafana to allow monitoring, remove the pound s
     clusterHostname: ""
     ```
 
-1.  Create your Kommander cluster using the following command:
+1.  Install Kommander on your cluster with the following command:
 
     ```bash
     dkp install kommander --installer-config ./install.yaml --kubeconfig=<cluster-kubeconfig>
