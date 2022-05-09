@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-You can install Kommander on a small environment with smaller memory, storage, and CPU requirements for testing and demo purposes. This topic describes methods for installing Kommander in these environments. Refer to [Kommander documentation][2.1] for more information.
+You can install Kommander on a small environment with smaller memory, storage, and CPU requirements for testing and demo purposes. This topic describes methods for installing Kommander in these environments. Refer to the [Kommander documentation][2.1] for more information.
 
 You can install this minimal setup on networked and air-gapped environments, regardless of the license type (Essential or Enterprise).
 
