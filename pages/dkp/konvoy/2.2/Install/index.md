@@ -19,7 +19,7 @@ For example, you can:
 <p class="message--important"><strong>IMPORTANT: </strong>The infrastructure you select then determines the specific requirements for a successful installation.</p>
 
 
-DKP is a tool for provisioning Kubernetes clusters with a suite of pre-selected [Cloud Native Computing Foundation (CNCF)][cncf] and community-contributed tools.
+DKP is a tool for provisioning Kubernetes clusters with a suite of pre-selected [Cloud Native Computing Foundation (CNCF)][https://www.cncf.io/] and community-contributed tools.
 By combining a native Kubernetes cluster as its foundation with a default set of cluster extensions,
 DKP provides a complete out-of-the-box solution for organizations that want to deploy production-ready
 Kubernetes.
