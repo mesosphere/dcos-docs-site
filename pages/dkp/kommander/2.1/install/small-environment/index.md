@@ -78,7 +78,7 @@ For example, if you want to test Grafana to allow monitoring, remove the pound s
     kommanderChartsVersion: v2.1.1
     ```
 
-1.  Install Kommander on your cluster using the following command:
+1.  Install Kommander on your cluster with the following command:
 
     ```bash
     kommander install --init > install.yaml --kubeconfig=<cluster-kubeconfig>
