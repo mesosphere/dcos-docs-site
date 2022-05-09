@@ -16,7 +16,6 @@ You can install this minimal setup on networked and air-gapped environments, reg
 
 Ensure you have done the following:
 
-- You have created a Kubernetes cluster.
 - You have acquired a DKP license.
 - You have installed Konvoy.
 - You have reviewed the prerequisite section pertaining to your [air-gapped][airgap], or [networked][networked] environment.
