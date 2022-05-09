@@ -81,7 +81,7 @@ For example, if you want to test Grafana to allow monitoring, remove the pound s
 1.  Install Kommander on your cluster with the following command:
 
     ```bash
-    kommander install --init > install.yaml --kubeconfig=<cluster-kubeconfig>
+kommander install --installer-config install.yaml --kubeconfig=<cluster-kubeconfig>
     ```
 
     <p class="message--note"><strong>NOTE: </strong>An alternative to using the <code>--kubeconfig=&lt;cluster-config&gt;</code> flag is to initialize the KUBECONFIG environment variable. You can do this by running <code>export KUBECONFIG=&lt;cluster-config&gt;</code>. Setting your KUBECONFIG (either by flag or by environment variable) ensures that Kommander is installed on the workload cluster.</p>
