@@ -41,8 +41,7 @@ For example, if you want to test Grafana to allow monitoring, remove the pound s
     dex: null
     dex-k8s-authenticator: null
     #fluent-bit: null
-     #gitea is only supported from DKP 2.2 and later
-     #gitea: null
+     gitea: null
     #gatekeeper: null
     #grafana-logging: null
     #grafana-loki: null
