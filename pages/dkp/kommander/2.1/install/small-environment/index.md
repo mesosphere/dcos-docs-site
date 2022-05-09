@@ -53,7 +53,6 @@ For example, if you want to test Grafana to allow monitoring, remove the pound s
     kubefed: null
     #kubernetes-dashboard: null
     #kubetunnel: null
-     #kube-oidc-proxy was not included in the generated --init
     kube-oidc-proxy: null
     #logging-operator: null
     #minio-operator: null
