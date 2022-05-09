@@ -60,6 +60,8 @@ enterprise: false
 
 1.  Generate the Kubernetes cluster objects:
 
+    <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Dockerhub's rate limit</a> use your Dockerhub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
+
     ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
     --dry-run \
@@ -92,6 +94,8 @@ enterprise: false
     - `.elb.amazonaws.com` is for the worker nodes to allow them to communicate directly to the kube-apiserver ELB
 
 1.  (Optional) Create a Kubernetes cluster with HTTP proxy configured. This step assumes you did not already create a cluster in the previous steps:
+
+    <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Dockerhub's rate limit</a> use your Dockerhub credentials when creating the cluster, by setting flags <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> then running <code>dkp create cluster</code></p>
 
     ```bash
     dkp create cluster aws --cluster-name=${CLUSTER_NAME} \

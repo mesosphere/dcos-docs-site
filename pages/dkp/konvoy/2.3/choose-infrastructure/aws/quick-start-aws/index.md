@@ -57,6 +57,8 @@ We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builde
 
 1.  Create a Kubernetes cluster:
 
+    <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Dockerhub's rate limit</a> use your Dockerhub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
+
     ```bash
     dkp create cluster aws \
     --cluster-name=${CLUSTER_NAME} \
