@@ -69,9 +69,6 @@ When deploying a 2.1.1 Konvoy cluster, the local environment variables for http_
 
 In DKP 2.x, Nvidia fails to differentiate between nodes with and without a GPU, mistakenly deploying the Nvidia driver ahd DCGM exporter to every worker node in the cluster.
 
-### Document how to add multiple node pools in DKP 2.X (COPS-7140)
-
-This process was not fully documented in the 2.1 documentation.
 
 ### Minio CVE-2021-21287 (COPS-7134)
 
