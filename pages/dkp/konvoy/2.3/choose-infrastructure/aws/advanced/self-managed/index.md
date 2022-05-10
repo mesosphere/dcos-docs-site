@@ -15,17 +15,15 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
 1.  Deploy cluster lifecycle services on the workload cluster:
 
-    By default, `create bootstrap controllers` configures the Cluster API controllers to use the AWS credentials from your environment. We recommend you use the `--with-aws-bootstrap-credentials=false` flag to configure the Cluster API controllers of your self-managed AWS cluster to use AWS IAM Instance Profiles, instead of the AWS credentials from your environment.
-
     ```bash
-    dkp create capi-components --with-aws-bootstrap-credentials=false --kubeconfig ${CLUSTER_NAME}.conf
+    dkp create capi-components --kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     ```sh
 	✓ Initializing new CAPI components
     ```
 
-1.  Move the Cluster API objects from the bootstrap to the workload cluster:
+2.  Move the Cluster API objects from the bootstrap to the workload cluster:
 
     The cluster lifecycle services on the workload cluster are ready, but the workload cluster configuration is on the bootstrap cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the bootstrap to the workload cluster. This process is also called a [Pivot][pivot].
 
