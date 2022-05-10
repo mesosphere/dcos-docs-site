@@ -75,7 +75,7 @@ This process was not fully documented in the 2.1 documentation.
 
 ### Minio CVE-2021-21287 (COPS-7134)
 
-The Minio subchart deployed with Velero was running an old version.
+The Minio subchart deployed with Velero has been upgraded to a version that remediates CVE-2021-21287.
 
 ### Kommander Install gets stuck if http_proxy injection is enabled in Gatekeeper (COPS-7127)
 
