@@ -79,7 +79,7 @@ The Minio subchart deployed with Velero has been upgraded to a version that reme
 
 ### Kommander Install gets stuck if http_proxy injection is enabled in Gatekeeper (COPS-7127)
 
-Kommander Install was getting stuck if http_proxy injection was enabled in Gatekeeper. The `mutatingwebhookconfiguration` for Gatekeeper is updated to explicitly set `sideEffects` to `None`.
+If http_proxy injection was enabled in Gatekeeper, then a Kommander Install could fail to complete. To resolve the issue, the `mutatingwebhookconfiguration` for Gatekeeper was updated to explicitly set `sideEffects` to `None`.
 
 ### DKP cli cannot add Azure credentials to a bootstrap cluster (COPS-7108)
 
