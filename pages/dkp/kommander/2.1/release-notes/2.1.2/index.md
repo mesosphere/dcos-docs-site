@@ -87,7 +87,7 @@ An option has been added to the DKP CLI that allows you to add Azure credentials
 
 ### Prometheus/Grafana kubeaddons cronjob spawns excessive pods (COPS-7105)
 
-The `prometheus-kubeaddons-set-grafana-home-dashboard` was stuck in a pending state due to a stale DNS entry for the private Docker repo. The cronjob associated with Grafana kept spawning a pod every 5 minutes, which resulted in an excessive number of pods to spawn.
+As a result of a misconfiguration, the`prometheus-kubeaddons-set-grafana-home-dashboard` can get stuck in a pending state. When this happened, the cronjob associated with Grafana would keep spawning a pod every 5 minutes, which resulted in an excessive number of pods. The Grafana cronjob has been modified to avoid spawning excess pods in this situation.
 
 ## Component updates
 
