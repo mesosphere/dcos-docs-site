@@ -28,7 +28,7 @@ A Flux configuration problem that resulted in Kommander applications not being a
 
 ### kube-oidc-proxy error: certificate signed by unknown authority (COPS-7217)
 
-When using a custom domain and TLS certificate issued by Let's Encrypt, the `kube-oidc-proxy` helm chart in the attached cluster did not complete installation and the associated pod has an error.
+A problem that prevented successful configuration of the `kube-oidc-proxy` component when using a custom domain and TLS certificate issued by Let's Encrypt was corrected.
 
 ### Certificate objects updated but not reloading in Kommander pods (COPS-7212)
 
