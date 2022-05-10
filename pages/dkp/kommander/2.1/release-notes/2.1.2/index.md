@@ -23,7 +23,7 @@ This release provides new features and enhancements to improve the user experien
 
 ### Flux proxy configuration results in failure to install applications (COPS-7236)
 
-Incorrect Flux proxy configuration was resulting in Kommander applications not pulling and installing.
+A Flux configuration problem that resulted in Kommander applications not being able to be pulled and installed in environments with a HTTP[s] Proxy configured was resolved.
 
 ### Broken FIPS images (COPS-7225)
 
