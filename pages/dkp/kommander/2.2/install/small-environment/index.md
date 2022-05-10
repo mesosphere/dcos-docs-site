@@ -28,7 +28,7 @@ In this YAML file you can find commented lines, that correspond to all platform 
 
 <p class="message--important"><strong>IMPORTANT: </strong>Some applications depend on other applications to work properly. Refer to the <a href="../../workspaces/applications/platform-applications/platform-application-dependencies/">dependencies documentation</a> to find out which other applications you need to enable to test the target application.</p>
 
-For example, if you want to test Grafana to allow monitoring, remove the pound sign preceding `grafana-logging: null`. Since Grafana depends on Loki, you also have to remove the pound preceding `grafana-loki: null` and `minio-operator: null`. Note that depending on the size of your cluster cluster, enabling several platform applications could exhaust your cluster’s resources.
+For example, if you want to test Grafana to allow monitoring, remove the pound sign preceding `grafana-logging: null`. Since Grafana depends on Loki, you also have to remove the pound preceding `grafana-loki: null` and `minio-operator: null`. Note that depending on the size of your cluster, enabling several platform applications could exhaust your cluster’s resources.
 
 1.  Edit your `install.yaml` file to match the following example:
 
