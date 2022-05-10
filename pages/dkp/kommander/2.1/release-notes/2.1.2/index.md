@@ -29,13 +29,15 @@ When attempting to upgrade a Konvoy v1.8 deployment that used an existing VPC, t
 
 A Flux configuration problem that resulted in Kommander applications not being able to be pulled and installed in environments with a HTTP[s] Proxy configured was resolved.
 
+<!-- vale Microsoft.HeadingColons = NO -->
 ### kube-oidc-proxy error: certificate signed by unknown authority (COPS-7217)
+<!-- vale Microsoft.HeadingColons = YES -->
 
 A problem that prevented successful configuration of the `kube-oidc-proxy` component when using a custom domain and TLS certificate issued by Let's Encrypt was corrected.
 
 ### Certificate objects updated but not reloading in Kommander pods (COPS-7212)
 
-A problem that occurred when the Certificate Authority for Kommander (The kommander-ca certificate) expired has been corrected. This certificate is generated when Kommander is installed and by default has a 90 day lifetime. Once the CA expired, a new CA was created, but not all components that use certificates generated from this CA were properly reloaded. Because they are not refereshed properly, once the certificates start expiring, critical services (like authentication), will fail. The underlying issue has been resolved, and CA expiry now results in restarts of all the services and components that rely on this CA.
+A problem that occurred when the Certificate Authority for Kommander (The kommander-ca certificate) expired has been corrected. This certificate is generated when Kommander is installed and by default has a 90 day lifetime. Once the CA expired, a new CA was created, but not all components that use certificates generated from this CA were properly reloaded. Because they are not refreshed properly, once the certificates start expiring, critical services (like authentication), will fail. The underlying issue has been resolved, and CA expiry now results in restarts of all the services and components that rely on this CA.
 
 ### Konvoy-image-builder 1.7.0 fails in certain situations (COPS-7207)
 
@@ -43,7 +45,9 @@ An issue that resulted in errors like "Failed to connect to the host via ssh" wh
 
 ### KIB fails to pull images in air-gapped environments  (COPS-7198)
 
+<!-- vale Microsoft.Avoid = NO -->
 Running konvoy-image-builder v1.7.0 in air-gapped environments would result in failures to pull docker images if the environment used registry mirrors and/or credentials. The problem is resolved in konvoy-image-builder v1.8.0.
+<!-- vale Microsoft.Avoid = YES -->
 
 ### Reattaching clusters with the same name could lead to dashboard navigation problems. (COPS-7197)
 
@@ -63,12 +67,11 @@ After performing a Pivot operation to migrate cluster resources in DKP 2.1.1, so
 
 ### HTTP(S)_proxy variables missing from CAPA pods (COPS-7158)
 
-When deploying a 2.1.1 Konvoy cluster, the local environment variables for http_proxy, https_proxy and no_proxy were not propagated to CAPI/CAPI provider pods outside the kube-system namespace, which lead to timeouts in the capa pod.
+When deploying a 2.1.1 Konvoy cluster, the local environment variables for http_proxy, https_proxy and no_proxy were not propagated to CAPI/CAPI provider pods outside the kube-system namespace, which lead to timeouts in the CAPA pod.
 
 ### The Nvidia addon fails to recognize nodes with GPU when GPUs are scarce (COPS-7142)
 
-In DKP 2.x, Nvidia fails to differentiate between nodes with and without a GPU, mistakenly deploying the Nvidia driver ahd DCGM exporter to every worker node in the cluster.
-
+In DKP 2.x, Nvidia fails to differentiate between nodes with and without a GPU, mistakenly deploying the Nvidia driver and DCGM exporter to every worker node in the cluster.
 
 ### Minio CVE-2021-21287 (COPS-7134)
 
@@ -78,7 +81,7 @@ The Minio subchart deployed with Velero has been upgraded to a version that reme
 
 If http_proxy injection was enabled in Gatekeeper, then a Kommander Install could fail to complete. To resolve the issue, the `mutatingwebhookconfiguration` for Gatekeeper was updated to explicitly set `sideEffects` to `None`.
 
-### DKP cli cannot add Azure credentials to a bootstrap cluster (COPS-7108)
+### DKP CLI cannot add Azure credentials to a bootstrap cluster (COPS-7108)
 
 An option has been added to the DKP CLI that allows you to add Azure credentials to an existing bootstrap cluster without needing to manually create a secret.
 
@@ -232,7 +235,7 @@ The deployment fails, because the managed cluster uses the wrong CA certificate 
 kubectl --kubeconfig=MANAGED_KUBECONFIG patch secret -n kommander-flux gitserver-ca -p '{"data":{"caFile":"'$(kubectl --kubeconfig=MANAGER_KUBECONFIG get secret -n kommander kommander-traefik-certificate -o go-template='{{index .data "ca.crt"}}')'"}}'
 ```
 
-You may need to trigger a reconciliation of the flux controller on the managed cluster if you do not want to wait for its regular interval to occur. Use the [ CLI utility][flux-cli]:
+You may need to trigger a reconciliation of the flux controller on the managed cluster if you do not want to wait for its regular interval to occur. Use the [CLI utility][flux-cli]:
 
 ```bash
 flux reconcile -n kommander-flux source git management --kubeconfig MANAGED_KUBECONFIG
