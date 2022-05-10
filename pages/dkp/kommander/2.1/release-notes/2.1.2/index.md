@@ -83,7 +83,7 @@ If http_proxy injection was enabled in Gatekeeper, then a Kommander Install coul
 
 ### DKP cli cannot add Azure credentials to a bootstrap cluster (COPS-7108)
 
-There is no option in the DKP CLI to add Azure credentials to an existing bootstrap cluster. The only option was to manually create the secret.
+An option has been added to the DKP CLI that allows you to add Azure credentials to an existing bootstrap cluster without needing to manually create a secret.
 
 ### Prometheus/Grafana kubeaddons cronjob spawns excessive pods (COPS-7105)
 
