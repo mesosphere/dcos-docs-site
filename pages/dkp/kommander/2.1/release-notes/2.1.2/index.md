@@ -53,9 +53,9 @@ In kommander, if you attempted to reattach a cluster with the same name as a clu
 
 There was an unintended name collision between two separate secrets.
 
-### machine stuck in provisioned state after pivot (COPS-7166)
+### Machine stuck in provisioned state after pivot (COPS-7166)
 
-After performing a Pivot operation to migrate cluster resources in DKP 2.1.1, some machines could be stuck in the provisioning state.
+After performing a Pivot operation to migrate cluster resources in DKP 2.1.1, some machines could be stuck in the provisioning state. This issue has been resolved.
 
 ### kube-prometheus-stack error with fresh on-prem install (COPS-7163)
 
