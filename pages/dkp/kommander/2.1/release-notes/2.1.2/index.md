@@ -93,7 +93,7 @@ As a result of a misconfiguration, the`prometheus-kubeaddons-set-grafana-home-da
 
 The following services and service components have been upgraded to the listed version:
 
-- centralized-grafana: 18.1.1
+- centralized-grafana: 18.1.3
 - centralized-kubecost: 0.20.0
 - cert-manager: 0.2.7
 - dex: 2.9.10
@@ -102,13 +102,13 @@ The following services and service components have been upgraded to the listed v
 - gatekeeper: 0.6.9
 - grafana-logging: 6.16.14
 - grafana-loki: 0.33.1
-- istio: 1.9.1
+- istio: 1.9.2
 - jaeger: 2.21.0
 - karma: 2.0.0
 - kiali: 1.29.1
 - knative: 0.18.3
 - kube-oidc-proxy: 0.2.5
-- kube-prometheus-stack: 18.1.2
+- kube-prometheus-stack: 18.1.3
 - kubecost: 0.20.0
 - kubefed: 0.9.0
 - kubernetes-dashboard: 5.0.2
