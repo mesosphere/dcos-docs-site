@@ -21,10 +21,13 @@ This release provides new features and enhancements to improve the user experien
 
 ## Fixes and Improvements
 
+### Upgrade Konvoy 1.8.4 to 2.1.1 index out of range error (COPS-7183)
+
+When attempting to upgrade a Konvoy v1.8 deployment that used an existing VPC, the `prepare-to-adopt` command triggered an error. This problem has been corrected.
+
 ### Flux proxy configuration results in failure to install applications (COPS-7236)
 
 A Flux configuration problem that resulted in Kommander applications not being able to be pulled and installed in environments with a HTTP[s] Proxy configured was resolved.
-
 
 ### kube-oidc-proxy error: certificate signed by unknown authority (COPS-7217)
 
@@ -49,15 +52,6 @@ In kommander, if you attempted to reattach a cluster with the same name as a clu
 ### Kommander fails after a clean reinstall (COPS-7193)
 
 There was an unintended name collision between two separate secrets.
-
-### Upgrade konvoy 1.8.4 to 2.1.1 index out of range error (COPS-7183)
-
-When attempting to upgrade a  Konvoy v1.8 deployment that used an existing VPC, the `prepare-to-adopt` command triggered an error. This problem has been corrected.
-
-
-### CPU requirements are not listed in the documentation (COPS-7168)
-
-This issue is corrected in the documentation.
 
 ### machine stuck in provisioned state after pivot (COPS-7166)
 
