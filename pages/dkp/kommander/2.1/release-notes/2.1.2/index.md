@@ -141,7 +141,7 @@ For example, [Konvoy-created clusters that are self-managed][konvoy-self-managed
 Verify that your cluster have `cert-manager` installed by:
 
 ```bash
-export KUBECONFIG=<kubeconfig-path>
+export KUBECONFIG="<kubeconfig-path>"
 kubectl get pod -A | grep "cert-manager"
 ```
 
