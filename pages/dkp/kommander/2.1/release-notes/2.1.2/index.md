@@ -65,9 +65,9 @@ After performing a Pivot operation to migrate cluster resources in DKP 2.1.1, so
 
 When deploying a 2.1.1 Konvoy cluster, the local environment variables for http_proxy, https_proxy and no_proxy were not propagated to CAPI/CAPI provider pods outside the kube-system namespace, which lead to timeouts in the capa pod.
 
-### Nvidia addon works poorly if gpus are scarce (COPS-7142)
+### The Nvidia addon fails to recognize nodes with GPU when GPUs are scarce (COPS-7142)
 
-In DKP 2.x, Nvidia had no notion of which nodes have gpus and which nodes dont, resulting in it deploying the nvidia driver and dcgm reporter to every worker node in the cluster.
+In DKP 2.x, Nvidia fails to differentiate between nodes with and without a GPU, mistakenly deploying the Nvidia driver ahd DCGM exporter to every worker node in the cluster.
 
 ### Document how to add multiple node pools in DKP 2.X (COPS-7140)
 
