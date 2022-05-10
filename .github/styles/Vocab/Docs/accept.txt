@@ -253,6 +253,7 @@ tqdm
 triaging
 typha
 (uid|UID)
+uncomment(|s|ing|ed)
 uncordon(|ed)
 unencrypted
 Unjoin(|ing|ed)
