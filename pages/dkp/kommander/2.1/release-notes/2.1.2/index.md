@@ -52,7 +52,7 @@ There was an unintended name collision between two separate secrets.
 
 ### Upgrade konvoy 1.8.4 to 2.1.1 index out of range error (COPS-7183)
 
-When a 1.8 deployment used an existing VPC, the `prepare-to-adopt` command triggered an error.
+When attempting to upgrade a  Konvoy v1.8 deployment that used an existing VPC, the `prepare-to-adopt` command triggered an error. This problem has been corrected.
 
 ### Pulling search path from Bastion host breaks DKP cluster (COPS-7181)
 
