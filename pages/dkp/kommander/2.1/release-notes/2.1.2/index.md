@@ -25,9 +25,6 @@ This release provides new features and enhancements to improve the user experien
 
 A Flux configuration problem that resulted in Kommander applications not being able to be pulled and installed in environments with a HTTP[s] Proxy configured was resolved.
 
-### Broken FIPS images (COPS-7225)
-
-FIPS images for DKP were overwritten with blank docker images, making deployment fail.
 
 ### kube-oidc-proxy error: certificate signed by unknown authority (COPS-7217)
 
