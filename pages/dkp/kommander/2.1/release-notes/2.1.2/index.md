@@ -158,7 +158,7 @@ cert-manager                        cert-manager-webhook-7c9588c76-pdxrb        
 If your cluster has `cert-manager` installed, set the namespace for the workspace you attached the cluster in:
 
 ```bash
-export WORKSPACE_NAMESPACE=<workspace-name-abcd>
+export WORKSPACE_NAMESPACE="<workspace-name-abcd>"
 ```
 
 Then, create the following yaml file:
