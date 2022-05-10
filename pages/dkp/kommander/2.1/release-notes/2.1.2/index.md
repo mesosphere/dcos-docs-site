@@ -89,10 +89,6 @@ An option has been added to the DKP CLI that allows you to add Azure credentials
 
 The `prometheus-kubeaddons-set-grafana-home-dashboard` was stuck in a pending state due to a stale DNS entry for the private Docker repo. The cronjob associated with Grafana kept spawning a pod every 5 minutes, which resulted in an excessive number of pods to spawn.
 
-### The oneliner DKP 2.1 installer ignoring --region flag (COPS-7101)
-
-Regardless the `--region` flag, the target AWS cluster was deploying in the default AWS region.
-
 ## Component updates
 
 The following services and service components have been upgraded to the listed version:
