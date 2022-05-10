@@ -34,9 +34,9 @@ A problem that prevented successful configuration of the `kube-oidc-proxy` compo
 
 When looking at the certificate objects from a bundle, none are expired but the pods in the cluster do not reload with current/new certificates, and also display that the certificates were expired.
 
-### Konvoy-image-builder 1.7.0 fails in certain situatios (COPS-7207)
+### Konvoy-image-builder 1.7.0 fails in certain situations (COPS-7207)
 
-This issue is resolved.
+An issue that resulted in errors like "Failed to connect to the host via ssh" when running konvoy-image-builder v1.7.0 has been corrected. The fix is available in konvoy-image-builder v1.8.0.
 
 ### KIB fails to pull images in airgapped using ct (COPS-7198)
 
