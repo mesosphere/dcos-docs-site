@@ -38,9 +38,9 @@ When looking at the certificate objects from a bundle, none are expired but the 
 
 An issue that resulted in errors like "Failed to connect to the host via ssh" when running konvoy-image-builder v1.7.0 has been corrected. The fix is available in konvoy-image-builder v1.8.0.
 
-### KIB fails to pull images in airgapped using ct (COPS-7198)
+### KIB fails to pull images in air-gapped environments  (COPS-7198)
 
-This lead to a problem in air-gapped environments where the images failed to pull in KIB, when using registry mirrors and/or credentials.
+Running konvoy-image-builder v1.7.0 in air-gapped environments would result in failures to pull docker images if the environment used registry mirrors and/or credentials. The problem is resolved in konvoy-image-builder v1.8.0.
 
 ### Dashboards redirecting to wrong URL (COPS-7197)
 
