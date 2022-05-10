@@ -54,9 +54,6 @@ There was an unintended name collision between two separate secrets.
 
 When attempting to upgrade a  Konvoy v1.8 deployment that used an existing VPC, the `prepare-to-adopt` command triggered an error. This problem has been corrected.
 
-### Pulling search path from Bastion host breaks DKP cluster (COPS-7181)
-
-When creating an air-gapped cluster on preprovisioned machines, the first control plane machine is created but subsequent machines are not created.
 
 ### CPU requirements are not listed in the documentation (COPS-7168)
 
