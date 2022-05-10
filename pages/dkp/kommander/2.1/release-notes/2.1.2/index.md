@@ -32,7 +32,7 @@ A problem that prevented successful configuration of the `kube-oidc-proxy` compo
 
 ### Certificate objects updated but not reloading in Kommander pods (COPS-7212)
 
-When looking at the certificate objects from a bundle, none are expired but the pods in the cluster do not reload with current/new certificates, and also display that the certificates were expired.
+A problem that occurred when the Certificate Authority for Kommander (The kommander-ca certificate) expired has been corrected. This certificate is generated when Kommander is installed and by default has a 90 day lifetime. Once the CA expired, a new CA was created, but not all components that use certificates generated from this CA were properly reloaded. Because they are not refereshed properly, once the certificates start expiring, critical services (like authentication), will fail. The underlying issue has been resolved, and CA expiry now results in restarts of all the services and components that rely on this CA.
 
 ### Konvoy-image-builder 1.7.0 fails in certain situations (COPS-7207)
 
