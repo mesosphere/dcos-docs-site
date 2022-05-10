@@ -61,7 +61,7 @@ After performing a Pivot operation to migrate cluster resources in DKP 2.1.1, so
 
 [This fix](https://github.com/prometheus-operator/prometheus-operator/pull/4221) from Prometheus resolves the issue.
 
-### http(s)_proxy variables missing from capa pods (COPS-7158)
+### HTTP(S)_proxy variables missing from CAPA pods (COPS-7158)
 
 When deploying a 2.1.1 Konvoy cluster, the local environment variables for http_proxy, https_proxy and no_proxy were not propagated to CAPI/CAPI provider pods outside the kube-system namespace, which lead to timeouts in the capa pod.
 
