@@ -17,6 +17,8 @@ The Kommander dashboard admin credentials are stored as a secret. They never lea
 
 The Dex service issues an [OIDC ID token][oidc_id_token] on successful user authentication. Other platform services use the ID token as an authentication proof. User identity to the Kubernetes API server is provided by the [`kube-oidc-proxy`][kube_oidc_proxy] platform service that reads the identity from an ID token. Web requests to Kommander dashboard access are authenticated by the [traefik forward auth][traefik_forward_auth] platform service.
 
+<p class="message--note"><strong>NOTE: </strong>The <a href="https://github.com/jetstack/kube-oidc-proxy">kube-oidc-proxy</a> service authenticates kubectl CLI requests using the Kubernetes API Server Go library. This library requires that if an <strong>email_verified</strong> claim is present, it must be set to <strong>true</strong>, even if the <code>insecureSkipEmailVerified: true</code> flag is configured in the Dex connector. Thus, ensure that the OIDC provider is configured to set the email_verified field to 'true' </p>
+
 A user identity is shared across a Kommander cluster and all other attached clusters.
 
 ### Kommander attached clusters
