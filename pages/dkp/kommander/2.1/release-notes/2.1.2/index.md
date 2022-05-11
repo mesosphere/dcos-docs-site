@@ -57,9 +57,9 @@ In kommander, if you attempted to reattach a cluster with the same name as a clu
 
 After performing a Pivot operation to migrate cluster resources in DKP 2.1.1, some machines could be stuck in the provisioning state. This issue has been resolved.
 
-### kube-prometheus-stack error with fresh on-prem install (COPS-7163)
+### kube-prometheus-stack error during install (COPS-7163)
 
-[This fix](https://github.com/prometheus-operator/prometheus-operator/pull/4221) from Prometheus resolves the issue.
+A problem with Prometheus where the component `kube-prometheus-stack` attempted to upgrade its CRDs to a new version with invalid specifications was solved.
 
 ### HTTP(S)_proxy variables missing from CAPA pods (COPS-7158)
 
