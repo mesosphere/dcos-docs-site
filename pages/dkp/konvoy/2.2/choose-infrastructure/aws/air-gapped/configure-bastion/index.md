@@ -101,4 +101,4 @@ Use the following workaround while the issue is being addressed:
     ```
 
 [bastion_host]: https://en.wikipedia.org/wiki/Bastion_host
-[node_pool]: https://docs.d2iq.com/dkp/konvoy/1.8/install/node-pools/
+[node_pool]: /dkp/konvoy/2.2/choose-infrastructure/aws/nodepools/
