@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Integrate microservices using Istio
+navigationTitle: Use Istio
 title: Integrate microservices using Istio
 menuWeight: 24
 excerpt: Learn how to integrate microservices managed by Istio into a DKP cluster
