@@ -12,7 +12,7 @@ enterprise: false
 
 A **bastion host** is a server that provides a defensive barrier to protect access to a private network from an external network, such as the internet.
 
-Bastion hosts are important because, as a cluster administrator, you often want to deploy all of the nodes in a cluster on a private network for security reasons.
+Bastion hosts are important because, for security reasons, you often want to deploy all nodes in a cluster on a private network.
 Deploying the cluster nodes on a private network protects cluster resources from outside access because the nodes cannot be reached directly from any external network.
 
 To enable installation of cluster resources from an external network, you can configure a [bastion host][bastion_host].
