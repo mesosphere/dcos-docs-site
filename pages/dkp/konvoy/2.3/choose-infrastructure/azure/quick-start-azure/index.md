@@ -84,7 +84,7 @@ Before starting the Konvoy installation, verify that you have:
 
 ## Create a new Azure Kubernetes cluster
 
-If you use these instructions to create a cluster on Azure using the DKP default settings without any edits to configuration files or additional flags, your cluster will be deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes. Essentially, a default Azure image is created which is not recommended for production use.
+If you use these instructions to create a cluster on Azure using the DKP default settings without any edits to configuration files or additional flags, your cluster will be deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes. A default Azure image is created which is not recommended for production use.
 
 1.  Give your cluster a name suitable for your environment:
 
