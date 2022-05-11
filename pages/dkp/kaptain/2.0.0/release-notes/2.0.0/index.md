@@ -21,7 +21,7 @@ D2iQ is announcing Kaptain 2.0 which includes several user experience features, 
 
 Starting with Kaptain 2.0, it can be easily installed via the DKP workspace catalog in both single and multi-cluster experiences. Kaptain 2.0 is supported on DKP 2.1.2 onwards.
 
-### Support for Amazon EKS, Azure EKS and DKP multi-cluster
+### Support for Amazon EKS, Azure AKS and DKP multi-cluster
 
 Kaptain 2.0 can be deployed on attached clusters running on Amazon AWS EKS and Microsoft Azure AKS.  This extends D2iQ’s openness to support Kubernetes platforms beyond DKP with Kaptain.
 
