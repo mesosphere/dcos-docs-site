@@ -69,10 +69,13 @@ Review the [list of available applications](../../workspaces/applications/platfo
     export PATH=$PWD/bin:$PATH
     ```
 
-4. You should now be able to run the following commands and see output like this:
+4. You should now be able to run the following `istioctl` command and view the subsequent output:
 
     ```bash
-    $ istioctl version
+    istioctl version
+    ```
+    
+    ```sh
     client version: <your istio version here>
     control plane version: <your istio version here>
     data plane version: <your istio version here> (1 proxies)
