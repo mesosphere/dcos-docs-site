@@ -29,6 +29,10 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
 
     See [Get Started with AWS][createnewcluster] for information on naming your cluster.
 
+     <p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _</code>. Cluster creation will fail if the name has capital letters.           
+    
+    See [Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/) for more naming information.
+
 1.  Export variables for the existing infrastructure details:
 
     ```bash

@@ -46,6 +46,10 @@ Before starting the Konvoy installation, verify that you have:
     export CLUSTER_NAME=aws-example
     ```
 
+    <p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _</code>. Cluster creation will fail if the name has capital letters.           
+    
+    See [Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/) for more naming information.
+
 ## Create a new AWS Kubernetes cluster
 
 If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.

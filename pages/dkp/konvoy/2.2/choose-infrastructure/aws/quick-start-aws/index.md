@@ -45,6 +45,9 @@ Before starting the Konvoy installation, verify that you have:
     ```bash
     export CLUSTER_NAME=aws-example
     ```
+    <p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _</code>. Cluster creation will fail if the name has capital letters.           
+    
+    See [Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/) for more naming information.
 
 ## Create a new AWS Kubernetes cluster
 
