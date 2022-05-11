@@ -189,6 +189,7 @@ namespac(e|es|ed|ing)
 (nginx|NGINX)
 Nouveau
 (nvidia|Nvidia|NVIDIA)
+(OIDC|oidc)
 (onboarding|Onboarding)
 openssl
 (OpsPortal|opsportal)
