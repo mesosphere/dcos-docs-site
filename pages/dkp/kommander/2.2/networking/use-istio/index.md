@@ -28,7 +28,7 @@ Before starting this tutorial, you should verify the following:
 
 ## Deploy Istio using DKP
 
-Review the [list of available applications](../../platform-applications#workspace-platform-applications) that can be enabled to deploy to your attached cluster.
+Review the [list of available applications](../../workspaces/applications/platform-applications#workspace-platform-applications) that can be enabled to deploy to your attached cluster.
 
 1.  Enable a supported application to deploy to [your existing attached cluster](../../../../clusters/attach-cluster/) with an `AppDeployment` resource.
 
