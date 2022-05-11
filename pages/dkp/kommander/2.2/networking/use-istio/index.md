@@ -20,9 +20,9 @@ Before you begin, verify the following:
 
 - You must have access to a Linux, macOS, or Windows computer with a supported operating system version.
 
-- You must have a properly deployed and running cluster. For information about deploying Kubernetes with default settings, see the [Quick start][quickstart].
+- You must have a properly deployed and running cluster.
 
-- You must have `cert-manager` enabled and deployed through your `cluster.yaml` addon configuration.
+- You must have `cert-manager` enabled and deployed through your `cluster.yaml` configuration.
 
 ## Deploy Istio using DKP
 
