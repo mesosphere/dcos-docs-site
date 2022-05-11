@@ -19,7 +19,7 @@ For example, you can:
 <p class="message--important"><strong>IMPORTANT: </strong>The infrastructure you select then determines the specific requirements for a successful installation.</p>
 
 
-DKP is a tool for provisioning Kubernetes clusters with a suite of pre-selected [Cloud Native Computing Foundation (CNCF)][cncf] and community-contributed tools.
+DKP is a tool for provisioning Kubernetes clusters with a suite of pre-selected [Cloud Native Computing Foundation [CNCF](https://www.cncf.io/) and community-contributed tools.
 By combining a native Kubernetes cluster as its foundation with a default set of cluster extensions,
 DKP provides a complete out-of-the-box solution for organizations that want to deploy production-ready
 Kubernetes.
@@ -32,7 +32,7 @@ Before installing DKP, ensure you have the [following](../supported-operating-sy
 
 # Installing DKP
 
-1.  Install required packages. In most cases, you can install the required software using your preferred package manager. For example, on a macOS computer, you can use [Homebrew][brew] to install `kubectl` and the `aws` command-line utility by running the following command:
+1.  Install required packages. In most cases, you can install the required software using your preferred package manager. For example, on a macOS computer, you can use [Homebrew](https://docs.brew.sh/Installation) to install `kubectl` and the `aws` command-line utility by running the following command:
 
     ```bash
     brew install kubernetes-cli awscli
@@ -46,7 +46,7 @@ Before installing DKP, ensure you have the [following](../supported-operating-sy
 
 1.  To download DKP, see the [Download Konvoy](../download) topic for information. You will need to download and extract the DKP binary package tarball.
 
-1.  Verify you have valid **CLOUD PROVIDER security credentials** to deploy the cluster on that platform. This step is not required if you are installing DKP on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../choose-infrastructure/on-prem).
+1.  Verify you have valid **cloud provider security credentials** to deploy the cluster on that platform. This step is not required if you are installing DKP on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../choose-infrastructure/on-prem).
 
 1.  Deploy with all of the default settings depending on which infrastructure you have. Go to the Choose Infrastructure section of the documentation for further steps on creating a cluster on your Cloud platform. [Choose Infrastructure](../choose-infrastructure/) 
   
