@@ -16,7 +16,7 @@ This topic describes how to expose an application running on the DKP cluster usi
 <p class="message--note"><strong>NOTE: </strong>Usage and installation of Istio on DKP is currently a self-service feature.</p>
 
 ## Before you begin
-Before starting this tutorial, you should verify the following:
+Before you begin, verify the following:
 
 - You must have access to a Linux, macOS, or Windows computer with a supported operating system version.
 
