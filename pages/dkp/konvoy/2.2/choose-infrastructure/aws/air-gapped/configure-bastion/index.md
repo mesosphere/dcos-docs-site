@@ -76,29 +76,29 @@ exit status 1
 
 Use the following workaround while the issue is being addressed:
 
-Start a tunnel locally on port 1080 to the Bastion Host.
+1.  Start a tunnel locally on port 1080 to the Bastion Host.
 
-```bash
-ssh -N -D 0.0.0.0:1080 centos@bastion-host
-```
+    ```bash
+    ssh -N -D 0.0.0.0:1080 centos@bastion-host
+    ```
 
-On the install machine, configure a socks5 proxy on the local port.
+1.  On the install machine, configure a socks5 proxy on the local port.
 
-```bash
-export HTTPS_PROXY=socks5://localhost:1080
-```
+    ```bash
+    export HTTPS_PROXY=socks5://localhost:1080
+    ```
 
-***If using Mac with Docker Desktop:***
+    ***If using Mac with Docker Desktop:***
 
-```bash
-export HTTPS_PROXY=socks5://host.docker.internal:1080
-```
+    ```bash
+    export HTTPS_PROXY=socks5://host.docker.internal:1080
+    ```
 
-Deploy the addons once again.
+1.  Deploy the addons once again.
 
-```bash
-dkp deploy addons -y
-```
+    ```bash
+    dkp deploy addons -y
+    ```
 
 [bastion_host]: https://en.wikipedia.org/wiki/Bastion_host
 [node_pool]: https://docs.d2iq.com/dkp/konvoy/1.8/install/node-pools/
