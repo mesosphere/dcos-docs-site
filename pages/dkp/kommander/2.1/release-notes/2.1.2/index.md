@@ -49,9 +49,9 @@ An issue that resulted in errors like "Failed to connect to the host via ssh" wh
 Running konvoy-image-builder v1.7.0 in air-gapped environments would result in failures to pull docker images if the environment used registry mirrors and/or credentials. The problem is resolved in konvoy-image-builder v1.8.0.
 <!-- vale Microsoft.Avoid = YES -->
 
-### Kommander fails after a clean reinstall (COPS-7193)
+### Reattaching clusters with the same name could lead to dashboard navigation problems. (COPS-7197)
 
-There was an unintended name collision between two separate secrets.
+In kommander, if you attempted to reattach a cluster with the same name as a cluster that had previously been detached, the 'traefik-forward-auth-kommander' configuration was not updated properly leading to the inability to navigate to the newly attached cluster. The problem was resolved.
 
 ### Machine stuck in provisioned state after pivot (COPS-7166)
 
