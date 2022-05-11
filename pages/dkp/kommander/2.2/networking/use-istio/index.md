@@ -11,7 +11,7 @@ experimental: true
 
 Istio helps you manage cloud-based deployments by providing an open-source service mesh to connect, secure, control, and observe microservices.
 
-This tutorial demonstrates how to expose an application running on the DKP cluster using the LoadBalancer (layer-4) service type.
+This topic describes how to expose an application running on the DKP cluster using the LoadBalancer (layer-4) service type.
 
 <p class="message--note"><strong>NOTE: </strong>Usage and installation of Istio on DKP is currently a self-service feature.</p>
 
