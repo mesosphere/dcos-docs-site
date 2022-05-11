@@ -50,20 +50,6 @@ This would inform DKP to look for private keys in the SSH agent, instead of gene
 Remember that SSH agent forwarding is **required** for using bastion hosts and that the private key identity paired with the public key used in the `cluster.yaml` has to have been added to the authentication agent.
 A limited number of keys is used when authenticating via SSH. If you are unable to connect to an instance due to too many authentication failures, make sure that there are as few identities currently represented by the agent (`ssh-add -L`) as possible and that the private key is in the list.
 
-When a DKP cluster is deployed on an Amazon Web Services cloud instance, the Ansible inventory file, `inventory.yaml`, is automatically generated.
-
-The generated `inventory.yaml` file will be similar to the following:
-
-```yaml
-bastion:
-  hosts:
-    10.0.131.50:
-      ansible_host: 10.0.131.50
-  vars:
-    ansible_user: "centos"
-    ansible_port: 22
-```
-
 <p class="message--note"><strong>NOTE: </strong>A known issue exists if you are using the Bastion host feature, setting <a href="../../reference/cluster-configuration">aws.elb.internal: true</a> in the <code>ClusterConfiguration</code> section of <code>cluster.yaml</code>, and deploying from a machine outside the network of the cluster. If you face a message similar to the example error below, follow the workaround described in this page.</p>
 
 ```bash
