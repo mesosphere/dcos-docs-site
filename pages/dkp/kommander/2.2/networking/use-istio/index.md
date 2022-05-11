@@ -8,7 +8,6 @@ beta: false
 experimental: true
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
 Istio helps you manage cloud-based deployments by providing an open-source service mesh to connect, secure, control, and observe microservices.
 
