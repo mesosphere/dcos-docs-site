@@ -14,7 +14,7 @@ beta: false
 
 **Note:** In DKP 2.2 the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above.
 
-[Download](../../download/) and [install](../../install/) the latest version to get started.
+[Download](../download/) and [install](../choose-infrastructure) the latest version to get started.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download Kommander. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.</p>
 
@@ -40,9 +40,9 @@ The following features and capabilities are new for Version 2.2.
 
 ### Integrated DKP Upgrade
 
-You can now upgrade Konvoy and Kommander as a single fluid process using a combination of the [DKP CLI](../../cli/dkp) and the UI to upgrade your environment.
+You can now upgrade Konvoy and Kommander as a single fluid process using a combination of the [DKP CLI](../cli/dkp) and the UI to upgrade your environment.
 
-For more information, see [DKP Upgrade](../../dkp-upgrade)
+For more information, see [DKP Upgrade](/dkp/kommander/2.2/dkp-upgrade)
 
 ### Integration with VMware vSphere
 
@@ -52,19 +52,19 @@ You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](
 
 You can now use your laptop or USB drive to transfer pre-created air-gapped bundles, including OS dependencies and DKP binaries into your air-gapped environment with no external connectivity. This improves the availability of the DKP air-gapped deployment and productivity of your IT operations team.
 
-For more information, see the [air-gapped bundle](../../install/air-gapped) documentation.
+For more information, see the [air-gapped bundle](../choose-infrastructure) documentation in the choose infrastructure topics.
 
 ### Unified DKP user interfaces
 
-The unified DKP user interface provides a smooth experience independent of where you start your journey. Both DKP Essential and DKP Enterprise customers will have similar experiences in the User Interface, with DKP Enterprise customers gaining access to additional features and benefits simply by entering their DKP Enterprise [license key](../../licensing/).
+The unified DKP user interface provides a smooth experience independent of where you start your journey. Both DKP Essential and DKP Enterprise customers will have similar experiences in the User Interface, with DKP Enterprise customers gaining access to additional features and benefits simply by entering their DKP Enterprise [license key](/dkp/kommander/2.2/licensing/).
 
 ### Kaptain AI/ML, D2iQ’s AI/ML offering
 
 For better integration with DKP 2.2, you can launch Kaptain as a catalog application. It also supports other platforms such as Amazon AWS EKS and Microsoft Azure AKS. Kaptain extends D2iQ’s ability to support Kubernetes platforms beyond DKP. It further enables an organization to develop, deploy and run entire ML workloads in production, at scale, with consistency and reliability.
-
+ 
 ### DKP Insights
 
-This new predictive analytics tool provides greater support productivity, speed, and reduced costs. The [DKP Insights](../../insights) Engine collects events and metrics on the Attached cluster, and uses rule-based heuristics on potential problems of varying criticality, so they can be quickly identified and resolved. These Insights are then forwarded and displayed in the DKP Insights Dashboard, where it assists you with routine tasks such as:
+This new predictive analytics tool provides greater support productivity, speed, and reduced costs. The [DKP Insights](/dkp/kommander/2.2/insights/) Engine collects events and metrics on the Attached cluster, and uses rule-based heuristics on potential problems of varying criticality, so they can be quickly identified and resolved. These Insights are then forwarded and displayed in the DKP Insights Dashboard, where it assists you with routine tasks such as:
 
 - Resolving common issues
 - Monitoring resource usage
@@ -75,15 +75,19 @@ This new predictive analytics tool provides greater support productivity, speed,
 
 ### Flag default changes
 
+For more information on using FIPS with Konvoy, see [FIPS 140-2 Compliance](../fips/)
 The default value for flag `--with-aws-bootstrap-credentials` will be changing from `true` to `false` in version v2.3.0.
 
 ### Changes in behavior
 
-See [the changes in this section.](#default-update-strategy-changed-to-delete-first-for-preprovisioned-clusters)
+A "create first" update strategy first creates a new machine, then deletes the old one. While this strategy works when machine inventory can grow on demand, it does not work if there is a fixed number of machines. Most Preprovisioned clusters have a fixed number of machines. To enable updates for Preprovisioned clusters, DKP uses the "delete first" update strategy, which first deletes an old machine, then creates a new one.
+
+New clusters use the "delete first" strategy by default. Existing clusters are switched to the "delete first" strategy whenever those machines are updated with `update controlplane` and `update nodepool`.
 
 ## Component updates
 
 When upgrading to this release, the following services and service components are upgraded to the listed version:
+
 
 | Common Application Name | APP ID | Version | Component Versions |
 |----------------------|--------------------- |---------|--------------------|
@@ -120,6 +124,7 @@ When upgrading to this release, the following services and service components ar
 | Traefik | traefik | 10.9.1 | - chart: 10.9.1<br>- traefik: 2.5.6 |
 | Traefik ForwardAuth | traefik-forward-auth | 0.3.6 | - chart: 0.3.6<br>- traefik-forward-auth: 3.1.0 |
 | Velero | velero | 3.2.0 | - chart: 3.2.0<br>- velero: 1.5.2 |
+
 
 ## Known issues
 
@@ -348,15 +353,7 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -l app.kubernetes.io/name=$SPARK_OPERATOR_RELEASE_NAME -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')
     ```
 
-#### Default update strategy changed to "delete first" for Preprovisioned clusters
-
-A "create first" update strategy first creates a new machine, then deletes the old one. While this strategy works when machine inventory can grow on demand, it does not work if there is a fixed number of machines. Most Preprovisioned clusters have a fixed number of machines. To enable updates for Preprovisioned clusters, DKP uses the "delete first" update strategy, which first deletes an old machine, then creates a new one.
-
-New clusters use the "delete first" strategy by default. Existing clusters are switched to the "delete first" strategy whenever their machines are updated with `update controlplane` and `update nodepool`.
-
 ## Additional resources
-
-<!-- Add links to external documentation as needed -->
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
