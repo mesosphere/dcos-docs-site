@@ -86,6 +86,10 @@ Before starting the Konvoy installation, verify that you have:
 
 If you use these instructions to create a cluster on Azure using the DKP default settings without any edits to configuration files or additional flags, your cluster will be deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
 
+<p class="message--note"><strong>NOTE: </strong>
+The default Azure image is not recommended for use in production. We suggest using <a href="../../../image-builder/create-azure-image">Konvoy Image Builder to create a custom image</a> to take advantage of enhanced cluster operations, and to explore the <a href="../advanced">advanced Azure installation</a> topics for more options. Previously, DKP 2.1 used a CentOS 7 image, but DKP 2.2 now uses Ubuntu 20.04.
+</p>
+
 1.  Give your cluster a name suitable for your environment:
 
     ```bash
@@ -94,7 +98,7 @@ If you use these instructions to create a cluster on Azure using the DKP default
 
 1.  Create a Kubernetes cluster:
 
-    <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Dockerhub's rate limit</a> use your Dockerhub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
+    <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Docker Hub's rate limit</a> use your Docker Hub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
 
     ```bash
     dkp create cluster azure \
