@@ -26,7 +26,7 @@ Before you begin, verify the following:
 
 Review the [list of available applications](../../workspaces/applications/platform-applications#workspace-platform-applications) that can be enabled to deploy to your attached cluster.
 
-1.  Enable a supported application to deploy to [your existing attached cluster](../../clusters/attach-cluster/) with an `AppDeployment` resource.
+1.  Enable the deployment of Istio to [your existing attached cluster](../../clusters/attach-cluster/) by creating an `AppDeployment` resource.
 
 1.  Within the `AppDeployment`, define the `appRef` to specify which `App` will be enabled:
 
