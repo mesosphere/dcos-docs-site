@@ -22,8 +22,6 @@ Before you begin, verify the following:
 
 - You must have a properly deployed and running cluster.
 
-- You must have `cert-manager` enabled and deployed through your `cluster.yaml` configuration.
-
 ## Deploy Istio using DKP
 
 Review the [list of available applications](../../workspaces/applications/platform-applications#workspace-platform-applications) that can be enabled to deploy to your attached cluster.
