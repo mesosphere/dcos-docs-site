@@ -87,6 +87,8 @@ The Istio BookInfo sample application is composed of four separate microservices
 
 1. Deploy the sample `bookinfo` application on the Kubernetes cluster by running the following commands:
 
+    <p class="message--warning"><strong>IMPORTANT:</strong> Ensure your <code>dkp</code> configuration references the cluster where you deployed Istio by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
+
     ```bash
     kubectl apply -f <(istioctl kube-inject -f samples/bookinfo/platform/kube/bookinfo.yaml)
     kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
