@@ -51,7 +51,7 @@ Running konvoy-image-builder v1.7.0 in air-gapped environments would result in f
 
 ### Reattaching clusters with the same name could lead to dashboard navigation problems (COPS-7197)
 
-In kommander, if you attempted to reattach a cluster with the same name as a cluster that had previously been detached, the 'traefik-forward-auth-kommander' configuration was not updated properly leading to the inability to navigate to the newly attached cluster. The problem was resolved.
+In Kommander, if you attempted to reattach a cluster with the same name as a cluster that had previously been detached, the 'traefik-forward-auth-kommander' configuration was not updated properly leading to the inability to navigate to the newly attached cluster. The problem was resolved.
 
 ### Machine stuck in provisioned state after pivot (COPS-7166)
 
