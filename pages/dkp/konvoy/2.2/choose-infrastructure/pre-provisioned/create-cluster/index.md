@@ -190,11 +190,13 @@ The supported values are "IPIPCrossSubnet", "IPIP", "VXLAN", "VXLANCrossSubnet",
 
 #### VXLAN
 
-VXLAN is a tunneling protocol that encapsulates layer 2 Ethernet frames in UDP packets, enabling you to create virtualized layer 2 subnets that span Layer 3 networks. It has a slightly larger header than IP-in-IP which creates a very slight reduction in performance over IP-in-IP.
+VXLAN is a tunneling protocol that encapsulates layer 2 Ethernet frames in UDP packets, enabling you to create virtualized layer 2 subnets that span Layer 3 networks. It has a slightly larger header than IP-in-IP which creates a slight reduction in performance over IP-in-IP.
 
 #### IPIP
 
 IP-in-IP is an IP tunneling protocol that encapsulates one IP packet in another IP packet. An outer packet header is added with the tunnel entrypoint and the tunnel exit point. The calico implementation of this protocol uses BGP to determine the exit point making this protocol unusable on networks that don’t pass BGP (eg Azure).
+
+**Be aware that switching encapsulation modes can cause disruption to in-progress connections. Plan accordingly.**
 
 For more information, see:
 
