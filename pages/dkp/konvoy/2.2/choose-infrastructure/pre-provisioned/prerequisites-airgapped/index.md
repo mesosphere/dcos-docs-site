@@ -8,6 +8,8 @@ enterprise: false
 beta: false
 ---
 
+<p class="message--note"><strong>NOTE: </strong>Docker image downloads on this page include code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio">here</a>.</p>
+
 ## Download the bootstrap image
 
 1.  Download the bootstrap docker image on a machine that has access to this artifact:
