@@ -9,7 +9,7 @@ enterprise: false
 
 ## Create an AMI to be used in an air-gapped cluster
 
-<p class="message--note"><strong>NOTE: </strong>Docker image downloads on this page include code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio">here</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>Docker image downloads on this page include code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. For more information, refer to <a href="https://github.com/minio/minio">MinIO's source code</a>.</p>
 
 Using the [Konvoy Image Builder](../../../../image-builder), you can build an AMI without requiring access to the internet by providing an additional `--override` flag.
 
@@ -58,7 +58,7 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
     curl --output artifacts/images/"$VERSION"_images.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/kubernetes-images/"$VERSION"_images.tar.gz
     ```
 
-1.  Download the PIP packages. This bundle includes a few packages required by DKP to boostrap machines.
+1.  Download the PIP packages. This bundle includes a few packages required by DKP to bootstrap machines.
 
     ```bash
     curl --output artifacts/pip-packages.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
