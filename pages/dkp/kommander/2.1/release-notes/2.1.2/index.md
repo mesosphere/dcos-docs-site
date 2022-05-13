@@ -59,7 +59,7 @@ After performing a Pivot operation to migrate cluster resources in DKP 2.1.1, so
 
 ### kube-prometheus-stack error during install (COPS-7163)
 
-A problem with Prometheus where the component `kube-prometheus-stack` attempted to upgrade its CRDs to a new version with invalid specifications was solved.
+A problem with Prometheus where the component `kube-prometheus-stack` attempted to upgrade its CRDs to a new version with invalid specifications was resolved.
 
 ### HTTP(S)_proxy variables missing from CAPA pods (COPS-7158)
 
