@@ -206,6 +206,8 @@ If you require HTTP proxy configurations, you can apply them during the `create`
 | HTTPS proxy for worker machines          | `--worker-https-proxy string`        |
 | No Proxy list for worker machines        | `--worker-no-proxy strings`          |
 
+<p class="message--note"><strong>NOTE: </strong>You must also add the same configuration as an <a href="../create-secrets-and-overrides#create_overrides">override</a>. For more information, refer to <a href="../../../image-builder/override-files/create-custom-or-files/proxy-or-files">this documentation</a>.</p>
+
 ### HTTP Proxy Example
 
 <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Dockerhub's rate limit</a> use your Dockerhub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
