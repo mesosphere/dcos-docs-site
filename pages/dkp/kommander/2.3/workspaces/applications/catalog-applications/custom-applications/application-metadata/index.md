@@ -10,13 +10,14 @@ You can define how custom applications display in the DKP UI by defining a `meta
 
 You can define the following fields:
 
-| Field       | Default              | Description                                                                                     |
-| ----------- | -------------------- | ----------------------------------------------------------------------------------------------- |
-| displayName | falls back to App ID | Display name of the application for the UI.                                                     |
-| description | ""                   | Short description, should be a sentence or two, displayed in the UI on the application card.    |
-| category    | general              | 1 or more categories for this application. Categories are used to group applications in the UI. |
-| overview    |                      | Markdown overview used on the application detail page in the UI.                                |
-| icon        |                      | Base64 encoded icon SVG file used for application logos in the UI.                              |
+| Field                  | Default              | Description                                                                                     |
+| ---------------------- | -------------------- | ----------------------------------------------------------------------------------------------- |
+| displayName            | falls back to App ID | Display name of the application for the UI.                                                     |
+| description            | ""                   | Short description, should be a sentence or two, displayed in the UI on the application card.    |
+| category               | general              | 1 or more categories for this application. Categories are used to group applications in the UI. |
+| overview               |                      | Markdown overview used on the application detail page in the UI.                                |
+| icon                   |                      | Base64 encoded icon SVG file used for application logos in the UI.                              |
+| allowMultipleInstances | true                 | Controls whether an application can be deployed multiple times to the workspace.                |
 
 None of these fields are required for the application to display in the UI.
 
