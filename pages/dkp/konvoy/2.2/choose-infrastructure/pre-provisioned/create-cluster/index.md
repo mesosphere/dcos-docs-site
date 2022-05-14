@@ -194,7 +194,7 @@ VXLAN is a tunneling protocol that encapsulates layer 2 Ethernet frames in UDP p
 
 #### IPIP
 
-IP-in-IP is an IP tunneling protocol that encapsulates one IP packet in another IP packet. An outer packet header is added with the tunnel entrypoint and the tunnel exit point. The calico implementation of this protocol uses BGP to determine the exit point making this protocol unusable on networks that don’t pass BGP (eg Azure).
+IP-in-IP is an IP tunneling protocol that encapsulates one IP packet in another IP packet. An outer packet header is added with the tunnel entrypoint and the tunnel exit point. The calico implementation of this protocol uses BGP to determine the exit point making this protocol unusable on networks that don’t pass BGP.
 
 **Be aware that switching encapsulation modes can cause disruption to in-progress connections. Plan accordingly.**
 
