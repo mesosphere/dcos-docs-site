@@ -169,7 +169,7 @@ Calico can leverage different network encapsulation methods to route traffic for
     - AWS across VPC subnet boundaries
     - environments where you cannot peer Calico over BGP to the underlay or easily configure static routes.
 
-IPIP is the default encapsualtion method.
+IPIP is the default encapsulation method.
 
 To change the encapsulation run the command:
 
