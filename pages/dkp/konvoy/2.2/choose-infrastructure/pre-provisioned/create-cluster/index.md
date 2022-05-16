@@ -162,7 +162,7 @@ Save this file. You may need to delete the node feature discovery worker pod in 
 
 ### Change the encapsulation type
 
-Calico can leverage different network encapsulation methods to route traffic for your workloads. Encapsulation can be useful when running on top of an underlying network that cannot easily be made aware of workload IPs. Common examples of this include:
+Calico can leverage different network encapsulation methods to route traffic for your workloads. Encapsulation is useful when running on top of an underlying network that is not aware of workload IPs. Common examples of this include:
 
 
     - public cloud environments where you don’t own the hardware
