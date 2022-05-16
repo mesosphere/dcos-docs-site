@@ -55,7 +55,7 @@ When running in air-gapped environments, update the configuration by replacing `
 1.  Download the DKP catalog application Git repository archive:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-v2.2.0.tar.gz" -O dkp-catalog-applications.tar.gz
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-v2.2.0.tar" -O dkp-catalog-applications.tar
     ```
 
 1.  Update the Kommander configuration file with:
@@ -70,7 +70,7 @@ When running in air-gapped environments, update the configuration by replacing `
             kommander.d2iq.io/project-default-catalog-repository: "true"
             kommander.d2iq.io/workspace-default-catalog-repository: "true"
             kommander.d2iq.io/gitapps-gitrepository-type: "dkp"
-          path: ./dkp-catalog-applications.tar.gz
+          path: ./dkp-catalog-applications.tar
     ```
 
     <p class="message--note"><strong>NOTE: </strong>When configuring the catalog repository post-upgrade, run <code>dkp install kommander --init > install.yaml</code> and update it accordingly with any custom configuration. This ensures you are using the proper default configuration values for the new Kommander version.</p>

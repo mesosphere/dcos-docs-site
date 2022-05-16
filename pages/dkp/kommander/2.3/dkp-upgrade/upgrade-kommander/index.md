@@ -25,7 +25,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
   Download the Kommander application definitions:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar"
   ```
 
   Download the Kommander charts bundle:
@@ -102,13 +102,13 @@ Before running the following command, ensure that your `dkp` configuration **ref
     -   For air-gapped:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar
         ```
 
     -   For air-gapped **with** DKP Catalog Applications in a multi-cluster environment:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar
         ```
 
         After the upgrade, follow the [DKP Catalog Applications configuration page](../../install/configuration/enterprise-catalog#air-gapped-catalog-configuration) to update the Git repository.
@@ -154,10 +154,10 @@ You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
-[AWS]: ../../../../konvoy/2.2/choose-infrastructure/aws/advanced/update/
-[Azure]: ../../../../konvoy/2.2/choose-infrastructure/azure/advanced/update/
+[AWS]: ../../../../konvoy/2.3/choose-infrastructure/aws/advanced/update/
+[Azure]: ../../../../konvoy/2.3/choose-infrastructure/azure/advanced/update/
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
-[pre_provisioned]: ../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
+[pre_provisioned]: ../../../../konvoy/2.3/choose-infrastructure/pre-provisioned/upgrade/control-plane/
 [k8s_access_to_clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [upgrade_workspaces]: ../../workspaces/applications/platform-applications#upgrade-platform-applications-from-the-cli
 [release_notes]: ../../release-notes/

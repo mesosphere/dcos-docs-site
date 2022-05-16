@@ -166,13 +166,13 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 1.  Download the Kommander image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-image-bundle-v2.2.0.tar.gz" -O kommander-image-bundle.tar.gz
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-image-bundle-v2.2.0.tar" -O kommander-image-bundle.tar
     ```
 
 1.  Download the [DKP catalog applications][dkp_catalog_applications] image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-image-bundle-v2.2.0.tar.gz" -O catalog-applications-image-bundle.tar.gz
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-image-bundle-v2.2.0.tar" -O catalog-applications-image-bundle.tar
     ```
 
 1.  Place the bundles in a location where you can load and push the images to your private Docker registry.
@@ -180,8 +180,8 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
-    dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
-    dkp push image-bundle --image-bundle catalog-applications-image-bundle.tar.gz --to-registry <REGISTRY_URL>
+    dkp push image-bundle --image-bundle kommander-image-bundle.tar --to-registry <REGISTRY_URL>
+    dkp push image-bundle --image-bundle catalog-applications-image-bundle.tar --to-registry <REGISTRY_URL>
     ```
 
 It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
@@ -213,7 +213,7 @@ It may take a while to push all the images to your image registry, depending on 
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar"
     ```
 
 1.  Download the Kommander charts bundle:
@@ -232,7 +232,7 @@ It may take a while to push all the images to your image registry, depending on 
 
     ```bash
     dkp install kommander --installer-config ./install.yaml \
-    --kommander-applications-repository kommander-applications-v2.2.0.tar.gz \
+    --kommander-applications-repository kommander-applications-v2.2.0.tar \
     --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz \
     --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz
     ```

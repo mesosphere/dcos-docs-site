@@ -25,7 +25,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
   Download the Kommander application definitions:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-applications-v2.3.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-applications-v2.3.0.tar"
   ```
 
   Download the Kommander charts bundle:
@@ -37,7 +37,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
   If you have any DKP Catalog Applications, download the DKP Catalog Application charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.3.0/dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.3.0/dkp-catalog-applications-charts-bundle-v2.3.0.tar"
   ```
 ## Detach MetalLB from Kommander
 
@@ -103,13 +103,13 @@ Before running the following command, ensure that your `dkp` configuration **ref
     -   For air-gapped:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.3.0.tar.gz --kommander-applications-repository kommander-applications-v2.3.0.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.3.0.tar.gz --kommander-applications-repository kommander-applications-v2.3.0.tar
         ```
 
     -   For air-gapped **with** DKP Catalog Applications in a multi-cluster environment:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.3.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz --kommander-applications-repository kommander-applications-v2.3.0.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.3.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz --kommander-applications-repository kommander-applications-v2.3.0.tar
         ```
 
         After the upgrade, follow the [DKP Catalog Applications configuration page](../../../../kommander/2.3/install/configuration/enterprise-catalog#air-gapped-catalog-configuration) to update the Git repository.
