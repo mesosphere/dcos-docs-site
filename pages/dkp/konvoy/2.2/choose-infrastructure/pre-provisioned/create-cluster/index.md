@@ -171,7 +171,7 @@ Calico can leverage different network encapsulation methods to route traffic for
 
 IPIP is the default encapsulation method.
 
-To change the encapsulation run the command:
+To change the encapsulation, run the following command:
 
    ```bash
    kubectl edit installation default --kubeconfig ${CLUSTER_NAME}.conf
