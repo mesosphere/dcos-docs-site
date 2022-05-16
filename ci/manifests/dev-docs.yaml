@@ -23,34 +23,40 @@ spec:
         app: docs-site-dev
     spec:
       containers:
-      - env:
-        - name: NGINX_PORT
-          value: "80"
-        image: nginx:1.21.1
-        imagePullPolicy: IfNotPresent
-        name: docs-site
-        ports:
-        - containerPort: 80
-        volumeMounts:
-          - mountPath: /usr/share/nginx/html
-            name: docssite
-        resources:
-          limits:
-            cpu: 500m
-            memory: 512Mi
-          requests:
-            cpu: 250m
-            memory: 256Mi
+        - env:
+            - name: NGINX_PORT
+              value: "80"
+          image: nginx:1.21.1
+          imagePullPolicy: IfNotPresent
+          name: docs-site
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: docssite
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 250m
+              memory: 256Mi
       initContainers:
-      - name: get-site
-        image: amazon/aws-cli
-        command:
-          - "/bin/sh"
-          - "-c"
-          - "aws s3 cp --recursive s3://docs-d2iq-com-preview /cache"
-        volumeMounts:
-        - mountPath: /cache
-          name: docssite
+        - name: get-site
+          image: amazon/aws-cli
+          command:
+            - "/bin/sh"
+            - "-c"
+            - "aws s3 cp --recursive s3://docs-d2iq-com-preview /cache"
+        - name: configure-redirects
+          image: amazon/aws-cli
+          command:
+            - "/bin/sh"
+            - "-c"
+            - "aws s3api put-bucket-website --bucket s3://docs-d2iq-com-preview --website-configuration file:///src/.s3config.json"
+          volumeMounts:
+            - mountPath: /cache
+              name: docssite
       volumes:
         - name: docssite
           emptyDir: {}
@@ -64,10 +70,10 @@ metadata:
   namespace: docs-site
 spec:
   ports:
-  - name: web
-    port: 80
-    protocol: TCP
-    targetPort: 80
+    - name: web
+      port: 80
+      protocol: TCP
+      targetPort: 80
   selector:
     app: docs-site-dev
   type: ClusterIP
@@ -82,7 +88,7 @@ metadata:
   namespace: docs-site
 spec:
   dnsNames:
-  - dev-docs.d2iq.com
+    - dev-docs.d2iq.com
   issuerRef:
     kind: ClusterIssuer
     name: letsencrypt
@@ -102,14 +108,14 @@ metadata:
   namespace: docs-site
 spec:
   rules:
-  - host: dev-docs.d2iq.com
-    http:
-      paths:
-      - backend:
-          serviceName: docs-site-dev
-          servicePort: 80
-        pathType: ImplementationSpecific
+    - host: dev-docs.d2iq.com
+      http:
+        paths:
+          - backend:
+              serviceName: docs-site-dev
+              servicePort: 80
+            pathType: ImplementationSpecific
   tls:
-  - hosts:
-    - dev-docs.d2iq.com
-    secretName: dev-docs.d2iq.com-tls
+    - hosts:
+        - dev-docs.d2iq.com
+      secretName: dev-docs.d2iq.com-tls
