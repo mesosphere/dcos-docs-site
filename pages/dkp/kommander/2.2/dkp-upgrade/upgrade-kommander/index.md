@@ -40,9 +40,9 @@ This section describes how to upgrade your Kommander Management cluster and all 
   wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
   ```
 
--   For clusters that are installed with HTTP Proxy:
+-   For clusters upgrading from 2.1.1 with HTTP Proxy installed:
 
-    Edit the `gatekeeper-overrides` and add a new configuration property `disableMutation` with value `false`. The Gatekeeper configuration has changed between versions `v2.1.1` and `v2.2.0`:
+    Edit the `gatekeeper-overrides`, and add a new configuration property `disableMutation` with the value `false`. The Gatekeeper configuration has changed between versions `v2.1.1` and `v2.2.0`:
 
     ```yaml
       disableMutation: false # <-- this value is new in 2.2.0 and is missing in documentation
@@ -57,7 +57,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
           "gatekeeper.d2iq.com/mutate": "pod-proxy"
     ```
 
-    Configure the `kommander-flux` namespace and label it such that the Gatekeeper mutation is active on the namespace.
+    Configure the `kommander-flux` namespace and adjust the label so the Gatekeeper mutation is active on the namespace:
 
     ```bash
     kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy

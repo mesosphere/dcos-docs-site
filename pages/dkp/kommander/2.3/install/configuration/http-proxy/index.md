@@ -88,7 +88,7 @@ Kommander installs with the DKP CLI.
     ./dkp install kommander --installer-config ./install.yaml
     ```
 
-1. Configure the `kommander-flux` namespace and label it such that the Gatekeeper mutation is active on the namespace.
+1. Configure the `kommander-flux` namespace and adjust the label so the Gatekeeper mutation is active on the namespace:
 
     ```bash
     kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
