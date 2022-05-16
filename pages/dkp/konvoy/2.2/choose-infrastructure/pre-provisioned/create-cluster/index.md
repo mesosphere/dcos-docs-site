@@ -91,7 +91,7 @@ enterprise: false
 
 ### Modify the Calico installation
 
-### Setting interface
+### Set the interface
 
 Before exploring the new cluster, confirm your `calico` installation is correct.
 By default, Calico automatically detects the IP to use for each node using the `first-found` [method][calico-method]. This is not always appropriate for your particular nodes. In that case, you must modify Calico's configuration to use a different method.
