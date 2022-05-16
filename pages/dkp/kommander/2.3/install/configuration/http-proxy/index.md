@@ -61,8 +61,8 @@ Kommander installs with the DKP CLI.
     apps:
       gatekeeper:
         values: |
+          disableMutation: false
           mutations:
-            enable: true
             enablePodProxy: true
             podProxySettings:
               noProxy: "127.0.0.1,192.168.0.0/16,10.0.0.0/16,10.96.0.0/12,169.254.169.254,169.254.0.0/24,localhost,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,.svc.cluster.local.,kubecost-prometheus-server.kommander,logging-operator-logging-fluentd.kommander.svc,elb.amazonaws.com"
@@ -86,6 +86,12 @@ Kommander installs with the DKP CLI.
 
     ```bash
     ./dkp install kommander --installer-config ./install.yaml
+    ```
+
+1. Configure the `kommander-flux` namespace and label it such that the Gatekeeper mutation is active on the namespace.
+
+    ```bash
+    kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
     ```
 
 ## Configure Workspace (or Project) in which you want to use proxy
@@ -134,8 +140,8 @@ data:
   values.yaml: |
     ---
     # enable mutations
+    disableMutation: false
     mutations:
-      enable: true
       enablePodProxy: true
       podProxySettings:
         noProxy: "127.0.0.1,192.168.0.0/16,10.0.0.0/16,10.96.0.0/12,169.254.169.254,169.254.0.0/24,localhost,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local,.svc.cluster.local.,kubecost-prometheus-server.kommander,logging-operator-logging-fluentd.kommander.svc,elb.amazonaws.com"

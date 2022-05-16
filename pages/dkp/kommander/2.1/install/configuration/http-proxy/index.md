@@ -86,6 +86,12 @@ Kommander installs with a dedicated CLI.
     ./kommander install --installer-config ./install.yaml
     ```
 
+1. Configure the `kommander-flux` namespace and label it such that the Gatekeeper mutation is active on the namespace.
+
+    ```bash
+    kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
+    ```
+
 # Configure Workspace (or Project) in which you want to use proxy
 
 To have Gatekeeper mutate the manifests, create the `Workspace` (or `Project`) with the following label:
