@@ -89,7 +89,7 @@ enterprise: false
     dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
-### Modifying your Calico installation
+### Modify the Calico installation
 
 ### Setting interface
 
