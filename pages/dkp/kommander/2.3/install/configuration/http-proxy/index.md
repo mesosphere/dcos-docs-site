@@ -73,11 +73,14 @@ Kommander installs with the DKP CLI.
               "gatekeeper.d2iq.com/mutate": "pod-proxy"
     ```
 
-1.  You can create a `kommander` namespace, or the namespace where Kommander will be installed, and then label it such that the Gatekeeper mutation is active on the namespace.
+1.  You can create the `kommander` and `kommander-flux` namespaces, or the namespace where Kommander will be installed, and then label them such that the Gatekeeper mutation is active on the namespaces.
 
     ```bash
     kubectl create namespace kommander
     kubectl label namespace kommander gatekeeper.d2iq.com/mutate=pod-proxy
+
+    kubectl create namespace kommander-flux
+    kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
     ```
 
 1.  Install Kommander using the above configuration file:
@@ -86,12 +89,6 @@ Kommander installs with the DKP CLI.
 
     ```bash
     ./dkp install kommander --installer-config ./install.yaml
-    ```
-
-1. Configure the `kommander-flux` namespace and adjust the label so the Gatekeeper mutation is active on the namespace:
-
-    ```bash
-    kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
     ```
 
 ## Configure Workspace (or Project) in which you want to use proxy
