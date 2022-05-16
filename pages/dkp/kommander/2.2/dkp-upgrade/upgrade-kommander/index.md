@@ -42,10 +42,10 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 -   For clusters upgrading from 2.1.1 with HTTP Proxy installed:
 
-    Edit the `gatekeeper-overrides`, and add a new configuration property `disableMutation` with the value `false`. The Gatekeeper configuration has changed between versions `v2.1.1` and `v2.2.0`:
+    Edit the `gatekeeper-overrides`, and add a new configuration property, `disableMutation`, with the value `false`. This is required because the Gatekeeper configuration was changed between versions `v2.1.1` and `v2.2.0`:
 
     ```yaml
-      disableMutation: false # <-- this value is new in 2.2.0 and is missing in documentation
+      disableMutation: false # <-- this value is new in 2.2.0
       mutations:
         enablePodProxy: true
         podProxySettings:
