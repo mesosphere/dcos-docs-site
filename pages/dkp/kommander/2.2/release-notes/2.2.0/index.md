@@ -52,7 +52,7 @@ You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](
 
 You can now use your laptop or USB drive to transfer pre-created air-gapped bundles, including OS dependencies and DKP binaries into your air-gapped environment with no external connectivity. This improves the availability of the DKP air-gapped deployment and productivity of your IT operations team.
 
-For more information, see the [air-gapped bundle](../choose-infrastructure) documentation in the choose infrastructure topics.
+For more information, see the [air-gapped bundle](../../../../konvoy/2.2/choose-infrastructure) documentation in the choose infrastructure topics.
 
 ### Unified DKP user interfaces
 
@@ -75,7 +75,7 @@ This new predictive analytics tool provides greater support productivity, speed,
 
 ### Flag default changes
 
-For more information on using FIPS with Konvoy, see [FIPS 140-2 Compliance](../fips/)
+For more information on using FIPS with Konvoy, see [FIPS 140-2 Compliance](../../../../konvoy/2.2/fips/)
 The default value for flag `--with-aws-bootstrap-credentials` will be changing from `true` to `false` in version v2.3.0.
 
 ### Changes in behavior

@@ -75,7 +75,7 @@ This new predictive analytics tool provides greater support productivity, speed,
 
 ### Flag default changes
 
-For more information on using FIPS with Konvoy, see [FIPS 140-2 Compliance](../fips/)
+For more information on using FIPS with Konvoy, see [FIPS 140-2 Compliance](../../fips/)
 The default value for flag `--with-aws-bootstrap-credentials` will be changing from `true` to `false` in version v2.3.0.
 
 ### Changes in behavior
