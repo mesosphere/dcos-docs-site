@@ -160,7 +160,7 @@ Change the value for `spec.calicoNetwork.nodeAddressAutodetectionV4` to `interfa
 
 Save this file. You may need to delete the node feature discovery worker pod in the `node-feature-discovery` namespace if that pod has failed. After you delete it, Kubernetes replaces the pod as part of its normal reconciliation.
 
-### Changing encapsulation type
+### Change the encapsulation type
 
 Calico can leverage different network encapsulation methods to route traffic for your workloads. Encapsulation can be useful when running on top of an underlying network that cannot easily be made aware of workload IPs. Common examples of this include:
 
