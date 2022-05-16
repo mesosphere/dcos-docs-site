@@ -58,42 +58,6 @@ Before you begin, you must:
 	cert-manager                        cert-manager-webhook                            1/1     1            1           16m
     ```
 
-    Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
-
-    ```bash
-    kubectl get clusterresourceset
-    ```
-
-    ```sh
-	NAME                                    AGE
-	azure-disk-csi-long-running             13m
-	calico-cni-installation-long-running    13m
-	cluster-autoscaler-long-running         13m
-	node-feature-discovery-long-running     13m
-	nvidia-feature-discovery-long-running   13m
-    ```
-
-    A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.
-
-    For example, this is the `azure-disk-csi` ClusterResourceSet, which is now deployed by Konvoy from the above actions:
-
-    ```yaml
-    kind: ClusterResourceSet
-    metadata:
-      name: azure-disk-csi
-    spec:
-      clusterSelector:
-        matchLabels:
-          konvoy.d2iq.io/csi: azure-disk
-          konvoy.d2iq.io/provider: azure
-      resources:
-      - kind: ConfigMap
-        name: azure-disk-csi
-      strategy: ApplyOnce
-    ```
-
-    Konvoy defines the selectors and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_caep].
-
 ## (Optional) Create identity secret for Azure
 
 If your bootstrap cluster resides on a Virtual machine inside Azure, create an identity secret that uses the cappz-controller:
