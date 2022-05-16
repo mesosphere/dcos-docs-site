@@ -13,7 +13,7 @@ beta: false
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
 
-[Download](../../download/) and [install](../../install/) the latest version to get started.
+[Download](../../download/) and [install](../../getting-started/) the latest version to get started.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download Kommander. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.</p>
 
@@ -85,6 +85,10 @@ When upgrading to this release, the following services and service components ar
 
 ## Known issues
 
+
+## vSphere upgrade
+
+In 2.2, we integrated the CAPI vSphere provider with DKP so that customers woulbe be able to bootstrap their VM's for a DKP cluster.  This makes vSphere provisioning automated and efficient.  If you currently use this capability in 2.2, there will be various upgrade steps for 2.3.  Please see [vSphere upgrade via CLI](../../dkp-upgrade/) section for specific steps.
 
 ## Additional resources
 

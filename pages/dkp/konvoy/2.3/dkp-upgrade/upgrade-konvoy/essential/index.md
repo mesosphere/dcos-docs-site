@@ -22,7 +22,7 @@ menuWeight: 30
 
 -   For AWS, set the required [environment variables][envariables2].
 
-The following infrastructure environments are supported:
+The following infrastructure provider environments are supported:
 
 -   Amazon Web Services (AWS)
 
@@ -90,7 +90,7 @@ Your cluster comes preconfigured with a few different core addons that provide f
 
 <p class="message--warning"><strong>IMPORTANT:</strong>If you have more than one essential cluster, ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-Upgrade the core addons in a cluster using the 'dkp upgrade addons' command specifying the cluster infrastructure (choose [aws, azure, preprovisioned]) and the name of the cluster.
+Upgrade the core addons in a cluster using the 'dkp upgrade addons' command specifying the cluster infrastructure provider (choose [aws, azure, preprovisioned]) and the name of the cluster.
 
 Examples:
 

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Install
-title: Install
+navigationTitle: getting-started
+title: Getting started
 menuWeight: 30
 excerpt: Install a DKP cluster
 beta: false
@@ -24,7 +24,7 @@ By combining a native Kubernetes cluster as its foundation with a default set of
 DKP provides a complete out-of-the-box solution for organizations that want to deploy production-ready
 Kubernetes.
 
-As an example, this Installation guide provides simplified instructions to get your DKP cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) public cloud instance. For information about installing on a different platform, see [Choose Infrastructure](../choose-infrastructure/). 
+As an example, this Installation guide provides simplified instructions to get your DKP cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) public cloud instance. For information about installing on a different platform, see [ Infrastructure providers](../choose-infrastructure/). 
 
 # Before you begin
 
@@ -48,7 +48,7 @@ Before installing DKP, ensure you have the [following](../supported-operating-sy
 
 1.  Verify you have valid **cloud provider security credentials** to deploy the cluster on that platform. This step is not required if you are installing DKP on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../choose-infrastructure/on-prem).
 
-1.  Deploy with all of the default settings depending on which infrastructure you have. Go to the Choose Infrastructure section of the documentation for further steps on creating a cluster on your Cloud platform. [Choose Infrastructure](../choose-infrastructure/) 
+1.  Deploy with all of the default settings depending on which infrastructure you have. Go to the Choose Infrastructure section of the documentation for further steps on creating a cluster on your Cloud platform. [Infrastructure providers](../choose-infrastructure/) 
   
 1.  Lastly, you will want to [Install Kommander](/../../dkp/kommander/2.3/install/)   
 

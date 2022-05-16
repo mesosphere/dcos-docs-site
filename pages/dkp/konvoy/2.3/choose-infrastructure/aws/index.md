@@ -28,4 +28,4 @@ When using DKP on AWS, you need to be aware of the possibility of errors due to 
 
 ## Configuration types
 
-When installing Konvoy on AWS infrastructure, you can choose from multiple configuration types. The different types of AWS configuration types supported in Konvoy are listed below:
+When installing Konvoy on AWS, you can choose from multiple configuration types. The different types of AWS configuration types supported in Konvoy are listed below:
