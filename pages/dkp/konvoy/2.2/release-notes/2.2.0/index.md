@@ -8,7 +8,7 @@ enterprise: false
 beta: false
 ---
 
-**D2iQ&reg; Kommander&reg; (DKP&reg;) version 2.2 was released on April 8, 2022.**
+**D2iQ&reg; Konvoy&reg; (DKP&reg;) version 2.2 was released on April 8, 2022.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
@@ -70,6 +70,19 @@ This new predictive analytics tool provides greater support productivity, speed,
 - Monitoring resource usage
 - Checking security issues
 - Verifying workloads and clusters follow best practices
+
+## Deprecations
+
+### Flag default changes
+
+For more information on using FIPS with Konvoy, see [FIPS 140-2 Compliance](../../fips/)
+The default value for flag `--with-aws-bootstrap-credentials` will be changing from `true` to `false` in version v2.3.0.
+
+### Changes in behavior
+
+A "create first" update strategy first creates a new machine, then deletes the old one. While this strategy works when machine inventory can grow on demand, it does not work if there is a fixed number of machines. Most Preprovisioned clusters have a fixed number of machines. To enable updates for Preprovisioned clusters, DKP uses the "delete first" update strategy, which first deletes an old machine, then creates a new one.
+
+New clusters use the "delete first" strategy by default. Existing clusters are switched to the "delete first" strategy whenever those machines are updated with `update controlplane` and `update nodepool`.
 
 ## Component updates
 
@@ -339,12 +352,6 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     # only one instance of spark operator should be deployed per cluster
     kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -l app.kubernetes.io/name=$SPARK_OPERATOR_RELEASE_NAME -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')
     ```
-
-#### Default update strategy changed to "delete first" for Preprovisioned clusters
-
-A "create first" update strategy first creates a new machine, then deletes the old one. While this strategy works when machine inventory can grow on demand, it does not work if there is a fixed number of machines. Most Preprovisioned clusters have a fixed number of machines. To enable updates for Preprovisioned clusters, DKP uses the "delete first" update strategy, which first deletes an old machine, then creates a new one.
-
-New clusters use the "delete first" strategy by default. Existing clusters are switched to the "delete first" strategy whenever those machines are updated with `update controlplane` and `update nodepool`.
 
 ## Additional resources
 
