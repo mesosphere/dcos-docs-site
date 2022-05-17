@@ -1,5 +1,6 @@
 ad hoc
 (Addon|addon)
+Affero
 Airflow
 air gapped bundle
 air gapped environment

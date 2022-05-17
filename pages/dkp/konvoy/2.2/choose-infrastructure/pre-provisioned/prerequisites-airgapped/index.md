@@ -8,6 +8,8 @@ enterprise: false
 beta: false
 ---
 
+<p class="message--note"><strong>NOTE: </strong>Docker image downloads on this page include code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. For more information, refer to <a href="https://github.com/minio/minio">MinIO's source code</a>.</p>
+
 ## Download the bootstrap image
 
 1.  Download the bootstrap docker image on a machine that has access to this artifact:
@@ -16,7 +18,7 @@ beta: false
     curl -O https://downloads.d2iq.com/dkp/v2.2.0/konvoy-bootstrap_v2.2.0.tar
     ```
 
-1.  Load the bootstrap docker image on your bastion machine:
+1.  Load the bootstrap Docker image on your bastion machine:
 
     ```docker
     docker load -i konvoy-bootstrap_v2.2.0.tar
@@ -71,7 +73,7 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
     curl --output artifacts/images/"$VERSION"_images.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/kubernetes-images/"$VERSION"_images.tar.gz
     ```
 
-1.  Download the PIP packages. This bundle includes a few packages required by DKP to boostrap machines.
+1.  Download the PIP packages. This bundle includes a few packages required by DKP to bootstrap machines.
 
     ```bash
     curl --output artifacts/pip-packages.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz

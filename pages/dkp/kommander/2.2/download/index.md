@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD034 -->
+<p class="message--note"><strong>NOTE: </strong>This docker image includes code from the MinIO Project (“MinIO”), which is ©2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. For more information, see <a href="https://github.com/minio/minio">MinIO's source code</a>.</p>
 
 To download a new version of DKP, you have 2 options:
 
@@ -19,6 +19,14 @@ To download a new version of DKP, you have 2 options:
 <p class="message--note"><strong>NOTE: </strong>In DKP 2.2, the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the Download DKP button above.
 You must be a registered user and logged on to the support portal to download DKP. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.
 If you have problems downloading DKP, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.</p>
+
+## Download from the command line 
+
+You can download image bundle files by running the following CLI command:
+
+    ```bash
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-image-bundle-v2.2.0.tar.gz" -O kommander-image-bundle.tar.gz
+    ```
 
 ## Download from the AWS Marketplace
 
