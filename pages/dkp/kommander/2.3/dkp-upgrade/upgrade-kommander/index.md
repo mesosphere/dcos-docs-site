@@ -102,13 +102,13 @@ Before running the following command, ensure that your `dkp` configuration **ref
     -   For air-gapped:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.3.0.tar.gz --kommander-applications-repository kommander-applications-v2.3.0.tar
         ```
 
     -   For air-gapped **with** DKP Catalog Applications in a multi-cluster environment:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.3.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz --kommander-applications-repository kommander-applications-v2.3.0.tar
         ```
 
         After the upgrade, follow the [DKP Catalog Applications configuration page](../../install/configuration/enterprise-catalog#air-gapped-catalog-configuration) to update the Git repository.
