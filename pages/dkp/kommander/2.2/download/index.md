@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--note"><strong>NOTE: </strong>This docker image includes code from the MinIO Project (“MinIO”), which is ©2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. For more information, see <a href="https://github.com/minio/minio">MinIO's source code</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>This docker image includes code from the MinIO Project (“MinIO”), which is ©2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">here</a> and <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">here</a>.</p>
 
 To download a new version of DKP, you have 2 options:
 

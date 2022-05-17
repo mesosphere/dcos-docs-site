@@ -176,6 +176,8 @@ It may take a while to push all the images to your image registry, depending on 
 
 ## Install on Konvoy
 
+<p class="message--note"><strong>NOTE: </strong>These docker images include code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">here</a> and <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">here</a>.</p>
+
 1.  Create the [configuration file][kommander-config] by running `kommander install --init --airgapped > install.yaml` for the air-gapped deployment. Open the `install.yaml` file and review that it looks like the following:
 
     ```yaml

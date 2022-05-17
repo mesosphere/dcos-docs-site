@@ -40,6 +40,9 @@ This section describes how to upgrade your Kommander Management cluster and all 
   wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
   ```
 
+<p class="message--note"><strong>NOTE: </strong>These docker images include code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">here</a> and <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">here</a>.</p>
+
+
 -   For clusters upgrading from 2.1.1 with HTTP Proxy installed:
 
     Edit the `gatekeeper-overrides`, and add a new configuration property, `disableMutation`, with the value `false`. This is required because the Gatekeeper configuration was changed between versions `v2.1.1` and `v2.2.0`:
