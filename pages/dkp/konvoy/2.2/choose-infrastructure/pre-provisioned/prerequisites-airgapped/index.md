@@ -18,7 +18,7 @@ beta: false
     curl -O https://downloads.d2iq.com/dkp/v2.2.0/konvoy-bootstrap_v2.2.0.tar
     ```
 
-1.  Load the bootstrap docker image on your bastion machine:
+1.  Load the bootstrap Docker image on your bastion machine:
 
     ```docker
     docker load -i konvoy-bootstrap_v2.2.0.tar
