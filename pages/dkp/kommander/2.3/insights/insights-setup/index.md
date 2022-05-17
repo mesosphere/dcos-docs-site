@@ -47,11 +47,11 @@ To receive insight items on the Insights Dashboard, enable the DKP Insights Engi
 
 The DKP Insights Management component can be disabled using the instructions for [configuring a Kommander installation.](../../install/configuration/)
 
-1. Initialize a default configuration file
+1. Initialize a default configuration file:
     ```
     dkp install kommander --init > kommander.yaml
     ```
-1. Delete or comment out the line containing `dkp-insights-management:null`
+1. Delete or comment out the line containing `dkp-insights-management:null`:
     ```
     apiVersion: config.kommander.mesosphere.io/v1alpha1
     kind: Installation
@@ -61,7 +61,7 @@ The DKP Insights Management component can be disabled using the instructions for
       # Sections omitted...
     --
     ```
-1. Install Kommander using the updated configuration file.
+1. Install Kommander using the updated configuration file:
     ```
     dkp install kommander --installer-config kommander.yaml
     ```
