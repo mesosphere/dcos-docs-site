@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Choose Infrastructure
+navigationTitle: Infrastructure Provider
 title: Infrastructure provider
 menuWeight: 60
 excerpt: When configuring Konvoy, the first step is to determine your infrastructure
