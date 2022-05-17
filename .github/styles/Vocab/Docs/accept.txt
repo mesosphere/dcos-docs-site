@@ -120,7 +120,7 @@ Jira
 jq
 (kafka|Kafka)
 Kaniko
-Kaptain
+(Kaptain|kaptain)
 (Katib|katib)
 Keepalived
 Keras
