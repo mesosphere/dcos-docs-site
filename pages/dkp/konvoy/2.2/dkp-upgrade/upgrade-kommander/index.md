@@ -39,6 +39,30 @@ This section describes how to upgrade your Kommander Management cluster and all 
   ```bash
   wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
   ```
+
+  -   For clusters upgrading from 2.1.1 with HTTP Proxy installed:
+
+    Edit the `gatekeeper-overrides`, and add a new configuration property, `disableMutation`, with the value `false`. This is required because the Gatekeeper configuration was changed between versions `v2.1.1` and `v2.2.0`:
+
+    ```yaml
+      disableMutation: false # <-- this value is new in 2.2.0 
+      mutations:
+        enablePodProxy: true
+        podProxySettings:
+          noProxy: ...
+          httpProxy: ...
+          httpsProxy: ...
+        excludeNamespacesFromProxy: []
+        namespaceSelectorForProxy:
+          "gatekeeper.d2iq.com/mutate": "pod-proxy"
+    ```
+
+    Configure the `kommander-flux` namespace and adjust the label so the Gatekeeper mutation is active on the namespace:
+
+    ```bash
+    kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
+    ```
+
 ## Detach MetalLB from Kommander
 
   <p class="message--important"><strong>IMPORTANT:</strong> Beginning with DKP version 2.2, MetalLB is no longer managed as a platform application. If you installed  MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.</p>
