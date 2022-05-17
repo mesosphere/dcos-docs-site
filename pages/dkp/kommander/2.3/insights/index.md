@@ -25,7 +25,7 @@ DKP Insights consists of two components:
 - DKP Insights Management: Runs on the Kommander [Management](../clusters/management-cluster) cluster.
 - DKP Insights Engine: Runs on each [Attached or Managed](../clusters/) Kubernetes cluster.
 
-You must enable the DKP Insights Engine explicitly on each Attached cluster. You can find instructions in the section on [Insights Setup and Configuration](./insights-setup/).
+You must enable the DKP Insights Engine explicitly on each Attached cluster. The [Insights Setup and Configuration](./insights-setup/) section contains instructions on how to configure both components.
 
 DKP Insights Engine collects events and metrics on the Attached cluster, and uses rule-based heuristics on potential problems of varying criticality, so they can be quickly identified and resolved. These Insights are then forwarded and displayed in the DKP Insights Dashboard.
 
