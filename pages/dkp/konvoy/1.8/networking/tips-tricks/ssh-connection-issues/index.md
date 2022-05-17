@@ -10,4 +10,4 @@ enterprise: false
 
 <!-- markdownlint-disable MD018 -->
 
-#include /dkp/konvoy/1.6/include/ssh-connection-issues.tmpl
+#include /dkp/konvoy/1.8/include/ssh-connection-issues.tmpl
