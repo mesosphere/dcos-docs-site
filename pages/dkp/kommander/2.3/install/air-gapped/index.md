@@ -166,7 +166,7 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 1.  Download the image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-image-bundle-v2.2.0.tar" -O kommander-image-bundle.tar
+    wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-image-bundle-v2.3.0.tar" -O kommander-image-bundle.tar
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
@@ -204,20 +204,20 @@ It may take a while to push all the images to your image registry, depending on 
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar"
+    wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-applications-v2.3.0.tar"
     ```
 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar"
+    wget "https://downloads.d2iq.com/dkp/v2.3.0/dkp-kommander-charts-bundle-v2.3.0.tar"
     ```
 
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
     dkp install kommander --installer-config ./install.yaml \
-    --kommander-applications-repository kommander-applications-v2.2.0.tar \
+    --kommander-applications-repository kommander-applications-v2.3.0.tar \
     --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz
     ```
 
