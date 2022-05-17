@@ -24,7 +24,7 @@ Before starting the Konvoy installation, verify that you have:
 
 ## Setup your gcloud CLI
 
-1.  Install the CLI by following [GCP Install](https://cloud.google.com/sdk/docs/install). Select location for cluster using dkp create cluster gcp --location where the --location will default to us-west-1. ????????
+1.  Install the CLI by following [GCP Install](https://cloud.google.com/sdk/docs/install). Select location for cluster using dkp create cluster gcp --location where the --location will default to us-west-1. ???????? <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
 
 1.  Create a Service account
    
@@ -280,7 +280,7 @@ The following instructions come from [Kubernetes CAPI Quick Start](https://clust
     ```
 
 ## Delete the Kubernetes cluster and cleanup your environment
-????????????
+???????????? <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
 If you no longer need the cluster and want to delete it, you can do so using the DKP CLI.
 
 1.  Update the GCP bootstrap credentials:
