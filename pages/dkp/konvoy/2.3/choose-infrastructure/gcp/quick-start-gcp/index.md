@@ -314,3 +314,17 @@ If you no longer need the cluster and want to delete it, you can do so using the
 - deletes the bootstrap cluster
 
 To understand how this process works step by step, you can follow the workflow in [Delete Cluster](../advanced/delete).
+
+[install_docker]: https://docs.docker.com/get-docker/
+[install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
+[capa]: https://github.com/kubernetes-sigs/cluster-api-provider-aws
+[kind]: https://github.com/kubernetes-sigs/kind
+[capi_book]: https://cluster-api.sigs.k8s.io/
+[calico]: https://docs.projectcalico.org/
+[capi]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/
+[kcp]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/controlplane/kubeadm
+[cabpk]: https://github.com/kubernetes-sigs/cluster-api/tree/v0.3.20/bootstrap/kubeadm
+[clusterresourceset_caep]: https://github.com/kubernetes-sigs/cluster-api/blob/master/docs/proposals/20200220-cluster-resource-set.md
+[prerequisites]: ../prerequisites
