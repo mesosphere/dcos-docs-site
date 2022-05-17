@@ -25,7 +25,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
   Download the Kommander application definitions:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar"
+  wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-applications-v2.3.0.tar"
   ```
 
   Download the Kommander charts bundle:
