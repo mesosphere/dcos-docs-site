@@ -11,7 +11,7 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>A self-managed workload cluster cannot delete itself. If your workload cluster is self-managed, you must create a bootstrap cluster and move the cluster lifecycle services to the bootstrap cluster before deleting the workload cluster.</p>
 
-If you did not make your workload cluster self-managed, as described in [Make New Cluster Self-Managed][makeselfmanaged], see [Delete the workload cluster](#delete-the-workload-cluster).
+If you did not make your workload cluster self-managed, as described in [Make New Cluster Self-Managed](../advanced/self-managed), see [Delete the workload cluster](#delete-the-workload-cluster).
 
 1.  Create a bootstrap cluster:
 
@@ -78,3 +78,51 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```sh
     cluster.cluster.x-k8s.io/gcp-example condition met
     ```
+## Delete the workload cluster
+<!NEED CONFIRMATION OF STEPS PRE-RELEASE>!
+
+1.  Make sure your GCP credentials are up to date. Refresh the credentials using this command:
+
+    ```bash
+    dkp update bootstrap credentials gcp --kubeconfig $HOME/.kube/config
+    ```
+
+1.  Delete the Kubernetes cluster and wait a few minutes:
+
+    Before deleting the cluster, dkp deletes all Services of type LoadBalancer on the cluster.
+    To skip this step, use the flag `--delete-kubernetes-resources=false`.
+
+    ```bash
+    dkp delete cluster --cluster-name=${CLUSTER_NAME} --kubeconfig $HOME/.kube/config
+    ```
+
+    ```sh
+	✓ Deleting Services with type LoadBalancer for Cluster default/gcp-example
+	✓ Deleting ClusterResourceSets for Cluster default/azure-example
+	✓ Deleting cluster resources
+	✓ Waiting for cluster to be fully deleted
+	Deleted default/gcp-example cluster
+    ```
+
+    After the workload cluster is deleted, delete the bootstrap cluster.
+
+## Delete the bootstrap cluster
+
+```bash
+dkp delete bootstrap --kubeconfig $HOME/.kube/config
+```
+
+```sh
+✓ Deleting bootstrap cluster
+```
+
+[pivot]: https://cluster-api.sigs.k8s.io/reference/glossary.html?highlight=pivot#pivot
+
+## Known Limitations
+
+<p class="message--note"><strong>NOTE: </strong>Be aware of these limitations in the current release of Konvoy.</p>
+
+- The Konvoy version used to create the workload cluster must match the Konvoy version used to delete the workload cluster.
+
+
+[makeselfmanaged]: ../self-managed
