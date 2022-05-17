@@ -12,8 +12,7 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which then
 Before starting, ensure you create a workload cluster as described in [Create a New Cluster][createnewcluster].
 
 ## Make the new Kubernetes cluster manage itself
-
-## Make the cluster self managed
+<!NEED CONFIRMATION OF STEPS PRE-RELEASE>
 
 1.  Initialize the CAPG controller (intentionally setting `GCP_B64ENCODED_CREDENTIALS` to be empty to use the ServiceAccount on the instance):
 
@@ -27,7 +26,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     kubectl patch deployment -n capg-system capg-controller-manager --patch '{"spec":{"template":{"spec":{"$setElementOrder/containers":[{"name":"manager"}],"containers":[{"$setElementOrder/env":[{"name":"NODE_NAME"},{"name":"POD_NAME"},{"name":"POD_NAMESPACE"}],"env":[{"$patch":"delete","name":"GOOGLE_APPLICATION_CREDENTIALS"}],"name":"manager"}]}}}}'
     ```
 
-????Instructions for other providers self-manage??????  USE ABOVE? OR USE BELOW?
+<!NEED CONFIRMATION OF STEPS PRE-RELEASE THESE ARE Instructions for other providers self-manage??????  USE ABOVE? OR USE BELOW?>
 1.  Deploy cluster lifecycle services on the workload cluster:
 
     ```bash
