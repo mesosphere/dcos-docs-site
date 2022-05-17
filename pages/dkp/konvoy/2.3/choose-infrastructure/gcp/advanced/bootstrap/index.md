@@ -34,7 +34,7 @@ Before you begin, you must:
     Konvoy creates a bootstrap cluster using [KIND][kind] as a library. Konvoy then deploys the following [Cluster API][capi_book] providers on the cluster:
 
     - [Core Provider][capi]
-    - [AWS Infrastructure Provider][capa]
+    - [GCP Infrastructure Provider][capa]
     - [Kubeadm Bootstrap Provider][cabpk]
     - [Kubeadm ControlPlane Provider][kcp]
 
