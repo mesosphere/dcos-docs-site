@@ -1,18 +1,18 @@
 ---
 layout: layout.pug
 navigationTitle: Getting Started
-title: getting-started
+title: Getting Started
 menuWeight: 30
 excerpt: Install a DKP cluster
 beta: false
 enterprise: false
 ---
 
-When installing DKP for a project, line-of-business, or enterprise, the first step is to determine the infrastructure on which you want to deploy.
+When installing DKP for a project, line-of-business, or enterprise, the first step is to determine the infrastructure provider on which you want to deploy.
 
 For example, you can:
 
-- Install on a public cloud infrastructure, such as Amazon Web Services (AWS) or Azure.
+- Install on a public cloud infrastructure provider, such as Amazon Web Services (AWS) or Azure.
 - Install on an internal network on-premises with a physical (bare metal) or virtual infrastructure.
 - Install on air-gapped Edge.
 
@@ -48,7 +48,7 @@ Before installing DKP, ensure you have the [following](../supported-operating-sy
 
 1.  Verify you have valid **cloud provider security credentials** to deploy the cluster on that platform. This step is not required if you are installing DKP on an on-premises environment. For information about installing in an on-premises environment, see [Install on-premises](../choose-infrastructure/on-prem).
 
-1.  Deploy with all of the default settings depending on which infrastructure you have. Go to the Choose Infrastructure section of the documentation for further steps on creating a cluster on your Cloud platform. [Infrastructure providers](../choose-infrastructure/) 
+1.  Deploy with all of the default settings depending on which infrastructure you have. Go to the Infrastructure Provider section of the documentation for further steps on creating a cluster on your Cloud platform. [Infrastructure providers](../choose-infrastructure/) 
   
 1.  Lastly, you will want to [Install Kommander](/../../dkp/kommander/2.3/install/)   
 
