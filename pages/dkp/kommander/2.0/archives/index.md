@@ -10,23 +10,7 @@ render: mustache
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 ## Access archived versions of Kommander documentation
 
-In accordance with our [version policy][policy], we regularly archive older, unsupported versions of our Kommander documentation. At this time, this includes documentation for Kommander 1.1 and below. You can still access older versions of Kommander documentation on our [public GitHub repo][repo], or by locally running a Docker image (experimental):
-
-On your local machine, run:
-
-```docker
-docker run -p 5000:5000 -it mesosphere/archived_docs
-```
-
-After running this command, you will see:
-
-```sh
-   │   Serving!                                     │
-   │                                                │
-   │   - Local:            http://0.0.0.0:5000      │
-```
-
-where you can access the documentation for archived versions of Konvoy.
+In accordance with our [version policy][policy], we regularly archive older, unsupported versions of our Kommander documentation. At this time, this includes documentation for Kommander 1.3 and below. You can still access older versions of Kommander documentation on our [public GitHub repo][repo].
 
 [policy](/dkp/kommander/2.0/version-policy/)
 [repo](https://github.com/mesosphere/dcos-docs-site/tree/archive/pages/dkp/kommander)
