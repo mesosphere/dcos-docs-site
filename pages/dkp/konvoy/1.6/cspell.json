@@ -1,0 +1,13 @@
+{
+    "version": "0.1",
+    "language": "en",
+    "dictionaries": [
+        "d2iq"
+    ],
+    "dictionaryDefinitions": [
+        {
+            "name": "d2iq",
+            "path": "./d2iq-words.txt"
+        }
+    ]
+}

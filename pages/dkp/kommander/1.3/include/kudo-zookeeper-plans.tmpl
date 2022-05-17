@@ -1,0 +1,17 @@
+Here is a status summary of all plans after installation in the KUDO Zookeeper Operator
+```
+$ kubectl kudo plan status --instance zookeeper -n test-project-zc6tc
+Plan(s) for "zookeeper" in namespace "test-project-zc6tc":
+.
+└── zookeeper (Operator-Version: "zookeeper-3.4.14-0.3.0" Active-Plan: "deploy")
+    ├── Plan deploy (serial strategy) [COMPLETE], last updated 2021-04-09 13:33:17
+    │   ├── Phase zookeeper (parallel strategy) [COMPLETE]
+    │   │   └── Step deploy [COMPLETE]
+    │   └── Phase validation (serial strategy) [COMPLETE]
+    │       ├── Step validation [COMPLETE]
+    │       └── Step cleanup [COMPLETE]
+    └── Plan validation (serial strategy) [NOT ACTIVE]
+        └── Phase connection (serial strategy) [NOT ACTIVE]
+            ├── Step connection [NOT ACTIVE]
+            └── Step cleanup [NOT ACTIVE]
+```

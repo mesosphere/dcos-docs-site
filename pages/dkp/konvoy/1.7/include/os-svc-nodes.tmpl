@@ -1,0 +1,11 @@
+For all hosts that are part of the cluster, except the **deploy host**, verify the following:
+
+- A [supported operating system](../../install/supported-operating-systems) is installed.
+- Firewalld is disabled.
+- Containerd is uninstalled.
+- Docker-ce is uninstalled.
+- Swap is disabled.
+- The hostnames for all the machines in the Kubernetes cluster are unique within a single cluster.
+- If you are using the XFS file system for the volume that mounts the `/var/lib/containerd/` directory, it must be formatted with the `ftype=1` option.
+
+<p class="message--note"><strong>NOTE: </strong> This is the default in most OS distributions. You can use the <code>xfs_info</code> utility to verify that <code>ftype=1</code> has been used.</p>
