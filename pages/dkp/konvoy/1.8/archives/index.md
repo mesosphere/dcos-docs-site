@@ -11,7 +11,7 @@ render: mustache
 
 ## Access archived versions of Konvoy documentation
 
-In accordance with our [version policy][policy], we regularly archive older, unsupported versions of our Konvoy documentation. At this time, this includes documentation for Konvoy 1.7 and below. You can still access older versions of Konvoy documentation on our [public GitHub repo][repo].
+In accordance with our [version policy][policy], we regularly archive older, unsupported versions of our Konvoy documentation. This includes documentation for Konvoy 1.7 and below. You can still access older versions of Konvoy documentation on our [public GitHub repo][repo].
 
 
 [policy]: ../version-policy/
