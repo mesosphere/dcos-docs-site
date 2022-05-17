@@ -73,7 +73,7 @@ Kommander installs with the DKP CLI.
               "gatekeeper.d2iq.com/mutate": "pod-proxy"
     ```
 
-1.  You can create the `kommander` and `kommander-flux` namespaces, or the namespace where Kommander will be installed, and then label them such that the Gatekeeper mutation is active on the namespaces.
+1.  You can create the `kommander` and `kommander-flux` namespaces, or the namespace where Kommander will be installed, and then label them so the Gatekeeper mutation is active on the namespaces.
 
     ```bash
     kubectl create namespace kommander
