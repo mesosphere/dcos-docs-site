@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: getting-started
-title: Getting started
+navigationTitle: Getting Started
+title: getting-started
 menuWeight: 30
 excerpt: Install a DKP cluster
 beta: false
