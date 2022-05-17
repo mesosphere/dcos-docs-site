@@ -41,3 +41,27 @@ To receive insight items on the Insights Dashboard, enable the DKP Insights Engi
 1.  Enable the DKP Insights Engine on each Attached cluster from the DKP UI by selecting: **Applications** from within the relevant workspace, then select **Enable** from the vertical 3-dot menu in the bottom right of the Insights application tile.
 
    **Note**: The option for *Enable Another Instance* is not suggested as it is not supported in this technical preview release.
+
+## Disable DKP Insights Management
+
+
+The DKP Insights Management component can be disabled using the instructions for [configuring a Kommander installation.](../../install/configuration/)
+
+1. Initialize a default configuration file
+    ```
+    dkp install kommander --init > kommander.yaml
+    ```
+1. Delete or comment out the line containing `dkp-insights-management:null`
+    ```
+    apiVersion: config.kommander.mesosphere.io/v1alpha1
+    kind: Installation
+    apps:
+      # Sections omitted...
+      dkp-insights-management: null # Delete or comment out this line.
+      # Sections omitted...
+    --
+    ```
+1. Install Kommander using the updated configuration file.
+    ```
+    dkp install kommander --installer-config kommander.yaml
+    ```
