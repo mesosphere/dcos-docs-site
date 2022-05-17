@@ -34,6 +34,7 @@ Before installing, ensure you have:
 -   [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
 
 -   Sufficient resources on your cluster to run Kommander. Review the [Management cluster application requirements](../mgmt-cluster-apps) and [Workspace platform application requirements](../../workspaces/applications/platform-applications/platform-application-requirements) for application requirements.
+-   The image bundle files [downloaded](../../download/). 
 
 ### Kommander charts bundle
 
@@ -163,15 +164,7 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 
 ### Load the Docker images into your Docker registry
 
-<p class="message--note"><strong>NOTE: </strong>These docker images include code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. For more information, refer to <a href="https://github.com/minio/minio">MinIO's source code</a>.</p>
-
-1.  Download the image bundle file:
-
-    ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-image-bundle-v2.2.0.tar.gz" -O kommander-image-bundle.tar.gz
-    ```
-
-1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
+1.  Place the bundle you [downloaded](../../download/) in a location where you can load and push the images to your private Docker registry.
 
 1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
