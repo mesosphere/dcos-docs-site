@@ -96,8 +96,8 @@ Your `cluster.yaml` file should look similar to the following for Kommander Addo
 
  If you wish to disable the Docker registry certificate verification, set `docker-registry-insecure-skip-tls-verify` to `true` in the `utilityApiserver`'s `extraArgs`. We encourage you to keep the certificate verification enabled to validate all TLS connections to the registry.
 
-[air-gap-before-you-begin]: /dkp/konvoy/1.6/install/install-airgapped/#before-you-begin
-[air-gap-control-plane]: /dkp/konvoy/1.6/install/install-airgapped/#control-plane-nodes
-[air-gap-config-image-reg]: /dkp/konvoy/1.6/install/install-airgapped/#configure-the-image-registry
-[air-gap-os-system]: /dkp/konvoy/1.6/install/install-airgapped/#operating-system-and-services-for-all-nodes
-[air-gap-worker-nodes]: /dkp/konvoy/1.6/install/install-airgapped/#worker-nodes
+[air-gap-before-you-begin]: /dkp/konvoy/1.8/install/install-airgapped/#before-you-begin
+[air-gap-control-plane]: /dkp/konvoy/1.8/install/install-airgapped/#control-plane-nodes
+[air-gap-config-image-reg]: /dkp/konvoy/1.8/install/install-airgapped/#configure-the-image-registry
+[air-gap-os-system]: /dkp/konvoy/1.8/install/install-airgapped/#operating-system-and-services-for-all-nodes
+[air-gap-worker-nodes]: /dkp/konvoy/1.8/install/install-airgapped/#worker-nodes

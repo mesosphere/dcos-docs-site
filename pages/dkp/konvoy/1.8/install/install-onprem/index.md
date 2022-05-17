@@ -52,7 +52,7 @@ Before installing, verify that your environment meets the following basic requir
 
 Make sure the following domains are accessible from the control plane nodes and worker nodes.
 
-#include /dkp/konvoy/1.6/include/required-domains.tmpl
+#include /dkp/konvoy/1.8/include/required-domains.tmpl
 
 For the deploy host, make sure domain `registry.hub.docker.com`, `mesosphere.github.io`, and `github.com` are accessible.
 
