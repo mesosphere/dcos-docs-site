@@ -57,44 +57,6 @@ Before you begin, you must:
 	cert-manager                        cert-manager-webhook                            1/1     1            1           40s
     ```
 
-    Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
-
-    ```bash
-    kubectl get clusterresourceset
-    ```
-
-    ```sh
-	NAME                                    AGE
-	azure-disk-csi-long-running             13m
-	calico-cni-installation-long-running    13m
-	cluster-autoscaler-long-running         13m
-	node-feature-discovery-long-running     13m
-	nvidia-feature-discovery-long-running   13m
-    ```
-
-    A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.
-
-    For example, this is the `node-feature-discovery` ClusterResourceSet, which is now deployed by Konvoy from the above actions:
-
-    ```yaml
-    apiVersion: addons.cluster.x-k8s.io/v1alpha4
-    kind: ClusterResourceSet
-    metadata:
-       name: node-feature-discovery
-    spec:
-      clusterSelector:
-          matchExpressions:
-          - key: konvoy.d2iq.io/provider
-             operator: Exists
-      resources:
-      - kind: ConfigMap
-         name: node-feature-discovery
-      strategy: ApplyOnce
-
-    ```
-
-    Konvoy defines the selectors and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_caep].
-
 When complete, you can [create the new cluster][aa-new].
 
 [aa-new]: ../aa-new
