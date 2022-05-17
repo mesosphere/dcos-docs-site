@@ -49,8 +49,11 @@ Follow these steps to install the DKP catalog from the CLI.
 
 ## Workspace DKP catalog applications
 
-| NAME                          | APP ID                |
-| ----------------------------- | --------------------- |
-| kafka-operator-0.20.0         | kafka-operator        |
-| spark-operator-1.1.6          | spark-operator        |
-| zookeeper-operator-0.2.13     | zookeeper-operator    |
+| Name                      | App ID             | Supported Kubernetes version |
+|---------------------------|--------------------|------------------------------|
+| kafka-operator-0.20.0     | kafka-operator     | 1.21                         |
+| kafka operator-0.20.2     | kafka-operator     | 1.21 - 1.23                  |
+| spark-operator-1.1.6      | spark-operator     | 1.21                         |
+| spark operator-1.1.17     | spark-operator     | 1.21 - 1.23                  |
+| zookeeper-operator-0.2.13 | zookeeper-operator | 1.21 - 1.23                  |
+| kaptain-2.1.0             | kaptain            | 1.21 - 1.23                  |
