@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-The amount of resources required for your project **depends on the workload** you want to run, you need to consider:
+The quantity of resources required for your project depends primarily on the workload you want to run. The amount necessary will depend upon: 
 
 - The number, complexity, and size of your training jobs, notebook servers, deployed models, etc.
 - The amount of metadata and log data stored with each run.
@@ -17,7 +17,7 @@ To estimate the amount of resources required for your project, we recommend that
 
 For example, the following table lists the resources required for two typical operations: [installing Kaptain][install], and running a complete machine learning workflow using Tensorflow. This workflow corresponds to the [Kaptain SDK with Tensorflow tutorial][tensorflow], and includes the training, tuning, and deploying stages of a machine learning model that recognizes handwritten digits.
 
-The resources in the table are required exclusively for each specified task, and assume you have previously allocated other resources to install and run DKP. Running any real world machine learning workload on Kaptain bumps these requirements. For this reason, the number of CPUs, GPUs, RAM, and persistent disk space **must be increased considerably**.
+The resources in the table are required exclusively for each specified task, and assume you have previously allocated other resources to install and run DKP. These are minimums; 'real-world' machine learning workloads will require **substantially more** of all the resource types.
 
 Consider the following use cases as reference values:
 
