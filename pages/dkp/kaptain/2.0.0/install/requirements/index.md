@@ -24,9 +24,9 @@ Consider the following use cases as reference values:
 | Cluster resource       | Kaptain installation | Kaptain SDK with Tensorflow tutorial |
 |------------------------|----------------------|--------------------------------------|
 | Number of worker nodes | at least 3           | at least 3                           |
-| CPU per node           | 8 cores              | 24 cores                             |
-| RAM per node           | 16 GiB               | 86 GiB                               |
-| Storage per node       | 60 GiB               | 61 GiB                               |
+| CPU per node           | 8 cores              | 16 cores                             |
+| RAM per node           | 16 GiB               | 64 GiB                               |
+| Storage per node       | 60 GiB               | 60 GiB                               |
 
 <p class="message--note"><strong>NOTE: </strong>Only NVIDIA GPU instances are supported.</p>
 
