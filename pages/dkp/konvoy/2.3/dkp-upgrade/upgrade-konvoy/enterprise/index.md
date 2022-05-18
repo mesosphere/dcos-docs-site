@@ -199,4 +199,4 @@ For the overall process for upgrading to the latest version of DKP, refer back t
 [envariables]: ../../../choose-infrastructure/azure/quick-start-azure#configure-azure-prerequisites
 [backup]: ../../../../../kommander/2.3/backup-and-restore#back-up-on-demand
 [envariables2]: ../../../choose-infrastructure/aws/quick-start-aws#configure-aws-prerequisites
-[envariables3]: ../../../choose-infrastructure/vsphere/create-capi-vm-image/
+[envariables3]: ../../../choose-infrastructure/vsphere/new#create-a-new-vsphere-kubernetes-cluster
