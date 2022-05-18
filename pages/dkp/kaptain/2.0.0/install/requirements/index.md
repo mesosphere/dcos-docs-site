@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Requirements
 title: Requirements
-menuWeight: 3
+menuWeight: 2
 excerpt: Requirement reference values
 beta: false
 enterprise: false
