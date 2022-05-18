@@ -15,7 +15,7 @@ The amount of resources required for your project **depends on the workload** yo
 
 To estimate the amount of resources required for your project, we recommend that you test your specific use case.
 
-To help you in this task, the following table provides an account of the resources required for two common operations: [installing Kaptain][install], and running a complete machine learning workflow using Tensorflow. This workflow corresponds to the [Kaptain SDK with Tensorflow tutorial][tensorflow], and includes the training, tuning, and deploying stages of a machine learning model used to recognize handwritten digits.
+For example, the following table lists the resources required for two typical operations: [installing Kaptain][install], and running a complete machine learning workflow using Tensorflow. This workflow corresponds to the [Kaptain SDK with Tensorflow tutorial][tensorflow], and includes the training, tuning, and deploying stages of a machine learning model that recognizes handwritten digits.
 
 The resources in the table are required exclusively for each specified task, and assume you have previously allocated other resources to install and run DKP. Running any real world machine learning workload on Kaptain bumps these requirements. For this reason, the number of CPUs, GPUs, RAM, and persistent disk space **must be increased considerably**.
 
