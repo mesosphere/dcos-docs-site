@@ -13,9 +13,9 @@ The amount of resources required for your project **depends on the workload** yo
 - The number, complexity, and size of your training jobs, notebook servers, deployed models, etc.
 - The amount of metadata and log data stored with each run.
 
-To estimate the amount of resources required for your project, it is recommended that you test your specific use case.
+To estimate the amount of resources required for your project, we recommend that you test your specific use case.
 
-To help you in this task, the following table provides an account of the resources required for two common operations: [installing Kaptain][install], and running a complete machine learning workflow using Tensorflow. This workflow corresponds to the [Kaptain SDK with Tensorflow tutorial][tensorflow], and includes the training, tuning, and deploying stages of a machine learning model used to recognize handwritten digits.
+For example, the following table lists the resources required for two typical operations: [installing Kaptain][install], and running a complete machine learning workflow using Tensorflow. This workflow corresponds to the [Kaptain SDK with Tensorflow tutorial][tensorflow], and includes the training, tuning, and deploying stages of a machine learning model that recognizes handwritten digits.
 
 The resources in the table are required exclusively for each specified task, and assume you have previously allocated other resources to install and run DKP. Running any real world machine learning workload on Kaptain bumps these requirements. For this reason, the number of CPUs, GPUs, RAM, and persistent disk space **must be increased considerably**.
 
@@ -30,11 +30,11 @@ Consider the following use cases as reference values:
 
 <p class="message--note"><strong>NOTE: </strong>Only NVIDIA GPU instances are supported.</p>
 
-The [Kaptain installation][install] example illustrates the resources required to install Kaptain and its dependencies without running any type of workload. In other words, the **bare minimum** resources. These resources must be **freely available** within the cluster for the installation to succeed.
+The [Kaptain installation][install] column lists the resources required to install Kaptain and its dependencies without running any type of workload. In other words, the **bare minimum** resources. These resources must be **freely available** within the cluster for the installation to succeed.
 
-The [Kaptain SDK with Tensorflow tutorial][tensorflow] example illustrates the resources required to install Kaptain and run the Kaptain SDK with Tensorflow tutorial. Again, these resources must be **freely available** within the cluster, and should not be allocated to any other applications.
+The [Kaptain SDK with Tensorflow tutorial][tensorflow] column lists the resources required to install Kaptain and run the Kaptain SDK with Tensorflow tutorial. Again, these resources must be **freely available** within the cluster, and should not be allocated to any other applications.
 
-For **on premise** installations, horizontal scalability is limited by the overall size of the cluster and its quotas.
+For **on premises** installations, horizontal scalability is limited by the overall size of the cluster and its quotas.
 
 For **cloud** installations, scaling out can be limited by resource quotas.
 
