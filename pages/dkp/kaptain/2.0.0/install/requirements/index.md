@@ -30,7 +30,7 @@ Consider the following use cases as reference values:
 
 <p class="message--note"><strong>NOTE: </strong>Only NVIDIA GPU instances are supported.</p>
 
-The [Kaptain installation][install] example illustrates the resources required to install Kaptain and its dependencies without running any type of workload. In other words, the **bare minimum** resources. These resources must be **freely available** within the cluster for the installation to succeed.
+The [Kaptain installation][install] column lists the resources required to install Kaptain and its dependencies without running any workload. In other words, the **bare minimum** amount of resources. These resources must be **freely available** within the cluster for the installation to succeed.
 
 The [Kaptain SDK with Tensorflow tutorial][tensorflow] example illustrates the resources required to install Kaptain and run the Kaptain SDK with Tensorflow tutorial. Again, these resources must be **freely available** within the cluster, and should not be allocated to any other applications.
 
