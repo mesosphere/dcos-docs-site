@@ -50,7 +50,7 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
       --data-store <DATASTORE_NAME> \
       --folder <FOLDER_NAME> \
       --server <VCENTER_API_SERVER_UTR \
-      --ssh-public-key-file "<SSH_PUBLIC_KEY_FILE>" \
+      --ssh-public-key-file <SSH_PUBLIC_KEY_FILE> \
       --resource-pool <RESOURE_POOL_NAME> \
       --vm-template <TEMPLATE_NAME>
     ```
