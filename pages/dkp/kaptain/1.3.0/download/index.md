@@ -15,6 +15,8 @@ If you already have a license, downloads are available in the [Support Portal][s
 
 Follow the instructions on AWS console to download the container image.
 
+<p class="message--note"><strong>NOTE: </strong>This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z">here</a> and <a href="https://github.com/minio/minio/tree/RELEASE.2021-07-30T00-02-00Z">here</a>.</p>
+
 After downloading the image, run the following command to copy the binaries onto your host.
 
 ```bash
