@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-The quantity of resources required for your project depends primarily on the workload you want to run. The amount necessary will depend upon: 
+The quantity of resources required for your project depends primarily on the workload you want to run. The amount necessary will depend upon:
 
 - The number, complexity, and size of your training jobs, notebook servers, deployed models, etc.
 - The amount of metadata and log data stored with each run.
