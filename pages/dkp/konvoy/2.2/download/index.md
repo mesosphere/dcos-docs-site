@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--note"><strong>NOTE: </strong>This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">here</a> and <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">here</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. The complete source code for MinIO is available for the <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">2021 release</a> and the <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">2022 release</a>.</p>
 
 To download a new version of DKP, you have 2 options:
 
@@ -20,7 +20,7 @@ To download a new version of DKP, you have 2 options:
 You must be a registered user and logged on to the support portal to download DKP. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.
 If you have problems downloading DKP, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.</p>
 
-## Download from the command line 
+## Download from the command line
 
 You can download image bundle files by running the following CLI command:
 
