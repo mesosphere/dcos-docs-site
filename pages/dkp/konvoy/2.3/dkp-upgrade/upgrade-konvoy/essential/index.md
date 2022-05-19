@@ -24,7 +24,7 @@ menuWeight: 30
 
 -   For vSphere, set the required [environment variables][envariables3].
 
-The following infrastructure environments are supported:
+The following infrastructure provider environments are supported:
 
 -   Amazon Web Services (AWS)
 

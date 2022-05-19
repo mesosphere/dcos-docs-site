@@ -31,9 +31,9 @@ The following infrastructure environments are supported:
 
 * Pre-provisioned environments
 
--   vSphere
+* vSphere
 
--   Google Cloud Platform
+* Google Cloud Platform
 
 ## Overview
 
