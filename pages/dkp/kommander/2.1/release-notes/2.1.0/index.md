@@ -212,10 +212,10 @@ The workaround applies to any environment (networked, air-gapped, on-prem, etc.)
 
 To **prevent your applications from breaking**, or to **get the nodes up and running again**, and fix this issue permanently, run this command:
 
-<p class="message--important"><strong>IMPORTANT: </strong>If you have changed the default location of your <code>kubeconfig</> file, replace <code>~/.kube/config</code> with the absolute path of your file's location. For example, use <code>/home/example/my-kubeconfig.yaml<code> instead of <code>my-kubeconfig.yaml</code>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Before running this command, you must replace <code><path/to/my_kubeconfig></code> with an absolute path of the location that contains the kubeconfig for the cluster you wish to update.   It will not work properly with a relative file path.  For example, use <code>/home/example/my-kubeconfig.yaml<code>, or <code>`pwd`/my-kubeconfig.yaml</p>
 
 ```bash
-docker run -v ~/.kube/config:/kubeconfig -e KUBECONFIG=/kubeconfig mesosphere/rotate-certificate-hotfix:2.1.1
+docker run -v <path/to/my_kubeconfig>:/kubeconfig -e KUBECONFIG=/kubeconfig mesosphere/rotate-certificate-hotfix:2.1.1
 ```
 
 ### Additional resources
