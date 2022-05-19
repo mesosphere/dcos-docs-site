@@ -13,7 +13,7 @@ beta: false
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
 
-[Download](../../download/) and [install](../../install/) the latest version to get started.
+[Download](../../download/) and [Install](../../getting-started/) the latest version to get started.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download Kommander. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.</p>
 
@@ -82,6 +82,10 @@ When upgrading to this release, the following services and service components ar
 | Traefik | traefik | 10.9.1 | - chart: 10.9.1<br>- traefik: 2.5.6 |
 | Traefik ForwardAuth | traefik-forward-auth | 0.3.6 | - chart: 0.3.6<br>- traefik-forward-auth: 3.1.0 |
 | Velero | velero | 3.2.0 | - chart: 3.2.0<br>- velero: 1.5.2 |
+
+## vSphere upgrade
+
+In 2.2, we integrated the CAPI vSphere provider with DKP so that customers woulbe be able to bootstrap their VM's for a DKP cluster.  This makes vSphere provisioning automated and efficient.  If you currently use this capability in 2.2, there will be various upgrade steps for 2.3.  Please see [vSphere upgrade via CLI](../../dkp-upgrade/) section for specific steps.
 
 ## Known issues
 
