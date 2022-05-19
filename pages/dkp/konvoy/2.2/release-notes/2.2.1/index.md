@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Konvoy 2.2.1 Release Notes
-title: Konvoy 2.2.1 Release Notes
+navigationTitle: DKP 2.2.1 Release Notes
+title: DKP 2.2.1 Release Notes
 menuWeight: 20
 excerpt: View release-specific information for DKP 2.1.1
 enterprise: false
