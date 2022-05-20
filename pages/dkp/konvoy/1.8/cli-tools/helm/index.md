@@ -34,7 +34,7 @@ You need certain software configurations and settings before you start this proc
 Every Helm [release][helm-release] provides binaries for a variety of operating systems. These binary versions can be manually downloaded and installed.
 
 1.  Download and unpack the [latest][helm-release-latest] release. Here is an example for the version [3.3.4][helm-3.3.4].
-<!-- NEW TAR because of Minio -->
+
     ```bash
     wget -c https://get.helm.sh/helm-v3.3.4-linux-arm64.tar.gz -O - | tar -xz
     ```
