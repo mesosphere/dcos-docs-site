@@ -34,7 +34,7 @@ You need certain software configurations and settings before you start this proc
 Every Helm [release][helm-release] provides binaries for a variety of operating systems. These binary versions can be manually downloaded and installed.
 
 1.  Download and unpack the [latest][helm-release-latest] release. Here is an example for the version [3.3.4][helm-3.3.4].
-
+<!-- NEW TAR because of Minio -->
     ```bash
     wget -c https://get.helm.sh/helm-v3.3.4-linux-arm64.tar.gz -O - | tar -xz
     ```
@@ -98,6 +98,10 @@ For information on Helm, refer to the following:
 - [Uninstalling a release][helm-uninstall]
 - [Helm repository management][helm-management]
 - [Creating your own charts][helm-create-charts]
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the version of MinIO packaged with DKP/Kommander is available at this URL: https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
+
+See also [Legal attributions](../../legal/open-source-attribution/)
 
 [helm-3.3.4]: https://github.com/helm/helm/releases/tag/v3.3.4
 [helm-create-charts]: https://helm.sh/docs/intro/using_helm/#creating-your-own-charts

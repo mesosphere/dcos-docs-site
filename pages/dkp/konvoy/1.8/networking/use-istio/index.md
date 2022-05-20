@@ -110,5 +110,7 @@ The Istio BookInfo sample application is composed of four separate microservices
 
 1. Follow the steps in the Istio [BookInfo Application][istiobook] documentation to understand the different Istio features.
 
+See also [Legal attributions](../../legal/open-source-attribution/)
+
 [istiobook]:https://istio.io/docs/examples/bookinfo/
 [quickstart]:../../quick-start/

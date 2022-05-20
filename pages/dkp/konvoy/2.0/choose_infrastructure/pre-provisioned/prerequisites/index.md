@@ -18,3 +18,8 @@ Before you begin using Konvoy, you must have:
 - An unencrypted SSH private key, whose public key is configured on the above hosts.
 
 When these prerequisites are in place, you can [prepare your hosts](../prepare-hosts).
+
+[install_docker]: https://docs.docker.com/get-docker/
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+[aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
+[create-an-ami]: ../create-an-ami

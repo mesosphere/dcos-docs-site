@@ -36,6 +36,7 @@ konvoy diagnose [flags]
   -y, --yes                       run command without prompting
 ```
 
+<!-- NEW TAR because of Minio -->
 ### SEE ALSO
 
 * [konvoy](../)	 - Deploy and manage Kubernetes clusters

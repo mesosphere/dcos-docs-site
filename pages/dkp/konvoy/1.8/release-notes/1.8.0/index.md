@@ -127,6 +127,11 @@ Perform these steps before upgrading or installing Konvoy to prevent or mitigate
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the version of MinIO packaged with DKP/Konvoy 1.8/Kommander 1.4
+ is available at this URL: https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
+
+See also [Legal attributions](../../legal/open-source-attribution/)
+
 [konvoy-doc]: ../../introduction
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [konvoy-vsphere]: ../../install/install-vsphere

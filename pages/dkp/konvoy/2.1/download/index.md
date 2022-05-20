@@ -16,6 +16,9 @@ When you are ready to download a new version of Konvoy, select the button below:
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product.
 
-<p class="message--note"><strong>NOTE: </strong>This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. The complete source code for MinIO is available for the <a href="https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z">2020 release</a> and the <a href="https://github.com/minio/minio/tree/RELEASE.2021-07-30T00-02-00Z">2021 release</a>.</p>
-
 If you have problems downloading Konvoy, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.</p>
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the version of MinIO packaged with DKP/Konvoy 1.8/Kommander 1.4
+ is available at this URL: https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).

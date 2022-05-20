@@ -7,8 +7,6 @@ excerpt: Create an AMI using the DKP image builder
 enterprise: false
 ---
 
-<p class="message--note"><strong>NOTE: </strong>Docker image downloads on this page include code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. The complete source code for MinIO is available for the <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">2021 release</a> and the <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">2022 release</a>.</p>
-
 ## Create an AMI to be used in an air-gapped cluster
 
 Using the [Konvoy Image Builder](../../../../image-builder), you can build an AMI without requiring access to the internet by providing an additional `--override` flag.
@@ -67,6 +65,11 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
 1.  Follow the instructions to [build an AMI][kib_create_ami] in the setting an additional `--overrides overrides/offline.yaml` flag.
 
 Then, you can [seed your docker registry][seed-a-registry].
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the version of MinIO packaged with DKP/Konvoy 1.8/Kommander 1.4
+ is available at this URL: https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).
 
 [kib_create_ami]: ../../../../image-builder/create-ami/
 [seed-a-registry]: ../seed-a-registry

@@ -32,8 +32,6 @@ This command will automatically download the Konvoy docker image and generate 3 
 * `cluster.yaml` file
 * Konvoy private / public keys (pem / pub) for reaching out to Kubernetes nodes.
 
-<p class="message--note"><strong>NOTE: </strong>This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z">here</a>.</p>
-
 Once `cluster.yaml` file is customized with advanced options, you could start a cluster by using this command:
 
   ```bash
@@ -313,6 +311,12 @@ You then need to add an IAM **Service Account** and project **Role** can be used
               role: "project-role-name-to-be-used"
   ...
   ```
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the version of MinIO packaged with DKP/Konvoy 1.8/Kommander 1.4
+ is available at this URL: https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).
+
 
 [disks]: https://cloud.google.com/compute/docs/disks/
 [ephemeral_storage]: ../../../storage/

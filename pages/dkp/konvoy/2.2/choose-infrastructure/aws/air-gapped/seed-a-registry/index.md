@@ -17,7 +17,7 @@ Before creating a Kubernetes cluster you must have the required images in a loca
     curl -o konvoy-image-bundle.tar.gz -O https://downloads.d2iq.com/dkp/v2.2.0/konvoy_image_bundle_v2.2.0_linux_amd64.tar.gz
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. The complete source code for MinIO is available for the <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">2021 release</a> and the <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">2022 release</a>.</p>
+    
 
 1.  Place the bundle in a location where you can load and push the images to your private docker registry.
 
@@ -40,3 +40,8 @@ It may take a while to push all the images to your image registry, depending on 
 Then, [begin creating the bootstrap cluster][bootstrap].
 
 [bootstrap]: ../bootstrap
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the version of MinIO packaged with DKP/Konvoy 1.8/Kommander 1.4
+ is available at this URL: https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).

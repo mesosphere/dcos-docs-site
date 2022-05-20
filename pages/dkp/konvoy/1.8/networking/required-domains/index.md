@@ -13,3 +13,7 @@ enterprise: false
 You must have access to the following domains through the customers networking rules so that Konvoy can download all required images:
 
 #include /dkp/konvoy/1.8/include/required-domains.tmpl
+
+See also [Legal attributions](../../legal/open-source-attribution/)
+
+

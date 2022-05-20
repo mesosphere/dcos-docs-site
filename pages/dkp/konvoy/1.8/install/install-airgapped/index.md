@@ -304,6 +304,8 @@ For example on `Ubuntu 18.04`, you must replace the following Deb packages and t
 
 The air gapped bundle contains package archives for both EL7 and EL8. The installer, however, is configured to copy only one set of packages, and it defaults to the EL7 packages. If you are using EL8 (CentOS 8 or RHEL 8), copy the EL8 package archive to the default location:
 <!-- vale Vale.Spelling = YES -->
+<!-- NEW TAR because of Minio -->
+
 
 ```bash
 # backup the centos 7 archive (optional)
@@ -785,6 +787,10 @@ When the `konvoy deploy` completes its setup operations, the following files are
 - `admin.conf` - is a [kubeconfig file][kubeconfig], which contains credentials to [connect to the `kube-apiserver` of your cluster through `kubectl`][kubectl].
 - `inventory.yaml` - is an [Ansible Inventory file][ansible_inventory].
 - `runs` folder - which contains logging information.
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the version of MinIO packaged with DKP/Kommander is available at this URL: https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
+
+See also [Legal attributions](../../legal/open-source-attribution/)
 
 [ansible]: https://www.ansible.com
 [ansible_group]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-hosts-and-groups

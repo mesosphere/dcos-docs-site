@@ -265,6 +265,7 @@ Konvoy is capable of automatically upgrading the Nvidia GPU addon. However, GPU 
     ```bash
     helm get nvidia-kubeaddons
     ```
+See also [Legal attributions](../../legal/open-source-attribution/)
 
 [libnvidia_container]: https://github.com/NVIDIA/libnvidia-container
 [nvidia_container_runtime]: https://github.com/NVIDIA/nvidia-container-runtime
