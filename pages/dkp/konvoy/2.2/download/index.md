@@ -24,7 +24,7 @@ If you have problems downloading DKP, contact your sales representative or <a hr
 
 ## Download from the AWS Marketplace
 
-Follow the instructions on provider's console to download the container image.
+Follow the instructions on the AWS console to download the container image.
 
 After downloading the image, run the following command to copy the binaries onto your host.
 
