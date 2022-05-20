@@ -242,7 +242,7 @@ When the `konvoy up --provisioner vsphere` completes setup operations, the follo
 * `cluster-name-ssh.pem`/`cluster-name-ssh.pub` - stores the SSH keys used to connect to the instances.
 * `runs` folder - which contains logging information.
 
-See also [Legal attributions](../../legal/open-source-attribution/)
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).
 
 [ansible]: https://www.ansible.com
 [cluster_configuration]: ../../reference/cluster-configuration/
