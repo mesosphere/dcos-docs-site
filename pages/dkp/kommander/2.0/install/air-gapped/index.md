@@ -136,5 +136,11 @@ Based on the network latency between the environment of script execution and the
 
 1.  [Verify your installation](../networked#verify-installation).
 
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.0.0 are available at these URLs:
+
+* https://github.com/minio/minio/tree/RELEASE.2021-07-30T00-02-00Z
+* https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
+
+
 [air-gap-konvoy]: /dkp/konvoy/2.0/choose_infrastructure/aws/air-gapped/
 [air-gap-before-you-begin]: /dkp/konvoy/2.0/choose_infrastructure/aws/air-gapped/prerequisites/
