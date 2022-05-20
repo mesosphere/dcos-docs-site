@@ -20,7 +20,7 @@ To download a new version of DKP, you have 2 options:
 You must be a registered user and logged on to the support portal to download DKP. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.
 If you have problems downloading DKP, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.</p>
 
-## Download image from the Infrastructure Provider of choice marketplace
+## Download from the AWS Marketplace
 
 Follow the instructions on provider's console to download the container image.
 
