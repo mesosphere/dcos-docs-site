@@ -28,7 +28,7 @@ The installation steps for Kaptain on an air-gapped cluster are as follows:
 * Download `kaptain_air_gapped.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
 <!-- NEW TAR because of Minio -->
 
-* Unpack both `kaptain_air_gapped.tar.gz` and the `kaptain_air_gapped.tar.gz` bundle nested within and copy the following files and folders into the Konvoy working directory (`<konvoy_artifacts_dir>`):
+* Unpack `kaptain_air_gapped.tar.gz` and copy the following files and folders into the Konvoy working directory (`<konvoy_artifacts_dir>`)::
 <!-- NEW TAR because of Minio -->
     * `<kaptain_artifacts_dir>/images.json` to `<konvoy_artifacts_dir>/extras/images/kaptain/`
     * `<kaptain_artifacts_dir>/images/*` to `<konvoy_artifacts_dir>/extras/images/kaptain/`
