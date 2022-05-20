@@ -304,7 +304,6 @@ For example on `Ubuntu 18.04`, you must replace the following Deb packages and t
 
 The air gapped bundle contains package archives for both EL7 and EL8. The installer, however, is configured to copy only one set of packages, and it defaults to the EL7 packages. If you are using EL8 (CentOS 8 or RHEL 8), copy the EL8 package archive to the default location:
 <!-- vale Vale.Spelling = YES -->
-<!-- NEW TAR because of Minio -->
 
 
 ```bash
@@ -317,7 +316,7 @@ mv konvoy_<konvoy-version>_el8_x86_64_rpms.tar.gz konvoy_<konvoy-version>_x86_64
 
 ### Configure the image registry
 
-In an air-gapped environment your cluster nodes will not have access to any public Docker registries, therefore you are required to provide your own that is accessible on the local network.
+In an air gapped environment your cluster nodes will not have access to any public Docker registries, therefore you are required to provide your own that is accessible on the local network.
 
 Set the options in your `cluster.yaml` as follows:
 
