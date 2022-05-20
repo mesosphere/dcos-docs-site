@@ -22,7 +22,7 @@ If you have problems downloading DKP, contact your sales representative or <a hr
 
 
 
-## Download image from the Infrastructure Provider of choice marketplace
+## Download from the AWS Marketplace
 
 Follow the instructions on provider's console to download the container image.
 
