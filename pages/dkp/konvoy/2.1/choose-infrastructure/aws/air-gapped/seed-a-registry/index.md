@@ -17,9 +17,11 @@ Before creating a Kubernetes cluster you must have the required images in a loca
     curl -o konvoy-image-bundle.tar.gz -O http://downloads.d2iq.com/konvoy/airgapped/v2.1.1/konvoy_image_bundle_v2.1.1_linux_amd64.tar.gz
     ```
 
-1. Place the bundle in a location where you can load and push the images to your private docker registry.
+    <p class="message--note"><strong>NOTE: </strong>This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. The complete source code for MinIO is available for the <a href="https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z">2020 release</a> and the <a href="https://github.com/minio/minio/tree/RELEASE.2021-07-30T00-02-00Z">2021 release</a>.</p>
 
-1. Ensure you set the REGISTRY_URL and AIRGAPPED_TAR_FILE variable appropriately, then use the following script to load the air-gapped image bundle:
+1.  Place the bundle in a location where you can load and push the images to your private docker registry.
+
+1.  Ensure you set the REGISTRY_URL and AIRGAPPED_TAR_FILE variable appropriately, then use the following script to load the air-gapped image bundle:
 
     ``` sh
     #!/usr/bin/env bash
