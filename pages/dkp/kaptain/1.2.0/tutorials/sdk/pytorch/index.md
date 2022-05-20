@@ -530,7 +530,7 @@ model.train(
 The default `gpus` argument is 0, but it is shown here as an explicit option.
 Use `?Model.train` to see all supported arguments.
 
-<p class="message--note"><strong>NOTE: </strong>When resource quotas are set for a namespace, users have to specify <code>cpu</code> and <code>memory</code> explicitly in the SDK. 
+<p class="message--note"><strong>NOTE: </strong>When resource quotas are set for a namespace, users have to specify <code>cpu</code> and <code>memory</code> explicitly in the SDK.
 Otherwise, tasks such as training and tuning will fail with <code>Error creating: pods ... is forbidden: failed quota: kf-resource-quota: must specify cpu,memory</code>.
 These fields are optional when resource quotas are not set.
 In case the issue appears for other types of workloads, it is recommended to configure defaults for the user namespace using the <a href="https://kubernetes.io/docs/concepts/policy/limit-range/">Limit Range</a>.
@@ -588,15 +588,15 @@ hyperparams = {
 }
 
 model.tune(
-    trials=trials, 
-    parallel_trials=parallel_trials, 
-    workers=workers, 
-    gpus=gpus, 
+    trials=trials,
+    parallel_trials=parallel_trials,
+    workers=workers,
+    gpus=gpus,
     cpu=cpu,
     memory=memory,
     args={"--log-interval": "10"},
-    hyperparameters=hyperparams, 
-    objectives=["accuracy"], 
+    hyperparameters=hyperparams,
+    objectives=["accuracy"],
     objective_goal=0.99
 )
 ```
@@ -711,3 +711,5 @@ curl --location \
     {"predictions": [{"7": 0.9999998807907104, "2": 5.1130371048202505e-08, "3": 3.742747978208172e-08, "9": 2.259610054622385e-09, "1": 1.1725632687031862e-09}]}
 
 We can see that the class with label "7" has the largest probability; the neural network correctly predicts the image to be a number 7.
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 1.2.0 are available at this URL: [https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z](https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z)

@@ -85,7 +85,7 @@ pip show kfp
     License: UNKNOWN
     Location: /opt/conda/lib/python3.7/site-packages
     Requires: Deprecated, PyYAML, requests-toolbelt, cloudpickle, kubernetes, strip-hints, google-cloud-storage, google-auth, argo-models, click, tabulate, kfp-server-api, jsonschema
-    Required-by: 
+    Required-by:
 
 
 ## How to Configure Credentials
@@ -738,3 +738,5 @@ jq -M --exit-status '.predictions[0] | indices(max)[0] == 9' output.json
 
 
 For more details on the URL, please check out this [example](https://github.com/kserve/kserve/tree/master/docs/samples/v1beta1/tensorflow#run-a-prediction).
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 2.1.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z](https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z) and [https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z](https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z)
