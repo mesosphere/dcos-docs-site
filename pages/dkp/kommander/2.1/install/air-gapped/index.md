@@ -127,7 +127,7 @@ export VERSION=v2.1.1
     wget "https://downloads.d2iq.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O kommander-image-bundle.tar
     ```
 
-1.  Unpack the bundle and the nested bundle within in a location where you can load and push the images to your private Docker registry.
+1.  See the `NOTICES.txt` file for 3rd party software attributions and place the `kommander-image-bundle-v2.1.0.tar.gz` bundle within a location where you can load and push the images to your private Docker registry.
 
 1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
 

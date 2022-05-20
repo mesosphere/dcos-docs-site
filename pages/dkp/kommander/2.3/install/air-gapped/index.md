@@ -166,10 +166,10 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 1.  Download the image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-image-bundle-v2.2.0.tar.gz" -O kommander-image-bundle.tar.gz
+    wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-image-bundle-v2.3.0.tar.gz" -O kommander-image-bundle.tar.gz
     ```
 
-1.  Unpack the bundle and the nested bundle within in a location where you can load and push the images to your private Docker registry.
+1.  See the `NOTICES.txt` file for 3rd party software attributions and place the `kommander-image-bundle-v2.3.0.tar.gz` and `dkp-catalog-applications-image-bundle-v2.3.0.tar.gz` bundles within a location where you can load and push the images to your private Docker registry.
 
 1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
