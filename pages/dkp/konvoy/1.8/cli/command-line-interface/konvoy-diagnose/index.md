@@ -41,3 +41,5 @@ konvoy diagnose [flags]
 
 * [konvoy](../)	 - Deploy and manage Kubernetes clusters
 
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal//3rd).
