@@ -51,6 +51,7 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
 ### Load the Docker images into your Docker registry
 
 1. Download the image bundle file:
+<!-- NEW TAR because of Minio -->
     * Download `kaptain_air_gapped.tar` that will contain the required artifacts to perform an air-gapped installation.
     * (Optional) Download the custom image artifacts `kaptain_air_gapped_cpu.tar` or `kaptain_air_gapped_gpu.tar` based on whether you need CPU or GPU for your workloads.
 
@@ -64,6 +65,7 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
     IFS=$'\n\t'
 
     readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kaptain-image-bundle.tar"}
+    <!-- NEW TAR because of Minio in this whole code block?-->
     readonly REGISTRY_URL=${REGISTRY_URL#https://}
 
     docker load --input "${AIRGAPPED_TAR_FILE}"
