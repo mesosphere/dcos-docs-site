@@ -39,6 +39,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
   ```bash
   wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
   ```
+
 ## Detach MetalLB from Kommander
 
   <p class="message--important"><strong>IMPORTANT:</strong> Beginning with DKP version 2.2, MetalLB is no longer managed as a platform application. If you installed MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.</p>
@@ -126,7 +127,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
     ```bash
     dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
     ```
-    
+
     ```sh
     ✓ Ensuring upgrading conditions are met
     ✓ Ensuring application definitions are updated
@@ -151,6 +152,8 @@ Before running the following command, ensure that your `dkp` configuration **ref
     For Essential customers (single-cluster environment): Proceed with the [Konvoy Upgrade][konvoy_upgrade].
 
 You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the next steps depending on your environment and license type.
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for MinIO is available for the [2021 release][[https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z] of DKP/Kommander and the [2022 release][https://github.com/minio/minio/tree/RELEASE.2021-07-30T00-02-00Z] of DKP/Kommander.
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
