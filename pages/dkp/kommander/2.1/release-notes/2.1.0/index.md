@@ -202,6 +202,22 @@ flux reconcile -n kommander-flux source git management --kubeconfig MANAGED_KUBE
 ✔ fetched revision main/GIT_HASH
 ```
 
+### Cert-manager expiration workaround
+
+Due to an oversight, some Kommander versions do not properly handle certificate renewal for Kommander applications. The`cert-manager` component renews all certificates 60 days after you install Kommander on your cluster. When this occurs, some Kommander applications and pods fail to receive the renewed certificate information, causing them to stop working upon expiration. This occurs 90 days after Kommander was installed, which normally would coincide with the date you created the cluster. While the effects can vary, the most common failure is the inability to log in to the UI due to an expired certificate in the dex-k8s-authenticator pod.
+
+A permanent fix for the issue requires upgrading to Kommander 2.2.1 or higher. In the meantime, there is a workaround available that forces the applications to reconcile and recognize the renewed certificate. This workaround also extends the validity of the certificates to 10 years, fixes the certification reload issue, and restarts the affected pods once the new certificate is issued.
+
+The workaround applies to any environment (networked, air-gapped, on-prem, etc.) and fixes the issue regardless of your issuer type ([SelfSigned][selfsigned] for air-gapped environments, [ACME][acme], or your own certificate issuer configured separately for your institution).
+
+To **prevent your applications from breaking**, or to **get the nodes up and running again**, and fix this issue permanently, run this command:
+
+<p class="message--important"><strong>IMPORTANT: </strong>Before running this command, you must replace <code><path/to/my_kubeconfig></code> with an absolute path of the location that contains the kubeconfig for the cluster you wish to update. It will not work properly with a relative file path. For example, use <code>/home/example/my-kubeconfig.yaml<code>, or <code>`pwd`/my-kubeconfig.yaml</p>
+
+```bash
+docker run -v <path/to/my_kubeconfig>:/kubeconfig -e KUBECONFIG=/kubeconfig mesosphere/rotate-certificate-hotfix:2.1.1
+```
+
 ### Additional resources
 
 <!-- Add links to external documentation as needed -->
@@ -210,6 +226,9 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
-[konvoy-self-managed]: ../../choose-infrastructure/aws/quick-start-aws/#optional-move-controllers-to-the-newly-created-cluster
+[konvoy-self-managed]: ../../../../konvoy/2.1/choose-infrastructure/aws/quick-start-aws#create-a-new-aws-kubernetes-cluster
 [project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
 [flux-cli]: https://fluxcd.io/docs/installation/
+[acme]: https://cert-manager.io/docs/configuration/acme/
+[config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
+[selfsigned]: https://cert-manager.io/docs/configuration/selfsigned/
