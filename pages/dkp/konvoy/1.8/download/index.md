@@ -21,6 +21,4 @@ If you have problems downloading Konvoy, contact your sales representative or <a
 
 This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z">here
 
-See also [Legal attributions](../../legal/open-source-attribution/)
-
-
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal//3rd).
