@@ -156,9 +156,11 @@ Once complete, begin upgrading the Kubernetes version.
 
 When upgrading the Kubernetes version of a cluster, first upgrade the control plane and then the node pools. If you have any additional managed or attached clusters, you will need to upgrade the core addons and Kubernetes version for each one.
 
-<p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.3/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
+1. Build a new image if applicable.  
+    - If an AMI was specified when initially creating a cluster for AWS, you must build a new one with <a href="/dkp/konvoy/2.3/image-builder/create-ami/">Konvoy Image Builder</a>.
+    - If an Azure Machine Image was specified for Azure, you must build a new one with <a href="/dkp/konvoy/2.3/image-builder/create-azure-image/">Konvoy Image Builder</a>.
 
-1. Upgrade the Kubernetes version of the control plane.
+2. Upgrade the Kubernetes version of the control plane.
 
 ```bash
 dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
@@ -171,8 +173,8 @@ Updating control plane resource controlplane.cluster.x-k8s.io/v1beta1, Kind=Kube
 Waiting for control plane update to finish.
  ✓ Updating the control plane
 ```
-
-2. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
+    
+3. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
 
 ```bash
 export NODEPOOL_NAME=my-nodepool
