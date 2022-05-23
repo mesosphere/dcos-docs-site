@@ -205,7 +205,11 @@ Due to an oversight, some Kommander versions do not properly handle certificate 
 
 A permanent fix for the issue requires upgrading to Kommander 2.2.1 or higher. In the meantime, a docker container is available that contains a script that extends the validity of the Cluster CA to 10 years, fixes the certificate reload issue, and restarts the affected pods once the new certificates are issued.
 
-The workaround applies to any environment (networked, air-gapped, on-prem, etc.) and fixes the issue regardless of your issuer type ([SelfSigned][selfsigned] for air-gapped environments, [ACME][acme], or your own certificate issuer configured separately for your institution).
+The docker container can be applied to the management cluster in any environment (networked, air-gapped, on-prem, etc.) and remediate the issue regardless of your CA issuer type ([SelfSigned][selfsigned] for air-gapped environments, [ACME][acme], or your own certificate issuer configured separately for your institution).
+
+If there are any workload clusters attached to the management cluster, they will also be remediated.
+
+Note that this container does not in any way affect, nor change certificates associated with a custom domain you may have created for the cluster.
 
 To fix the issue on an impacted cluster,  run this command:
 
