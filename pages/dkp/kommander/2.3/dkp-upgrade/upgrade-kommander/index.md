@@ -25,19 +25,19 @@ This section describes how to upgrade your Kommander Management cluster and all 
   Download the Kommander application definitions:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-applications-v2.3.0.tar.gz"
   ```
 
   Download the Kommander charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.3.0/dkp-kommander-charts-bundle-v2.3.0.tar.gz" | tar -xvf -
   ```
 
   If you have any DKP Catalog Applications, download the DKP Catalog Application charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz" | tar -xvf -
   ```
 
 ## Detach MetalLB from Kommander
@@ -103,13 +103,13 @@ Before running the following command, ensure that your `dkp` configuration **ref
     -   For air-gapped:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.3.0.tar.gz --kommander-applications-repository kommander-applications-v2.3.0.tar.gz
         ```
 
     -   For air-gapped **with** DKP Catalog Applications in a multi-cluster environment:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.3.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz --kommander-applications-repository kommander-applications-v2.3.0.tar.gz
         ```
 
         After the upgrade, follow the [DKP Catalog Applications configuration page](../../install/configuration/enterprise-catalog#air-gapped-catalog-configuration) to update the Git repository.

@@ -169,7 +169,7 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
-    dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
+    dkp push image-bundle --image-bundle kommander-image-bundle-v2.2.0.tar.gz --to-registry <REGISTRY_URL>
     ```
 
 It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
@@ -207,7 +207,7 @@ It may take a while to push all the images to your image registry, depending on 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz" | tar -xvf -
     ```
 
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:

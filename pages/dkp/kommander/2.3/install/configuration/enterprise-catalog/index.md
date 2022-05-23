@@ -55,7 +55,7 @@ When running in air-gapped environments, update the configuration by replacing `
 1.  Download the DKP catalog application Git repository archive:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-v2.2.0.tar.gz" -O dkp-catalog-applications.tar.gz
+    wget "https://downloads.d2iq.com/dkp/v2.3.0/dkp-catalog-applications-v2.3.0.tar.gz" -O dkp-catalog-applications.tar.gz
     ```
 
 1.  Update the Kommander configuration file with:

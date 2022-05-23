@@ -175,12 +175,12 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
     wget "https://downloads.d2iq.com/dkp/v2.3.0/dkp-catalog-applications-image-bundle-v2.3.0.tar.gz" | tar -xvf -
     ```
 
-1. See the `NOTICES.txt` file for 3rd party software attributions and place the `kommander-image-bundle-v2.2.0.tar.gz` and `dkp-catalog-applications-image-bundle-v2.2.0.tar.gz` bundles within a location where you can load and push the images to your private Docker registry.
+1. See the `NOTICES.txt` file for 3rd party software attributions and place the `kommander-image-bundle-v2.3.0.tar.gz` and `dkp-catalog-applications-image-bundle-v2.3.0.tar.gz` bundles within a location where you can load and push the images to your private Docker registry.
 
 1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
-    dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
+    dkp push image-bundle --image-bundle kommander-image-bundle-v2.3.0.tar.gz --to-registry <REGISTRY_URL>
     dkp push image-bundle --image-bundle catalog-applications-image-bundle.tar.gz --to-registry <REGISTRY_URL>
     ```
 
@@ -213,28 +213,28 @@ It may take a while to push all the images to your image registry, depending on 
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-applications-v2.3.0.tar.gz"
     ```
 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.3.0/dkp-kommander-charts-bundle-v2.3.0.tar.gz" | tar -xvf -
     ```
 
 1.  Download the [DKP catalog applications][dkp_catalog_applications] chart bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.3.0/dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz" | tar -xvf -
     ```
 
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
     dkp install kommander --installer-config ./install.yaml \
-    --kommander-applications-repository kommander-applications-v2.2.0.tar.gz \
-    --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz \
-    --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz
+    --kommander-applications-repository kommander-applications-v2.3.0.tar.gz \
+    --charts-bundle dkp-kommander-charts-bundle-v2.3.0.tar.gz \
+    --charts-bundle dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz
     ```
 
 1.  [Verify your installation](../../networked#verify-installation).

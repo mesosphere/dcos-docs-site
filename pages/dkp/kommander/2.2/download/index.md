@@ -23,7 +23,7 @@ If you have problems downloading DKP, contact your sales representative or <a hr
 You can download image bundle files by running the following CLI command:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-image-bundle-v2.2.0.tar.gz" -O kommander-image-bundle.tar.gz
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-image-bundle-v2.2.0.tar.gz" | tar -xvf -
     ```
 
 ## Download from the AWS Marketplace

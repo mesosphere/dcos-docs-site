@@ -14,7 +14,7 @@ This topic shows how to run Kommander on top of an [air-gapped Konvoy cluster][a
 
 Before installing, ensure you have:
 
--   A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander-image-bundle.tar` tarball has the required artifacts.
+-   A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander_image_bundle_v2.1.1_linux_amd64.tar` tarball has the required artifacts.
 
 -   Connectivity with clusters attaching to the management cluster:
     - Both management and attached clusters must connect to the Docker registry.
@@ -124,19 +124,19 @@ export VERSION=v2.1.1
 1.  Download the image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O kommander-image-bundle.tar
+    wget "https://downloads.d2iq.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" | tar -xvf -
     ```
 
-1.  See the `NOTICES.txt` file for 3rd party software attributions and place the `kommander-image-bundle-v2.1.0.tar.gz` bundle within a location where you can load and push the images to your private Docker registry.
+2.  See the `NOTICES.txt` file for 3rd party software attributions and place the `kommander_image_bundle_v2.1.1_linux_amd64.tar` bundle within a location where you can load and push the images to your private Docker registry.
 
-1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
+3.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
 
     ```bash
     #!/usr/bin/env bash
     set -euo pipefail
     IFS=$'\n\t'
 
-    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kommander-image-bundle.tar"}
+    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kommander_image_bundle_v2.1.1_linux_amd64.tar"}
     readonly REGISTRY_URL=${REGISTRY_URL?"Need to set REGISTRY_URL. E.g: 10.23.45.67:5000"}
 
     docker load <"${AIRGAPPED_TAR_FILE}"
