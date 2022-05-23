@@ -62,7 +62,6 @@ For cloud installations, scaling out can be limited by resource quotas.
         - name: knative
           enabled: true
     ```
-<!-- Do we need to update anything on the file location above? update/decompress the link?-->
 -   For GPU deployment, follow the instructions in [Konvoy GPU documentation][konvoy-gpu].
 
 -   Then follow the [Konvoy documentation][konvoy_deploy_addons] to deploy the addons.
