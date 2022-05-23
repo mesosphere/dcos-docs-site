@@ -213,7 +213,7 @@ Note that this container does not in any way affect, nor change certificates ass
 
 To fix the issue on an impacted cluster,  run this command:
 
-<p class="message--important"><strong>IMPORTANT: </strong>Before running this command, you must replace <code><path/to/my_kubeconfig></code> with an absolute path of the location that contains the kubeconfig for the cluster you wish to update. It will not work properly with a relative file path. For example, use <code>/home/example/my-kubeconfig.yaml<code>, or <code>`pwd`/my-kubeconfig.yaml</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Before running this command, you must replace <code>&lt;path/to/my_kubeconfig&gt;</code> with an absolute path of the location that contains the kubeconfig for the cluster you wish to update. It will not work properly with a relative file path. For example, use <code>/home/example/my-kubeconfig.yaml</code>, or <code>`pwd`/my-kubeconfig.yaml</code></p>
 
 ```bash
 docker run -v <path/to/my_kubeconfig>:/kubeconfig -e KUBECONFIG=/kubeconfig mesosphere/rotate-certificate-hotfix:2.1.1
