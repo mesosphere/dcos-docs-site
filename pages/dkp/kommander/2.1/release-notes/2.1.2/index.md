@@ -213,6 +213,26 @@ kubectl patch certificate -n $WORKSPACE_NAMESPACE kommander-traefik --type='merg
 
 `cert-manager` HelmRelease will fail to deploy due to your existing `cert-manager` installation. This is expected and can be ignored.
 
+### Cert-manager expiration workaround
+
+Due to an oversight, some Kommander versions do not properly handle certificate renewal for the Cluster CA and certificates that are created for Kommander applications. The`cert-manager` component renews all certificates 60 days after you install Kommander on your cluster. When this occurs, some Kommander applications and pods fail to receive the renewed certificate information, causing them to stop working upon expiration. This occurs 90 days after Kommander was installed, which normally would coincide with the date you created the cluster. While the effects can vary, the most common failure is the inability to log in to the UI due to an expired certificate in the dex-k8s-authenticator pod. You may also see issues with flux no longer being able to access the internal gitea repository.
+
+A permanent fix for the issue requires upgrading to Kommander 2.2.1 or higher. In the meantime, a docker container is available that contains a script that extends the validity of the Cluster CA to 10 years, fixes the certificate reload issue, and restarts the affected pods once the new certificates are issued.
+
+The docker container can be applied to the management cluster in any environment (networked, air-gapped, on-prem, etc.) and remediate the issue regardless of your CA issuer type ([SelfSigned][selfsigned] for air-gapped environments, [ACME][acme], or your own certificate issuer configured separately for your institution).
+
+If there are any workload clusters attached to the management cluster, they will also be remediated.
+
+Note that this container does not in any way affect, nor change certificates associated with a custom domain you may have created for the cluster.
+
+To fix the issue on an impacted cluster,  run this command:
+
+<p class="message--important"><strong>IMPORTANT: </strong>Before running this command, you must replace <code><path/to/my_kubeconfig></code> with an absolute path of the location that contains the kubeconfig for the cluster you wish to update. It will not work properly with a relative file path. For example, use <code>/home/example/my-kubeconfig.yaml<code>, or <code>`pwd`/my-kubeconfig.yaml</p>
+
+```bash
+docker run -v <path/to/my_kubeconfig>:/kubeconfig -e KUBECONFIG=/kubeconfig mesosphere/rotate-certificate-hotfix:2.1.1
+```
+
 ### Kommander Cluster with custom SSL certificate
 
 After attaching a cluster, the management cluster should deploy apps to managed clusters.
@@ -255,3 +275,6 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/advanced/self-managed
 [project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
 [flux-cli]: https://fluxcd.io/docs/installation/
+[acme]: https://cert-manager.io/docs/configuration/acme/
+[config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
+[selfsigned]: https://cert-manager.io/docs/configuration/selfsigned/
