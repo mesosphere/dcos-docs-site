@@ -162,7 +162,7 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
 
 
 
-1. Upgrade the Kubernetes version of the control plane.
+2. Upgrade the Kubernetes version of the control plane.
 
 ```bash
 dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
