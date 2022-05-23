@@ -26,7 +26,7 @@ Consider the following use cases as reference values:
 | Number of worker nodes | at least 3           | at least 3                           |
 | CPU per node           | 8 cores              | 16 cores                             |
 | RAM per node           | 16 GiB               | 32 GiB                               |
-| Storage per node       | 60 GiB               | 60 GiB                               |
+| Storage per node       | 120 GiB               | 120 GiB                               |
 
 <p class="message--note"><strong>NOTE: </strong>Only NVIDIA GPU instances are supported.</p>
 
