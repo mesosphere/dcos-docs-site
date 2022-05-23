@@ -53,6 +53,7 @@ For cloud installations, scaling out can be limited by resource quotas.
         - name: prometheus
           enabled: true
     ```
+    
 -   Add the Kaptain addon repository to your Konvoy `cluster.yaml` to install Kaptain dependencies:
 
     ```yaml
@@ -62,6 +63,7 @@ For cloud installations, scaling out can be limited by resource quotas.
         - name: knative
           enabled: true
     ```
+    
 -   For GPU deployment, follow the instructions in [Konvoy GPU documentation][konvoy-gpu].
 
 -   Then follow the [Konvoy documentation][konvoy_deploy_addons] to deploy the addons.
