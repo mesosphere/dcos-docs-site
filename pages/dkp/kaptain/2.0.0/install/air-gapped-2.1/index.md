@@ -76,7 +76,11 @@ If you need to run Spark jobs on Kubernetes using Spark Operator, you must insta
 
 1.  Download the image bundle file:
 
-    - Download `kaptain-air-gapped-2.0.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
+    - Download `kaptain-air-gapped-2.0.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation. Extract the image bundle archive and other files before use.
+	  
+	  ```bash
+	  tar -xvf kaptain-air-gapped-2.0.0.tar.gz
+	  ```
     <!-- NEW TAR because of Minio -->
     
     - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads.
