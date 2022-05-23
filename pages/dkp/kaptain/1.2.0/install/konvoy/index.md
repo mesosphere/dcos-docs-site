@@ -61,6 +61,7 @@ For cloud installations, scaling out can be limited by resource quotas.
         - name: knative
           enabled: true
     ```
+    
 -   Install the [kubectl-kudo CLI plugin][kudo_cli]
 
 -   After the Konvoy cluster has been deployed (including Istio and Knative), install KUDO:
