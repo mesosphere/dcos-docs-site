@@ -8,8 +8,6 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--note"><strong>NOTE: </strong>This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. The complete source code for MinIO is available for the <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">2021 release</a> and the <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">2022 release</a>.</p>
-
 To download a new version of DKP, you have 2 options:
 
 ## Download from the support website
@@ -40,3 +38,9 @@ dkp binary is placed in the local directory, to run:
 ```
 
 You will now see the `dkp` binary in your working directory. Follow the [Kommander installation instructions](/dkp/kommander/2.2/install/networked) using these binaries, and then [add your license](/dkp/kommander/2.2/licensing/add/) to Kommander. If you have problems downloading or installing Kommander, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the versions of MinIO packaged with DKP/Kommander/Konvoy 2.2.0 are available at these URLs: 
+https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
+https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).

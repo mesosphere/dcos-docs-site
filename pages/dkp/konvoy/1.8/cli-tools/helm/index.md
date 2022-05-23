@@ -99,6 +99,10 @@ For information on Helm, refer to the following:
 - [Helm repository management][helm-management]
 - [Creating your own charts][helm-create-charts]
 
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the version of MinIO packaged with DKP/Konvoy 1.8 Kommander 1.4 is available at this URL: https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).
+
 [helm-3.3.4]: https://github.com/helm/helm/releases/tag/v3.3.4
 [helm-create-charts]: https://helm.sh/docs/intro/using_helm/#creating-your-own-charts
 [helm-custom-chart]: https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing

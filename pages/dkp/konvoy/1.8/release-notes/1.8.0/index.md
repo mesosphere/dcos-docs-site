@@ -127,6 +127,8 @@ Perform these steps before upgrading or installing Konvoy to prevent or mitigate
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).
+
 [konvoy-doc]: ../../introduction
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [konvoy-vsphere]: ../../install/install-vsphere
