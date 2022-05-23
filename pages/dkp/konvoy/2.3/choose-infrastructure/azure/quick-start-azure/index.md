@@ -18,6 +18,7 @@ Before starting the Konvoy installation, verify that you have:
 - The `dkp` binary on this machine.
 - [Docker][install_docker] version 18.09.2 or later.
 - [kubectl][install_kubectl] for interacting with the running cluster.
+- [Azure CLI][azure_cli].
 - A valid Azure account with [credentials configured][azure_credentials].
 
 ## Configure Azure prerequisites
