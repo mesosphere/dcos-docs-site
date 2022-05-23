@@ -81,10 +81,18 @@ If you added Kaptain after installing DKP, you must make it available by rerunni
 
 1.  Download the image bundle file:
 
-    - Download `kaptain-air-gapped-2.0.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
-    <!-- NEW TAR because of Minio -->
-    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads.
-    <!-- NEW TAR because of Minio -->
+    - Download `kaptain-air-gapped.tar.gz` that will contain the required artifacts to perform an air-gapped installation. Extract the image bundle archive and other files before use:
+
+      ```bash
+      tar -xvf kaptain-air-gapped.tar.gz
+      ```
+
+    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads. Extract the image bundle archive and other files before use:
+    
+    ```bash
+    tar -xvf kaptain-air-gapped-cpu.tar.gz
+	  tar -xvf kaptain-air-gapped-gpu.tar.gz
+    ```
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 
