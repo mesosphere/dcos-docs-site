@@ -61,8 +61,6 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
       ```bash
       tar -xvf kaptain-air-gapped.tar.gz
       ```
-
-
 2. Place the bundle in a location where you can load and push the images to your private Docker registry. Extract the image bundle archive and other files before use:
     
     ```bash
