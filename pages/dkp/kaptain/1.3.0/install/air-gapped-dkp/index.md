@@ -52,7 +52,7 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
 
 1. Download the image bundle file:
 <!-- NEW TAR because of Minio -->
-    * Download `kaptain_air_gapped.tar` that will contain the required artifacts to perform an air-gapped installation. To do so, extract the image bundle archive and other files before use:
+    * Download `kaptain_air_gapped.tar` that will contain the required artifacts to perform an air-gapped installation. Extract the image bundle archive and other files before use:
   
       ```bash
       tar -xvf kaptain-air-gapped-1.3.0.tar.gz
