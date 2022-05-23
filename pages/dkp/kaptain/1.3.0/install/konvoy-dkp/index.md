@@ -53,7 +53,6 @@ For cloud installations, scaling out can be limited by resource quotas.
         - name: prometheus
           enabled: true
     ```
-<!-- Do we need to update anything on the file location above? update/decompress the link?-->
 -   Add the Kaptain addon repository to your Konvoy `cluster.yaml` to install Kaptain dependencies:
 
     ```yaml
