@@ -36,7 +36,7 @@ export VERSION=v2.0.0
 1.  Download the `kommander_image_bundle_v2.0.0_linux_amd64.tar` file.
 
     ```bash
-    wget "https://downloads.d2iq.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" | tar -xvf -
+    wget "https://downloads.d2iq.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O - | tar -xvf -
     ```
 
 2.  See the `NOTICES.txt` file for 3rd party software attributions and place the `kommander_image_bundle_v2.0.0_linux_amd64.tar` bundle within a location where you can load and push the images to your private Docker registry.
