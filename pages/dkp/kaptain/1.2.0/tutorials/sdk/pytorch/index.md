@@ -712,4 +712,4 @@ curl --location \
 
 We can see that the class with label "7" has the largest probability; the neural network correctly predicts the image to be a number 7.
 
-This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 1.2.0 are available at this URL: [https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z](https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z)
+This tutorial includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 1.2.0 are available at this URL: [https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z](https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z)
