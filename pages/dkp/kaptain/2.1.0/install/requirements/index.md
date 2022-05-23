@@ -34,7 +34,7 @@ The [Kaptain installation][install] column lists the resources required to insta
 
 The [Kaptain SDK with Tensorflow tutorial][tensorflow] column lists the resources required to install Kaptain and run the Kaptain SDK with Tensorflow tutorial. Again, these resources must be **freely available** within the cluster, and should not be allocated to any other applications.
 
-For **on premises** installations, horizontal scalability is limited by the overall size of the cluster and its quotas.
+For **on-premises** installations, horizontal scalability is limited by the overall size of the cluster and its quotas.
 
 For **cloud** installations, scaling out can be limited by resource quotas.
 
