@@ -156,7 +156,6 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
     - If an AMI was specified when initially creating a cluster for AWS, you must build a new one with <a href="/dkp/konvoy/2.3/image-builder/create-ami/">Konvoy Image Builder</a>.
     - If an Azure Machine Image was specified for Azure, you must build a new one with <a href="/dkp/konvoy/2.3/image-builder/create-azure-image/">Konvoy Image Builder</a>.
 
-
 1.  Upgrade the Kubernetes version of the control plane.
 
     ```bash
