@@ -17,7 +17,6 @@ Before you begin:
 - Install Kaptain 1.2.0 on a Konvoy cluster.
 - Ensure the existing cluster meets the criteria listed in the [installation documentation][install]. 
 - [Download][download] the `kubeflow-1.4.0_1.3.0.tgz` tarball from the support website.
-
 - Ensure the following base addons that are needed by Kaptain are enabled in your Konvoy cluster:
     
     ```yaml
