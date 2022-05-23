@@ -26,10 +26,8 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
 The installation steps for Kaptain on an air-gapped cluster are as follows:
 
 * Download `kaptain_air_gapped.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
-<!-- NEW TAR because of Minio -->
 
 * Unpack `kaptain_air_gapped.tar.gz` and copy the following files and folders into the Konvoy working directory (`<konvoy_artifacts_dir>`):
-<!-- NEW TAR because of Minio -->
     * `<kaptain_artifacts_dir>/images.json` to `<konvoy_artifacts_dir>/extras/images/kaptain/`
     * `<kaptain_artifacts_dir>/images/*` to `<konvoy_artifacts_dir>/extras/images/kaptain/`
     * `<kaptain_artifacts_dir>/kubeaddons-kaptain` `<konvoy_artifacts_dir>/`
