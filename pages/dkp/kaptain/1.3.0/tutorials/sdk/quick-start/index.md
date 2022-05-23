@@ -141,25 +141,25 @@ from kaptain.platform.metadata_util import MetadataUtil
 
 def main():
     parser = argparse.ArgumentParser()
-    
+
     # Arguments that will be passed to your training code
     parser.add_argument(
-        
+
         "--gamma",
         type=float,
         default=0.001,
         help="Kernel coefficient"
     )
-    
+
     parser.add_argument(
         "--c",
         type=float,
         default=1.0,
         help="Regularization parameter"
     )
-    
+
     args, _ = parser.parse_known_args()
-    
+
     # Load the MNIST digit dataset
     digits = datasets.load_digits()
 
@@ -185,13 +185,13 @@ def main():
         f"Classification report for classifier {clf}:\n"
         f"{metrics.classification_report(y_test, predicted)}\n"
     )
-    
+
     cm = metrics.confusion_matrix(y_test, predicted)
     print(f"Confusion matrix:\n{cm}")
-    
+
     score = clf.score(X_test, y_test)
     print(f"\nModel accuracy: {score}")
-    
+
     model_upload_path = os.getenv("TRAINED_MODEL_UPLOAD_PATH")
     if model_upload_path:
         model_file_name = "model.joblib"
@@ -201,7 +201,7 @@ def main():
         dump(clf, model_file_name)
         ModelExportUtil().upload_model(model_file_name)
         print("Export completed.")
-        
+
         # Record model accuracy metrics
         MetadataUtil.record_metrics({"accuracy": score})
         # Because the job executes too quickly, we need to wait to allow metric collector container fetch the metrics
@@ -347,7 +347,7 @@ model.train(cpu=cpu, memory=memory, hyperparameters={})
 The default `gpus` argument is 0, but it is shown here as an explicit option.
 Use `?Model.train` to see all supported arguments.
 
-<p class="message--note"><strong>NOTE: </strong>When resource quotas are set for a namespace, users have to specify <code>cpu</code> and <code>memory</code> explicitly in the SDK. 
+<p class="message--note"><strong>NOTE: </strong>When resource quotas are set for a namespace, users have to specify <code>cpu</code> and <code>memory</code> explicitly in the SDK.
 Otherwise, tasks such as training and tuning will fail with <code>Error creating: pods ... is forbidden: failed quota: kf-resource-quota: must specify cpu,memory</code>.
 These fields are optional when resource quotas are not set.
 In case the issue appears for other types of workloads, it is recommended to configure defaults for the user namespace using the <a href="https://kubernetes.io/docs/concepts/policy/limit-range/">Limit Range</a>.
@@ -419,7 +419,7 @@ mc --no-color ls -r minio/kaptain/models
 
 Model is ready to be deployed. A trained model can be deployed as an auto-scalable inference service with a single call. When providing additional serving dependencies, make sure to specify sufficient resources (mostly memory) in order for the server to install them without issues.
 
-In this tutorial, we will be using [V2 protocol](https://kserve.github.io/website/modelserving/inference_api/#predict-protocol-version-2) for sklearn predictor. 
+In this tutorial, we will be using [V2 protocol](https://kserve.github.io/website/modelserving/inference_api/#predict-protocol-version-2) for sklearn predictor.
 
 
 ```python
@@ -496,8 +496,8 @@ set -o errexit
 model_name="dev-mnist"
 namespace=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
 
-url=http://${model_name}.${namespace}.svc.cluster.local/v2/models/${model_name}/infer 
-    
+url=http://${model_name}.${namespace}.svc.cluster.local/v2/models/${model_name}/infer
+
 curl --location \
      --silent \
      --fail \
@@ -529,3 +529,5 @@ curl --location \
 
 
 We can see that the class with label "7" has the largest probability; the neural network correctly predicts the image to be a number 7.
+
+This tutorial image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 1.3.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z](https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z) and [https://github.com/minio/minio/tree/RELEASE.2021-07-30T00-02-00Z](https://github.com/minio/minio/tree/RELEASE.2021-07-30T00-02-00Z).
