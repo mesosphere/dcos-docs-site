@@ -81,10 +81,13 @@ If you need to run Spark jobs on Kubernetes using Spark Operator, you must insta
 	  ```bash
 	  tar -xvf kaptain-air-gapped-2.0.0.tar.gz
 	  ```
-    <!-- NEW TAR because of Minio -->
-    
-    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads.
-    <!-- NEW TAR because of Minio -->
+
+    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads. Extract the image bundle archive and other files before use.
+	  
+	  ```bash
+	  tar -xvf kaptain-air-gapped-cpu.tar.gz
+	  tar -xvf kaptain-air-gapped-gpu.tar.gz
+	  ```
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 
@@ -96,7 +99,6 @@ If you need to run Spark jobs on Kubernetes using Spark Operator, you must insta
     IFS=$'\n\t'
 
     readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kaptain-image-bundle.tar"}
-    <!-- NEW TAR because of Minio?-->
     readonly REGISTRY_URL=${REGISTRY_URL#https://}
 
     docker load --input "${AIRGAPPED_TAR_FILE}"
