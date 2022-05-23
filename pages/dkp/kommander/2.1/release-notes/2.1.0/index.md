@@ -204,13 +204,13 @@ flux reconcile -n kommander-flux source git management --kubeconfig MANAGED_KUBE
 
 ### Cert-manager expiration workaround
 
-Due to an oversight, some Kommander versions do not properly handle certificate renewal for Kommander applications. The`cert-manager` component renews all certificates 60 days after you install Kommander on your cluster. When this occurs, some Kommander applications and pods fail to receive the renewed certificate information, causing them to stop working upon expiration. This occurs 90 days after Kommander was installed, which normally would coincide with the date you created the cluster. While the effects can vary, the most common failure is the inability to log in to the UI due to an expired certificate in the dex-k8s-authenticator pod.
+Due to an oversight, some Kommander versions do not properly handle certificate renewal for the Cluster CA and certificates that are created for Kommander applications. The`cert-manager` component renews all certificates 60 days after you install Kommander on your cluster. When this occurs, some Kommander applications and pods fail to receive the renewed certificate information, causing them to stop working upon expiration. This occurs 90 days after Kommander was installed, which normally would coincide with the date you created the cluster. While the effects can vary, the most common failure is the inability to log in to the UI due to an expired certificate in the dex-k8s-authenticator pod. You may also see issues with flux no longer being able to access the internal gitea repository.
 
-A permanent fix for the issue requires upgrading to Kommander 2.2.1 or higher. In the meantime, there is a workaround available that forces the applications to reconcile and recognize the renewed certificate. This workaround also extends the validity of the certificates to 10 years, fixes the certification reload issue, and restarts the affected pods once the new certificate is issued.
+A permanent fix for the issue requires upgrading to Kommander 2.2.1 or higher. In the meantime, a docker container is available that contains a script that extends the validity of the Cluster CA to 10 years, fixes the certificate reload issue, and restarts the affected pods once the new certificates are issued.
 
 The workaround applies to any environment (networked, air-gapped, on-prem, etc.) and fixes the issue regardless of your issuer type ([SelfSigned][selfsigned] for air-gapped environments, [ACME][acme], or your own certificate issuer configured separately for your institution).
 
-To **prevent your applications from breaking**, or to **get the nodes up and running again**, and fix this issue permanently, run this command:
+To fix the issue on an impacted cluster,  run this command:
 
 <p class="message--important"><strong>IMPORTANT: </strong>Before running this command, you must replace <code><path/to/my_kubeconfig></code> with an absolute path of the location that contains the kubeconfig for the cluster you wish to update. It will not work properly with a relative file path. For example, use <code>/home/example/my-kubeconfig.yaml<code>, or <code>`pwd`/my-kubeconfig.yaml</p>
 
