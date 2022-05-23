@@ -40,7 +40,6 @@ The steps to install Kaptain on an on-premises cluster are as follows:
         - name: knative
           enabled: true
     ```
-<!-- Do we need to update anything on the file location above? update/decompress the link?-->
 * Spin up the Konvoy cluster:
     ```bash
     konvoy up
