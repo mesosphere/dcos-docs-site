@@ -207,7 +207,7 @@ It may take a while to push all the images to your image registry, depending on 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz" | tar -xvf -
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz" -O - | tar -xvf -
     ```
 
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
