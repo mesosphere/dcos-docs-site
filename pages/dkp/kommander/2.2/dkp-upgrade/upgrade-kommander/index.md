@@ -31,17 +31,14 @@ This section describes how to upgrade your Kommander Management cluster and all 
   Download the Kommander charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz" | tar -xvf -
   ```
 
   If you have any DKP Catalog Applications, download the DKP Catalog Application charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz" | tar -xvf -
   ```
-
-<p class="message--note"><strong>NOTE: </strong>These docker images include code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">here</a> and <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">here</a>.</p>
-
 
 -   For clusters upgrading from 2.1.1 with HTTP Proxy installed:
 
@@ -153,7 +150,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
     ```bash
     dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
     ```
-    
+
     ```sh
     ✓ Ensuring upgrading conditions are met
     ✓ Ensuring application definitions are updated
@@ -178,6 +175,11 @@ Before running the following command, ensure that your `dkp` configuration **ref
     For Essential customers (single-cluster environment): Proceed with the [Konvoy Upgrade][konvoy_upgrade].
 
 You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the next steps depending on your environment and license type.
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.2.0 are available at these URLs:
+
+* https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
+* https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
