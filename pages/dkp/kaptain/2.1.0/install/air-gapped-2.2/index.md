@@ -104,7 +104,7 @@ If you added Kaptain after installing DKP, you must make it available by rerunni
     mkdir kaptain-catalog-applications
     tar -xvf kaptain-catalog-applications.tar.gz --strip-components 1 -C kaptain-catalog-applications
     ```
-
+<!-- Do we need to update anything on the file location above? update/decompress the link?-->
 1.  Load the Kaptain chart archive after the Kommander installation:
 
     ```bash

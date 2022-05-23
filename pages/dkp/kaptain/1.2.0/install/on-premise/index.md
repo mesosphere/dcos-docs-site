@@ -32,7 +32,7 @@ The steps to install Kaptain on an on-premises cluster are as follows:
         - name: prometheus
           enabled: true
     ```
-
+<!-- Do we need to update anything on the file location above? update/decompress the link?-->
 * Ensure the Knative and NFS addons that are needed by Kaptain are enabled:
     ```yaml
     - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
@@ -41,6 +41,7 @@ The steps to install Kaptain on an on-premises cluster are as follows:
         - name: knative
           enabled: true
     ```
+<!-- Do we need to update anything on the file location above? update/decompress the link?-->
 * Spin up the Konvoy cluster:
     ```bash
     konvoy up

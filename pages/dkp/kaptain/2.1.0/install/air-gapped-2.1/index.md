@@ -57,7 +57,7 @@ Kaptain supports installation on an air-gapped (offline or private) DKP managed 
        nvidia:  # to enable GPU support
        ...
      ```
-
+<!-- Do we need to update anything on the file location above? update/decompress the link?-->
   1. Apply the new configuration to Kommander:
 
      ```bash
