@@ -123,7 +123,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
       url: https://github.com/mesosphere/kaptain-catalog-applications
     EOF
     ```
-<!-- Do we need to update anything on that file location? update/decompress the link?-->
+
 1.  Ensure the status of the `GitRepository` signals a ready state:
 
     ```bash
@@ -136,7 +136,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     NAME         URL                                                        READY   STATUS                                                              AGE
     kaptain-catalog-applications https://github.com/mesosphere/kaptain-catalog-applications                True    Fetched revision: master/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   11m
     ```
-<!-- Do we need to update anything on that file location? update/decompress the link?-->
+
 ## Deploy Kaptain on selected workspaces
 
 You have now added Kaptain to your DKP Catalog applications. The next step is to enable and deploy Kaptain on all clusters in a selected workspace. For this, refer to [Deploy Kaptain][deploy] instructions.
