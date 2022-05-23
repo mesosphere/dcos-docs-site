@@ -79,7 +79,7 @@ If you need to run Spark jobs on Kubernetes using Spark Operator, you must insta
     - Download `kaptain-air-gapped-2.1.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
     - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.1.0_cpu.tar.gz` or `kaptain-air-gapped-2.1.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads.
 
-1.  Unpack the bundle and the nested bundle within in a location where you can load and push the images to your private Docker registry.
+1.  Extract the image bundle archive and other files within a location where you can load and push the images to your private Docker registry.
 
 1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
 
