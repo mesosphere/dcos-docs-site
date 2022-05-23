@@ -74,7 +74,6 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
     IFS=$'\n\t'
 
     readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kaptain-image-bundle.tar"}
-    <!-- NEW TAR because of Minio in this whole code block?-->
     readonly REGISTRY_URL=${REGISTRY_URL#https://}
 
     docker load --input "${AIRGAPPED_TAR_FILE}"
