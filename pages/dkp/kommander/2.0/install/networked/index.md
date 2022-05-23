@@ -46,7 +46,7 @@ annotations:
   storageclass.kubernetes.io/is-default-class: "true"
 ```
 
-More information on setting a StorageClass as default can be found at [Changing the default storage class in k8s docs](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)
+More information on setting a StorageClass as default can be found at [Changing the default storage class in Kubernetes docs](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/)
 
 <!--
 ## Install on kind
