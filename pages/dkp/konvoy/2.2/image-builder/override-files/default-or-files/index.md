@@ -42,7 +42,7 @@ Konvoy comes with default override files:
 
 - Offline override:
 
-  ```yaml  
+  ```yaml
   os_packages_local_bundle_file: "{{ playbook_dir }}/../artifacts/{{ kubernetes_version }}_{{ ansible_distribution|lower }}_{{ ansible_distribution_major_version }}_x86_64.tar.gz"
   pip_packages_local_bundle_file: "{{ playbook_dir }}/../artifacts/pip-packages.tar.gz"
   images_local_bundle_dir: "{{ playbook_dir}}/../artifacts/images"
