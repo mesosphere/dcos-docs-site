@@ -89,8 +89,8 @@ If you need to run Spark jobs on Kubernetes using Spark Operator, you must insta
     - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads. Extract the image bundle archive and other files before use.
 	  
       ```bash
-      mkdir bundle && tar -xvf kaptain-air-gapped-cpu.tar.gz -C bundle/
-      mkdir bundle && tar -xvf kaptain-air-gapped-gpu.tar.gz -C bundle/
+      mkdir bundle-cpu && tar -xvf kaptain-air-gapped-cpu.tar.gz -C bundle-cpu/
+      mkdir bundle-gpu && tar -xvf kaptain-air-gapped-gpu.tar.gz -C bundle-gpu/
       ```
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
