@@ -60,7 +60,7 @@ For example, if you want to test Grafana to allow monitoring, remove the pound s
       #minio-operator: null
       #metallb:
           #values: |
-          #configInline:
+            #configInline:
               #address-pools:
               #- name: default
               #protocol: layer2
