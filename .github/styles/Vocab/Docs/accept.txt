@@ -264,6 +264,7 @@ unmute
 unpause(|s)
 (URI|URIs)
 (Velero|velero)
+virtualize(s|d|ing)
 (WebSocket|Websocket|websocket)
 (VNET|vnet)
 xfsprogs
