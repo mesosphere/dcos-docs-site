@@ -54,17 +54,17 @@ Use the following instructions to install Spark Operator from Kommander Catalog 
     * Download `kaptain_air_gapped.tar` that will contain the required artifacts to perform an air-gapped installation. Extract the image bundle archive and other files before use:
   
       ```bash
-      tar -xvf kaptain-air-gapped.tar.gz
+      mkdir bundle && tar -xvf kaptain-air-gapped.tar.gz -C bundle/
       ```
     * (Optional) Download the custom image artifacts `kaptain_air_gapped_cpu.tar` or `kaptain_air_gapped_gpu.tar` based on whether you need CPU or GPU for your workloads. To do so, extract the image bundle archive and other files before use:
   
       ```bash
-      tar -xvf kaptain-air-gapped.tar.gz
+      mkdir bundle && tar -xvf kaptain-air-gapped.tar.gz -C bundle/
       ```
 2. Place the bundle in a location where you can load and push the images to your private Docker registry. Extract the image bundle archive and other files before use:
     
     ```bash
-    tar -xvf kaptain-air-gapped.tar.gz
+    mkdir bundle && tar -xvf kaptain-air-gapped.tar.gz -C bundle/
     ```
 
 3. Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air gapped image bundle:
