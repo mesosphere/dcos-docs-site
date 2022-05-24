@@ -44,9 +44,13 @@ Previous Kommander 2.x versions did not properly handle certificate renewal for 
 ### kube-oidc-proxy error: certificate signed by unknown authority (COPS-7217)
 
 When adding a new Attached Cluster to the Management Cluster, using a custom domain and TLS certificate issued by Let's Encrypt, the kube-oidc-proxy helm chart in the Attached Cluster did not complete installation and the associated pod returned an error.
-## Flatcar 
+
+## Other changes and capabilities
+
+### Flatcar
 
 New preprovisioned clusters that use flatcar as a base operating system will use the `containerd` as the container runtime. Users can update Preprovisioned clusters created with a previous version of `dkp`to use the `containerd` runtime with this release.
+
 ## Component updates
 
 When upgrading to this release, the following services and service components are upgraded to the listed version:
