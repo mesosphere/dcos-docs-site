@@ -92,14 +92,6 @@ This section describes how to upgrade your Kommander Management cluster and all 
   appdeployment.apps.kommander.d2iq.io "metallb" deleted
   ```
 
-  4. Unpause the helm release.
-  ```bash
-  kubectl -n kommander patch -p='{"spec":{"suspend": false}}' --type=merge helmrelease/metallb
-  ```
-
-  ```sh
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
-  ```
   This deletes MetalLb from Kommander while leaving the resources running in the cluster.
 
   ```bash
