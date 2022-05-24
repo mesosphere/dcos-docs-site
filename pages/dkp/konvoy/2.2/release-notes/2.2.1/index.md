@@ -49,7 +49,7 @@ When adding a new Attached Cluster to the Management Cluster, using a custom dom
 
 ### Flatcar
 
-New preprovisioned clusters that use flatcar as a base operating system will use the `containerd` as the container runtime. Users can update Preprovisioned clusters created with a previous version of `dkp`to use the `containerd` runtime with this release.
+New preprovisioned clusters that use flatcar as a base operating system now use the `containerd` as the container runtime. You can update Preprovisioned clusters created with a previous version of `dkp`to use the `containerd` runtime with this release.
 
 ## Component updates
 
