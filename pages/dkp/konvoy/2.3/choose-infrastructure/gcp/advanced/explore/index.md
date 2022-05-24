@@ -15,18 +15,19 @@ Before you start, make sure you have created a workload cluster, as described in
 
 1.  Get the kubeconfig:
 
-    ```
+    ```bash
     clusterctl get kubeconfig $CLUSTER_NAME > $CLUSTER_NAME/$CLUSTER_NAME.conf
     export KUBECONFIG=$CLUSTER_NAME/$CLUSTER_NAME.conf
     ```
 
 1.  Verify the API server is up (the Nodes will not be ready until CSI is deployed):
 
-    ```
+    ```bash
     kubectl get nodes
     ```
 
 [bootstrap]: ../bootstrap
 [capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
+[createnewcluster]: ../new
 [download_aws_cli]: https://aws.amazon.com/cli/
 [k8s_custom_resources]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
