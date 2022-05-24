@@ -21,6 +21,7 @@ Before starting the Konvoy installation, verify that you have:
 - The `dkp` binary for Linux, or macOS.
 - [Docker][install_docker] version 18.09.2 or later.
 - [kubectl][install_kubectl] for interacting with the running cluster.
+- [Azure CLI][azure_cli].
 - A valid Azure account [used to sign in with the Azure CLI][azure_credentials].
 
 <p class="message--warning"><strong>WARNING: </strong>Pivoting is not supported in AKS.</p>
@@ -174,5 +175,6 @@ CLUSTER_NAME=my-aks-cluster
 
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
 [azure_credentials]: https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest
 [advanced]: ../aks-advanced/

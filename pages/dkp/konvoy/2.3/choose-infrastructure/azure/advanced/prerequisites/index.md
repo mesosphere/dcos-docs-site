@@ -15,6 +15,7 @@ Before you begin using Konvoy, you must have:
 - The `dkp` binary for Linux, or macOS.
 - [Docker][install_docker] version 18.09.2 or later installed.
 - [kubectl][install_kubectl] for interacting with the running cluster.
+- [Azure CLI][azure_cli].
 - A valid Azure account with [credentials configured][azure_credentials].
 
 <p class="message--note"><strong>NOTE: </strong>On macOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
@@ -87,6 +88,7 @@ Before you begin using Konvoy with Azure, you must:
 
 When you completed, move on to the [Bootstrap][bootstrap] section.
 
+[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
 [azure_credentials]: https://github.com/kubernetes-sigs/cluster-api-provider-azure/blob/master/docs/book/src/topics/getting-started.md#prerequisites
 [bootstrap]: ../bootstrap
 [install_docker]: https://docs.docker.com/get-docker/
