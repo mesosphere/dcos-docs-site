@@ -88,6 +88,7 @@ Before you begin using Konvoy with Azure, you must:
 
 When you completed, move on to the [Bootstrap][bootstrap] section.
 
+[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
 [azure_credentials]: https://github.com/kubernetes-sigs/cluster-api-provider-azure/blob/master/docs/book/src/topics/getting-started.md#prerequisites
 [bootstrap]: ../bootstrap
 [install_docker]: https://docs.docker.com/get-docker/
