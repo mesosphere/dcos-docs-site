@@ -11,21 +11,26 @@ menuWeight: 0
 Konvoy comes with default override files:
 
 - FIPS override:
+
   ```yaml
   ---
-  k8s_image_registry: docker.io/mesosphere
-
+  etcd_image_tag: v3.4.13_fips.0
   fips:
-  enabled: true
-
+    enabled: true
+    etcdImageTag: "{{ etcd_image_tag }}"
   build_name_extra: -fips
   kubernetes_build_metadata: fips.0
   default_image_repo: hub.docker.io/mesosphere
-  kubernetes_rpm_repository_url: "https://packages.d2iq.com/konvoy/stable/linux/repos/el/kubernetes-v{{ kubernetes_version }}-fips/x86_64"
-  docker_rpm_repository_url: "\
-    https://containerd-fips.s3.us-east-2.amazonaws.com\
-    /{{ ansible_distribution_major_version|int }}\
-    /x86_64"
+  k8s_image_registry: mesosphere
+  kubernetes_rpm_repository_url: "https://kubernetes-fips.s3.us-east-2.amazonaws.com\
+                              /{{ ansible_distribution_major_version|int }}\
+                              /x86_64"
+  kubernetes_rpm_gpg_key_url: "https://kubernetes-fips.s3.us-east-2.amazonaws.com\
+                               /{{ ansible_distribution_major_version|int }}\
+                               /rpm-gpg-pub-key"
+  docker_rpm_repository_url: "https://containerd-fips.s3.us-east-2.amazonaws.com\
+                              /{{ ansible_distribution_major_version|int }}\
+                              /x86_64"
   ```
 
 - Nvidia override:
@@ -35,7 +40,6 @@ Konvoy comes with default override files:
   gpu:
     types:
       - nvidia
-
+  
   build_name_extra: "-nvidia"
-  nvidia_cuda_version: "470"
   ```

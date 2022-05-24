@@ -11,13 +11,14 @@ menuWeight: 0
 Konvoy comes with default override files:
 
 - FIPS override:
+
   ```yaml
   ---
   k8s_image_registry: docker.io/mesosphere
-
+  
   fips:
-  enabled: true
-
+    enabled: true
+  
   build_name_extra: -fips
   kubernetes_build_metadata: fips.0
   default_image_repo: hub.docker.io/mesosphere
@@ -35,9 +36,8 @@ Konvoy comes with default override files:
   gpu:
     types:
       - nvidia
-
+  
   build_name_extra: "-nvidia"
-  nvidia_cuda_version: "470"
   ```
 
 - Offline override:
@@ -51,8 +51,8 @@ Konvoy comes with default override files:
 - Offline for FIPS override:
 
   ```yaml
-# fips os-packages
-os_packages_local_bundle_file: "{{ playbook_dir }}/../artifacts/{{ kubernetes_version }}_{{ ansible_distribution|lower }}_{{ ansible_distribution_major_version }}_x86_64_fips.tar.gz"
-pip_packages_local_bundle_file: "{{ playbook_dir }}/../artifacts/pip-packages.tar.gz"
-images_local_bundle_dir: "{{ playbook_dir}}/../artifacts/images"
-```
+  # fips os-packages
+  os_packages_local_bundle_file: "{{ playbook_dir }}/../artifacts/{{ kubernetes_version }}_{{ ansible_distribution|lower }}_{{ ansible_distribution_major_version }}_x86_64_fips.tar.gz"
+  pip_packages_local_bundle_file: "{{ playbook_dir }}/../artifacts/pip-packages.tar.gz"
+  images_local_bundle_dir: "{{ playbook_dir}}/../artifacts/images"
+  ```
