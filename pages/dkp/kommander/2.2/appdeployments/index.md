@@ -18,7 +18,7 @@ In the case of **DKP catalog** and **custom applications**, the `AppDeployment` 
 
 For example, this is the default `AppDeployment` of Kube Prometheus Stack:
 
-```bash
+```yaml
 apiVersion: apps.kommander.d2iq.io/v1alpha2
 kind: AppDeployment
 metadata:
@@ -36,7 +36,7 @@ If you want to customize an application, or change how a specific app is deploye
 
 For example, this is a customized `AppDeployment` of Kube Prometheus Stack:
 
-```bash
+```yaml
 cat <<EOF | kubectl apply -f -
 apiVersion: apps.kommander.d2iq.io/v1alpha2
 kind: AppDeployment
