@@ -111,10 +111,16 @@ export CLUSTER_NAME=aks-example
 
 ## Create a new AKS Kubernetes cluster
 
+1.  Find the latest available version for Kubernetes v1.22, see https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli for more details:
+
+	```bash
+	az aks get-versions -o table --location westus
+	```
+
 1.  Create a Kubernetes cluster:
 
     ```bash
-    dkp create cluster aks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
+    dkp create cluster aks --cluster-name=${CLUSTER_NAME} --kubernetes-version=1.22.6 --additional-tags=owner=$(whoami)
     ```
 	```sh
 	Generating cluster resources
