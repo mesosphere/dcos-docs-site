@@ -33,18 +33,20 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 
 ## Fixes and Improvements
 
-### CRS deployments spamming service-account-tokens (COPS-7267)
+### ClusterResourceSet deployments create an unbounded number of service-account-tokens (COPS-7267)
 
-When running a Management Cluster with Attached Clusters, when all clusters used Metallb and deployed it using a ClusterResourceSet. On all clusters, the metal-lb namespace was being spammed with service-account-tokens of the form 'controller-token-xxxx' and 'speaker-token-xxxx'.
+An issue with the ClusterResourceSet controller in 2.2.0 caused an unbounded number of service account tokens to be created for each ClusterResourceSet.    The problem has been corrected.   A remediation is also available to identify and remove the excess secrets;  see this [knowledge base](https://support.d2iq.com/hc/en-us/articles/6019137621908-Customer-Advisory-D2iQ-2022-0002-Unbounded-Number-of-Service-Account-Token-Secrets-Created) article for more information.
 
 ### Certs showing as updated but not reloading in Kommander pods (COPS-7212)
 
-Under certain conditions, when certificate objects from a bundle are not expired, the pods in the cluster were not reloading with new certificates and might show the current certificates as expired.
+Previous Kommander 2.x versions did not properly handle certificate renewal for the Cluster CA and the certificates that are created for Kommander applications. When the certificates expired, some Kommander applications and pods failed to receive the renewed certificate information, causing them to stop working upon expiration. This problem has been corrected.
 
 ### kube-oidc-proxy error: certificate signed by unknown authority (COPS-7217)
 
 When adding a new Attached Cluster to the Management Cluster, using a custom domain and TLS certificate issued by Let's Encrypt, the kube-oidc-proxy helm chart in the Attached Cluster did not complete installation and the associated pod returned an error.
+## Flatcar 
 
+New preprovisioned clusters that use flatcar as a base operating system will use the `containerd` as the container runtime. Users can update Preprovisioned clusters created with a previous version of `dkp`to use the `containerd` runtime with this release.
 ## Component updates
 
 When upgrading to this release, the following services and service components are upgraded to the listed version:
@@ -53,7 +55,7 @@ When upgrading to this release, the following services and service components ar
 | ----------------------- | ---------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Cert Manager            | cert-manager                                   | 1.7.1   | - chart: 1.7.1 `<br>`- cert-manager: 1.7.1                                                                                                          |
 | Chartmuseum             | chartmuseum                                    | 3.6.2   | - chart: 3.6.2 `<br>`- chartmuseum: 3.6.2                                                                                                           |
-| Containerd              | containerd                                     | 1.4.13  |                                                                                                                                                       |
+| Containerd              | containerd                                     | 1.4.11  |                                                                                                                                                       |
 | Dex                     | dex                                            | 2.9.14  | - chart: 2.9.14 `<br>`- dex: 2.22.0                                                                                                                 |
 | External DNS            | external-dns                                   | 6.1.8   | - chart: 6.1.8 `<br>`- external-dns: 0.10.2                                                                                                         |
 | Fluent Bit              | fluent-bit                                     | 0.19.20 | - chart: 0.19.20 `<br>`- fluent-bit: 1.8.13                                                                                                         |
