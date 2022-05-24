@@ -12,7 +12,7 @@ enterprise: false
 
     <p class="message--note"><strong>NOTE: </strong>When specifying the <code>cluster-name</code>, you must use the same <code>cluster-name</code> as used when defining your inventory objects.</p>
 
-    <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Dockerhub's rate limit</a> use your Dockerhub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
+    <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Docker Hub's rate limit</a> use your Docker Hub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
 
     ```bash
     dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443>
@@ -164,7 +164,6 @@ Save this file. You may need to delete the node feature discovery worker pod in 
 
 Calico can leverage different network encapsulation methods to route traffic for your workloads. Encapsulation is useful when running on top of an underlying network that is not aware of workload IPs. Common examples of this include:
 
-
     - public cloud environments where you don’t own the hardware
     - AWS across VPC subnet boundaries
     - environments where you cannot peer Calico over BGP to the underlay or easily configure static routes.
@@ -203,7 +202,6 @@ For more information, see:
   - [Calico Overlay Networking][calico-overlay]
   - [IP-in-IP RFC 2003][ipip]
   - [VXLAN RFC 7348][vxlan]
-
 
 ## Use the built-in Virtual IP
 
@@ -257,7 +255,7 @@ If you require HTTP proxy configurations, you can apply them during the `create`
 
 ### HTTP Proxy Example
 
-<p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Dockerhub's rate limit</a> use your Dockerhub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
+<p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Docker Hub's rate limit</a> use your Docker Hub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
 
 ```bash
 dkp create cluster preprovisioned \
@@ -356,7 +354,7 @@ When you provision the cluster, the configured pod and service subnets will be a
 
 Confirm that your [Calico installation is correct][calico-install].
 
-[calico-install]: #verify-your-calico-installation
+[calico-install]: #set-the-interface
 [calico-method]: https://projectcalico.docs.tigera.io/reference/node/configuration#ip-autodetection-methods
 [calico-overlay]: https://docs.projectcalico.org/networking/vxlan-ipip
 [ipip]: https://datatracker.ietf.org/doc/html/rfc2003
