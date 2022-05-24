@@ -36,43 +36,43 @@ For example, if you want to test Grafana to allow monitoring, remove the pound s
     apiVersion: config.kommander.mesosphere.io/v1alpha1
     kind: Installation
     apps:
-    #centralized-grafana: null
-    #centralized-kubecost: null
-    dex: null
-    dex-k8s-authenticator: null
-    #fluent-bit: null
-     gitea: null
-    #gatekeeper: null
-    #grafana-logging: null
-    #grafana-loki: null
-    #karma: null
-    #karma-traefik: null
-    kommander: null
-    #kube-prometheus-stack: null
-    #kubecost: null
-    #kubecost-thanos-traefik: null
-    kubefed: null
-    #kubernetes-dashboard: null
-    #kubetunnel: null
-     #kube-oidc-proxy was not included in the generated --init
-    kube-oidc-proxy: null
-    #logging-operator: null
-    #minio-operator: null
-    #metallb:
-        #values: |
-        #configInline:
-            #address-pools:
-            #- name: default
-            #protocol: layer2
-            #addresses:
-            #- 192.168.251.1-192.168.251.254
-    #prometheus-adapter: null
-    #prometheus-thanos-traefik: null
-    reloader: null
-    #thanos: null
-    traefik: null
-    traefik-forward-auth-mgmt: null
-    #velero: null
+      #centralized-grafana: null
+      #centralized-kubecost: null
+      dex: null
+      dex-k8s-authenticator: null
+      #fluent-bit: null
+      gitea: null
+      #gatekeeper: null
+      #grafana-logging: null
+      #grafana-loki: null
+      #karma: null
+      #karma-traefik: null
+      kommander: null
+      #kube-prometheus-stack: null
+      #kubecost: null
+      #kubecost-thanos-traefik: null
+      kubefed: null
+      #kubernetes-dashboard: null
+      #kubetunnel: null
+      #kube-oidc-proxy was not included in the generated --init
+      kube-oidc-proxy: null
+      #logging-operator: null
+      #minio-operator: null
+      #metallb:
+          #values: |
+          #configInline:
+              #address-pools:
+              #- name: default
+              #protocol: layer2
+              #addresses:
+              #- 192.168.251.1-192.168.251.254
+      #prometheus-adapter: null
+      #prometheus-thanos-traefik: null
+      reloader: null
+      #thanos: null
+      traefik: null
+      traefik-forward-auth-mgmt: null
+      #velero: null
     ageEncryptionSecretName: sops-age
     clusterHostname: ""
     ```
