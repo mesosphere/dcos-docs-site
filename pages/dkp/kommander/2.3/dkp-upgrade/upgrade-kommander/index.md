@@ -75,6 +75,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
       ```
 
       This deletes MetalLb from Kommander while leaving the resources running in the cluster.
+      Use the following command to view the pods:
 
       ```bash
       kubectl -n kommander get pod -l app=metallb
