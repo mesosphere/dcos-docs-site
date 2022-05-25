@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: AppDeployments
 title: AppDeployments
 excerpt: Use AppDeployments to deploy, and customize platform, DKP catalog, and custom applications in your environment
-menuWeight: 10
+menuWeight: 50
 beta: false
 enterprise: false
 ---
@@ -65,6 +65,6 @@ Refer to the [CLI documentation][cli] for more information on how to `create`, o
 
 [CRD]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
 [helm]: https://fluxcd.io/docs/components/helm/helmreleases/
-[workspace]: ../../workspaces/applications/
-[project]: ../../projects/applications/
-[cli]: ../../cli/dkp/
+[workspace]: ../workspaces/applications/
+[project]: ../projects/applications/
+[cli]: ../cli/dkp/
