@@ -96,7 +96,19 @@ When upgrading to this release, the following services and service components ar
 
 The following items are known issues with this release.
 
-### <add if we have any issues, delete section if none>
+### Unsupported installation parameters
+
+If you set any these parameters in `kommander-vars` ConfigMap, the upgrade process fails.
+
+-   appManagementImageTag
+-   appManagementImageRepository
+-   kommanderChartsVersion
+
+Setting kommander chart version during installation configuration results in setting above values in kommander-vars config map, which then can block the upgrade. To unblock the upgrade, you can edit and remove the Config map values.
+Starting with release 2.2.0, you can specify the kommander chart version during installation configuration. However, if you manually change the value, then you might not be able to upgrade to higher versions.
+
+We recommend you DO NOT change the default value of the kommander chart version during installation. If you change this value, the outcome of such an installation is unpredictable. kommander-vars can be edited but it will cause an immediate restart to kommander 2.2.0. Without removing these vars, kommander cannot be upgraded.
+<QUESTION: do we want to recommend to contact support if this situation occurs and the user is blocked from upgrading?>
 
 ## Additional resources
 
