@@ -13,36 +13,59 @@ enterprise: false
 
 ## Create a new GCP cluster
 <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
-1. Create the cluster:
+1.  Create the cluster:
 
-    ```
+    ```bash
     kubectl apply -f $CLUSTER_NAME/cluster.yaml
     ```
 
+1.  Tail the CAPG controller logs:
 
-7.  Tail the CAPG controller logs:
-
-    ```
+    ```bash
     kubectl logs -n capg-system -l cluster.x-k8s.io/provider=infrastructure-gcp -f
     ```
 
-8.  Check the status of the cluster
+1.  Check the status of the cluster
 
-    ```
+    ```bash
     clusterctl describe cluster $CLUSTER_NAME
+    ```
+
+## Create a new GCP Kubernetes cluster
+<!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+1.  Ensure your GCP credentials are up to date. Refresh the credentials:
+
+    ```bash
+    dkp update bootstrap credentials gcp
+    ```
+
+1.  Generate the Kubernetes cluster objects:
+
+    <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Docker Hub's rate limit</a> use your Docker Hub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username=&lt;username&gt; --registry-mirror-password=&lt;password&gt;</code> on the <code>dkp create cluster command</code>.</p>
+
+    ```bash
+    dkp create cluster gcp --cluster-name=${CLUSTER_NAME} \
+    --dry-run \
+    --output=yaml \
+    > ${CLUSTER_NAME}.yaml
     ```
 
 ## Explore the cluster
 
 1.  Get the kubeconfig:
 
-    ```
+    ```bash
     clusterctl get kubeconfig $CLUSTER_NAME > $CLUSTER_NAME/$CLUSTER_NAME.conf
     export KUBECONFIG=$CLUSTER_NAME/$CLUSTER_NAME.conf
     ```
 
 1.  Verify the API server is up (the Nodes will not be ready until CSI is deployed):
 
-    ```
+    ```bash
     kubectl get nodes
     ```
+
+[bootstrap]: ../bootstrap
+[capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
+[download_aws_cli]: https://aws.amazon.com/cli/
+[k8s_custom_resources]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
