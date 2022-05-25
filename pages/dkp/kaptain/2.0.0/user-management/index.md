@@ -42,7 +42,8 @@ When an authenticated user logs into the system and visits the central dashboard
 Automatic profile creation is disabled by default. To enable it, set the `registrationFlow` parameter to `true` by specifying it in the `ConfigMap` for Kaptain's configuration:
 
 ```
-registrationFlow: true
+core:
+  registrationFlow: true
 ```
 
 Refer to [Deploy Kaptain documentation][deploy-kaptain] for information on how to configure Kaptain.
