@@ -12,7 +12,7 @@ An `AppDeployment` is a [CustomResource][CRD] created by D2iQ with the purpose o
 
 When installing DKP, an `AppDeployment` resource is created for each enabled **platform application**. This `AppDeployment` resource references a `ClusterApp`, which then references the repository that contains a concrete declarative and preconfigured setup of an application, usually in the form of a [`HelmRelease`][helm]. `ClusterApps` are cluster-scoped so that these platform applications are deployable to all workspaces or projects.
 
-In the case of **DKP catalog** and **custom applications**, the `AppDeployment` references an `App` instead of a `ClusterApp`, which also references the repository containing the installation and deployment information. `Apps` are namespace-scoped and are meant to only be deployable to the workspace or project scope in which they have been created.
+In the case of **DKP catalog** and **custom applications**, the `AppDeployment` references an `App` instead of a `ClusterApp`, which also references the repository containing the installation and deployment information. `Apps` are namespace-scoped and are meant to only be deployable to the workspace or project in which they have been created.
 
 For example, this is the default `AppDeployment` of Kube Prometheus Stack:
 
@@ -52,7 +52,7 @@ EOF
 
 ## Deployment scope
 
-In a single-cluster environment with an **Essential license**, `AppDeployments` enable customizing any platform, or catalog application.
+In a single-cluster environment with an **Essential license**, `AppDeployments` enable customizing any platform or catalog application.
 
 In a multi-cluster environment with an **Enterprise license**, `AppDeployments` enable [workspace-level][workspace], [project-level][project], and per-cluster deployment and customization of applications.
 <!-- TODO: link to the per-cluster topic(s) once they are created-->
