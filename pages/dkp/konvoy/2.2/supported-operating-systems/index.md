@@ -57,9 +57,9 @@ Konvoy supports the following base Operating Systems.
 ## EKS
 
 <!-- vale Vale.Spelling = NO -->
-| Operating System      | Kernel                           | Default Config | FIPS | Air Gapped | FIPS with Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> |
+| Operating System         | Kernel                           | Default Config | FIPS | Air Gapped | FIPS with Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> |
 |-----------------------|----------------------------------|----------------|------|------------|----------------------|-------------|
-| [Amazon Linux 2][amzn_2] |                               | Yes            |      |            |                      |             |
+| [Amazon Linux 2][amzn_2] |  5.4.190-107.353.amzn2.x86_64    | Yes            |      |            |                      |             |
 
 ## AKS
 
