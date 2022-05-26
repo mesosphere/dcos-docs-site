@@ -37,7 +37,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
   If you have any DKP Catalog Applications, download the DKP Catalog Application charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz" -O - | tar -xvf -
+  wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-catalog-applications-charts-bundle-v2.3.0.tar.gz" -O - | tar -xvf -
   ```
 
 ## Detach MetalLB from Kommander
@@ -153,7 +153,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
 You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the next steps depending on your environment and license type.
 
-This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.2.0 are available at these URLs:
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.2.1 are available at these URLs:
 
 * https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
 * https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
