@@ -356,8 +356,8 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
 
 If you set any these parameters in `kommander-vars` ConfigMap, the upgrade process fails.
 
--   appManagementImageTag
--   appManagementImageRepository
+-   kommanderAppManagementImageTag
+-   kommanderAppManagementImageRepository
 -   kommanderChartsVersion
 
 Setting kommander chart version during installation configuration results in setting above values in kommander-vars config map, which then can block the upgrade. To unblock the upgrade, you can edit and remove the Config map values.
