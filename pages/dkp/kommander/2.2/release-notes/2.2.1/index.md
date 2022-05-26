@@ -100,8 +100,8 @@ The following items are known issues with this release.
 
 Before attempting to upgrade an existing cluster to this release, please check the 'kommander-vars' Configmap in the 'kommander' namespace for the following fields:
 
--   appManagementImageTag
--   appManagementImageRepository
+-   kommanderAppManagementImageTag
+-   kommanderAppManagementImageRepository
 -   kommanderChartsVersion
 
 If any of the these fields are present, then there is a possibility the upgrade can fail.  If you encounter this situation, please file a support ticket for advice on how to remediate the issue before attempting to continue the upgrade.
