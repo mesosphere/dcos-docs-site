@@ -111,7 +111,7 @@ If any of the these fields are present, then there is a possibility the upgrade 
 <!-- Add links to external documentation as needed -->
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
-
+For a full list of attributed 3rd party software, see [d2iq.com/legal/3rd](http://d2iq.com/legal/3rd).
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
