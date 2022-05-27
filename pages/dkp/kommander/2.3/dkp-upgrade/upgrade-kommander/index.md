@@ -74,7 +74,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
       appdeployment.apps.kommander.d2iq.io "metallb" deleted
       ```
 
-      This deletes MetalLb from Kommander while leaving the resources running in the cluster.
+      This deletes the MetalLB App from Kommander while leaving the MetalLB resources running in the cluster.
       Use the following command to view the pods:
 
       ```bash
