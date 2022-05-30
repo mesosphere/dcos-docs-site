@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-An `AppDeployment` is a [CustomResource][CRD] created by D2iQ with the purpose of deploying applications (platform, DKP catalog and custom applications) in management, managed clusters, or both. Customers of both Essential and Enterprise products use `AppDeployments`, regardless of their setup (networked, air-gapped, etc.), and their infrastructure provider.
+An `AppDeployment` is a [Custom Resource][CRD] created by DKP with the purpose of deploying applications (platform, DKP catalog and custom applications) in the management cluster, managed clusters, or both. Customers of both Essential and Enterprise products use `AppDeployments`, regardless of their setup (networked, air-gapped, etc.), and their infrastructure provider.
 
 When installing DKP, an `AppDeployment` resource is created for each enabled **platform application**. This `AppDeployment` resource references a `ClusterApp`, which then references the repository that contains a concrete declarative and preconfigured setup of an application, usually in the form of a [`HelmRelease`][helm].
 
