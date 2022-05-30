@@ -8,7 +8,7 @@ excerpt: Requirements for attaching an existing cluster to Kommander
 
 ## Basic requirements
 
-To attach an existing cluster to Kommander, the Kommander management cluster must be able to reach the services and the `api-server` of the target cluster.
+To attach an existing cluster to DKP Kommander, the Kommander management cluster must be able to reach the services and the `api-server` of the target cluster.
 
 <!--- You can attach existing clusters with or without networking restrictions to Kommander. These networking restrictions refer to clusters that are located in a DMZ, behind a proxy server or a firewall, or that have additional requirements for access. -->
 
@@ -16,7 +16,7 @@ To attach an existing cluster to Kommander, the Kommander management cluster mus
 
 For attaching existing clusters without networking restrictions, the requirements depend on which Kommander version you are using. Each version of Kommander supports a specific range of Kubernetes versions. You must ensure that the target cluster is running a compatible version.
 
-For example, Kommander 2.2 supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using Kommander 2.2 must be running a Kubernetes version in that range.
+For example, DKP 2.3 supports Kubernetes versions between 1.21.0 and 1.23.x. Any cluster you want to attach using DKP 2.3 must be running a Kubernetes version in that range.
 
 <!--- For attaching clusters with networking restrictions the Kubernetes version of the cluster you want to attach must be greater than or equal to version 1.19.x. For these types of clusters, the Kommander cluster uses a tunnel to access the clusters you plan to attach. Any managed service you want to expose in the Kommander cluster requires the creation of a reverse proxy, or the use of HTTPS_PROXY environment variables that point to the Kommander tunnel proxy server.
 
