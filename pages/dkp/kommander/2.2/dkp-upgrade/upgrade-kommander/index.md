@@ -158,7 +158,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
     ...
     ```
 
-1.  For air-gapped deployments, an additional step is required to upgrade the Grafana Loki MinIO Tenant
+1.  For air-gapped deployments, an additional step is required to upgrade the Grafana Loki MinIO Tenant:
 
     ```bash
     kubectl patch statefulset grafana-loki-minio-ss-0 -n kommander --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"quay.io/minio/minio:RELEASE.2022-01-08T03-11-54Z"}]'
