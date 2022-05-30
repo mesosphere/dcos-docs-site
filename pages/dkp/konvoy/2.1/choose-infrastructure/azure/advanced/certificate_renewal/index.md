@@ -31,7 +31,7 @@ To enable the automated certificate renewal, create a Konvoy cluster using the `
 dkp create cluster azure --certificate-renew-interval=60 --cluster-name=long-running
 ```
 
-The `certificate-renew-interval` is the number of days after which Kubernetes-managed PKI certificates will be renewed. For example, a `certificate-renew-interval` value of "30" means that Kubernetes renews the certificates every 30 days.
+The `certificate-renew-interval` is the number of days after which Kubernetes-managed PKI certificates will be renewed. For example, a `certificate-renew-interval` value of "60" means that Kubernetes renews the certificates every 60 days.
 
 ### Technical details
 
