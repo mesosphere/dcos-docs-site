@@ -9,14 +9,14 @@ beta: false
 
 This section describes how to upgrade your Kommander Management cluster and all Platform Applications to their supported versions in networked, air-gapped, and on-prem environments. To prevent compatibility issues, you must first upgrade Kommander on your Management Cluster before upgrading to DKP.
 
-<p class="message--note"><strong>NOTE: </strong>It is important you upgrade Kommander BEFORE upgrading the Kubernetes version (or Konvoy version for Managed Konvoy clusters) in attached clusters, due to the previous versions' incompatibility with 1.22.</p>
+<p class="message--note"><strong>NOTE: </strong>It is important you upgrade Kommander BEFORE upgrading the Kubernetes version (or Konvoy version for Managed Konvoy clusters) in attached clusters, due to the previous versions' incompatibility with the Kubernetes version included in <a href="../../release-notes/">this release</a>.</p>
 
 ## Prerequisites
 
 -   **REQUIRED** Before upgrading, create an [on-demand backup][backup] of your current configuration with Velero.
 -   [Download][download_binary] and install the latest DKP CLI binary on your computer.
--   Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
--   If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
+-   Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.22.
+-   If you have attached clusters, ensure they are on Kubernetes versions 1.21, or 1.22. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
 -   Review the [Platform Application version updates][release_notes] that are part of this upgrade.  
 -   For air-gapped environments **with** DKP Catalog Applications in a multi-cluster environment: [Load the Docker images into your Docker registry][load_images_catalog]
 -   For air-gapped environments **without** DKP Catalog Applications: [Load the Docker images into your Docker registry][load_images]

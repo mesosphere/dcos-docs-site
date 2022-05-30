@@ -21,15 +21,15 @@ beta: false
 
 Welcome to D2iQ Kubernetes Platform (DKP) 2.3! This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Konvoy.
 
-DKP 2.3 supports Kubernetes versions between xxxx and xxxx. Any cluster you want to attach using DKP 2.3 must be running a Kubernetes version in this range.
+DKP 2.3 supports Kubernetes versions between 1.21 and 1.23. Any cluster you want to attach using DKP 2.3 must be running a Kubernetes version in this range.
 
 ### Supported versions
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.21.0 |
-|**Maximum** | 1.22.x |
-|**Default** | 1.22.0|
+|**Maximum** | 1.23.x |
+|**Default** | 1.23.0|
 
 ## New features and capabilities
 
@@ -85,7 +85,7 @@ When upgrading to this release, the following services and service components ar
 
 ## vSphere upgrade
 
-In 2.2, we integrated the CAPI vSphere provider with DKP so that customers woulbe be able to bootstrap their VM's for a DKP cluster.  This makes vSphere provisioning automated and efficient.  If you currently use this capability in 2.2, there will be various upgrade steps for 2.3.  Please see [vSphere upgrade via CLI](../../dkp-upgrade/) section for specific steps.
+In 2.2, we integrated the CAPI vSphere provider with DKP so that customers would be able to bootstrap their VM's for a DKP cluster. This makes vSphere provisioning automated and efficient. If you currently use this capability in 2.2, there will be various upgrade steps for 2.3.  Please see [vSphere upgrade via CLI](../../dkp-upgrade/) section for specific steps.
 
 ## Known issues
 
