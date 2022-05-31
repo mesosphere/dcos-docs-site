@@ -57,8 +57,8 @@ When running in air-gapped environments, update the configuration by replacing `
     ```bash
     wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-v2.2.0.tar.gz" -O dkp-catalog-applications.tar.gz
     ```
-    
-<p class="message--note"><strong>NOTE: </strong>This docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">here</a> and <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">here</a>.</p>
+
+<p class="message--note"><strong>NOTE: </strong>This docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">here</a>, <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">here</a>, and <a href="https://github.com/minio/minio/tree/RELEASE.2022-01-08T03-11-54Z">here</a></p>
 
 1.  Update the Kommander configuration file with:
 
