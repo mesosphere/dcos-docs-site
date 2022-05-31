@@ -20,10 +20,11 @@ Before starting the Konvoy installation, verify that you have:
 - [kubectl][install_kubectl] for interacting with the running cluster.
 - A valid GCP account with [credentials configured](https://github.com/kubernetes-sigs/cluster-api-provider-gcp).
 
-# Create a Cluster in Google Cloud Platform using clusterctl
+# Create a Cluster in Google Cloud Platform 
 <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
 ## Setup your gcloud CLI
 
+The following steps will be performed using clusterctl.
 1.  Install the CLI by following [GCP Install](https://cloud.google.com/sdk/docs/install). Select location for cluster using dkp create cluster gcp --location where the --location will default to us-west-1. ????????
 
 1.  Create a Service account
@@ -130,6 +131,12 @@ export IMAGE_NAME=cluster-api-ubuntu-2004-v1-21-10-1651240802
 If you use these instructions to create a cluster on GCP using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an Ubuntu 20.04 operating system image with 3 control plane nodes, and 4 worker nodes.
 
 The following instructions come from [Kubernetes CAPI Quick Start](https://cluster-api.sigs.k8s.io/user/quick-start.html).
+
+For a quick start, you will do the following in order.
+ - create a bootstrap cluster
+- move the CAPI controllers from the workload cluster back to the bootstrap cluster
+- delete the workload cluster
+- delete the bootstrap cluster
 
 1.  Create a bootstrap cluster:
 
@@ -308,9 +315,6 @@ If you no longer need the cluster and want to delete it, you can do so using the
 
     Similar to `create cluster`, use the flag `--self-managed` with the `delete cluster`command:
 
-- creates a bootstrap cluster
-- moves the CAPI controllers from the workload cluster back to the bootstrap cluster
-- deletes the workload cluster
-- deletes the bootstrap cluster
+
 
 To understand how this process works step by step, you can follow the workflow in [Delete Cluster](../advanced/delete).
