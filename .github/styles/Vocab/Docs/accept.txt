@@ -47,6 +47,7 @@ covariate
 cpu
 CPU
 CRD
+crt
 Crunchbase
 cthelper
 cttimeout
