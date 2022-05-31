@@ -166,7 +166,7 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 1.  Download the image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-image-bundle-v2.3.0.tar" -O kommander-image-bundle.tar
+    wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-image-bundle-v2.3.0.tar"
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
