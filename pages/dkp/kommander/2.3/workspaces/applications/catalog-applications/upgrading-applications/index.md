@@ -11,7 +11,6 @@ excerpt: Upgrade catalog applications using the CLI and UI
 
 Before upgrading your catalog applications, verify the current and supported versions of the application. Also, keep in mind the distinction between Platform applications and Catalog applications. Platform applications are deployed and upgraded as a set for each cluster or workspace. Catalog applications are deployed separately, so that you can deploy and upgrade them individually for each project.
 
-<p class="message--note"><strong>NOTE: </strong>Catalog applications must be upgraded to the latest version BEFORE upgrading the Kubernetes version (or Konvoy version for managed Konvoy clusters) on attached clusters, due to the previous versions' incompatibility with the Kubernetes version included in <a href="../../../../release-notes/">this release</a>.</p>
 
 ### Upgrade with UI
 
