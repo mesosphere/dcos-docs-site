@@ -7,8 +7,6 @@ menuWeight: 30
 excerpt: Continuous Deployment
 ---
 
-<!--- markdownlist-disable MD025 --->
-
 After installing Kommander and [configuring your project and its clusters](../../), navigate to the **Continuous Deployment (CD)** tab under your Project. Here you create a GitOps source which is a source code management (SCM) repository hosting the application definition. D2iQ recommends that you create a secret first then create a GitOps source accessed by the secret.
 
 ## Set up a secret for accessing GitOps
@@ -33,6 +31,14 @@ The following table describes the fields required for each authentication method
 
 <!-- Refer https://fluxcd.io/docs/components/source/gitrepositories/#spec-examples for flux examples (not everything in there is supported) -->
 
+username = github username
+password = either your password or a token
+if you use password password - if you have MultiFactor on, it won't work.
+Create a token in https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+
+If you use a token, username is optional 
+
+
 ## Create GitOps Source
 
 After the secret is created, you can view it in the `Secrets` tab. Configure the GitOps source accessed by the secret.
@@ -46,7 +52,10 @@ After a GitOps Source is created, there are various commands that can be execute
 On the management cluster, check your `GitopsRepository` to ensure that the `CD` manifests have been created successfully.
 
 ```bash
-$ kubectl describe gitopsrepositories.dispatch.d2iq.io -n<PROJECT_NAMESPACE> gitopsdemo
+kubectl describe gitopsrepositories.dispatch.d2iq.io -n<PROJECT_NAMESPACE> gitopsdemo
+```
+
+```sh
 Name:         gitopsdemo
 Namespace:    <PROJECT_NAMESPACE>
 ...
@@ -60,8 +69,10 @@ Events:
 On the attached cluster, check for your `Kustomization` and `GitRepository` resources. The `status` field reflects the syncing of manifests:
 
 ```bash
-$ kubectl get kustomizations.kustomize.toolkit.fluxcd.io -n<PROJECT_NAMESPACE> <GITOPS_SOURCE_NAME> -oyaml
+kubectl get kustomizations.kustomize.toolkit.fluxcd.io -n<PROJECT_NAMESPACE> <GITOPS_SOURCE_NAME> -oyaml
+```
 
+```yaml
 ...
 status:
   conditions:
@@ -75,8 +86,10 @@ status:
 Similarly, with `GitRepository` resource:
 
 ```bash
-$ kubectl get gitrepository.source.toolkit.fluxcd.io -n<PROJECT_NAMESPACE> <GITOPS_SOURCE_NAME> -oyaml
+kubectl get gitrepository.source.toolkit.fluxcd.io -n<PROJECT_NAMESPACE> <GITOPS_SOURCE_NAME> -oyaml
+```
 
+```yaml
 ...
 status:
   conditions:
