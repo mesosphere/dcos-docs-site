@@ -11,7 +11,6 @@ excerpt: Upgrade catalog applications using the CLI and UI
 
 Before upgrading your catalog applications, verify the current and supported versions of the application. Also, keep in mind the distinction between Platform applications and Catalog applications. Platform applications are deployed and upgraded as a set for each cluster or workspace. Catalog applications are deployed separately, so that you can deploy and upgrade them individually for each project.
 
-
 ### Upgrade with UI
 
 Follow these steps to upgrade an application from the DKP UI:

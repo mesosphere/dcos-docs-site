@@ -9,7 +9,6 @@ beta: false
 
 This section describes how to upgrade your Kommander Management cluster and all Platform Applications to their supported versions in networked, air-gapped, and on-prem environments. To prevent compatibility issues, you must first upgrade Kommander on your Management Cluster before upgrading to DKP.
 
-
 ## Prerequisites
 
 -   **REQUIRED** Before upgrading, create an [on-demand backup][backup] of your current configuration with Velero.
