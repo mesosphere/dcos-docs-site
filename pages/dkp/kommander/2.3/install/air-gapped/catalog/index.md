@@ -213,7 +213,7 @@ It may take a while to push all the images to your image registry, depending on 
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-applications-v2.3.0.tar"
+    wget "https://downloads.d2iq.com/dkp/v2.3.0/kommander-applications-v2.3.0.tar.gz"
     ```
 
 1.  Download the Kommander charts bundle:
