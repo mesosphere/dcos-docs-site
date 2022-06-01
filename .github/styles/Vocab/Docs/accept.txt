@@ -30,6 +30,7 @@ checkpoint(|s|ed|ing)
 (chronos|Chronos)
 (Chrony|chrony)
 clusterawsadm
+clusterctl
 CNN(|s)
 CNTK
 (component|Component)

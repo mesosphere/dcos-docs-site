@@ -9,7 +9,7 @@ enterprise: false
 
 Before you start, make sure you have completed the steps in [Bootstrap][bootstrap].
 
-## Create a new AWS Kubernetes cluster
+## Create a new EKS Kubernetes cluster
 
 1.  Set the environment variable to the name you assigned this cluster.
 
