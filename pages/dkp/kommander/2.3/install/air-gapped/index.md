@@ -225,8 +225,8 @@ It may take a while to push all the images to your image registry, depending on 
 
 This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.2.0 are available at these URLs:
 
-* https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
-* https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
+* https://github.com/minio/minio/tree/RELEASE.2022-04-01T03-41-39Z
+* https://github.com/minio/minio/tree/RELEASE.2022-01-08T03-11-54Z
 
 [air-gap-before-you-begin]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/prerequisites/
 [air-gap-install-metallb]: #use-metallb
