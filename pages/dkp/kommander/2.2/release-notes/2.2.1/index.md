@@ -109,6 +109,7 @@ If any of the these fields are present, then there is a possibility the upgrade 
 ## Additional resources
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
+
 For a full list of attributed 3rd party software, see [d2iq.com/legal/3rd](http://d2iq.com/legal/3rd).
 
 [kube-prometheus-stack]: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
