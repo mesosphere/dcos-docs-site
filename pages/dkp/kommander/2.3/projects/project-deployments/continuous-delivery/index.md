@@ -40,6 +40,8 @@ If you are using a GitHub personal access token, you do not need to have a key:v
 If you are using a secret with your GitHub username and your password, you will need one secret created in the DKP UI, with key:value pairs of `username`: `<your-github-username>` and `password`: `<your-github-password>`.
 **Note:** if you have multi-factor authentication turned on in your GitHub account, this will not work.
 
+<p class="message--note"><strong>NOTE: </strong>Using a token without a username is valid for GitHub, but other providers (such as GitLab) require both username and tokens.</p>
+
 <p class="message--important"><strong>NOTE: </strong>If you are using a public GitHub repository, you do not need to use a secret.</p>
 
 ## Create GitOps Source
