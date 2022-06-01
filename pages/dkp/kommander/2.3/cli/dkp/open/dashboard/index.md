@@ -37,5 +37,5 @@ dkp open dashboard [flags]
 
 ### SEE ALSO
 
-* [dkp open](/dkp/kommander/2.2/cli/dkp/open/)	 - Open one of [dashboard]
+* [dkp open](/dkp/kommander/2.3/cli/dkp/open/)	 - Open one of [dashboard]
 

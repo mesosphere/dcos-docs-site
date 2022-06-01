@@ -35,5 +35,5 @@ dkp import image-bundle [flags]
 
 ### SEE ALSO
 
-* [dkp import](/dkp/kommander/2.2/cli/dkp/import/)	 - Import images from an image bundle into Containerd
+* [dkp import](/dkp/kommander/2.3/cli/dkp/import/)	 - Import images from an image bundle into Containerd
 

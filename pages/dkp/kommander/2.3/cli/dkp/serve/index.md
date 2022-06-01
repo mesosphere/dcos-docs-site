@@ -29,6 +29,6 @@ Serve an image registry
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp serve image-bundle](/dkp/kommander/2.2/cli/dkp/serve/image-bundle/)	 - Serve an image registry
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp serve image-bundle](/dkp/kommander/2.3/cli/dkp/serve/image-bundle/)	 - Serve an image registry
 

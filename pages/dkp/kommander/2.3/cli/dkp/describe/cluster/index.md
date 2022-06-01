@@ -36,5 +36,5 @@ dkp describe cluster [flags]
 
 ### SEE ALSO
 
-* [dkp describe](/dkp/kommander/2.2/cli/dkp/describe/)	 - Describe one of [cluster]
+* [dkp describe](/dkp/kommander/2.3/cli/dkp/describe/)	 - Describe one of [cluster]
 

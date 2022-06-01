@@ -39,5 +39,5 @@ dkp version [flags]
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
 

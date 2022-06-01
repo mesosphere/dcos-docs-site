@@ -63,5 +63,5 @@ dkp check cluster fips [flags]
 
 ### SEE ALSO
 
-* [dkp check cluster](/dkp/kommander/2.2/cli/dkp/check/cluster/)	 - Check a cluster, one of [fips]
+* [dkp check cluster](/dkp/kommander/2.3/cli/dkp/check/cluster/)	 - Check a cluster, one of [fips]
 

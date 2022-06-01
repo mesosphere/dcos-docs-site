@@ -29,8 +29,8 @@ Push one of [chart, chart-bundle, image-bundle]
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp push chart](/dkp/kommander/2.2/cli/dkp/push/chart/)	 - Upload charts to the repository
-* [dkp push chart-bundle](/dkp/kommander/2.2/cli/dkp/push/chart-bundle/)	 - Upload chart bundles to the repository
-* [dkp push image-bundle](/dkp/kommander/2.2/cli/dkp/push/image-bundle/)	 - Push images from an image bundle into an existing image registry
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp push chart](/dkp/kommander/2.3/cli/dkp/push/chart/)	 - Upload charts to the repository
+* [dkp push chart-bundle](/dkp/kommander/2.3/cli/dkp/push/chart-bundle/)	 - Upload chart bundles to the repository
+* [dkp push image-bundle](/dkp/kommander/2.3/cli/dkp/push/image-bundle/)	 - Push images from an image bundle into an existing image registry
 

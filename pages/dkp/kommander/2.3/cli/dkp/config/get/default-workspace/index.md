@@ -37,5 +37,5 @@ dkp config get default-workspace [flags]
 
 ### SEE ALSO
 
-* [dkp config get](/dkp/kommander/2.2/cli/dkp/config/get/)	 - Retrieve DKP Kommander's configuration
+* [dkp config get](/dkp/kommander/2.3/cli/dkp/config/get/)	 - Retrieve DKP Kommander's configuration
 

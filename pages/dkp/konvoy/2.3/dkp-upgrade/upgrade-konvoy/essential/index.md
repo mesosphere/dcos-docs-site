@@ -24,6 +24,8 @@ menuWeight: 30
 
 -   For vSphere, set the required [environment variables][envariables3].
 
+-   For EKS, set the required [environment variables][envariables4].
+
 The following infrastructure provider environments are supported:
 
 -   Amazon Web Services (AWS)
@@ -35,6 +37,8 @@ The following infrastructure provider environments are supported:
 -   vSphere
 
 -   Google Cloud Platform
+
+-   EKS
 
 ## Overview
 
@@ -96,7 +100,7 @@ Your cluster comes preconfigured with a few different core addons that provide f
 
 <p class="message--warning"><strong>IMPORTANT:</strong>If you have more than one essential cluster, ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-Upgrade the core addons in a cluster using the 'dkp upgrade addons' command specifying the cluster infrastructure (choose [aws, azure, vsphere, gcp, preprovisioned]) and the name of the cluster.
+Upgrade the core addons in a cluster using the 'dkp upgrade addons' command specifying the cluster infrastructure (choose [aws, azure, vsphere, gcp, eks, preprovisioned]) and the name of the cluster.  In the examples below, replace infrastructure provider in command at the location with corresponding provider name as shown in brackets above.
 
 Examples:
 
@@ -156,7 +160,7 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
     - If an AMI was specified when initially creating a cluster for AWS, you must build a new one with <a href="/dkp/konvoy/2.3/image-builder/create-ami/">Konvoy Image Builder</a>.
     - If an Azure Machine Image was specified for Azure, you must build a new one with <a href="/dkp/konvoy/2.3/image-builder/create-azure-image/">Konvoy Image Builder</a>.
 
-1.  Upgrade the Kubernetes version of the control plane.
+1.  Upgrade the Kubernetes version of the control plane. As shown in update addons section above, replace infrastructure provider name in the command [`aws`, `azure`, `vsphere`, `gcp`, `eks`, `preprovisioned`].
 
     ```bash
     dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
@@ -170,14 +174,14 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
      ✓ Updating the control plane
     ```
 
-1.  Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
+1.  Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool. Also, replace the name of the infrastructure provider in the command [`aws`, `azure`, `vsphere`, `gcp`, `eks`, `preprovisioned`].
 
     ```bash
     export NODEPOOL_NAME=my-nodepool
     dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
     ```
 
-    The output should be similar to:
+    The output should be similar to below with the name of the infrastructure provider shown accordingly:
 
     ```sh
     Updating node pool resource cluster.x-k8s.io/v1beta1, Kind=MachineDeployment default/my-aws-cluster-my-nodepool
@@ -200,3 +204,4 @@ For the overall process for upgrading to the latest version of DKP, refer back t
 [envariables]: ../../../choose-infrastructure/azure/quick-start-azure#configure-azure-prerequisites
 [envariables2]: ../../../choose-infrastructure/aws/quick-start-aws#configure-aws-prerequisites
 [envariables3]: ../../../choose-infrastructure/vsphere/new#create-a-new-vsphere-kubernetes-cluster
+[envariables4]: ../../../choose-infrastructure/eks/quick-start#configure-eks-prerequisites

@@ -65,56 +65,53 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 ## Detach MetalLB from Kommander
 
-  <p class="message--important"><strong>IMPORTANT:</strong> Beginning with DKP version 2.2, MetalLB is no longer managed as a platform application. If you installed  MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.</p>
+  <p class="message--important"><strong>IMPORTANT:</strong> Beginning with DKP version 2.2, MetalLB is no longer managed as a platform application. If you installed MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.</p>
 
-  1. Pause the helm release.
-  ```bash
-  kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
-  ```
-  
-  ```sh
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
-  ```
+  1.  Pause the helm release.
 
-  2. Delete the helm release secret.
-  ```bash
-  kubectl -n kommander delete secret -l name=metallb,owner=helm
-  ```
-  ```sh
-  secret "sh.helm.release.v1.metallb.v1" deleted
-  ```
+      ```bash
+      kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
+      ```
+      
+      ```sh
+      helmrelease.helm.toolkit.fluxcd.io/metallb patched
+      ```
 
-  3. Delete MetalLB.
-  ```bash
-  kubectl -n kommander delete appdeployment metallb
-  ```
+  1.  Delete the helm release secret.
 
-  ```sh
-  appdeployment.apps.kommander.d2iq.io "metallb" deleted
-  ```
+      ```bash
+      kubectl -n kommander delete secret -l name=metallb,owner=helm
+      ```
 
-  4. Unpause the helm release.
-  ```bash
-  kubectl -n kommander patch -p='{"spec":{"suspend": false}}' --type=merge helmrelease/metallb
-  ```
+      ```sh
+      secret "sh.helm.release.v1.metallb.v1" deleted
+      ```
 
-  ```sh
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
-  ```
-  This deletes MetalLb from Kommander while leaving the resources running in the cluster.
+  1.  Delete MetalLB.
 
-  ```bash
-  kubectl -n kommander get pod -l app=metallb
-  ```
+      ```bash
+      kubectl -n kommander delete appdeployment metallb
+      ```
 
-  ```sh
-  NAME                                 READY   STATUS    RESTARTS   AGE
-  metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
-  metallb-speaker-2gz6p                1/1     Running   0          20m
-  metallb-speaker-48d44                1/1     Running   0          20m
-  metallb-speaker-6gp76                1/1     Running   0          20m
-  metallb-speaker-dh9dm                1/1     Running   0          20m
-  ```
+      ```sh
+      appdeployment.apps.kommander.d2iq.io "metallb" deleted
+      ```
+
+    This deletes the MetalLB App from Kommander while leaving the MetalLB resources running in the cluster.
+    Use the following command to view the pods:
+
+    ```bash
+    kubectl -n kommander get pod -l app=metallb
+    ```
+
+    ```sh
+    NAME                                 READY   STATUS    RESTARTS   AGE
+    metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
+    metallb-speaker-2gz6p                1/1     Running   0          20m
+    metallb-speaker-48d44                1/1     Running   0          20m
+    metallb-speaker-6gp76                1/1     Running   0          20m
+    metallb-speaker-dh9dm                1/1     Running   0          20m
+    ```
 
 ## Upgrade Kommander
 
@@ -149,7 +146,10 @@ Before running the following command, ensure that your `dkp` configuration **ref
     An output similar to this appears:
 
     ```bash
-    $ dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
+    dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
+    ```
+
+    ```sh
     ✓ Ensuring upgrading conditions are met
     ✓ Ensuring application definitions are updated
     ✓ Ensuring helm-mirror implementation is migrated to chartmuseum
@@ -162,10 +162,23 @@ Before running the following command, ensure that your `dkp` configuration **ref
     dkp upgrade kommander -v 4
     ```
 
+    If you find any `HelmReleases` in a "broken" release state such as "exhausted" or "another rollback/release in progress", you can trigger a reconciliation of the `HelmRelease` using the following commands:
+
+    ```bash
+    kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": true}]'
+    kubectl -n kommander patch helmrelease <HELMRELEASE_NAME> --type='json' -p='[{"op": "replace", "path": "/spec/suspend", "value": false}]'
+    ```
+
 1.  For Enterprise customers (multi-cluster environment): Upgrade your additional [Workspaces][upgrade_workspaces] on a per-Workspace basis to upgrade the Platform Applications on other clusters than the Management Cluster.
     For Essential customers (single-cluster environment): Proceed with the [Konvoy Upgrade][konvoy_upgrade].
 
 You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the next steps depending on your environment and license type.
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.2.0 are available at these URLs:
+
+* https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
+* https://github.com/minio/minio/tree/RELEASE.2022-01-08T03-11-54Z
+* https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster

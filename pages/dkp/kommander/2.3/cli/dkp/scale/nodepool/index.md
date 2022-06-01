@@ -38,5 +38,5 @@ dkp scale nodepool name [flags]
 
 ### SEE ALSO
 
-* [dkp scale](/dkp/kommander/2.2/cli/dkp/scale/)	 - Scale one of [nodepool]
+* [dkp scale](/dkp/kommander/2.3/cli/dkp/scale/)	 - Scale one of [nodepool]
 

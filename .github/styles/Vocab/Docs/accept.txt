@@ -30,6 +30,7 @@ checkpoint(|s|ed|ing)
 (chronos|Chronos)
 (Chrony|chrony)
 clusterawsadm
+clusterctl
 CNN(|s)
 CNTK
 (component|Component)
@@ -47,6 +48,7 @@ covariate
 cpu
 CPU
 CRD
+crt
 Crunchbase
 cthelper
 cttimeout

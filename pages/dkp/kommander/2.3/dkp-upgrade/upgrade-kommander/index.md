@@ -9,14 +9,12 @@ beta: false
 
 This section describes how to upgrade your Kommander Management cluster and all Platform Applications to their supported versions in networked, air-gapped, and on-prem environments. To prevent compatibility issues, you must first upgrade Kommander on your Management Cluster before upgrading to DKP.
 
-<p class="message--note"><strong>NOTE: </strong>It is important you upgrade Kommander BEFORE upgrading the Kubernetes version (or Konvoy version for Managed Konvoy clusters) in attached clusters, due to the previous versions' incompatibility with 1.22.</p>
-
 ## Prerequisites
 
 -   **REQUIRED** Before upgrading, create an [on-demand backup][backup] of your current configuration with Velero.
 -   [Download][download_binary] and install the latest DKP CLI binary on your computer.
--   Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
--   If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
+-   Ensure you are on DKP version 2.2.x and Kubernetes version 1.22.
+-   If you have attached clusters, ensure they are on Kubernetes versions 1.21 or 1.22. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
 -   Review the [Platform Application version updates][release_notes] that are part of this upgrade.  
 -   For air-gapped environments **with** DKP Catalog Applications in a multi-cluster environment: [Load the Docker images into your Docker registry][load_images_catalog]
 -   For air-gapped environments **without** DKP Catalog Applications: [Load the Docker images into your Docker registry][load_images]
@@ -44,53 +42,51 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
   <p class="message--important"><strong>IMPORTANT:</strong> Beginning with DKP version 2.2, MetalLB is no longer managed as a platform application. If you installed MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.</p>
 
-  1. Pause the helm release.
-  ```bash
-  kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
-  ```
-  ```sh
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
-  ```
+  1.  Pause the helm release.
 
-  2. Delete the helm release secret.
-  ```bash
-  kubectl -n kommander delete secret -l name=metallb,owner=helm
-  ```
-  ```sh
-  secret "sh.helm.release.v1.metallb.v1" deleted
-  ```
+      ```bash
+      kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
+      ```
 
-  3. Delete MetalLB.
-  ```bash
-  kubectl -n kommander delete appdeployment metallb
-  ```
+      ```sh
+      helmrelease.helm.toolkit.fluxcd.io/metallb patched
+      ```
 
-  ```sh
-  appdeployment.apps.kommander.d2iq.io "metallb" deleted
-  ```
+  1.  Delete the helm release secret.
 
-  4. Unpause the helm release.
-  ```bash
-  kubectl -n kommander patch -p='{"spec":{"suspend": false}}' --type=merge helmrelease/metallb
-  ```
+      ```bash
+      kubectl -n kommander delete secret -l name=metallb,owner=helm
+      ```
 
-  ```sh
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
-  ```
-  This deletes MetalLb from Kommander while leaving the resources running in the cluster.
+      ```sh
+      secret "sh.helm.release.v1.metallb.v1" deleted
+      ```
 
-  ```bash
-  kubectl -n kommander get pod -l app=metallb
-  ```
+  1.  Delete MetalLB.
 
-  ```sh
-  NAME                                 READY   STATUS    RESTARTS   AGE
-  metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
-  metallb-speaker-2gz6p                1/1     Running   0          20m
-  metallb-speaker-48d44                1/1     Running   0          20m
-  metallb-speaker-6gp76                1/1     Running   0          20m
-  metallb-speaker-dh9dm                1/1     Running   0          20m
-  ```
+      ```bash
+      kubectl -n kommander delete appdeployment metallb
+      ```
+
+      ```sh
+      appdeployment.apps.kommander.d2iq.io "metallb" deleted
+      ```
+
+      This deletes the MetalLB App from Kommander while leaving the MetalLB resources running in the cluster.
+      Use the following command to view the pods:
+
+      ```bash
+      kubectl -n kommander get pod -l app=metallb
+      ```
+
+      ```sh
+      NAME                                 READY   STATUS    RESTARTS   AGE
+      metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
+      metallb-speaker-2gz6p                1/1     Running   0          20m
+      metallb-speaker-48d44                1/1     Running   0          20m
+      metallb-speaker-6gp76                1/1     Running   0          20m
+      metallb-speaker-dh9dm                1/1     Running   0          20m
+      ```
 
 ## Upgrade Kommander
 
@@ -160,10 +156,10 @@ This Docker image includes code from the MinIO Project (“MinIO”), which is �
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
-[AWS]: ../../../../konvoy/2.2/choose-infrastructure/aws/advanced/update/
-[Azure]: ../../../../konvoy/2.2/choose-infrastructure/azure/advanced/update/
+[AWS]: ../../../../konvoy/2.3/choose-infrastructure/aws/advanced/update/
+[Azure]: ../../../../konvoy/2.3/choose-infrastructure/azure/advanced/update/
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
-[pre_provisioned]: ../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
+[pre_provisioned]: ../../../../konvoy/2.3/choose-infrastructure/pre-provisioned/upgrade/control-plane/
 [k8s_access_to_clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [upgrade_workspaces]: ../../workspaces/applications/platform-applications#upgrade-platform-applications-from-the-cli
 [release_notes]: ../../release-notes/

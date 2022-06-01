@@ -36,5 +36,5 @@ dkp delete capi-components [flags]
 
 ### SEE ALSO
 
-* [dkp delete](/dkp/kommander/2.2/cli/dkp/delete/)	 - Delete one of [bootstrap, capi-components, chart, cluster, nodepool]
+* [dkp delete](/dkp/kommander/2.3/cli/dkp/delete/)	 - Delete one of [bootstrap, capi-components, chart, cluster, nodepool]
 

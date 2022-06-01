@@ -61,7 +61,7 @@ dkp diagnose [flags]
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp diagnose default-config](/dkp/kommander/2.2/cli/dkp/diagnose/default-config/)	 - Prints the default configuration of the diagnostics bundle collectors
-* [dkp diagnose ssh](/dkp/kommander/2.2/cli/dkp/diagnose/ssh/)	 - Collect node-level diagnostics data over SSH
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp diagnose default-config](/dkp/kommander/2.3/cli/dkp/diagnose/default-config/)	 - Prints the default configuration of the diagnostics bundle collectors
+* [dkp diagnose ssh](/dkp/kommander/2.3/cli/dkp/diagnose/ssh/)	 - Collect node-level diagnostics data over SSH
 

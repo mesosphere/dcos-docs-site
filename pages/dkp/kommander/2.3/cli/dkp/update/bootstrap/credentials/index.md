@@ -29,8 +29,8 @@ Update credentials in the cluster
 
 ### SEE ALSO
 
-* [dkp update bootstrap](/dkp/kommander/2.2/cli/dkp/update/bootstrap/)	 - Update bootstrap cluster
-* [dkp update bootstrap credentials aws](/dkp/kommander/2.2/cli/dkp/update/bootstrap/credentials/aws/)	 - Update AWS credentials in the cluster and restart CAPA controllers
-* [dkp update bootstrap credentials azure](/dkp/kommander/2.2/cli/dkp/update/bootstrap/credentials/azure/)	 - Update Azure credentials in the cluster and restart CAPZ controllers
-* [dkp update bootstrap credentials vsphere](/dkp/kommander/2.2/cli/dkp/update/bootstrap/credentials/vsphere/)	 - Update VSphere credentials in the cluster and restart CAPV controllers
+* [dkp update bootstrap](/dkp/kommander/2.3/cli/dkp/update/bootstrap/)	 - Update bootstrap cluster
+* [dkp update bootstrap credentials aws](/dkp/kommander/2.3/cli/dkp/update/bootstrap/credentials/aws/)	 - Update AWS credentials in the cluster and restart CAPA controllers
+* [dkp update bootstrap credentials azure](/dkp/kommander/2.3/cli/dkp/update/bootstrap/credentials/azure/)	 - Update Azure credentials in the cluster and restart CAPZ controllers
+* [dkp update bootstrap credentials vsphere](/dkp/kommander/2.3/cli/dkp/update/bootstrap/credentials/vsphere/)	 - Update VSphere credentials in the cluster and restart CAPV controllers
 

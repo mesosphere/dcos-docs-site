@@ -33,6 +33,6 @@ Detach one of [cluster]
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp detach cluster](/dkp/kommander/2.2/cli/dkp/detach/cluster/)	 - Detach a cluster
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp detach cluster](/dkp/kommander/2.3/cli/dkp/detach/cluster/)	 - Detach a cluster
 

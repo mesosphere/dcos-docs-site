@@ -38,5 +38,5 @@ dkp serve image-bundle [flags]
 
 ### SEE ALSO
 
-* [dkp serve](/dkp/kommander/2.2/cli/dkp/serve/)	 - Serve an image registry
+* [dkp serve](/dkp/kommander/2.3/cli/dkp/serve/)	 - Serve an image registry
 

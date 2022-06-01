@@ -33,6 +33,6 @@ Retrieve DKP Kommander's configuration
 
 ### SEE ALSO
 
-* [dkp config](/dkp/kommander/2.2/cli/dkp/config/)	 - Manage DKP Kommander's configuration
-* [dkp config get default-workspace](/dkp/kommander/2.2/cli/dkp/config/get/default-workspace/)	 - Displays the name of the configured default Workspace
+* [dkp config](/dkp/kommander/2.3/cli/dkp/config/)	 - Manage DKP Kommander's configuration
+* [dkp config get default-workspace](/dkp/kommander/2.3/cli/dkp/config/get/default-workspace/)	 - Displays the name of the configured default Workspace
 

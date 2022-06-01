@@ -36,5 +36,5 @@ dkp update bootstrap credentials azure [flags]
 
 ### SEE ALSO
 
-* [dkp update bootstrap credentials](/dkp/kommander/2.2/cli/dkp/update/bootstrap/credentials/)	 - Update credentials in the cluster
+* [dkp update bootstrap credentials](/dkp/kommander/2.3/cli/dkp/update/bootstrap/credentials/)	 - Update credentials in the cluster
 

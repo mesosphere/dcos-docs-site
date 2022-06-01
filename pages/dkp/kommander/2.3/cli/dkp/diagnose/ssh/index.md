@@ -35,5 +35,5 @@ dkp diagnose ssh path/to/inventory-file.yaml [flags]
 
 ### SEE ALSO
 
-* [dkp diagnose](/dkp/kommander/2.2/cli/dkp/diagnose/)	 - Generate a support bundle
+* [dkp diagnose](/dkp/kommander/2.3/cli/dkp/diagnose/)	 - Generate a support bundle
 
