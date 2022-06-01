@@ -34,6 +34,7 @@ Before installing, ensure you have:
 -   [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
 
 -   Sufficient resources on your cluster to run Kommander. Review the [Management cluster application requirements](../mgmt-cluster-apps) and [Workspace platform application requirements](../../workspaces/applications/platform-applications/platform-application-requirements) for application requirements.
+-   The image bundle files [downloaded](../../download/).
 
 ### Kommander charts bundle
 
@@ -163,23 +164,19 @@ See [Kommander Load Balancing][kommander-load-balancing] for more information.
 
 ### Load the Docker images into your Docker registry
 
-1.  Download the image bundle file:
-
-    ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-image-bundle-v2.2.0.tar.gz" -O kommander-image-bundle.tar.gz
-    ```
-
-1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
+1.  See the `NOTICES.txt` file for 3rd party software attributions and place the `kommander-image-bundle-v2.2.0.tar.gz` and `dkp-catalog-applications-image-bundle-v2.2.0.tar.gz` bundles within a location where you can load and push the images to your private Docker registry.
 
 1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
-    dkp push image-bundle --image-bundle kommander-image-bundle.tar.gz --to-registry <REGISTRY_URL>
+    dkp push image-bundle --image-bundle kommander-image-bundle-v2.2.0.tar.gz --to-registry <REGISTRY_URL>
     ```
 
 It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
 
 ## Install on Konvoy
+
+<p class="message--note"><strong>NOTE: </strong>These docker images include code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">here</a> and <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">here</a>.</p>
 
 1.  Create the [configuration file][kommander-config] by running `kommander install --init --airgapped > install.yaml` for the air-gapped deployment. Open the `install.yaml` file and review that it looks like the following:
 
@@ -210,7 +207,7 @@ It may take a while to push all the images to your image registry, depending on 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz" -O - | tar -xvf -
     ```
 
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
@@ -222,6 +219,11 @@ It may take a while to push all the images to your image registry, depending on 
     ```
 
 1.  [Verify your installation](../networked#verify-installation).
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.2.0 are available at these URLs:
+
+* https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
+* https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
 
 [air-gap-before-you-begin]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/prerequisites/
 [air-gap-install-metallb]: #use-metallb

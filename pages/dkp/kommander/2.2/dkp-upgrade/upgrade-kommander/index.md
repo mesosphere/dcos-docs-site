@@ -31,65 +31,87 @@ This section describes how to upgrade your Kommander Management cluster and all 
   Download the Kommander charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz" -O - | tar -xvf -
   ```
 
   If you have any DKP Catalog Applications, download the DKP Catalog Application charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz" -O - | tar -xvf -
   ```
+
+-   For clusters upgrading from 2.1.1 with HTTP Proxy installed:
+
+    Edit the `gatekeeper-overrides`, and add a new configuration property, `disableMutation`, with the value `false`. This is required because the Gatekeeper configuration was changed between versions `v2.1.1` and `v2.2.0`:
+
+    ```yaml
+      disableMutation: false # <-- this value is new in 2.2.0
+      mutations:
+        enablePodProxy: true
+        podProxySettings:
+          noProxy: ...
+          httpProxy: ...
+          httpsProxy: ...
+        excludeNamespacesFromProxy: []
+        namespaceSelectorForProxy:
+          "gatekeeper.d2iq.com/mutate": "pod-proxy"
+    ```
+
+    Configure the `kommander-flux` namespace and adjust the label so the Gatekeeper mutation is active on the namespace:
+
+    ```bash
+    kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
+    ```
+
 ## Detach MetalLB from Kommander
 
   <p class="message--important"><strong>IMPORTANT:</strong> Beginning with DKP version 2.2, MetalLB is no longer managed as a platform application. If you installed MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.</p>
 
-  1. Pause the helm release.
-  ```bash
-  kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
-  ```
-  ```sh
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
-  ```
+  1.  Pause the helm release.
 
-  2. Delete the helm release secret.
-  ```bash
-  kubectl -n kommander delete secret -l name=metallb,owner=helm
-  ```
-  ```sh
-  secret "sh.helm.release.v1.metallb.v1" deleted
-  ```
+      ```bash
+      kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
+      ```
 
-  3. Delete MetalLB.
-  ```bash
-  kubectl -n kommander delete appdeployment metallb
-  ```
+      ```sh
+      helmrelease.helm.toolkit.fluxcd.io/metallb patched
+      ```
 
-  ```sh
-  appdeployment.apps.kommander.d2iq.io "metallb" deleted
-  ```
+  1.  Delete the helm release secret.
 
-  4. Unpause the helm release.
-  ```bash
-  kubectl -n kommander patch -p='{"spec":{"suspend": false}}' --type=merge helmrelease/metallb
-  ```
+      ```bash
+      kubectl -n kommander delete secret -l name=metallb,owner=helm
+      ```
 
-  ```sh
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
-  ```
-  This deletes MetalLb from Kommander while leaving the resources running in the cluster.
+      ```sh
+      secret "sh.helm.release.v1.metallb.v1" deleted
+      ```
 
-  ```bash
-  kubectl -n kommander get pod -l app=metallb
-  ```
+  1.  Delete MetalLB.
 
-  ```sh
-  NAME                                 READY   STATUS    RESTARTS   AGE
-  metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
-  metallb-speaker-2gz6p                1/1     Running   0          20m
-  metallb-speaker-48d44                1/1     Running   0          20m
-  metallb-speaker-6gp76                1/1     Running   0          20m
-  metallb-speaker-dh9dm                1/1     Running   0          20m
-  ```
+      ```bash
+      kubectl -n kommander delete appdeployment metallb
+      ```
+
+      ```sh
+      appdeployment.apps.kommander.d2iq.io "metallb" deleted
+      ```
+
+      This deletes the MetalLB App from Kommander while leaving the MetalLB resources running in the cluster.
+      Use the following command to view the pods:
+
+      ```bash
+      kubectl -n kommander get pod -l app=metallb
+      ```
+
+      ```sh
+      NAME                                 READY   STATUS    RESTARTS   AGE
+      metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
+      metallb-speaker-2gz6p                1/1     Running   0          20m
+      metallb-speaker-48d44                1/1     Running   0          20m
+      metallb-speaker-6gp76                1/1     Running   0          20m
+      metallb-speaker-dh9dm                1/1     Running   0          20m
+      ```
 
 ## Upgrade Kommander
 
@@ -126,7 +148,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
     ```bash
     dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
     ```
-    
+
     ```sh
     ✓ Ensuring upgrading conditions are met
     ✓ Ensuring application definitions are updated
@@ -151,6 +173,11 @@ Before running the following command, ensure that your `dkp` configuration **ref
     For Essential customers (single-cluster environment): Proceed with the [Konvoy Upgrade][konvoy_upgrade].
 
 You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the next steps depending on your environment and license type.
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.2.0 are available at these URLs:
+
+* https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
+* https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster

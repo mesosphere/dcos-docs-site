@@ -76,3 +76,5 @@ This release provides new features and enhancements to improve the user experien
 ## Additional resources
 
 For information about working with native Kubernetes, see the [Kubernetes documentation](https://kubernetes.io/docs/home/).
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).

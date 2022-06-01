@@ -43,54 +43,60 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
   <p class="message--important"><strong>IMPORTANT:</strong> Beginning with DKP version 2.3, MetalLB is no longer managed as a platform application. If you installed  MetalLB on the cluster that you're upgrading prior to DKP version 2.3, you will need to detach MetalLB from the cluster prior to upgrading.</p>
 
-  1. Pause the helm release.
-  ```bash
-  kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
-  ```
+  1.  Pause the helm release:
+
+      ```bash
+      kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
+      ```
   
-  ```sh
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
-  ```
+      ```sh
+      helmrelease.helm.toolkit.fluxcd.io/metallb patched
+      ```
 
-  2. Delete the helm release secret.
-  ```bash
-  kubectl -n kommander delete secret -l name=metallb,owner=helm
-  ```
-  ```sh
-  secret "sh.helm.release.v1.metallb.v1" deleted
-  ```
+  1.  Delete the helm release secret:
+  
+      ```bash
+      kubectl -n kommander delete secret -l name=metallb,owner=helm
+      ```
 
-  3. Delete MetalLB.
-  ```bash
-  kubectl -n kommander delete appdeployment metallb
-  ```
+      ```sh
+      secret "sh.helm.release.v1.metallb.v1" deleted
+      ```
 
-  ```sh
-  appdeployment.apps.kommander.d2iq.io "metallb" deleted
-  ```
+  1.  Delete MetalLB:
 
-  4. Unpause the helm release.
-  ```bash
-  kubectl -n kommander patch -p='{"spec":{"suspend": false}}' --type=merge helmrelease/metallb
-  ```
+      ```bash
+      kubectl -n kommander delete appdeployment metallb
+      ```
 
-  ```sh
-  helmrelease.helm.toolkit.fluxcd.io/metallb patched
-  ```
-  This deletes MetalLb from Kommander while leaving the resources running in the cluster.
+      ```sh
+      appdeployment.apps.kommander.d2iq.io "metallb" deleted
+      ```
 
-  ```bash
-  kubectl -n kommander get pod -l app=metallb
-  ```
+  1.  Unpause the helm release.
 
-  ```sh
-  NAME                                 READY   STATUS    RESTARTS   AGE
-  metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
-  metallb-speaker-2gz6p                1/1     Running   0          20m
-  metallb-speaker-48d44                1/1     Running   0          20m
-  metallb-speaker-6gp76                1/1     Running   0          20m
-  metallb-speaker-dh9dm                1/1     Running   0          20m
-  ```
+      ```bash
+      kubectl -n kommander patch -p='{"spec":{"suspend": false}}' --type=merge helmrelease/metallb
+      ```
+
+      ```sh
+      helmrelease.helm.toolkit.fluxcd.io/metallb patched
+      ```
+
+      This deletes MetalLb from Kommander while leaving the resources running in the cluster.
+
+      ```bash
+      kubectl -n kommander get pod -l app=metallb
+      ```
+
+      ```sh
+      NAME                                 READY   STATUS    RESTARTS   AGE
+      metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
+      metallb-speaker-2gz6p                1/1     Running   0          20m
+      metallb-speaker-48d44                1/1     Running   0          20m
+      metallb-speaker-6gp76                1/1     Running   0          20m
+      metallb-speaker-dh9dm                1/1     Running   0          20m
+      ```
 
 ## Upgrade Kommander
 

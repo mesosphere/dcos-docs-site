@@ -52,30 +52,16 @@ New versions of DKP come pre-bundled with newer versions of CAPI, newer versions
 If you are running on more than one management cluster (Kommander cluster), you must upgrade the CAPI components on each of these clusters.
 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
-    
 
-1.  If your cluster was upgraded to 2.1 from 1.8, prepare the old cert-manager installation for upgrade:
+Run the following upgrade command for the CAPI components.
 
-    ```bash
-    helm -n cert-manager get manifest cert-manager-kubeaddons | kubectl label -f - clusterctl.cluster.x-k8s.io/core=cert-manager
-    kubectl delete validatingwebhookconfigurations/cert-manager-kubeaddons-webhook mutatingwebhookconfigurations/cert-manager-kubeaddons-webhook
-    ```
+```bash
+dkp upgrade capi-components
+```
 
-1.  For <strong>all</strong> clusters, upgrade capi-components:
+The output resembles the following:
 
-    ```bash
-    dkp upgrade capi-components
-    ```
-
-1.  If your cluster was upgraded to 2.1 from 1.8, remove the remaining old cert-manager resources from 1.8:
-
-    ```bash
-    helm -n cert-manager delete cert-manager-kubeaddons
-    ```
-
-The command should output something similar to the following:
-
-```sh
+```text
 ✓ Upgrading CAPI components
 ✓ Waiting for CAPI components to be upgraded
 ✓ Initializing new CAPI components
@@ -83,15 +69,14 @@ The command should output something similar to the following:
 ```
 
 If the upgrade fails, review the prerequisites section and ensure that you've followed the steps in the [DKP upgrade overview][dkpup].
-    
-    
+
 ## Upgrade the core addons
 
 To install the core addons, DKP relies on the `ClusterResourceSet` [Cluster API feature][CAPI]. In the CAPI component upgrade, we deleted the previous set of outdated global `ClusterResourceSets` because prior to DKP 2.2 some addons were installed using a global configuration. In order to support individual cluster upgrades, DKP 2.2 now installs all addons with a unique set of `ClusterResourceSet` and corresponding referenced resources, all named using the cluster’s name as a suffix. For example: `calico-cni-installation-my-aws-cluster`.
 
 <p class="message--warning"><strong>WARNING:</strong> If you have modified any of the <code>clusterResourceSet</code> definitions, these changes will <strong>not</strong> be preserved when running the command <code>dkp upgrade addons</code>. You must use the <code>--dry-run -o yaml</code> options to save the new configuration to a file and remake the same changes upon each upgrade.</p>
 
-Your cluster comes preconfigured with a few different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may come pre-bundled with newer versions of these addons. Perform the following steps to update these addons. If you have any additional managed or attached clusters, you will need to upgrade the core addons and Kubernetes version for each one.
+Your cluster comes preconfigured with a few different core addons that provide functionality to your cluster upon creation. These include: CSI, CNI, Cluster Autoscaler, and Node Feature Discovery. New versions of DKP may come pre-bundled with newer versions of these addons. Perform the following steps to update these addons. If you have any additional managed clusters, you will need to upgrade the core addons and Kubernetes version for each one.
 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
@@ -128,27 +113,14 @@ clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-my-aws-clust
 configmap/nvidia-feature-discovery-my-aws-cluster upgraded
 ```
 
-Flags:
-    -h, --help  Help for addons
-
-Global Flags:
-    -v, --verbose int   Output verbosity
-
-For more information about a command, use:
-
-```sh
-dkp ugrade addons [command] --help
-```
-
 ### See also ###
 [DKP upgrade addons](/../../dkp/konvoy/2.2/cli/dkp/upgrade/addons/)
-    
-Once complete, begin upgrading the Kubernetes version.
 
+Once complete, begin upgrading the Kubernetes version.
 
 ## Upgrade the Kubernetes version
 
-When upgrading the Kubernetes version of a cluster, first upgrade the control plane and then the node pools. If you have any additional managed or attached clusters, you will need to upgrade the core addons and Kubernetes version for each one.
+When upgrading the Kubernetes version of a cluster, first upgrade the control plane and then the node pools. If you have any additional managed clusters, you will need to upgrade the core addons and Kubernetes version for each one.
 
 <p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.2/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
 

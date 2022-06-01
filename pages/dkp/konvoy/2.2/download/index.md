@@ -8,8 +8,6 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD034 -->
-
 To download a new version of DKP, you have 2 options:
 
 ## Download from the support website
@@ -20,9 +18,11 @@ To download a new version of DKP, you have 2 options:
 You must be a registered user and logged on to the support portal to download DKP. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.
 If you have problems downloading DKP, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.</p>
 
+
+
 ## Download from the AWS Marketplace
 
-Follow the instructions on AWS console to download the container image.
+Follow the instructions on the AWS console to download the container image.
 
 After downloading the image, run the following command to copy the binaries onto your host.
 
@@ -38,3 +38,9 @@ dkp binary is placed in the local directory, to run:
 ```
 
 You will now see the `dkp` binary in your working directory. Follow the [Kommander installation instructions](/dkp/kommander/2.2/install/networked) using these binaries, and then [add your license](/dkp/kommander/2.2/licensing/add/) to Kommander. If you have problems downloading or installing Kommander, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>.
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the versions of MinIO packaged with DKP/Kommander/Konvoy 2.2.0 are available at these URLs: 
+https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
+https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).

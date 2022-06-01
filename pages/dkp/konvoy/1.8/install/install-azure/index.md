@@ -249,6 +249,8 @@ As mentioned in the [Preparing the Cluster Configurations][preparing_cluster_con
 * `cluster-name-ssh.pem`/`cluster-name-ssh.pub` - stores the SSH keys used to connect to the EC2 instances.
 * `runs` folder - logging information.
 
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).
+
 [az_login]: https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest
 [cluster_configuration]: ../../reference/cluster-configuration/
 [install_az]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest

@@ -39,27 +39,33 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
     For in-depth documentation about the objects, read [Concepts][capi_concepts] in the Cluster API Book.
 
+1.  Find the latest available version for Kubernetes v1.22, see [the Azure documentation][azure_version_docs] for more details:
+
+    ```bash
+    az aks get-versions -o table --location westus
+    ```
+
 1.  Create the cluster from the objects.
 
     ```bash
-    dkp create cluster aks --cluster-name=${CLUSTER_NAME} --additional-tags=owner=$(whoami)
+    dkp create cluster aks --cluster-name=${CLUSTER_NAME} --kubernetes-version=1.22.6 --additional-tags=owner=$(whoami)
     ```
 
     ```sh
-	Generating cluster resources
-	cluster.cluster.x-k8s.io/aks-example created
-	azuremanagedcontrolplane.infrastructure.cluster.x-k8s.io/aks-example created
-	azuremanagedcluster.infrastructure.cluster.x-k8s.io/aks-example created
-	machinepool.cluster.x-k8s.io/aks-example created
-	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/cp6dsz8 created
-	machinepool.cluster.x-k8s.io/aks-example-md-0 created
-	azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mp6gglj created
-	clusterresourceset.addons.cluster.x-k8s.io/cluster-autoscaler-aks-example created
-	configmap/cluster-autoscaler-aks-example created
-	clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-aks-example created
-	configmap/node-feature-discovery-aks-example created
-	clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-aks-example created
-	configmap/nvidia-feature-discovery-aks-example created
+    Generating cluster resources
+    cluster.cluster.x-k8s.io/aks-example created
+    azuremanagedcontrolplane.infrastructure.cluster.x-k8s.io/aks-example created
+    azuremanagedcluster.infrastructure.cluster.x-k8s.io/aks-example created
+    machinepool.cluster.x-k8s.io/aks-example created
+    azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/cp6dsz8 created
+    machinepool.cluster.x-k8s.io/aks-example-md-0 created
+    azuremanagedmachinepool.infrastructure.cluster.x-k8s.io/mp6gglj created
+    clusterresourceset.addons.cluster.x-k8s.io/cluster-autoscaler-aks-example created
+    configmap/cluster-autoscaler-aks-example created
+    clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-aks-example created
+    configmap/node-feature-discovery-aks-example created
+    clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-aks-example created
+    configmap/nvidia-feature-discovery-aks-example created
     ```
 
 1.  Wait for the cluster control-plane to be ready:
@@ -82,9 +88,9 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
     ```sh
     NAME                                                       READY  SEVERITY  REASON  SINCE  MESSAGE
-	Cluster/aks-example                                        True                     48m
-	├─ClusterInfrastructure - AzureManagedCluster/aks-example
-	└─ControlPlane - AzureManagedControlPlane/aks-example
+    Cluster/aks-example                                        True                     48m
+    ├─ClusterInfrastructure - AzureManagedCluster/aks-example
+    └─ControlPlane - AzureManagedControlPlane/aks-example
     ```
 
 1.  As they progress, the controllers also create Events. List the Events using this command:
@@ -97,10 +103,9 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
     ```sh
     48m         Normal    SuccessfulSetNodeRefs                machinepool/aks-example-md-0                  [{Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000000 UID:e3c30389-660d-46f5-b9d7-219f80b5674d APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000001 UID:300d71a0-f3a7-4c29-9ff1-1995ffb9cfd3 APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000002 UID:8eae2b39-a415-425d-8417-d915a0b2fa52 APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000003 UID:3e860b88-f1a4-44d1-b674-a54fad599a9d APIVersion: ResourceVersion: FieldPath:}]
-	6m4s        Normal    AzureManagedControlPlane available   azuremanagedcontrolplane/aks-example          successfully reconciled
-	48m         Normal    SuccessfulSetNodeRefs                machinepool/aks-example                       [{Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000000 UID:e3c30389-660d-46f5-b9d7-219f80b5674d APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000001 UID:300d71a0-f3a7-4c29-9ff1-1995ffb9cfd3 APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000002 UID:8eae2b39-a415-425d-8417-d915a0b2fa52 APIVersion: ResourceVersion: FieldPath:}]
+    6m4s        Normal    AzureManagedControlPlane available   azuremanagedcontrolplane/aks-example          successfully reconciled
+    48m         Normal    SuccessfulSetNodeRefs                machinepool/aks-example                       [{Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000000 UID:e3c30389-660d-46f5-b9d7-219f80b5674d APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000001 UID:300d71a0-f3a7-4c29-9ff1-1995ffb9cfd3 APIVersion: ResourceVersion: FieldPath:} {Kind: Namespace: Name:aks-mp6gglj-41174201-vmss000002 UID:8eae2b39-a415-425d-8417-d915a0b2fa52 APIVersion: ResourceVersion: FieldPath:}]
     ```
-
 
 ## Known Limitations
 
@@ -114,6 +119,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 When complete, you can [explore the new cluster][aa-explore].
 
 [aa-explore]: ../aa-explore
+[azure_version_docs]: https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli
 [capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
 [k8s_custom_resources]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
 [bootstrap]: ../aa-bootstrap

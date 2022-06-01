@@ -12,4 +12,6 @@ enterprise: false
 
 You must have access to the following domains through the customers networking rules so that Konvoy can download all required images:
 
-#include /dkp/konvoy/1.6/include/required-domains.tmpl
+#include /dkp/konvoy/1.8/include/required-domains.tmpl
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).

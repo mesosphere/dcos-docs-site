@@ -12,7 +12,7 @@ enterprise: false
 
     <p class="message--note"><strong>NOTE: </strong>When specifying the <code>cluster-name</code>, you must use the same <code>cluster-name</code> as used when defining your inventory objects.</p>
 
-    <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Dockerhub's rate limit</a> use your Dockerhub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
+    <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Docker Hub's rate limit</a> use your Docker Hub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
 
     ```bash
     dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} --control-plane-endpoint-host <control plane endpoint host> --control-plane-endpoint-port <control plane endpoint port, if different than 6443>
@@ -89,7 +89,9 @@ enterprise: false
     dkp get kubeconfig -c ${CLUSTER_NAME} > ${CLUSTER_NAME}.conf
     ```
 
-### Verify your Calico installation
+### Modify the Calico installation
+
+### Set the interface
 
 Before exploring the new cluster, confirm your `calico` installation is correct.
 By default, Calico automatically detects the IP to use for each node using the `first-found` [method][calico-method]. This is not always appropriate for your particular nodes. In that case, you must modify Calico's configuration to use a different method.
@@ -158,6 +160,49 @@ Change the value for `spec.calicoNetwork.nodeAddressAutodetectionV4` to `interfa
 
 Save this file. You may need to delete the node feature discovery worker pod in the `node-feature-discovery` namespace if that pod has failed. After you delete it, Kubernetes replaces the pod as part of its normal reconciliation.
 
+### Change the encapsulation type
+
+Calico can leverage different network encapsulation methods to route traffic for your workloads. Encapsulation is useful when running on top of an underlying network that is not aware of workload IPs. Common examples of this include:
+
+    - public cloud environments where you don’t own the hardware
+    - AWS across VPC subnet boundaries
+    - environments where you cannot peer Calico over BGP to the underlay or easily configure static routes.
+
+IPIP is the default encapsulation method.
+
+To change the encapsulation, run the following command:
+
+   ```bash
+   kubectl edit installation default --kubeconfig ${CLUSTER_NAME}.conf
+   ```
+
+Change the value for `spec.calicoNetwork.ipPools[0].encapsulation`
+
+  ```yaml
+    spec:
+    calicoNetwork:
+      ipPools:
+        - encapsulation: VXLAN
+  ```
+
+The supported values are "IPIPCrossSubnet", "IPIP", "VXLAN", "VXLANCrossSubnet", and "None".
+
+#### VXLAN
+
+VXLAN is a tunneling protocol that encapsulates layer 2 Ethernet frames in UDP packets, enabling you to create virtualized layer 2 subnets that span Layer 3 networks. It has a slightly larger header than IP-in-IP which creates a slight reduction in performance over IP-in-IP.
+
+#### IPIP
+
+IP-in-IP is an IP tunneling protocol that encapsulates one IP packet in another IP packet. An outer packet header is added with the tunnel entrypoint and the tunnel exit point. The calico implementation of this protocol uses BGP to determine the exit point making this protocol unusable on networks that don’t pass BGP.
+
+**Be aware that switching encapsulation modes can cause disruption to in-progress connections. Plan accordingly.**
+
+For more information, see:
+
+  - [Calico Overlay Networking][calico-overlay]
+  - [IP-in-IP RFC 2003][ipip]
+  - [VXLAN RFC 7348][vxlan]
+
 ## Use the built-in Virtual IP
 
 As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. The built-in virtual IP uses the [kube-vip][kube-vip] project.
@@ -210,7 +255,7 @@ If you require HTTP proxy configurations, you can apply them during the `create`
 
 ### HTTP Proxy Example
 
-<p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Dockerhub's rate limit</a> use your Dockerhub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
+<p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Docker Hub's rate limit</a> use your Docker Hub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
 
 ```bash
 dkp create cluster preprovisioned \
@@ -309,8 +354,11 @@ When you provision the cluster, the configured pod and service subnets will be a
 
 Confirm that your [Calico installation is correct][calico-install].
 
-[calico-install]: #verify-your-calico-installation
+[calico-install]: #set-the-interface
 [calico-method]: https://projectcalico.docs.tigera.io/reference/node/configuration#ip-autodetection-methods
+[calico-overlay]: https://docs.projectcalico.org/networking/vxlan-ipip
+[ipip]: https://datatracker.ietf.org/doc/html/rfc2003
+[vxlan]: https://datatracker.ietf.org/doc/html/rfc7348
 [create-secrets-and-overrides]: ../create-secrets-and-overrides
 [define-control-plane-endpoint]: ../define-control-plane-endpoint
 [kube-vip]: https://kube-vip.chipzoller.dev

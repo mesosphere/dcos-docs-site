@@ -64,14 +64,14 @@ EOF
 
 Save the above overrides in `values.yaml`file. These can then be supplied to `helm install` command.
 
-You can create a `kommander` namespace, or the namespace where kommander will be installed, and then label it such that gatekeeper mutation is active on the namespace.
+You can create a `kommander` namespace, or the namespace where Kommander will be installed, and then label it such that gatekeeper mutation is active on the namespace.
 
 ```bash
 kubectl create namespace kommander
 kubectl label namespace kommander gatekeeper.d2iq.com/mutate=pod-proxy
 ```
 
-Create the `gatekeeper-overrides` configmap in the `kommander` namespace as described in [this](#create-gatekeeper-configmap-in-workspace-namespace) section before proceeding to [installing kommander](../networked#install-on-konvoy).
+Create the `gatekeeper-overrides` configmap in the `kommander` namespace as described in [this](#create-gatekeeper-configmap-in-workspace-namespace) section before proceeding to [installing Kommander](../networked#install-kommander-on-konvoy).
 
 ## Enable gatekeeper for attached clusters
 
@@ -165,13 +165,13 @@ Set the `httpProxy` and `httpsProxy` environment variables to the address of the
   <ul>
       <li>Loopback addresses (<code>127.0.0.1</code> and <code>localhost</code>)</li>
       <li>Kubernetes API Server addresses</li>
-      <li> Kubernetes Pod IPs (e.g. <code>192.168.0.0/16</code>). This comes from two places:
+      <li> Kubernetes Pod IPs (for example, <code>192.168.0.0/16</code>). This comes from two places:
         <ul>
         <li>Calico pod CIDR - Defaults to <code>192.168.0.0/16</code></li>
         <li>The <code>podSubnet</code> is configured in CAPI objects and needs to match above Calico's - Defaults to <code>192.168.0.0/16</code> (same as above)</li>
         </ul>
       </li>
-      <li>Kubernetes Service addresses (e.g., <code>10.96.0.0/12</code>, <code>kubernetes</code>, <code>kubernetes.default</code>, <code>kubernetes.default.svc</code>, <code>kubernetes.default.svc.cluster</code>, <code>kubernetes.default.svc.cluster.local</code>, <code>.svc</code>, <code>.svc.cluster</code>, <code>.svc.cluster.local</code>)</li>
+      <li>Kubernetes Service addresses (for example, <code>10.96.0.0/12</code>, <code>kubernetes</code>, <code>kubernetes.default</code>, <code>kubernetes.default.svc</code>, <code>kubernetes.default.svc.cluster</code>, <code>kubernetes.default.svc.cluster.local</code>, <code>.svc</code>, <code>.svc.cluster</code>, <code>.svc.cluster.local</code>)</li>
   </ul>
   In addition to above, following are needed when installing on AWS:
   <ul>

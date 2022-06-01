@@ -1,5 +1,6 @@
 ad hoc
 (Addon|addon)
+Affero
 Airflow
 air gapped bundle
 air gapped environment
@@ -46,6 +47,7 @@ covariate
 cpu
 CPU
 CRD
+crt
 Crunchbase
 cthelper
 cttimeout
@@ -119,7 +121,7 @@ Jira
 jq
 (kafka|Kafka)
 Kaniko
-Kaptain
+(Kaptain|kaptain)
 (Katib|katib)
 Keepalived
 Keras
@@ -263,6 +265,7 @@ unmute
 unpause(|s)
 (URI|URIs)
 (Velero|velero)
+virtualize(s|d|ing)
 (WebSocket|Websocket|websocket)
 (VNET|vnet)
 xfsprogs

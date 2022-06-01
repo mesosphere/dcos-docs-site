@@ -312,6 +312,11 @@ You then need to add an IAM **Service Account** and project **Role** can be used
   ...
   ```
 
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the version of MinIO packaged with DKP/Konvoy 1.8/Kommander 1.4 is available at this URL: https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).
+
+
 [disks]: https://cloud.google.com/compute/docs/disks/
 [ephemeral_storage]: ../../../storage/
 [forwading_rules_internal]: https://cloud.google.com/load-balancing/docs/internal/setting-up-internal#test-from-backend-vms

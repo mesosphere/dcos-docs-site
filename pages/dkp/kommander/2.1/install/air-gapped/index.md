@@ -14,7 +14,7 @@ This topic shows how to run Kommander on top of an [air-gapped Konvoy cluster][a
 
 Before installing, ensure you have:
 
--   A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander-image-bundle.tar` tarball has the required artifacts.
+-   A Docker registry containing all the necessary Docker installation images, including the Kommander images. The `kommander_image_bundle_v2.1.1_linux_amd64.tar` tarball has the required artifacts.
 
 -   Connectivity with clusters attaching to the management cluster:
     - Both management and attached clusters must connect to the Docker registry.
@@ -124,19 +124,19 @@ export VERSION=v2.1.1
 1.  Download the image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O kommander-image-bundle.tar
+    wget "https://downloads.d2iq.com/kommander/airgapped/${VERSION}/kommander_image_bundle_${VERSION}_linux_amd64.tar" -O - | tar -xvf -
     ```
 
-1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
+2.  See the `NOTICES.txt` file for 3rd party software attributions and place the `kommander_image_bundle_v2.1.1_linux_amd64.tar` bundle within a location where you can load and push the images to your private Docker registry.
 
-1.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
+3.  Ensure you set the `REGISTRY_URL` and `AIRGAPPED_TAR_FILE` variable appropriately, then use the following script to load the air-gapped image bundle:
 
     ```bash
     #!/usr/bin/env bash
     set -euo pipefail
     IFS=$'\n\t'
 
-    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kommander-image-bundle.tar"}
+    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kommander_image_bundle_v2.1.1_linux_amd64.tar"}
     readonly REGISTRY_URL=${REGISTRY_URL?"Need to set REGISTRY_URL. E.g: 10.23.45.67:5000"}
 
     docker load <"${AIRGAPPED_TAR_FILE}"
@@ -219,6 +219,8 @@ Based on the network latency between the environment of script execution and the
     mkdir kommander-applications && wget https://downloads.d2iq.com/dkp/kommander-applications_${VERSION}.tar.gz -O - | tar xvzf - -C kommander-applications
     ```
 
+    <p class="message--note"><strong>NOTE: </strong>This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z">here</a> and <a href="https://github.com/minio/minio/tree/RELEASE.2021-07-30T00-02-00Z">here</a>.</p>
+
 1.  To install Kommander in your air-gapped environment using the above configuration file, enter the following command:
 
     ```bash
@@ -226,6 +228,11 @@ Based on the network latency between the environment of script execution and the
     ```
 
 1.  [Verify your installation](../networked#verify-installation).
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.1.0 are available at these URLs:
+
+* https://github.com/minio/minio/tree/RELEASE.2021-07-30T00-02-00Z
+* https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
 
 [air-gap-before-you-begin]: /dkp/konvoy/2.1/choose-infrastructure/aws/air-gapped/prerequisites/
 [air-gap-install-metallb]: #use-metallb

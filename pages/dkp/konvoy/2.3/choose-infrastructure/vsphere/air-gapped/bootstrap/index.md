@@ -33,28 +33,8 @@ DKP Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which 
     The output resembles this example:
 
     ```
-    INFO[2022-03-30T15:52:42-07:00] Creating bootstrap cluster                    src="bootstrap/bootstrap.go:151"
-    INFO[2022-03-30T15:53:35-07:00] Initializing bootstrap controllers            src="bootstrap/controllers.go:112"
-    INFO[2022-03-30T15:54:22-07:00] Created bootstrap controllers                 src="bootstrap/controllers.go:125"
-    INFO[2022-03-30T15:54:22-07:00] Bootstrap controllers are ready               src="bootstrap/controllers.go:129"
-    INFO[2022-03-30T15:54:22-07:00] Initializing Tigera operator                  src="bootstrap/clusterresourceset.go:38"
-    INFO[2022-03-30T15:54:22-07:00] Created/Updated Tigera operator               src="bootstrap/clusterresourceset.go:43"
-    INFO[2022-03-30T15:54:22-07:00] Initializing AWS EBS CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:96"
-    INFO[2022-03-30T15:54:22-07:00] Created/Updated AWS EBS CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:101"
-    INFO[2022-03-30T15:54:22-07:00] Initializing Azure Disk CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:103"
-    INFO[2022-03-30T15:54:22-07:00] Created Azure Disk CustomResourceSet          src="bootstrap/clusterresourceset.go:108"
-    INFO[2022-03-30T15:54:22-07:00] Initializing Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:110"
-    INFO[2022-03-30T15:54:22-07:00] Created/Updated Local Volume Provisioner CustomResourceSet  src="bootstrap/clusterresourceset.go:115"
-    INFO[2022-03-30T15:54:22-07:00] Initializing VSphere CSI CustomResourceSet    src="bootstrap/clusterresourceset.go:117"
-    INFO[2022-03-30T15:54:23-07:00] Created/Updated VSphere CSI CustomResourceSet  src="bootstrap/clusterresourceset.go:122"
-    INFO[2022-03-30T15:54:23-07:00] Initializing Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:196"
-    INFO[2022-03-30T15:54:23-07:00] Created/Updated Cluster Autoscaler CustomResourceSet  src="bootstrap/clusterresourceset.go:201"
-    INFO[2022-03-30T15:54:23-07:00] Initializing Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:254"
-    INFO[2022-03-30T15:54:23-07:00] Created/Updated Node Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:259"
-    INFO[2022-03-30T15:54:23-07:00] Initializing NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:312"
-    INFO[2022-03-30T15:54:23-07:00] Created/Updated NVIDIA GPU Feature Discovery CustomResourceSet  src="bootstrap/clusterresourceset.go:317"
-    INFO[2022-03-30T15:54:23-07:00] Initializing VSphere CPI CustomResourceSet    src="bootstrap/clusterresourceset.go:370"
-    INFO[2022-03-30T15:54:23-07:00] Created/Updated VSphere CPI CustomResourceSet  src="bootstrap/clusterresourceset.go:375"
+    ✓ Creating a bootstrap cluster
+    ✓ Initializing new CAPI components
     ```
 
 1.  Ensure that the CAPV controllers are present with the command:

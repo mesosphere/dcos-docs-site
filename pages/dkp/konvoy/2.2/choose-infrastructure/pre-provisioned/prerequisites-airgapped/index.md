@@ -8,6 +8,8 @@ enterprise: false
 beta: false
 ---
 
+The instructions below outline how to fulfill the prerquisites for using pre-provisioned infrastructure when using air-gapped.
+
 ## Download the bootstrap image
 
 1.  Download the bootstrap docker image on a machine that has access to this artifact:
@@ -16,13 +18,13 @@ beta: false
     curl -O https://downloads.d2iq.com/dkp/v2.2.0/konvoy-bootstrap_v2.2.0.tar
     ```
 
-1.  Load the bootstrap docker image on your bastion machine:
+1.  Load the bootstrap Docker image on your bastion machine:
 
     ```docker
     docker load -i konvoy-bootstrap_v2.2.0.tar
     ```
 
-## Copy air-gapped artifacts onto cluster hosts 
+## Copy air-gapped artifacts onto cluster hosts
 
 Using the [Konvoy Image Builder](../../../image-builder), you can copy the required artifacts onto your cluster hosts.
 
@@ -43,12 +45,12 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
     The OS packages bundles will contain the RPMs for Containerd, Kubernetes and all of their dependencies required to install these packages without access to any external RPM repositories.
     The available options are:
 
-    * `centos_7_x86_64`
-    * `centos_7_x86_64_fips`
-    * `redhat_7_x86_64`
-    * `redhat_7_x86_64_fips`
-    * `redhat_8_x86_64`
-    * `redhat_8_x86_64_fips`
+    - `centos_7_x86_64`
+    - `centos_7_x86_64_fips`
+    - `redhat_7_x86_64`
+    - `redhat_7_x86_64_fips`
+    - `redhat_8_x86_64`
+    - `redhat_8_x86_64_fips`
 
     ```bash
     export BUNDLE_OS=centos_7_x86_64
@@ -64,14 +66,14 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 
     The available options for each Kubernetes version are:
 
-    * `<version>_images.tar.gz`
-    * `<version>_images_fips.tar.gz`
+    - `<version>_images.tar.gz`
+    - `<version>_images_fips.tar.gz`
 
     ```bash
     curl --output artifacts/images/"$VERSION"_images.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/kubernetes-images/"$VERSION"_images.tar.gz
     ```
 
-1.  Download the PIP packages. This bundle includes a few packages required by DKP to boostrap machines.
+1.  Download the PIP packages. This bundle includes a few packages required by DKP to bootstrap machines.
 
     ```bash
     curl --output artifacts/pip-packages.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
@@ -130,7 +132,6 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 
 Before creating a Kubernetes cluster you must have the required images in a local docker registry. This registry must be accessible from both the bastion machine and the machines that will be created for the Kubernetes cluster.
 
-
 1.  Download the images bundle:
 
     ```bash
@@ -145,7 +146,7 @@ Before creating a Kubernetes cluster you must have the required images in a loca
     export DOCKER_REGISTRY_ADDRESS=<registry-address>:<registry-port>
     ```
 
-2.  Run the following command to load the air-gapped image bundle into your private Docker registry:
+1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
     dkp push image-bundle --image-bundle konvoy-image-bundle.tar.gz --to-registry $DOCKER_REGISTRY_ADDRESS
@@ -156,3 +157,9 @@ It may take a while to push all the images to your image registry, depending on 
 Then [begin creating the bootstrap cluster][bootstrap].
 
 [bootstrap]: ../bootstrap
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the versions of MinIO packaged with DKP/Kommander/Konvoy 2.2.0 are available at these URLs: 
+https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
+https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).

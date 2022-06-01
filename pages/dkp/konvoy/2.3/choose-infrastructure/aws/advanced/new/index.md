@@ -23,6 +23,10 @@ enterprise: false
     export CLUSTER_NAME=aws-example
     ```
 
+    <p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z</code>, <code>0-9</code>, <code>.</code>, and <code>-</code>. Cluster creation will fail if the name has capital letters.
+    See <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/">Kubernetes</a> for more naming information.
+    </p>
+
 ## Tips and Tricks
 
 1.  To get a list of names used in your AWS account, use the `aws` [CLI][download_aws_cli]. After downloading, use the following command:

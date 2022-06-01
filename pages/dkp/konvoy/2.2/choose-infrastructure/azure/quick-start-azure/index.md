@@ -18,6 +18,7 @@ Before starting the Konvoy installation, verify that you have:
 - The `dkp` binary on this machine.
 - [Docker][install_docker] version 18.09.2 or later.
 - [kubectl][install_kubectl] for interacting with the running cluster.
+- [Azure CLI][azure_cli].
 - A valid Azure account with [credentials configured][azure_credentials].
 
 ## Configure Azure prerequisites
@@ -199,7 +200,8 @@ The kubeconfig file is written to your local directory and you can now explore t
 	```
 	
 
-[azure_credentials]: https://github.com/kubernetes-sigs/cluster-api-provider-azure/blob/master/docs/book/src/topics/getting-started.md#prerequisites
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+[azure_credentials]: https://github.com/kubernetes-sigs/cluster-api-provider-azure/blob/master/docs/book/src/topics/getting-started.md#prerequisites
 [supported-systems]: ../../../supported-operating-systems
