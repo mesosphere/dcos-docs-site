@@ -37,5 +37,5 @@ dkp push chart-bundle [chartsTarball]... [flags]
 
 ### SEE ALSO
 
-* [dkp push](/dkp/kommander/2.2/cli/dkp/push/)	 - Push one of [chart, chart-bundle, image-bundle]
+* [dkp push](/dkp/kommander/2.3/cli/dkp/push/)	 - Push one of [chart, chart-bundle, image-bundle]
 

@@ -58,5 +58,5 @@ dkp completion bash
 
 ### SEE ALSO
 
-* [dkp completion](/dkp/kommander/2.2/cli/dkp/completion/)	 - Generate the autocompletion script for the specified shell
+* [dkp completion](/dkp/kommander/2.3/cli/dkp/completion/)	 - Generate the autocompletion script for the specified shell
 

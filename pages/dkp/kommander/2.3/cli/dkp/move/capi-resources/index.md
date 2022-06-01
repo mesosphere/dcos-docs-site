@@ -37,5 +37,5 @@ dkp move capi-resources [flags]
 
 ### SEE ALSO
 
-* [dkp move](/dkp/kommander/2.2/cli/dkp/move/)	 - Move one of [capi-resources]
+* [dkp move](/dkp/kommander/2.3/cli/dkp/move/)	 - Move one of [capi-resources]
 

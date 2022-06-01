@@ -46,5 +46,5 @@ dkp install kommander [flags]
 
 ### SEE ALSO
 
-* [dkp install](/dkp/kommander/2.2/cli/dkp/install/)	 - Install one of [kommander]
+* [dkp install](/dkp/kommander/2.3/cli/dkp/install/)	 - Install one of [kommander]
 

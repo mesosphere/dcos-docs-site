@@ -33,6 +33,6 @@ Open one of [dashboard]
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp open dashboard](/dkp/kommander/2.2/cli/dkp/open/dashboard/)	 - Open Kommander dashboard in your browser
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp open dashboard](/dkp/kommander/2.3/cli/dkp/open/dashboard/)	 - Open Kommander dashboard in your browser
 

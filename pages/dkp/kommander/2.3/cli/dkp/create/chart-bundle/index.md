@@ -43,5 +43,5 @@ dkp create chart-bundle [flags]
 
 ### SEE ALSO
 
-* [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, capi-components, chart-bundle, cluster, image-bundle, nodepool, workspace]
+* [dkp create](/dkp/kommander/2.3/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, capi-components, chart-bundle, cluster, image-bundle, nodepool, workspace]
 

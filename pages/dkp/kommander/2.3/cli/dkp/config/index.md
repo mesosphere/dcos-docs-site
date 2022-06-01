@@ -33,7 +33,7 @@ Manage DKP Kommander's configuration
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp config get](/dkp/kommander/2.2/cli/dkp/config/get/)	 - Retrieve DKP Kommander's configuration
-* [dkp config set](/dkp/kommander/2.2/cli/dkp/config/set/)	 - Modify DKP Kommander's configuration
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp config get](/dkp/kommander/2.3/cli/dkp/config/get/)	 - Retrieve DKP Kommander's configuration
+* [dkp config set](/dkp/kommander/2.3/cli/dkp/config/set/)	 - Modify DKP Kommander's configuration
 

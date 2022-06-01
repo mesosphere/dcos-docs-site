@@ -37,5 +37,5 @@ dkp config set default-workspace [WORKSPACE] [flags]
 
 ### SEE ALSO
 
-* [dkp config set](/dkp/kommander/2.2/cli/dkp/config/set/)	 - Modify DKP Kommander's configuration
+* [dkp config set](/dkp/kommander/2.3/cli/dkp/config/set/)	 - Modify DKP Kommander's configuration
 

@@ -35,9 +35,9 @@ See each sub-command's help for details on how to use the generated script.
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp completion bash](/dkp/kommander/2.2/cli/dkp/completion/bash/)	 - Generate the autocompletion script for bash
-* [dkp completion fish](/dkp/kommander/2.2/cli/dkp/completion/fish/)	 - Generate the autocompletion script for fish
-* [dkp completion powershell](/dkp/kommander/2.2/cli/dkp/completion/powershell/)	 - Generate the autocompletion script for powershell
-* [dkp completion zsh](/dkp/kommander/2.2/cli/dkp/completion/zsh/)	 - Generate the autocompletion script for zsh
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp completion bash](/dkp/kommander/2.3/cli/dkp/completion/bash/)	 - Generate the autocompletion script for bash
+* [dkp completion fish](/dkp/kommander/2.3/cli/dkp/completion/fish/)	 - Generate the autocompletion script for fish
+* [dkp completion powershell](/dkp/kommander/2.3/cli/dkp/completion/powershell/)	 - Generate the autocompletion script for powershell
+* [dkp completion zsh](/dkp/kommander/2.3/cli/dkp/completion/zsh/)	 - Generate the autocompletion script for zsh
 

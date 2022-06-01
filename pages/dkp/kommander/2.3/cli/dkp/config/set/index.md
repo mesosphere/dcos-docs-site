@@ -33,6 +33,6 @@ Modify DKP Kommander's configuration
 
 ### SEE ALSO
 
-* [dkp config](/dkp/kommander/2.2/cli/dkp/config/)	 - Manage DKP Kommander's configuration
-* [dkp config set default-workspace](/dkp/kommander/2.2/cli/dkp/config/set/default-workspace/)	 - Set the name of the default Workspace to use in all commands when none is provided
+* [dkp config](/dkp/kommander/2.3/cli/dkp/config/)	 - Manage DKP Kommander's configuration
+* [dkp config set default-workspace](/dkp/kommander/2.3/cli/dkp/config/set/default-workspace/)	 - Set the name of the default Workspace to use in all commands when none is provided
 

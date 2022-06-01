@@ -38,5 +38,5 @@ dkp detach cluster CLUSTER_NAME [flags]
 
 ### SEE ALSO
 
-* [dkp detach](/dkp/kommander/2.2/cli/dkp/detach/)	 - Detach one of [cluster]
+* [dkp detach](/dkp/kommander/2.3/cli/dkp/detach/)	 - Detach one of [cluster]
 
