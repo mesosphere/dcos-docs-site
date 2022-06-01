@@ -7,7 +7,7 @@ excerpt: View release-specific information for DKP 2.2.1
 enterprise: false
 beta: false
 ---
-**D2iQ&reg; Konvoy&reg; version 2.2.1 was released on June 1, 2022.**
+**D2iQ&reg; Kommander&reg; version 2.2.1 was released on June 1, 2022.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
 
@@ -109,12 +109,9 @@ If any of the these fields are present, then there is a possibility the upgrade 
 ## Additional resources
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
-
-[kube-prometheus-stack]: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
-[kubernetes-doc]: https://kubernetes.io/docs/home/
-
 For a full list of attributed 3rd party software, see [d2iq.com/legal/3rd](http://d2iq.com/legal/3rd).
 
+[kube-prometheus-stack]: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
