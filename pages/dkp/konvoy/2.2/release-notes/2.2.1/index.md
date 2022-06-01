@@ -98,17 +98,18 @@ The following items are known issues with this release.
 
 ### Upgrade considerations
 
-Before attempting to upgrade an existing cluster to this release, please check the 'kommander-vars' Configmap in the 'kommander' namespace for the following fields:
+Before attempting to upgrade an existing cluster to this release, check the 'kommander-vars' Configmap in the 'kommander' namespace for the following fields:
 
 - kommanderAppManagementImageTag
 - kommanderAppManagementImageRepository
 - kommanderChartsVersion
 
-If any of the these fields are present, then there is a possibility the upgrade can fail.  If you encounter this situation, please file a support ticket for advice on how to remediate the issue before attempting to continue the upgrade.
+If any of the these fields are present, then there is a possibility the upgrade can fail.  If you encounter this situation, file a support ticket for advice on how to remediate the issue before attempting to continue the upgrade.
 
 ## Additional resources
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
+
 For a full list of attributed 3rd party software, see [d2iq.com/legal/3rd](http://d2iq.com/legal/3rd).
 
 [kube-prometheus-stack]: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
