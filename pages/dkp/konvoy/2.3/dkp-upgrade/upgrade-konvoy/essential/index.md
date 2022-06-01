@@ -174,7 +174,7 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
      ✓ Updating the control plane
     ```
 
-1.  Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.  Also, replace the name of the infrastructure provider in the command [aws, azure, vsphere, gcp, eks, preprovisioned].
+1.  Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool. Also, replace the name of the infrastructure provider in the command [`aws`, `azure`, `vsphere`, `gcp`, `eks`, `preprovisioned`].
 
     ```bash
     export NODEPOOL_NAME=my-nodepool
