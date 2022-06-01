@@ -57,7 +57,10 @@ After a GitOps Source is created, there are various commands that can be execute
 On the management cluster, check your `GitopsRepository` to ensure that the `CD` manifests have been created successfully.
 
 ```bash
-$ kubectl describe gitopsrepositories.dispatch.d2iq.io -n<PROJECT_NAMESPACE> gitopsdemo
+kubectl describe gitopsrepositories.dispatch.d2iq.io -n<PROJECT_NAMESPACE> gitopsdemo
+```
+
+```sh
 Name:         gitopsdemo
 Namespace:    <PROJECT_NAMESPACE>
 ...
@@ -71,8 +74,10 @@ Events:
 On the attached cluster, check for your `Kustomization` and `GitRepository` resources. The `status` field reflects the syncing of manifests:
 
 ```bash
-$ kubectl get kustomizations.kustomize.toolkit.fluxcd.io -n<PROJECT_NAMESPACE> <GITOPS_SOURCE_NAME> -oyaml
+kubectl get kustomizations.kustomize.toolkit.fluxcd.io -n<PROJECT_NAMESPACE> <GITOPS_SOURCE_NAME> -oyaml
+```
 
+```yaml
 ...
 status:
   conditions:
@@ -86,8 +91,10 @@ status:
 Similarly, with `GitRepository` resource:
 
 ```bash
-$ kubectl get gitrepository.source.toolkit.fluxcd.io -n<PROJECT_NAMESPACE> <GITOPS_SOURCE_NAME> -oyaml
+kubectl get gitrepository.source.toolkit.fluxcd.io -n<PROJECT_NAMESPACE> <GITOPS_SOURCE_NAME> -oyaml
+```
 
+```yaml
 ...
 status:
   conditions:
