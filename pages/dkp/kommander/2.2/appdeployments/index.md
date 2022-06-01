@@ -54,7 +54,7 @@ EOF
 
 ## Deployment scope
 
-In a single-cluster environment with an **Essential license**, `AppDeployments` enable customizing any platform or catalog application.
+In a single-cluster environment with an **Essential license**, `AppDeployments` enable customizing any platform application.
 
 In a multi-cluster environment with an **Enterprise license**, `AppDeployments` enable [workspace-level][workspace], and [project-level][project] deployment and customization of applications.
 
