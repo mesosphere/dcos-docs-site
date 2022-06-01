@@ -25,27 +25,27 @@ This section describes how to upgrade your Kommander Management cluster and all 
   Download the Kommander application definitions:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/kommander-applications-v2.2.0.tar.gz"
+  wget "https://downloads.d2iq.com/dkp/v2.2.1/kommander-applications-v2.2.1.tar.gz"
   ```
 
   Download the Kommander charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-kommander-charts-bundle-v2.2.0.tar.gz" -O - | tar -xvf -
+  wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-kommander-charts-bundle-v2.2.1.tar.gz" -O - | tar -xvf -
   ```
 
   If you have any DKP Catalog Applications, download the DKP Catalog Application charts bundle:
 
   ```bash
-  wget "https://downloads.d2iq.com/dkp/v2.2.0/dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz" -O - | tar -xvf -
+  wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-catalog-applications-charts-bundle-v2.2.1.tar.gz" -O - | tar -xvf -
   ```
 
 -   For clusters upgrading from 2.1.1 with HTTP Proxy installed:
 
-    Edit the `gatekeeper-overrides`, and add a new configuration property, `disableMutation`, with the value `false`. This is required because the Gatekeeper configuration was changed between versions `v2.1.1` and `v2.2.0`:
+    Edit the `gatekeeper-overrides`, and add a new configuration property, `disableMutation`, with the value `false`. This is required because the Gatekeeper configuration was changed between versions `v2.1.1` and `v2.2.1`:
 
     ```yaml
-      disableMutation: false # <-- this value is new in 2.2.0
+      disableMutation: false # <-- this value is new in 2.2.1
       mutations:
         enablePodProxy: true
         podProxySettings:
@@ -124,13 +124,13 @@ Before running the following command, ensure that your `dkp` configuration **ref
     -   For air-gapped:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.1.tar.gz --kommander-applications-repository kommander-applications-v2.2.1.tar.gz
         ```
 
     -   For air-gapped **with** DKP Catalog Applications in a multi-cluster environment:
 
         ```bash
-        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.0.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.0.tar.gz --kommander-applications-repository kommander-applications-v2.2.0.tar.gz
+        dkp upgrade kommander --charts-bundle dkp-kommander-charts-bundle-v2.2.1.tar.gz --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.1.tar.gz --kommander-applications-repository kommander-applications-v2.2.1.tar.gz
         ```
 
         After the upgrade, follow the [DKP Catalog Applications configuration page](../../install/configuration/enterprise-catalog#air-gapped-catalog-configuration) to update the Git repository.
@@ -174,7 +174,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
 You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the next steps depending on your environment and license type.
 
-This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.2.0 are available at these URLs:
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.2.1 are available at these URLs:
 
 * https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
 * https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
