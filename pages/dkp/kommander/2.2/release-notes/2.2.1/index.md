@@ -15,7 +15,7 @@ beta: false
 
 ## Release summary
 
-Welcome to D2iQ Kubernetes Platform (DKP) 2.2.x! This release provides fixes to reported issues, integrates changes from previous releases, and maintain compatibility and support for other packages used in DKP. 
+Welcome to D2iQ Kubernetes Platform (DKP) 2.2.1! This release provides fixes to reported issues, integrates changes from previous releases, and maintains compatibility and support for other packages used in DKP.
 
 For this release, we are maintaining the documentation sets for individual platform components Konvoy and Kommander, while publishing some combined DKP documentation for processes, such as Upgrading DKP version.
 
@@ -96,7 +96,7 @@ The following items are known issues with this release.
 
 ### Upgrade considerations
 
-Before attempting to upgrade an existing cluster to this release, check the 'kommander-vars' Configmap in the 'kommander' namespace for the following fields:
+Before attempting to upgrade an existing cluster to this release, check the `kommander-vars` Configmap in the `kommander` namespace for the following fields:
 
 - kommanderAppManagementImageTag
 - kommanderAppManagementImageRepository
