@@ -204,4 +204,4 @@ For the overall process for upgrading to the latest version of DKP, refer back t
 [envariables]: ../../../choose-infrastructure/azure/quick-start-azure#configure-azure-prerequisites
 [envariables2]: ../../../choose-infrastructure/aws/quick-start-aws#configure-aws-prerequisites
 [envariables3]: ../../../choose-infrastructure/vsphere/new#create-a-new-vsphere-kubernetes-cluster
-[envariables4]: ../../../choose-infrastructure/eks/quick-start-eks#configure-eks-prerequisites
+[envariables4]: ../../../choose-infrastructure/eks/quick-start#configure-eks-prerequisites
