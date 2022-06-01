@@ -35,7 +35,7 @@ If you are using GitOps by using a GitHub repo as your source, you can create yo
 Then, in the DKP UI, in your project, create a Secret, with a key:value pair of `password`: `<your-token-created-on-github>`.
 If you are using a GitHub personal access token, you do not need to have a key:value pair of `username`: `<your-github-username>`.
 
-If you are using a secret with your GitHub username and your password, you will need one secret created in the DKP UI, with key:value pairs of `username`: `<your-github-username>` and `password`: `<your-github-username>`.
+If you are using a secret with your GitHub username and your password, you will need one secret created in the DKP UI, with key:value pairs of `username`: `<your-github-username>` and `password`: `<your-github-password>`.
 **Note:** if you have multi-factor authentication turned on in your GitHub account, this will not work.
 
 <p class="message--important"><strong>NOTE: </strong>If you are using a public GitHub repository, you do not need to use a secret.</p>
