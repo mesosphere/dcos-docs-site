@@ -17,6 +17,9 @@ D2iQ is announcing Kaptain 2.1 which includes several user experience features, 
 
 ## New features and capabilities
 
+### Authenticate users using Active Directory
+
+This release of Kaptain supports the [authentication of users via Active Directory (AD)](../../user-management/active-directory/). This feature allows you to manage and control access of Kaptain users and user groups to Kaptain's Kubeflow dashboard, by using an existing rule set of permissions established in the AD.
 
 ## Fixes and Improvements
 

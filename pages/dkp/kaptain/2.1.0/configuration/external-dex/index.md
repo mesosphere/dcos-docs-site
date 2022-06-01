@@ -95,6 +95,8 @@ ingress:
   oidcProviderBase64CaBundle: <OIDC provider CA bundle>
 ```
 
+If you want to use an Active Directory server to authenticate users to access Kaptain, add the corresponding variable as shown in the [Authenticate users using Active Directory](../../user-management/active-directory/) documentation.
+
 The resulting configuration file should look similar to the following:
 
 ```yaml
