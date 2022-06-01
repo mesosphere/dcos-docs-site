@@ -7,8 +7,6 @@ menuWeight: 30
 excerpt: Continuous Deployment
 ---
 
-<!--- markdownlist-disable MD025 --->
-
 After installing Kommander and [configuring your project and its clusters](../../), navigate to the **Continuous Deployment (CD)** tab under your Project. Here you create a GitOps source which is a source code management (SCM) repository hosting the application definition. D2iQ recommends that you create a secret first then create a GitOps source accessed by the secret.
 
 ## Create a general Git repository for application definitions
@@ -21,11 +19,11 @@ Flux also offers some [suggestions](https://fluxcd.io/docs/guides/repository-str
 
 Create a secret that Kommander uses to deploy the contents of your GitOps repository:
 
-<p class="message--note"><strong>NOTE: </strong>This dialog box creates a <code>types.kubefed.io/v1beta1, Kind=FederatedSecret</code> and this is not yet supported by DKP CLI. Use the GUI, as shown above, to create a federated secret or create a <code>FederatedSecret</code> manifest and apply it to the project namespace. Learn more about <a href="../../project-secrets/">FederatedSecrets</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>This dialog box creates a <code>types.kubefed.io/v1beta1, Kind=FederatedSecret</code> and this is not yet supported by DKP CLI. Use the GUI, as described above, to create a federated secret or create a <code>FederatedSecret</code> manifest and apply it to the project namespace. Learn more about <a href="../../project-secrets/">FederatedSecrets</a>.</p>
 
 Kommander secrets (for CD) can be configured to support any of the following three authentication methods:
 
-- HTTPS Authentication (shown above)
+- HTTPS Authentication (described above)
 - HTTPS self-signed certificates
 - SSH Authentication
 
@@ -39,11 +37,18 @@ The following table describes the fields required for each authentication method
 
 <!-- Refer https://fluxcd.io/docs/components/source/gitrepositories/#spec-examples for flux examples (not everything in there is supported) -->
 
+If you are using GitOps by using a GitHub repo as your source, you can create your secret with a [personal access token][github-token].
+Then, in the DKP UI, in your project, create a Secret, with a key:value pair of password: <your-token-created-on-github>.
+If you are using a GitHub personal access token, you do not need to have a key:value pair of username: <your-github-username>.
+
+If you are using a secret with your GitHub username and your password, you will need one secret created in the DKP UI, with key:value pairs of username: <your-github-username> and password: <your-github-username>.
+**Note:** if you have multi-factor authentication turned on in your GitHub account, using your GitHub username and password will not work.
+
 ## Create GitOps Source
 
 After the secret is created, you can view it in the `Secrets` tab. Configure the GitOps source accessed by the secret.
 
-<p class="message--important"><strong>NOTE: </strong>If using an SSH secret, the SCM repo url needs to be an SSH address. It does not support SCP syntax. The URL format is <code>ssh://user@host:port/org/repository</code>.</p>
+<p class="message--important"><strong>NOTE: </strong>If using an SSH secret, the SCM repo URL needs to be an SSH address. It does not support SCP syntax. The URL format is <code>ssh://user@host:port/org/repository</code>.</p>
 
 It takes a few moments for the GitOps Source to be reconciled and the manifests from the SCM repository at the given path to be federated to attached clusters. After the sync is complete, manifests from GitOps source are created in attached clusters.
 
@@ -93,7 +98,7 @@ status:
 ...
 ```
 
-If there are errors creating the manifests, those events are populated in the status field of the `GitopsRepository` resource on the management cluster and/or the `GitRepository` and `Kustomization` resources on the attached cluster(s).
+If there are errors creating the manifests, those events are populated in the status field of the `GitopsRepository` resource on the management cluster and the `GitRepository` and `Kustomization` resources on the attached cluster(s).
 
 ## Suspend GitOps Source
 
@@ -106,3 +111,5 @@ Similar to **Suspend/Resume**, you can use the **Delete** action to remove the G
 You can have more than one GitOps Source in your Project to deploy manifests from various sources.
 
 Kommander deployments are backed by FluxCD. Please refer to Flux [Source Controller](https://fluxcd.io/docs/components/source/) and [Kustomize controller](https://fluxcd.io/docs/components/kustomize/) docs for advanced configuration and more examples.
+
+[github-token]: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
