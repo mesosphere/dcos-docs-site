@@ -42,6 +42,6 @@ dkp move [flags]
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp move capi-resources](/dkp/kommander/2.2/cli/dkp/move/capi-resources/)	 - Move controllers and objects from one cluster to the other
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp move capi-resources](/dkp/kommander/2.3/cli/dkp/move/capi-resources/)	 - Move controllers and objects from one cluster to the other
 

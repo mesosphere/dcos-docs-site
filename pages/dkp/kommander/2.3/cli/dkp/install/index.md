@@ -33,6 +33,6 @@ Install one of [kommander]
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp install kommander](/dkp/kommander/2.2/cli/dkp/install/kommander/)	 - Install kommander
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp install kommander](/dkp/kommander/2.3/cli/dkp/install/kommander/)	 - Install kommander
 

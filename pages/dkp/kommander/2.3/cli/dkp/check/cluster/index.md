@@ -29,6 +29,6 @@ Check a cluster, one of [fips]
 
 ### SEE ALSO
 
-* [dkp check](/dkp/kommander/2.2/cli/dkp/check/)	 - Check, one of [cluster]
-* [dkp check cluster fips](/dkp/kommander/2.2/cli/dkp/check/cluster/fips/)	 - Validate the components in your cluster are FIPS compliant
+* [dkp check](/dkp/kommander/2.3/cli/dkp/check/)	 - Check, one of [cluster]
+* [dkp check cluster fips](/dkp/kommander/2.3/cli/dkp/check/cluster/fips/)	 - Validate the components in your cluster are FIPS compliant
 

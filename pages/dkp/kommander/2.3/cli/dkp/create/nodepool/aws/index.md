@@ -60,5 +60,5 @@ dkp create nodepool aws [flags]
 
 ### SEE ALSO
 
-* [dkp create nodepool](/dkp/kommander/2.2/cli/dkp/create/nodepool/)	 - Create a nodepool, one of [aks, aws, azure]
+* [dkp create nodepool](/dkp/kommander/2.3/cli/dkp/create/nodepool/)	 - Create a nodepool, one of [aks, aws, azure]
 

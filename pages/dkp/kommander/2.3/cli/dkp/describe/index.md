@@ -29,6 +29,6 @@ Describe one of [cluster]
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp describe cluster](/dkp/kommander/2.2/cli/dkp/describe/cluster/)	 - Describe a Kubernetes cluster status
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp describe cluster](/dkp/kommander/2.3/cli/dkp/describe/cluster/)	 - Describe a Kubernetes cluster status
 

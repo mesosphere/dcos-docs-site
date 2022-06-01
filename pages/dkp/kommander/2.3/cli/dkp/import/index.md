@@ -29,6 +29,6 @@ Import images from an image bundle into Containerd
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp import image-bundle](/dkp/kommander/2.2/cli/dkp/import/image-bundle/)	 - Import images from an image bundle into Containerd
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp import image-bundle](/dkp/kommander/2.3/cli/dkp/import/image-bundle/)	 - Import images from an image bundle into Containerd
 

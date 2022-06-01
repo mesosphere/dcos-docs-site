@@ -29,6 +29,6 @@ Scale one of [nodepool]
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp scale nodepool](/dkp/kommander/2.2/cli/dkp/scale/nodepool/)	 - Scale a nodepool of a given cluster to the number of replicas
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp scale nodepool](/dkp/kommander/2.3/cli/dkp/scale/nodepool/)	 - Scale a nodepool of a given cluster to the number of replicas
 

@@ -29,6 +29,6 @@ Check, one of [cluster]
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp check cluster](/dkp/kommander/2.2/cli/dkp/check/cluster/)	 - Check a cluster, one of [fips]
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp check cluster](/dkp/kommander/2.3/cli/dkp/check/cluster/)	 - Check a cluster, one of [fips]
 

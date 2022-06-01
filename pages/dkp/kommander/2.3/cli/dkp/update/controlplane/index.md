@@ -29,8 +29,8 @@ Update a Kubernetes cluster control plane, one of [aws, azure, preprovisioned]
 
 ### SEE ALSO
 
-* [dkp update](/dkp/kommander/2.2/cli/dkp/update/)	 - Update one of [bootstrap (cluster), controlplane, nodepool]
-* [dkp update controlplane aws](/dkp/kommander/2.2/cli/dkp/update/controlplane/aws/)	 - Update a Konvoy cluster control plane in AWS
-* [dkp update controlplane azure](/dkp/kommander/2.2/cli/dkp/update/controlplane/azure/)	 - Update a Konvoy cluster control plane in Azure
-* [dkp update controlplane preprovisioned](/dkp/kommander/2.2/cli/dkp/update/controlplane/preprovisioned/)	 - Update a Konvoy cluster control plane in Preprovisioned
+* [dkp update](/dkp/kommander/2.3/cli/dkp/update/)	 - Update one of [bootstrap (cluster), controlplane, nodepool]
+* [dkp update controlplane aws](/dkp/kommander/2.3/cli/dkp/update/controlplane/aws/)	 - Update a Konvoy cluster control plane in AWS
+* [dkp update controlplane azure](/dkp/kommander/2.3/cli/dkp/update/controlplane/azure/)	 - Update a Konvoy cluster control plane in Azure
+* [dkp update controlplane preprovisioned](/dkp/kommander/2.3/cli/dkp/update/controlplane/preprovisioned/)	 - Update a Konvoy cluster control plane in Preprovisioned
 

@@ -33,6 +33,6 @@ Attach one of [cluster]
 
 ### SEE ALSO
 
-* [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp attach cluster](/dkp/kommander/2.2/cli/dkp/attach/cluster/)	 - Attach a cluster
+* [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
+* [dkp attach cluster](/dkp/kommander/2.3/cli/dkp/attach/cluster/)	 - Attach a cluster
 

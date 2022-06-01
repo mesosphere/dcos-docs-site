@@ -40,5 +40,5 @@ dkp attach cluster -n NAME --attached-kubeconfig FILENAME [flags]
 
 ### SEE ALSO
 
-* [dkp attach](/dkp/kommander/2.2/cli/dkp/attach/)	 - Attach one of [cluster]
+* [dkp attach](/dkp/kommander/2.3/cli/dkp/attach/)	 - Attach one of [cluster]
 
