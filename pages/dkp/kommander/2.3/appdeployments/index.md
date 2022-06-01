@@ -57,7 +57,6 @@ In a single-cluster environment with an **Essential license**, `AppDeployments` 
 In a multi-cluster environment with an **Enterprise license**, `AppDeployments` enable [workspace-level][workspace], [project-level][project], and per-cluster deployment and customization of applications.
 <!-- TODO: link to the per-cluster topic(s) once they are created-->
 
-
 ## More information
 
 Refer to the [CLI documentation][cli] for more information on how to `create`, or `get` an `AppDeployment`.
