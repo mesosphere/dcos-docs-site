@@ -178,7 +178,7 @@ Waiting for control plane update to finish.
  ✓ Updating the control plane
 ```
     
-3. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool. Also, replace the name of the infrastructure provider in the command [aws, azure, vsphere, gcp, eks, preprovisioned].
+3. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool. Also, replace the name of the infrastructure provider in the command [`aws`, `azure`, `vsphere`, `gcp`, `eks`, `preprovisioned`].
 
 ```bash
 export NODEPOOL_NAME=my-nodepool
