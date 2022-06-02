@@ -44,7 +44,6 @@ A problem that occurred when the Certificate Authority for Kommander (The komman
 An issue that resulted in errors like "Failed to connect to the host via ssh" when running konvoy-image-builder v1.7.0 has been corrected. The fix is available in konvoy-image-builder v1.8.0.
 
 ### KIB fails to pull images in air-gapped environments  (COPS-7198)
-
 <!-- vale Microsoft.Avoid = NO -->
 Running konvoy-image-builder v1.7.0 in air-gapped environments would result in failures to pull docker images if the environment used registry mirrors and/or credentials. The problem is resolved in konvoy-image-builder v1.8.0.
 <!-- vale Microsoft.Avoid = YES -->
