@@ -77,7 +77,7 @@ enterprise: false
     dkp create cluster preprovisioned --cluster-name ${CLUSTER_NAME} \
     --control-plane-endpoint-host <control plane endpoint host> \
     --control-plane-endpoint-port <control plane endpoint port, if different than 6443> \
-    --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
+    --registry-mirror-url=${DOCKER_REGISTRY_URL} \
     --registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
     --registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
     --registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}

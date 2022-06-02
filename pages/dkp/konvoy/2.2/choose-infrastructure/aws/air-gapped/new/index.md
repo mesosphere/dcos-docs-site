@@ -82,7 +82,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     --subnet-ids=${AWS_SUBNET_IDS} \
     --internal-load-balancer=true \
     --additional-security-group-ids=${AWS_ADDITIONAL_SECURITY_GROUPS} \
-    --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
+    --registry-mirror-url=${DOCKER_REGISTRY_URL} \
     --registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
     --registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
     --registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
