@@ -12,6 +12,10 @@ enterprise: false
 You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.
 </p>
 
+## Requirements
+
+For reference values of the required number of worker nodes, CPU, RAM, and storage resources, refer to the [requirements](../requirements/) section.
+
 ## DKP 2.2 air-gapped installation
 
 Refer to [DKP install instructions][dkp_install], if you want to deploy Kaptain in a networked environment or to [DKP 2.1 air-gapped instructions][2.1_air] if you are deploying with DKP 2.1.
@@ -81,8 +85,18 @@ If you added Kaptain after installing DKP, you must make it available by rerunni
 
 1.  Download the image bundle file:
 
-    - Download `kaptain-air-gapped-2.0.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation.
-    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads.
+    - Download `kaptain-air-gapped.tar.gz` that will contain the required artifacts to perform an air-gapped installation. Extract the image bundle archive and other files before use:
+
+      ```bash
+      mkdir bundle && tar -xvf kaptain-air-gapped.tar.gz -C bundle/
+      ```
+
+    - (Optional) Download the custom image artifacts `kaptain-air-gapped-2.0.0_cpu.tar.gz` or `kaptain-air-gapped-2.0.0_gpu.tar.gz` based on whether you need CPU or GPU for your workloads. Extract the image bundle archive and other files before use:
+
+      ```bash
+      mkdir bundle-cpu && tar -xvf kaptain-air-gapped-cpu.tar.gz -C bundle-cpu/
+      mkdir bundle-gpu && tar -xvf kaptain-air-gapped-gpu.tar.gz -C bundle-gpu/
+      ```
 
 1.  Place the bundle in a location where you can load and push the images to your private Docker registry.
 

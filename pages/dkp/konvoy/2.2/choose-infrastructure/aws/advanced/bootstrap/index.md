@@ -58,42 +58,6 @@ Before you begin, you must:
 	cert-manager                        cert-manager-webhook                            1/1     1            1           2m21s
     ```
 
-    Konvoy then creates additional resources for Cluster API to apply to every new cluster. The resources, called `ClusterResourceSets`, contain complete YAML manifests to deploy essential cluster applications, such as the [Calico][calico] Container Networking Interface (CNI) implementation, and Container Storage Interface (CSI) implementations for various infrastructure APIs. List ClusterResourceSets using this command:
-
-    ```bash
-    kubectl get clusterresourceset
-    ```
-
-    ```sh
-	NAME                                   AGE
-	aws-ebs-csi-aws-example                11s
-	calico-cni-installation-aws-example    11s
-	cluster-autoscaler-aws-example         11s
-	node-feature-discovery-aws-example     11s
-	nvidia-feature-discovery-aws-example   11s
-    ```
-
-    A ClusterResourceSet object defines selectors that match against cluster labels, and a reference to a ConfigMap. The ConfigMap contains a YAML manifest. When a cluster with matching labels is created, the YAML manifest is applied to the cluster. The manifest is applied only once, when the cluster is created.
-
-    For example, this is the `aws-ebs-csi` ClusterResourceSet, which is now deployed by Konvoy from the above actions:
-
-    ```yaml
-    kind: ClusterResourceSet
-    metadata:
-      name: aws-ebs-csi
-    spec:
-      clusterSelector:
-        matchLabels:
-          konvoy.d2iq.io/csi: aws-ebs
-          konvoy.d2iq.io/provider: aws
-      resources:
-      - kind: ConfigMap
-        name: aws-ebs-csi
-      strategy: ApplyOnce
-    ```
-
-    Konvoy defines the selectors and sets the correct labels on the Cluster objects. For a more detailed explanation of how ClusterResourceSets work, see the [Extension Proposal][clusterresourceset_caep].
-
 [install_docker]: https://docs.docker.com/get-docker/
 [install_clusterawsadm]: https://github.com/kubernetes-sigs/cluster-api-provider-aws/releases
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/

@@ -35,7 +35,7 @@ Follow these steps to install the DKP catalog from the CLI.
     spec:
       interval: 1m0s
       ref:
-        tag: v2.2.0
+        tag: v2.2.1
       timeout: 20s
       url: https://github.com/mesosphere/dkp-catalog-applications  
     EOF
@@ -49,8 +49,11 @@ Follow these steps to install the DKP catalog from the CLI.
 
 ## Workspace DKP catalog applications
 
-| NAME                          | APP ID                |
-| ----------------------------- | --------------------- |
-| kafka-operator-0.20.0         | kafka-operator        |
-| spark-operator-1.1.6          | spark-operator        |
-| zookeeper-operator-0.2.13     | zookeeper-operator    |
+| Name                      | App ID             | Supported Kubernetes version |
+|---------------------------|--------------------|------------------------------|
+| kafka-operator-0.20.0     | kafka-operator     | 1.21                         |
+| kafka operator-0.20.2     | kafka-operator     | 1.21 - 1.22                  |
+| spark-operator-1.1.6      | spark-operator     | 1.21                         |
+| spark operator-1.1.17     | spark-operator     | 1.21 - 1.22                  |
+| zookeeper-operator-0.2.13 | zookeeper-operator | 1.21 - 1.22                  |
+| kaptain-2.0.0             | kaptain            | 1.21 - 1.22                  |

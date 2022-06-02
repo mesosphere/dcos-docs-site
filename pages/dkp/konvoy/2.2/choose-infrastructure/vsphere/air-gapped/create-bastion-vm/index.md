@@ -20,13 +20,13 @@ When creating an air-gapped vSphere cluster, the bastion VM hosts the installati
 
 1.  [Download][download] the following required DKP Konvoy binaries and installation bundles appropriate for your environment directly to the bastion host, or transfer them using your environment's approved methods:
 
-    - dkp_v2.2.0_darwin_amd64.tar.gz
+    - dkp_v2.2.1_darwin_amd64.tar.gz
 
-    - dkp_v2.2.0_linux_amd64.tar.gz
+    - dkp_v2.2.1_linux_amd64.tar.gz
 
-    - dkp_image_bundle_v2.2.0_linux_amd64.tar.gz (air-gapped) - This bundle contains air-gapped images that you must push to a registry.)
+    - dkp_image_bundle_v2.2.1_linux_amd64.tar.gz (air-gapped) - This bundle contains air-gapped images that you must push to a registry.)
 
-    - konvoy-bootstrap_v2.2.0.tar (air-gapped) - This bundle contains the KIND bootstrap image to load with the `docker load` command when you create the bootstrap cluster in a later step.
+    - konvoy-bootstrap_v2.2.1.tar (air-gapped) - This bundle contains the KIND bootstrap image to load with the `docker load` command when you create the bootstrap cluster in a later step.
 
 1.  Use your credentials to SSH into the bastion VM host with the command:
 

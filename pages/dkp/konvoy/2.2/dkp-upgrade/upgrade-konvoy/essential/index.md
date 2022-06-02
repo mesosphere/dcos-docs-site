@@ -21,7 +21,6 @@ menuWeight: 30
 
 * For AWS, set the required [environment variables][envariables2].
 
-
 The following infrastructure environments are supported:
 
 * Amazon Web Services (AWS)
@@ -77,14 +76,23 @@ Your cluster comes preconfigured with a few different core addons that provide f
 
 <p class="message--warning"><strong>IMPORTANT:</strong>If you have more than one essential cluster, ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-Replace `my-aws-cluster` with the name of the cluster.
+Upgrade the core addons in a cluster using the 'dkp upgrade addons' command specifying the cluster infrastructure (choose [aws, azure, preprovisioned]) and the name of the cluster.
+
+Examples:
+
+```bash
+export CLUSTER_NAME=my-azure-cluster
+dkp upgrade addons azure --cluster-name=${CLUSTER_NAME}
+```
+OR
 
 ```bash
 export CLUSTER_NAME=my-aws-cluster
 dkp upgrade addons aws --cluster-name=${CLUSTER_NAME}
 ```
 
-The output should be similar to:
+
+The output for the AWS example should be similar to:
 
 ```text
 Generating addon resources
@@ -101,6 +109,8 @@ configmap/node-feature-discovery-my-aws-cluster upgraded
 clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-my-aws-cluster upgraded
 configmap/nvidia-feature-discovery-my-aws-cluster upgraded
 ```
+### See also ###
+[DKP upgrade addons](/../../dkp/konvoy/2.2/cli/dkp/upgrade/addons/)
 
 Once complete, begin upgrading the Kubernetes version.
 
@@ -149,6 +159,7 @@ For the overall process for upgrading to the latest version of DKP, refer back t
 [kubeconfig]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [CAPI]: https://cluster-api.sigs.k8s.io/
 [releasenotes]: ../../../release-notes
+[envariables]: ../../../choose-infrastructure/azure/quick-start-azure#configure-azure-prerequisites
 [backup]: ../../../../../kommander/2.2/backup-and-restore#back-up-on-demand
 [envariables]: ../../../choose-infrastructure/azure/quick-start-azure#configure-azure-prerequisites
 [envariables2]: ../../../choose-infrastructure/aws/quick-start-aws#configure-aws-prerequisites

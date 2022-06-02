@@ -1,5 +1,6 @@
 ad hoc
 (Addon|addon)
+Affero
 Airflow
 air gapped bundle
 air gapped environment
@@ -31,6 +32,7 @@ checkpoint(|s|ed|ing)
 (Chrony|chrony)
 CLI
 clusterawsadm
+clusterctl
 CNN(|s)
 CNTK
 (component|Component)
@@ -49,6 +51,7 @@ cpu
 CPU
 CRD
 cronjob
+crt
 Crunchbase
 cthelper
 cttimeout
@@ -122,7 +125,7 @@ Jira
 jq
 (kafka|Kafka)
 Kaniko
-Kaptain
+(Kaptain|kaptain)
 (Katib|katib)
 Keepalived
 Keras
@@ -192,6 +195,7 @@ namespac(e|es|ed|ing)
 (nginx|NGINX)
 Nouveau
 (nvidia|Nvidia|NVIDIA)
+(OIDC|oidc)
 (onboarding|Onboarding)
 openssl
 (OpsPortal|opsportal)
@@ -257,6 +261,7 @@ tqdm
 triaging
 typha
 (uid|UID)
+uncomment(|s|ing|ed)
 uncordon(|ed)
 unencrypted
 Unjoin(|ing|ed)
@@ -265,6 +270,7 @@ unmute
 unpause(|s)
 (URI|URIs)
 (Velero|velero)
+virtualize(s|d|ing)
 (WebSocket|Websocket|websocket)
 (VNET|vnet)
 xfsprogs

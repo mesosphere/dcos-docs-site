@@ -10,4 +10,4 @@ enterprise: false
 
 <!-- markdownlint-disable MD018 -->
 
-#include /dkp/konvoy/1.6/include/replace-failed-node.tmpl
+#include /dkp/konvoy/1.8/include/replace-failed-node.tmpl

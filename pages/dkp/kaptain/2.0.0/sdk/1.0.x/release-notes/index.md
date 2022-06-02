@@ -6,29 +6,15 @@ beta: false
 menuWeight: 0
 ---
 
-Kaptain SDK 1.0.0 Release Notes
+Kaptain SDK 1.0.1 Release Notes
 
-### New Features
-* Support for model building/deploying using non-deep learning frameworks
-* Added support for new frameworks: scikit-learn, XGBoost, MXNet, LightGBM and ONNX
-* Added two new tutorials: [Developing and deploying scikit-learn models with Kaptain SDK][quick-start] and [Build Docker Images with Kaptain SDK][image-builder]
+## Improvements and Fixes
 
-### Breaking changes
-`Model.framework` property type has been changed from `str` to `ModelFramework(Enum)` and need to be updated based on the actual model framework, e.g:
+- Fixed incorrect handling of the S3 endpoint string
+- New `timeout` parameter for `Model.train` and `Model.tune` methods
+- Upgraded from KFServing 0.6.1 to KServe 0.7.0
+- Upgraded kubeflow-training to 1.4.0
 
-```
-from kaptain.model.frameworks import ModelFramework
+## Breaking changes
 
-model = Model(
-    id="dev/mnist",
-    name="MNIST",
-    description="MNIST Model",
-    version="0.0.1",
-    framework=ModelFramework.SKLEARN,
-    framework_version="0.24.2",
-    ...
-)
-```
-
-[quick-start]: ../../../tutorials/sdk/quick-start
-[image-builder]: ../../../tutorials/sdk/image-builder
+Due to the migration from KFServing to KServe, this SDK version is only compatible with Kaptain 2.0.

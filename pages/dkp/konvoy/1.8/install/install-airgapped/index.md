@@ -305,6 +305,7 @@ For example on `Ubuntu 18.04`, you must replace the following Deb packages and t
 The air gapped bundle contains package archives for both EL7 and EL8. The installer, however, is configured to copy only one set of packages, and it defaults to the EL7 packages. If you are using EL8 (CentOS 8 or RHEL 8), copy the EL8 package archive to the default location:
 <!-- vale Vale.Spelling = YES -->
 
+
 ```bash
 # backup the centos 7 archive (optional)
 cp konvoy_<konvoy-version>_x86_64_rpms.tar.gz konvoy_<konvoy-version>_el7_x86_64_rpms.tar.gz
@@ -315,7 +316,7 @@ mv konvoy_<konvoy-version>_el8_x86_64_rpms.tar.gz konvoy_<konvoy-version>_x86_64
 
 ### Configure the image registry
 
-In an air-gapped environment your cluster nodes will not have access to any public Docker registries, therefore you are required to provide your own that is accessible on the local network.
+In an air gapped environment your cluster nodes will not have access to any public Docker registries, therefore you are required to provide your own that is accessible on the local network.
 
 Set the options in your `cluster.yaml` as follows:
 
@@ -785,6 +786,10 @@ When the `konvoy deploy` completes its setup operations, the following files are
 - `admin.conf` - is a [kubeconfig file][kubeconfig], which contains credentials to [connect to the `kube-apiserver` of your cluster through `kubectl`][kubectl].
 - `inventory.yaml` - is an [Ansible Inventory file][ansible_inventory].
 - `runs` folder - which contains logging information.
+
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the version of MinIO packaged with DKP/Konvoy 1.8/Kommander 1.4 is available at this URL: https://github.com/minio/minio/tree/RELEASE.2020-12-03T05-49-24Z
+
+For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).
 
 [ansible]: https://www.ansible.com
 [ansible_group]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-hosts-and-groups

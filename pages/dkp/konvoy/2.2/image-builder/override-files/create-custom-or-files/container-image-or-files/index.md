@@ -34,7 +34,7 @@ extra_images:
   - public.ecr.aws/eks-distro/kubernetes-csi/external-provisioner:v2.1.1-eks-1-18-13
   - public.ecr.aws/eks-distro/kubernetes-csi/external-resizer:v1.1.0-eks-1-18-13
   - public.ecr.aws/eks-distro/kubernetes-csi/external-snapshotter/csi-snapshotter:v3.0.3-eks-1-18-13
-  - public.ecr.aws/eks-distro/kubernetes-csi/livenessprobe:v2.2.0-eks-1-18-13
+  - public.ecr.aws/eks-distro/kubernetes-csi/livenessprobe:v2.2.1-eks-1-18-13
   - public.ecr.aws/eks-distro/kubernetes-csi/node-driver-registrar:v2.1.0-eks-1-18-13
   - mcr.microsoft.com/k8s/csi/azuredisk-csi:v1.15.0
   - mcr.microsoft.com/oss/kubernetes-csi/csi-attacher:v3.4.0

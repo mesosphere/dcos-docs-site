@@ -10,7 +10,36 @@ menuWeight: 0
 
 Konvoy comes with default override files:
 
-- [FIPS](../../../fips/) override file.
-- [Nvidia](../../../choose-infrastructure/aws/gpu/) override file.
+- FIPS override:
 
-You can find these override files in the [Konvoy Image Builder repo](https://github.com/mesosphere/konvoy-image-builder/tree/main/overrides).
+  ```yaml
+  ---
+  etcd_image_tag: v3.4.13_fips.0
+  fips:
+    enabled: true
+    etcdImageTag: "{{ etcd_image_tag }}"
+  build_name_extra: -fips
+  kubernetes_build_metadata: fips.0
+  default_image_repo: hub.docker.io/mesosphere
+  k8s_image_registry: mesosphere
+  kubernetes_rpm_repository_url: "https://kubernetes-fips.s3.us-east-2.amazonaws.com\
+                              /{{ ansible_distribution_major_version|int }}\
+                              /x86_64"
+  kubernetes_rpm_gpg_key_url: "https://kubernetes-fips.s3.us-east-2.amazonaws.com\
+                               /{{ ansible_distribution_major_version|int }}\
+                               /rpm-gpg-pub-key"
+  docker_rpm_repository_url: "https://containerd-fips.s3.us-east-2.amazonaws.com\
+                              /{{ ansible_distribution_major_version|int }}\
+                              /x86_64"
+  ```
+
+- Nvidia override:
+
+  ```yaml
+  ---
+  gpu:
+    types:
+      - nvidia
+  
+  build_name_extra: "-nvidia"
+  ```

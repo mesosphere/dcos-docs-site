@@ -45,17 +45,21 @@ Before starting the Konvoy installation, verify that you have:
     ```bash
     export CLUSTER_NAME=aws-example
     ```
+    <p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z</code>, <code>0-9</code>, <code>.</code>, and <code>-</code>. Cluster creation will fail if the name has capital letters.
+    See <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/">Kubernetes</a> for more naming information.
+    </p>
 
 ## Create a new AWS Kubernetes cluster
 
 If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
 
 <p class="message--note"><strong>NOTE: </strong>
-Using these default images work, but due to missing optimizations, the created cluster will have certain limits.
-We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builder to create a custom AMI</a> to take advantage of enhanced cluster operations, and to explore the <a href="../advanced">advanced AWS installation</a> topics for more options.
+The default AWS image is not recommended for use in production. We suggest using <a href="../../../image-builder/create-ami">Konvoy Image Builder to create a custom AMI</a> to take advantage of enhanced cluster operations, and to explore the <a href="../advanced">advanced AWS installation</a> topics for more options. Previously, DKP 2.1 used a CentOS 7 image, but DKP 2.2 now uses Ubuntu 20.04.
 </p>
 
 1.  Create a Kubernetes cluster:
+
+    <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Docker Hub's rate limit</a> use your Docker Hub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
 
     ```bash
     dkp create cluster aws \

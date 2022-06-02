@@ -246,7 +246,7 @@ def main():
     ModelExportUtil().upload_model("mnist")
 
     eval_loss, eval_acc = model.evaluate(test_dataset_sharded, verbose=0, steps=args.steps)
-    
+
     # Record the evaluation metrics for use with the hyperparameter tuner
     MetadataUtil.record_metrics({"loss": eval_loss, "accuracy": eval_acc})
 
@@ -326,7 +326,7 @@ model.train(
     memory=memory,
     gpus=gpus,
     hyperparameters={"--steps": 10, "--epochs": 5},
-    args={}, # additional command line arguments for the training job. 
+    args={}, # additional command line arguments for the training job.
 )
 ```
 ```sh
@@ -349,7 +349,7 @@ model.train(
 The default `gpus` argument is 0, but it is shown here as an explicit option.
 Use `?Model.train` to see all supported arguments.
 
-<p class="message--note"><strong>NOTE: </strong>When resource quotas are set for a namespace, users have to specify <code>cpu</code> and <code>memory</code> explicitly in the SDK. 
+<p class="message--note"><strong>NOTE: </strong>When resource quotas are set for a namespace, users have to specify <code>cpu</code> and <code>memory</code> explicitly in the SDK.
 Otherwise, tasks such as training and tuning will fail with <code>Error creating: pods ... is forbidden: failed quota: kf-resource-quota: must specify cpu,memory</code>.
 These fields are optional when resource quotas are not set.
 In case the issue appears for other types of workloads, it is recommended to configure defaults for the user namespace using the <a href="https://kubernetes.io/docs/concepts/policy/limit-range/">Limit Range</a>.
@@ -412,16 +412,16 @@ hyperparams = {
 }
 
 model.tune(
-    trials=trials, 
-    parallel_trials=parallel_trials, 
+    trials=trials,
+    parallel_trials=parallel_trials,
     workers=workers,
     cpu=cpu,
     memory=memory,
-    gpus=gpus, 
-    hyperparameters=hyperparams, 
-    objectives=["accuracy"], 
+    gpus=gpus,
+    hyperparameters=hyperparams,
+    objectives=["accuracy"],
     objective_goal=0.99,
-    args={}, # additional command line arguments to pass to a Trial (TFJob). 
+    args={}, # additional command line arguments to pass to a Trial (TFJob).
 )
 ```
 
@@ -525,3 +525,5 @@ curl --location \
     }
 
 The last class has the largest probability; the neural network correctly predicts the image to be a 9.
+
+This tutorial includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 2.0.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z](https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z) and [https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z](https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z)
