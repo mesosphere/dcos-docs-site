@@ -62,13 +62,13 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     <p class="message--important"><strong>IMPORTANT: </strong>The AMI must be created by the <a href="https://github.com/mesosphere/konvoy-image-builder">konvoy-image-builder</a> project in order to use the registry mirror feature.</p>
 
     ```bash
-    export DOCKER_REGISTRY_ADDRESS=<https/http>://<registry-address>:<registry-port>
+    export DOCKER_REGISTRY_URL=<https/http>://<registry-address>:<registry-port>
     export DOCKER_REGISTRY_CA=<path to the CA on the bastion>
     export DOCKER_REGISTRY_USERNAME=<username>
     export DOCKER_REGISTRY_PASSWORD=<password>
     ```
 
-    - `DOCKER_REGISTRY_ADDRESS`: the address of an existing Docker registry accessible in the VPC that the new cluster nodes will be configured to use a mirror registry when pulling images.
+    - `DOCKER_REGISTRY_URL`: the address of an existing Docker registry accessible in the VPC that the new cluster nodes will be configured to use a mirror registry when pulling images.
     - `DOCKER_REGISTRY_CA`: (optional) the path on the bastion machine to the Docker registry CA. Konvoy will configure the cluster nodes to trust this CA. This value is only needed if the registry is using a self-signed certificate and the AMIs are not already configured to trust this CA.
     - `DOCKER_REGISTRY_USERNAME`: optional, set to a user that has pull access to this registry.
     - `DOCKER_REGISTRY_PASSWORD`: optional if username is not set.
@@ -118,7 +118,7 @@ When you use existing infrastructure, DKP does _not_ create, modify, or delete t
     --subnet-ids=${AWS_SUBNET_IDS} \
     --internal-load-balancer=true \
     --additional-security-group-ids=${AWS_ADDITIONAL_SECURITY_GROUPS} \
-    --registry-mirror-url=${DOCKER_REGISTRY_ADDRESS} \
+    --registry-mirror-url=${DOCKER_REGISTRY_URL} \
     --registry-mirror-cacert=${DOCKER_REGISTRY_CA} \
     --registry-mirror-username=${DOCKER_REGISTRY_USERNAME} \
     --registry-mirror-password=${DOCKER_REGISTRY_PASSWORD}
