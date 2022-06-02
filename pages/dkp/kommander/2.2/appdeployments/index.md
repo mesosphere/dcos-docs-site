@@ -12,11 +12,10 @@ An `AppDeployment` is a [Custom Resource][CRD] created by DKP with the purpose o
 
 When installing DKP, an `AppDeployment` resource is created for each enabled **platform application**. This `AppDeployment` resource references a `ClusterApp`, which then references the repository that contains a concrete declarative and preconfigured setup of an application, usually in the form of a [`HelmRelease`][helm].
 
-In the case of **DKP catalog** and **custom applications**, the `AppDeployment` references an `App` instead of a `ClusterApp`, which also references the repository containing the installation and deployment information.
+In the case of **DKP catalog** and **custom applications**, the `AppDeployment` references an `App` instead of a `ClusterApp`, which also references the repository containing the installation and deployment information. `Apps` are namespace-scoped and are meant to only be deployable to the workspace or project in which they have been created.
 
-`ClusterApps` and `Apps` are namespace-scoped so that they are deployable to the workspace or project in which they have been created.
 
-For example, this is the default `AppDeployment` of Kube Prometheus Stack:
+For example, this is the default `AppDeployment` of the Kube Prometheus Stack platform application:
 
 ```yaml
 apiVersion: apps.kommander.d2iq.io/v1alpha2

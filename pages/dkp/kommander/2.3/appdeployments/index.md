@@ -14,7 +14,7 @@ When installing DKP, an `AppDeployment` resource is created for each enabled **p
 
 In the case of **DKP catalog** and **custom applications**, the `AppDeployment` references an `App` instead of a `ClusterApp`, which also references the repository containing the installation and deployment information. `Apps` are namespace-scoped and are meant to only be deployable to the workspace or project in which they have been created.
 
-For example, this is the default `AppDeployment` of Kube Prometheus Stack:
+For example, this is the default `AppDeployment` for the Kube Prometheus Stack platform application:
 
 ```yaml
 apiVersion: apps.kommander.d2iq.io/v1alpha2
@@ -30,7 +30,7 @@ spec:
 
 ## Customization
 
-If you want to customize an application, or change how a specific app is deployed, you can create a `ConfigMap` to change or add values to the information that is stored in the `HelmRelease`. Override the default configuration of an application by setting the `configOverrides` field on the `AppDeployment` to that `ConfigMap`.
+If you want to customize an application, or change how a specific app is deployed, you can create a `ConfigMap` to change or add values to the information that is stored in the `HelmRelease`. Override the default configuration of an application by setting the `configOverrides` field on the `AppDeployment` to that `ConfigMap`. This overrides the configuration of the app for all clusters within the workspace.
 
 For example, this is a customized `AppDeployment` of Kube Prometheus Stack:
 
