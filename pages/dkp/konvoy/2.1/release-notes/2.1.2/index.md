@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Konvoy 2.1.2 Release Notes
-title: Konvoy 2.1.2 Release Notes
+navigationTitle: Release Notes Konvoy 2.1.2
+title: Release Notes Konvoy 2.1.2
 menuWeight: 30
 excerpt: View release-specific information for Konvoy 2.1.2
 enterprise: false
