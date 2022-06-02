@@ -50,7 +50,7 @@ A problem with Prometheus where the component `kube-prometheus-stack` attempted 
 
 ### HTTP(S)_proxy variables missing from CAPA pods (COPS-7158)
 
-When deploying a 2.1.1 Konvoy cluster, the local environment variables for http_proxy, https_proxy and no_proxy were not propagated to CAPI/CAPI provider pods outside the kube-system namespace, which lead to timeouts in the CAPA pod.
+When deploying a 2.1.1 Konvoy cluster, the local environment variables for http_proxy, https_proxy and no_proxy were not propagated to CAPI/CAPA provider pods outside the kube-system namespace, which lead to timeouts in the CAPA pod.
 
 ### The Nvidia addon fails to recognize nodes with GPU when GPUs are scarce (COPS-7142)
 
