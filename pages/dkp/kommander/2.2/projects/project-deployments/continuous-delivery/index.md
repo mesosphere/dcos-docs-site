@@ -40,7 +40,7 @@ If you are using a secret with your GitHub username and your password, you will 
 
 <p class="message--note"><strong>NOTE: </strong>Using a token without a username is valid for GitHub, but other providers (such as GitLab) require both username and tokens.</p>
 
-<p class="message--important"><strong>NOTE: </strong>If you are using a public GitHub repository, you do not need to use a secret.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If you are using a public GitHub repository, you do not need to use a secret.</p>
 
 ## Create GitOps Source
 
