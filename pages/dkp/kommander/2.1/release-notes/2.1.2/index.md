@@ -86,7 +86,7 @@ As a result of a misconfiguration, the`prometheus-kubeaddons-set-grafana-home-da
 
 ## Component updates
 
-The following services and service components have been upgraded to the listed version:
+The following services and service components are upgraded to the listed version:
 
 - centralized-grafana: 18.1.3
 - centralized-kubecost: 0.20.0
@@ -222,7 +222,7 @@ The Docker container can be applied to the management cluster in any environment
 
 If there are any workload clusters attached to the management cluster, they will also be remediated.
 
-Note that this container does not affect or change in any way certificates associated with a custom domain you may have created for the cluster.  
+Note that this container does not affect or change in any way certificates associated with a custom domain you may have created for the cluster.
 
 To fix the issue on an impacted cluster,  run this command:
 
@@ -268,6 +268,8 @@ flux reconcile -n kommander-flux source git management --kubeconfig MANAGED_KUBE
 <!-- Add links to external documentation as needed -->
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
+
+For a full list of attributed 3rd party software, see [d2iq.com/legal/3rd](http://d2iq.com/legal/3rd).
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
