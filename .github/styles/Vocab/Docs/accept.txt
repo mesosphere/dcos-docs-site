@@ -23,12 +23,14 @@ backoff
 bool
 bootup
 calicoctl
+CAPA
 Cassandra
 CentOS
 (Chartmuseum|chartmuseum)
 checkpoint(|s|ed|ing)
 (chronos|Chronos)
 (Chrony|chrony)
+CLI
 clusterawsadm
 clusterctl
 CNN(|s)
@@ -48,6 +50,7 @@ covariate
 cpu
 CPU
 CRD
+cronjob
 crt
 Crunchbase
 cthelper
@@ -240,6 +243,7 @@ Statefulset(|s)
 stdout
 (Strftime|strftime)
 Stringify
+subchart
 subcommand
 (Subnet|Subnets|subnet|subnets)
 subtree
