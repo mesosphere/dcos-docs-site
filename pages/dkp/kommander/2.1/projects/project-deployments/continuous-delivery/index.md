@@ -52,7 +52,7 @@ If you are using a secret with your GitHub username and your password, you will 
 
 After the secret is created, you can view it in the `Secrets` tab. Configure the GitOps source accessed by the secret.
 
-<p class="message--important"><strong>NOTE: </strong>If using an SSH secret, the SCM repo URL needs to be an SSH address. It does not support SCP syntax. The URL format is <code>ssh://user@host:port/org/repository</code>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If using an SSH secret, the SCM repo URL needs to be an SSH address. It does not support SCP syntax. The URL format is <code>ssh://user@host:port/org/repository</code>.</p>
 
 It takes a few moments for the GitOps Source to be reconciled and the manifests from the SCM repository at the given path to be federated to attached clusters. After the sync is complete, manifests from GitOps source are created in attached clusters.
 
