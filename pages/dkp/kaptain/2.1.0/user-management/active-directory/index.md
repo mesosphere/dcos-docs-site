@@ -35,7 +35,7 @@ As with all matters regarding security, we encourage you to thoroughly review pe
 
 1.  Open the log-in page to access Kaptain's Kubeflow dashboard.
 
-    <p class="message--note"><strong>NOTE: </strong>By default, all AD groups have been granted access to the dashboard. <a href="#add-or-remove-groups-using-the-ui">To add or remove AD groups</a>, alter the <b>Allow List</b> via the <b>Configuration service**</b>.</p>
+    <p class="message--note"><strong>NOTE: </strong>By default, all AD groups have been granted access to the dashboard. <a href="#add-or-remove-groups-using-the-ui">To add or remove AD groups</a>, alter the <b>Allow List</b> via the <b>Configuration service</b>.</p>
 
 1.  Click **Log in with LDAP**.
 
