@@ -22,7 +22,7 @@ Before starting the Konvoy installation, verify that you have:
 
 ## Configure GCP prerequisites
 
-1.  Log in to Azure:
+1.  Log in to GCP:
 <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
     ```bash
     gcp login
