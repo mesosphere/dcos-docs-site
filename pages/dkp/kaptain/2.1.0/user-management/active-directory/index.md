@@ -57,14 +57,14 @@ As with all matters regarding security, we encourage you to thoroughly review pe
 
     ```bash
     ingress: 
-      oidcGroupsAllowList: "<group1>, <group2>"
+      oidcGroupsAllowList: "<group1>,<group2>"
     ```
 
     If you need the Authentication Service to accept `ServiceAccountTokens`, include the `system:serviceaccounts` group.
 
     ```bash
     ingress: 
-      oidcGroupsAllowList: "<group1>, <group2>, system:serviceaccounts"
+      oidcGroupsAllowList: "<group1>,<group2>,system:serviceaccounts"
     ```
 
 1.  Click **Save**.
