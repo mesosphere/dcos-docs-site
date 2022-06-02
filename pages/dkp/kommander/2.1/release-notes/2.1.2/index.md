@@ -13,7 +13,7 @@ beta: false
 
 To get started with Kommander, [download](../../download/) and [install](../../install/) the latest version of Kommander.
 
-<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
+<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Kommander.</p>
 
 ## Release summary
 
@@ -34,10 +34,6 @@ A Flux configuration problem that resulted in Kommander applications not being a
 <!-- vale Microsoft.HeadingColons = YES -->
 
 A problem that prevented successful configuration of the `kube-oidc-proxy` component when using a custom domain and TLS certificate issued by Let's Encrypt was corrected.
-
-### Certificate objects updated but not reloading in Kommander pods (COPS-7212)
-
-A problem that occurred when the Certificate Authority for Kommander (The kommander-ca certificate) expired has been corrected. This certificate is generated when Kommander is installed and by default has a 90 day lifetime. Once the CA expired, a new CA was created, but not all components that use certificates generated from this CA were properly reloaded. Because they are not refreshed properly, once the certificates start expiring, critical services (like authentication), will fail. The underlying issue has been resolved, and CA expiry now results in restarts of all the services and components that rely on this CA.
 
 ### Konvoy-image-builder 1.7.0 fails in certain situations (COPS-7207)
 
@@ -133,7 +129,7 @@ If you attach a cluster that already has `cert-manager` installed, you need to m
 
 For example, [Konvoy-created clusters that are self-managed][konvoy-self-managed] have `cert-manager` already installed to the `cert-manager` namespace.
 
-Verify that your cluster have `cert-manager` installed by:
+Verify that your cluster has `cert-manager` installed by:
 
 ```bash
 export KUBECONFIG="<kubeconfig-path>"
