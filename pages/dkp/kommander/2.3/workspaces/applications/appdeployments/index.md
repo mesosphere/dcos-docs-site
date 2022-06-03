@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: AppDeployments
 title: AppDeployments
 excerpt: Use AppDeployments to deploy, and customize platform, DKP catalog, and custom applications in your environment
-menuWeight: 50
+menuWeight: 10
 beta: false
 enterprise: false
 ---
@@ -32,23 +32,47 @@ spec:
 
 If you want to customize an application, or change how a specific app is deployed, you can create a `ConfigMap` to change or add values to the information that is stored in the `HelmRelease`. Override the default configuration of an application by setting the `configOverrides` field on the `AppDeployment` to that `ConfigMap`. This overrides the configuration of the app for all clusters within the workspace.
 
-For example, this is a customized `AppDeployment` of Kube Prometheus Stack:
+This is an example, of how to customize the `AppDeployment` of Kube Prometheus Stack:
 
-```yaml
-cat <<EOF | kubectl apply -f -
-apiVersion: apps.kommander.d2iq.io/v1alpha2
-kind: AppDeployment
-metadata:
-  name: kube-prometheus-stack
-  namespace: <your-workspace-namespace>
-spec:
-  appRef:
-    name: kube-prometheus-stack-33.1.5
-    kind: ClusterApp
-  configOverrides:
-    name: kube-prometheus-stack-overrides-attached
-EOF
-```
+1.  Provide the name of a `ConfigMap` with the custom configuration in the `AppDeployment`:
+
+    ```yaml
+    cat <<EOF | kubectl apply -f -
+    apiVersion: apps.kommander.d2iq.io/v1alpha2
+    kind: AppDeployment
+    metadata:
+      name: kube-prometheus-stack
+      namespace: <your-workspace-namespace>
+    spec:
+      appRef:
+        name: kube-prometheus-stack-33.1.5
+        kind: ClusterApp
+      configOverrides:
+        name: kube-prometheus-stack-overrides-attached
+    EOF
+    ```
+
+1.  Create the `ConfigMap` with the name provided in the previous step, which provides the custom configuration on top of the default configuration:
+
+    ```yaml
+    cat <<EOF | kubectl apply -f -
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      namespace: <your-workspace-namespace>
+      name: kube-prometheus-stack-overrides-attached
+    data:
+      values.yaml: |
+        prometheus:
+          prometheusSpec:
+            storageSpec:
+              volumeClaimTemplate:
+                spec:
+                  resources:
+                    requests:
+                      storage: 150Gi
+    EOF
+    ```
 
 ## Deployment scope
 
@@ -63,6 +87,6 @@ Refer to the [CLI documentation][cli] for more information on how to `create`, o
 
 [CRD]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
 [helm]: https://fluxcd.io/docs/components/helm/helmreleases/
-[workspace]: ../workspaces/applications/
-[project]: ../projects/applications/
-[cli]: ../cli/dkp/
+[workspace]: ../../applications/
+[project]: ../../../projects/applications/
+[cli]: ../../../cli/dkp/
