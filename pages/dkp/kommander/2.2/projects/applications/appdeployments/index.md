@@ -8,6 +8,6 @@ beta: false
 enterprise: false
 ---
 
-An `AppDeployment` is a [ustom Resource created by DKP with the purpose of deploying applications (platform, DKP catalog and custom applications). For more information about these Custom Resources and how to customize them, refer to the [AppDeployments][appdep] documentation.
+An `AppDeployment` is a Custom Resource created by DKP with the purpose of deploying applications (platform, DKP catalog and custom applications). For more information about these Custom Resources and how to customize them, refer to the [AppDeployments][appdep] documentation.
 
 [appdep]: ../../../workspaces/applications/appdeployments/
