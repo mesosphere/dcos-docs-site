@@ -33,7 +33,7 @@ Each control plane node should have at least:
 
 ## Worker nodes
 
-You should have at least four worker nodes. The specific number of worker nodes required for your environment can vary depending on the cluster workload and size of the nodes.
+For Enterprise, the recommendation is at least four worker nodes. Essential, however, only requires one worker node.  The specific number of worker nodes required for your environment can vary depending on the cluster workload and size of the nodes.  (See below for minimal suggested requirements)
 
 Each worker node should have at least:
 

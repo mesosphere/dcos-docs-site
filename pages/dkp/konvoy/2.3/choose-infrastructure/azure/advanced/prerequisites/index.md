@@ -20,7 +20,7 @@ Before you begin using Konvoy, you must have:
 
 <p class="message--note"><strong>NOTE: </strong>On macOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
 
-If you use these instructions to create a cluster on Azure using the DKP default settings without any edits to configuration files or additional flags, your cluster will be deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
+If you use these instructions to create a cluster on Azure using the DKP default settings without any edits to configuration files or additional flags, your cluster will be deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes. For Enterprise, the recommendation is at least four worker nodes. Essential, however, only requires one worker node.  DKP creates the worker nodes via CLI and will use acceptable numbers by default.
 
 ## Azure prerequisites
 
