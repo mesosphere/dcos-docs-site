@@ -32,15 +32,7 @@ Before starting the Konvoy installation, verify that you have:
     [
       {
         "cloudName": "GCPCloud",
-        "homeTenantId": "a1234567-b132-1234-1a11-1234a5678b90",
-        "id": "b1234567-abcd-11a1-a0a0-1234a5678b90",
-        "isDefault": true,
-        "managedByTenants": [],
-        "name": "Mesosphere Developer Subscription",
-        "state": "Enabled",
-        "tenantId": "a1234567-b132-1234-1a11-1234a5678b90",
-        "user": {
-          "name": "user@gcpmesosphere.onmicrosoft.com",
+        
           "type": "user"
         }
       }
