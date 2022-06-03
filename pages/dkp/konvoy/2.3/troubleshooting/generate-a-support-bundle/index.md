@@ -17,43 +17,15 @@ Before generating a support bundle, verify that you have:
 
 - An AMD64-based Linux or macOS machine with a supported version of the operating system.
 - A running Kubernetes cluster.
-- `dkp-diagnose` command for [macOS][dkp-diagnostics-darwin] or [Linux][dkp-diagnostics-linux] for collecting the support bundle.
-
-## Download dkp-diagnose
-
-1.  To download and extract the `dkp-diagnose` binary for [macOS][dkp-diagnostics-darwin] or [Linux][dkp-diagnostics-linux]
-
-    For Linux:
-
-    ```bash
-    mkdir dkp-diagnose && curl -sL https://downloads.d2iq.com/dkp/dkp-diagnose_v0.4.1_linux_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
-    ```
-
-    For macOS:
-
-    ```bash
-    mkdir dkp-diagnose && curl -sL https://downloads.d2iq.com/dkp/dkp-diagnose_v0.4.1_darwin_amd64.tar.gz | tar -xz -C ./dkp-diagnose/
-    ```
-
-1.  Add the binary to your PATH:
-
-    ```bash
-    export PATH=./dkp-diagnose/:$PATH
-    ```
-
-1.  Verify the binary works:
-
-    ```bash
-    dkp-diagnose version
-    ```
+- Access to the [DKP CLI][dkp_cli].
 
 ## Create a diagnostic bundle
 
-`dkp-diagnose` was developed by D2iQ and builds on the open source `troubleshoot.sh` project.
+`dkp diagnose` was developed by D2iQ and builds on the open source `troubleshoot.sh` project.
 
-<p class="message--note"><strong>NOTE:</strong> <code>dkp-diagnose</code> is based on version <code>0.13.16</code> of <code>troubleshoot.sh</code> with custom modifications. The D2iQ fork is open source and available from <a href="https://github.com/mesosphere/troubleshoot">on this public GitHub repository</a>.</p>
+<p class="message--note"><strong>NOTE:</strong> <code>dkp diagnose</code> is based on version <code>0.13.16</code> of <code>troubleshoot.sh</code> with custom modifications. The D2iQ fork is open source and available from <a href="https://github.com/mesosphere/troubleshoot">on this public GitHub repository</a>.</p>
 
-`dkp-diagnose` supports [multiple support bundle collectors][troubleshoot-collectors] and
+`dkp diagnose` supports [multiple support bundle collectors][troubleshoot-collectors] and
 can be configured as a `SupportBundle` Kubernetes resource in a yaml file.
 
 The following list is the minimum set of resources that is required to debug a cluster, but can be further customized.
@@ -69,14 +41,14 @@ The bundle uses the following collectors:
 
 ## Generate a Support Bundle
 
-<p class="message--note"><strong>NOTE: </strong><code>dkp-diagnose</code> uses the same Kubernetes configuration as <code>kubectl</code>. <code>dkp-diagnose</code> can also be pointed at a specific configuration by using the <code>--kubeconfig</code> parameter.</p>
+<p class="message--note"><strong>NOTE: </strong><code>dkp diagnose</code> uses the same Kubernetes configuration as <code>kubectl</code>. <code>dkp diagnose</code> can also be pointed at a specific configuration by using the <code>--kubeconfig</code> parameter.</p>
 
 To generate the support bundle, perform the following steps:
 
-1.  Run the `dkp-diagnose` command by running the default collectors configuration.
+1.  Run the `dkp diagnose` command by running the default collectors configuration.
 
     ```bash
-    dkp-diagnose
+    dkp diagnose
     ```
 
     ```sh
@@ -113,10 +85,10 @@ Note that the bootstrap cluster diagnostics are independent of the configuration
 - ConfigMaps
 - Secrets
 
-1. Run the `dkp-diagnose` command with bootstrap bundle configuration.
+1. Run the `dkp diagnose` command with bootstrap bundle configuration.
 
 ```bash
-    dkp-diagnose bundle.yaml
+    dkp diagnose bundle.yaml
 ```
 
 ### Customizations
@@ -124,12 +96,12 @@ Note that the bootstrap cluster diagnostics are independent of the configuration
 To print the default collectors configuration, run the following command:
 
 ```bash
-dkp-diagnose default-config > bundle.yaml
+dkp diagnose default-config > bundle.yaml
 ```
 
 Edit the file to make appropriate modifications.
 
-<p class="message--note"><strong>NOTE: </strong><code>dkp-diagnose</code> by default does not require that you supply a configuration. The default bundle configuration can be printed by running <code>dkp-diagnose default-config</code>.</p>
+<p class="message--note"><strong>NOTE: </strong><code>dkp diagnose</code> by default does not require that you supply a configuration. The default bundle configuration can be printed by running <code>dkp diagnose default-config</code>.</p>
 
 ## SSH fallback
 
@@ -140,7 +112,7 @@ To get node level information from your cluster using SSH access, perform the fo
 1. Enter the following command:
 
 ```bash
-dkp-diagnose ssh <path/to/ansible-inventory.yaml>
+dkp diagnose ssh <path/to/ansible-inventory.yaml>
 ```
 
 The `ansible-inventory.yaml` file specifies the nodes to access for data collection.
@@ -189,7 +161,7 @@ all:
       ansible_port: 2222
 ```
 
-The fallback collector runs a bash script over SSH and copies the collected data. The format of the created bundle matches that of `dkp-diagnose` collector generated bundles.
+The fallback collector runs a bash script over SSH and copies the collected data. The format of the created bundle matches that of `dkp diagnose` collector generated bundles.
 
 ```sh
     node-diagnostics/<HOSTNAME_PORT>/data/
@@ -197,15 +169,14 @@ The fallback collector runs a bash script over SSH and copies the collected data
         - ....
 ```
 
-Redactors are supported and are in the same format as the main `dkp-diagnose` command. Per node collection timeouts are supported using the `--timeout` parameter.
+Redactors are supported and are in the same format as the main `dkp diagnose` command. Per node collection timeouts are supported using the `--timeout` parameter.
 
 [clusterInfo-collector]: https://troubleshoot.sh/docs/collect/cluster-info/
 [clusterResources-collector]: https://troubleshoot.sh/docs/collect/cluster-resources/
 [configMap-collector]: https://troubleshoot.sh/docs/collect/configmap/
 [copyFromHost-collector]: https://troubleshoot.sh/docs/collect/copy-from-host/
-[dkp-diagnostics-darwin]: https://downloads.d2iq.com/dkp/dkp-diagnose_v0.4.1_darwin_amd64.tar.gz
-[dkp-diagnostics-linux]: https://downloads.d2iq.com/dkp/dkp-diagnose_v0.4.1_linux_amd64.tar.gz
 [exec-collector]: https://troubleshoot.sh/docs/collect/exec/
 [logs-collector]: https://troubleshoot.sh/docs/collect/logs/
 [secrets-collector]: https://troubleshoot.sh/docs/collect/secret/
 [troubleshoot-collectors]: https://troubleshoot.sh/docs/collect/all/
+[dkp-cli](../../2.3/cli/dkp/)
