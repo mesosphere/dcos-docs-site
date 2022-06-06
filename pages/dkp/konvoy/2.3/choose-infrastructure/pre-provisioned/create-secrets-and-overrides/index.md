@@ -60,17 +60,17 @@ secret/preprovisioned-example-ssh-key labeled
 
 ## Create overrides
 
-If your pre-provisioned machines have [overrides](../../../image-builder/override-files) you must create a secret that includes all of the overrides you wish to provide in one file. For example, if you wish to provide an override with Docker credentials and a different source for EPEL on a CentOS7 machine, you can create a file like this:
+If your pre-provisioned machines have [overrides](../../../image-builder/override-files) you must create a secret that includes all of the overrides you wish to provide in one file. For example, if you want to provide an override with Docker credentials and a different source for EPEL on a CentOS7 machine, you can create a file like this:
 
 ```yaml
+cat > overrides.yaml << EOF 
 image_registries_with_auth:
 - host: "registry-1.docker.io"
   username: "my-user"
   password: "my-password"
   auth: ""
-  identityToken: ""
-
-epel_centos_7_rpm: https://my-rpm-repostory.org/epel/epel-release-latest-7.noarch.rpm
+  identityToken: ""epel_centos_7_rpm: https://my-rpm-repostory.org/epel/epel-release-latest-7.noarch.rpm
+EOF
 ```
 
 You can then create the related secret by running the following command:
