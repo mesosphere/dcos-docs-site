@@ -69,7 +69,8 @@ image_registries_with_auth:
   username: "my-user"
   password: "my-password"
   auth: ""
-  identityToken: ""epel_centos_7_rpm: https://my-rpm-repostory.org/epel/epel-release-latest-7.noarch.rpm
+  identityToken: ""
+epel_centos_7_rpm: https://my-rpm-repostory.org/epel/epel-release-latest-7.noarch.rpm
 EOF
 ```
 
