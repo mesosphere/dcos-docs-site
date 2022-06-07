@@ -38,7 +38,7 @@ Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspaceâ
 export WORKSPACE_NAMESPACE=<your_workspace_namespace>
 ```
 
-You are now able to copy the commands below without having to replace the placeholder with your workspace namespace every time you run a command.
+You are now able to copy the following commands without having to replace the placeholder with your workspace namespace every time you run a command.
 
 ### Customize your application
 
