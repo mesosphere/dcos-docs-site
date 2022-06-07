@@ -48,8 +48,7 @@ If you use these instructions to create a cluster on AWS using the DKP default s
 
    Worker node:
     * instanceType: m5.2xlarge
-    * rootVolume:
-    * size: 80
+    * Root volume size:  80GB
 
 
 <p class="message--note"><strong>NOTE: </strong>
