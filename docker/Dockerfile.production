@@ -1,12 +1,12 @@
 FROM node:gallium-buster-slim
 
 RUN apt-get -y update && apt-get install -y python \
-        bash \
-        python3 \
-        python3-pip \
+    bash \
+    python3 \
+    python3-pip \
     && pip3 install --upgrade pip \
     && pip3 install \
-        awscli \
+    awscli \
     && rm -rf /var/cache/apk/* && apt-get clean
 
 RUN mkdir /src
@@ -14,7 +14,7 @@ WORKDIR /src
 
 RUN mkdir /npm
 ADD package.json package-lock.json /npm/
-RUN cd /npm && npm install
+RUN cd /npm && npm install --legacy-peer-deps
 
 ADD . /src/
 RUN ln -s /npm/node_modules /src/node_modules
