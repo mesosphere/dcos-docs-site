@@ -41,12 +41,13 @@ Each worker node should have at least:
 
 If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.  DKP creates the nodes size by default unless otherwise specified with a flag.
 
-    Control plane:
+
+   Control plane:
     * instanceType: m5.xlarge
     * rootVolume: 
     * size: 80
 
-    Worker node:
+   Worker node:
     * instanceType: m5.2xlarge
     * rootVolume:
     * size: 80
