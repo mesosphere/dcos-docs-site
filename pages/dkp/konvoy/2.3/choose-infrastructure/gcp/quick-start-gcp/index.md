@@ -47,7 +47,7 @@ Before starting the Konvoy installation, verify that you have:
     <p class="message--note"><strong>NOTE: </strong>If an SP with the name exists, this command will rotate the password.</p>
 
     ```bash
-    gcloud ad sp create-for-rbac --role contributor --name "$(whoami)-konvoy" --scopes=/subscriptions/$(az account show --query id -o tsv)
+ <! NEED INSTRUCTIONS ON HOW TO CREATE A SP ON GCP>
     ```
 
     ```sh
