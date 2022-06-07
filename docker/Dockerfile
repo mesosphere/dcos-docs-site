@@ -5,7 +5,7 @@ WORKDIR /dcos-docs-site
 
 COPY package* /dcos-docs-site/
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 COPY . /dcos-docs-site/
 
