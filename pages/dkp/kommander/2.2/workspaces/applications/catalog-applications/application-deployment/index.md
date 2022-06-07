@@ -120,6 +120,9 @@ The applications are now enabled. Connect to the attached cluster and check the 
 
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
+```
+
+```sh
 NAMESPACE               NAME               READY   STATUS                             AGE
 workspace-test-vjsfq    spark-operator     True    Release reconciliation succeeded   7m3s
 ```
