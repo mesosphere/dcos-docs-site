@@ -19,7 +19,38 @@ Before you begin using Konvoy, you must have:
 
 <p class="message--note"><strong>NOTE: </strong>On macOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</p>
 
-If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes. For Enterprise, the recommendation is at least four worker nodes. Essential, however, only requires one worker node.  DKP creates the worker nodes via CLI and will use acceptable numbers by default.
+## Control plane nodes
+
+You should have at least three control plane nodes.
+Each control plane node should have at least:
+
+- 4 cores
+- 16 GiB memory
+- Approximately 80 GiB of free space for the volume used for /var/lib/kubelet and /var/lib/containerd.
+- Disk usage must be below 85% on the root volume.
+
+## Worker nodes
+
+You should have at least four worker nodes. The specific number of worker nodes required for your environment can vary depending on the cluster workload and size of the nodes.
+Each worker node should have at least:
+
+- 8 cores
+- 32 GiB memory
+- Around 80 GiB of free space for the volume used for /var/lib/kubelet and /var/lib/containerd.
+- Disk usage must be below 85% on the root volume.
+
+If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.  DKP creates the nodes size by default unless otherwise specified with a flag.
+
+    Control plane:
+    * instanceType: m5.xlarge
+    * rootVolume: 
+    * size: 80
+
+    Worker node:
+    * instanceType: m5.2xlarge
+    * rootVolume:
+    * size: 80
+
 
 <p class="message--note"><strong>NOTE: </strong>
 Using these default images work, but due to missing optimizations, the created cluster will have certain limits.
