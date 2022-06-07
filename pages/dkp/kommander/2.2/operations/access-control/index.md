@@ -10,14 +10,14 @@ excerpt: Centrally manage access across clusters
 You can centrally define role-based authorization within Kommander to control resource access on the management cluster and a set, or all, of the target clusters.
 These resources are similar to Kubernetes RBAC but with crucial differences, and they make it possible to define the roles and role bindings once, and have them federated to clusters within a given scope.
 
-Kommander has two conceptual groups of resources that are used to manage access control:
+DKP has two concepts used to manage access control:
 
-- Kommander Roles: control access to resources on the management cluster.
+- DKP Roles: control access to resources on the management cluster.
 - Cluster Roles: control access to resources on all target clusters in scope.
 
-Use these two groups of resources to manage access control within 3 levels of scope:
+Use these two sets of resources to manage access control within 3 levels of scope:
 
-| Context   | Kommander Roles                                                               | Cluster Roles                                                                              |
+| Context   | DKP Roles                                                                     | Cluster Roles                                                                              |
 | --------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | Global    | Create ClusterRoles on the management cluster.                                | Federates ClusterRoles on all target clusters across all workspaces.                       |
 | Workspace | Create namespaced Roles on the management cluster in the workspace namespace. | Federates ClusterRoles on all target clusters in the workspace.                            |
@@ -27,9 +27,9 @@ The [role bindings][role-bindings] for each level and type create `RoleBindings`
 
 This approach gives you maximum flexibility over who has access to what resources, conveniently mapped to your existing identity providers' claims.
 
-### Special Limitation for Kommander Roles
+### Special Limitation for DKP Roles
 
-In addition to granting a Kommander Role, you must also grant the appropriate DKP role to allow external users and groups into the UI.
+In addition to granting a DKP Role, you must also grant the appropriate DKP role to allow external users and groups into the UI.
 See [RBAC - DKP UI Authorization][kommander-rbac] for details about the built-in DKP roles.
 Here are examples of `ClusterRoleBindings` that grant an IDP group admin access to the Kommander routes:
 
@@ -65,24 +65,6 @@ subjects:
     kind: Group
     name: oidc:engineering
 ```
-
-## Types of Access Control Objects
-
-Kubernetes role-based access control can be controlled with three different object categories: Groups, Roles and Policies, as explained in more detail below.
-
-### Groups
-
-You can map group and user claims made by your configured identity providers to Kommander groups by selecting Administration / Identity providers in the left sidebar in the global workspace level, and then selecting the **Groups** tab.
-
-### Roles
-
-`ClusterRoles` are named collections of rules defining which verbs can be applied to which resources.
-
--   Kommander Roles apply specifically to resources on the management cluster.
--   Cluster Roles apply to target clusters within their scope at these levels:
-    - Global level - this is all target clusters in all workspaces,
-    - Workspace level - this is all target clusters in the workspace,
-    - Project level - this is all target clusters that have been added to the project.
 
 ### Propagating Workspace Roles to Projects
 
@@ -139,18 +121,31 @@ subjects:
     name: oidc:engineering
 ```
 
-### Role Bindings
+## Role Bindings
 
-Kommander role bindings, cluster role bindings, and project role bindings bind a Kommander group to any number of roles.
-All groups defined in the **Groups** tab will be present at the global, workspace, or project level, and are ready for you to assign roles to them.
+DKP role bindings, cluster role bindings, and project role bindings bind a group of users to any number of roles. All groups defined by [Identity Providers][groups] are present in the **Cluster Role Bindings** tab at the global and workspace level, or within the **Role Bindings** tab at the project level.
+
+Before you can create a Role Binding, ensure an administrator has created a [Group][groups]. A Kommander Group can contain one or several Identity Provider users, groups, or both.
+
+You can assign a role to this Kommander Group:
+
+1.  From the top menu bar, select your target workspace.
+
+1.  Select **Access Control** in the **Administration** section of the sidebar menu.
+
+1.  Select the **Cluster Role Bindings** tab, and then select the **Add Roles** button next to the group you want.
+
+1.  Select the Role, or Roles, you want from the drop-down menu and select **Save**.
 
 ## Related Information
 
 - [Kommander RBAC Tutorial][kommander-rbac-tutorial]
 - [RBAC - DKP UI Authorization][kommander-rbac]
 - [Kubernetes RBAC Authorization][k8s-rbac-auth]
+- [Groups][groups]
 
 [k8s-rbac-auth]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
-[kommander-rbac]: rbac#kommander-dashboard-authorization
+[kommander-rbac]: rbac#dkp-ui-authorization
 [kommander-rbac-tutorial]: rbac
 [role-bindings]: #role-bindings
+[groups]: ../identity-providers#groups
