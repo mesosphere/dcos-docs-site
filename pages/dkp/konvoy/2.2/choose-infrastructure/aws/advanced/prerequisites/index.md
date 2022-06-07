@@ -43,15 +43,13 @@ If you use these instructions to create a cluster on AWS using the DKP default s
 
 In particular, it will use the following Amazon Instance Types:
 
-
    Control plane:
-    * instanceType: m5.xlarge
-    * Root volume size:  80GB
+    - instanceType: m5.xlarge
+    - Root volume size:  80GB
 
    Worker node:
-    * instanceType: m5.2xlarge
-    * Root volume size:  80GB
-
+    - instanceType: m5.2xlarge
+    - Root volume size:  80GB
 
 <p class="message--note"><strong>NOTE: </strong>
 Using these default images work, but due to missing optimizations, the created cluster will have certain limits.
