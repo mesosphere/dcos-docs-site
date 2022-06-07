@@ -21,7 +21,7 @@ apiVersion: apps.kommander.d2iq.io/v1alpha2
 kind: AppDeployment
 metadata:
   name: kube-prometheus-stack
-  namespace: <your-workspace-namespace>
+  namespace: ${WORKSPACE_NAMESPACE}
 spec:
   appRef:
     name: kube-prometheus-stack-33.1.5
@@ -29,6 +29,18 @@ spec:
 ```
 
 ## Customization
+
+### Prerequisites
+
+Set the `WORKSPACE_NAMESPACE` environment variable to the name of the workspace’s namespace where the cluster is attached:
+
+```bash
+export WORKSPACE_NAMESPACE=<your_workspace_namespace>
+```
+
+You are now able to copy the commands below without having to replace the placeholder with your workspace namespace every time you run a command.
+
+### Customize your application
 
 If you want to customize an application, or change how a specific app is deployed, you can create a `ConfigMap` to change or add values to the information that is stored in the `HelmRelease`. Override the default configuration of an application by setting the `configOverrides` field on the `AppDeployment` to that `ConfigMap`.
 
@@ -42,7 +54,7 @@ This is an example, of how to customize the `AppDeployment` of Kube Prometheus S
     kind: AppDeployment
     metadata:
       name: kube-prometheus-stack
-      namespace: <your-workspace-namespace>
+      namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
         name: kube-prometheus-stack-33.1.5
