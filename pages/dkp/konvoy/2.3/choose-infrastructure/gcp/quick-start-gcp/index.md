@@ -26,7 +26,7 @@ Before starting the Konvoy installation, verify that you have:
     <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
 
     ```bash
-    gcloud login
+    gcloud auth login
     ```
 
     ```sh
