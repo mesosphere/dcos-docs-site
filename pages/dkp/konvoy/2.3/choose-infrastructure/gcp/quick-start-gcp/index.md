@@ -63,7 +63,7 @@ Before starting the Konvoy installation, verify that you have:
     <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
 
     ```bash
-    export GCP_SUBSCRIPTION_ID="<id>"         # b1234567-abcd-11a1-a0a0-1234a5678b90
+<!NEED FINAL OUTPUT HERE>
     export GCP_TENANT_ID="<tenant>"           # a1234567-b132-1234-1a11-1234a5678b90
     export GCP_CLIENT_ID="<appId>"            # 7654321a-1a23-567b-b789-0987b6543a21
     export GCP_CLIENT_SECRET="<password>"     # Z79yVstq_E.R0R7RUUck718vEHSuyhAB0C
