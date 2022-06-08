@@ -46,18 +46,18 @@ In particular without flags specified, it will use the Azure defaults listed bel
 
 Control plane:
 -  dataDisks:
-*    diskSizeGB: 80
-*    nameSuffix: etcddisk
+-    diskSizeGB: 80
+-    nameSuffix: etcddisk
 -  osDisk:
-*    diskSizeGB: 128
-*    managedDisk storageAccountType: Premium_LRS
-*    vmSize: Standard_D4s_v3
+-    diskSizeGB: 128
+-    managedDisk storageAccountType: Premium_LRS
+-    vmSize: Standard_D4s_v3
 
 Worker node:
 -  osDisk:
-*    diskSizeGB: 80
-*    managedDisk storageAccountType: Premium_LRS
-*    vmSize: Standard_D8s_v3
+-    diskSizeGB: 80
+-    managedDisk storageAccountType: Premium_LRS
+-    vmSize: Standard_D8s_v3
 
 ## Azure prerequisites
 
