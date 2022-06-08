@@ -44,23 +44,23 @@ If you use these instructions to create a cluster on Azure using the DKP default
 
 In particular without flags specified, it will use the Azure defaults listed below:
 
-Control plane:
+- Control plane:
 
-dataDisks:
--    diskSizeGB: 80
--    nameSuffix: etcddisk
+  -    dataDisks:
+       -    diskSizeGB: 80
+       -    nameSuffix: etcddisk
 
-osDisk:
--    diskSizeGB: 128
--    managedDisk storageAccountType: Premium_LRS
--    vmSize: Standard_D4s_v3
+  -    osDisk:
+       -    diskSizeGB: 128
+       -    managedDisk storageAccountType: Premium_LRS
+       -    vmSize: Standard_D4s_v3
 
-Worker node:
+- Worker node:
 
-osDisk:
--    diskSizeGB: 80
--    managedDisk storageAccountType: Premium_LRS
--    vmSize: Standard_D8s_v3
+  -    osDisk:
+       -    diskSizeGB: 80
+       -    managedDisk storageAccountType: Premium_LRS
+       -    vmSize: Standard_D8s_v3
 
 ## Azure prerequisites
 
