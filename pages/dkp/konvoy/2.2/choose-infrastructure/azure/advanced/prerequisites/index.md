@@ -48,7 +48,7 @@ Control plane:
 -  dataDisks:
     diskSizeGB: 80
     nameSuffix: etcddisk
-   osDisk:
+-  osDisk:
     diskSizeGB: 128
     managedDisk storageAccountType: Premium_LRS
    vmSize: Standard_D4s_v3
