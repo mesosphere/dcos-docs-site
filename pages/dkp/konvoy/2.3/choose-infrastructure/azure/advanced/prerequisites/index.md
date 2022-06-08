@@ -49,6 +49,7 @@ Control plane:
 dataDisks:
 -    diskSizeGB: 80
 -    nameSuffix: etcddisk
+
 osDisk:
 -    diskSizeGB: 128
 -    managedDisk storageAccountType: Premium_LRS
