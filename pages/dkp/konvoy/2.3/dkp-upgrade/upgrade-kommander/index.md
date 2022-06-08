@@ -14,7 +14,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 -   **REQUIRED** Before upgrading, create an [on-demand backup][backup] of your current configuration with Velero.
 -   [Download][download_binary] and install the latest DKP CLI binary on your computer.
 -   Ensure you are on DKP version 2.2 or 2.2.x and Kubernetes version 1.22.
--   If you have attached clusters, ensure they are on Kubernetes versions 1.21 or 1.22. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
+-   If you have attached clusters, ensure they are on Kubernetes versions 1.21 or 1.22.
 -   Review the [Platform Application version updates][release_notes] that are part of this upgrade.  
 -   For air-gapped environments **with** DKP Catalog Applications in a multi-cluster environment: [Load the Docker images into your Docker registry][load_images_catalog]
 -   For air-gapped environments **without** DKP Catalog Applications: [Load the Docker images into your Docker registry][load_images]
@@ -126,15 +126,18 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
         If you have DKP Catalog Applications deployed, follow the [DKP Catalog Applications configuration page](../../../../kommander/2.3/install/configuration/enterprise-catalog#configure-a-default-enterprise-catalog) to update the Git repository after the upgrade.
 
-    An output similar to this appears:
+        ```bash
+        dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
+        ```
 
-    ```bash
-    $ dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
-    ✓ Ensuring upgrading conditions are met
-    ✓ Ensuring application definitions are updated
-    ✓ Ensuring helm-mirror implementation is migrated to chartmuseum
-    ...
-    ```
+        An output similar to this appears:
+
+        ```sh
+        ✓ Ensuring upgrading conditions are met
+        ✓ Ensuring application definitions are updated
+        ✓ Ensuring helm-mirror implementation is migrated to chartmuseum
+        ...
+        ```
 
 1.  For air-gapped deployments, an additional step is required to upgrade the Grafana Loki MinIO Tenant:
 
@@ -153,17 +156,17 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
 You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the next steps depending on your environment and license type.
 
-This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.2.0 are available at these URLs:
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with DKP 2.2.0 are available at these URLs:
 
 * https://github.com/minio/minio/tree/RELEASE.2022-04-01T03-41-39Z
 * https://github.com/minio/minio/tree/RELEASE.2022-01-08T03-11-54Z
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
-[AWS]: ../../choose-infrastructure/aws/advanced/update/
-[Azure]: ../../choose-infrastructure/azure/advanced/update/
+<!--- [AWS]: ../../choose-infrastructure/aws/advanced/update/
+[Azure]: ../../choose-infrastructure/azure/advanced/update/ -->
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
-[pre_provisioned]: ../../choose-infrastructure/pre-provisioned/upgrade/control-plane/
+<!--- [pre_provisioned]: ../../choose-infrastructure/pre-provisioned/upgrade/control-plane/ -->
 [k8s_access_to_clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [upgrade_workspaces]: ../../../../kommander/2.3/projects/applications/platform-applications#upgrade-platform-applications-from-the-cli
 [release_notes]: ../../release-notes/
