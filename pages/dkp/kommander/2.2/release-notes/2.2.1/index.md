@@ -43,6 +43,10 @@ Previous Kommander 2.x versions did not properly handle certificate renewal for 
 
 When adding a new Attached Cluster to the Management Cluster, using a custom domain and TLS certificate issued by Let's Encrypt, the kube-oidc-proxy helm chart in the Attached Cluster did not complete installation and the associated pod returned an error.
 
+### DKP Insights: Make resource requests and limits configureable.
+
+Previously there was no way to configure the cpu & memory requests and limits for the Insights management and backend components. This is now fixed.
+
 ## Other changes and capabilities
 
 ### Flatcar
