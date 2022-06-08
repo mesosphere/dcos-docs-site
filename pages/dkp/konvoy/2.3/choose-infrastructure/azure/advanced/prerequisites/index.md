@@ -42,7 +42,7 @@ Each worker node should have at least:
 
 If you use these instructions to create a cluster on Azure using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes which match the requirements above.  
 
-In particular without flags specified, it will use the Azure defaults listed below:
+In particular without flags specified, DKP will use the Azure defaults listed below:
 
 - Control plane:
 
