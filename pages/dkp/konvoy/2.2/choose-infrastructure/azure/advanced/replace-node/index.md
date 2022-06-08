@@ -16,7 +16,7 @@ Before you begin, you must:
 
 ## Replace a worker node
 
-In certain situations, you may want to delete a worker node and have [Cluster API][capi_book] replace it with a newly provisioned machine. For Enterprise, the recommendation is at least four worker nodes. Essential, however, only requires one worker node.  DKP creates the worker nodes via CLI and will use acceptable numbers by default.
+In certain situations, you may want to delete a worker node and have [Cluster API][capi_book] replace it with a newly provisioned machine. 
 
 1.  Identify the name of the node to delete.
 
