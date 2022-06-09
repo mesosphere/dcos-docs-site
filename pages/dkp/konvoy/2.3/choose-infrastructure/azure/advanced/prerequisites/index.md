@@ -30,6 +30,8 @@ Each control plane node should have at least:
 - Approximately 80 GiB of free space for the volume used for /var/lib/kubelet and /var/lib/containerd.
 - Disk usage must be below 85% on the root volume.
 
+DKP on Azure defaults to deploying a `Standard_D4s_v3` virtual machine with an 128 GiB volume for the OS and an 80GiB volume for etcd storage, which meets the above requirements.
+
 ## Worker nodes
 
 You should have at least four worker nodes. The specific number of worker nodes required for your environment can vary depending on the cluster workload and size of the nodes.
@@ -41,26 +43,6 @@ Each worker node should have at least:
 - Disk usage must be below 85% on the root volume.
 
 If you use these instructions to create a cluster on Azure using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes which match the requirements above.  
-
-In particular without flags specified, DKP will use the Azure defaults listed below:
-
-- Control plane:
-
-  -    dataDisks:
-       -    diskSizeGB: 80
-       -    nameSuffix: etcddisk
-
-  -    osDisk:
-       -    diskSizeGB: 128
-       -    managedDisk storageAccountType: Premium_LRS
-       -    vmSize: Standard_D4s_v3
-
-- Worker node:
-
-  -    osDisk:
-       -    diskSizeGB: 80
-       -    managedDisk storageAccountType: Premium_LRS
-       -    vmSize: Standard_D8s_v3
 
 ## Azure prerequisites
 
