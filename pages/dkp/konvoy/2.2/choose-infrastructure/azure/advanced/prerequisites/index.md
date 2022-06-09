@@ -30,7 +30,6 @@ Each control plane node should have at least:
 - Approximately 80 GiB of free space for the volume used for /var/lib/kubelet and /var/lib/containerd.
 - Disk usage must be below 85% on the root volume.
 
-
 DKP on Azure defaults to deploying a `Standard_D4s_v3` virtual machine with an 128 GiB volume for the OS and an 80GiB volume for etcd storage, which meets the above requirements.
 
 ## Worker nodes
