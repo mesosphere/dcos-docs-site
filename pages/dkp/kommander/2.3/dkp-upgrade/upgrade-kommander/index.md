@@ -42,7 +42,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
   <p class="message--important"><strong>IMPORTANT:</strong> Beginning with DKP version 2.2, MetalLB is no longer managed as a platform application. If you installed MetalLB on the cluster that you're upgrading prior to DKP version 2.2, you will need to detach MetalLB from the cluster prior to upgrading.</p>
 
-  1.  Pause the helm release.
+  1.  Pause the helm release:
 
       ```bash
       kubectl -n kommander patch -p='{"spec":{"suspend": true}}' --type=merge helmrelease/metallb
@@ -52,7 +52,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
       helmrelease.helm.toolkit.fluxcd.io/metallb patched
       ```
 
-  1.  Delete the helm release secret.
+  1.  Delete the helm release secret:
 
       ```bash
       kubectl -n kommander delete secret -l name=metallb,owner=helm
@@ -62,7 +62,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
       secret "sh.helm.release.v1.metallb.v1" deleted
       ```
 
-  1.  Delete MetalLB.
+  1.  Delete MetalLB:
 
       ```bash
       kubectl -n kommander delete appdeployment metallb

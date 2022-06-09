@@ -40,7 +40,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
   wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-catalog-applications-charts-bundle-v2.2.1.tar.gz" -O - | tar -xvf -
   ```
 
--  For clusters upgrading from 2.1.1 with HTTP Proxy installed:
+-   For clusters upgrading from 2.1.1 with HTTP Proxy installed:
 
   Edit the `gatekeeper-overrides`, and add a new configuration property, `disableMutation`, with the value `false`. This is required because the Gatekeeper configuration was changed between versions `v2.1.1` and `v2.2.1`:
 
@@ -55,13 +55,13 @@ This section describes how to upgrade your Kommander Management cluster and all 
       excludeNamespacesFromProxy: []
       namespaceSelectorForProxy:
         "gatekeeper.d2iq.com/mutate": "pod-proxy"
-    ```
+  ```
 
-    Configure the `kommander-flux` namespace and adjust the label so the Gatekeeper mutation is active on the namespace:
+  Configure the `kommander-flux` namespace and adjust the label so the Gatekeeper mutation is active on the namespace:
 
-    ```bash
-    kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
-    ```
+  ```bash
+  kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
+  ```
 
 ## Detach MetalLB from Kommander
 
@@ -97,21 +97,21 @@ This section describes how to upgrade your Kommander Management cluster and all 
       appdeployment.apps.kommander.d2iq.io "metallb" deleted
       ```
 
-        This deletes the MetalLB App from Kommander while leaving the MetalLB resources running in the cluster.
-        Use the following command to view the pods:
+      This deletes the MetalLB App from Kommander while leaving the MetalLB resources running in the cluster.
+      Use the following command to view the pods:
 
-        ```bash
-        kubectl -n kommander get pod -l app=metallb
-        ```
+      ```bash
+      kubectl -n kommander get pod -l app=metallb
+      ```
 
-        ```sh
-        NAME                                 READY   STATUS    RESTARTS   AGE
-        metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
-        metallb-speaker-2gz6p                1/1     Running   0          20m
-        metallb-speaker-48d44                1/1     Running   0          20m
-        metallb-speaker-6gp76                1/1     Running   0          20m
-        metallb-speaker-dh9dm                1/1     Running   0          20m
-        ```
+      ```sh
+      NAME                                 READY   STATUS    RESTARTS   AGE
+      metallb-controller-d657c8dbb-zlgrk   1/1     Running   0          20m
+      metallb-speaker-2gz6p                1/1     Running   0          20m
+      metallb-speaker-48d44                1/1     Running   0          20m
+      metallb-speaker-6gp76                1/1     Running   0          20m
+      metallb-speaker-dh9dm                1/1     Running   0          20m
+      ```
 
 ## Upgrade Kommander
 
@@ -147,7 +147,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
         dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
         ```
 
-    An output similar to this appears:
+        An output similar to this appears:
 
         ```sh
         ✓ Ensuring upgrading conditions are met
@@ -188,10 +188,10 @@ This Docker image includes code from the MinIO Project (“MinIO”), which is �
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
-<!-- [AWS]: ../../../../konvoy/2.2/choose-infrastructure/aws/advanced/update/
+<!--- [AWS]: ../../../../konvoy/2.2/choose-infrastructure/aws/advanced/update/
 [Azure]: ../../../../konvoy/2.2/choose-infrastructure/azure/advanced/update/ -->
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
-<!-- [pre_provisioned]: ../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/ -->
+<!--- [pre_provisioned]: ../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/ -->
 [k8s_access_to_clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [upgrade_workspaces]: ../../workspaces/applications/platform-applications#upgrade-platform-applications-from-the-cli
 [release_notes]: ../../release-notes/
