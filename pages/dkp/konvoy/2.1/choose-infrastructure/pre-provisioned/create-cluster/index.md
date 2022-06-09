@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--note"><strong>NOTE: </strong>When specifying the control-plane-endpoint, if the endpoint is a fully-qualified domain name (FQDN), we recommend you make that explicit by adding a period to the end. This helps avoid unnecessary DNS queries using search paths. For example, --control-plane-endpoint-host endpoint.example.com</code>.</p>
+<p class="message--note"><strong>NOTE: </strong>When specifying the <code>control-plane-endpoint-host</code>, if the endpoint is a fully-qualified domain name (FQDN), we recommend you make that explicit by adding a period to the end. This helps avoid unnecessary DNS queries using search paths. For example, <code>--control-plane-endpoint-host endpoint.example.com.</code></p>
 
 1.  With the inventory, and the control plane endpoint defined, use the `dkp` binary to create a Konvoy cluster. The following command relies on the pre-provisioned cluster API infrastructure provider to initialize the Kubernetes control plane and worker nodes on the hosts defined in the inventory.
 
