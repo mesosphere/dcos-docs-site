@@ -150,6 +150,26 @@ NAME                      AGE     READY   STATUS
 kaptain-1                 3m40s   True    Release reconciliation succeeded
 ```
 
+## Log in to Kaptain using the management cluster's Dex instance
+
+Discover the Kaptain endpoint:
+
+- If you are running Kaptain _on-premises_:
+
+```bash
+kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
+```
+<!-- TODO: can we get example output? -->
+
+- Or if you are running Kaptain on _AWS_:
+
+```bash
+kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
+```
+<!-- TODO: can we get example output? -->
+
+When calling up `https://<Kaptain endpoint>`, you will see the login page of the management cluster's Dex instance. After entering your credentials, you will be redirected to Kaptain's Kubeflow dashboard.
+
 [add_kaptain]: ../dkp/
 [existcluster]: ../../../../kommander/2.2/clusters/attach-cluster/
 [add_dkp]: ../dkp/
