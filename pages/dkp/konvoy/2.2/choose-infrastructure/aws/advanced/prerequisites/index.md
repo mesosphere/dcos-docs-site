@@ -29,6 +29,8 @@ Each control plane node should have at least:
 - Approximately 80 GiB of free space for the volume used for /var/lib/kubelet and /var/lib/containerd.
 - Disk usage must be below 85% on the root volume.
 
+DKP on AWS defaults to deploying an `m5.xlarge` instance with an 80GiB root volume for control plane nodes, which meets the above requirements.
+
 ## Worker nodes
 
 You should have at least four worker nodes. The specific number of worker nodes required for your environment can vary depending on the cluster workload and size of the nodes.
