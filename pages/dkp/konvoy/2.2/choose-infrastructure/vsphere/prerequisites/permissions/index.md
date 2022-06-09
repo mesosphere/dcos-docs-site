@@ -57,3 +57,5 @@ When a user needs permissions less than Admin, a role must be created. The proce
         * ValidateSession    
    
 4.   Add the permission at the highest level and set to propagate the permissions.
+
+[prerequisites]: ../../prerequisites/
