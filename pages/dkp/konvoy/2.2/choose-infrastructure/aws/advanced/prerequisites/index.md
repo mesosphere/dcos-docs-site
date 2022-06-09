@@ -45,16 +45,6 @@ DKP on AWS defaults to deploying a`m5.2xlarge` instance with an 80GiB root volum
 
 If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes which match the requirements above.  
 
-In particular, DKP will use the Amazon Instance Types listed below:
-
-Control plane:
--  instanceType: m5.xlarge
--  Root volume size:  80GB
-
-Worker node:
--  instanceType: m5.2xlarge
--  Root volume size:  80GB
-
 <p class="message--note"><strong>NOTE: </strong>
 Using these default images work, but due to missing optimizations, the created cluster will have certain limits.
 We suggest using <a href="../../../../image-builder/create-ami/">Konvoy Image Builder to create a custom AMI</a> to take advantage of enhanced cluster operations.
