@@ -29,6 +29,8 @@ Each control plane node should have at least:
 - Approximately 80 GiB of free space for the volume used for /var/lib/kubelet and /var/lib/containerd.
 - Disk usage must be below 85% on the root volume.
 
+DKP on AWS defaults to deploying an `m5.xlarge` instance with an 80GiB root volume for control plane nodes, which meets the above requirements.
+
 ## Worker nodes
 
 You should have at least four worker nodes. The specific number of worker nodes required for your environment can vary depending on the cluster workload and size of the nodes.
@@ -39,17 +41,9 @@ Each worker node should have at least:
 - Around 80 GiB of free space for the volume used for /var/lib/kubelet and /var/lib/containerd.
 - Disk usage must be below 85% on the root volume.
 
+DKP on AWS defaults to deploying a`m5.2xlarge` instance with an 80GiB root volume for worker nodes, which meets the above requirements.
+
 If you use these instructions to create a cluster on AWS using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes which match the requirements above.  
-
-In particular, DKP will use the Amazon Instance Types listed below:
-
-Control plane:
--  instanceType: m5.xlarge
--  Root volume size:  80GB
-
-Worker node:
--  instanceType: m5.2xlarge
--  Root volume size:  80GB
 
 <p class="message--note"><strong>NOTE: </strong>
 Using these default images work, but due to missing optimizations, the created cluster will have certain limits.
