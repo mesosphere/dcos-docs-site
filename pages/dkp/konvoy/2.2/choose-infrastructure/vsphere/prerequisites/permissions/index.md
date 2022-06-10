@@ -11,49 +11,51 @@ enterprise: false
 
 When a user needs permissions less than Admin, a role must be created. The process for configuring a vSphere role with the least permissions for provisioning nodes and installing includes the following steps:
 
-1.   Open a vSphere Client connection to the vCenter Server, described in the [Prerequisites][prerequisites].
+1.  Open a vSphere Client connection to the vCenter Server, described in the [Prerequisites][prerequisites].
 
-1.   Select Home > Administration > Roles > Add Role.
+1.  Select Home > Administration > Roles > Add Role.
 
-1.   Give the new role a name, then select these Privileges:
+1.  Give the new role a name, then select these Privileges:
 
--   Datastore
+    -   Datastore
 
-        * Allocate space
--   Network
+        - Allocate space
+    -   Network
 
-        * Assign network
--   Resource
+        - Assign network
+    -   Resource
 
-        * Assign virtual machine to resource pool
--   Virtual machine
+        - Assign virtual machine to resource pool
+    -   Virtual machine
 
-        * Change Configuration
-        * Add new disk
-        * Add or remove device
-        * Advanced configuration
-        * Change CPU count
-        * Change Memory
-        * Change Settings
-        * Reload from path
+        - Change Configuration
+        - Add new disk
+        - Add or remove device
+        - Advanced configuration
+        - Change CPU count
+        - Change Memory
+        - Change Settings
+        - Reload from path
 
--   Edit inventory
+    -   Edit inventory
 
-        * Create from existing
-        * Remove    
+        - Create from existing
+        - Remove
 
--   Interaction
+    -   Interaction
 
-        * Power off
-        * Power on    
+        - Power off
+        - Power on
 
--   Provisioning
+    -   Provisioning
 
-        * Clone template
-        * Deploy template   
+        - Clone template
+        - Deploy template
 
--   Session
+    -   Session
 
-        * ValidateSession    
-   
-4.   Add the permission at the highest level and set to propagate the permissions.
+        - ValidateSession
+
+1.  Add the permission at the highest level and set to propagate the permissions.
+
+[prerequisites]: ../../prerequisites/
