@@ -176,9 +176,6 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
     kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
     ```
 
-    The output displays a URL to your Kaptain instance.
-    
-
     - Or if you are running Kaptain on _AWS_:
 
     ```bash
