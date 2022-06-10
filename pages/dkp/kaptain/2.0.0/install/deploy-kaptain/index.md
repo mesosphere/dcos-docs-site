@@ -154,7 +154,6 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
 
 1.  Get your Kaptain login credentials: 
 
-
     - For Konvoy 1.x: 
 
     ```bash
@@ -170,7 +169,6 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
     The output displays your username and password.
 
 1.  Discover the Kaptain endpoint:
-
 
     - If you are running Kaptain _on-premises_:
 
