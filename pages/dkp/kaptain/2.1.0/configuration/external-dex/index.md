@@ -123,21 +123,7 @@ kubectl patch client <Dex Client ID> -n kommander --type merge  -p '{"spec": {"r
 
 ## Log in to Kaptain using the management cluster's Dex instance
 
-Discover the Kaptain endpoint:
-
-- If you are running Kaptain _on-premises_:
-
-```bash
-kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
-```
-
-- Or if you are running Kaptain on _AWS_:
-
-```bash
-kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
-```
-
-When accessing Kaptain via `https://<Kaptain endpoint>`, you will be redirected to the login page of the management cluster's Dex instance.
+Refer to the [Kaptain login](../../install/deploy-kaptain#log-in-to-kaptain-using-the-management-clusters-dex-instance) section to access Kaptains's Kubeflow dashboard.
 
 [attached-cluster]: /dkp/kommander/latest/clusters/attach-cluster/
 [create-managed-cluster]: /dkp/kommander/latest/clusters/creating-konvoy-cluster-aws/

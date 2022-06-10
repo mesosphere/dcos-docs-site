@@ -152,23 +152,43 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
 
 ## Log in to Kaptain using the management cluster's Dex instance
 
-Discover the Kaptain endpoint:
+1.  Get your Kaptain login credentials: 
 
-- If you are running Kaptain _on-premises_:
+    - For Konvoy 1.x: 
 
-```bash
-kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
-```
-<!-- TODO: can we get example output? -->
+    ```bash
+    konvoy get ops-portal
+    ```
 
-- Or if you are running Kaptain on _AWS_:
+    - For DKP 2.x:
 
-```bash
-kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
-```
-<!-- TODO: can we get example output? -->
+    ```bash
+    kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}')
+    ```
+
+    The output displays your username and password.
+
+1.  Discover the Kaptain endpoint:
+
+    - If you are running Kaptain _on-premises_:
+
+    ```bash
+    kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
+    ```
+
+    The output displays a URL to your Kaptain instance.
+
+    - Or if you are running Kaptain on _AWS_:
+
+    ```bash
+    kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
+    ```
+
+    The output displays a URL to your Kaptain instance.
 
 When calling up `https://<Kaptain endpoint>`, you will see the login page of the management cluster's Dex instance. After entering your credentials, you will be redirected to Kaptain's Kubeflow dashboard.
+
+<p class="message--note"><strong>NOTE: </strong>It is possible that you receive a browser warning due your instance's self-signed certificate. This instance is safe. You can bypass the warning in the advanced settings of the browser or by typing `thisisunsafe` once the warning appears (there is no specific field for this).</p>
 
 [add_kaptain]: ../dkp/
 [existcluster]: ../../../../kommander/2.2/clusters/attach-cluster/
