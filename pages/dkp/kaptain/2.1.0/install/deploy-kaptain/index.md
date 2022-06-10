@@ -152,15 +152,7 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
 
 ## Log in to Kaptain using the management cluster's Dex instance
 
-1.  Get your Kaptain login credentials: 
-
-    - For Konvoy 1.x: 
-
-    ```bash
-    konvoy get ops-portal
-    ```
-
-    - For DKP 2.x:
+1.  Get your Kaptain login credentials:
 
     ```bash
     kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}')
