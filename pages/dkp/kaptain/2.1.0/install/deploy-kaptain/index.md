@@ -12,7 +12,7 @@ enterprise: false
 You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.
 </p>
 
-## Prerequisite
+## Prerequisites
 
 Ensure you add Kaptain to your DKP Catalog applications before you deploy it to your clusters. Refer to the corresponding documentation for your environment:
 
@@ -30,7 +30,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Select **Applications** from the sidebar menu.
 
-1.  Type Kaptain in the **Applications** search bar. If Kaptain is not available in the UI, add Kaptain to your DKP catalog as stated in the [prerequisite section](#prerequisite).
+1.  Type Kaptain in the **Applications** search bar. If Kaptain is not available in the UI, add Kaptain to your DKP catalog as stated in the [prerequisite section](#prerequisites).
 
 1.  Select the three dot menu > **Enable**, in the Kaptain tile.
     The `Enable Workspace Catalog Application` page is displayed.
@@ -149,6 +149,36 @@ kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
 NAME                      AGE     READY   STATUS
 kaptain-1                 3m40s   True    Release reconciliation succeeded
 ```
+
+## Log in to Kaptain using the management cluster's Dex instance
+
+1.  Get your Kaptain login credentials:
+
+    ```bash
+    kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}')
+    ```
+
+    The output displays your username and password.
+
+1.  Discover the Kaptain endpoint:
+
+    - If you are running Kaptain _on-premises_:
+
+    ```bash
+    kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
+    ```
+
+    - Or if you are running Kaptain on _AWS_:
+
+    ```bash
+    kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
+    ```
+
+    The output displays a URL to your Kaptain instance.
+
+When calling up `https://<Kaptain endpoint>`, you will see the login page of the management cluster's Dex instance. After entering your credentials, you will be redirected to Kaptain's Kubeflow dashboard.
+
+<p class="message--note"><strong>NOTE: </strong>It is possible that you receive a browser warning due your instance's self-signed certificate. This instance is safe. You can bypass the warning in the advanced settings of the browser or by typing <code>thisisunsafe</code> once the warning appears (there is no specific field for this).</p>
 
 [add_kaptain]: ../dkp/
 [existcluster]: ../../../../kommander/2.2/clusters/attach-cluster/
