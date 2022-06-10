@@ -188,7 +188,7 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
 
 When calling up `https://<Kaptain endpoint>`, you will see the login page of the management cluster's Dex instance. After entering your credentials, you will be redirected to Kaptain's Kubeflow dashboard.
 
-<p class="message--note"><strong>NOTE: </strong>It is possible that you receive a browser warning due your instance's self-signed certificate. This instance is safe. You can bypass the warning in the advanced settings of the browser or by typing `thisisunsafe` once the warning appears (there is no specific field for this).</p>
+<p class="message--note"><strong>NOTE: </strong>It is possible that you receive a browser warning due your instance's self-signed certificate. This instance is safe. You can bypass the warning in the advanced settings of the browser or by typing <code>thisisunsafe</code> once the warning appears (there is no specific field for this).</p>
 
 [add_kaptain]: ../dkp/
 [existcluster]: ../../../../kommander/2.2/clusters/attach-cluster/
