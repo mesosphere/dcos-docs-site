@@ -10,7 +10,7 @@ Workspace Role Bindings grant access to a specified Project Role for a specified
 
 ## Configure Workspace Role Bindings
 
-Before you can create a Workspace Role Binding, ensure you have created a Group. A Kommander Group can contain one or several Identity Provider users, groups or both.
+Before you can create a Workspace Role Binding, ensure an administrator has created a [Group][groups]. A Kommander Group can contain one or several Identity Provider users, groups or both.
 
 You can assign a role to this Kommander Group:
 
@@ -21,3 +21,5 @@ You can assign a role to this Kommander Group:
 1.  Select the **Cluster Role Bindings** tab, and then select the **Add Roles** button next to the group you want.
 
 1.  Select the Role, or Roles, you want from the drop-down menu and select **Save**.
+
+[groups]: ../../operations/identity-providers#groups
