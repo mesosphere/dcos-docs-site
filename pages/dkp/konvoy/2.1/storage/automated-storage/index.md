@@ -10,11 +10,12 @@ menuWeight: 20
 
 <!-- markdownlint-disable MD018 -->
 
-When deploying Konvoy using a supported cloud provisioner (AWS), Konvoy automatically configures native storage drivers for the target platform. In addition, Konvoy deploys a default [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for [dynamic persistent volume (PV)](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) creation. The table below lists the driver and default StorageClass for each supported cloud provisioner.
+When deploying Konvoy using a supported cloud provisioner, Konvoy automatically configures native storage drivers for the target platform. In addition, Konvoy deploys a default [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for [dynamic persistent volume (PV)](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) creation. The table below lists the driver and default StorageClass for each supported cloud provisioner.
 
 | Cloud Provisioner |  Driver              | Default Storage Class        |
 --------------------|----------------------|----------------------|
 | AWS               | aws-ebs-csi-driver   | [awscsiprovisioner](https://github.com/kubernetes-sigs/aws-ebs-csi-driver)    |
+| Azure               | azuredisk-csi-driver   | [azurecsiprovisioner](https://github.com/kubernetes-sigs/azuredisk-csi-driver)    |
 
 When a default StorageClass is specified, persistent volume claims (PVCs) can be created without needing to specify the storage class. For instance, to request a volume using the default provisioner, create a PVC with the following:
 
@@ -83,6 +84,13 @@ Konvoy deploys with gp3 (general purpose SSDs) EBS volumes.
 
 - Driver documentation: [aws-ebs-csi-driver](https://github.com/kubernetes-sigs/aws-ebs-csi-driver)
 - Volume types and pricing: [volume types](https://aws.amazon.com/ebs/features/)
+
+### Azure CSI Driver
+
+Konvoy deploys with StandardSSD_LRS for Azure Virtual Disks.
+
+- Driver documentation: [azure-csi-driver](https://github.com/kubernetes-sigs/azuredisk-csi-driver)
+- Volume types and pricing: [volume types](https://azure.microsoft.com/en-us/pricing/details/storage/page-blobs/)
 
 ## On Premises and other storage options
 
