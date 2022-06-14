@@ -2,14 +2,17 @@
 layout: layout.pug
 navigationTitle: Explore New Cluster
 title: Explore New Cluster
-menuWeight: 75
+menuWeight: 70
 excerpt: Learn to interact with your Kubernetes cluster
 enterprise: false
 ---
 
 This guide explains how to use the command line interface to interact with your newly-deployed Kubernetes cluster.
 
-Before you start, make sure you have [created a workload cluster][create-new-cluster] and, if needed, that you have [made the cluster self-managing][make-self-managed].
+Before you start, make sure you have [created a workload cluster][create-new-cluster] and, if needed, that you have [made the cluster self-managing][make-self-manage].
+
+<p class="message--note"><strong>NOTE: </strong>If you need to make your cluster self-managing, you must first <a href="#get-the-kubeconfig-file-for-the-new-kubernetes-cluster">create a kubeconfig</a> for your cluster.
+</p>
 
 ## Get the kubeconfig file for the new Kubernetes cluster
 
@@ -32,7 +35,7 @@ Before you start, make sure you have [created a workload cluster][create-new-clu
 1.  Return to the DKP CLI, and delete the existing `StorageClass` with the command:
 
     ```bash
-    kubectl delete storageclass vsphere-raw-block-sc
+    kubectl --kubeconfig ${CLUSTER_NAME}.conf delete storageclass vsphere-raw-block-sc
     ```
 
 1.  Run the following command to create a new StorageClass, supplying the correct values for your environment:
@@ -52,12 +55,22 @@ Before you start, make sure you have [created a workload cluster][create-new-clu
     EOF
     ```
 
+1.  Create thew new StorageClass:
+
+    ```bash
+    kubectl --kubeconfig ${CLUSTER_NAME}.conf apply -f vsphere-raw-block-sc.yaml
+    ```
+
+    ```sh
+    storageclass.storage.k8s.io/vsphere-raw-block-sc created
+    ```
+
 ## Explore Nodes and Pods in the New Cluster
 
 1.  List the Nodes using this command:
 
     ```bash
-    kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
+    kubectl --kubeconfig ${CLUSTER_NAME}.conf get nodes
     ```
 
     <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Node's Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>
@@ -142,7 +155,10 @@ Before you start, make sure you have [created a workload cluster][create-new-clu
     vmware-system-csi        vsphere-csi-node-rp77r                                               3/3     Running    0             19h
     ```
 
+The optional next step is to [make the cluster self-managing][make-self-manage].
+The step is optional because, as an example, if you are using an existing, self-managed cluster to create a managed cluster, you would not want the managed cluster to be self-managed.
+
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [create-new-cluster]: ../new
-[make-self-managed]: ../self-managed/
+[make-self-manage]: ../self-managed/

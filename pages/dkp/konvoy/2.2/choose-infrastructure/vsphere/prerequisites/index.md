@@ -19,7 +19,7 @@ Before using DKP to create a vSphere cluster, verify that you have:
 
 - An x86_64-based Linux&reg; or macOS&reg; machine.
 
-- The `dkp` binaries and [Konvoy Image Builder (KIB)][kib-bundle] image bundle for Linux or macOS.
+- The [`dkp` binaries][dkp-download] and [Konvoy Image Builder (KIB)][kib-bundle] image bundle for Linux or macOS.
 
 - [Docker&reg;][install_docker] version 18.09.2 or later installed.
   You must have Docker installed on the host where the DKP Konvoy CLI runs. For example, if you are installing Konvoy on your laptop, ensure the laptop has a supported version of Docker.
@@ -36,7 +36,7 @@ Before installing, verify that your [VMware vSphere Client environment][vsphere-
 
 - Access to a bastion VM, or other network connected host, running vSphere Client version v6.7.x with Update 3 or later version
 
-  - You must be able to reach the vSphere API endpoint from where the Konvoy command line interface (CLI) runs.
+  - You must be able to reach the vSphere API endpoint from where the DKP command line interface (CLI) runs.
 
 - vSphere account with credentials configured - this account must have Administrator privileges.
 
@@ -76,10 +76,11 @@ The next step is:
 
 - for air-gapped environments, [create and prepare a bastion VM][create-bastion-vm]
 
-[install_docker]: https://docs.docker.com/get-docker/
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
-[vsphere-vm-administration]: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-55238059-912E-411F-A0E9-A7A536972A91.html
-[vmware-esxi-hosts]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-B2F01BF5-078A-4C7E-B505-5DFFED0B8C38.html
 [create-base-os-image]: ../create-base-os-image/
 [create-bastion-vm]: ../air-gapped/create-bastion-vm
-[kib-bundle]: ../../../download/
+[dkp-download]: ../../../download
+[install_docker]: https://docs.docker.com/get-docker/
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+[kib-bundle]: ../../../image-builder
+[vmware-esxi-hosts]: https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-B2F01BF5-078A-4C7E-B505-5DFFED0B8C38.html
+[vsphere-vm-administration]: https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-55238059-912E-411F-A0E9-A7A536972A91.html
