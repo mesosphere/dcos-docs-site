@@ -13,7 +13,7 @@ beta: false
 1.  Download the bootstrap docker image on a machine that has access to this artifact:
 
     ```docker
-    curl -O http://downloads.mesosphere.io/konvoy/airgapped/v2.1.1/konvoy-bootstrap_v2.1.1.tar
+    curl --remote-name http://downloads.mesosphere.io/konvoy/airgapped/v2.1.1/konvoy-bootstrap_v2.1.1.tar
     ```
 
 1.  Load the bootstrap docker image on your bastion machine:
@@ -42,19 +42,19 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 1.  Download the OS packages bundle:
 
     ```bash
-    curl --output artifacts/"$VERSION"_x86_64_rpms.tar.gz -O http://downloads.d2iq.com/konvoy/airgapped/os-packages_"$VERSION"_x86_64_rpms.tar.gz
+    curl --output artifacts/"$VERSION"_x86_64_rpms.tar.gz --location http://downloads.d2iq.com/konvoy/airgapped/os-packages_"$VERSION"_x86_64_rpms.tar.gz
     ```
 
 1.  Download the Kubernetes images bundle. This bundle includes the necessary images for `kubeadm` to bootstrap a Kubernetes `Node`.
 
     ```bash
-    curl --output artifacts/images/"$VERSION"_images.tar.gz -O http://downloads.d2iq.com/konvoy/airgapped/kubernetes_image_bundle_v"$VERSION"_linux_amd64.tar.gz
+    curl --output artifacts/images/"$VERSION"_images.tar.gz --location http://downloads.d2iq.com/konvoy/airgapped/kubernetes_image_bundle_v"$VERSION"_linux_amd64.tar.gz
     ```
 
 1.  Download the PIP packages. This bundle includes a few packages required by DKP to bootstrap machines.
 
     ```bash
-    curl --output artifacts/pip-packages.tar.gz -O https://downloads.d2iq.com/konvoy/airgapped/pip-packages/pip-packages.tar.gz
+    curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/konvoy/airgapped/pip-packages/pip-packages.tar.gz
     ```
 
 1.  Export the following environment variables, ensuring that all control plane and worker nodes are included:
@@ -113,7 +113,7 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 1.  Download the images bundle.
 
     ```bash
-    curl -o konvoy-image-bundle.tar.gz -O http://downloads.d2iq.com/konvoy/airgapped/v2.1.1/konvoy_image_bundle_v2.1.1_linux_amd64.tar.gz
+    curl --output konvoy-image-bundle.tar.gz --location https://downloads.d2iq.com/konvoy/airgapped/v2.1.1/konvoy_image_bundle_v2.1.1_linux_amd64.tar.gz
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private docker registry.

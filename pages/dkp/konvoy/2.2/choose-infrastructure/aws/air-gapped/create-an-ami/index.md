@@ -42,7 +42,7 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
 1.  Download the OS packages bundle:
 
     ```bash
-    curl --output artifacts/"$VERSION"_"$BUNDLE_OS".tar.gz -O https://downloads.d2iq.com/dkp/airgapped/os-packages/"$VERSION"_"$BUNDLE_OS".tar.gz
+    curl --output artifacts/"$VERSION"_"$BUNDLE_OS".tar.gz --location https://downloads.d2iq.com/dkp/airgapped/os-packages/"$VERSION"_"$BUNDLE_OS".tar.gz
     ```
 
 1.  Download the Kubernetes images bundle. This bundle includes the necessary images for `kubeadm` to bootstrap a Kubernetes `Node`.
@@ -53,13 +53,13 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
     - `<version>_images_fips.tar.gz`
 
     ```bash
-    curl --output artifacts/images/"$VERSION"_images.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/kubernetes-images/"$VERSION"_images.tar.gz
+    curl --output artifacts/images/"$VERSION"_images.tar.gz --location https://downloads.d2iq.com/dkp/airgapped/kubernetes-images/"$VERSION"_images.tar.gz
     ```
 
 1.  Download the PIP packages. This bundle includes a few packages required by DKP to bootstrap machines.
 
     ```bash
-    curl --output artifacts/pip-packages.tar.gz -O https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
+    curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
 
 1.  Follow the instructions to [build an AMI][kib_create_ami] in the setting an additional `--overrides overrides/offline.yaml` flag.
