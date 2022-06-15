@@ -20,7 +20,7 @@ For on-premises deployments, DKP deploys [Velero integrated with MinIO][minio-wi
 
 For production use-cases, D2iQ advises to provide an *external* storage class to use with [MinIO][minio].
 
-You can customize your Velero instance in two ways: You can add the values below to the [Kommander configuration file when installing Kommander][kommander-install-config], or you can apply the configuration after the cluster is configured by running `kubectl apply -f`.
+You can [customize][customize_apps] your Velero instance in two ways: You can add the values below to the [Kommander configuration file when installing Kommander][kommander-install-config], or you can apply the configuration after the cluster is configured by running `kubectl apply -f`.
 
 To specify an external storageClass for the **MinIO** instances, create a file called `velero-overrides.yaml` with the following content:
 
@@ -294,3 +294,4 @@ velero get snapshot-locations
 [velero-cli-install]: https://velero.io/docs/v1.5/basic-install/#install-the-cli
 [velero-cm]: https://velero.io/docs/v0.11.0/migration-case
 [velero-dr]: https://velero.io/docs/v0.11.0/disaster-case
+[customize_apps]: ../workspaces/applications/appdeployments/#customize-your-application 
