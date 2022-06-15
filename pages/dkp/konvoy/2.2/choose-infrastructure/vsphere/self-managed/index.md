@@ -92,7 +92,6 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 
 -   DKP Konvoy only supports moving all namespaces in the cluster; DKP does not support migration of individual namespaces.
 
-
 Next, you can [explore the new cluster][explore-cluster] or [explore the new air-gapped cluster][explore-air-gapped].
 
 [bootstrap]: ../bootstrap
