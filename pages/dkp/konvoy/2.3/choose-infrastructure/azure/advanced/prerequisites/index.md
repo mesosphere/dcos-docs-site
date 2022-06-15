@@ -20,7 +20,31 @@ Before you begin using Konvoy, you must have:
 
 <p class="message--note"><strong>NOTE: </strong>On macOS, Docker runs in a virtual machine. Configure this virtual machine with at least 8GB of memory.</strong></p>
 
-If you use these instructions to create a cluster on Azure using the DKP default settings without any edits to configuration files or additional flags, your cluster will be deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes.
+## Control plane nodes
+
+You should have at least three control plane nodes.
+Each control plane node should have at least:
+
+- 4 cores
+- 16 GiB memory
+- Approximately 80 GiB of free space for the volume used for /var/lib/kubelet and /var/lib/containerd.
+- Disk usage must be below 85% on the root volume.
+
+DKP on Azure defaults to deploying a `Standard_D4s_v3` virtual machine with an 128 GiB volume for the OS and an 80GiB volume for etcd storage, which meets the above requirements.
+
+## Worker nodes
+
+You should have at least four worker nodes. The specific number of worker nodes required for your environment can vary depending on the cluster workload and size of the nodes.
+Each worker node should have at least:
+
+- 8 cores
+- 32 GiB memory
+- Around 80 GiB of free space for the volume used for /var/lib/kubelet and /var/lib/containerd.
+- Disk usage must be below 85% on the root volume.
+
+DKP on Azure defaults to deploying a `Standard_D8s_v3` virtual machine with an 80 GiB volume for the OS, which meets the above requirements.
+
+If you use these instructions to create a cluster on Azure using the DKP default settings without any edits to configuration files or additional flags, your cluster is deployed on an [Ubuntu 20.04 operating system image][supported-systems] with 3 control plane nodes, and 4 worker nodes which match the requirements above.  
 
 ## Azure prerequisites
 

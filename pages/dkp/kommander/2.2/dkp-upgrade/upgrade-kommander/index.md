@@ -16,7 +16,7 @@ This section describes how to upgrade your Kommander Management cluster and all 
 -   **REQUIRED** Before upgrading, create an [on-demand backup][backup] of your current configuration with Velero.
 -   [Download][download_binary] and install the latest DKP CLI binary on your computer.
 -   Ensure you are on DKP version 2.1 or 2.1.1 and Kubernetes version 1.21.
--   If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21. To upgrade your Kubernetes version, refer to the appropriate documentation for your environment: [AKS][AKS], [AWS][AWS], [Azure][Azure], [EKS][EKS], [pre-provisioned][pre_provisioned].
+-   If you have attached clusters, ensure they are on Kubernetes versions 1.19, 1.20 or 1.21.
 -   Review the [Platform Application version updates][release_notes] that are part of this upgrade.  
 -   For air-gapped environments **with** DKP Catalog Applications in a multi-cluster environment: [Load the Docker images into your Docker registry][load_images_catalog]
 -   For air-gapped environments **without** DKP Catalog Applications: [Load the Docker images into your Docker registry][load_images]
@@ -42,26 +42,26 @@ This section describes how to upgrade your Kommander Management cluster and all 
 
 -   For clusters upgrading from 2.1.1 with HTTP Proxy installed:
 
-    Edit the `gatekeeper-overrides`, and add a new configuration property, `disableMutation`, with the value `false`. This is required because the Gatekeeper configuration was changed between versions `v2.1.1` and `v2.2.1`:
+  Edit the `gatekeeper-overrides`, and add a new configuration property, `disableMutation`, with the value `false`. This is required because the Gatekeeper configuration was changed between versions `v2.1.1` and `v2.2.1`:
 
-    ```yaml
-      disableMutation: false # <-- this value is new in 2.2.1
-      mutations:
-        enablePodProxy: true
-        podProxySettings:
-          noProxy: ...
-          httpProxy: ...
-          httpsProxy: ...
-        excludeNamespacesFromProxy: []
-        namespaceSelectorForProxy:
-          "gatekeeper.d2iq.com/mutate": "pod-proxy"
-    ```
+  ```yaml
+    disableMutation: false # <-- this value is new in 2.2.1
+    mutations:
+      enablePodProxy: true
+      podProxySettings:
+        noProxy: ...
+        httpProxy: ...
+        httpsProxy: ...
+      excludeNamespacesFromProxy: []
+      namespaceSelectorForProxy:
+        "gatekeeper.d2iq.com/mutate": "pod-proxy"
+  ```
 
-    Configure the `kommander-flux` namespace and adjust the label so the Gatekeeper mutation is active on the namespace:
+  Configure the `kommander-flux` namespace and adjust the label so the Gatekeeper mutation is active on the namespace:
 
-    ```bash
-    kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
-    ```
+  ```bash
+  kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
+  ```
 
 ## Detach MetalLB from Kommander
 
@@ -143,18 +143,18 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
         If you have DKP Catalog Applications deployed, follow the [DKP Catalog Applications configuration page](../../install/configuration/enterprise-catalog#configure-a-default-enterprise-catalog) to update the Git repository after the upgrade.
 
-    An output similar to this appears:
+        ```bash
+        dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
+        ```
 
-    ```bash
-    dkp upgrade kommander  --kommander-applications-repository ~/work/git_repos/kommander-applications
-    ```
+        An output similar to this appears:
 
-    ```sh
-    ✓ Ensuring upgrading conditions are met
-    ✓ Ensuring application definitions are updated
-    ✓ Ensuring helm-mirror implementation is migrated to chartmuseum
-    ...
-    ```
+        ```sh
+        ✓ Ensuring upgrading conditions are met
+        ✓ Ensuring application definitions are updated
+        ✓ Ensuring helm-mirror implementation is migrated to chartmuseum
+        ...
+        ```
 
 1.  For air-gapped deployments, an additional step is required to upgrade the Grafana Loki MinIO Tenant:
 
@@ -180,7 +180,7 @@ Before running the following command, ensure that your `dkp` configuration **ref
 
 You can always go back to the [DKP Upgrade overview][dkp_upgrade], to review the next steps depending on your environment and license type.
 
-This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0][https://www.gnu.org/licenses/agpl-3.0.en.html]. The complete source code for the versions of MinIO packaged with DKP 2.2.1 are available at these URLs:
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with DKP 2.2.X are available at these URLs:
 
 * https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
 * https://github.com/minio/minio/tree/RELEASE.2022-01-08T03-11-54Z
@@ -188,10 +188,10 @@ This Docker image includes code from the MinIO Project (“MinIO”), which is �
 
 [download_binary]: ../../download/
 [AKS]: https://docs.microsoft.com/en-us/azure/aks/upgrade-cluster
-[AWS]: ../../../../konvoy/2.2/choose-infrastructure/aws/advanced/update/
-[Azure]: ../../../../konvoy/2.2/choose-infrastructure/azure/advanced/update/
+<!--- [AWS]: ../../../../konvoy/2.2/choose-infrastructure/aws/advanced/update/
+[Azure]: ../../../../konvoy/2.2/choose-infrastructure/azure/advanced/update/ -->
 [EKS]: https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
-[pre_provisioned]: ../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/
+<!--- [pre_provisioned]: ../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/upgrade/control-plane/ -->
 [k8s_access_to_clusters]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [upgrade_workspaces]: ../../workspaces/applications/platform-applications#upgrade-platform-applications-from-the-cli
 [release_notes]: ../../release-notes/

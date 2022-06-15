@@ -63,12 +63,19 @@ You can configure as many Identity Providers as you like. Users can then select 
 
 Select the three dot button on the Identity Providers table and select **Disable** from the drop-down menu. The provider option no longer appears on the login screen.
 
-<img style="margin-top:0.85rem;" src="../../img/Identity-provider-table-action-menu.png" alt="Identity Provider Table Row Action Menu" width="500"/>
-<figcaption>Identity Provider Table Row Action Menu</figcaption>
-
 ## Groups
 
-Access control groups are configured in the Groups tab of the Identity Providers page. Refer to [Access Control](../../operations/access-control/) for an overview of groups in Kommander.
+With groups, you can define segments of users within your connected identity provider. These groups can then be used to configure access to various workspaces, projects and other resources via role bindings.
+
+1.  After clicking on the **Groups** tab Begin by selecting the **Create Group** button, which will direct you to the **Create Group** form.
+
+1.  Name your group.
+
+1.  Add one or more users or groups of users that exist within your identity provider already. At least one identity provider group or user is required to save your group.
+
+1.  Select **Save** to create your Group.
+
+Once a group is created, it can be used within [Access Control](../../operations/access-control/) to create role bindings with RBAC roles that define access to resources.
 
 <!--- ## Related Information
 

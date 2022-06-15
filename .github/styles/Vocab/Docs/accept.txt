@@ -55,7 +55,7 @@ crt
 Crunchbase
 cthelper
 cttimeout
-datacenter
+(datacenter|Datacenter)
 datasource
 D2iQ
 daemonsets

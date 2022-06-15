@@ -23,9 +23,10 @@ Before starting the Konvoy installation, verify that you have:
 ## Configure GCP prerequisites
 
 1.  Log in to GCP:
-<!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+    <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+
     ```bash
-    gcp login
+    gcloud auth login
     ```
 
     ```sh
@@ -41,12 +42,12 @@ Before starting the Konvoy installation, verify that you have:
 
 1.  Create an GCP Service Principal (SP) by running the following command:
 
-<!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+    <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
 
     <p class="message--note"><strong>NOTE: </strong>If an SP with the name exists, this command will rotate the password.</p>
 
     ```bash
-    az ad sp create-for-rbac --role contributor --name "$(whoami)-konvoy" --scopes=/subscriptions/$(az account show --query id -o tsv)
+ <! NEED INSTRUCTIONS ON HOW TO CREATE A SP ON GCP>
     ```
 
     ```sh
@@ -59,20 +60,20 @@ Before starting the Konvoy installation, verify that you have:
     ```
 
 1.  Set the required environment variables:
-<!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+    <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
 
     ```bash
-    export GCP_SUBSCRIPTION_ID="<id>"         # b1234567-abcd-11a1-a0a0-1234a5678b90
+<!NEED FINAL OUTPUT HERE>
     export GCP_TENANT_ID="<tenant>"           # a1234567-b132-1234-1a11-1234a5678b90
     export GCP_CLIENT_ID="<appId>"            # 7654321a-1a23-567b-b789-0987b6543a21
     export GCP_CLIENT_SECRET="<password>"     # Z79yVstq_E.R0R7RUUck718vEHSuyhAB0C
     ```
 
 1.  Base64 encode the same environment variables:
-<!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+    <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+
     ```bash
-    export GCP_SUBSCRIPTION_ID_B64="$(echo -n "${GCP_SUBSCRIPTION_ID}" | base64 | tr -d '\n')"
-    export GCP_TENANT_ID_B64="$(echo -n "${GCP_TENANT_ID}" | base64 | tr -d '\n')"
+<!NEED FINAL OUTPUT HERE>
     export GCP_CLIENT_ID_B64="$(echo -n "${GCP_CLIENT_ID}" | base64 | tr -d '\n')"
     export GCP_CLIENT_SECRET_B64="$(echo -n "${GCP_CLIENT_SECRET}" | base64 | tr -d '\n')"
     ```
@@ -86,7 +87,8 @@ The default GCP image is not recommended for use in production. We suggest using
 </p>
 
 1.  Give your cluster a name suitable for your environment:
-<!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+    <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+
     ```bash
     export CLUSTER_NAME=gcp-example
     ```
@@ -94,7 +96,8 @@ The default GCP image is not recommended for use in production. We suggest using
 1.  Create a Kubernetes cluster:
 
     <p class="message--note"><strong>NOTE: </strong>To increase <a href="https://docs.docker.com/docker-hub/download-rate-limit/">Docker Hub's rate limit</a> use your Docker Hub credentials when creating the cluster, by setting the following flag <code>--registry-mirror-url=https://registry-1.docker.io --registry-mirror-username= --registry-mirror-password=</code> on the <code>dkp create cluster command</code>.</p>
-<!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+    <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+
     ```bash
     dkp create cluster gcp \
     --cluster-name=${CLUSTER_NAME} \
@@ -178,7 +181,8 @@ The kubeconfig file is written to your local directory and you can now explore t
 ## Delete the Kubernetes cluster and cleanup your environment
 
 1.  Delete the provisioned Kubernetes cluster and wait a few minutes:
-<!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+    <!NEED CONFIRMATION OF STEPS PRE-RELEASE>
+
     ```bash
     dkp delete cluster \
     --cluster-name=${CLUSTER_NAME} \
@@ -195,7 +199,6 @@ The kubeconfig file is written to your local directory and you can now explore t
     ```
 
 [gcp_cli]: https://github.com/kubernetes-sigs/cluster-api-provider-gcp
-blob/master/docs/book/src/topics/getting-started.md#prerequisites
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [supported-systems]: ../../../supported-operating-systems
