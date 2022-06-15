@@ -76,26 +76,11 @@ data:
         #   aws_secret_access_key=<REDACTED>
 ```
 
-After you have configured the `ConfigMap` with **MinIO**, OR **Amazon S3**, add the `configOverrides` value to the Velero `AppDeployment`. This applies the `ConfigMap` to your instance after the cluster is configured:
+After you have configured the `ConfigMap` with **MinIO**, OR **Amazon S3**, patch the Velero `AppDeployment` by adding the `configOverrides` value. This applies the `ConfigMap` to your instance after the cluster has been configured:
 
 ```bash
-cat <<EOF | kubectl apply -f -
-apiVersion: apps.kommander.d2iq.io/v1alpha2
-kind: AppDeployment
-metadata:
-  creationTimestamp: "2022-06-10T04:46:31Z"
-  finalizers:
-  - kommander.mesosphere.io/appdeployment
-  - kommander.mesosphere.io/appsconfigfederation
-  generation: 1
-  name: velero
-  namespace: kommander
-  resourceVersion: "27126"
-  uid: 76f4852b-8207-43fb-8a8c-5e7b4802696c
+cat << EOF | kubectl -n kommander patch appdeployment velero --type="merge" --patch-file=/dev/stdin
 spec:
-  appRef:
-    kind: ClusterApp
-    name: velero-3.1.5
   configOverrides:
     name: velero-overrides
 EOF
