@@ -19,7 +19,10 @@ DKP provides [Velero][velero] by default, to support backup and restore operatio
 For on-premises deployments, DKP deploys [Velero integrated with MinIO][minio-with-velero], operating inside the same cluster.
 
 For production use-cases, D2iQ advises to provide an *external* storage class to use with [MinIO][minio].
-To specify an external storageClass for the MinIO instances, create a file called `velero-overrides.yaml` with the following contents, and then `kubectl apply -f` after the cluster is configured. You can also add the values below to the [Kommander configuration file when installing Kommander][kommander-install-config].
+
+You can customize your Velero instance in two ways: You can add the values below to the [Kommander configuration file when installing Kommander][kommander-install-config], or you can apply the configuration after the cluster is configured by running `kubectl apply -f`.
+
+To specify an external storageClass for the **MinIO** instances, create a file called `velero-overrides.yaml` with the following content:
 
 ```yaml
 apiVersion: v1
@@ -34,7 +37,7 @@ data:
          storageClass: <external storage class name>
 ```
 
-You can also store your backups in Amazon S3.    To do so, create a file called `velero-overrides.yaml` with the following contents, and then `kubectl apply -f` after the cluster is configured.
+You can also store your backups in **Amazon S3**. To do so, create a file called `velero-overrides.yaml` with the following content:
 
 ```yaml
 apiVersion: v1
@@ -71,6 +74,31 @@ data:
         #   [default]
         #   aws_access_key_id=<REDACTED>
         #   aws_secret_access_key=<REDACTED>
+```
+
+After you have configured the `ConfigMap` with **MinIO**, OR **Amazon S3**, add the `configOverrides` value to the Velero `AppDeployment`. This applies the `ConfigMap` to your instance after the cluster is configured:
+
+```bash
+cat <<EOF | kubectl apply -f -
+apiVersion: apps.kommander.d2iq.io/v1alpha2
+kind: AppDeployment
+metadata:
+  creationTimestamp: "2022-06-10T04:46:31Z"
+  finalizers:
+  - kommander.mesosphere.io/appdeployment
+  - kommander.mesosphere.io/appsconfigfederation
+  generation: 1
+  name: velero
+  namespace: kommander
+  resourceVersion: "27126"
+  uid: 76f4852b-8207-43fb-8a8c-5e7b4802696c
+spec:
+  appRef:
+    kind: ClusterApp
+    name: velero-3.1.5
+  configOverrides:
+    name: velero-overrides
+EOF
 ```
 
 ## Install the Velero command-line interface
