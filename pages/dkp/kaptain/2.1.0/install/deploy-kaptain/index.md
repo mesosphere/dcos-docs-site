@@ -155,7 +155,7 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
 1.  Get your Kaptain login credentials:
 
     ```bash
-    kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}')
+    kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
     ```
 
     The output displays your username and password.
@@ -165,13 +165,7 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
     - If you are running Kaptain _on-premises_:
 
     ```bash
-    kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].ip}"
-    ```
-
-    - Or if you are running Kaptain on _AWS_:
-
-    ```bash
-    kubectl get svc kaptain-ingress --namespace kaptain-ingress -o jsonpath="{.status.loadBalancer.ingress[*].hostname}"
+    kubectl get svc kaptain-ingress -n kaptain-ingress  -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}{{ "\n"}}'
     ```
 
     The output displays a URL to your Kaptain instance.
