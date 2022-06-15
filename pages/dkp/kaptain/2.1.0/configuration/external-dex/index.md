@@ -21,7 +21,7 @@ Configure Kaptain in a managed cluster to connect to the management cluster usin
 To use the Kommander Dex instance for authentication with Kaptain, create the following resources:
 
 - [Create a Dex Client Identifier (ID)](#create-a-dex-client) for the managed cluster
-- [Create a Dex Client secret](#create-a-dex-client-secret) corresponding to the Client ID
+- [Create a Dex Client secret](#create-a-dex-client-secret) corresponding to the Dex Client ID
 
 and collect the following information:
 
