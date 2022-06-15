@@ -15,7 +15,6 @@ Configure Kaptain in a managed cluster to connect to the management cluster usin
 - A management cluster.
 - A managed cluster, into which Kaptain will be installed.
 - The managed cluster is [attached][attached-cluster] to the management cluster. (You will need to [create a cluster via Kommander][create-managed-cluster] to have a managed Konvoy cluster.)
-- A Dex Client created on the management cluster.
 
 ## Kaptain configuration
 
