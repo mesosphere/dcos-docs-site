@@ -189,7 +189,7 @@ spec:
       configVersion: stable-1.20-1.4.2
       addonsList:
         - name: kommander
-          enabled: true
+          enabled: false
   version: v1.8.3
 ```
 
