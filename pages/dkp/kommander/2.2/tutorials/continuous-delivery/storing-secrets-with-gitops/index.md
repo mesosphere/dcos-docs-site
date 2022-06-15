@@ -30,7 +30,7 @@ These instructions are used as an example. For instructions on the latest releas
 -   On Linux
 
     ```bash
-    wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.12.4/kubeseal-linux-amd64 -O kubeseal
+    wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.17.1/kubeseal-linux-amd64 -O kubeseal
     sudo install -m 755 kubeseal /usr/local/bin/kubeseal
     ```
 
@@ -41,7 +41,7 @@ This controller will be able to decrypt SealedSecrets and create Kubernetes secr
 1.  Create the controller:
 
     ```bash
-    kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.12.4/controller.yaml
+    kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.17.1/controller.yaml
     ```
 
 1.  Fetch the certificate that you will use to encrypt your secrets into sealed secrets:
