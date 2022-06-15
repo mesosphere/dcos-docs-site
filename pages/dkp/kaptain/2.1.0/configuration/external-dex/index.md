@@ -8,26 +8,25 @@ beta: false
 enterprise: false
 ---
 
-Configure Kaptain to use the Dex OIDC Provider on a Kommander management cluster for authentication.
+Configure Kaptain in a managed cluster to connect to the management cluster using the Dex OIDC Provider for authentication.
 
 ## Prerequisites
 
-- A Kommander management cluster.
+- A management cluster.
 - A managed cluster, into which Kaptain will be installed.
-- The managed cluster is [attached][attached-cluster] to the management cluster (Kommander). (You will need to [create a cluster via Kommander][create-managed-cluster] to have a managed Konvoy cluster.)
+- The managed cluster is [attached][attached-cluster] to the management cluster. (You will need to [create a cluster via Kommander][create-managed-cluster] to have a managed Konvoy cluster.)
 - A Dex Client created on the management cluster.
 
 ## Kaptain configuration
 
 To use the Kommander Dex instance for authentication with Kaptain, create the following resources:
 
-- Create a Dex Client Identifier (ID) of the managed cluster
-- Create a Dex Client secret corresponding to the Client ID
+- [Create a Dex Client Identifier (ID)](#create-a-dex-client) of the managed cluster
+- [Create a Dex Client secret](#create-a-dex-client-secret) corresponding to the Client ID
 
 and collect the following information:
 
-- External OIDC provider endpoint from the management cluster
-- External OIDC provider CA bundle
+- External OIDC provider [endpoint and CA bundle](#get-external-oidc-provider-endpoint-and-ca-bundle) from the management cluster
 
 as shown in this guide.
 
