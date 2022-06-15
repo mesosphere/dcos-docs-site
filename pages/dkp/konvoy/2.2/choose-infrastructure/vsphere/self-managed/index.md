@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Make New Cluster Self-Managed
 title: Make the New Cluster Self-Managed
-menuWeight: 70
+menuWeight: 75
 excerpt: Make the new Kubernetes cluster manage itself
 enterprise: false
 ---
@@ -28,12 +28,12 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     The cluster lifecycle services on the workload cluster are ready, but the workload cluster configuration is on the bootstrap cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the bootstrap to the workload cluster. This process is also called a [Pivot][pivot].
 
     ```bash
-    dkp move --to-kubeconfig ${CLUSTER_NAME}.conf
+    dkp move capi-resources --to-kubeconfig ${CLUSTER_NAME}.conf
     ```
 
     ```sh
-    INFO[2021-08-11T12:09:36-07:00] Pivot operation complete.                     src="move/move.go:154"
-    INFO[2021-08-11T12:09:36-07:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/clusteradmin/.kube/config get nodes  src="move/move.go:155"
+     ✓ Moving cluster resources 
+    You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=${CLUSTER_NAME}.conf get nodes
     ```
 
     <p class="message--note"><strong>NOTE: </strong>To ensure only one set of cluster lifecycle services manages the workload cluster, Konvoy first pauses reconciliation of the objects on the bootstrap cluster, then creates the objects on the workload cluster. As Konvoy copies the objects, the cluster lifecycle services on the workload cluster reconcile the objects. The workload cluster becomes self-managed after Konvoy creates all the objects. If it fails, the <code>move</code> command can be safely retried.</p>
@@ -79,7 +79,7 @@ Before starting, ensure you create a workload cluster as described in [Create a 
     ```
 
     ```sh
-    INFO[2022-03-30T17:53:36-07:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:182"
+     ✓ Deleting bootstrap cluster
     ```
 
 ## Known Limitations
@@ -91,7 +91,6 @@ Before starting, ensure you create a workload cluster as described in [Create a 
 -   DKP Konvoy supports moving only one set of cluster objects from the bootstrap cluster to the workload cluster, or vice-versa.
 
 -   DKP Konvoy only supports moving all namespaces in the cluster; DKP does not support migration of individual namespaces.
-
 
 Next, you can [explore the new cluster][explore-cluster] or [explore the new air-gapped cluster][explore-air-gapped].
 
