@@ -41,7 +41,7 @@ In DKP 2.1, Kaptain's dependencies are managed through Kommander, the centralize
 
 * Fixed Kaptain redirectUrl is missing the hostname (COPS-7138)
 
-* Fixed the issue with a notebook that does not mount notebook volume on the correct mountpoint (COPS-7064)
+* Fixed the issue with a notebook that does not mount notebook volume on the correct mount point (COPS-7064)
 
 * Document how to use `requirements.txt` to add additional python dependencies to notebooks
 
@@ -95,7 +95,7 @@ This gives you back the capability of launching notebooks in Jupyter:
 1.  Obtain the CA from one of the other recreated certs:
 
     ```bash
-    kubectl get secret kommander-traefik-certificate -o jsonpath='{.data.ca\.crt}' > ca.crt
+    kubectl get secret kommander-traefik-certificate -n kommander -o jsonpath='{.data.ca\.crt}' > ca.crt
     ```
 
 1.  Use this CA and apply it to the Istio CA:
