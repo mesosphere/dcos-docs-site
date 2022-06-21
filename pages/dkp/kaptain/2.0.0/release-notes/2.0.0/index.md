@@ -66,7 +66,7 @@ Kaptain 2.0 drastically reduces the bundle sizes improving download times, espec
 
 ### cert-manager workaround for Kaptain
 
-Due to an oversight, some Kommander versions do not properly handle certificate renewal for the Cluster CA and certificates that are created for Kommander applications, which also affects Kaptain. While the effects can vary, the most common failure is the inability to launch Kaptain notebooks in Jupyter.
+Some Kommander versions do not properly handle certificate renewal for the Cluster CA and certificates that are created for Kommander applications, which also affects Kaptain. While the effects can vary, the most common failure is the inability to launch Kaptain notebooks in Jupyter.
 
 #### Regenerate the secrets in DKP
 
