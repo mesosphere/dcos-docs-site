@@ -17,6 +17,9 @@ D2iQ is announcing Kaptain 2.1 which includes several user experience features, 
 
 ## New features and capabilities
 
+### Support for Active Directory as an identity provider
+
+You can authenticate users and user groups in Kaptain by [setting up an identity provider][ident] of your choice. From this release on, it is possible to use Microsoft's Active Directory to limit and control access to users in your Kaptain instance.
 
 ## Fixes and Improvements
 
@@ -24,3 +27,5 @@ D2iQ is announcing Kaptain 2.1 which includes several user experience features, 
 ## Software updates
 
 - 
+
+[ident]: ../../user-management/identity-providers/
