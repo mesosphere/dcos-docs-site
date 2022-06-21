@@ -279,4 +279,4 @@ velero get snapshot-locations
 [velero-cli-install]: https://velero.io/docs/v1.5/basic-install/#install-the-cli
 [velero-cm]: https://velero.io/docs/v0.11.0/migration-case
 [velero-dr]: https://velero.io/docs/v0.11.0/disaster-case
-[customize_apps]: ../workspaces/applications/appdeployments/#customize-your-application 
+[customize_apps]: ../../2.2/workspaces/applications/appdeployments#customize-your-application
