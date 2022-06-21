@@ -44,19 +44,19 @@ When Kaptain is installed in a **managed cluster**, ensure the managed cluster c
 
     ```bash
     ingress: 
-    oidcGroupsAllowList: "<group1>, <group2>"
+      oidcGroupsAllowList: <group1>,<group2>
     ```
 
     If you need the Authentication Service to accept `ServiceAccountTokens`, include the `system:serviceaccounts` group.
 
     ```bash
     ingress: 
-    oidcGroupsAllowList: "<group1>, <group2>, system:serviceaccounts"
+      oidcGroupsAllowList: <group1>,<group2>,system:serviceaccounts
     ```
 
 1.  Select **Save**.
 
-<p class="message--important"><strong>IMPORTANT: </strong>Wait a couple of minutes until the variables have been propagated before you attempt to log in again. Please note that after defining the allowed user groups, the default Kommander users will no longer be able to access Kaptain with their previous credentials, since those are not included in any of the AD groups by default.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Wait a couple of minutes until the variables have been propagated before you attempt to log in again. Please note that after defining the allowed user groups, the default Kommander users will no longer be able to access Kaptain with their previous credentials, since those are not included in any of the identity provider groups by default.</p>
 
 [ident]: ../../../../kommander/2.2/security/oidc/
 [dex]: ../../../2.1.0/configuration/external-dex/
