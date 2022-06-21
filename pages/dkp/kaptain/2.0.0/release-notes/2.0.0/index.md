@@ -94,9 +94,9 @@ This gives you back the capability of launching notebooks in Jupyter:
 
     ```bash
     kubectl delete secret kubeflow-oidc-ca-bundle -n kaptain-ingress --force
-    kubectl -n kubeflow create secret generic kubeflow-oidc-ca-bundle --from-file=oidcCABundle\.crt=ca.crt
+    kubectl -n kaptain-ingress create secret generic kubeflow-oidc-ca-bundle --from-file=oidcCABundle\.crt=ca.crt
     ```
 
-Running this command reloads the pod automatically. Wait a few minutes until you attempt to log in to DKP and Kaptain again. 
+Running this command reloads the pod automatically. Wait a few minutes until you attempt to log in to DKP and Kaptain again.
 
 Test by logging into both and launch a new notebook in Jupyter.
