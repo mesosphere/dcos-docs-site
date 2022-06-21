@@ -8,13 +8,13 @@ beta: true
 enterprise: false
 ---
 
-Follow these steps only if you are upgrading an Air-gapped Cluster.
+Follow these steps only if you are upgrading an air-gapped Cluster.
 
 ## Patch `containerd` config
 
 1.  Download the current `/etc/containerd/config.toml` from one of the nodes.
 
-2.  Edit the `metrics` section, replacing the node's IP address with `{{ inventory_hostname }}`. The section will be the following:
+1.  Edit the `metrics` section, replacing the node's IP address with `{{ inventory_hostname }}`. The section will be the following:
 
     ```toml
     [metrics]
@@ -22,8 +22,7 @@ Follow these steps only if you are upgrading an Air-gapped Cluster.
     grpc_histogram = false
     ```
 
-
-3.  Setup the registry variables:
+1.  Setup the registry variables:
 
     ```bash
     export DOCKER_REGISTRY_HOST=<registry-address>
@@ -39,9 +38,9 @@ Follow these steps only if you are upgrading an Air-gapped Cluster.
     - DOCKER_REGISTRY_USERNAME: the username for registry auth.
     - DOCKER_REGISTRY_PASSWORD: the password for registry auth.
 
-    <p class="message--note"><strong>NOTE: </strong>If your registry does not require auth, you may omit `DOCKER_REGISTRY_USERNAME` and `DOCKER_REGISTRY_PASSWORD` and the `plugins."io.containerd.grpc.v1.cri".registry.configs` section</p>
+    <p class="message--note"><strong>NOTE: </strong>If your registry does not require auth, you may omit <code>DOCKER_REGISTRY_USERNAME</code> and <code>DOCKER_REGISTRY_PASSWORD</code> and the <code>plugins."io.containerd.grpc.v1.cri".registry.configs</code> section</p>
 
-4.  Edit the `plugins."io.containerd.grpc.v1.cri".registry` section and replace the contents with:
+1.  Edit the `plugins."io.containerd.grpc.v1.cri".registry` section and replace the contents with:
 
     ```toml
     [plugins."io.containerd.grpc.v1.cri".registry]
@@ -195,41 +194,40 @@ Follow these steps only if you are upgrading an Air-gapped Cluster.
         base_image_size = ""
         ```
 
-5.  Create a playbook to apply the config to the cluster.
+1.  Create a playbook to apply the config to the cluster.
 
     ```yaml
     cat <<EOF > registry.yaml
-     ---
-     - hosts: node control-plane
-       any_errors_fatal: true
-       name: "add wildcard registry entry"
-       gather_facts: false
-       become: true
-       strategy: linear
+    ---
+    - hosts: node control-plane
+      any_errors_fatal: true
+      name: "add wildcard registry entry"
+      gather_facts: false
+      become: true
+      strategy: linear
 
-       tasks:
-         - name: wait 360 for target connection to become reachable
-           wait_for_connection:
-             timeout: 360
+      tasks:
+        - name: wait 360 for target connection to become reachable
+          wait_for_connection:
+            timeout: 360
 
-         - name: copy containerd config
-           template:
-             src: config.toml
-             dest: /etc/containerd/config.toml
+        - name: copy containerd config
+          template:
+            src: config.toml
+            dest: /etc/containerd/config.toml
 
-         - name: restart containerd
-           service:
-             name: containerd
-             state: restarted
-             enabled: true
+        - name: restart containerd
+          service:
+            name: containerd
+            state: restarted
+            enabled: true
     EOF
     ```
 
-6. Replay the current `/etc/containerd/config.toml` on the nodes.
+1.  Replay the current `/etc/containerd/config.toml` on the nodes.
 
     Run this command:
 
     ```bash
     konvoy run playbook registry.yaml -y
     ```
-
