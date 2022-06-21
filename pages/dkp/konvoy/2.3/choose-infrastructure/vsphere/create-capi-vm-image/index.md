@@ -44,7 +44,7 @@ Using the base OS image created in a previous procedure, DKP creates the new vSp
       distribution_version: "example_7.9"
     ```
 
-    The website for [Packer](https://www.packer.io/plugins/builders/vsphere/vsphere-clone) gives details around many of these variables.  However, there are fewer configuration variables needed for use in the vSphere KIB provisioning than what is listed on the Packer website. Below are the variables and optional configurations to be used with vSphere:
+    The website for [Packer](https://www.packer.io/plugins/builders/vsphere/vsphere-clone) gives details around many of these variables. However, there are fewer configuration variables needed for use in the vSphere KIB provisioning than what is listed on the Packer website. Below are the variables and optional configurations to be used with vSphere:
 
 <!Shalin - please enter the variables you believe would benefit the customer>
 
