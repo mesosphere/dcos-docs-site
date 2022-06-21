@@ -24,7 +24,7 @@ When Kaptain is installed in a **managed cluster**, ensure the managed cluster c
 
 1.  Open the [log-in page](../../install/deploy-kaptain#log-in-to-kaptain-using-the-management-clusters-dex-instance) to access Kubeflow’s dashboard of Kaptain.
 
-1.  Click **Log in with LDAP**.
+1.  Select **Log in with *your identity provider***.
 
 1.  Use your credentials to access Kubeflow’s dashboard for Kaptain.
 
@@ -58,5 +58,5 @@ When Kaptain is installed in a **managed cluster**, ensure the managed cluster c
 
 <p class="message--important"><strong>IMPORTANT: </strong>Wait a couple of minutes until the variables have been propagated before you attempt to log in again. Please note that after defining the allowed user groups, the default Kommander users will no longer be able to access Kaptain with their previous credentials, since those are not included in any of the identity provider groups by default.</p>
 
-[ident]: ../../../../kommander/2.2/security/oidc/
+[ident]: ../../../../kommander/2.3/security/oidc/
 [dex]: ../../../2.1.0/configuration/external-dex/
