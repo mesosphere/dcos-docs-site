@@ -6,7 +6,6 @@ beta: false
 menuWeight: 40
 excerpt: Securely managing secrets in a GitOps workflow using SealedSecrets
 ---
-<!--- markdownlist-disable MD025, MD030, MD40 --->
 
 For security reasons, Kubernetes secrets are usually the only resource that cannot be managed with a GitOps workflow. Instead of managing secrets outside of GitOps and having to use a third-party tool like Vault, SealedSecrets provides a way to keep all the advantages of using a GitOps workflow while avoiding exposing secrets. SealedSecrets is composed of two main components:
 
@@ -30,7 +29,7 @@ These instructions are used as an example. For instructions on the latest releas
 -   On Linux
 
     ```bash
-    wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.12.4/kubeseal-linux-amd64 -O kubeseal
+    wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.17.1/kubeseal-linux-amd64 -O kubeseal
     sudo install -m 755 kubeseal /usr/local/bin/kubeseal
     ```
 
@@ -41,7 +40,7 @@ This controller will be able to decrypt SealedSecrets and create Kubernetes secr
 1.  Create the controller:
 
     ```bash
-    kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.12.4/controller.yaml
+    kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.17.1/controller.yaml
     ```
 
 1.  Fetch the certificate that you will use to encrypt your secrets into sealed secrets:
@@ -66,7 +65,7 @@ Secrets can be securely added to Git using sealed secrets:
 
 1.  Go to the end of `secrets.yaml` where you just added your new sealed secret. Remove any "creationTimestamp" fields from the yaml.
 
-1.  Run `kubectl apply -f secrets.yaml`. If you don't have permission, commit your changes to the repo and let FluxCD apply the changes for you.
+1.  Run `kubectl apply -f secrets.yaml`. If you do not have permission, commit your changes to the repo and let FluxCD apply the changes for you.
 
 1.  The sealed secret controller will then decrypt the sealed secret and generate a Kubernetes secret from it. Your secret got successfully created by running:
 
@@ -80,7 +79,7 @@ Secrets can be securely added to Git using sealed secrets:
     kubectl logs -l=name=sealed-secrets-controller -n kube-system
     ```
 
-1.  Commit `secrets.yaml` to your repo if you haven't already done so in step 3.
+1.  Commit `secrets.yaml` to your repo if you have not already done so in step 3.
 
 ## Removing a secret
 
@@ -100,13 +99,13 @@ Secrets can be securely added to Git using sealed secrets:
 
 ## Rotating the controller's sealing key
 
-For added security, it's a good practice to rotate the key the controller uses to decrypt sealed secrets. By default, the controller generates a new key every 30 days. When this happens, you need to update the certificate you use to create sealed secrets by fetching the latest one:
+For added security, it is a good practice to rotate the key the controller uses to decrypt sealed secrets. By default, the controller generates a new key every 30 days. When this happens, you need to update the certificate you use to create sealed secrets by fetching the latest one:
 
    ```bash
       kubeseal --fetch-cert > mycert.pem
    ```
 
-<p class="message--note"><strong>NOTE: </strong>Don't forget to commit it back to the repo!</p>
+<p class="message--note"><strong>NOTE: </strong>Do not forget to commit it back to the repo!</p>
 
 In a disaster case, let's say your cluster gets destroyed, you would lose all your sealing keys, so you would not be able to recreate all the secrets from the sealed secrets in your GitOps repo. For this reason, you might want to back up the sealing keys. To do this every time a new sealing key is generated, run:
 
@@ -138,3 +137,6 @@ If required, edit the controller's manifest with:
    ```bash
    kubectl edit deployment.apps/sealed-secrets-controller -n kube-system
    ```
+
+[sealed-secrets-git]: https://github.com/bitnami-labs/sealed-secrets
+[sealed-secrets-releases]: https://github.com/bitnami-labs/sealed-secrets/releases
