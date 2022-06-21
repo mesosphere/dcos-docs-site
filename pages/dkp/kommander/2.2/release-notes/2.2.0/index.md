@@ -61,7 +61,7 @@ The unified DKP user interface provides a smooth experience independent of where
 ### Kaptain AI/ML, D2iQ’s AI/ML offering
 
 For better integration with DKP 2.2, you can launch Kaptain as a catalog application. It also supports other platforms such as Amazon AWS EKS and Microsoft Azure AKS. Kaptain extends D2iQ’s ability to support Kubernetes platforms beyond DKP. It further enables an organization to develop, deploy and run entire ML workloads in production, at scale, with consistency and reliability.
- 
+
 ### DKP Insights
 
 This new predictive analytics tool provides greater support productivity, speed, and reduced costs. The [DKP Insights](/dkp/kommander/2.2/insights/) Engine collects events and metrics on the Attached cluster, and uses rule-based heuristics on potential problems of varying criticality, so they can be quickly identified and resolved. These Insights are then forwarded and displayed in the DKP Insights Dashboard, where it assists you with routine tasks such as:
@@ -123,7 +123,7 @@ When upgrading to this release, the following services and service components ar
 | Thanos | thanos | 0.4.6 | - chart: 0.4.6<br>- thanos: 0.9.0 |
 | Traefik | traefik | 10.9.1 | - chart: 10.9.1<br>- traefik: 2.5.6 |
 | Traefik ForwardAuth | traefik-forward-auth | 0.3.6 | - chart: 0.3.6<br>- traefik-forward-auth: 3.1.0 |
-| Velero | velero | 3.2.0 | - chart: 3.2.0<br>- velero: 1.5.2 |
+| Velero | velero | 3.1.5 | - chart: 3.1.5<br>- velero: 1.5.2 |
 
 
 ## Known issues
@@ -347,7 +347,7 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
 
     ```bash
     # spark-operator is the default value
-    # if you override the HelmRelease name in your override configmap, use that value in the following command 
+    # if you override the HelmRelease name in your override configmap, use that value in the following command
     export SPARK_OPERATOR_RELEASE_NAME=spark-operator
     # only one instance of spark operator should be deployed per cluster
     kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -l app.kubernetes.io/name=$SPARK_OPERATOR_RELEASE_NAME -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')
