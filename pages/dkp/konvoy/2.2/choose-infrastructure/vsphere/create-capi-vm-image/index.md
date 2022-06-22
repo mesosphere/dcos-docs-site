@@ -68,3 +68,4 @@ Next, create a Kubernetes [bootstrap cluster][bootstrap] to enable creating your
 
 [vsphere-base-os-image]: ../create-base-os-image/
 [bootstrap]: ../bootstrap
+
