@@ -20,7 +20,7 @@ Use the API yaml to customize the domain (via the `hostname` field), the certifi
 
 1.  Create or update and apply the `KommanderCluster` object with the wanted ingress. Remember to specify the cluster in the `kubeconfigRef` name field.
 
-    a. In this example, you can enter the custom domain in the `hostname` field, and an **issuer to be used by cert-manager** to issue a certificate for the domain in the `issuerRef` field.
+    In this example, you can enter the custom domain in the `hostname` field, and an **issuer to be used by cert-manager** to issue a certificate for the domain in the `issuerRef` field.
 
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -43,7 +43,7 @@ Use the API yaml to customize the domain (via the `hostname` field), the certifi
     EOF
     ```
 
-    b. In this example, you can enter the custom domain in the `hostname` field, and the secret in the `certificateSecretRef` field for **customized certificates created for your hostname**:
+    In this example, you can enter the custom domain in the `hostname` field, and the secret in the `certificateSecretRef` field for **customized certificates created for your hostname**:
 
     ```bash
     cat <<EOF | kubectl apply -f -
