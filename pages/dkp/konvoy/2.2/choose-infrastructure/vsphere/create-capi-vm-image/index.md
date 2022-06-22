@@ -46,7 +46,6 @@ Using the base OS image created in a previous procedure, DKP creates the new vSp
 
     The website for [Packer](https://www.packer.io/plugins/builders/vsphere/vsphere-clone) gives details around many of these variables. However, there are fewer configuration variables needed for use in the vSphere KIB provisioning than what is listed on the Packer website. Below are the variables and optional configurations to be used with vSphere:
 
-<!Shalin - please enter the variables you believe would benefit the customer>
 -    cluster: vSphere cluster is a name of the collection of ESXi hosts in vSphere.
 -    datacenter: vSphere datacenter name - This is required if more than one datacenter exists in the vSphere inventory.
 -    datastore: vSphere datastore name - The datastore stores files of the virtual machines. These could be located on a local server, hard drive or across the network on a SAN.
