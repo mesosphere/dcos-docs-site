@@ -82,7 +82,6 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | core.minio.volumesPerServer | int | `2` | Number of Persistent Volume Claims to generate for each MinIO server pod in the pool |
 | core.minio.storageCapacity | string | `"40Gi"` | Total capacity of a single MinIO server pool |
 | core.minio.volumeStorageClass | string | `""` | StorageClass name to be used for PVCs in MinIO server pool |
-| core.minio.installMinioOperator | bool | `false` | Install Minio Operator to target namespace. Must be disabled in case there is another instance of the operator running in the cluster |
 | core.pipelines.bucketName | string | `"mlpipeline"` |  |
 | core.pipelines.cacheDb | string | `"cachedb"` |  |
 | core.pipelines.dbConMaxLifeTimeSec | string | `"300s"` |  |

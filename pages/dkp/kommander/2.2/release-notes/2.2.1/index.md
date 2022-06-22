@@ -62,8 +62,8 @@ When upgrading to this release, the following services and service components ar
 | Cert Manager            | cert-manager                                   | 1.7.1   | - chart: 1.7.1<br>- cert-manager: 1.7.1                                                                                                 |
 | Chartmuseum             | chartmuseum                                    | 3.6.2   | - chart: 3.6.2<br>- chartmuseum: 3.6.2                                                                                                  |
 | Containerd              | containerd                                     | 1.4.11  |                                                                                                                                           |
-| Dex                     | dex                                            | 2.9.14  | - chart: 2.9.14<br>- dex: 2.22.0                                                                                                        |
-| External DNS            | external-dns                                   | 6.1.8   | - chart: 6.1.8<br>- external-dns: 0.10.2                                                                                                |
+| Dex                     | dex                                            | 2.9.15  | - chart: 2.9.15<br>- dex: 2.22.0                                                                                                        |
+| External DNS            | external-dns                                   | 6.2.7   | - chart: 6.2.7<br>- external-dns: 0.11.0                                                                                                |
 | Fluent Bit              | fluent-bit                                     | 0.19.20 | - chart: 0.19.20<br>- fluent-bit: 1.8.13                                                                                                |
 | Flux                    | kommander-flux                                 | 0.27.4  |                                                                                                                                           |
 | Gatekeeper              | gatekeeper                                     | 3.7.0   | - chart: 3.7.0<br>- gatekeeper: 3.7.0                                                                                                   |
@@ -75,9 +75,9 @@ When upgrading to this release, the following services and service components ar
 | Kiali                   | kiali                                          | 1.47.0  | - chart: 1.47.0<br>- kiali: 1.47.0                                                                                                      |
 | Knative                 | knative                                        | 0.3.9   | - chart: 0.3.9<br>- knative: 0.22.3                                                                                                     |
 | Kube OIDC Proxy         | kube-oidc-proxy                                | 0.3.1   | - chart: 0.3.1<br>- kube-oidc-proxy: 0.3.0                                                                                              |
-| Kube Prometheus Stack   | [kube-prometheus-stack][kube-prometheus-stack] | 33.1.6  | - chart: 33.1.5<br>- prometheus-operator: 0.54.1<br>- prometheus: 2.33.4<br>- prometheus alertmanager: 0.23.0<br>- grafana: 8.3.6 |
+| Kube Prometheus Stack   | [kube-prometheus-stack][kube-prometheus-stack] | 33.1.6  | - chart: 33.1.6<br>- prometheus-operator: 0.54.1<br>- prometheus: 2.33.4<br>- prometheus alertmanager: 0.23.0<br>- grafana: 8.3.6 |
 | Kubecost                | kubecost                                       | 0.23.3  | - chart: 0.23.3<br>- cost-analyzer: 1.91.2                                                                                              |
-| Kubefed                 | kubefed                                        | 0.9.1   | - chart: 0.9.1<br>- kubefed: 0.9.1                                                                                                      |
+| Kubefed                 | kubefed                                        | 0.9.2   | - chart: 0.9.2<br>- kubefed: 0.9.1                                                                                                      |
 | Kubernetes Dashboard    | kubernetes-dashboard                           | 5.1.1   | - chart: 5.1.1<br>- kubernetes-dashboard: 2.4.0                                                                                         |
 | Kubetunnel              | kubetunnel                                     | 0.0.11  | - chart: 0.0.11<br>- kubetunnel: 0.0.11                                                                                                 |
 | Logging Operator        | logging-operator                               | 3.17.2  | - chart: 3.17.2<br>- logging-operator: 3.17.2                                                                                           |
@@ -92,7 +92,7 @@ When upgrading to this release, the following services and service components ar
 | Thanos                  | thanos                                         | 0.4.6   | - chart: 0.4.6<br>- thanos: 0.9.0                                                                                                       |
 | Traefik                 | traefik                                        | 10.9.1  | - chart: 10.9.1<br>- traefik: 2.5.6                                                                                                     |
 | Traefik ForwardAuth     | traefik-forward-auth                           | 0.3.6   | - chart: 0.3.6<br>- traefik-forward-auth: 3.1.0                                                                                         |
-| Velero                  | velero                                         | 3.2.0   | - chart: 3.2.0<br>- velero: 1.5.2                                                                                                       |
+| Velero                  | velero                                         | 3.1.5   | - chart: 3.1.5<br>- velero: 1.5.2                                                                                                       |
 
 ## Known Issues
 

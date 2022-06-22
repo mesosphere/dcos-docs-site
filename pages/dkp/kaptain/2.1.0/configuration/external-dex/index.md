@@ -8,29 +8,32 @@ beta: false
 enterprise: false
 ---
 
-Configure Kaptain to use the Dex OIDC Provider on a Kommander management cluster for authentication.
+Configure Kaptain in a managed cluster to connect to the management cluster using the Dex OIDC Provider for authentication.
 
 ## Prerequisites
 
-- A Kommander management cluster.
+- A management cluster.
 - A managed cluster, into which Kaptain will be installed.
-- The managed cluster is [attached][attached-cluster] to the management cluster (Kommander). (You will need to [create a cluster via Kommander][create-managed-cluster] to have a managed Konvoy cluster.)
-- A Dex Client created on the management cluster.
+- The managed cluster is [attached][attached-cluster] to the management cluster. (You will need to [create a cluster via Kommander][create-managed-cluster] to have a managed Konvoy cluster.)
 
-## Kaptain configuration requirements
+## Kaptain configuration
 
-To use the Kommander Dex instance for authentication with Kaptain you will need to collect the following information:
+To use the Kommander Dex instance for authentication with Kaptain, create the following resources:
 
-- Dex Client Identifier (ID) of the managed cluster
-- Dex Client secret corresponding to the Client ID
-- External OIDC provider endpoint from the management cluster
-- External OIDC provider CA bundle
+- [Create a Dex Client Identifier (ID)](#create-a-dex-client) for the managed cluster
+- [Create a Dex Client secret](#create-a-dex-client-secret) corresponding to the Dex Client ID
+
+and collect the following information:
+
+- External OIDC provider [endpoint and CA bundle](#get-external-oidc-provider-endpoint-and-ca-bundle) from the management cluster
+
+as shown in this guide.
 
 ## Create a Dex Client
 
 To create the external Dex Client ID, run the following commands on the (Kommander) management cluster:
 
-Create the Dex Client, noting the client id `kubeflow-authservice` for later use.
+Create the `kubeflow-authservice` Dex Client:
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -55,10 +58,10 @@ Generate a secret to replace `<kubeflow-authservice-secret>`.
 Example:
 
 ```bash
-openssl rand -base64 64
+DEX_CLIENT_SECRET=$(openssl rand -base64 64)
 ```
 
-To create a Dex client secret, run the following command on the (Kommander) management cluster:
+To create a Dex client secret, run the following command on the management cluster:
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -69,15 +72,31 @@ metadata:
   namespace: kommander
 type: Opaque
 stringData:
-  client-secret: <kubeflow-authservice-secret>
+  client-secret: "$DEX_CLIENT_SECRET"
 EOF
+```
+
+After creating the `kubeflow-authservice` secret, display the `$DEX_CLIENT_SECRET` value to use it later in this procedure:
+
+```bash
+echo $DEX_CLIENT_SECRET
+```
+
+The output should look like this:
+
+```sh
++2+slRbKjbZHwlTdR4lXbpakHEmaTmwOZiOkRHMw7y3gTNhVl7FU00Ydk71RMCIk 8MZ3eK22k885XNku4lSJVA==
 ```
 
 ## Get external OIDC provider endpoint and CA bundle
 
-Get the management cluster's OIDC provider endpoint as `https://<management-cluster-url>/dex`
+Get the management cluster's OIDC provider endpoint as `https://<management-cluster-url>/dex`, by running the following command:
 
-To get the OIDC provider CA bundle, run the following command on the (Kommander) management cluster:
+```bash
+kubectl -n kommander get svc kommander-traefik -o go-template='https://{{with index .status.loadBalancer.ingress 0}}{{or .hostname .ip}}{{end}}/dex{{ "\n"}}'
+```
+
+To get the OIDC provider CA bundle, run the following command on the management cluster:
 
 ```bash
 kubectl get secret kommander-traefik-certificate -n kommander -o jsonpath='{.data.ca\.crt}'
@@ -118,7 +137,7 @@ kubectl exec -it -n kaptain-ingress authservice-0 -- sh -c 'echo $REDIRECT_URL'
 On the management cluster, add the Redirect URL to the `redirectURLs` list of the Dex Client's resource:
 
 ```bash
-kubectl patch client <Dex Client ID> -n kommander --type merge  -p '{"spec": {"redirectURIs": ["<Redirect URL>"]}}'
+kubectl patch client kubeflow-authservice -n kommander --type merge  -p '{"spec": {"redirectURIs": ["<Redirect URL>"]}}'
 ```
 
 ## Log in to Kaptain using the management cluster's Dex instance

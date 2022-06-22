@@ -9,15 +9,16 @@ enterprise: false
 
 ## Prepare to delete a self-managed workload cluster
 
-<p class="message--note"><strong>NOTE: </strong>A self-managed workload cluster cannot delete itself. If your workload cluster is self-managed, you must create a bootstrap cluster and move the cluster lifecycle services to the bootstrap cluster before deleting the workload cluster.</p>
+<p class="message--note"><strong>NOTE: </strong>A self-managing workload cluster cannot delete itself. If your workload cluster is self-managing, you must create a bootstrap cluster and move the cluster lifecycle services to the bootstrap cluster before deleting the workload cluster.</p>
 
-If you did not make your workload cluster self-managed, as described in [Make New Cluster Self-Managed][makeselfmanaged], see [Delete the workload cluster](#delete-the-workload-cluster).
+If you did not make your workload cluster self-managing, as described in [Make New Cluster Self-Managed][makeselfmanaged], see [Delete the workload cluster](#delete-the-workload-cluster).
 
 1.  Create a bootstrap cluster:
 
     The bootstrap cluster will host the Cluster API controllers that reconcile the cluster objects marked for deletion:
 
-    <p class="message--note"><strong>NOTE: </strong>To avoid using the wrong kubeconfig, the following steps use explicit kubeconfig paths and contexts.</p>
+    <p class="message--note"><strong>NOTE: </strong>To avoid using the wrong kubeconfig, the following steps use explicit kubeconfig paths and contexts.
+    If you have set your <code>KUBECONFIG</code> to your environment, run the command <code>unset KUBECONFIG</code> before continuing below.</p>
 
     ```bash
     dkp create bootstrap --kubeconfig $HOME/.kube/config
@@ -34,17 +35,16 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     The cluster lifecycle services on the bootstrap cluster are ready, but the workload cluster configuration is on the workload cluster. The `move` command moves the configuration, which takes the form of Cluster API Custom Resource objects, from the workload to the bootstrap cluster. This process is also called a [Pivot][pivot].
 
     ```bash
-    dkp move \
-        --from-kubeconfig ${CLUSTER_NAME}.conf \
-        --from-context konvoy-${CLUSTER_NAME}-admin@konvoy-${CLUSTER_NAME} \
-        --to-kubeconfig $HOME/.kube/config \
-        --to-context kind-konvoy-capi-bootstrapper
+    dkp move capi-resources \
+    --from-kubeconfig ${CLUSTER_NAME}.conf \
+    --from-context ${CLUSTER_NAME}-admin@${CLUSTER_NAME} \
+    --to-kubeconfig $HOME/.kube/config \
+    --to-context kind-konvoy-capi-bootstrapper
     ```
 
     ```sh
-    INFO[2021-06-09T11:47:11-07:00] Running pivot command                         fromClusterKubeconfig=aws-example.conf fromClusterContext= src="move/move.go:83" toClusterKubeconfig=/home/clusteradmin/.kube/config toClusterContext=
-    INFO[2021-06-09T11:47:36-07:00] Pivot operation complete.                     src="move/move.go:108"
-    INFO[2021-06-09T11:47:36-07:00] You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/clusteradmin/.kube/config get nodes  src="move/move.go:155"
+     ✓ Moving cluster resources 
+    You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=$HOME/.kube/config get nodes
     ```
 
 1.  Use the cluster lifecycle services on the workload cluster to check the workload cluster status:
@@ -69,7 +69,7 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
         └─Machine/d2iq--md-0-74c849dc8c-sqklv                           True                     13h
     ```
 
-     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use dkp with the workload cluster kubeconfig.</p>
+     <p class="message--note"><strong>NOTE: </strong>After moving the cluster lifecycle services to the workload cluster, remember to use DKP with the workload cluster kubeconfig.</p>
 
     Use DKP with the bootstrap cluster to delete the workload cluster.
 
@@ -104,9 +104,11 @@ If you did not make your workload cluster self-managed, as described in [Make Ne
     ```
 
     ```sh
-    INFO[2022-03-30T11:53:42-07:00] Running cluster delete command                clusterName=d2iq-e2e-cluster-1 managementClusterKubeconfig= namespace=default src="cluster/delete.go:95"
-    INFO[2022-03-30T11:53:42-07:00] Waiting for cluster to be fully deleted       src="cluster/delete.go:123"
-    INFO[2022-03-30T12:14:03-07:00] Deleted default/d2iq-e2e-cluster-1 cluster  src="cluster/delete.go:129"
+     ✓ Deleting Services with type LoadBalancer for Cluster default/d2iq-e2e-cluster-1 
+     ✓ Deleting ClusterResourceSets for Cluster default/d2iq-e2e-cluster-1
+     ✓ Deleting cluster resources
+     ✓ Waiting for cluster to be fully deleted 
+    Deleted default/d2iq-e2e-cluster-1 cluster
     ```
 
     After the workload cluster is deleted, delete the bootstrap cluster.
@@ -118,7 +120,7 @@ dkp delete bootstrap --kubeconfig $HOME/.kube/config
 ```
 
 ```sh
-INFO[2021-06-09T12:15:20-07:00] Deleting bootstrap cluster                    src="bootstrap/bootstrap.go:182"
+ ✓ Deleting bootstrap cluster 
 ```
 
 ## Known Limitations

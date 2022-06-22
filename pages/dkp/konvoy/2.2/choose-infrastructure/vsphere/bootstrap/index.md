@@ -29,7 +29,7 @@ Before you begin, you must:
 
     The output resembles this example:
 
-    ```
+    ```sh
     ✓ Creating a bootstrap cluster
     ✓ Initializing new CAPI components
     ```
@@ -44,7 +44,7 @@ Before you begin, you must:
 1.  Ensure that the CAPV controllers are present with the command:
 
     ```bash
-     kubectl get pods -n capv-system
+    kubectl get pods -n capv-system
     ```
 
     The output resembles the following:

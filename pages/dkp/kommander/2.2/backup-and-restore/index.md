@@ -19,7 +19,10 @@ DKP provides [Velero][velero] by default, to support backup and restore operatio
 For on-premises deployments, DKP deploys [Velero integrated with MinIO][minio-with-velero], operating inside the same cluster.
 
 For production use-cases, D2iQ advises to provide an *external* storage class to use with [MinIO][minio].
-To specify an external storageClass for the MinIO instances, create a file called `velero-overrides.yaml` with the following contents, and then `kubectl apply -f` after the cluster is configured. You can also add the values below to the [Kommander configuration file when installing Kommander][kommander-install-config].
+
+You can [customize][customize_apps] your Velero instance in two ways: You can add the values below to the [Kommander configuration file when installing Kommander][kommander-install-config], or you can apply the configuration after the cluster is configured by running `kubectl apply -f`.
+
+To specify an external storageClass for the **MinIO** instances, create a file called `velero-overrides.yaml` with the following content:
 
 ```yaml
 apiVersion: v1
@@ -34,7 +37,7 @@ data:
          storageClass: <external storage class name>
 ```
 
-You can also store your backups in Amazon S3.    To do so, create a file called `velero-overrides.yaml` with the following contents, and then `kubectl apply -f` after the cluster is configured.
+You can also store your backups in **Amazon S3**. To do so, create a file called `velero-overrides.yaml` with the following content:
 
 ```yaml
 apiVersion: v1
@@ -71,6 +74,16 @@ data:
         #   [default]
         #   aws_access_key_id=<REDACTED>
         #   aws_secret_access_key=<REDACTED>
+```
+
+After you have created the `ConfigMap` with **MinIO**, OR **Amazon S3**, patch the Velero `AppDeployment` by adding the `configOverrides` value. This applies the `ConfigMap` to your instance after the cluster has been configured:
+
+```bash
+cat << EOF | kubectl -n kommander patch appdeployment velero --type="merge" --patch-file=/dev/stdin
+spec:
+  configOverrides:
+    name: velero-overrides
+EOF
 ```
 
 ## Install the Velero command-line interface
@@ -266,3 +279,4 @@ velero get snapshot-locations
 [velero-cli-install]: https://velero.io/docs/v1.5/basic-install/#install-the-cli
 [velero-cm]: https://velero.io/docs/v0.11.0/migration-case
 [velero-dr]: https://velero.io/docs/v0.11.0/disaster-case
+[customize_apps]: ../workspaces/applications/appdeployments#customize-your-application

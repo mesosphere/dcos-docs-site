@@ -189,9 +189,10 @@ spec:
       configVersion: stable-1.20-1.4.2
       addonsList:
         - name: kommander
-          enabled: true
+          enabled: false
   version: v1.8.3
 ```
+Note that the Kommander Addon must be disabled to support the migration of Konvoy.
 
 Every environment is a "custom" environment to some degree. The most common customizations to the standard configuration include:
 
