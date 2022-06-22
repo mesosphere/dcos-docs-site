@@ -53,7 +53,7 @@ Using the base OS image created in a previous procedure, DKP creates the new vSp
 -    folder: Virtual machine folder in which to create the virtual machine.
 -    network: The vSphere network in which the virtual machine will be connected.
 -    resource_pool: vSphere resource pool name - If not set, it will look for the root resource pool of the host or cluster. If a root resource is not found, it will then look for a default resource pool.
--    template: Name of the vSphere template of the base operating system - Konvoy Image Builder will use the base operating system template and configure it, which will produce a new vSphere template. The new vsphere template can be used to create virtual machines for the Kubernetes cluster.
+-    template: Name of the vSphere template of the base operating system - Konvoy Image Builder will use the base operating system template and configure it. This will produce a new vSphere template which can be used to create virtual machines for the Kubernetes cluster.
 
 4. Create the vSphere VM template with the following command:
 
