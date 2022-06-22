@@ -22,7 +22,7 @@ Use the API yaml to customize the domain (via the `hostname` field), the certifi
 
     In this example, you can enter the custom domain in the `hostname` field, and an **issuer to be used by cert-manager** to issue a certificate for the domain in the `issuerRef` field.
 
-    ```bash
+    ```yaml
     cat <<EOF | kubectl apply -f -
     apiVersion: kommander.mesosphere.io/v1beta1
     kind: KommanderCluster
@@ -45,7 +45,7 @@ Use the API yaml to customize the domain (via the `hostname` field), the certifi
 
     In this example, you can enter the custom domain in the `hostname` field, and the secret in the `certificateSecretRef` field for **customized certificates created for your hostname**:
 
-    ```bash
+    ```yaml
     cat <<EOF | kubectl apply -f -
     apiVersion: kommander.mesosphere.io/v1beta1
     kind: KommanderCluster
