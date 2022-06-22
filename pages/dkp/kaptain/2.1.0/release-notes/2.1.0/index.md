@@ -17,9 +17,9 @@ D2iQ is announcing Kaptain 2.1 which includes several user experience features, 
 
 ## New features and capabilities
 
-### Support for Active Directory as an identity provider
+### Restrict access to Kaptain by establishing a list of allowed groups
 
-You can authenticate users and user groups in Kaptain by [setting up an identity provider][ident] of your choice. From this release on, it is possible to use Microsoft's Active Directory to limit and control access to users in your Kaptain instance.
+You can authenticate and enable users and user groups to access Kaptain by linking your Kaptain's Dex instance to an [identity provider][ident] of your choice. From this release on, you have the option of adding or removing groups (that are established in your identity provider) to the `AllowList` to further restrict access to your Kaptain instance.
 
 ## Fixes and Improvements
 
