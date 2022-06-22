@@ -50,9 +50,9 @@ Konvoy supports the following base Operating Systems.
 ## Azure
 
 <!-- vale Vale.Spelling = NO -->
-| Operating System       | Kernel                           | Default Config | FIPS | Air Gapped | FIPS with Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> |
-|------------------------|----------------------------------|----------------|------|------------|----------------------|-------------|
-| [Ubuntu 20.04 (Focal Fossa)][ubuntu_20] | 5.13.0-1031-aws | Yes            |      |            |                      |             |
+| Operating System       | Kernel                             | Default Config | FIPS | Air Gapped | FIPS with Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> |
+|------------------------|------------------------------------|----------------|------|------------|----------------------|-------------|
+| [Ubuntu 20.04 (Focal Fossa)][ubuntu_20] | 5.11.0-1028-azure | Yes            |      |            |                      |             |
 
 ## EKS
 
