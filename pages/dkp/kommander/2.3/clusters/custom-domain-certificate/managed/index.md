@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-This section describes how to enable custom domains and certificates in your **managed and attached** clusters. Refer to the [Customize a domain and certificate in the Management Cluster][management] documentation, if you want to set up custom domains and certificates for your **Management Cluster** during the installation of DKP.
+This section describes how to enable custom domains and certificates in your **Management and any Managed or Attached** clusters after the installation of DKP. If you want to set up a custom domain and certificate for your Management Cluster **during the installation**, refer to the [Customize a domain and certificate during installation][management] documentation.
 
 To customize the domain or certificate for a specific cluster after the installation of DKP, adapt or create an API `yaml` that will allow Kommander to implement the established adjustments on top of the default or any previous configuration you have made.
 
