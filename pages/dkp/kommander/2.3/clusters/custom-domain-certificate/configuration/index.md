@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Managed Cluster 
-title: Customize a domain and certificate in a Managed Cluster
+navigationTitle: Configuration 
+title: Configure a custom domain and certificate for your cluster
 menuWeight: 20
-excerpt: Configure a custom domain and certificate in a Managed or Attached Cluster
+excerpt: Configure a custom domain and certificate in the Management and any Managed or Attached Clusters
 beta: false
 enterprise: false
 ---
@@ -18,9 +18,9 @@ To customize the domain or certificate for a specific cluster after the installa
 
 Use the API yaml to customize the domain (via the `hostname` field), the certificate (via the `issuerRef` or `certificateSecretRef` field), or both. For this, refer to the following examples:
 
-1.  Create or update and apply the `KommanderCluster` object with the wanted ingress. Remember to specify the cluster in the `kubeconfigRef` name field.
+1.  You have two options to create or update and apply the `KommanderCluster` object with the wanted ingress. Remember to specify the cluster in the `kubeconfigRef` name field.
 
-    In this example, you can enter the custom domain in the `hostname` field, and an **issuer to be used by cert-manager** to issue a certificate for the domain in the `issuerRef` field.
+    One option is to use a certificate that is managed automatically by cert-manager with the ACME protocol like Let's Encrypt. For this, reference the `Issuer` or `ClusterIssuer` **to be used by cert-manager** in the `issuerRef` field, and enter the custom domain in the `hostname` field of the target cluster:
 
     ```yaml
     cat <<EOF | kubectl apply -f -
@@ -43,7 +43,7 @@ Use the API yaml to customize the domain (via the `hostname` field), the certifi
     EOF
     ```
 
-    In this example, you can enter the custom domain in the `hostname` field, and the secret in the `certificateSecretRef` field for **customized certificates created for your hostname**:
+    Another option is to use a certificate provided by you and **customized for your hostname**. To do so, enter the secret in the `certificateSecretRef` field and the custom domain in the `hostname` field of the target cluster:
 
     ```yaml
     cat <<EOF | kubectl apply -f -
@@ -66,15 +66,49 @@ Use the API yaml to customize the domain (via the `hostname` field), the certifi
     EOF
     ```
 
-<!-- 1.  TODO: Dev - Are there other steps, is there some sort of confirmation message or output?  -->
+## Verify the status of the configuration and troubleshoot in case of errors
 
-## Troubleshooting
+If you want to ensure the customization for a domain or a certificate is completed, or if you want to obtain more information in case the customization fails, call up a list of statuses for the `KommanderCluster`.
 
-If you want to ensure the customization for a domain or a certificate is completed, or if you want to obtain more information in case the customization fails, call up a list of statuses for the `KommanderCluster`:
+1.  Inspect the modified `KommanderCluster` object:
 
-<!-- 1.  TODO: DEV - provide command -->
+    ```bash
+    kubect -n <workspace_namespace> get kommandercluster <cluster_name> -o yaml
+    ```
 
-<!-- 1.  TODO: DEV - provide example output -->
+    If the ingress is still being provisioned, the output looks similar to this:
+
+    ```bash
+      conditions:
+      - lastTransitionTime: "2022-06-24T07:48:31Z"
+        message: Ingress service object was not found in the cluster
+        reason: IngressServiceNotFound
+        status: "False"
+        type: IngressAddressReady
+    ```
+
+    If the provisioning has been completed, the output looks similar to this:
+
+    ```bash
+      - lastTransitionTime: "2022-06-24T07:58:48Z"
+        message: Ingress service address has been provisioned
+        reason: IngressServiceAddressFound
+        status: "True"
+        type: IngressAddressReady
+      - lastTransitionTime: "2022-06-24T07:58:50Z"
+        message: Certificate is up to date and has not expired
+        reason: Ready
+        status: "True"
+        type: IngressCertificateReady
+    ```
+
+You can also call up the actual customized values, by inspecting the `KommanderCluster.Status.Ingress`. Here is an example:
+
+```bash
+  ingress:
+    address: 172.20.255.180
+    caBundle: LS0tLS1CRUdJTiBD...<output has been shortened>...DQVRFLS0tLS0K
+```
 
 ## Automatic certificate management (ACME)
 

@@ -77,20 +77,6 @@ kind: Installation
 clusterHostname: mycluster.domain.dom
 acme:
   email: <your_email>
-apps:
-  traefik-forward-auth-mgmt:
-    values: |
-      traefikForwardAuth:
-        caSecretName: null
-  kube-oidc-proxy:
-    values: |
-      oidc:
-        caSystemDefault: true
-  dex-k8s-authenticator:
-    values: |
-      caCerts:
-        caSecretName: null
-        useSystemDefault: true
 ```
 
 ### Other ACME issuers
