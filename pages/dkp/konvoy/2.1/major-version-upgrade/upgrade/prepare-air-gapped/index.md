@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Prepare Air-Gapped Cluster
 title: Prepare Air-Gapped Cluster
-menuWeight: 10
+menuWeight: 15
 excerpt: Preparing an air-gapped cluster for upgrade
 beta: true
 enterprise: false
