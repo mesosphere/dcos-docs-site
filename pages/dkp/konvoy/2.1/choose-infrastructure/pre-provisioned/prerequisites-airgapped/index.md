@@ -54,7 +54,7 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 1.  Download the PIP packages. This bundle includes a few packages required by DKP to bootstrap machines.
 
     ```bash
-    curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/konvoy/airgapped/pip-packages/pip-packages.tar.gz
+    curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
 
 1.  Export the following environment variables, ensuring that all control plane and worker nodes are included:
