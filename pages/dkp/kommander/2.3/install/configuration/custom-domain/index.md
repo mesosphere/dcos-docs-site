@@ -67,9 +67,7 @@ Kommander can be configured to automatically issue a trusted certificate for the
 ### Let's encrypt
 
 In this section, we will walk you through how to set up a Let’s Encrypt certificate for the cluster ingress. This would allow most browsers to validate the certificate for the cluster when the users try to log into the ops portal.
-ACME must be enabled in the installation config file. The provided email is used to register with Let's encrypt, who will use this to contact you about expiring certificates, and issues related to your account.
-
-Because ACME does not set up a CA bundle, some of the platform applications must be customized to use the certificate created by the ACME issuer:
+ACME must be enabled in the installation config file. The provided email is used to register with Let's encrypt, who will use this to contact you about expiring certificates, and issues related to your account:
 
 ```yaml
 apiVersion: config.kommander.mesosphere.io/v1alpha1
