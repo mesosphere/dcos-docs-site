@@ -234,6 +234,8 @@ Follow these steps only if you are upgrading an air-gapped Cluster.
 
 ## Prepare Artifacts
 
+<p class="message--note"><strong>NOTE: </strong>For upgrading Konvoy Image Builder version [v1.14.0](https://github.com/mesosphere/konvoy-image-builder/releases/tag/v1.14.0) should be used. Later versions will work; however, a containerd bundle must be provided in addition to the stated artifacts.</p>
+
 <!-- NOTE(jkoelker) Vale doesn't like the link or the name of the page. -->
 <!-- vale Vale.Terms = NO -->
 <!-- vale Vale.Avoid = NO -->
