@@ -231,3 +231,12 @@ Follow these steps only if you are upgrading an air-gapped Cluster.
     ```bash
     konvoy run playbook registry.yaml -y
     ```
+
+## Prepare Artifacts
+
+<!-- NOTE(jkoelker) Vale doesn't like the link or the name of the page. -->
+<!-- vale Vale.Terms = NO -->
+<!-- vale Vale.Avoid = NO -->
+1. Follow the directions for loading the airgapped artifacts from [Prerequisites when Air-Gapped](../../../choose-infrastructure/pre-provisioned/prerequisites-airgapped/).
+<!-- vale Vale.Avoid = YES -->
+<!-- vale Vale.Terms = YES-->
