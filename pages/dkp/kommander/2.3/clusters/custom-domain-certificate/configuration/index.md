@@ -12,13 +12,11 @@ This section describes how to enable custom domains and certificates in your **M
 
 To customize the domain or certificate for a specific cluster after the installation of DKP, adapt or create an API `yaml` that will allow Kommander to implement the established adjustments on top of the default or any previous configuration you have made.
 
-Note that the `Issuer` object must be created on the cluster where you want to customize the configuration. In the Management cluster, both the `KommanderCluster` and `Issuer` objects are on the same cluster. In Managed and Attached clusters, the `KommanderCluster` object is stored on Management cluster, and the `Issuer` object is on the Managed or Attached cluster.
-
 ## Configure custom domains or custom certificates
 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster of the environment where you want to customize the domain or certificate by setting the <code>KUBECONFIG=<path></code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-To customize the domain or certificate of a cluster, alter the `ingress` values of the `KommanderCluster`. Note that the `Issuer` object must be created on the cluster where you want to customize the configuration. In the Management cluster, both the `KommanderCluster` and `Issuer` objects are on the same cluster. In Managed and Attached clusters, the `KommanderCluster` object is stored on Management cluster, and the `Issuer` object is on the Managed or Attached cluster.
+To customize the domain or certificate of a cluster, alter the `Ingress` value of the `KommanderCluster`. Note that the `Issuer` object must be created on the cluster where you want to customize the configuration. In the Management cluster, both the `KommanderCluster` and `Issuer` objects are on the same cluster. In Managed and Attached clusters, the `KommanderCluster` object is stored on Management cluster, and the `Issuer` object is on the Managed or Attached cluster.
 
 Use the API yaml to customize the domain (via the `hostname` field), the certificate (via the `issuerRef` or `certificateSecretRef` field), or both.
 
