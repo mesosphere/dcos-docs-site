@@ -31,13 +31,13 @@ Before you start, make sure you have created a workload cluster, as described in
 
     ```sh
 	NAME                                         STATUS   ROLES                  AGE     VERSION
-	ip-10-0-100-85.us-west-2.compute.internal    Ready    <none>                 8m13s   v1.22.8
-	ip-10-0-106-183.us-west-2.compute.internal   Ready    control-plane,master   6m22s   v1.22.8
-	ip-10-0-158-104.us-west-2.compute.internal   Ready    control-plane,master   8m58s   v1.22.8
-	ip-10-0-203-138.us-west-2.compute.internal   Ready    control-plane,master   7m52s   v1.22.8
-	ip-10-0-70-169.us-west-2.compute.internal    Ready    <none>                 8m14s   v1.22.8
-	ip-10-0-77-176.us-west-2.compute.internal    Ready    <none>                 8m11s   v1.22.8
-	ip-10-0-96-61.us-west-2.compute.internal     Ready    <none>                 8m12s   v1.22.8
+	ip-10-0-100-85.us-west-2.compute.internal    Ready    <none>                 8m13s   v1.23.7
+	ip-10-0-106-183.us-west-2.compute.internal   Ready    control-plane,master   6m22s   v1.23.7
+	ip-10-0-158-104.us-west-2.compute.internal   Ready    control-plane,master   8m58s   v1.23.7
+	ip-10-0-203-138.us-west-2.compute.internal   Ready    control-plane,master   7m52s   v1.23.7
+	ip-10-0-70-169.us-west-2.compute.internal    Ready    <none>                 8m14s   v1.23.7
+	ip-10-0-77-176.us-west-2.compute.internal    Ready    <none>                 8m11s   v1.23.7
+	ip-10-0-96-61.us-west-2.compute.internal     Ready    <none>                 8m12s   v1.23.7
     ```
 
     <p class="message--note"><strong>NOTE: </strong>It may take a few minutes for the Status to move to <code>Ready</code> while the Pod network is deployed. The Nodes' Status should change to Ready soon after the <code>calico-node</code> DaemonSet Pods are Ready.</p>

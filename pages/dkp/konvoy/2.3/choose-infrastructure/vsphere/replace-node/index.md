@@ -31,13 +31,13 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     ```sh
     NAME                                       STATUS   ROLES                  AGE   VERSION
-    d2iq-e2e-cluster-1-control-plane-7llgd     Ready    control-plane,master   20h   v1.22.8
-    d2iq-e2e-cluster-1-control-plane-vncbl     Ready    control-plane,master   20h   v1.22.8
-    d2iq-e2e-cluster-1-control-plane-wbgrm     Ready    control-plane,master   19h   v1.22.8
-    d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4   Ready    <none>                 20h   v1.22.8
-    d2iq-e2e-cluster-1-md-0-74c849dc8c-n2skc   Ready    <none>                 20h   v1.22.8
-    d2iq-e2e-cluster-1-md-0-74c849dc8c-nkftv   Ready    <none>                 20h   v1.22.8
-    d2iq-e2e-cluster-1-md-0-74c849dc8c-sqklv   Ready    <none>                 20h   v1.22.8
+    d2iq-e2e-cluster-1-control-plane-7llgd     Ready    control-plane,master   20h   v1.23.7
+    d2iq-e2e-cluster-1-control-plane-vncbl     Ready    control-plane,master   20h   v1.23.7
+    d2iq-e2e-cluster-1-control-plane-wbgrm     Ready    control-plane,master   19h   v1.23.7
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4   Ready    <none>                 20h   v1.23.7
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-n2skc   Ready    <none>                 20h   v1.23.7
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-nkftv   Ready    <none>                 20h   v1.23.7
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-sqklv   Ready    <none>                 20h   v1.23.7
     ```
 
 1.  Export a variable with the node name to use in the next steps:
@@ -71,7 +71,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     ```sh
     NAME                      CLUSTER              REPLICAS   READY   UPDATED   UNAVAILABLE   PHASE       AGE   VERSION
-    d2iq-e2e-cluster-1-md-0   d2iq-e2e-cluster-1   4          3       4         1             ScalingUp   20h   v1.22.8
+    d2iq-e2e-cluster-1-md-0   d2iq-e2e-cluster-1   4          3       4         1             ScalingUp   20h   v1.23.7
     ```
 
     In this example, there exist 4 replicas, but only 3 are ready. One replica is unavailable, and the `ScalingUp` phase means a new Machine is being created.

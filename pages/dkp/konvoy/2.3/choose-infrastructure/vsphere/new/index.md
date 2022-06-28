@@ -173,13 +173,13 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
 
     ```sh
     NAME                                       CLUSTER              NODENAME                                       PROVIDERID                                       PHASE     AGE   VERSION
-    d2iq-e2e-cluster-1-control-plane-7llgd     d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-control-plane-7llgd     vsphere://421638e2-e776-9af6-f683-5e105de5da5a   Running   13h   v1.22.8
-    d2iq-e2e-cluster-1-control-plane-vncbl     d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-control-plane-vncbl     vsphere://42168835-7fef-95c4-3652-ebcad3e10d36   Running   13h   v1.22.8
-    d2iq-e2e-cluster-1-control-plane-wbgrm     d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-control-plane-wbgrm     vsphere://421642df-afc4-b6c2-9e61-5b86e7c37eac   Running   13h   v1.22.8
-    d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4   vsphere://4216f467-8483-73cb-a8b6-8d6a4a71e4b4   Running   14h   v1.22.8
-    d2iq-e2e-cluster-1-md-0-74c849dc8c-n2skc   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-n2skc   vsphere://42161cde-9904-4dd2-7a3e-cdfc7655f090   Running   14h   v1.22.8
-    d2iq-e2e-cluster-1-md-0-74c849dc8c-nkftv   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-nkftv   vsphere://42163a0d-eb8d-b5a6-82d5-188e24817c00   Running   14h   v1.22.8
-    d2iq-e2e-cluster-1-md-0-74c849dc8c-sqklv   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-sqklv   vsphere://42161dff-92a5-6da9-7ac1-e987e2c8fed2   Running   14h   v1.22.8
+    d2iq-e2e-cluster-1-control-plane-7llgd     d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-control-plane-7llgd     vsphere://421638e2-e776-9af6-f683-5e105de5da5a   Running   13h   v1.23.7
+    d2iq-e2e-cluster-1-control-plane-vncbl     d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-control-plane-vncbl     vsphere://42168835-7fef-95c4-3652-ebcad3e10d36   Running   13h   v1.23.7
+    d2iq-e2e-cluster-1-control-plane-wbgrm     d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-control-plane-wbgrm     vsphere://421642df-afc4-b6c2-9e61-5b86e7c37eac   Running   13h   v1.23.7
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-67rv4   vsphere://4216f467-8483-73cb-a8b6-8d6a4a71e4b4   Running   14h   v1.23.7
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-n2skc   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-n2skc   vsphere://42161cde-9904-4dd2-7a3e-cdfc7655f090   Running   14h   v1.23.7
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-nkftv   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-nkftv   vsphere://42163a0d-eb8d-b5a6-82d5-188e24817c00   Running   14h   v1.23.7
+    d2iq-e2e-cluster-1-md-0-74c849dc8c-sqklv   d2iq-e2e-cluster-1   d2iq-e2e-cluster-1-md-0-74c849dc8c-sqklv   vsphere://42161dff-92a5-6da9-7ac1-e987e2c8fed2   Running   14h   v1.23.7
     ```
 
 1.  Verify that the kubeadm control plane is ready with the command
@@ -192,7 +192,7 @@ Before you begin, make sure you have created a [Bootstrap][bootstrap] cluster.
 
     ```sh
     NAME                               CLUSTER              INITIALIZED   API SERVER AVAILABLE   REPLICAS   READY   UPDATED   UNAVAILABLE   AGE   VERSION
-    d2iq-e2e-cluster-1-control-plane   d2iq-e2e-cluster-1   true          true                   3          3       3         0             14h   v1.22.8
+    d2iq-e2e-cluster-1-control-plane   d2iq-e2e-cluster-1   true          true                   3          3       3         0             14h   v1.23.7
     ```
 
 1.  Describe the kubeadm control plane and check its status and events with the command:

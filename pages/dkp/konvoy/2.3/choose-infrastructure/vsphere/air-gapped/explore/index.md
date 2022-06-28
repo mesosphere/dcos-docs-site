@@ -60,13 +60,13 @@ enterprise: false
 
     ```sh
     NAME                                         STATUS   ROLES                  AGE   VERSION
-    d2iq-e2e-air-gapped-1-control-plane-7llgd     Ready    control-plane,master   20h   v1.22.8
-    d2iq-e2e-air-gapped-1-control-plane-vncbl     Ready    control-plane,master   19h   v1.22.8
-    d2iq-e2e-air-gapped-1-control-plane-wbgrm     Ready    control-plane,master   19h   v1.22.8
-    d2iq-e2e-air-gapped-1-md-0-74c849dc8c-67rv4   Ready    <none>                 19h   v1.22.8
-    d2iq-e2e-air-gapped-1-md-0-74c849dc8c-n2skc   Ready    <none>                 19h   v1.22.8
-    d2iq-e2e-air-gapped-1-md-0-74c849dc8c-nkftv   Ready    <none>                 19h   v1.22.8
-    d2iq-e2e-air-gapped-1-md-0-74c849dc8c-sqklv   Ready    <none>                 19h   v1.22.8
+    d2iq-e2e-air-gapped-1-control-plane-7llgd     Ready    control-plane,master   20h   v1.23.7
+    d2iq-e2e-air-gapped-1-control-plane-vncbl     Ready    control-plane,master   19h   v1.23.7
+    d2iq-e2e-air-gapped-1-control-plane-wbgrm     Ready    control-plane,master   19h   v1.23.7
+    d2iq-e2e-air-gapped-1-md-0-74c849dc8c-67rv4   Ready    <none>                 19h   v1.23.7
+    d2iq-e2e-air-gapped-1-md-0-74c849dc8c-n2skc   Ready    <none>                 19h   v1.23.7
+    d2iq-e2e-air-gapped-1-md-0-74c849dc8c-nkftv   Ready    <none>                 19h   v1.23.7
+    d2iq-e2e-air-gapped-1-md-0-74c849dc8c-sqklv   Ready    <none>                 19h   v1.23.7
     ```
 
 1.  List the Pods with the command:

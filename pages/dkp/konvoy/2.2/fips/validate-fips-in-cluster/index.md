@@ -16,8 +16,8 @@ You need to download an appropriate, signed signature file before you run valida
 
 |EL version | Kubernetes version | Manifest URL                                    |
 |-----------|--------------------|-------------------------------------------------|
-| 7         | v1.22.8            | [v1.22.8 EL 7 Manifest][1-22-8-fips-manifest-7] |
-| 8         | v1.22.8            | [v1.22.8 EL 8 Manifest][1-22-8-fips-manifest-8] |
+| 7         | v1.23.7            | [v1.23.7 EL 7 Manifest][1.23.7-fips-manifest-7] |
+| 8         | v1.23.7            | [v1.23.7 EL 8 Manifest][1.23.7-fips-manifest-8] |
 
 ## Run FIPS validation
 
@@ -68,5 +68,5 @@ dkp check cluster fips \
 
 In this case, the validation tool checks the cluster using the existing signature data and returns deployment details in JSON format.
 
-[1-22-8-fips-manifest-7]: https://downloads.d2iq.com/dkp/fips/v1.22.8/manifest-rhel7.json.asc
-[1-22-8-fips-manifest-8]: https://downloads.d2iq.com/dkp/fips/v1.22.8/manifest-rhel8.json.asc
+[1.23.7-fips-manifest-7]: https://downloads.d2iq.com/dkp/fips/v1.23.7/manifest-rhel7.json.asc
+[1.23.7-fips-manifest-8]: https://downloads.d2iq.com/dkp/fips/v1.23.7/manifest-rhel8.json.asc

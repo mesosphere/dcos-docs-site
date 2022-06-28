@@ -38,7 +38,7 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 1.  Define an environment variable for the Kubernetes version that corresponds with Konvoy release you are installing. You can find the correct Kubernetes version by checking the release notes for the release you are installing:
 
     ```bash
-    export VERSION=1.22.8
+    export VERSION=1.23.7
     ```
 
 1.  Set an environment variable for the image's OS you want to use.

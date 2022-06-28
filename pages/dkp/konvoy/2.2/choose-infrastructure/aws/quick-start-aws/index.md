@@ -128,13 +128,13 @@ The kubeconfig file is written to your local directory and you can now explore t
 
     ```sh
 	NAME                                         STATUS   ROLES                  AGE   VERSION
-	ip-10-0-108-63.us-west-2.compute.internal    Ready    <none>                 59m   v1.22.8
-	ip-10-0-115-181.us-west-2.compute.internal   Ready    <none>                 59m   v1.22.8
-	ip-10-0-118-159.us-west-2.compute.internal   Ready    <none>                 59m   v1.22.8
-	ip-10-0-122-136.us-west-2.compute.internal   Ready    control-plane,master   60m   v1.22.8
-	ip-10-0-122-6.us-west-2.compute.internal     Ready    <none>                 59m   v1.22.8
-	ip-10-0-154-239.us-west-2.compute.internal   Ready    control-plane,master   59m   v1.22.8
-	ip-10-0-199-233.us-west-2.compute.internal   Ready    control-plane,master   57m   v1.22.8
+	ip-10-0-108-63.us-west-2.compute.internal    Ready    <none>                 59m   v1.23.7
+	ip-10-0-115-181.us-west-2.compute.internal   Ready    <none>                 59m   v1.23.7
+	ip-10-0-118-159.us-west-2.compute.internal   Ready    <none>                 59m   v1.23.7
+	ip-10-0-122-136.us-west-2.compute.internal   Ready    control-plane,master   60m   v1.23.7
+	ip-10-0-122-6.us-west-2.compute.internal     Ready    <none>                 59m   v1.23.7
+	ip-10-0-154-239.us-west-2.compute.internal   Ready    control-plane,master   59m   v1.23.7
+	ip-10-0-199-233.us-west-2.compute.internal   Ready    control-plane,master   57m   v1.23.7
     ```
 
 1.  List the Pods with the command:
