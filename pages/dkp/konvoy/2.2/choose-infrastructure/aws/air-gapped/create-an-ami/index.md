@@ -61,12 +61,32 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
     ```bash
     curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
+NOTE: If you're installing on v2.2.2 or above, you will need to continue onto step 7.
+
+1. Set your `containerd` operating system:
+
+    ```bash
+    export CONTAINERD_OS=centos-7.9-x86_64
+    ```
+Note: available packages are:
+
+-   `centos-7.9-x86_64`
+-   `rhel-7.9-x86_64`
+-   `rhel-8.2-x86_64`
+-   `ubuntu-20.04-x86_64`
+-   `ubuntu-18.04-x86_64`
+
+1. Download the the `containerd` bundle.
+
+```bash
+curl --output artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz --location https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
+```
 
 1.  Follow the instructions to [build an AMI][kib_create_ami] in the setting an additional `--overrides overrides/offline.yaml` flag.
 
 Then, you can [seed your docker registry][seed-a-registry].
 
-This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the versions of MinIO packaged with DKP/Kommander/Konvoy 2.2.1 are available at these URLs: 
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the versions of MinIO packaged with DKP/Kommander/Konvoy 2.2.1 are available at these URLs:
 https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
 https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
 
