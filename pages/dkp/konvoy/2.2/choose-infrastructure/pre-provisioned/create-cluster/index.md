@@ -207,7 +207,8 @@ For more information, see:
 
 ## Use the built-in Virtual IP
 
-As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. The built-in virtual IP uses the [kube-vip][kube-vip] project.
+As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. The control planes  are members of the the same L2 network, the network interface which must be provided. The built-in virtual IP uses the [kube-vip][kube-vip] project.
+
 To use the virtual IP, add these flags to the `create cluster` command:
 
 | Virtual IP Configuration                 | Flag                                 |
@@ -217,12 +218,29 @@ To use the virtual IP, add these flags to the `create cluster` command:
 
 ### Virtual IP Example
 
+Example
+If we have the following networking configurations on the control plane nodes:
+
+```bash
+Control plane node 1:
+ eth0: 1.2.3.4/29
+ eth1: 10.1.2.1/24
+Control plane node 2:
+ eth0: 5.6.7.8/25
+ eth1: 10.1.2.2/24
+Control plane node 3:
+ eth0: 9.10.11.12/30
+ eth1: 10.1.2.3/24
+```
+Then the following command should look like: 
+
 ```bash
 dkp create cluster preprovisioned \
     --cluster-name ${CLUSTER_NAME} \
-    --control-plane-endpoint-host 196.168.1.10 \
+    --control-plane-endpoint-host 10.1.2.0 \
     --virtual-ip-interface eth1
 ```
+Verify that any L2 switches in your infrastructure are not configured to block Gratuitous ARP packets. kube-vip uses Gratutious ARP to advertise the Virtual-IP (VIP) for the control plane; if the switch blocks these packets fail-over between control plane nodes will not work.
 
 Confirm that your [Calico installation is correct][calico-install].
 
