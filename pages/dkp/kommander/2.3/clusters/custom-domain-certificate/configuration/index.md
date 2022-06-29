@@ -10,71 +10,89 @@ enterprise: false
 
 This section describes how to enable custom domains and certificates in your **Management and any Managed or Attached** clusters after the installation of DKP. If you want to set up a custom domain and certificate for your Management Cluster **during the installation**, refer to the [Customize a domain and certificate during installation][management] documentation.
 
-To customize the domain or certificate for a specific cluster after the installation of DKP, adapt or create an API `yaml` that will allow Kommander to implement the established adjustments on top of the default or any previous configuration you have made.
+To customize the domain or certificate for a specific cluster after the installation of DKP, adapt or create an API `yaml` that will allow DKP to implement the established adjustments on top of the default or any previous configuration you have made.
 
 ## Configure custom domains or custom certificates
 
-<p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster of the environment where you want to customize the domain or certificate by setting the <code>KUBECONFIG=<path></code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
+<p class="message--warning"><strong>IMPORTANT:</strong> Ensure your <code>dkp</code> configuration references the management cluster of the environment where you want to customize the domain or certificate by setting the <code>KUBECONFIG=<path></code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-To customize the domain or certificate of a cluster, alter the `Ingress` value of the `KommanderCluster`. Note that the `Issuer` object must be created on the cluster where you want to customize the configuration. In the Management cluster, both the `KommanderCluster` and `Issuer` objects are on the same cluster. In Managed and Attached clusters, the `KommanderCluster` object is stored on Management cluster, and the `Issuer` object is on the Managed or Attached cluster.
+To customize the domain or certificate of a cluster, alter the `issuer` object in the `ingress` values of the `KommanderCluster`. Note that you can reference an issuer as an `issuerRef` **OR** a secret as a `certificateSecretRef`, as long as the object is created on the cluster where you want to customize the configuration.
 
-Use the API yaml to customize the domain (via the `hostname` field), the certificate (via the `issuerRef` or `certificateSecretRef` field), or both.
+In the Management cluster, both the `KommanderCluster` and `issuerRef` or `certificateSecretRef` objects are on the same cluster. In Managed and Attached clusters, the `KommanderCluster` object is stored on the Management cluster, and the `issuerRef` or `certificateSecretRef` object is on the Managed or Attached cluster.
 
-For this, refer to the following examples:
+Use the API yaml to customize the domain (via the `hostname` field), and the certificate (via the `issuerRef` or `certificateSecretRef` field).
+
+Refer to the following examples:
 
 1.  You have two options to create or update and apply the `KommanderCluster` object with the wanted ingress.
 
     One option is to use a certificate that is managed automatically and supported by cert-manager like ACME (if you use Let's Encrypt, refer to the [example below](#example-configure-a-custom-certificate-with-lets-encrypt). For this, reference the `Issuer` or `ClusterIssuer` on the target cluster **to be used by cert-manager** in the `issuerRef` field, and enter the custom domain in the `hostname` field of the target cluster:
 
     ```yaml
-    cat <<EOF | kubectl apply -f -
-    apiVersion: kommander.mesosphere.io/v1beta1
-    kind: KommanderCluster
-    metadata:
-      name: <cluster_name>
-      namespace: <workspace_namespace>
+    cat <<EOF | kubectl -n <workspace_namespace> --kubeconfig <management_cluster_kubeconfig> patch \ 
+    kommandercluster <cluster_name>  --type='merge' --patch-file=/dev/stdin
     spec:
-      kubeconfigRef:
-        name: <cluster_name>-kubeconfig
-      clusterRef:
-        capiCluster:
-          name: <cluster_name>
-    ingress:
-      hostname: <cluster_hostname>
-      issuerRef:
-        namespace: <issuer_namespace>
-        name: <issuer_name>
+      ingress:
+        hostname: <cluster_hostname>
+        issuerRef:
+          name: <issuer_name>
+          kind: ClusterIssuer # or Issuer depending on the issuer config
     EOF
     ```
 
     Another option is to use a certificate provided by you and **customized for your hostname**. To do so, create a secret holding the certificate on the target cluster. Reference that secret in the `certificateSecretRef` field and the custom domain in the `hostname` field of the target cluster:
 
     ```yaml
-    cat <<EOF | kubectl apply -f -
-    apiVersion: kommander.mesosphere.io/v1beta1
-    kind: KommanderCluster
-    metadata:
-      name: <cluster_name>
-      namespace: <workspace_namespace>
+    cat <<EOF | kubectl -n <workspace_namespace> --kubeconfig <management_cluster_kubeconfig> patch \ 
+    kommandercluster <cluster_name>  --type='merge' --patch-file=/dev/stdin
     spec:
-      kubeconfigRef:
-        name: <cluster_name>-kubeconfig
-      clusterRef:
-        capiCluster:
-          name: <cluster_name>
-    ingress:
-      hostname: <cluster_hostname>
-      certificateSecretRef:
-        namespace: <secret_namespace>
-        name: <secret_name>
+      ingress:
+        hostname: <cluster_hostname>
+        certificateSecretRef:
+          name: <secret_name>
     EOF
     ```
 
+<p class="message--note"><strong>NOTE: </strong>It is not possible to configure the namespace of the secret with a command. Ensure the secret is stored in the workspace namespace of the target cluster.</p>
+
 ### Example: Configure a custom certificate with Let's Encrypt
 
-Let's Encrypt is one of the Certificate Authorities (CA) supported by cert-manager. To set up a Let's Encrypt certificate, provide a `Issuer` or `ClusterIssuer` on the target cluster in the `issuerRef` field:
+Let's Encrypt is one of the Certificate Authorities (CA) supported by cert-manager. To set up a Let's Encrypt certificate, provide an `Issuer` or `ClusterIssuer` on the target cluster in the `issuerRef` field.
 
-<!-- TODO: example for let's encrypt -->
+1.  Create the Let's Encrypt ACME cert-manager issuer:
+
+    ```yaml
+    cat <<EOF | kubectl apply -f -
+    apiVersion: cert-manager.io/v1
+    kind: ClusterIssuer
+    metadata:
+      name: custom-acme-issuer
+    spec:
+      acme:
+        email: <your_email>
+        server: https://acme-v02.api.letsencrypt.org/directory
+        privateKeySecretRef:
+          name: kommander-acme-issuer-account
+        solvers:
+          - dns01:
+              route53:
+                region: us-east-1
+                role: arn:aws:iam::YYYYYYYYYYYY:role/dns-manager
+    EOF
+    ```
+
+1.  Configure the Management cluster to use your `custom-domain.example.com` with a certificate issued by Let's Encrypt.
+
+    ```yaml
+    cat <<EOF | kubectl -n kommander --kubeconfig <management_cluster_kubeconfig> patch \ kommandercluster host-cluster  --type='merge' --patch-file=/dev/stdin
+    spec:
+      ingress:
+        hostname: custom-domain.example.com
+        issuerRef:
+          name: custom-acme-issuer
+          kind: ClusterIssuer
+    EOF
+    ```
 
 ## Verify the status of the configuration and troubleshoot in case of errors
 

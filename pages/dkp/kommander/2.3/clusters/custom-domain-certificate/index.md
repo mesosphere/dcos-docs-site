@@ -8,9 +8,9 @@ beta: false
 enterprise: false
 ---
 
-DKP supports configuring a custom domain name per cluster, so users can access the DKP UI and other platform services via that domain. Additionally, you can provide a custom certificate for the domain, or one can be issued automatically by Let's Encrypt, or other certificate authorities supporting the ACME protocol.
+DKP supports configuring a custom domain name per cluster, so users can access the DKP UI and other platform services via that domain. Additionally, you can provide a custom certificate for the domain, or one can be issued automatically by Let's Encrypt (or other certificate authorities supporting the ACME protocol).
 
-The configuration path is the same regardless of whether you are configuring a custom domain and certificate on the management, or a managed/attached cluster. However, you can choose to set up a customized domain and certificate for the management cluster during the installation of DKP.
+The configuration path is the same regardless of whether you are configuring a custom domain and certificate on the management, or a workload (managed or attached) cluster. However, you can choose to set up a customized domain and certificate for the management cluster during the installation of DKP.
 
 [Customize a domain or certificate in the **Management Cluster**][management] (during installation).
 
@@ -31,4 +31,4 @@ Changing the default certificate for any of your clusters can be helpful, for ex
 <p class="message--note"><strong>NOTE: </strong>Let’s Encrypt and ACME do not work in air-gapped scenarios, as they require connection to the Internet for their setup. For air-gapped environments, you are able to use the certificates issued by the cluster (selfSigned, which is the default configuration), or a certificate created specifically for this purpose (which you can use so no browser warnings appear when calling up your URL).</p>
 
 [management]: ../../install/configuration/custom-domain/
-[managed]: ../custom-domain-certificate/managed/
+[managed]: ../custom-domain-certificate/configuration/
