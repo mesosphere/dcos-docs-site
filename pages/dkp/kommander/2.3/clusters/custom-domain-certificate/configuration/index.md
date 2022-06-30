@@ -16,7 +16,7 @@ To customize the domain or certificate for a specific cluster after the installa
 
 <p class="message--warning"><strong>IMPORTANT:</strong> Ensure your <code>dkp</code> configuration references the management cluster of the environment where you want to customize the domain or certificate by setting the <code>KUBECONFIG=<path></code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-To customize the domain or certificate of a cluster, alter the `issuer` object in the `ingress` values of the `KommanderCluster`. Note that you can reference an issuer as an `issuerRef` **OR** a secret as a `certificateSecretRef`, as long as the object is created on the cluster where you want to customize the configuration.
+To customize the domain or certificate of a cluster, alter the `spec` values of the `ingress` object in the `KommanderCluster`. Note that you can reference an issuer as an `issuerRef` **OR** a secret as a `certificateSecretRef`, as long as the object is created on the cluster where you want to customize the configuration.
 
 In the Management cluster, both the `KommanderCluster` and `issuerRef` or `certificateSecretRef` objects are on the same cluster. In Managed and Attached clusters, the `KommanderCluster` object is stored on the Management cluster, and the `issuerRef` or `certificateSecretRef` object is on the Managed or Attached cluster.
 
