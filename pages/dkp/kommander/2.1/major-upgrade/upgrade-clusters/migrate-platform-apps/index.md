@@ -42,10 +42,10 @@ To successfully adapt your applications, you must have:
 
 ## Prepare your cluster
 
-Check for the following on your existing `cluster.yaml`:
+Check for the following in your existing `cluster.yaml`:
 
 - One or more of `spec.kubernetes.networking.noProxy`, `spec.kubernetes.networking.httpProxy` or `spec.kubernetes.networking.httpsProxy` is set in `ClusterConfiguration`.
-- Enabled Gatekeeper on your cluster. Gatekeeper is enabled by default, but if you have manually disabled it, re-enable the application by changing the enabled field from `false` to `true` in the `addons` object of the cluster's `ClusterConfiguration` and perform a `konvoy up` to update the addons. 
+- Gatekeeper is enabled.  Gatekeeper is enabled by default, but if you have manually disabled it, re-enable the application by changing the enabled field from `false` to `true` in the `addons` object of the cluster's `ClusterConfiguration` and perform a `konvoy up` to update the addons. 
 
 If none of the conditions apply to your cluster, then you can skip to next section.
 
