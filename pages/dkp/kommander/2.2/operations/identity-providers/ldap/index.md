@@ -56,9 +56,8 @@ The following example configures a DKP cluster to connect to the [Online LDAP Te
         groupSearch:
           baseDN: dc=example,dc=com
           filter: "(objectClass=groupOfUniqueNames)"
-          userMatchers:
-          - userAttr: DN
-            groupAttr: uniqueMember
+          userAttr: DN
+          groupAttr: uniqueMember
           nameAttr: ou
     ```
 
