@@ -26,7 +26,7 @@ Refer to the following examples:
 
 1.  You have two options to create or update and apply the `KommanderCluster` object with the wanted ingress.
 
-    One option is to use a certificate that is managed automatically and supported by cert-manager like ACME (if you use Let's Encrypt, refer to the [example below](#example-configure-a-custom-certificate-with-lets-encrypt). For this, reference the `Issuer` or `ClusterIssuer` on the target cluster **to be used by cert-manager** in the `issuerRef` field, and enter the custom domain in the `hostname` field of the target cluster:
+    One option is to use a certificate that is managed automatically and supported by cert-manager like ACME (if you use Let's Encrypt, refer to the [example below](#example-configure-a-custom-certificate-with-lets-encrypt). For this, reference the **name of the `Issuer` or `ClusterIssuer` that contains your ACME provider information** in the `issuerRef` field, and enter the custom domain name in the `hostname` field of the target cluster:
 
     ```yaml
     cat <<EOF | kubectl -n <workspace_namespace> --kubeconfig <management_cluster_kubeconfig> patch \ 
