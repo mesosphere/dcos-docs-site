@@ -26,7 +26,8 @@ Before starting the Konvoy installation, verify that you have:
 
 ## Configure EKS prerequisites
 
-1.  Follow the steps in [IAM Policy Configuration](../../aws/iam-policies).
+1.  Follow the steps in [IAM Policy Configuration](./iam-policies) - note that
+    these are not the same as the steps for an EC2 based deployment.
 
 1.  Export the AWS region where you want to deploy the EKS cluster:
 
