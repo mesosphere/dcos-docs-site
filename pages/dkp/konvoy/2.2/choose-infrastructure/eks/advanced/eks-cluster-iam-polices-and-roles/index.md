@@ -213,12 +213,12 @@ Resources:
     Type: 'AWS::IAM::Role'
 ```
 
-To create the resources in the cloudformation stack copy the contents above into a file and run the following command:
+To create the resources in the cloudformation stack copy the contents above into a file and run the following command after replacing  `MYFILENAME.yaml` and `MYSTACKNAME` with the intended values:
 
 ```bash
  aws cloudformation create-stack --template-body=file://MYFILENAME.yaml --stack-name=MYSTACKNAME --capabilities  CAPABILITY_NAMED_IAM
 ```
-replacing `MYFILENAME.yaml` and `MYSTACKNAME` with the intended values.
+
 
 [iampolicies]: ../../../aws/iam-policies
 [awscli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
