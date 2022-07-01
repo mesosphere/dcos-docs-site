@@ -96,7 +96,7 @@ Let's Encrypt is one of the Certificate Authorities (CA) supported by cert-manag
 
 ## Verify the status of the configuration and troubleshoot in case of errors
 
-If you want to ensure the customization for a domain or a certificate is completed, or if you want to obtain more information in case the customization fails, call up a list of statuses for the `KommanderCluster`.
+If you want to ensure the customization for a domain or a certificate is completed, or if you want to obtain more information if the customization fails, display the status information for the `KommanderCluster`.
 
 1.  Inspect the modified `KommanderCluster` object:
 
