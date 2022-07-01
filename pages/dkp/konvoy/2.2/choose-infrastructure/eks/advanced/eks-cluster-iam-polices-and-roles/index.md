@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Explore New Cluster
-title: Explore New Cluster
+navigationTitle: EKS Cluster IAM Policies and Roles
+title: EKS Cluster IAM Policies and Roles
 menuWeight: 25
 excerpt: Configure IAM Prerequisites before starting an EKS cluster
 enterprise: false
