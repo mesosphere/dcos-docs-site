@@ -40,7 +40,7 @@ Refer to the following examples:
     EOF
     ```
 
-    Another option is to use a certificate provided by you and **customized for your hostname**. To do so, create a secret holding the certificate on the target cluster. Reference that secret in the `certificateSecretRef` field and the custom domain in the `hostname` field of the target cluster:
+    Another option is to use a manually created certificate that is **customized for your hostname**. To do so, create a secret holding the certificate on the target cluster. Reference that secret in the `certificateSecretRef` field and the custom domain name in the `hostname` field of the target cluster:
 
     ```yaml
     cat <<EOF | kubectl -n <workspace_namespace> --kubeconfig <management_cluster_kubeconfig> patch \ 
