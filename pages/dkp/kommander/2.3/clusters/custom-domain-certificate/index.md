@@ -10,7 +10,7 @@ enterprise: false
 
 DKP supports configuring a custom domain name per cluster, so users can access the DKP UI and other platform services via that domain. Additionally, you can provide a custom certificate for the domain, or one can be issued automatically by Let's Encrypt (or other certificate authorities supporting the ACME protocol).
 
-The configuration path is the same regardless of whether you are configuring a custom domain and certificate on the management, or a workload (managed or attached) cluster. However, you can choose to set up a customized domain and certificate for the management cluster during the installation of DKP.
+The configuration path is the same regardless of whether you are configuring a custom domain and certificate on the Management, or a Workload (Managed or Attached) cluster. However, you can choose to set up a customized domain and certificate for the Management cluster during the installation of DKP.
 
 [Customize a domain or certificate in the **Management Cluster**][management] (during installation).
 
@@ -18,9 +18,7 @@ The configuration path is the same regardless of whether you are configuring a c
 
 ## Reasons for using a custom DNS domain
 
-DKP supports the customization of domains to allow you to use your own domain or hostname for your services.
-
-For example, you can set up your DKP UI to be accessible with your custom domain name instead of the domain provided by default. You can also use your domain to enable your company to access back-end services, or your customers to access front-end services with a specific domain. Or you can configure a cluster to be accessible with a specific domain.
+DKP supports the customization of domains to allow you to use your own domain or hostname for your services. For example, you can set up your DKP UI or any of your clusters to be accessible with your custom domain name instead of the domain provided by default.
 
 ## Reasons for using a custom certificate
 
