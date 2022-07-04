@@ -24,32 +24,32 @@ Use the API yaml to customize the domain (via the `hostname` field), and the cer
 
 You have two options to update and apply the `KommanderCluster` resource with the required ingress. Refer to the following examples:
 
-  1. One option is to use a certificate that is managed automatically and supported by cert-manager like ACME (if you use Let's Encrypt, refer to the [example below](#example-configure-a-custom-certificate-with-lets-encrypt). For this, reference the **name of the `Issuer` or `ClusterIssuer` that contains your ACME provider information** in the `issuerRef` field, and enter the custom domain name in the `hostname` field of the target cluster:
+1.  One option is to use a certificate that is managed automatically and supported by cert-manager like ACME (if you use Let's Encrypt, refer to the [example below](#example-configure-a-custom-certificate-with-lets-encrypt). For this, reference the **name of the `Issuer` or `ClusterIssuer` that contains your ACME provider information** in the `issuerRef` field, and enter the custom domain name in the `hostname` field of the target cluster:
 
-  ```yaml
-  cat <<EOF | kubectl -n <workspace_namespace> --kubeconfig <management_cluster_kubeconfig> patch \ 
-  kommandercluster <cluster_name>  --type='merge' --patch-file=/dev/stdin
-  spec:
-    ingress:
-      hostname: <cluster_hostname>
-      issuerRef:
-        name: <issuer_name>
-        kind: ClusterIssuer # or Issuer depending on the issuer config
-  EOF
-  ```
+    ```yaml
+    cat <<EOF | kubectl -n <workspace_namespace> --kubeconfig <management_cluster_kubeconfig> patch \ 
+    kommandercluster <cluster_name>  --type='merge' --patch-file=/dev/stdin
+    spec:
+      ingress:
+        hostname: <cluster_hostname>
+        issuerRef:
+          name: <issuer_name>
+          kind: ClusterIssuer # or Issuer depending on the issuer config
+    EOF
+    ```
 
-  1. Another option is to use a manually created certificate that is **customized for your hostname**. To do so, create a [TLS Secret holding the certificate](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) on the target cluster. Reference that secret in the `certificateSecretRef` field and the custom domain name in the `hostname` field of the target cluster:
+1.  Another option is to use a manually created certificate that is **customized for your hostname**. To do so, create a [TLS Secret holding the certificate](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) on the target cluster. Reference that secret in the `certificateSecretRef` field and the custom domain name in the `hostname` field of the target cluster:
 
-  ```yaml
-  cat <<EOF | kubectl -n <workspace_namespace> --kubeconfig <management_cluster_kubeconfig> patch \ 
-  kommandercluster <cluster_name>  --type='merge' --patch-file=/dev/stdin
-  spec:
-    ingress:
-      hostname: <cluster_hostname>
-      certificateSecretRef:
-        name: <secret_name>
-  EOF
-  ```
+    ```yaml
+    cat <<EOF | kubectl -n <workspace_namespace> --kubeconfig <management_cluster_kubeconfig> patch \ 
+    kommandercluster <cluster_name>  --type='merge' --patch-file=/dev/stdin
+    spec:
+      ingress:
+        hostname: <cluster_hostname>
+        certificateSecretRef:
+          name: <secret_name> 
+    EOF
+    ```
 
 <p class="message--note"><strong>NOTE: </strong>It is not possible to configure the namespace of the secret with a command. Ensure the secret is stored in the workspace namespace of the target cluster.</p>
 
