@@ -101,7 +101,7 @@ If you want to ensure the customization for a domain or a certificate is complet
 1.  Inspect the modified `KommanderCluster` object:
 
     ```bash
-    kubect -n <workspace_namespace> get kommandercluster <cluster_name> -o yaml
+    kubectl -n <workspace_namespace> get kommandercluster <cluster_name> -o yaml
     ```
 
     If the ingress is still being provisioned, the output looks similar to this:
