@@ -17,6 +17,10 @@ D2iQ is announcing Kaptain 2.1 which includes several user experience features, 
 
 ## New features and capabilities
 
+### Support of MLflow
+
+You can use the MLflow platform with Kaptain to collect data and manage the lifecycle of your Machine Learning and Artificial Intelligence models and experiments. You can easily log hyperparameters and metrics to the MLflow instance that is bundled with Kaptain. For more information on how MLflow is integrated to Kaptain and how to use it, refer to the [MLflow documentation](../../tutorials/mlflow/).
+
 ### Restrict access to Kaptain by establishing a list of allowed groups
 
 You can authenticate and enable users and user groups to access Kaptain by linking your Kaptain's Dex instance to an [identity provider][ident] of your choice. From this release on, you have the option of adding or removing groups (that are established in your identity provider) to the `AllowList` to further restrict access to your Kaptain instance.
@@ -64,7 +68,7 @@ This gives you back the capability of launching notebooks in Jupyter:
     kubectl -n kaptain-ingress create secret generic kubeflow-oidc-ca-bundle --from-file=oidcCABundle\.crt=ca.crt
     ```
 
-Running this command reloads the pod automatically. Wait a few minutes until you attempt to log in to DKP and Kaptain again. 
+Running this command reloads the pod automatically. Wait a few minutes until you attempt to log in to DKP and Kaptain again.
 
 Test by logging into both and launch a new notebook in Jupyter.
 
