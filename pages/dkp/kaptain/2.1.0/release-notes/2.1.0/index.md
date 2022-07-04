@@ -19,7 +19,7 @@ D2iQ is announcing Kaptain 2.1 which includes several user experience features, 
 
 ### Support of MLflow
 
-You can use the MLflow platform with Kaptain to collect data and manage the lifecycle of your Machine Learning and Artificial Intelligence models and experiments. You can easily log hyperparameters and metrics to the MLflow instance that is bundled with Kaptain. For more information on how MLflow is integrated to Kaptain and how to use it, refer to the [MLflow documentation](../../tutorials/mlflow/).
+You can use the MLflow platform with Kaptain to collect data and manage the lifecycle of your Machine Learning and Artificial Intelligence models and experiments. You can now log hyperparameters and metrics to the MLflow instance that is bundled with Kaptain. For more information on how MLflow is integrated to Kaptain and how to use it, refer to the [MLflow documentation](../../tutorials/mlflow/).
 
 ### Restrict access to Kaptain by establishing a list of allowed groups
 
