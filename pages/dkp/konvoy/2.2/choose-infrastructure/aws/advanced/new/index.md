@@ -71,7 +71,7 @@ dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
 
 ## Create a new AWS Kubernetes cluster
 
-1.  Ensure your AWS credentials are up to date. Refresh the credentials if you are using Static Credentials:
+1.  Ensure your AWS credentials are up to date. Use step 1 command to refresh the credentials if you are using Static Credentials, otherwise proceed to Step 2:
 
     ```bash
     dkp update bootstrap credentials aws
