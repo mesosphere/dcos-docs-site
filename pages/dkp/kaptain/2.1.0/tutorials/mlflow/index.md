@@ -21,7 +21,7 @@ With MLflow, you are able to:
 
 - You have launched a Jupyter notebook with Kaptain. (Using another notebook would require you to build a custom image for this purpose)
 
-  <p class="message--important"><strong>IMPORTANT: </strong>If you decide to use your own custom image or an image not provided by Kaptain to run a distributed training job, create the image following the recommended container image creation steps (<a href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/l4t-base">Running an l4t-base container</a>, <a href="https://gitlab.com/nvidia/container-images/l4t-base">l4t-base build instructions</a>). Also ensure MLflow has been installed on it.</p>
+  <p class="message--important"><strong>IMPORTANT: </strong>If you decide to use your own custom image or an image not provided by Kaptain to run a distributed training job, create an image following the (<a href="../sdk/image-builder/">recommended container image creation steps</a>. Also ensure MLflow has been installed on it.</p>
 
 - Optional: If you are using SDK, you have [set up Kaptain SDK for your desired training framework](https://docs.d2iq.com/dkp/kaptain/2.0.0/tutorials/sdk/).
 
@@ -42,4 +42,4 @@ For more information on how to use MLflow Tracking, MLflow Projects, or MLflow M
 If you want to see an example of how to log SDK metrics in MLflow, refer to the [Log and Hyperparameters Metrics to MLFlow][tutorial] tutorial.
 
 [mlflow_docs]: https://mlflow.org/docs/1.25.1/index.html
-[tutorial]: https://docs.d2iq.com/dkp/kaptain/2.0.0/tutorials/sdk/quick-start#log-and-hyperparameters-metrics-to-mlflow
+[tutorial]: https://docs.d2iq.com/dkp/kaptain/2.1.0/tutorials/sdk/quick-start#log-and-hyperparameters-metrics-to-mlflow
