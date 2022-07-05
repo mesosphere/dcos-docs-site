@@ -8,7 +8,7 @@ enterprise: false
 beta: false
 ---
 
-**D2iQ&reg; Kommander&reg; (DKP&reg;) version 2.3 was released on xxxxx.**
+**D2iQ&reg; Kommander&reg; (DKP&reg;) version 2.3 was released on <!-- xxxxx -->.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
@@ -37,6 +37,11 @@ The following features and capabilities are new for Version 2.2.
 
 ### Feature 1
 
+<!-- placeholder -->
+
+### Custom domains and certificates for Workload (Managed and Attached) clusters
+
+If you have an Enterprise license, you can now set up a custom domain and certificate for your Managed or Attached cluster. For more information on how to do this, refer to the [Configuration instructions](../../clusters/custom-domain-certificate/configuration/).
 
 ## Component updates
 
@@ -71,7 +76,7 @@ When upgrading to this release, the following services and service components ar
 | Grafana (project) | project-grafana-logging| 6.20.6 | - chart: 6.20.6<br>- grafana: 8.3.6 |
 | Loki (project) | project-grafana-loki | 0.33.2 | - chart: 0.33.1<br>- loki: 2.2.1 |
 |  | project-logging | 1.0.0 |  |
-| Prometheus Adapter  | prometheus-adapter | 2.17.1 | - chart: 2.17.1<br>- prometheus-adapter: 0.9.1 |
+| Prometheus Adapter | prometheus-adapter | 2.17.1 | - chart: 2.17.1<br>- prometheus-adapter: 0.9.1 |
 | Reloader | reloader | 0.0.104 | - chart: 0.0.104<br>- reloader: 0.0.104 |
 | Thanos | thanos | 0.4.6 | - chart: 0.4.6<br>- thanos: 0.9.0 |
 | Traefik | traefik | 10.9.1 | - chart: 10.9.1<br>- traefik: 2.5.6 |
