@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Explore New Cluster
-title: Explore New Cluster
+navigationTitle: EKS Cluster IAM Policies and Roles
+title: EKS Cluster IAM Policies and Roles
 menuWeight: 25
 excerpt: Configure IAM Prerequisites before starting an EKS cluster
 enterprise: false
@@ -23,9 +23,9 @@ EKS IAM Artifacts
 
 ### Policies
 
-*   `controllers-eks.cluster-api-provider-aws.sigs.k8s.io` - enumerates the Actions required by the workload cluster to create and modify EKS clusters in the users AWS Account. It is attached to the existing `control-plane.cluster-api-provider-aws.sigs.k8s.io`  role
+*   `controllers-eks.cluster-api-provider-aws.sigs.k8s.io` - enumerates the Actions required by the workload cluster to create and modify EKS clusters in the user's AWS Account. It is attached to the existing `control-plane.cluster-api-provider-aws.sigs.k8s.io`  role
     
-*   `eks-nodes.cluster-api-provider-aws.sigs.k8s.io` - enumerates the Actions required by the EKS workload cluster worker machines. It Is attached to the existing `nodes.cluster-api-provider-aws.sigs.k8s.io`
+*   `eks-nodes.cluster-api-provider-aws.sigs.k8s.io` - enumerates the Actions required by the EKS workload cluster's worker machines. It is attached to the existing `nodes.cluster-api-provider-aws.sigs.k8s.io`
     
 
 ### Roles
@@ -44,11 +44,11 @@ AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   existingControlPlaneRole:
     Type: CommaDelimitedList
-    Description: 'Names of existing Control Plane Role you want to add to the newly created EKS Managed Policy'
+    Description: 'Names of existing Control Plane Role you want to add to the newly created EKS Managed Policy for AWS cluster API controllers'
     Default: control-plane.cluster-api-provider-aws.sigs.k8s.io
   existingNodeRole:
     Type: CommaDelimitedList
-    Description: 'ARN of the Nodes Managed Policy to add to the role'
+    Description: 'Names of existing Node role that you want to add to the newly created EKS managed policy for nodes'
     Default: nodes.cluster-api-provider-aws.sigs.k8s.io
 Resources:
   AWSIAMManagedPolicyControllersEKS:
@@ -213,12 +213,12 @@ Resources:
     Type: 'AWS::IAM::Role'
 ```
 
-To create the resources in the cloudformation stack copy the contents above into a file and run the following command:
+**Create the cloudformation stack using AWS CLI**:
+Save above cloudformation stack into a file and run the following command after replacing  `MYFILENAME.yaml` and `MYSTACKNAME` with the intended values:
 
 ```bash
  aws cloudformation create-stack --template-body=file://MYFILENAME.yaml --stack-name=MYSTACKNAME --capabilities  CAPABILITY_NAMED_IAM
 ```
-replacing `MYFILENAME.yaml` and `MYSTACKNAME` with the intended values.
 
 [iampolicies]: ../../../aws/iam-policies
 [awscli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
