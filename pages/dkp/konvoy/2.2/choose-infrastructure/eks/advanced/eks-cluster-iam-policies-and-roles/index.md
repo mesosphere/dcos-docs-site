@@ -220,6 +220,7 @@ Save above cloudformation stack into a file and run the following command after 
  aws cloudformation create-stack --template-body=file://MYFILENAME.yaml --stack-name=MYSTACKNAME --capabilities  CAPABILITY_NAMED_IAM
 ```
 
+
 [iampolicies]: ../../../aws/iam-policies
 [awscli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
