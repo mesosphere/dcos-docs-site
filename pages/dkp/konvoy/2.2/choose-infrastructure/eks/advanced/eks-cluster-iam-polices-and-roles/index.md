@@ -44,7 +44,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   existingControlPlaneRole:
     Type: CommaDelimitedList
-    Description: 'Names of existing Control Plane Role you want to add to the newly created EKS Managed Policy'
+    Description: 'Names of existing Control Plane Role you want to add to the newly created EKS Managed Policy for AWS cluster API controllers'
     Default: control-plane.cluster-api-provider-aws.sigs.k8s.io
   existingNodeRole:
     Type: CommaDelimitedList
