@@ -14,7 +14,7 @@ The configuration path is the same regardless of whether you are configuring a c
 
 [Customize a domain or certificate in the **Management Cluster**][management] (during installation).
 
-[Customize a domain or certificate in the [**Management or a Managed/Attached Cluster**][managed] (after installation).
+[Customize a domain or certificate in the **Management or a Managed/Attached Cluster**][managed] (after installation).
 
 ## Reasons for using a custom DNS domain
 
