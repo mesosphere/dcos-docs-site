@@ -28,7 +28,7 @@ enterprise: false
     </p>
 
 ## Tips and Tricks
-
+Below are a few ways to customize your setup.   If you prefer to do a basic setup, skip Tips and Tricks and proceed to Create a New AWS Cluster section. 
 1.  To get a list of names used in your AWS account, use the `aws` [CLI][download_aws_cli]. After downloading, use the following command:
 
     ```bash
@@ -53,10 +53,25 @@ enterprise: false
 
     This will create a unique name every time you run it, so use it with forethought.
 
+1.  (Optional) To create a cluster using a custom AMI built using [KIB][KIB], perform the export and name the custom AMI. Set the environment variable for the AMI you choose: 
+
+```bash
+export AWS_AMI_ID=ami-<ami-id-here>
+```
+
+After export, run the following command:
+
+```bash
+dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
+--ami=${AWS_AMI_ID} \
+--dry-run \
+--output=yaml \
+> ${CLUSTER_NAME}.yaml
+```
 
 ## Create a new AWS Kubernetes cluster
 
-1.  Ensure your AWS credentials are up to date. Refresh the credentials:
+1.  Ensure your AWS credentials are up to date. Refresh the credentials if you are using Static Credentials:
 
     ```bash
     dkp update bootstrap credentials aws
@@ -278,3 +293,4 @@ enterprise: false
 [capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
 [download_aws_cli]: https://aws.amazon.com/cli/
 [k8s_custom_resources]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
+[KIB]: ../../../../image-builder/
