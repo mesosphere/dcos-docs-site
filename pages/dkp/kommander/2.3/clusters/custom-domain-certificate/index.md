@@ -24,7 +24,7 @@ DKP supports the customization of domains to allow you to use your own domain or
 
 DKP’s default CA identity supports the encryption of data exchange and traffic (between your client and your environment’s server). To configure an additional security layer that validates your environment’s server authenticity, DKP supports configuring a custom certificate issued by a trusted Certificate Authority either directly in a Secret or managed automatically using the ACME protocol (for example, Let’s Encrypt).
 
-Changing the default certificate for any of your clusters can be helpful, for example, you can adapt it to classify your DKP UI or any other type of service as trusted (when accessing a service via a browser).
+Changing the default certificate for any of your clusters can be helpful. For example, you can adapt it to classify your DKP UI or any other type of service as trusted (when accessing a service via a browser).
 
 <p class="message--note"><strong>NOTE: </strong>Using Let’s Encrypt or other ACME certificate authorities does not work in air-gapped scenarios, as these services require connection to the Internet for their setup. For air-gapped environments, you can either use self signed certificates issued by the cluster (the default configuration), or a certificate created manually using a trusted Certificate Authority.</p>
 
