@@ -48,7 +48,7 @@ Parameters:
     Default: control-plane.cluster-api-provider-aws.sigs.k8s.io
   existingNodeRole:
     Type: CommaDelimitedList
-    Description: 'ARN of the Nodes Managed Policy to add to the role'
+    Description: 'Names of existing Node role that you want to add to the newly created EKS managed policy for nodes'
     Default: nodes.cluster-api-provider-aws.sigs.k8s.io
 Resources:
   AWSIAMManagedPolicyControllersEKS:
