@@ -16,8 +16,8 @@ You need to download an appropriate, signed signature file before you run valida
 
 |EL version | Kubernetes version | Manifest URL                                    |
 |-----------|--------------------|-------------------------------------------------|
-| 7         | v1.22.8            | [v1.22.8 EL 7 Manifest][1.22.8-fips-manifest-7] |
-| 8         | v1.22.8            | [v1.22.8 EL 8 Manifest][1.22.8-fips-manifest-8] |
+| 7         | v1.22.8            | [v1.22.8 EL 7 Manifest][1-22-8-fips-manifest-7] |
+| 8         | v1.22.8            | [v1.22.8 EL 8 Manifest][1-22-8-fips-manifest-8] |
 
 ## Run FIPS validation
 
