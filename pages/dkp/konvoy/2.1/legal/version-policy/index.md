@@ -16,25 +16,24 @@ You can read more about our official support policy in [D2iQ Support and Mainten
 
 ## Supported Kubernetes versions
 
-Each Konvoy release supports a range of Kubernetes versions. Konvoy 2.0 supports:
-
-| Kubernetes Support | Version |
-| ------------------ | ------- |
-|**Minimum** | 1.21.6 |
-|**Maximum** | 1.21.x |
-|**Default** | 1.21.6 |
+Details for supported Kubernetes versions on Konvoy can be found in the [Release Notes](../../release-notes).
 
 ## Supported operating systems
 
 Details for supported operating systems on Konvoy can be found in [Supported Operating Systems](../../supported-operating-systems).
 
-## Support for KUDO - Cassandra, Kafka & Spark
+## Support Definitions
 
-### Support definition - secondary support
+### Secondary Support 
 
-Secondary support covers support for the base technology of platform service, which is Cassandra, Kafka, and Spark, and additionally support for the KUDO-based operator of the mentioned platform services.
+The following section describes D2iQ’s support for secondary applications, such as platform applications. All platform applications that D2iQ ships with DKP products are covered under secondary support:
 
-**Note:** Base Technology refers to Cassandra, Kafka, and Spark.
+| Type | Scope Example | Support Offered |
+| ---- | ------------- | --------------- |
+| Configuration | &ast; Guidance for base technology and DKP interoperability configuration questions and troubleshooting for different components of the DKP platform.<br/> &ast; No support for base technology’s configuration that is unrelated to its integration with DKP.<br/> &ast; No support for performance issues with the base technology that is unrelated to its integration with DKP.. | Supported with severity 3 & 4 support terms |
+| Failure Assistance | &ast; Assistance with installation, and upgrade failures of the service as captured in the supported DKP product upgrade pathway.<br/> &ast; Assistance with service failures due to platform issues. For example: Konvoy, Kommander, KUDO.<br/> &ast; Support is limited to troubleshooting for root cause up to DKP product limit. Root causes that are identified to be beyond this limit will need to be pursued by the company who creates the addon base technology.  Please note, if the RCA for the failure is due to a non-standard configuration or non-DKP use of the addon, we will be unable to provide assistance beyond basic identification.<br/> &ast; No assistance for base technology’s failures that is unrelated to its integration with DKP. | Supported with all severities |
+| Bug Fixes | &ast; Bug fixes for service integration with DKP.<br/>&ast; Upstream bug fixes to identified issues in the base technology of the addon on a best effort basis.<br/>&ast; No guarantees that our changes to upstream will be accepted.<br/>&ast; No commitment to maintaining forks upstream. | RCA supported with all severities, Fix supported with severity 3 & 4 support terms |
+| Documentation errors | &ast; Documentation fixes for life cycle management of services and integration with DKP.<br/>&ast; Upstream documentation fixes to reported and identified issues in base technology of the addon via a best effort basis.<br/>&ast; No guarantees that our changes will be accepted. | Supported with severity 4 support terms |
 
 ## Features in patches
 
