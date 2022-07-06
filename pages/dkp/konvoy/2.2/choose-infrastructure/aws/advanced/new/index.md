@@ -289,6 +289,7 @@ dkp create cluster aws --cluster-name=${CLUSTER_NAME} \
 - Konvoy generates a set of objects for one Node Pool.
 - Konvoy does not validate edits to cluster objects.
 
+
 [bootstrap]: ../bootstrap
 [capi_concepts]: https://cluster-api.sigs.k8s.io/user/concepts.html
 [download_aws_cli]: https://aws.amazon.com/cli/
