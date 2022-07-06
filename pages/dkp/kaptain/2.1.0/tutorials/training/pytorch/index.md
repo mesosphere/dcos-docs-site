@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
 ```
 
 </p>
@@ -59,7 +59,7 @@ If you prefer to create your Docker image locally, you must also have a Docker c
 Before proceeding, check you are using the correct notebook image, that is, [PyTorch](https://pytorch.org/docs/stable/torch.html) is available:
 
 
-```bash
+```sh
 %%sh
 pip list | grep torch
 ```
@@ -119,7 +119,7 @@ mnist
 ```
 
 
-```sh
+
 
     Dataset MNIST
         Number of datapoints: 60000
@@ -127,7 +127,7 @@ mnist
         Split: Train
         StandardTransform
     Transform: ToTensor()
-```
+
 
 
 
@@ -137,9 +137,9 @@ list(mnist.data.size())
 
 
 
-```sh
+
     [60000, 28, 28]
-```
+
 
 
 That shows there are 60,000 28&times;28 pixel grayscale images.
@@ -152,9 +152,9 @@ mnist.data.float().min(), mnist.data.float().max()
 
 
 
-```sh
+
     (tensor(0.), tensor(255.))
-```
+
 
 
 
@@ -188,9 +188,9 @@ example_label
 
 
 
-```sh
+
     7
-```
+
 
 
 Normalize the data set to improve the training speed, which means you need to know the mean and standard deviation:
@@ -202,9 +202,9 @@ mnist.data.float().mean() / 255, mnist.data.float().std() / 255
 
 
 
-```sh
+
     (tensor(0.1307), tensor(0.3081))
-```
+
 
 
 These are the values hard-coded in the transformations within the model.
@@ -257,10 +257,10 @@ Make the defined constants available as shell environment variables. They parame
 %env EPOCHS $EPOCHS
 %env GPUS $GPUS
 ```
-```sh
+
     env: EPOCHS=5
     env: GPUS=1
-```
+
 
 ## How to Train the Model in the Notebook
 
@@ -519,9 +519,9 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-```sh
+
     Writing mnist.py
-```
+
 
 That saves the file as defined by `TRAINER_FILE` but it does not run it.
 
@@ -580,7 +580,7 @@ Run the code from within the notebook to check that it is correct:
 ```python
 %run $TRAINER_FILE --epochs $EPOCHS --log-interval 128
 ```
-``sh
+
     INFO:root:Epoch: 1 (  0.0%) - Loss: 2.293032646179199
     INFO:root:Epoch: 1 ( 13.6%) - Loss: 0.5257666110992432
     INFO:root:Epoch: 1 ( 27.3%) - Loss: 0.08510863780975342
@@ -636,7 +636,7 @@ Run the code from within the notebook to check that it is correct:
     INFO:root:Test accuracy: 9909/10000 ( 99.1%)
     INFO:root:loss=0.0306
     INFO:root:accuracy=0.9909
-```
+
 
 
     <Figure size 432x288 with 0 Axes>
@@ -659,7 +659,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow:2.0.0-pytorch-1.11.0-gpu
+FROM mesosphere/kubeflow-dev:06de0f2c-pytorch-1.11.0-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -676,11 +676,11 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow:2.0.0-mnist-pytorch-1.11.0-gpu` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow-dev:616a6a45-mnist-pytorch-1.11.0-gpu` in case you want to skip it for now.
 
 
 ```python
-%env IMAGE mesosphere/kubeflow:2.0.0-mnist-pytorch-1.11.0-gpu
+%env IMAGE mesosphere/kubeflow-dev:616a6a45-mnist-pytorch-1.11.0-gpu
 ```
 
 ## How to Create a Distributed `PyTorchJob`
@@ -797,7 +797,7 @@ kubectl create -f "${KUBERNETES_FILE}"
 Check the status like so:
 
 
-```bash
+```sh
 %%sh
 kubectl describe $PYTORCH_JOB
 ```
@@ -821,16 +821,16 @@ Events:
 You should now be able to see the pods created, matching the specified number of replicas.
 
 
-```bash
+```sh
 %%sh
 kubectl get pods -l job-name=pytorchjob-mnist
 ```
-```sh
+
     NAME                         READY   STATUS    RESTARTS   AGE
-    pytorchjob-mnist-master-0    1/1     Running   0          34s
-    pytorchjob-mnist-worker-0    1/1     Running   0          34s
-    pytorchjob-mnist-worker-1    1/1     Running   0          34s
-```
+    pytorchjob-mnist-master-0   1/1     Running   0          34s
+    pytorchjob-mnist-worker-0   1/1     Running   0          34s
+    pytorchjob-mnist-worker-1   1/1     Running   0          34s
+
 
 The job name matches `metadata.name` from the YAML.
 
@@ -838,11 +838,11 @@ As per the specification, the training runs for 15 epochs.
 During that time, stream the logs from the `Master` pod to follow the progress:
 
 
-```bash
+```sh
 %%sh
 kubectl logs -f pytorchjob-mnist-master-0
 ```
-```sh
+
     Using distributed PyTorch with gloo backend
     Epoch: 1 (  0.0%) - Loss: 2.3082287311553955
     Epoch: 1 ( 81.8%) - Loss: 0.04400685429573059
@@ -919,7 +919,7 @@ kubectl logs -f pytorchjob-mnist-master-0
     Test accuracy: 9911/10000 ( 99.1%)
     loss=0.0267
     accuracy=0.9911
-```
+
 
 Note that it may take a while when the image has to be pulled from the registry.
 It usually takes a few minutes, depending on the arguments and resources of the cluster, for the status for all pods to be 'Running'.
@@ -927,11 +927,11 @@ It usually takes a few minutes, depending on the arguments and resources of the 
 The setting `spec.ttlSecondsAfterFinished` will result in the cleanup of the created job:
 
 
-```bash
+```sh
 %%sh
 kubectl get pytorchjobs -w
 ```
-```sh
+
     NAME               STATE     AGE
     pytorchjob-mnist   Created   0s
     pytorchjob-mnist   Running   2s
@@ -939,10 +939,10 @@ kubectl get pytorchjobs -w
     pytorchjob-mnist   Succeeded   70s
     pytorchjob-mnist   Succeeded   70s
     pytorchjob-mnist   Succeeded   11m
-```
 
 
-```bash
+
+```sh
 %%sh
 kubectl get pytorchjob pytorchjob-mnist
 ```
@@ -950,7 +950,11 @@ kubectl get pytorchjob pytorchjob-mnist
 To delete the job manually, execute:
 
 
-```bash
+```sh
 %%sh
 kubectl delete $PYTORCH_JOB
 ```
+
+This tutorial includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 2.1.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z](https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z) and [https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z](https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z)
+
+For a full list of attributed 3rd party software, see d2iq.com/legal/3rd

@@ -22,6 +22,7 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | ingress.enabled | bool | `true` | Enable ingress |
 | ingress.externalDexClientId | string | `""` | Dex client ID to use when authenticating with external cluster |
 | ingress.externalDexClientSecret | string | `""` | Dex client secret to use when authenticating with external cluster |
+| ingress.oidcGroupsAllowList | string | `"*"` | List of groups that are allowed to pass authorization |
 | ingress.oidcProviderEndpoint | string | `""` | External OIDC provider endpoint URL |
 | ingress.oidcProviderBase64CaBundle | string | `""` | CA bundle of the OIDC provider endpoint URL encoded in base64 |
 | ingress.kubeflowIngressGatewayServiceAnnotations | object | `{}` | Additional annotations for Kaptain's default gateway |
@@ -31,13 +32,13 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | ingress.namespace | string | `"kaptain-ingress"` | Namespace to install Kaptain Ingress resources |
 | core.enabled | bool | `true` |  |
 | core.namespace | string | `"kubeflow"` |  |
-| core.notebook.defaultImage | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0"` | Default image to use when creating a new notebook server |
-| core.notebook.images[0] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0"` | JupyterLab with Tensorflow, Spark and Horovod pre-installed |
-| core.notebook.images[1] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu"` | JupyterLab with Tensorflow, CUDA, Spark and Horovod pre-installed with GPU support |
-| core.notebook.images[2] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-pytorch-1.11.0"` | JupyterLab with Pytorch, Spark and Horovod pre-installed |
-| core.notebook.images[3] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-pytorch-1.11.0-gpu"` | JupyterLab with Pytorch, CUDA, Spark and Horovod pre-installed with GPU support |
-| core.notebook.images[4] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-mxnet-1.9.0"` | JupyterLab with MXNet, Spark and Horovod pre-installed |
-| core.notebook.images[5] | string | `"mesosphere/kubeflow:2.0.0-jupyter-spark-3.0.0-horovod-0.24.2-mxnet-1.9.0-gpu"` | JupyterLab with MXNet, CUDA, Spark and Horovod pre-installed with GPU support |
+| core.notebook.defaultImage | string | `"mesosphere/kubeflow-dev:9715a1de-jupyter-spark-3.3.0-horovod-0.24.2-tensorflow-2.8.0"` | Default image to use when creating a new notebook server |
+| core.notebook.images[0] | string | `"mesosphere/kubeflow-dev:9715a1de-jupyter-spark-3.3.0-horovod-0.24.2-tensorflow-2.8.0"` | JupyterLab with Tensorflow, Spark and Horovod pre-installed |
+| core.notebook.images[1] | string | `"mesosphere/kubeflow-dev:14894f36-jupyter-spark-3.3.0-horovod-0.24.2-tensorflow-2.8.0-gpu"` | JupyterLab with Tensorflow, CUDA, Spark and Horovod pre-installed with GPU support |
+| core.notebook.images[2] | string | `"mesosphere/kubeflow-dev:58054fea-jupyter-spark-3.3.0-horovod-0.24.2-pytorch-1.11.0"` | JupyterLab with Pytorch, Spark and Horovod pre-installed |
+| core.notebook.images[3] | string | `"mesosphere/kubeflow-dev:ecfaaddd-jupyter-spark-3.3.0-horovod-0.24.2-pytorch-1.11.0-gpu"` | JupyterLab with Pytorch, CUDA, Spark and Horovod pre-installed with GPU support |
+| core.notebook.images[4] | string | `"mesosphere/kubeflow-dev:eed5f454-jupyter-spark-3.3.0-horovod-0.24.2-mxnet-1.9.0"` | JupyterLab with MXNet, Spark and Horovod pre-installed |
+| core.notebook.images[5] | string | `"mesosphere/kubeflow-dev:75dd8b53-jupyter-spark-3.3.0-horovod-0.24.2-mxnet-1.9.0-gpu"` | JupyterLab with MXNet, CUDA, Spark and Horovod pre-installed with GPU support |
 | core.notebook.tolerationGroups | list | `[]` | Pod toleration group configurations for Notebook servers |
 | core.notebook.affinityConfig | list | `[]` | Pod affinity configurations for Notebook servers |
 | core.notebook.enableCulling | bool | `false` | Enables scale down idling notebooks to freeing up the allocated resources. |
@@ -45,6 +46,7 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | core.notebook.cullingCheckPeriodMinutes | int | `1` | Notebook status check period |
 | core.disableAntiAffinity | bool | `false` | Enables single-node installation. **DO NOT USE IN PRODUCTION ENVIRONMENTS!** Disabling anti-affinity allows installing Kaptain on a smaller number of nodes (less than 3) or on a single node. This installation mode must be used **for evaluation purposes only**. No data integrity guarantees in case of a hardware failure! |
 | core.registrationFlow | bool | `false` | Enables automatic profile creation |
+| core.tensorboardImage | string | `"mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0"` | Image to use for a Tensorboard in Kubeflow |
 | core.dashboard.uriPathPrefix | string | `"/dashboard/"` |  |
 | core.dashboard.prometheusPort | int | `9090` |  |
 | core.dashboard.refreshIntervalSeconds | int | `10` |  |
@@ -92,10 +94,16 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | core.pipelines.objectStorePort | int | `80` |  |
 | core.pipelines.workflowsTTLSecondsAfterFinish | int | `86400` | The TTL for Argo Workflow (a single run of a pipeline) to persist after completion (default: 24 hours) |
 | core.pipelines.enableMultiUserSupport | bool | `true` | Enables multi-user support for Pipelines |
+| core.mlflow.bucketName | string | `"mlpipeline"` |  |
+| core.mlflow.bucketPrefix | string | `"mlflow"` |  |
+| core.mlflow.objectStoreHost | string | `"minio"` |  |
+| core.mlflow.objectStorePort | int | `80` |  |
+| core.mlflow.objectStoreProtocol | string | `"http"` |  |
+| core.mlflow.dbName | string | `"mlflow"` |  |
 | kserve.enabled | bool | `true` | Enables KServe |
 | kserve.namespace | string | `"kserve"` |  |
-| kserve.agent.image | string | `"kserve/agent:v0.7.0"` |  |
-| kserve.storage.image | string | `"mesosphere/kubeflow:storage-initializer-v0.7.0"` |  |
+| kserve.agent.image | string | `"kserve/agent:v0.8.0"` |  |
+| kserve.storage.image | string | `"mesosphere/kubeflow:e95f67a2-storage-initializer-v0.8.0"` |  |
 | kserve.storage.s3.accessKeyIdName | string | `"awsAccessKeyID"` |  |
 | kserve.storage.s3.secretAccessKeyName | string | `"awsSecretAccessKey"` |  |
 | kserve.controller.deploymentMode | string | `"Serverless"` |  |
@@ -103,42 +111,38 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | kserve.controller.gateway.localGateway.gateway | string | `"cluster-local-gateway.knative-serving"` |  |
 | kserve.controller.gateway.localGateway.gatewayService | string | `"cluster-local-gateway.istio-system.svc.cluster.local"` |  |
 | kserve.controller.gateway.ingressGateway.gateway | string | `"knative-serving/knative-ingress-gateway"` |  |
-| kserve.controller.gateway.ingressGateway.gatewayService | string | `"kaptain-ingress.kubeflow.svc.{{ .Values.global.clusterDomainName }}"` |  |
-| kserve.controller.image | string | `"mesosphere/kubeflow:kserve-controller-v0.7.0-65a6f7c5"` |  |
+| kserve.controller.gateway.ingressGateway.gatewayService | string | `"kaptain-ingress.kubeflow.svc.{{.Values.global.clusterDomainName}}"` |  |
+| kserve.controller.image | string | `"mesosphere/kubeflow:kserve-controller-v0.8.0-4668ae5"` |  |
 | kserve.controller.resources.limits.cpu | string | `"100m"` |  |
 | kserve.controller.resources.limits.memory | string | `"300Mi"` |  |
 | kserve.controller.resources.requests.cpu | string | `"100m"` |  |
 | kserve.controller.resources.requests.memory | string | `"300Mi"` |  |
-| kserve.servingruntime.tfserving.image | string | `"tensorflow/serving"` |  |
-| kserve.servingruntime.tfserving.defaultVersion | string | `"1.14.0"` |  |
-| kserve.servingruntime.tfserving.defaultGpuVersion | string | `"1.14.0-gpu"` |  |
-| kserve.servingruntime.onnx.image | string | `"mcr.microsoft.com/onnxruntime/server"` |  |
-| kserve.servingruntime.onnx.defaultVersion | string | `"v1.0.0"` |  |
-| kserve.servingruntime.sklearn.v1.image | string | `"kserve/sklearnserver"` |  |
-| kserve.servingruntime.sklearn.v1.defaultVersion | string | `"v0.7.0"` |  |
-| kserve.servingruntime.sklearn.v2.image | string | `"docker.io/seldonio/mlserver"` |  |
-| kserve.servingruntime.sklearn.v2.defaultVersion | string | `"0.2.1"` |  |
-| kserve.servingruntime.xgboost.v1.image | string | `"kserve/xgbserver"` |  |
-| kserve.servingruntime.xgboost.v1.defaultVersion | string | `"v0.7.0"` |  |
-| kserve.servingruntime.xgboost.v2.image | string | `"docker.io/seldonio/mlserver"` |  |
-| kserve.servingruntime.xgboost.v2.defaultVersion | string | `"0.2.1"` |  |
-| kserve.servingruntime.pytorch.v1.image | string | `"mesosphere/kubeflow"` |  |
-| kserve.servingruntime.pytorch.v1.defaultVersion | string | `"v0.7.0-pytorchserver-1.11.0"` |  |
-| kserve.servingruntime.pytorch.v1.defaultGpuVersion | string | `"v0.7.0-gpu"` |  |
-| kserve.servingruntime.pytorch.v2.image | string | `"pytorch/torchserve-kfs"` |  |
-| kserve.servingruntime.pytorch.v2.defaultVersion | string | `"0.4.1"` |  |
-| kserve.servingruntime.pytorch.v2.defaultGpuVersion | string | `"0.4.1-gpu"` |  |
-| kserve.servingruntime.triton.image | string | `"nvcr.io/nvidia/tritonserver"` |  |
-| kserve.servingruntime.triton.defaultVersion | string | `"21.09-py3"` |  |
-| kserve.servingruntime.pmml.image | string | `"kserve/pmmlserver"` |  |
-| kserve.servingruntime.pmml.defaultVersion | string | `"v0.7.0"` |  |
-| kserve.servingruntime.lightgbm.image | string | `"kserve/lgbserver"` |  |
-| kserve.servingruntime.lightgbm.defaultVersion | string | `"v0.7.0"` |  |
-| kserve.servingruntime.paddle.image | string | `"kserve/paddleserver"` |  |
-| kserve.servingruntime.paddle.defaultVersion | string | `"v0.7.0"` |  |
+| kserve.servingruntime.modelNamePlaceholder | string | `"{{.Name}}"` |  |
+| kserve.servingruntime.tensorflow.image | string | `"tensorflow/serving"` |  |
+| kserve.servingruntime.tensorflow.tag | string | `"2.6.2"` |  |
+| kserve.servingruntime.mlserver.image | string | `"docker.io/seldonio/mlserver"` |  |
+| kserve.servingruntime.mlserver.tag | string | `"0.5.3"` |  |
+| kserve.servingruntime.mlserver.modelClassPlaceholder | string | `"{{.Labels.modelClass}}"` |  |
+| kserve.servingruntime.sklearnserver.image | string | `"kserve/sklearnserver"` |  |
+| kserve.servingruntime.sklearnserver.tag | string | `"v0.8.0"` |  |
+| kserve.servingruntime.xgbserver.image | string | `"kserve/xgbserver"` |  |
+| kserve.servingruntime.xgbserver.tag | string | `"v0.8.0"` |  |
+| kserve.servingruntime.tritonserver.image | string | `"nvcr.io/nvidia/tritonserver"` |  |
+| kserve.servingruntime.tritonserver.tag | string | `"21.09-py3"` |  |
+| kserve.servingruntime.pmmlserver.image | string | `"kserve/pmmlserver"` |  |
+| kserve.servingruntime.pmmlserver.tag | string | `"v0.8.0"` |  |
+| kserve.servingruntime.paddleserver.image | string | `"kserve/paddleserver"` |  |
+| kserve.servingruntime.paddleserver.tag | string | `"v0.8.0"` |  |
+| kserve.servingruntime.lgbserver.image | string | `"kserve/lgbserver"` |  |
+| kserve.servingruntime.lgbserver.tag | string | `"v0.8.0"` |  |
+| kserve.servingruntime.torchserve.image | string | `"kserve/torchserve-kfs"` |  |
+| kserve.servingruntime.torchserve.tag | string | `"0.5.2"` |  |
+| kserve.servingruntime.torchserve.serviceEnvelopePlaceholder | string | `"{{.Labels.serviceEnvelope}}"` |  |
 | kserve.servingruntime.alibi.image | string | `"kserve/alibi-explainer"` |  |
-| kserve.servingruntime.alibi.defaultVersion | string | `"v0.7.0"` |  |
+| kserve.servingruntime.alibi.defaultVersion | string | `"v0.8.0"` |  |
 | kserve.servingruntime.art.image | string | `"kserve/art-explainer"` |  |
-| kserve.servingruntime.art.defaultVersion | string | `"v0.7.0"` |  |
+| kserve.servingruntime.art.defaultVersion | string | `"v0.8.0"` |  |
 | kserve.servingruntime.aix.image | string | `"kserve/aix-explainer"` |  |
-| kserve.servingruntime.aix.defaultVersion | string | `"v0.7.0"` |  |
+| kserve.servingruntime.aix.defaultVersion | string | `"v0.8.0"` |  |
+
+For a full list of attributed 3rd party software, see d2iq.com/legal/3rd

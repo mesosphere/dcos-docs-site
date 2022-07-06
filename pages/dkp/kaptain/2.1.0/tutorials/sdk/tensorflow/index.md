@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
 ```
 
 </p>
@@ -27,7 +27,7 @@ tested on D2iQ's Kaptain. Without the requisite Kubernetes operators and custom 
 will likely not work.</p>
 
 
-<p class="message--note"><strong>NOTE: </strong>This notebook requires Kaptain SDK 0.4.x or later.
+<p class="message--warning"><strong>NOTE: </strong>This notebook requires Kaptain SDK 0.4.x or later.
 </p>
 
 # Kaptain SDK: Training, Tuning, and Deploying
@@ -55,7 +55,7 @@ All you need is this notebook.
 Before proceeding, check you are using the correct notebook image, that is, [TensorFlow](https://www.tensorflow.org/api_docs/) is available:
 
 
-```bash
+```sh
 %%sh
 pip list | grep tensorflow
 ```
@@ -246,7 +246,7 @@ def main():
     ModelExportUtil().upload_model("mnist")
 
     eval_loss, eval_acc = model.evaluate(test_dataset_sharded, verbose=0, steps=args.steps)
-
+    
     # Record the evaluation metrics for use with the hyperparameter tuner
     MetadataUtil.record_metrics({"loss": eval_loss, "accuracy": eval_acc})
 
@@ -263,7 +263,7 @@ The central abstraction of the Kaptain SDK is a model:
 
 ```python
 extra_files = ["datasets/mnist"]
-base_image = "mesosphere/kubeflow:2.0.0-tensorflow-2.8.0"
+base_image = "mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0"
 # replace with your docker repository with a tag (optional), e.g. "repository/image"  or "repository/image:tag"
 image_name = "mesosphere/kubeflow:mnist-sdk-example"
 # name of the file with additional python packages to install into model image (e.g. "requirements.txt")
@@ -326,10 +326,10 @@ model.train(
     memory=memory,
     gpus=gpus,
     hyperparameters={"--steps": 10, "--epochs": 5},
-    args={}, # additional command line arguments for the training job.
+    args={}, # additional command line arguments for the training job. 
 )
 ```
-```sh
+
     ...
     10/10 [==============================] - 0s 48ms/step - accuracy: 0.2516 - loss: 2.2895
     [I 201214 11:18:01 kubernetes:190] Epoch 2/5
@@ -344,12 +344,12 @@ model.train(
     [I 201214 11:18:06 kubernetes:190] INFO:root:Metrics saved.
     [I 201214 11:18:07 job_runner:58] Waiting for the training job to complete...
     [I 201214 11:18:07 models:332] Training result: Succeeded
-```
+
 
 The default `gpus` argument is 0, but it is shown here as an explicit option.
 Use `?Model.train` to see all supported arguments.
 
-<p class="message--note"><strong>NOTE: </strong>When resource quotas are set for a namespace, users have to specify <code>cpu</code> and <code>memory</code> explicitly in the SDK.
+<p class="message--note"><strong>NOTE: </strong>When resource quotas are set for a namespace, users have to specify <code>cpu</code> and <code>memory</code> explicitly in the SDK. 
 Otherwise, tasks such as training and tuning will fail with <code>Error creating: pods ... is forbidden: failed quota: kf-resource-quota: must specify cpu,memory</code>.
 These fields are optional when resource quotas are not set.
 In case the issue appears for other types of workloads, it is recommended to configure defaults for the user namespace using the <a href="https://kubernetes.io/docs/concepts/policy/limit-range/">Limit Range</a>.
@@ -360,7 +360,7 @@ The low accuracy of the model is to make the demonstration of distributed traini
 ### Verify the Model is Exported to MinIO
 
 
-```bash
+```sh
 %%sh
 set -o errexit
 
@@ -412,16 +412,16 @@ hyperparams = {
 }
 
 model.tune(
-    trials=trials,
-    parallel_trials=parallel_trials,
+    trials=trials, 
+    parallel_trials=parallel_trials, 
     workers=workers,
     cpu=cpu,
     memory=memory,
-    gpus=gpus,
-    hyperparameters=hyperparams,
-    objectives=["accuracy"],
+    gpus=gpus, 
+    hyperparameters=hyperparams, 
+    objectives=["accuracy"], 
     objective_goal=0.99,
-    args={}, # additional command line arguments to pass to a Trial (TFJob).
+    args={}, # additional command line arguments to pass to a Trial (TFJob). 
 )
 ```
 
@@ -445,7 +445,7 @@ Available options are:
 
 The Kaptain SDK allows individual trials to be run in parallel as well as trained in a distributed manner each.
 
-<p class="message--warning"><strong>WARNING: </strong>With a large number of parallel trials <i>and</i> a fair number of workers per trial, it is easy to max out on the available resources.
+<p class="message--warning"><strong>BEWARE! </strong>With a large number of parallel trials <i>and</i> a fair number of workers per trial, it is easy to max out on the available resources.
     If the worker quota for the namespace is <i>Q</i>, the number of parallel trials is <i>P</i>, and the number of workers per trial is <i>W</i>, please ensure that <i>P</i> &times; <i>W</i> &leq; <i>Q</i></p>
 
 ## Run canary rollout
@@ -503,7 +503,7 @@ with open("input.json", "w") as json_file:
 ```
 
 
-```bash
+```sh
 %%sh
 set -o errexit
 model_name="dev-mnist"
@@ -527,3 +527,5 @@ curl --location \
 The last class has the largest probability; the neural network correctly predicts the image to be a 9.
 
 This tutorial includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 2.1.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z](https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z) and [https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z](https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z)
+
+For a full list of attributed 3rd party software, see d2iq.com/legal/3rd

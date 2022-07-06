@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
 ```
 
 </p>
@@ -87,7 +87,7 @@ Note that you typically use (YAML) resource definitions for Kubernetes from the 
 Of course, if you are more familiar or comfortable with `kubectl` and the command line, feel free to use a local CLI or the embedded terminals from the Jupyter Lab launch screen.
 
 
-```bash
+```python
 TF_EXPERIMENT_FILE = "katib-tfjob-experiment.yaml"
 PYTORCH_EXPERIMENT_FILE = "katib-pytorchjob-experiment.yaml"
 ```
@@ -95,7 +95,7 @@ PYTORCH_EXPERIMENT_FILE = "katib-pytorchjob-experiment.yaml"
 Set the following constants depending on whether you want to use GPUs or a custom image.
 
 
-```bash
+```python
 GPUS = 1  # set to 0 if the experiment should not use GPUs
 PARALLEL_TRIAL_COUNT = 3
 TOTAL_TRIAL_COUNT = 9
@@ -104,7 +104,7 @@ TOTAL_TRIAL_COUNT = 9
 Make the defined constants available as shell environment variables. They parameterize the `Experiment` manifests below.
 
 
-```bash
+```python
 %env GPUS $GPUS
 %env TF_EXPERIMENT_FILE $TF_EXPERIMENT_FILE
 %env PYTORCH_EXPERIMENT_FILE $PYTORCH_EXPERIMENT_FILE
@@ -122,7 +122,7 @@ Make the defined constants available as shell environment variables. They parame
 Define a helper function to capture output from a cell that usually looks like `some-resource created`, using [`%%capture`](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture):
 
 
-```bash
+```python
 import re
 
 from IPython.utils.capture import CapturedIO
@@ -165,8 +165,8 @@ Please note that [discrete values (e.g. epochs) and categorical values (e.g. opt
 The following YAML file describes an `Experiment` object:
 
 
-```bash
-%env IMAGE mesosphere/kubeflow:2.0.0-mnist-tensorflow-2.8.0-gpu
+```python
+%env IMAGE mesosphere/kubeflow-dev:7b20f4d2-mnist-tensorflow-2.8.0-gpu
 ```
 
 
@@ -277,8 +277,8 @@ Run up to 9 trials with three such trials in parallel.
 Again, use a random search:
 
 
-```bash
-%env IMAGE mesosphere/kubeflow:2.0.0-mnist-pytorch-1.11.0-gpu
+```python
+%env IMAGE mesosphere/kubeflow-dev:616a6a45-mnist-pytorch-1.11.0-gpu
 ```
 
 
@@ -376,7 +376,7 @@ You can either execute these commands on your local machine with `kubectl` or yo
 If you do run these locally, you cannot rely on cell magic, so you have to manually copy-paste the experiment name wherever you see `$EXPERIMENT`.
 If you intend to run the following command locally, you have to set the user namespace for all subsequent commands:
 
-```bash
+```
 kubectl config set-context --current --namespace=<insert-namespace>
 ```
 
@@ -385,19 +385,19 @@ Please change the namespace to whatever has been set up by your administrator.
 Pick one of the following depending on which framework you want to use.
 
 
-```bash
+```python
 %env EXPERIMENT_FILE $PYTORCH_EXPERIMENT_FILE
 ```
 
 
-```bash
+```python
 %env EXPERIMENT_FILE $TF_EXPERIMENT_FILE
 ```
 
 To submit the experiment, execute:
 
 
-```bash
+```python
 %%capture kubectl_output --no-stderr
 %%sh
 kubectl apply -f "${EXPERIMENT_FILE}"
@@ -406,14 +406,14 @@ kubectl apply -f "${EXPERIMENT_FILE}"
 The cell magic grabs the output of the `kubectl` command and stores it in an object named `kubectl_output`:
 
 
-```bash
+```python
 %env EXPERIMENT {get_resource(kubectl_output)}
 ```
 
 To see the status, run:
 
 
-```bash
+```sh
 %%sh
 kubectl describe experiment.kubeflow.org $EXPERIMENT
 ```
@@ -421,7 +421,7 @@ kubectl describe experiment.kubeflow.org $EXPERIMENT
 To see experiment suggestions:
 
 
-```bash
+```sh
 %%sh
 kubectl describe suggestions.kubeflow.org $EXPERIMENT
 ```
@@ -429,7 +429,7 @@ kubectl describe suggestions.kubeflow.org $EXPERIMENT
 To get the list of created trials, use the following command:
 
 
-```bash
+```sh
 %%sh
 kubectl get trials.kubeflow.org -l katib.kubeflow.org/experiment=$EXPERIMENT
 ```
@@ -443,7 +443,7 @@ kubectl get trials.kubeflow.org -l katib.kubeflow.org/experiment=$EXPERIMENT
 To fetch the logs of a particular trial, use the following command:
 
 
-```bash
+```sh
 %%sh
 kubectl logs -l job-name=<trial-name> --all-containers --prefix=true
 ```
@@ -451,7 +451,7 @@ kubectl logs -l job-name=<trial-name> --all-containers --prefix=true
 After the experiment is completed, use `describe` to get the best trial results:
 
 
-```bash
+```sh
 %%sh
 kubectl describe experiment.kubeflow.org $EXPERIMENT
 ```
@@ -481,7 +481,7 @@ Status:
 If an Experiment needs to be deleted, including deleting it from the "Experiments (AutoML)" page:
 
 
-```bash
+```sh
 %%sh
 kubectl delete experiments.kubeflow.org $EXPERIMENT 
 ```
@@ -498,3 +498,7 @@ Select "Experiments (AutoML)" in the navigation menu.
 To see detailed information, such as trial results, metrics, and a plot, click on the experiment itself.
 
 ![Katib monitor](./img/katib-2.png)
+
+This tutorial includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 2.1.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z](https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z) and [https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z](https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z)
+
+For a full list of attributed 3rd party software, see d2iq.com/legal/3rd

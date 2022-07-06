@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
 ```
 
 </p>
@@ -44,14 +44,15 @@ All you need is this notebook.
 Before proceeding, check you are using the correct notebook image, that is, [MXNet](https://mxnet.apache.org/api/python/docs/api/) is available:
 
 
-```bash
+```sh
 %%sh
 pip list | grep mxnet
 ```
-```sh
+
     mxnet-cu102mkl           1.6.0
 
-```
+Yes!
+
 Import the necessary Python modules and load the data:
 
 
@@ -154,9 +155,9 @@ mnist["train_label"][42]
 
 
 
-```sh
+
     7
-```
+
 
 
 Just to be on the safe side, check the pixel values have already been scaled into the [0, 1] range:
@@ -169,9 +170,10 @@ min(flattened), max(flattened)
 
 
 
-```sh
+
     (0.0, 1.0)
-```
+
+
 
 ## How to Train the Model
 
@@ -373,7 +375,7 @@ Invoke it with the defaults (and the pre-defined parameters):
 ```python
 model, acc = train(mnist, context, epochs, batch_size)
 ```
-```sh
+
     INFO:root:Epoch[0] Batch [0-100]	Speed: 1353.96 samples/sec	accuracy=0.114356
     INFO:root:Epoch[0] Batch [100-200]	Speed: 1438.84 samples/sec	accuracy=0.113700
     INFO:root:Epoch[0] Batch [200-300]	Speed: 1464.64 samples/sec	accuracy=0.112600
@@ -454,7 +456,7 @@ model, acc = train(mnist, context, epochs, batch_size)
     INFO:root:Epoch[9] Train-accuracy=0.990800
     INFO:root:Epoch[9] Time cost=48.257
     INFO:root:Epoch[9] Validation-accuracy=0.987700
-```
+
 
 <div style="color: #31708f; background-color: #d9edf7; border-color: #bce8f1; padding: 15px; margin-top: 10px; margin-bottom: 10px; border: 1px solid transparent; border-radius: 4px;">
     <b>A Note on Accuracy</b><br>
@@ -469,7 +471,7 @@ Because you wrapped the training process in a function, you can easily see the i
 ```python
 model_relu, acc_relu = train(mnist, context, epochs, batch_size, activation="relu")
 ```
-```sh
+
     INFO:root:Epoch[0] Batch [0-100]	Speed: 1693.27 samples/sec	accuracy=0.111089
     INFO:root:Epoch[0] Batch [100-200]	Speed: 1739.83 samples/sec	accuracy=0.118500
     INFO:root:Epoch[0] Batch [200-300]	Speed: 1768.59 samples/sec	accuracy=0.105400
@@ -550,7 +552,7 @@ model_relu, acc_relu = train(mnist, context, epochs, batch_size, activation="rel
     INFO:root:Epoch[9] Train-accuracy=0.992583
     INFO:root:Epoch[9] Time cost=34.517
     INFO:root:Epoch[9] Validation-accuracy=0.987800
-```
+
 
 
 ```python
@@ -585,7 +587,7 @@ prob[24], prob_relu[24]
 
 
 
-```sh
+
     (
      [3.88936355e-10 5.50869439e-09 1.38218335e-08 1.33717464e-11
       9.99999046e-01 1.08974885e-09 3.25030669e-07 8.28973228e-08
@@ -595,7 +597,7 @@ prob[24], prob_relu[24]
      [6.4347176e-08 7.3004806e-08 3.4015596e-08 5.8196594e-09 9.9998724e-01
       1.2476704e-07 1.9580840e-07 3.0599865e-06 1.2806310e-08 9.1640350e-06]
      <NDArray 10 @cpu(0)>)
-```
+
 
 
 The highest probability is observed for the fourth index (i.e. the digit '4'):
@@ -607,7 +609,7 @@ np.argmax(prob[24]), np.argmax(prob_relu[24])
 
 
 
-```sh
+
     (
      [4.]
      <NDArray 1 @cpu(0)>,
@@ -615,7 +617,7 @@ np.argmax(prob[24]), np.argmax(prob_relu[24])
      [4.]
      <NDArray 1 @cpu(0)>)
 
-```
+
 
 Since you did not shuffle data for the iterator `test_iter` that was used to generate probabilities, you can use the same index to obtain the label to verify that the model predicts the digit correctly:
 
@@ -626,7 +628,11 @@ mnist["test_label"][24]
 
 
 
-```sh
-    4
-```
 
+    4
+
+
+
+This tutorial includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 2.1.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z](https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z) and [https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z](https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z)
+
+For a full list of attributed 3rd party software, see d2iq.com/legal/3rd
