@@ -53,7 +53,7 @@ Below are a few ways to customize your setup. If you prefer to do a basic setup,
 
     This will create a unique name every time you run it, so use it with forethought.
 
-1.  (Optional) To create a cluster using a custom AMI built using [KIB][KIB], first that image must have been built in KIB.  Then perform the export and name the custom AMI. Set the environment variable for the AMI you choose: 
+1.  (Optional) To create a cluster using a custom AMI built using [KIB][KIB], first that image must be built in KIB, then perform the export and name the custom AMI, and then set the environment variable for the AMI you choose: 
 
 ```bash
 export AWS_AMI_ID=ami-<ami-id-here>
