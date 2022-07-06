@@ -59,7 +59,7 @@ extra_images:
   - docker.io/calico/pod2daemon-flexvol:v3.22.1
   - docker.io/calico/typha:v3.22.1
   - quay.io/tigera/operator:v1.25.3
-  - docker.io/bitnami/kubectl:1.23.7
+  - docker.io/bitnami/kubectl:1.22.8
   - us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler:v1.23.0
   - k8s.gcr.io/nfd/node-feature-discovery:v0.10.1
   - nvcr.io/nvidia/gpu-feature-discovery:v0.4.1
@@ -70,7 +70,7 @@ extra_images:
   - k8s.gcr.io/sig-storage/snapshot-validation-webhook:v3.0.2
   - quay.io/metallb/controller:v0.12.1
   - quay.io/metallb/speaker:v0.12.1
-  - k8s.gcr.io/kube-proxy:v1.23.7
-  - docker.io/mesosphere/kube-proxy:v1.23.7_fips.0
+  - k8s.gcr.io/kube-proxy:v1.22.8
+  - docker.io/mesosphere/kube-proxy:v1.22.8_fips.0
   - k8s.gcr.io/coredns/coredns:v1.8.4
 ```

@@ -21,6 +21,6 @@ The expected output is similar to the following example, indicating the desired 
 
 ```sh
 NODEPOOL                        DESIRED               READY               KUBERNETES VERSION
-demo-cluster-md-0               4                     4                   v1.23.7
-example                         3                     0                   v1.23.7
+demo-cluster-md-0               4                     4                   v1.22.8
+example                         3                     0                   v1.22.8
 ```

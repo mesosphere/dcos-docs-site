@@ -36,7 +36,7 @@ In order to create a cluster in FIPS mode, we must inform the bootstrap controll
 
 | Component  | Repository           | Version        |
 |------------|----------------------|----------------|
-| Kubernetes | docker.io/mesosphere | v1.23.7+fips.0 |
+| Kubernetes | docker.io/mesosphere | v1.22.8+fips.0 |
 | etcd       | docker.io/mesosphere | v3.4.13+fips.0 |
 
 When creating a cluster, use the following command line options:
@@ -52,7 +52,7 @@ For example:
 ```bash
 dkp create cluster aws --cluster-name myFipsCluster \
 --ami=ami-03dcaa75d45aca36f \
---kubernetes-version=1.23.7+fips.0 \
+--kubernetes-version=1.22.8+fips.0 \
 --kubernetes-image-repository=docker.io/mesosphere \
 --etcd-image-repository=docker.io/mesosphere \
 --etcd-version=3.4.13+fips.0

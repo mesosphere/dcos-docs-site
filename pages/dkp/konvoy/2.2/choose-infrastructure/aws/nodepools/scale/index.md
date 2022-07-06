@@ -35,8 +35,8 @@ Your output should be similar to this example, with the number of DESIRED and RE
 
 ```sh
 NODEPOOL                           DESIRED               READY               KUBERNETES VERSION               
-example                            5                     5                   v1.23.7                          
-aws-example-md-0                   4                     4                   v1.23.7
+example                            5                     5                   v1.22.8                          
+aws-example-md-0                   4                     4                   v1.22.8
 ```
 
 ### Scaling Down Node Pools
@@ -61,8 +61,8 @@ Your output should be similar to this example, with the number of DESIRED and RE
 
 ```sh
 NODEPOOL                           DESIRED               READY               KUBERNETES VERSION               
-example                            4                     4                   v1.23.7                          
-aws-example-md-0                   4                     4                   v1.23.7
+example                            4                     4                   v1.22.8                          
+aws-example-md-0                   4                     4                   v1.22.8
 ```
 
 In a default cluster, the nodes to delete are selected at random. This behavior is controlled by [CAPI's delete policy][capi_delete_policy]. However, when using the DKP CLI to scale down a node pool, it is also possible to specify the Kubernetes Nodes you want to delete.

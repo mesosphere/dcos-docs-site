@@ -30,13 +30,13 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     ```sh
     NAME                                         STATUS   ROLES                  AGE   VERSION
-	ip-10-0-100-85.us-west-2.compute.internal    Ready    <none>                 16m   v1.23.7
-	ip-10-0-106-183.us-west-2.compute.internal   Ready    control-plane,master   15m   v1.23.7
-	ip-10-0-158-104.us-west-2.compute.internal   Ready    control-plane,master   17m   v1.23.7
-	ip-10-0-203-138.us-west-2.compute.internal   Ready    control-plane,master   16m   v1.23.7
-	ip-10-0-70-169.us-west-2.compute.internal    Ready    <none>                 16m   v1.23.7
-	ip-10-0-77-176.us-west-2.compute.internal    Ready    <none>                 16m   v1.23.7
-	ip-10-0-96-61.us-west-2.compute.internal     Ready    <none>                 16m   v1.23.7
+	ip-10-0-100-85.us-west-2.compute.internal    Ready    <none>                 16m   v1.22.8
+	ip-10-0-106-183.us-west-2.compute.internal   Ready    control-plane,master   15m   v1.22.8
+	ip-10-0-158-104.us-west-2.compute.internal   Ready    control-plane,master   17m   v1.22.8
+	ip-10-0-203-138.us-west-2.compute.internal   Ready    control-plane,master   16m   v1.22.8
+	ip-10-0-70-169.us-west-2.compute.internal    Ready    <none>                 16m   v1.22.8
+	ip-10-0-77-176.us-west-2.compute.internal    Ready    <none>                 16m   v1.22.8
+	ip-10-0-96-61.us-west-2.compute.internal     Ready    <none>                 16m   v1.22.8
     ```
 
 1.  Export a variable with the node name to use in the next steps:
@@ -70,7 +70,7 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     ```sh
     NAME               CLUSTER       REPLICAS   READY   UPDATED   UNAVAILABLE   PHASE       AGE     VERSION
-	aws-example-md-0   aws-example   4          3       4         1             ScalingUp   7m53s   v1.23.7
+	aws-example-md-0   aws-example   4          3       4         1             ScalingUp   7m53s   v1.22.8
     ```
 
     In this example, there are two replicas, but only 1 is ready. One replica is unavailable, and the `ScalingUp` phase means a new Machine is being created.
@@ -97,13 +97,13 @@ In certain situations, you may want to delete a worker node and have [Cluster AP
 
     ```sh
 	NAME                                         STATUS   ROLES                  AGE   VERSION
-	ip-10-0-106-183.us-west-2.compute.internal   Ready    control-plane,master   20m   v1.23.7
-	ip-10-0-158-104.us-west-2.compute.internal   Ready    control-plane,master   23m   v1.23.7
-	ip-10-0-203-138.us-west-2.compute.internal   Ready    control-plane,master   22m   v1.23.7
-	ip-10-0-70-169.us-west-2.compute.internal    Ready    <none>                 22m   v1.23.7
-	ip-10-0-77-176.us-west-2.compute.internal    Ready    <none>                 22m   v1.23.7
-	ip-10-0-86-58.us-west-2.compute.internal     Ready    <none>                 57s   v1.23.7
-	ip-10-0-96-61.us-west-2.compute.internal     Ready    <none>                 22m   v1.23.7
+	ip-10-0-106-183.us-west-2.compute.internal   Ready    control-plane,master   20m   v1.22.8
+	ip-10-0-158-104.us-west-2.compute.internal   Ready    control-plane,master   23m   v1.22.8
+	ip-10-0-203-138.us-west-2.compute.internal   Ready    control-plane,master   22m   v1.22.8
+	ip-10-0-70-169.us-west-2.compute.internal    Ready    <none>                 22m   v1.22.8
+	ip-10-0-77-176.us-west-2.compute.internal    Ready    <none>                 22m   v1.22.8
+	ip-10-0-86-58.us-west-2.compute.internal     Ready    <none>                 57s   v1.22.8
+	ip-10-0-96-61.us-west-2.compute.internal     Ready    <none>                 22m   v1.22.8
     ```
 
     If the output is empty, the Node resource is not yet available, or does not yet have the expected annotation. Wait a few minutes, then repeat the command.
