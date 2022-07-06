@@ -68,5 +68,5 @@ dkp check cluster fips \
 
 In this case, the validation tool checks the cluster using the existing signature data and returns deployment details in JSON format.
 
-[1.22.8-fips-manifest-7]: https://downloads.d2iq.com/dkp/fips/v1.22.8/manifest-rhel7.json.asc
-[1.22.8-fips-manifest-8]: https://downloads.d2iq.com/dkp/fips/v1.22.8/manifest-rhel8.json.asc
+[1-22-8-fips-manifest-7]: https://downloads.d2iq.com/dkp/fips/v1.22.8/manifest-rhel7.json.asc
+[1-22-8-fips-manifest-8]: https://downloads.d2iq.com/dkp/fips/v1.22.8/manifest-rhel8.json.asc
