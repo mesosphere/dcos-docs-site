@@ -163,7 +163,7 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
 1.  Upgrade the Kubernetes version of the control plane. As shown in update addons section above, replace infrastructure provider name in the command [`aws`, `azure`, `vsphere`, `gcp`, `eks`, `preprovisioned`].
 
     ```bash
-    dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
+    dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.23.7
     ```
 
     The output should be similar to:
@@ -178,7 +178,7 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
 
     ```bash
     export NODEPOOL_NAME=my-nodepool
-    dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
+    dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.23.7
     ```
 
     The output should be similar to below with the name of the infrastructure provider shown accordingly:
