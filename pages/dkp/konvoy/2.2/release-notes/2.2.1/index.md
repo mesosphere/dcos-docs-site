@@ -17,14 +17,14 @@ beta: false
 
 Welcome to D2iQ Kubernetes Platform (DKP) 2.2.1! This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintains compatibility and support for other packages used in Konvoy.
 
-DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.23.x. Any cluster you want to attach using DKP 2.2.x must be running a Kubernetes version in this range.
+DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using DKP 2.2.x must be running a Kubernetes version in this range.
 
 ### Supported versions
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
 | **Minimum**  | 1.21.0  |
-| **Maximum**  | 1.23.x  |
+| **Maximum**  | 1.22.x  |
 | **Default**  | 1.22.8  |
 
 ## Fixes and Improvements
