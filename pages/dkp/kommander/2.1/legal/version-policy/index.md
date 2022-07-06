@@ -64,20 +64,18 @@ Support for Experimental components is provided on a Standard level, Severity 4 
 
 This software is provided "as is" and without any express or implied warranties including, without limitation, the implied warranties of merchantability and fitness for a particular purpose.
 
-## Support for KUDO - Cassandra, Kafka & Spark
+# Support Definitions
 
-### Support Definition - Secondary Support
+### Secondary Support 
 
-Secondary support covers support for the base technology of platform service, which is Cassandra, Kafka, and Spark, and additionally support for the KUDO-based operator of the mentioned platform services.
+The following section describes D2iQ’s support for secondary applications, such as platform applications. All platform applications that D2iQ ships with DKP products are covered under secondary support:
 
-(Base Technology refers to Cassandra, Kafka, and Spark.)
-
-|Type|Scope Example|Support Offered|
-|:---|:---|:---|
-|Configuration|<ul><li>Guidance for base technology and DKP interoperability configuration questions and troubleshooting for different components of the DKP platform.</li><li>No support for base technology’s configuration that is unrelated to its integration with DKP.</li><li>No support for performance issues with the base technology.</li></ul>|Supported with Severity 4 support terms|
-|Failure Assistance|<ul><li>Assistance with installation, and upgrade, failures of the service.</li><li>Assistance with service failures due to platform issues. For example: Konvoy, Kommander, KUDO.</li><li>No assistance for base technology’s failures that is unrelated to its integration with DKP.</li></ul>|Supported with Severity 3 & 4 support terms|
-|Bug Fixes|<ul><li>Bug fixes for service integration with DKP.</li><li>Upstream bug fixes to identified issues in the base technology. (Cassandra, Kafka, Spark) on a best effort basis.</li><li>No guarantee that changes to upstream will be accepted.</li><li>No commitment to maintaining forks of upstream.</li></ul>|Supported with Severity 3 & 4 support terms|
-|Documentation Errors|<ul><li>Documentation fixes for life cycle management of services and integration with DKP.</li><li>Issue or PR submitted to correct any incorrect upstream documentation in base technology. (Cassandra, Kafka, Spark) on a best effort basis.</li><li>No guarantee that changes will be accepted.</li></ul>|Supported with Severity 4 support terms|
+| Type | Scope Example | Support Offered |
+| ---- | ------------- | --------------- |
+| Configuration | &ast; Guidance for base technology and DKP interoperability configuration questions and troubleshooting for different components of the DKP platform.<br/> &ast; No support for base technology’s configuration that is unrelated to its integration with DKP.<br/> &ast; No support for performance issues with the base technology that is unrelated to its integration with DKP.. | Supported with severity 3 & 4 support terms |
+| Failure Assistance | &ast; Assistance with installation, and upgrade failures of the service as captured in the supported DKP product upgrade pathway.<br/> &ast; Assistance with service failures due to platform issues. For example: Konvoy, Kommander, KUDO.<br/> &ast; Support is limited to troubleshooting for root cause up to DKP product limit. Root causes that are identified to be beyond this limit will need to be pursued by the company who creates the addon base technology.  Please note, if the RCA for the failure is due to a non-standard configuration or non-DKP use of the addon, we will be unable to provide assistance beyond basic identification.<br/> &ast; No assistance for base technology’s failures that is unrelated to its integration with DKP. | Supported with all severities |
+| Bug Fixes | &ast; Bug fixes for service integration with DKP.<br/>&ast; Upstream bug fixes to identified issues in the base technology of the addon on a best effort basis.<br/>&ast; No guarantees that our changes to upstream will be accepted.<br/>&ast; No commitment to maintaining forks upstream. | RCA supported with all severities, Fix supported with severity 3 & 4 support terms |
+| Documentation errors | &ast; Documentation fixes for life cycle management of services and integration with DKP.<br/>&ast; Upstream documentation fixes to reported and identified issues in base technology of the addon via a best effort basis.<br/>&ast; No guarantees that our changes will be accepted. | Supported with severity 4 support terms |
 
 ## Standard level & severity definitions
 
