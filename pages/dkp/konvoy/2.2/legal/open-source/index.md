@@ -127,7 +127,7 @@ The table below lists the third party open source software which is provided by 
 | k8s.io | cluster-bootstrap | v0.23.0 | [Apache-2.0](https://pkg.go.dev/k8s.io/cluster-bootstrap?tab=licenses) |
 | k8s.io | component-base | v0.23.3 | [Apache-2.0](https://pkg.go.dev/k8s.io/component-base?tab=licenses) |
 | k8s.io/klog | v2 | v2.60.1 | [Apache-2.0](https://pkg.go.dev/k8s.io/klog/v2?tab=licenses) |
-| k8s.io | kube-openapi | v0.0.0-2021111.22.852-e816edb12b65 | [Apache-2.0](https://pkg.go.dev/k8s.io/kube-openapi?tab=licenses) |
+| k8s.io | kube-openapi | v0.0.0-20211115234752-e816edb12b65 | [Apache-2.0](https://pkg.go.dev/k8s.io/kube-openapi?tab=licenses) |
 | sigs.k8s.io/kustomize | kyaml | v0.13.0 | [Apache-2.0](https://pkg.go.dev/sigs.k8s.io/kustomize/kyaml?tab=licenses) |
 | sigs.k8s.io/structured-merge-diff | v4 | v4.2.1 | [Apache-2.0](https://pkg.go.dev/sigs.k8s.io/structured-merge-diff/v4?tab=licenses) |
 | github.com/antlr/antlr4/runtime/Go | antlr | v0.0.0-20210826220005-b48c857c3a0e | [BSD-3-Clause](https://pkg.go.dev/github.com/antlr/antlr4/runtime/Go/antlr?tab=licenses) |
