@@ -28,7 +28,7 @@ enterprise: false
     </p>
 
 ## Tips and Tricks
-Below are a few ways to customize your setup.   If you prefer to do a basic setup, skip Tips and Tricks and proceed to Create a New AWS Cluster section. 
+Below are a few ways to customize your setup. If you prefer to do a basic setup, skip Tips and Tricks and proceed to Create a New AWS Cluster section. 
 1.  To get a list of names used in your AWS account, use the `aws` [CLI][download_aws_cli]. After downloading, use the following command:
 
     ```bash
