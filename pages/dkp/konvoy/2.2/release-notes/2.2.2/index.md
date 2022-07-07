@@ -45,6 +45,10 @@ The Cluster API Azure (CAPZ) support was updated to resolve a race condition tha
 
 The Traefik Forward Auth (TFA) component was updated to support storing of session cookies in-cluster instead of in the browser.
 
+### Kiali Platform Application not working properly (COPS-7336)
+
+An installation issue that caused the Kiali platform application to malfunction has been corrected.
+
 ### Updated Dex CRDS (COPS-7341)
 
 The DEX Custom Resource Definitions used for configuring LDAP have been updated to include the correct syntax.
