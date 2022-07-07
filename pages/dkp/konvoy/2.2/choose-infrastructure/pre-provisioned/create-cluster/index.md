@@ -244,7 +244,7 @@ Then the following command should look like:
 ```bash
 dkp create cluster preprovisioned \
     --cluster-name ${CLUSTER_NAME} \
-    --control-plane-endpoint-host 10.1.2.0 \
+    --control-plane-endpoint-host 10.1.2.5 \
     --virtual-ip-interface eth1
 ```
 
