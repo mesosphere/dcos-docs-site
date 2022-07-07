@@ -207,7 +207,14 @@ For more information, see:
 
 ## Use the built-in Virtual IP
 
-As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. The control planes  are members of the the same L2 network, the network interface which must be provided. The built-in virtual IP uses the [kube-vip][kube-vip] project.
+As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. 
+
+The built-in virtual IP uses the [kube-vip][kube-vip] project.  If you use the default kube-vip for the endpoint, ensure that:
+
+- The control plane nodes are in the same subnet and layer-2 network.
+- The virtual IP address you specify for the `--control-plane-endpoint` is a free IP address from that subnet
+- The network interface for virtual IP address `--virtual-ip-interface` is the same interface on which kube-apiserver listens. kube-apiserver [listens on a default interface](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/#options). 
+- Any Layer 2 (L2) switches in your infrastructure do not block Gratuitous ARP packets. kube-vip uses Gratuitous ARP to advertise the virtual IP for the control plane; if the switch blocks these packets then fail-over between control plane nodes will not work.
 
 To use the virtual IP, add these flags to the `create cluster` command:
 
