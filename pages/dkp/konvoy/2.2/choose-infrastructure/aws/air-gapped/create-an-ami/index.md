@@ -79,9 +79,10 @@ Note: available packages are:
 
 1. Download the `containerd` bundle.
 
-```bash
-curl --output artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz --location https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
-```
+    ```bash
+    curl --output artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz --location 
+    https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
+    ```
 
 1.  Follow the instructions to [build an AMI][kib_create_ami] in the setting an additional `--overrides overrides/offline.yaml` flag.
 
