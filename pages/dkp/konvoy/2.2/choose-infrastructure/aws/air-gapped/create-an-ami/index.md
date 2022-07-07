@@ -61,7 +61,7 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
     ```bash
     curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
-NOTE: If you're installing on v2.2.2 or above, you will need to continue onto step 7.
+     NOTE: If you're installing V2.2.0 or V2.2.1, skip to step 9, as those releases did not have separate `containerd` packages.
 
 1. Set your `containerd` operating system:
 
