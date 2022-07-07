@@ -29,9 +29,21 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 
 ## Fixes and Improvements
 
+### Added Continuous Deployment(CD)/Gitops to the View role
+
+The CD/Gitops resource was added to the 'View' clusterRole, so that users with only this permission can view the CD/Gitops resources.
+
 ### Fixed containerd vulnerability  (COPS-7531)
 
 DKP packages now include updated containerd and FIPS manifests, mitigating a known containerd vulnerability.
+
+### Updated Azure support to fix an issue with specifying Additional Tags (COPS-7346)
+
+The Cluster API Azure (CAPZ) support was updated to resolve a race condition that could prevent the creation of additional resource tags.
+
+### Updated Traefik Forward Auth to support 'clusterStorage' option. (COPS-7344)
+
+The Traefik Forward Auth (TFA) component was updated to support storing of session cookies in-cluster instead of in the browser.
 
 ### Updated Dex CRDS (COPS-7341)
 
