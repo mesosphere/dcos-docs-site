@@ -33,7 +33,7 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 
 DKP packages now include updated containerd and FIPS manifests, mitigating CVE-2022-23648, a known containerd vulnerability.
 
-### Outdated Dex CRDS (COPS-7341)
+### Updated Dex CRDS (COPS-7341)
 
 The DEX Custom Resource Definitions used for configuring LDAP have been updated to include the correct syntax.
 
