@@ -77,7 +77,7 @@ Note: available packages are:
 -   `ubuntu-20.04-x86_64`
 -   `ubuntu-18.04-x86_64`
 
-1. Download the the `containerd` bundle.
+1. Download the `containerd` bundle.
 
 ```bash
 curl --output artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz --location https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
