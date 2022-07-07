@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: DKP 2.2.2 Release Notes
 title: DKP 2.2.2 Release Notes
-menuWeight: 20
+menuWeight: 30
 excerpt: View release-specific information for DKP 2.2.2
 enterprise: false
 beta: false
@@ -37,7 +37,7 @@ DKP packages now include updated containerd and FIPS manifests, mitigating CVE-2
 
 The custom resource definitions used for configuring LDAP have been updated to include the correct syntax.
 
-### The Konvoy credentials plugin instructions embedded in the dex-k8s-authenticator dialogs don't work (COPS-7343)
+### The Konvoy credentials plugin instructions embedded in the dex-k8s-authenticator containers do not work (COPS-7343)
 
 The mesosphere/dex-k8s-authenticator docker container now includes the appropriate binaries that allow users to download the referenced 'konvoy-async-plugin' after configuring a cluster using an external IDP for authentication.
 
