@@ -31,7 +31,7 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 
 ### Fixed containerd vulnerability  (COPS-7531)
 
-DKP packages now include updated containerd and FIPS manifests, mitigating CVE-2022-23648, a known containerd vulnerability.
+DKP packages now include updated containerd and FIPS manifests, mitigating a known containerd vulnerability.
 
 ### Updated Dex CRDS (COPS-7341)
 
