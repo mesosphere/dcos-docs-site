@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
 ```
 
 </p>
@@ -54,12 +54,12 @@ All you need is this notebook.
 
 ## Prerequisites
 
-<p class="message--note"><strong>NOTE: </strong>This notebook requires Kaptain SDK 1.0.0 or later.</p>
+<p class="message--warning"><strong>NOTE: </strong>This notebook requires Kaptain SDK 1.0.0 or later.</p>
 
 Before proceeding, check you are using the correct notebook image, that is, [scikit-learn](https://scikit-learn.org/stable/) is available:
 
 
-```bash
+```sh
 %%sh
 set -o errexit
 pip list | grep scikit-learn
@@ -238,7 +238,7 @@ Finally, a `Model` instance requires providing a base Docker image (`base_image`
 
 
 ```python
-base_image = "mesosphere/kubeflow:2.0.0-base"
+base_image = "mesosphere/kubeflow-dev:1950339f-base"
 image_name = "mesosphere/kubeflow:mnist-sklearn-sdk"
 
 # name of the file with additional python packages to install into the model image (e.g. "requirements.txt")
@@ -302,7 +302,7 @@ cpu = "0.5"
 ```python
 model.train(cpu=cpu, memory=memory, hyperparameters={})
 ```
-```sh
+
     2021-12-10 19:29:31,544 kaptain-log[INFO]: Skipping image build for the model - the image 'mesosphere/kubeflow:mnist-sklearn-sdk' with the same contents has already been published to the registry.
     2021-12-10 19:29:31,546 kaptain-log[INFO]: Creating secret train-d3adabf95994484a in namespace demo.
     2021-12-10 19:29:31,562 kaptain-log[INFO]: Creating secret train-registry-068ad4ec6b93f037 in namespace demo.
@@ -344,7 +344,7 @@ model.train(cpu=cpu, memory=memory, hyperparameters={})
     2021-12-10 19:29:38,400 kaptain-log[INFO]: Deleting secret train-d3adabf95994484a in namespace demo.
     2021-12-10 19:29:38,415 kaptain-log[INFO]: Deleting secret train-registry-068ad4ec6b93f037 in namespace demo.
     2021-12-10 19:29:38,426 kaptain-log[INFO]: Model training is completed.
-```
+
 
 The default `gpus` argument is 0, but it is shown here as an explicit option.
 Use `?Model.train` to see all supported arguments.
@@ -381,7 +381,7 @@ model.tune(
     objective_goal=0.99,
 )
 ```
-```sh
+
     2021-12-10 19:29:39,806 kaptain-log[INFO]: Skipping image build for the model - the image 'mesosphere/kubeflow:mnist-sklearn-sdk' with the same contents has already been published to the registry.
     2021-12-10 19:29:39,813 kaptain-log[INFO]: Creating secret tune-b07d30db2ea16212 in namespace demo.
     2021-12-10 19:29:39,827 kaptain-log[INFO]: Creating secret tune-registry-a3a9649180ddb293 in namespace demo.
@@ -395,12 +395,12 @@ model.tune(
     parameters: {'--gamma': '0.0009033059385183185', '--c': '0.8628663122572235'}, best_trial_name: mnist-tune-0174088b-sh2xfkbt
     2021-12-10 19:30:45,048 kaptain-log[INFO]: Copying saved model with the best metrics from the trial to the target location.
     2021-12-10 19:30:45,190 kaptain-log[INFO]: Removing intermediate trial models from the storage.
-```
+
 
 ## Verify the Model is Exported to MinIO
 
 
-```bash
+```sh
 %%sh
 set -o errexit
 
@@ -410,11 +410,25 @@ minio_secretkey=$(kubectl get secret minio-creds-secret -o jsonpath="{.data.secr
 mc --no-color alias set minio http://minio.kubeflow ${minio_accesskey} ${minio_secretkey}
 mc --no-color ls -r minio/kaptain/models
 ```
-```sh
+
     Added `minio` successfully.
     [2021-12-09 23:26:38 UTC] 321KiB dev/mnist/deploy/25f6e33b86b54499820124695435e6f8/model.joblib
     [2021-12-09 23:25:24 UTC] 337KiB dev/mnist/trained/b3ca1937766b4698b909bbd5f0f8073c/model.joblib
     [2021-12-09 23:26:38 UTC] 321KiB dev/mnist/tuned/d039aa7b4bb64f2bb71490bb046cfd00/model.joblib
+
+
+## Log and Hyperparameters Metrics to MLFlow
+
+Hyperparameters and metrics can easily be logged to the MLFlow instance which was bundled with Kaptain. You can log metrics from tuning by executing the following:
+
+
+```python
+import mlflow
+
+# Log a batch of metrics
+with mlflow.start_run():
+    mlflow.log_metrics({k:v for k,v in model.hyperparameters.items() if isinstance(v, float)})
+    mlflow.log_metrics({k: v['latest'] for k,v in model.metrics.items()})
 ```
 
 ## Deploy the Model
@@ -430,7 +444,7 @@ serving_config = {"protocol_version": "v2"}
 model.serving_config = serving_config
 model.deploy(cpu="0.5", memory="500M", replace=True)
 ```
-```sh
+
     2021-12-10 19:30:45,529 kaptain-log[INFO]: Building deployment artifacts and uploading to s3://kaptain/models/dev/mnist/deploy/b7d7f70cee7b4918ba5a71d9784deff4
     2021-12-10 19:30:45,641 kaptain-log[INFO]: Deploying model from s3://kaptain/models/dev/mnist/deploy/b7d7f70cee7b4918ba5a71d9784deff4
     2021-12-10 19:30:45,644 kaptain-log[INFO]: Reading secrets dev-mnist-secret in namespace demo.
@@ -453,7 +467,7 @@ model.deploy(cpu="0.5", memory="500M", replace=True)
 
 
     2021-12-10 19:31:35,472 kaptain-log[INFO]: Model dev/mnist deployed successfully. Cluster URL: http://dev-mnist.demo.svc.cluster.local/v2/models/dev-mnist/infer
-```
+
 
 ## Test the Model Endpoint
 
@@ -505,6 +519,7 @@ curl --location \
      --fail \
      --retry 10 \
      --retry-delay 10 \
+     --header "Content-Type: application/json" \
      $url \
      -d@input.json | python -m json.tool
 ```
@@ -533,3 +548,5 @@ curl --location \
 We can see that the class with label "7" has the largest probability; the neural network correctly predicts the image to be a number 7.
 
 This tutorial includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 2.1.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z](https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z) and [https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z](https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z)
+
+For a full list of attributed 3rd party software, see d2iq.com/legal/3rd

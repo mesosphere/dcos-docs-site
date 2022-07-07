@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
 ```
 
 </p>
@@ -71,22 +71,9 @@ This notebook.
 Ensure Kubeflow Pipelines is available:
 
 
-```bash
-%%sh
-pip show kfp
+```python
+pip install kfp==1.8.5
 ```
-
-    Name: kfp
-    Version: 0.5.0
-    Summary: KubeFlow Pipelines SDK
-    Home-page: UNKNOWN
-    Author: google
-    Author-email: None
-    License: UNKNOWN
-    Location: /opt/conda/lib/python3.7/site-packages
-    Requires: Deprecated, PyYAML, requests-toolbelt, cloudpickle, kubernetes, strip-hints, google-cloud-storage, google-auth, argo-models, click, tabulate, kfp-server-api, jsonschema
-    Required-by:
-
 
 ## How to Configure Credentials
 In order for KFServing to access MinIO, the credentials must be added to the default service account.
@@ -97,7 +84,7 @@ In order for KFServing to access MinIO, the credentials must be added to the def
 </p>
 
 
-```bash
+```python
 %%writefile minio_secret.yaml
 apiVersion: v1
 kind: Secret
@@ -123,7 +110,7 @@ secrets:
 
 
 
-```bash
+```sh
 %%sh
 kubectl apply -f minio_secret.yaml
 ```
@@ -137,7 +124,7 @@ kubectl apply -f minio_secret.yaml
 First, configure credentials for `mc`, the MinIO command line client.
 
 
-```bash
+```sh
 %%sh
 set -o errexit
 
@@ -157,18 +144,18 @@ Use it to create a bucket, upload the dataset to it, and set access policy so th
 You may want to change the default bucket names used by this tutorial, since MinIO buckets are global resources shared between all cluster users.
 
 
-```bash
+```python
 INPUT_BUCKET = "pipelines-tutorial-data"
 EXPORT_BUCKET = "pipelines-tutorial-model"
 ```
 
 
-```bash
+```python
 %env INPUT_BUCKET $INPUT_BUCKET
 ```
 
 
-```bash
+```sh
 %%sh
 mc --no-color mb "minio/${INPUT_BUCKET}"
 ```
@@ -177,7 +164,7 @@ mc --no-color mb "minio/${INPUT_BUCKET}"
 
 
 
-```bash
+```sh
 %%sh
 set -o errexit
 tar --dereference -czf datasets.tar.gz ./datasets
@@ -478,7 +465,7 @@ For GPU support, please add the "-gpu" suffix to the base image.
 
 
 ```python
-BASE_IMAGE = "mesosphere/kubeflow:2.0.0-tensorflow-2.8.0"
+BASE_IMAGE = "mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0"
 ```
 
 
@@ -687,7 +674,7 @@ with open("input.json", "w") as json_file:
 ```
 
 
-```bash
+```sh
 %%sh
 set -o errexit
 model="mnist"
@@ -702,7 +689,7 @@ curl --fail -L "${url}" -d@input.json -o output.json
 
 
 
-```bash
+```sh
 %%sh
 jq -M . output.json
 ```
@@ -729,7 +716,7 @@ The probabilities for each class (0-9) are shown in the `predictions` response.
 The model believes the image shows a "9", which indeed it does!
 
 
-```bash
+```sh
 %%sh
 jq -M --exit-status '.predictions[0] | indices(max)[0] == 9' output.json
 ```
@@ -740,3 +727,5 @@ jq -M --exit-status '.predictions[0] | indices(max)[0] == 9' output.json
 For more details on the URL, please check out this [example](https://github.com/kserve/kserve/tree/master/docs/samples/v1beta1/tensorflow#run-a-prediction).
 
 This tutorial includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 2.1.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z](https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z) and [https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z](https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z)
+
+For a full list of attributed 3rd party software, see d2iq.com/legal/3rd

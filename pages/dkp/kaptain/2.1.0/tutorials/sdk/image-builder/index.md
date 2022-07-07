@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
 ```
 
 </p>
@@ -51,11 +51,11 @@ Please note that this notebook is interactive!
 Kaptain SDK 1.0.0 or later:
 
 
-```bash
+```sh
 %%sh
 pip show d2iq-kaptain
 ```
-```sh
+
     Name: d2iq-kaptain
     Version: 1.0.0
     Summary: A pack-and-ship SDK for Kaptain
@@ -65,8 +65,8 @@ pip show d2iq-kaptain
     License: Apache
     Location: /opt/conda/lib/python3.7/site-packages
     Requires: python-dxf, retrying, botocore, kubernetes, types-requests, object-mapper, boto3, torch-model-archiver, kfserving, kubeflow-katib, kubeflow-training, tqdm, humanize, tenacity, typing
-    Required-by:
-```
+    Required-by: 
+
 
 ### Prepare the training code and datasets
 The examples in this tutorial require a trainer code file `mnist.py` and a dataset to be present in the current folder.
@@ -165,7 +165,7 @@ def main():
         metavar="N",
         help="Accelerates SGD in the relevant direction and dampens oscillations (default: 0.1)",
     )
-
+    
     args, _ = parser.parse_known_args()
 
     strategy = tf.distribute.experimental.MultiWorkerMirroredStrategy()
@@ -274,7 +274,7 @@ requirements = "requirements.txt"
 extra_files = [requirements, "mnist.py", "datasets"]
 
 # Image used in the FROM instruction of the Dockerfile
-base_image = "mesosphere/2.0.0-tensorflow-2.8.0"
+base_image = "mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0"
 
 # Name of the final image
 image_name = f"mesosphere/kubeflow:kaptain-sdk-mnist-tf-{timestamp}"
@@ -340,7 +340,7 @@ Finally, the following cell will run the image build using the Dockerfile with a
 ```python
 builder.build_image()
 ```
-```sh
+
     2021-11-02 14:11:59,714 kaptain-log[INFO]: Building Docker image.
     2021-11-02 14:11:59,714 kaptain-log[INFO]: Creating secret docker-ffccde4355a4a541 in namespace user1.
     2021-11-02 14:11:59,728 kaptain-log[INFO]: Creating secret context-ffccde4355a4a541 in namespace user1.
@@ -348,18 +348,18 @@ builder.build_image()
     2021-11-02 14:11:59,918 kaptain-log[INFO]: Waiting for Image Build to start...
     2021-11-02 14:12:03,869 kaptain-log[INFO]: Image Build started in pod: kaniko-ffccde4355a4a541-hz9pl.
     2021-11-02 14:12:05,996 kaptain-log[INFO]: [kaniko-ffccde4355a4a541-hz9pl/kaniko] logs:
-    [0001] Retrieving image manifest mesosphere/kubeflow:2.0.0-tensorflow-2.8.0
-    [0001] Retrieving image mesosphere/kubeflow:2.0.0-tensorflow-2.8.0
-    [0001] Retrieving image manifest mesosphere/kubeflow:2.0.0-tensorflow-2.8.0
-    [0001] Retrieving image mesosphere/kubeflow:2.0.0-tensorflow-2.8.0
+    [0001] Retrieving image manifest mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
+    [0001] Retrieving image mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
+    [0001] Retrieving image manifest mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
+    [0001] Retrieving image mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
     [0002] Built cross stage deps: map[]                
     2021-11-02 14:12:57,247 kaptain-log[INFO]: [kaniko-ffccde4355a4a541-hz9pl/kaniko] logs:
-    [0002] Retrieving image manifest mesosphere/kubeflow:2.0.0-tensorflow-2.8.0
-    [0002] Retrieving image mesosphere/kubeflow:2.0.0-tensorflow-2.8.0
-    [0003] Retrieving image manifest mesosphere/kubeflow:2.0.0-tensorflow-2.8.0
-    [0003] Retrieving image mesosphere/kubeflow:2.0.0-tensorflow-2.8.0
+    [0002] Retrieving image manifest mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
+    [0002] Retrieving image mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
+    [0003] Retrieving image manifest mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
+    [0003] Retrieving image mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
     [0004] Executing 0 build triggers                   
-    [0004] Unpacking rootfs as cmd COPY . /workdir requires it.
+    [0004] Unpacking rootfs as cmd COPY . /workdir requires it. 
     [0054] Taking snapshot of full filesystem...        
     2021-11-02 14:13:54,353 kaptain-log[INFO]: [kaniko-ffccde4355a4a541-hz9pl/kaniko] logs:
     [0111] WORKDIR /workdir                             
@@ -371,7 +371,7 @@ builder.build_image()
     [0111] RUN pip install -r requirements.txt          
     [0111] cmd: /bin/bash                               
     [0111] args: [-cu pip install -r requirements.txt]  
-    [0111] Running: [/bin/bash -cu pip install -r requirements.txt]
+    [0111] Running: [/bin/bash -cu pip install -r requirements.txt] 
     Requirement already satisfied: scikit-learn in /opt/conda/lib/python3.7/site-packages (from -r requirements.txt (line 2)) (0.24.2)
     Requirement already satisfied: numpy in /opt/conda/lib/python3.7/site-packages (from -r requirements.txt (line 3)) (1.19.5)
     Requirement already satisfied: scipy>=0.19.1 in /opt/conda/lib/python3.7/site-packages (from scikit-learn->-r requirements.txt (line 2)) (1.7.1)
@@ -379,16 +379,16 @@ builder.build_image()
     Requirement already satisfied: threadpoolctl>=2.0.0 in /opt/conda/lib/python3.7/site-packages (from scikit-learn->-r requirements.txt (line 2)) (2.2.0)
     WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
     [0113] ENTRYPOINT ["python", "-u", "mnist.py"]      
-    [0113] LABEL checksum=dd270080d096520306e0cb72857bd859
-    [0113] Applying label checksum=dd270080d096520306e0cb72857bd859
+    [0113] LABEL checksum=dd270080d096520306e0cb72857bd859 
+    [0113] Applying label checksum=dd270080d096520306e0cb72857bd859 
     [0113] Taking snapshot of full filesystem...        
     2021-11-02 14:15:06,233 kaptain-log[INFO]: Image build completed successfully. Image pushed: mesosphere/kubeflow:kaptain-sdk-mnist-tf-1635862297
     2021-11-02 14:15:06,234 kaptain-log[INFO]: Deleting job kaniko-ffccde4355a4a541 in namespace user1.
     2021-11-02 14:15:06,243 kaptain-log[INFO]: Deleting secret docker-ffccde4355a4a541 in namespace user1.
     2021-11-02 14:15:06,253 kaptain-log[INFO]: Deleting secret context-ffccde4355a4a541 in namespace user1.
-```
 
-That's it! Image build has been completed and the image with required packages and files has been pushed to the Docker registry.
+
+That's it! Image build has been completed and the image with required packages and files has been pushed to the Docker registry. 
 
 ## Option 2: Build-Push-Run
 
@@ -422,7 +422,7 @@ model.train(
     hyperparameters={"--learning-rate": 0.1, "--momentum": 0.02, "--epochs": 5,},
 )
 ```
-```sh
+
     2021-11-02 18:37:40,752 kaptain-log[INFO]: Skipping image build for the model - the image 'mesosphere/kubeflow:kaptain-sdk-mnist-tf-1635862297' with the same contents has already been published to the registry.
     2021-11-02 18:37:40,755 kaptain-log[INFO]: Creating secret train-d5fd784b5409a57f in namespace user1.
     2021-11-02 18:37:40,768 kaptain-log[INFO]: Creating secret train-registry-c33ad3a574d5dee2 in namespace user1.
@@ -450,8 +450,10 @@ model.train(
     2021-11-02 18:38:30,371 kaptain-log[INFO]: Deleting secret train-d5fd784b5409a57f in namespace user1.
     2021-11-02 18:38:30,378 kaptain-log[INFO]: Deleting secret train-registry-c33ad3a574d5dee2 in namespace user1.
     2021-11-02 18:38:30,384 kaptain-log[INFO]: Model training is completed.
-```
+
 
 To learn more about creating and deploying machine learninig models with Kaptain SDK, refer to [Kaptain SDK with Tensorflow](../tensorflow) or [Kaptain SDK with Pytorch](../pytorch) tutorials.
 
 This tutorial includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 2.1.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z](https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z) and [https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z](https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z)
+
+For a full list of attributed 3rd party software, see d2iq.com/legal/3rd

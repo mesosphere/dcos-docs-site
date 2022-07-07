@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
 ```
 
 </p>
@@ -38,11 +38,11 @@ The problem of recognizing digits from handwriting is, for instance, important t
 You will see how to use Spark to build a simple Keras model to perform the multi-class classification of images provided.
 The example in the notebook includes both training a model in the notebook and running a distributed training job on the cluster using <a href="https://github.com/horovod/horovod">Horovod</a>, so you can easily scale up your own models.
 [Horovod is best](https://github.com/horovod/horovod/blob/master/docs/spark.rst) when you want to build estimators with Keras or if you want to train on Spark `DataFrame`s from `pyspark`.
-Of course, you can also use Spark's [MLlib](https://spark.apache.org/docs/2.4.5/ml-guide.html) if you prefer.
+Of course, you can also use Spark's [MLlib](https://spark.apache.org/docs/3.3.0/ml-guide.html) if you prefer.
 They key is that if you already have a Keras model, you may not want to rewrite it in Spark, but you may still want to leverage the power of distributed training with Spark and Horovod.
 
 <p class="message--warning"><strong>Horovod and Istio</strong><br />
-    If Istio is enabled in the current namespace (ask your administrator), <a href="https://github.com/horovod/horovod/issues/1855">Horovod on Spark does not work from within a notebook</a> neither does Spark in the client mode due to <a href="https://spark.apache.org/docs/3.0.0/running-on-kubernetes.html#client-mode-networking">networking specifics</a>.
+    If Istio is enabled in the current namespace (ask your administrator), <a href="https://github.com/horovod/horovod/issues/1855">Horovod on Spark does not work from within a notebook</a> neither does Spark in the client mode due to <a href="https://spark.apache.org/docs/3.3.0/running-on-kubernetes.html#client-mode-networking">networking specifics</a>.
     To disable Istio, please set the namespace label <code>istio-injection</code> to <code>disabled</code>: <code>kubectl label namespace test istio-injection=disabled --overwrite</code> and create a new dedicated notebook for Horovod-on-Spark or Spark client-mode workloads.
     Once the dedicated notebook server is created, enable Istio sidecar injection back: <code>kubectl label namespace test istio-injection=enabled --overwrite</code>.
     Additionally, you should disable it at the application level when running a distributed job (see below).
@@ -243,9 +243,9 @@ if __name__ == "__main__":
     predict_number(model, x_test, image_index)
     spark.stop()
 ```
-```sh        
+
     Writing mnist.py
-```
+
 
 [Several things](https://github.com/horovod/horovod#concepts) are worth highlighting:
 
@@ -267,9 +267,9 @@ Horovod relies on [MPI](https://github.com/horovod/horovod/blob/master/docs/conc
 ```python
 %env HOROVOD_JOB=$TRAINER_FILE
 ```
-```sh
+
     env: HOROVOD_JOB=mnist.py
-```
+
 
 To verify the training job, first run it on Spark in local mode:
 
@@ -277,16 +277,16 @@ To verify the training job, first run it on Spark in local mode:
 ```python
 %env PYSPARK_DRIVER_PYTHON=/opt/conda/bin/python
 ```
-```sh
+
     env: PYSPARK_DRIVER_PYTHON=/opt/conda/bin/python
-```
 
 
-```bash
+
+```sh
 %%sh
 "${SPARK_HOME}/bin/spark-submit" --master "local[1]" "${HOROVOD_JOB}" --epochs=1
 ```
-```sh
+
     Expected prediction for index 100: 6
     Running 1 processes (inferred from spark.default.parallelism)...
     20/06/18 16:09:21 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
@@ -296,7 +296,7 @@ To verify the training job, first run it on Spark in local mode:
     Model prediction for index 100: 6
     ...
     20/06/18 16:09:30 INFO SparkContext: Successfully stopped SparkContext
-```
+
 
 This trains the model in the notebook, but does not distribute the procedure.
 To that end, build-and-push a container image that contains the code and input dataset.
@@ -319,7 +319,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow:2.0.0-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu
+FROM mesosphere/kubeflow-dev:2062ef72-spark-3.3.0-horovod-0.24.2-tensorflow-2.8.0-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -336,7 +336,7 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow:2.0.0-mnist-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow-dev:cf297df3-mnist-spark-3.3.0-horovod-0.24.2-tensorflow-2.8.0-gpu` in case you want to skip it for now.
 
 ## How to Create a Distributed `SparkApplication`
 The [KUDO Spark Operator](https://github.com/kudobuilder/operators/tree/master/repository/spark/docs) manages Spark applications in a similar way as the [PyTorch](../pytorch) or [TensorFlow](../tensorflow) operators manage `PyTorchJob`s and `TFJob`s, respectively. 
@@ -354,7 +354,7 @@ It exposes a resource called `SparkApplication` that you will use to train the m
 ```python
 # set this to 0 when running on CPU.
 GPUS = 1
-IMAGE = "mesosphere/kubeflow:2.0.0-mnist-spark-3.0.0-horovod-0.24.2-tensorflow-2.8.0-gpu"
+IMAGE = "mesosphere/kubeflow-dev:cf297df3-mnist-spark-3.3.0-horovod-0.24.2-tensorflow-2.8.0-gpu"
 ```
 
 
@@ -380,7 +380,7 @@ spec:
   image: ${IMAGE}
   imagePullPolicy: Always  
   mainApplicationFile: "local:///mnist.py"
-  sparkVersion: "3.0.0"
+  sparkVersion: "3.3.0"
   restartPolicy:
     type: OnFailure
     onFailureRetries: 3
@@ -400,7 +400,7 @@ spec:
       name: "nvidia.com/gpu"
       quantity: ${GPUS}
     labels:
-      version: 3.0.0
+      version: 3.3.0
       metrics-exposed: "true"  
     annotations:
       sidecar.istio.io/inject: "false"
@@ -413,7 +413,7 @@ spec:
       name: "nvidia.com/gpu"
       quantity: ${GPUS}
     labels:
-      version: 3.0.0
+      version: 3.3.0
       metrics-exposed: "true"  
     annotations:
       sidecar.istio.io/inject: "false"
@@ -425,9 +425,9 @@ spec:
       port: 8090
 END
 ```
-```sh
+
     Writing sparkapp-mnist.yaml
-```
+
 
 The operator's user guide explains [how to configure the application](https://github.com/mesosphere/spark-on-k8s-operator/blob/master/docs/user-guide.md).
 
@@ -441,7 +441,7 @@ If you do run these locally, you cannot rely on cell magic, so you have to manua
 If you execute the following commands on your own machine (and not inside the notebook), you obviously do not need the cell magic `%%` either.
 In that case, you have to set the user namespace for all subsequent commands:
 
-```bash
+```
 kubectl config set-context --current --namespace=<insert-namespace>
 ```
 
@@ -464,14 +464,14 @@ kubectl create -f "${KUBERNETES_FILE}"
 Check the pods are being created according to the specification:
 
 
-```bash
+```sh
 %%sh
 kubectl get pods -l sparkoperator.k8s.io/app-name=horovod-mnist
 ```
-```sh
+
     NAME                   READY   STATUS      RESTARTS   AGE
     horovod-mnist-driver   0/1     Completed   0          64s
-```
+
 
 Wait for the `SparkApplication` to complete:
 
@@ -490,11 +490,11 @@ for attempt in range(1, 60):
 See the status of the `horovod-mnist` `SparkApplication`:
 
 
-```bash
+```sh
 %%sh
 kubectl describe ${HVD_JOB}
 ```
-```sh
+
     Name:         horovod-mnist
     ...
     API Version:  sparkoperator.k8s.io/v1beta2
@@ -518,24 +518,28 @@ kubectl describe ${HVD_JOB}
       Normal  SparkExecutorRunning       61s   spark-operator  Executor horovod-mnist-1592496574728-exec-5 is running
       Normal  SparkDriverCompleted       23s   spark-operator  Driver horovod-mnist-driver completed
       Normal  SparkApplicationCompleted  23s   spark-operator  SparkApplication horovod-mnist completed
-```
+
 
 Check the model prediction (as before) by looking at the logs of the driver:
 
 
-```bash
+```sh
 %%sh
 kubectl logs horovod-mnist-driver | grep 'Model prediction'
 ```
-```sh
+
     Model prediction for index 100: 6
-```
 
 
-```bash
+
+```sh
 %%sh
 kubectl delete ${HVD_JOB}
 ```
-```sh
+
     sparkapplication.sparkoperator.k8s.io "horovod-mnist" deleted
-```
+
+
+This tutorial includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 2.1.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z](https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z) and [https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z](https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z)
+
+For a full list of attributed 3rd party software, see d2iq.com/legal/3rd

@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
 ```
 
 </p>
@@ -27,7 +27,7 @@ tested on D2iQ's Kaptain. Without the requisite Kubernetes operators and custom 
 will likely not work.</p>
 
 
-<p class="message--note"><strong>NOTE: </strong>This notebook requires Kaptain SDK 0.4.x or later.
+<p class="message--warning"><strong>NOTE: </strong>This notebook requires Kaptain SDK 0.4.x or later.
 </p>
 
 # Kaptain SDK: Training, Tuning, and Deploying
@@ -54,15 +54,15 @@ All you need is this notebook.
 Before proceeding, check you are using the correct notebook image, that is, [Pytorch](https://pytorch.org/docs/stable/index.html) is available:
 
 
-```bash
+```sh
 %%sh
 pip list | grep torch
 ```
-```sh
+
     kubeflow-pytorchjob           0.1.3
     torch                         1.7.1
     torchvision                   0.8.2
-```
+
 
 ## Prepare the Training Code and Data Sets
 The examples in this tutorial require a trainer code file `mnist.py` and a dataset to be present in the current folder.
@@ -406,9 +406,9 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-```sh
+
     Writing trainer.py
-```
+
 
 ## Define the Model
 The central abstraction of the Kaptain SDK is a `Model` class that encapsulates all the configuration and high-level APIs required for the model training, tuning, and serving. Prior to creating an instance of the `Model` class, let's consider an example where we need to specify additional dependencies required for model training, tuning and serving, and also provide minimal required configuration for the model server.
@@ -423,9 +423,9 @@ Model dependencies can be provided via pip `requirements.txt`. For example:
 # fastai
 # torch
 ```
-```sh
+
     Writing requirements.txt
-```
+
 
 Below is an example of the minimally required serving configuration for a PyTorch model. To learn more about advanced configuration options, consult the Kaptain SDK documentation.
 
@@ -444,7 +444,7 @@ Finally, a `Model` instance requires providing a base Docker image (`base_image`
 ```python
 # as the trainer file depends on the model file, the model file should be provided as a dependency via 'extra_files'
 extra_files = ["datasets/MNIST", "model.py"]
-base_image = "mesosphere/kubeflow:2.0.0-pytorch-1.11.0"
+base_image = "mesosphere/kubeflow-dev:83b004c4-pytorch-1.11.0"
 # replace with your docker repository with a tag (optional), e.g. "repository/image"  or "repository/image:tag"
 image_name = "mesosphere/kubeflow:mnist-sdk-example-pytorch"
 # name of the file with additional python packages to install into the model image (e.g. "requirements.txt")
@@ -514,7 +514,7 @@ model.train(
     hyperparameters={"--epochs": epochs, "--batch-size": batch_size, "--seed": seed},
 )
 ```
-```sh
+
     ...
     INFO:root:Image build completed successfully. Image pushed: mesosphere/kubeflow:mnist-sdk-example-pytorch
     INFO:root:Submitting a new training job "mnist-pytorchjob-de194a8f".
@@ -538,7 +538,7 @@ model.train(
     ...
     INFO:root:Training result: Succeeded
 
-```
+
 The default `gpus` argument is 0, but it is shown here as an explicit option.
 Use `?Model.train` to see all supported arguments.
 
@@ -553,7 +553,7 @@ The low accuracy of the model is to make the demonstration of distributed traini
 ### Verify the Model is Exported to MinIO
 
 
-```bash
+```sh
 %%sh
 set -o errexit
 
@@ -563,10 +563,10 @@ minio_secretkey=$(kubectl get secret minio-creds-secret -o jsonpath="{.data.secr
 mc --no-color alias set minio http://minio.kubeflow ${minio_accesskey} ${minio_secretkey}
 mc --no-color ls -r minio/kaptain/models
 ```
-```sh
+
     Added `minio` successfully.
     [2021-05-18 22:08:09 UTC] 4.6MiB dev/mnist/trained/e268b7a148af4aa7a26f0639f1695edc/model.pt
-```
+
 
 ## Deploy the Model
 A trained model can be deployed as an auto-scalable inference service with a single call. When providing additional serving dependencies,
@@ -616,7 +616,7 @@ model.tune(
     objective_goal=0.99
 )
 ```
-```sh
+
     ...
     [I 201214 11:27:11 experiment_runner:66] Creating experiment mnist-tune-14c4431d in namespace demo
     [I 201214 11:27:11 experiment_runner:68] Experiment mnist-tune-14c4431d has been created.
@@ -627,7 +627,7 @@ model.tune(
         parameters: {'--learning-rate': '0.6885679458378395', '--momentum': '0.3915904809621852', '--epochs': '10', '--steps': '100'}, best_trial_name: mnist-tune-14c4431d-wttgxggg
     [I 201214 11:34:27 models:432] Copying saved model with the best metrics from the trial to the target location.
     [I 201214 11:34:27 models:444] Removing intermediate trial models from the storage.
-```
+
 
 For more details on the arguments supported by the SDK, execute `?Model.tune` in a notebook.
 Available options are:
@@ -637,7 +637,7 @@ Available options are:
 
 The Kaptain SDK allows individual trials to be run in parallel as well as trained in a distributed manner each.
 
-<p class="message--warning"><strong>WARNING: </strong>With a large number of parallel trials <i>and</i> a fair number of workers per trial, it is easy to max out on the available resources.
+<p class="message--warning"><strong>BEWARE! </strong>With a large number of parallel trials <i>and</i> a fair number of workers per trial, it is easy to max out on the available resources.
     If the worker quota for the namespace is <i>Q</i>, the number of parallel trials is <i>P</i>, and the number of workers per trial is <i>W</i>, please ensure that <i>P</i> &times; <i>W</i> &leq; <i>Q</i></p>
 
 ## Run canary rollout
@@ -708,12 +708,12 @@ plt.show()
 ![Image](img/7.png)
 
 
-```bash
+```sh
 %%sh
 set -o errexit
 model_name="dev-mnist"
 namespace=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
-url="http://${model_name}.${namespace}.svc.cluster.local/v1/models/${model_name}:predict"
+url="http://${model_name}.${namespace}.svc.cluster.local/v2/models/${model_name}/infer"
 
 curl --location \
      --silent \
@@ -721,7 +721,7 @@ curl --location \
      --retry 10 \
      --retry-delay 10 \
      $url \
-     -d@input.json
+     -d@input.json | python -m json.tool
 ```
 
     {"predictions": [{"7": 0.9999998807907104, "2": 5.1130371048202505e-08, "3": 3.742747978208172e-08, "9": 2.259610054622385e-09, "1": 1.1725632687031862e-09}]}
@@ -729,3 +729,5 @@ curl --location \
 We can see that the class with label "7" has the largest probability; the neural network correctly predicts the image to be a number 7.
 
 This tutorial includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the [GNU Affero General Public License 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html). The complete source code for the versions of MinIO packaged with Kaptain 2.1.0 are available at these URLs: [https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z](https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z) and [https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z](https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z)
+
+For a full list of attributed 3rd party software, see d2iq.com/legal/3rd
