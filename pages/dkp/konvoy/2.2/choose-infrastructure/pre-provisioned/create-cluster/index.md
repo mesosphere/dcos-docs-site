@@ -240,7 +240,6 @@ dkp create cluster preprovisioned \
     --control-plane-endpoint-host 10.1.2.0 \
     --virtual-ip-interface eth1
 ```
-Verify that any L2 switches in your infrastructure are not configured to block Gratuitous ARP packets. kube-vip uses Gratutious ARP to advertise the Virtual-IP (VIP) for the control plane; if the switch blocks these packets fail-over between control plane nodes will not work.
 
 Confirm that your [Calico installation is correct][calico-install].
 
