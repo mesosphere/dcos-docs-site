@@ -35,7 +35,7 @@ DKP packages now include updated containerd and FIPS manifests, mitigating CVE-2
 
 ### Outdated Dex CRDS (COPS-7341)
 
-The custom resource definitions used for configuring LDAP have been updated to include the correct syntax.
+The DEX Custom Resource Definitions used for configuring LDAP have been updated to include the correct syntax.
 
 ### The Konvoy credentials plugin instructions embedded in the dex-k8s-authenticator containers did not work (COPS-7343)
 
