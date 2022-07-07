@@ -61,7 +61,6 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
     ```bash
     curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
-    <p class="message--note"><strong>NOTE: If you're installing on DKP v2.2.2 or above, you will need to continue onto step 7.</p>
 
 1. Set your `containerd` operating system:
 
