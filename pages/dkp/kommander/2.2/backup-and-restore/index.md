@@ -16,6 +16,8 @@ Kommander stores all data as CRDs in the Kubernetes API and you can back up and 
 
 DKP provides [Velero][velero] by default, to support backup and restore operations for your Kubernetes clusters and persistent volumes.
 
+### MinIO
+
 For on-premises deployments, DKP deploys [Velero integrated with MinIO][minio-with-velero], operating inside the same cluster.
 
 For production use-cases, D2iQ advises to provide an *external* storage class to use with [MinIO][minio].
@@ -36,6 +38,8 @@ data:
       persistence:
          storageClass: <external storage class name>
 ```
+
+### Amazon S3
 
 You can also store your backups in **Amazon S3**. To do so, create a file called `velero-overrides.yaml` with the following content:
 
@@ -76,7 +80,110 @@ data:
         #   aws_secret_access_key=<REDACTED>
 ```
 
-After you have created the `ConfigMap` with **MinIO**, OR **Amazon S3**, patch the Velero `AppDeployment` by adding the `configOverrides` value. This applies the `ConfigMap` to your instance after the cluster has been configured:
+### Azure Blob
+
+Prerequisites: Create Azure related assets such as storage account, blob containers, resource group, roles, service principals prior to continuing.
+
+1. Prep your credentials-velero file with the values:
+
+```bash
+cat << EOF > ./credentials-velero
+AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
+AZURE_TENANT_ID=${AZURE_TENANT_ID}
+AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
+AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
+AZURE_RESOURCE_GROUP=${AZURE_RESOURCE_GROUP}
+AZURE_CLOUD_NAME=AzurePublicCloud
+EOF
+```
+
+1. Use the credentials-velero file to create the secret (in your case you named it as azure-bsl-credentials). Note that we used --from-env-file referencing the credentials-velero file. This is the change done from the previous instruction.
+
+```bash
+kubectl create secret generic -n kommander azure-bsl-credentials --from-env-file="credentials-velero" --kubeconfig=${CLUSTER_NAME}.conf
+```
+
+1. Create the backup storage location via Velero CLI
+
+```bash
+velero backup-location create -n kommander azure \
+--provider azure \
+--bucket $BLOB_CONTAINER \
+--config resourceGroup=$AZURE_BACKUP_RESOURCE_GROUP,storageAccount=$AZURE_STORAGE_ACCOUNT_ID \
+--credential=azure-bsl-credentials=azure --kubeconfig=${CLUSTER_NAME}.conf
+```
+
+
+1. Check to make sure the azure backup location is created
+
+```bash
+velero backup-location get -n kommander --kubeconfig=${CLUSTER_NAME}.conf
+```
+
+1. Configure kommander to load the plugins and to include the secret
+
+```yaml
+:
+velero:
+    values: |
+      minioBackend: false
+      initContainers:
+        - name: initialize-velero
+          image: mesosphere/kubeaddons-addon-initializer:v0.5.5
+          args: ["velero"]
+          env:
+            - name: "MINIO_INGRESS_NAMESPACE"
+              value: kommander
+            - name: "MINIO_INGRESS_SERVICE_NAME"
+              value: kommander-traefik
+            - name: "VELERO_NAMESPACE"
+              value: kommander
+            - name: "VELERO_MINIO_FALLBACK_SECRET_NAME"
+              value: "velero-d2iq-credentials"
+        - name: velero-plugin-for-aws
+          image: velero/velero-plugin-for-aws:v1.1.0
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - mountPath: /target
+              name: plugins
+        - name: velero-plugin-for-microsoft-azure
+          image: velero/velero-plugin-for-microsoft-azure:v1.1.2
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - mountPath: /target
+              name: plugins
+      credentials:
+          extraSecretRef: azure-bsl-credentials
+:
+```
+
+1. Check the helm releases that the new velero configuration is applied/loaded and check the pod
+
+```bash
+kubectl get hr -n kommander --kubeconfig=${CLUSTER_NAME}.conf
+
+kubectl get pods -A --kubeconfig=${CLUSTER_NAME}.conf |grep velero
+
+kubectl -n kommander exec -it velero-<hash> --kubeconfig=${CLUSTER_NAME}.conf bash
+```
+
+1. Check the plugin and the env variables. The env variable should contain the contents of the `credentials-velero` file.
+
+```bash
+cd plugins
+ls -l
+env |grep AZURE
+```
+
+1. Create a test backup
+
+```bash
+velero backup create azure-velero-testbackup -n kommander --kubeconfig=${CLUSTER_NAME}.conf --storage-location azure
+```
+
+## Patch Velero
+
+After you have created the `ConfigMap` with **MinIO**, **Amazon S3**, or **Azure Blob**, patch the Velero `AppDeployment` by adding the `configOverrides` value. This applies the `ConfigMap` to your instance after the cluster has been configured:
 
 ```bash
 cat << EOF | kubectl -n kommander patch appdeployment velero --type="merge" --patch-file=/dev/stdin
