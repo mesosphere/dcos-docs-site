@@ -24,7 +24,7 @@ When creating an air-gapped vSphere cluster, the bastion VM hosts the installati
 
     - dkp_v2.2.1_linux_amd64.tar.gz
 
-    - dkp_image_bundle_v2.2.1_linux_amd64.tar.gz (air-gapped) - This bundle contains air-gapped images that you must push to a registry.)
+    - konvoy_image_bundle_v2.2.1_linux_amd64.tar.gz (air-gapped) - This bundle contains air-gapped images that you must push to a registry.)
 
     - konvoy-bootstrap_v2.2.1.tar (air-gapped) - This bundle contains the KIND bootstrap image to load with the `docker load` command when you create the bootstrap cluster in a later step.
 
