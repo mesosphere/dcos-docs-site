@@ -31,10 +31,10 @@ Before installing, ensure you have:
 
 -   All the prerequisites covered in [air-gapped Konvoy installation][air-gap-before-you-begin].
 
--   [MetalLB enabled and configured][air-gap-install-metallb], which provides load-balancing services.
-
 -   Sufficient resources on your cluster to run Kommander. Review the [Management cluster application requirements](../mgmt-cluster-apps) and [Workspace platform application requirements](../../workspaces/applications/platform-applications/platform-application-requirements) for application requirements.
 -   The image bundle files [downloaded](../../download/).
+
+-   MetalLB will now be installed when creating your Kubernetes cluster, refer to [the Konvoy installation instructions](.../konvoy/2.2/choose-infrastructure/pre-provisioned/metal-lb) for new clusters, and if you're upgrading refer to the [Konvoy upgrade instructions](.../konvoy/2.2/dkp-upgrade/).
 
 ### Kommander charts bundle
 
@@ -81,86 +81,6 @@ Or push a new bundle:
    ```
 
 Check the built-in help text for each command for more information.
-
-### Use MetalLB
-
-For an on-premises deployment, Kommander ships with [MetalLB][metallb], which provides load-balancing services.
-
-<p class="message--note"><strong>NOTE: </strong>Making a configuration change in the <code>ConfigMap</code> for the <code>metallb</code> application may not result in the configuration change applying. This is <a href="https://github.com/danderson/metallb/issues/348#issuecomment-442218138" target="_blank">intentional behavior</a>. MetalLB refuses to adopt changes to the ConfigMap that breaks existing Services. You can force MetalLB to load those changes by deleting the <code>metallb</code> controller pod:</p>
-
-   ```bash
-   kubectl -n kommander delete pod -l app=metallb,component=controller
-   ```
-
-To use MetalLB:
-
-1.  Identify and reserve a virtual IP (VIP) address range in your networking infrastructure.
-
-1.  Configure your networking infrastructure so that the reserved IP addresses is reachable:
-
-    - from all hosts specified in the inventory file.
-    - from the computer used to deploy Kubernetes.
-
-<p class="message--note"><strong>NOTE: </strong>Ensure the MetalLB subnet does not overlap with <code>podSubnet</code> and <code>serviceSubnet</code>.</p>
-
-Your configuration is complete if the reserved virtual IP addresses are in the same subnet as the rest of the cluster nodes.
-If it is in a different subnet, configure appropriate routes to ensure connectivity with the virtual IP address.
-If the virtual IP addresses share an interface with the primary IP address of the interface, disable any IP or MAC spoofing from the infrastructure firewall.
-
-You can configure MetalLB in two modes: Layer2 and BGP.
-
-#### Layer2
-
-The following example illustrates how to enable MetalLB and configure it with the Layer2 mode using the `install.yaml` configuration file created above:
-
-   ```yaml
-   apiVersion: config.kommander.mesosphere.io/v1alpha1
-   kind: Installation
-   apps:
-    ...
-     metallb:
-       values: |
-         configInline:
-           address-pools:
-             - name: default
-               protocol: layer2
-               addresses:
-                 - 10.0.50.25-10.0.50.50
-   ```
-
-The number of virtual IP addresses in the reserved range determines the maximum number of `LoadBalancer` service types you can create in the cluster.
-
-#### BGP
-
-MetalLB in `bgp` mode implements only a subset of the BGP protocol. In particular, it only advertises the virtual IP to peer BGP agent.
-
-The following example illustrates the BGP configuration in the overrides `ConfigMap`:
-
-   ```yaml
-   apiVersion: config.kommander.mesosphere.io/v1alpha1
-   kind: Installation
-   apps:
-    ...
-     metallb:
-       values: |
-         configInline:
-           peers:
-             - my-asn: 64500
-               peer-asn: 64500
-               peer-address: 172.17.0.4
-           address-pools:
-             - name: my-ip-space
-               protocol: bgp
-               addresses:
-                 - 172.40.100.0/24
-   ```
-
-In the above configuration, `peers` defines the configuration of the BGP peer, such as peer IP address and `autonomous system number` (`asn`).
-The `address-pools` section is similar to `layer2`, except for the protocol.
-
-MetalLB also supports [advanced BGP configuration][metallb_config].
-
-See [Kommander Load Balancing][kommander-load-balancing] for more information.
 
 ### Load the Docker images into your Docker registry
 
@@ -227,10 +147,7 @@ This Docker image includes code from the MinIO Project (“MinIO”), which is �
 * https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
 
 [air-gap-before-you-begin]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/prerequisites/
-[air-gap-install-metallb]: #use-metallb
 [air-gap-konvoy]: /dkp/konvoy/2.2/choose-infrastructure/aws/air-gapped/
 [kommander-config]: ../configuration
 [kommander-load-balancing]: ../../networking/load-balancing
-[metallb]: https://metallb.universe.tf/concepts/
-[metallb_config]: https://metallb.universe.tf/configuration/
 [dkp_catalog_applications]: ../../workspaces/applications/catalog-applications/dkp-applications/
