@@ -64,7 +64,6 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
      NOTE: If you're installing V2.2.0 or V2.2.1, skip to step 9, as those releases did not have separate `containerd` packages.
 
 1. Set a variable that indicates which os-specific `containerd` bundle to download:
-2. ```
 
     ```bash
     export CONTAINERD_OS=centos-7.9-x86_64
