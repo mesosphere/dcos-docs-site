@@ -67,13 +67,13 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
     ```bash
     export CONTAINERD_OS=centos-7.9-x86_64
     ```
-Available packages are:
+    Available packages are:
 
--   `centos-7.9-x86_64`
--   `rhel-7.9-x86_64`
--   `rhel-8.2-x86_64`
--   `ubuntu-20.04-x86_64`
--   `ubuntu-18.04-x86_64`
+    -   `centos-7.9-x86_64`
+    -   `rhel-7.9-x86_64`
+    -   `rhel-8.2-x86_64`
+    -   `ubuntu-20.04-x86_64`
+    -   `ubuntu-18.04-x86_64`
 
 1. Download the `containerd` bundle.
 
