@@ -207,7 +207,15 @@ For more information, see:
 
 ## Use the built-in Virtual IP
 
-As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. The built-in virtual IP uses the [kube-vip][kube-vip] project.
+As explained in [Define the Control Plane Endpoint][define-control-plane-endpoint], we recommend using an external load balancer for the control plane endpoint, but provide a built-in virtual IP when an external load balancer is not available. 
+
+The built-in virtual IP uses the [kube-vip][kube-vip] project.  If you use the default kube-vip for the endpoint, ensure that:
+
+- The control plane nodes are in the same subnet and layer-2 network.
+- The virtual IP address you specify for the `--control-plane-endpoint` is a free IP address from that subnet
+- The network interface for virtual IP address `--virtual-ip-interface` is the same interface on which kube-apiserver listens. kube-apiserver [listens on a default interface](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/#options). 
+- Any Layer 2 (L2) switches in your infrastructure do not block Gratuitous ARP packets. kube-vip uses Gratuitous ARP to advertise the virtual IP for the control plane; if the switch blocks these packets then fail-over between control plane nodes will not work.
+
 To use the virtual IP, add these flags to the `create cluster` command:
 
 | Virtual IP Configuration                 | Flag                                 |
@@ -217,10 +225,26 @@ To use the virtual IP, add these flags to the `create cluster` command:
 
 ### Virtual IP Example
 
+Example
+If we have the following networking configurations on the control plane nodes:
+
+```bash
+Control plane node 1:
+ eth0: 1.2.3.4/29
+ eth1: 10.1.2.1/24
+Control plane node 2:
+ eth0: 5.6.7.8/25
+ eth1: 10.1.2.2/24
+Control plane node 3:
+ eth0: 9.10.11.12/30
+ eth1: 10.1.2.3/24
+```
+Then the following command should look like: 
+
 ```bash
 dkp create cluster preprovisioned \
     --cluster-name ${CLUSTER_NAME} \
-    --control-plane-endpoint-host 196.168.1.10 \
+    --control-plane-endpoint-host 10.1.2.5 \
     --virtual-ip-interface eth1
 ```
 
