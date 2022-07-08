@@ -62,6 +62,25 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
     curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
 
+1. Set your `containerd` operating system:
+
+    ```bash
+    export CONTAINERD_OS=centos-7.9-x86_64
+    ```
+    Available packages are:
+
+    -   `centos-7.9-x86_64`
+    -   `rhel-7.9-x86_64`
+    -   `rhel-8.2-x86_64`
+    -   `ubuntu-20.04-x86_64`
+    -   `ubuntu-18.04-x86_64`
+
+1. Download the `containerd` bundle.
+
+    ```bash
+    curl --output artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz --location https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
+    ```
+
 1.  Follow the instructions to [build an AMI][kib_create_ami] in the setting an additional `--overrides overrides/offline.yaml` flag.
 
 Then, you can [seed your docker registry][seed-a-registry].
