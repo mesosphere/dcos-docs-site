@@ -317,7 +317,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 1.  Wait for the new pods to finish rolling out:
 
     ```bash
-    kubectl --kubeconfig=admin.conf -n calico-system rollout status daemonset/calico-node
+    kubectl --kubeconfig=admin.conf -n kube-system rollout status daemonset/calico-node
     ```
 
     The output appears similar to this:
