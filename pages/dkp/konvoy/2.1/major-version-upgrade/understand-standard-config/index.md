@@ -192,7 +192,9 @@ spec:
           enabled: false
   version: v1.8.3
 ```
-Note that the Kommander Addon must be disabled to support the migration of Konvoy.
+
+<p class="message--note"><strong>NOTE: The Kommander addon must be disabled to support the migration of Konvoy.</strong></p>
+
 
 Every environment is a "custom" environment to some degree. The most common customizations to the standard configuration include:
 
