@@ -34,7 +34,7 @@ For example, in AWS, the service controller communicates with the AWS API to pro
 
 ### On-premises
 
-For an on-premises deployment, Kommander utilizes MetalLB. MetalLB will now be installed when creating your Kubernetes cluster, refer to [the Konvoy installation instructions](.../konvoy/2.2/choose-infrastructure/pre-provisioned/metal-lb) for new clusters.
+For an on-premises deployment, Kommander utilizes MetalLB. MetalLB will now be installed when creating your Kubernetes cluster, refer to [the Konvoy installation instructions](../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/metal-lb) for new clusters.
 
 [dnat]: https://www.linuxtopia.org/Linux_Firewall_iptables/x4013.html
 [ipvs]: https://en.wikipedia.org/wiki/IP_Virtual_Server

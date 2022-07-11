@@ -34,7 +34,7 @@ Before installing, ensure you have:
 -   Sufficient resources on your cluster to run Kommander. Review the [Management cluster application requirements](../mgmt-cluster-apps) and [Workspace platform application requirements](../../workspaces/applications/platform-applications/platform-application-requirements) for application requirements.
 -   The image bundle files [downloaded](../../download/).
 
--   MetalLB will now be installed when creating your Kubernetes cluster, refer to [the Konvoy installation instructions](.../konvoy/2.2/choose-infrastructure/pre-provisioned/metal-lb) for new clusters, and if you're upgrading refer to the [Konvoy upgrade instructions](.../konvoy/2.2/dkp-upgrade/).
+-   MetalLB will now be installed when creating your Kubernetes cluster, refer to [the Konvoy installation instructions](../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/metal-lb) for new clusters, and if you're upgrading refer to the [Konvoy upgrade instructions](../../../../konvoy/2.2/dkp-upgrade/).
 
 ### Kommander charts bundle
 
