@@ -140,6 +140,8 @@ If none of the conditions apply to your cluster, then you can skip to next secti
 
 ## Move your applications
 
+If your environment has a HTTP proxy configured, create a [TCP connection](#environments-with-an-http-proxy-server) before running the following command.
+
 To adapt your existing platform applications to Kommander enter the following command:
 
 ```bash
@@ -211,6 +213,27 @@ velero
 ```
 
 Refer to the [Verify installation][verify-install] topic to ensure successful completion.
+
+### Environments with an HTTP proxy server
+
+The `kommander migrate` command requires a connection from your environment to the Traefik ingress controller in your cluster. If your environment demands the use of an HTTP proxy server, establish an alternative connection to the Traefik ingress controller by running a port-forward into Traefik on a localhost.
+
+1.  Ensure you create or modify the `127.0.0.1` record to include the ingress domain name in your hosts file:
+
+    ```bash
+    [root@workstation ~] cat /etc/hosts
+    127.0.0.1   localhost localhost.localdomain <ingress_domain_name>
+    ```
+
+1.  Create a TCP connection to Traefik on your cluster:
+
+    ```bash
+    kubectl --kubeconfig admin.conf -n kommander port-forward svc/kommander-traefik 443:443
+    ```
+
+1.  Continue with the [Move your applications](#move-your-applications) section.
+
+    <p class="message--important"><strong>IMPORTANT: </strong>Once the migration is completed, revert the changes in your hosts `/etc/hosts` file.</p>
 
 ## Post-upgrade cleanup
 
