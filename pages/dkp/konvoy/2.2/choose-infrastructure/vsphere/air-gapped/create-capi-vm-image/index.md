@@ -28,6 +28,8 @@ Using the base OS image created in a previous procedure, DKP creates the new vSp
 1. Create an `image.yaml` file and add the following variables for vSphere. DKP uses this file and these variables as inputs in the next step.
 
    ```yaml
+   build_name: "vsphere-rhel-79"
+   packer_builder_type: "vsphere"
    packer:
      cluster: "example_zone"
      datacenter: "example_datacenter"
@@ -47,7 +49,7 @@ Using the base OS image created in a previous procedure, DKP creates the new vSp
 1. Create a vSphere VM template with the following command:
 
    ```bash
-   konvoy-image build path/to/image.yaml /
+   konvoy-image build path/to/image.yaml \
      --overrides /path/to/overrides/offline.yaml
    ```
 
