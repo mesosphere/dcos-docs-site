@@ -216,12 +216,12 @@ Refer to the [Verify installation][verify-install] topic to ensure successful co
 
 ### Environments with an HTTP proxy server
 
-The `kommander migrate` command requires a connection from your environment to the Traefik ingress controller in your cluster. If your environment demands the use of an HTTP proxy server, establish an alternative connection to the Traefik ingress controller by running a port-forward into Traefik on a local host.
+The `kommander migrate` command requires a connection from your environment to the Traefik ingress controller in your cluster. If your environment demands the use of an HTTP proxy server, establish an alternative connection to the Traefik ingress controller by running a port-forward into Traefik on a localhost.
 
 1.  Ensure you create or modify the `127.0.0.1` record to include the ingress domain name in your hosts file:
 
     ```bash
-    [root@sv-2000lvp233 kaas-8002-baseline]# cat /etc/hosts
+    [root@workstation ~] cat /etc/hosts
     127.0.0.1   localhost localhost.localdomain <ingress_domain_name>
     ```
 
@@ -232,6 +232,8 @@ The `kommander migrate` command requires a connection from your environment to t
     ```
 
 1.  Continue with the [Move your applications](#move-your-applications) section.
+
+    <p class="message--important"><strong>IMPORTANT: </strong>Once the migration is completed, revert the changes in your hosts `/etc/hosts` file.</p>
 
 ## Post-upgrade cleanup
 
