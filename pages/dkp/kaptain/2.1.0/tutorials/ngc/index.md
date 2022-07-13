@@ -59,7 +59,7 @@ In your Kubeflow profile, create a custom configuration for a notebook server to
 1.  Run this command to apply the new entry point:
 
     ```bash
-    k apply -n user -f pd.yaml
+    kubectl apply -f podddefault.yaml
     ```
 
 ## Find a notebook, container or resource in the NGC catalog
