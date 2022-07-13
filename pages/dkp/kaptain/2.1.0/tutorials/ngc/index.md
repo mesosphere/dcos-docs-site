@@ -16,30 +16,26 @@ Kaptain supports the usage of Nvidia's NGC catalog in networked environments, wh
 
 -   You have a Kubeflow profile, and [permissions to create notebooks](../../user-management/).
 
--   You have [installed JupyterLab](https://jupyterlab.readthedocs.io/en/2.2.x/getting_started/installation.html).
-
 -   You have permissions to access the [NGC component](https://docs.nvidia.com/ngc/ngc-catalog-user-guide/index.html#registering-activating-ngc-account).
 
 ## Prepare your Kubeflow user profile
 
-You do not need to download, nor install the NGC catalog. You will be able to access it by logging into your Kaptain instance. However, you have to set the default entry point for Jupyter Lab first.
+You do not need to download, nor install anything to be able to access the NGC catalog. You can visit NVIDIA's [NGC catalog page][NGC_catalog] directly or access it from your Kaptain instance. However, you have to set the default entry point for Jupyter Lab first.
 
 In your Kubeflow profile, create a custom configuration for a notebook server to launch in Jupyter Lab. Specify the `user-namespace` where you want to create the notebook.
 
-1.  Open the `PodDefault` YAML file:
-
-    <!-- TODO: command to "open" or "edit" the yaml -->
+1.  Create or edit a `PodDefault` YAML file:
 
     ```yaml
     apiVersion: "kubeflow.org/v1alpha1"
     kind: PodDefault
     metadata:
-    name: custom-entrypoint
-    namespace: <user-namespace>
+      name: custom-entrypoint
+      namespace: <kubeflow-profile>
     spec:
-    selector:
+      selector:
         matchLabels:
-        custom-entrypoint: "true"
+          custom-entrypoint: "true"
     desc: "Launch as Jupyter Lab"
     command:
     - jupyter
@@ -64,11 +60,7 @@ In your Kubeflow profile, create a custom configuration for a notebook server to
 
 ## Find a notebook, container or resource in the NGC catalog
 
-1.  [Log in to your Kaptain](../../install/deploy-kaptain#log-in-to-kaptain-using-the-management-clusters-dex-instance) instance via the Kubeflow UI.
-
-1.  On the sidebar menu, select **NGC catalog**. You will be directed to NGC’s website.
-
-1.  Browse through NGC’s website and select the container (image, notebook, or resource) you would like to run.
+1.  Browse through NGC’s website and select the container (image, notebook, or resource) you would like to run. You can do this by visiting the [NGC catalog][NGC_catalog] directly or by [logging in to your Kaptain](../../install/deploy-kaptain#log-in-to-kaptain-using-the-management-clusters-dex-instance) instance and selecting **NGC catalog** on the sidebar menu.
 
 1.  Copy and note down the download command for the container by selecting **Pull Tag** and choosing the required version. This copies the command and image name into your clipboard. You only need the image name.
 
