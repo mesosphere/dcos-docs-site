@@ -1,9 +1,11 @@
-const { sortPages } = require("../core/utils");
+/* eslint no-param-reassign: 0 */
+const fs = require('fs');
+const { sortPages } = require('../core/utils');
 
 const withMenus = [];
 const paths = {};
 
-const stripLast = (file) => file.replace(/\/[^/]+\/?$/, "");
+const stripLast = (file) => file.replace(/\/[^/]+\/?$/, '');
 const findLongestExisting = (path, fallback) => {
   if (fallback && path.length < fallback.length) return fallback;
   return paths[path] ? path : findLongestExisting(stripLast(path));
@@ -11,11 +13,11 @@ const findLongestExisting = (path, fallback) => {
 
 const firstParagraph = (file) => {
   const contents = file.contents
-    .toString("utf-8")
+    .toString('utf-8')
     .split(/\r?\n/g)
     .filter((n) => n);
 
-  return contents[0] || "";
+  return contents[0] || '';
 };
 
 /**
@@ -30,23 +32,26 @@ module.exports = (files, metalsmith, done) => {
   setImmediate(done);
 
   Object.entries(files).forEach(([filePath, file]) => {
-    if (!filePath.endsWith(".md")) return;
+    if (!filePath.endsWith('.md')) return;
 
     Object.assign(file, {
       children: [],
-      id: filePath.split("/").slice(-2)[0],
-      path: "/" + filePath.replace(/index.md$/, "").replace(/\/$/, ""),
+      id: filePath.split('/').slice(-2)[0],
+      path: `/${filePath.replace(/index.md$/, '').replace(/\/$/, '')}`,
       shortDesc: file.excerpt || firstParagraph(file),
     });
 
-    file.parent = files[filePath.replace(/[^/]+\/index.md$/, "index.md")];
+    file.parent = files[filePath.replace(/[^/]+\/index.md$/, 'index.md')];
     if (!file.parent) return;
 
     // subtree-prop inheritance
-    file.subtree = Object.assign({}, file.parent.subtree, file.subtree);
+    file.subtree = { ...file.parent.subtree, ...file.subtree };
     Object.assign(file, file.subtree);
 
-    if (file.draft && process.env.NODE_ENV == "production") return;
+    if (file.draft && process.env.NODE_ENV === 'production') {
+      delete files[filePath];
+      return;
+    }
 
     paths[file.path] = file;
     if (file.menus) withMenus.push(file);
@@ -54,10 +59,23 @@ module.exports = (files, metalsmith, done) => {
     file.parent.children.sort(sortPages);
   });
 
-  Object.entries(files).forEach(([filePath, file]) => {
-    if (file.draft && process.env.NODE_ENV == "production")
-      delete files[filePath];
+  // create redirects file for confluence
+  const file = fs.createWriteStream('redirects.txt');
+  file.on('error', (err) => {
+    /* error handling */
+    throw err;
   });
+  Object.keys(paths).forEach((path) => {
+    const excludes = ['/', '/404', '/search'];
+
+    if (excludes.includes(path)) return;
+
+    if (path.includes('konvoy/2.3') || path.includes('kommander/2.3')) return;
+
+    const redirect = `literal ${path} https://archive-docs.d2iq.com${path} permanent`;
+    file.write(`${redirect}\n`);
+  });
+  file.end();
 
   metalsmith.metadata().hierarchy = {
     findByPath(pathToFind) {
