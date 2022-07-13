@@ -225,13 +225,15 @@ The `kommander migrate` command requires a connection from your environment to t
     127.0.0.1   localhost localhost.localdomain <ingress_domain_name>
     ```
 
-1.  Create a TCP connection to Traefik on your cluster:
+1.  Open a separate terminal window to create a TCP connection to Traefik on your cluster:
 
     ```bash
     kubectl --kubeconfig admin.conf -n kommander port-forward svc/kommander-traefik 443:443
     ```
 
-1.  Continue with the [Move your applications](#move-your-applications) section.
+    <p class="message--note"><strong>NOTE: </strong>It is necessary that you open a new terminal window because the `kubectl port-forward` command does not return, and you need to leave this connection open for the duration of the migration.</p>
+
+1.  On your standard terminal window, continue with the [Move your applications](#move-your-applications) section.
 
     <p class="message--important"><strong>IMPORTANT: </strong>Once the migration is completed, revert the changes in your hosts `/etc/hosts` file.</p>
 
