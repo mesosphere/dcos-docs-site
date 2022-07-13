@@ -233,7 +233,7 @@ The `kommander migrate` command requires a connection from your environment to t
 
     <p class="message--note"><strong>NOTE: </strong>It is necessary that you open a new terminal window because the `kubectl port-forward` command does not return, and you need to leave this connection open for the duration of the migration.</p>
 
-1.  On your standard terminal window, continue with the [Move your applications](#move-your-applications) section.
+1.  From your standard terminal window, continue with the [Move your applications](#move-your-applications) section.
 
     <p class="message--important"><strong>IMPORTANT: </strong>Once the migration is completed, revert the changes in your hosts `/etc/hosts` file.</p>
 
