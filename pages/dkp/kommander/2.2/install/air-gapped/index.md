@@ -23,7 +23,7 @@ Before installing, ensure you have:
     - The management cluster must be able to connect to all attached cluster's API servers.
     - The management cluster must be able to connect to any load balancers created for platform services on the management cluster.
 
--   A [configuration file][kommander-config] that you will adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
+-   A [configuration file][kommander-config] that you can adapt to your needs using the steps outlined in this topic. Make sure to create that file using the following command:
 
   ```bash
   dkp install kommander --init --airgapped > install.yaml
@@ -34,7 +34,7 @@ Before installing, ensure you have:
 -   Sufficient resources on your cluster to run Kommander. Review the [Management cluster application requirements](../mgmt-cluster-apps) and [Workspace platform application requirements](../../workspaces/applications/platform-applications/platform-application-requirements) for application requirements.
 -   The image bundle files [downloaded](../../download/).
 
--   MetalLB will now be installed when creating your Kubernetes cluster, refer to [the Konvoy installation instructions](../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/metal-lb) for new clusters, and if you're upgrading refer to the [Konvoy upgrade instructions](../../../../konvoy/2.2/dkp-upgrade/).
+-   MetalLB can now be installed when creating your Kubernetes cluster, refer to [the Konvoy installation instructions](../../../../konvoy/2.2/choose-infrastructure/pre-provisioned/metal-lb) for new clusters, and if you're upgrading refer to the [Konvoy upgrade instructions](../../../../konvoy/2.2/dkp-upgrade/).
 
 ### Kommander charts bundle
 
