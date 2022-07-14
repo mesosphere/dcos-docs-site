@@ -66,7 +66,7 @@ The default AWS image is not recommended for use in production. We suggest using
     dkp create cluster aws \
     --cluster-name=${CLUSTER_NAME} \
     --additional-tags=owner=$(whoami) \
-    --with-aws-bootstrap-credentials=true \    
+    --with-aws-bootstrap-credentials=true \
     --self-managed
     ```
 
@@ -74,38 +74,38 @@ The default AWS image is not recommended for use in production. We suggest using
 
     ```sh
      ✓ Creating a bootstrap cluster
-	 ✓ Initializing new CAPI components
-	Generating cluster resources
-	cluster.cluster.x-k8s.io/aws-example created
-	awscluster.infrastructure.cluster.x-k8s.io/aws-example created
-	kubeadmcontrolplane.controlplane.cluster.x-k8s.io/aws-example-control-plane created
-	awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-control-plane created
-	secret/aws-example-etcd-encryption-config created
-	machinedeployment.cluster.x-k8s.io/aws-example-md-0 created
-	awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-md-0 created
-	kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-md-0 created
-	clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-aws-example created
-	configmap/calico-cni-installation-aws-example created
-	configmap/tigera-operator-aws-example created
-	clusterresourceset.addons.cluster.x-k8s.io/aws-ebs-csi-aws-example created
-	configmap/aws-ebs-csi-aws-example created
-	clusterresourceset.addons.cluster.x-k8s.io/cluster-autoscaler-aws-example created
-	configmap/cluster-autoscaler-aws-example created
-	clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-aws-example created
-	configmap/node-feature-discovery-aws-example created
-	clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-aws-example created
-	configmap/nvidia-feature-discovery-aws-example created
-	 ✓ Waiting for cluster infrastructure to be ready
-	 ✓ Waiting for cluster control-planes to be ready
-	 ✓ Waiting for machines to be ready
-	 ✓ Initializing new CAPI components
-	 ✓ Moving cluster resources
-	You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/gflorinskaya/repos/advanced-tests/konvoy2-test-v3/aws-example.conf get nodes
-	 ✓ Deleting bootstrap cluster
+     ✓ Initializing new CAPI components
+    Generating cluster resources
+    cluster.cluster.x-k8s.io/aws-example created
+    awscluster.infrastructure.cluster.x-k8s.io/aws-example created
+    kubeadmcontrolplane.controlplane.cluster.x-k8s.io/aws-example-control-plane created
+    awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-control-plane created
+    secret/aws-example-etcd-encryption-config created
+    machinedeployment.cluster.x-k8s.io/aws-example-md-0 created
+    awsmachinetemplate.infrastructure.cluster.x-k8s.io/aws-example-md-0 created
+    kubeadmconfigtemplate.bootstrap.cluster.x-k8s.io/aws-example-md-0 created
+    clusterresourceset.addons.cluster.x-k8s.io/calico-cni-installation-aws-example created
+    configmap/calico-cni-installation-aws-example created
+    configmap/tigera-operator-aws-example created
+    clusterresourceset.addons.cluster.x-k8s.io/aws-ebs-csi-aws-example created
+    configmap/aws-ebs-csi-aws-example created
+    clusterresourceset.addons.cluster.x-k8s.io/cluster-autoscaler-aws-example created
+    configmap/cluster-autoscaler-aws-example created
+    clusterresourceset.addons.cluster.x-k8s.io/node-feature-discovery-aws-example created
+    configmap/node-feature-discovery-aws-example created
+    clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-aws-example created
+    configmap/nvidia-feature-discovery-aws-example created
+     ✓ Waiting for cluster infrastructure to be ready
+     ✓ Waiting for cluster control-planes to be ready
+     ✓ Waiting for machines to be ready
+     ✓ Initializing new CAPI components
+     ✓ Moving cluster resources
+    You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=/home/gflorinskaya/repos/advanced-tests/konvoy2-test-v3/aws-example.conf get nodes
+     ✓ Deleting bootstrap cluster
 
-	Cluster default/aws-example kubeconfig was written to to the filesystem.
-	You can now view resources in the new cluster by using the --kubeconfig flag with kubectl.
-	For example: kubectl --kubeconfig=aws-example.conf get nodes
+    Cluster default/aws-example kubeconfig was written to to the filesystem.
+    You can now view resources in the new cluster by using the --kubeconfig flag with kubectl.
+    For example: kubectl --kubeconfig=aws-example.conf get nodes
     ```
 
     As part of the underlying processing, the DKP CLI:
@@ -129,14 +129,14 @@ The kubeconfig file is written to your local directory and you can now explore t
     You will see output similar to:
 
     ```sh
-	NAME                                         STATUS   ROLES                  AGE   VERSION
-	ip-10-0-108-63.us-west-2.compute.internal    Ready    <none>                 59m   v1.23.7
-	ip-10-0-115-181.us-west-2.compute.internal   Ready    <none>                 59m   v1.23.7
-	ip-10-0-118-159.us-west-2.compute.internal   Ready    <none>                 59m   v1.23.7
-	ip-10-0-122-136.us-west-2.compute.internal   Ready    control-plane,master   60m   v1.23.7
-	ip-10-0-122-6.us-west-2.compute.internal     Ready    <none>                 59m   v1.23.7
-	ip-10-0-154-239.us-west-2.compute.internal   Ready    control-plane,master   59m   v1.23.7
-	ip-10-0-199-233.us-west-2.compute.internal   Ready    control-plane,master   57m   v1.23.7
+    NAME                                         STATUS   ROLES                  AGE   VERSION
+    ip-10-0-108-63.us-west-2.compute.internal    Ready    <none>                 59m   v1.23.7
+    ip-10-0-115-181.us-west-2.compute.internal   Ready    <none>                 59m   v1.23.7
+    ip-10-0-118-159.us-west-2.compute.internal   Ready    <none>                 59m   v1.23.7
+    ip-10-0-122-136.us-west-2.compute.internal   Ready    control-plane,master   60m   v1.23.7
+    ip-10-0-122-6.us-west-2.compute.internal     Ready    <none>                 59m   v1.23.7
+    ip-10-0-154-239.us-west-2.compute.internal   Ready    control-plane,master   59m   v1.23.7
+    ip-10-0-199-233.us-west-2.compute.internal   Ready    control-plane,master   57m   v1.23.7
     ```
 
 1.  List the Pods with the command:
@@ -180,19 +180,19 @@ If you no longer need the cluster and want to delete it, you can do so using the
     You will see output similar to:
 
     ```sh
-	 ✓ Creating a bootstrap cluster
-	 ✓ Initializing new CAPI components
-	 ✓ Moving cluster resources
-	You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=aws-example-bootstrap.conf get nodes
-	 ✓ Waiting for cluster infrastructure to be ready
-	 ✓ Waiting for cluster control-planes to be ready
-	 ✓ Waiting for machines to be ready
-	 ✓ Deleting Services with type LoadBalancer for Cluster default/aws-example
-	 ✓ Deleting ClusterResourceSets for Cluster default/aws-example
-	  ✓ Deleting cluster resources
-	 ✓ Waiting for cluster to be fully deleted
-	Deleted default/aws-example cluster
-	 ✓ Deleting bootstrap cluster
+     ✓ Creating a bootstrap cluster
+     ✓ Initializing new CAPI components
+     ✓ Moving cluster resources
+    You can now view resources in the moved cluster by using the --kubeconfig flag with kubectl. For example: kubectl --kubeconfig=aws-example-bootstrap.conf get nodes
+     ✓ Waiting for cluster infrastructure to be ready
+     ✓ Waiting for cluster control-planes to be ready
+     ✓ Waiting for machines to be ready
+     ✓ Deleting Services with type LoadBalancer for Cluster default/aws-example
+     ✓ Deleting ClusterResourceSets for Cluster default/aws-example
+      ✓ Deleting cluster resources
+     ✓ Waiting for cluster to be fully deleted
+    Deleted default/aws-example cluster
+     ✓ Deleting bootstrap cluster
     ```
 
 Similar to `create cluster`, use the flag `--self-managed` with the `delete cluster`command:
