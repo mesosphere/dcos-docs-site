@@ -8,7 +8,11 @@ beta: false
 enterprise: false
 ---
 
-Kaptain supports the usage of Nvidia's NGC catalog in networked environments, which you can access and set up via the Kubeflow UI. The NGC catalog includes containers, charts, pre-trained models, toolkits and more, which are optimized for GPU deployment and can now be used to run AI workflows in Kaptain. You can find all the available resources for your AI/ML workflow in the [NVIDIA NGC catalog][NGC_catalog].
+Kaptain supports the usage of Nvidia's NGC catalog in networked environments, which you can access and set up via the Kubeflow UI. The NGC catalog includes containers, charts, pre-trained models, toolkits and more, which are optimized for GPU deployment and can now be used to run AI workflows in Kaptain.
+
+Since the NGC catalog is a contantly growing third-party catalog developed by NVIDIA, not all available images have been tested. Note that for some examples, you need to install additional tools like TAO Toolkit, DeepStream SDK, NVIDIA TensorRT and others.
+
+You can find all the available resources for your AI/ML workflow in the [NVIDIA NGC catalog][NGC_catalog], and detailed intructions on how to use these resources in the [NGC documentation][NGC_docs] site.
 
 ## Prerequisites
 
