@@ -22,7 +22,7 @@ Kaptain supports the usage of Nvidia's NGC catalog in networked environments, wh
 
 You do not need to download, nor install anything to be able to access the NGC catalog. You can visit NVIDIA's [NGC catalog page][NGC_catalog] directly or access it from your Kaptain instance. However, you have to set the default entry point for Jupyter Lab first.
 
-In your Kubeflow profile, create a custom configuration for a notebook server to launch in Jupyter Lab. Specify the `user-namespace` where you want to create the notebook.
+In your Kubeflow profile, create a custom configuration for a notebook server to launch in Jupyter Lab. Specify the `kubeflow-profile` where you want to create the notebook.
 
 1.  Create or edit a `PodDefault` YAML file:
 
@@ -36,20 +36,20 @@ In your Kubeflow profile, create a custom configuration for a notebook server to
       selector:
         matchLabels:
           custom-entrypoint: "true"
-    desc: "Launch as Jupyter Lab"
-    command:
-    - jupyter
-    args:
-    - lab
-    - --notebook-dir=/workspace
-    - --ip=0.0.0.0
-    - --no-browser
-    - --allow-root
-    - --port=8888
-    - --NotebookApp.token=''
-    - --NotebookApp.password=''
-    - --NotebookApp.allow_origin='*'
-    - --NotebookApp.base_url=$(NB_PREFIX)
+      desc: "Launch as Jupyter Lab"
+      command:
+      - jupyter
+      args:
+      - lab
+      - --notebook-dir=/workspace
+      - --ip=0.0.0.0
+      - --no-browser
+      - --allow-root
+      - --port=8888
+      - --NotebookApp.token=''
+      - --NotebookApp.password=''
+      - --NotebookApp.allow_origin='*'
+      - --NotebookApp.base_url=$(NB_PREFIX)
     ```
 
 1.  Run this command to apply the new entry point:
