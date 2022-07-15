@@ -57,11 +57,19 @@ The DEX Custom Resource Definitions used for configuring LDAP have been updated 
 
 The mesosphere/dex-k8s-authenticator docker container now includes the appropriate binaries that allow users to download the referenced 'konvoy-async-plugin' after configuring a cluster using an external IDP for authentication.
 
-## Component updates
+## Component and Application updates
 
 When upgrading to this release, the following services and service components are upgraded to the listed version:
 
-| Common Application Name | APP ID                                         | Version | Component Versions                                                                                                                        |
+### Components
+
+- CAPPPVersion = "v0.8.3"
+- CAPZVersion  = "v1.3.1"
+- Containerd 1.4.13
+- KIB v1.17.2
+
+### Applications
+
 | Common Application Name | APP ID | Version | Component Versions |
 |-------------------------|--------|---------|--------------------|
 | Centralized Grafana | centralized-grafana | 33.1.6 | - chart: 33.1.6<br>- grafana: 0.55.0 |
