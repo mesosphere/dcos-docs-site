@@ -223,7 +223,7 @@ export AWS_SECRET_ACCESS_KEY=(.Credentials.SecretAccessKey)
 export AWS_SESSION_TOKEN=(.Credentials.SessionToken)
  ```
 
-These credentials are short lived and would need to be updated in the bootstrap cluster
+<p class="message--note"><strong>NOTE: </strong>YThese credentials are short lived and would need to be updated in the bootstrap cluster</p>
 
 ### Use EC2 Instance Profiles
 The created `dkp-bootstrapper-role` can be assumed by an ec2 instance a user would run `dkp create cluster` commands from. To do this, specify the IAM Instance Profile `DKPBootstrapInstanceProfile` on creation. 
