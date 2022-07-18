@@ -203,7 +203,7 @@ aws sts assume-role --role-arn arn:aws:iam::MYAWSACCOUNT:role/dkp-bootstrapper-r
 
 Which returns something similar to this:
 
-
+```
 {
     "Credentials": {
         "AccessKeyId": "ASIA6RTF53ZH5B52EVM5",
@@ -216,7 +216,9 @@ Which returns something similar to this:
         "Arn": "arn:aws:sts::MYAWSACCOUNTID:assumed-role/dkp-bootstrapper-role/test"
     }
 }
-And then export the following environment variables with the results:
+```
+
+Then export the following environment variables with the results:
 
 ```bash
 export AWS_ACCESS_KEY_ID=(.Credentials.AccessKeyId)
