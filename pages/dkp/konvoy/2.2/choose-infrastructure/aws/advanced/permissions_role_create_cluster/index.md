@@ -197,6 +197,7 @@ The created `dkp-bootstrapper-role` can be assumed by IAM users for temporary cr
 
 <p class="message--note"><strong>NOTE: </strong>You must replace MYAWSACCOUNT with an AWS Account ID number ie: 111122223333 </p>
 
+```bash
 aws sts assume-role --role-arn arn:aws:iam::MYAWSACCOUNT:role/dkp-bootstrapper-role --role-session-name EXAMPLE 
 Which returns something similar to this:
 
