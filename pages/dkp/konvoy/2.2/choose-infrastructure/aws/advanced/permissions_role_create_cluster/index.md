@@ -183,7 +183,7 @@ Resources:
       RoleName: dkp-bootstrapper-role
     Type: AWS::IAM::Role
  ```
-
+<p class="message--note"><strong>NOTE: </strong>You must replace MYAWSACCOUNT with an AWS Account ID number ie: 111122223333 </p>
 
 To create the resources in the cloudformation stack, copy the contents above into a file and run the following command after replacing `MYFILENAME.yaml` and `MYSTACKNAME` with the intended values:
 
