@@ -2,41 +2,35 @@
 layout: layout.pug
 navigationTitle: EKS Cluster IAM Policies and Roles
 title: EKS Cluster IAM Policies and Roles
-menuWeight: 25
+menuWeight: 12
 excerpt: Configure IAM Prerequisites before starting an EKS cluster
 enterprise: false
 ---
+
 This guides a DKP user in creating IAM Policies and Instance Profiles used by the cluster’s control plane and worker nodes using the provided AWS CloudFormation Stack specific to EKS. The [IAM Policy][iampolicies] CloudFormation Stack has code for an additional role for EKS not needed in other AWS environments.
 
-Prerequisites:
---------------
+## Prerequisites
 
-* A valid AWS account with [credentials configured][aws_credentials].
-    
-* Create the Instance Profiles, Roles, and Polices from the [AWS Prerequisite page][iampolicies] in your AWS account
-    
-* You will need to have the [AWS CLI utility installed][awscli].
-    
+-   A valid AWS account with [credentials configured][aws_credentials].
 
-EKS IAM Artifacts
------------------
+-   Create the Instance Profiles, Roles, and Polices from the [AWS Prerequisite page][iampolicies] in your AWS account
+
+-   You will need to have the [AWS CLI utility installed][awscli].
+
+## EKS IAM Artifacts
 
 ### Policies
 
-*   `controllers-eks.cluster-api-provider-aws.sigs.k8s.io` - enumerates the Actions required by the workload cluster to create and modify EKS clusters in the user's AWS Account. It is attached to the existing `control-plane.cluster-api-provider-aws.sigs.k8s.io`  role
-    
-*   `eks-nodes.cluster-api-provider-aws.sigs.k8s.io` - enumerates the Actions required by the EKS workload cluster's worker machines. It is attached to the existing `nodes.cluster-api-provider-aws.sigs.k8s.io`
-    
+-   `controllers-eks.cluster-api-provider-aws.sigs.k8s.io` - enumerates the Actions required by the workload cluster to create and modify EKS clusters in the user's AWS Account. It is attached to the existing `control-plane.cluster-api-provider-aws.sigs.k8s.io`  role
+
+-   `eks-nodes.cluster-api-provider-aws.sigs.k8s.io` - enumerates the Actions required by the EKS workload cluster's worker machines. It is attached to the existing `nodes.cluster-api-provider-aws.sigs.k8s.io`
 
 ### Roles
 
-*   `eks-controlplane.cluster-api-provider-aws.sigs.k8s.io` - is the Role associated with EKS cluster control planes
-    
-
+- `eks-controlplane.cluster-api-provider-aws.sigs.k8s.io` - is the Role associated with EKS cluster control planes
 
 **NOTE**: `control-plane.cluster-api-provider-aws.sigs.k8s.io` and `nodes.cluster-api-provider-aws.sigs.k8s.io` roles were created by [Instance Profiles, Roles, and Polices from the AWS Prerequisites][iampolicies].
 
-  
 Below is a [CloudFormation stack][cloudformation] that includes IAM policies and roles required to setup EKS Clusters:
 
 ```yaml

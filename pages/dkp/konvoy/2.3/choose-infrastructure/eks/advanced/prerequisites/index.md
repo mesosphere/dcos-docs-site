@@ -24,7 +24,7 @@ Before you begin using Konvoy, you must have:
 
 Before you begin using Konvoy with AWS, you must:
 
--   Create an [IAM policy configuration][iampolicies].
+-   Create an [IAM policy configuration for EKS][eks_iampolicies].
 
 -   Export the AWS region where you want to deploy the cluster:
 
@@ -40,6 +40,6 @@ Before you begin using Konvoy with AWS, you must:
 
 [aws_auth]: https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
-[iampolicies]: ../../../aws/iam-policies
+[eks_iampolicies]: ../eks-cluster-iam-policies-and-roles
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
