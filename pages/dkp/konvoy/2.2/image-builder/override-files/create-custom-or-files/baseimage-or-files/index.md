@@ -57,6 +57,7 @@ A complete list of the variables that can be modified for each packer builder, t
 
 [ vSphere packer template ](https://github.com/mesosphere/konvoy-image-builder/blob/v1.12.0/pkg/packer/manifests/vsphere/packer.json.tmpl#L2)
 
+To remove this part:
 
 A base image is a specific AMI image used as the base for your new AMI image. By default, Konvoy Image Builder searches for the latest CentOS 7 `ami` for the base image. The current base image description, at `images/ami/centos-7.yaml`, is similar to the following:
 
