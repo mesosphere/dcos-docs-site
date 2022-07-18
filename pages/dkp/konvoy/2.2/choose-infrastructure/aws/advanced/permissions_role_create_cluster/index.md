@@ -199,6 +199,8 @@ The created `dkp-bootstrapper-role` can be assumed by IAM users for temporary cr
 
 ```bash
 aws sts assume-role --role-arn arn:aws:iam::MYAWSACCOUNT:role/dkp-bootstrapper-role --role-session-name EXAMPLE 
+```
+
 Which returns something similar to this:
 
 
