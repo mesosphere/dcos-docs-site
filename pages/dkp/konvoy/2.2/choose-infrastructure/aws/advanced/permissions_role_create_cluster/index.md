@@ -237,6 +237,7 @@ The created `dkp-bootstrapper-role` can be assumed by an ec2 instance a user wou
 AWS administrators can attach the dkp-bootstrapper-policy to an existing [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) and authenticate with [Access Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) on the work station they would run dkp create cluster commands from by exporting the following environment variables with the appropriate values for the IAM user.  
 
 
+```bash
 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 export AWS_DEFAULT_REGION=us-west-2
