@@ -241,6 +241,7 @@ AWS administrators can attach the dkp-bootstrapper-policy to an existing [IAM us
 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 export AWS_DEFAULT_REGION=us-west-2
+```
 
 ### Best practices 
 A system administrator should always consider [best practices](https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html) for Access Keys.
