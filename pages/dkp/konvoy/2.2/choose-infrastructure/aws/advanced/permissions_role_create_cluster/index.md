@@ -203,7 +203,7 @@ aws sts assume-role --role-arn arn:aws:iam::MYAWSACCOUNT:role/dkp-bootstrapper-r
 
 Which returns something similar to this:
 
-```
+```json
 {
     "Credentials": {
         "AccessKeyId": "ASIA6RTF53ZH5B52EVM5",
