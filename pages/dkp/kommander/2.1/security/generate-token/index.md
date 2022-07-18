@@ -12,9 +12,9 @@ Obtain a token from the DKP UI.
 
 1.  Log in to your DKP UI.
 
-![Kommander-dashboard](./kommander-generate-token.png)
-
 1.  Select the **Generate Token** button, from the user profile dropdown in the upper right corner.
+
+    ![Kommander-dashboard](./kommander-generate-token.png)
 
 1.  Select an identity provider and cluster. If required, you will be prompted to log in again.
 
