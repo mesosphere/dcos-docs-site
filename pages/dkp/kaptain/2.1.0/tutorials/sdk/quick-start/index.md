@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
 ```
 
 </p>
@@ -303,15 +303,59 @@ cpu = "0.5"
 model.train(cpu=cpu, memory=memory, hyperparameters={})
 ```
 
-    2021-12-10 19:29:31,544 kaptain-log[INFO]: Skipping image build for the model - the image 'mesosphere/kubeflow:mnist-sklearn-sdk' with the same contents has already been published to the registry.
-    2021-12-10 19:29:31,546 kaptain-log[INFO]: Creating secret train-d3adabf95994484a in namespace demo.
-    2021-12-10 19:29:31,562 kaptain-log[INFO]: Creating secret train-registry-068ad4ec6b93f037 in namespace demo.
-    2021-12-10 19:29:31,570 kaptain-log[INFO]: Submitting a new training job "mnist-job-17921389".
-    2021-12-10 19:29:31,571 kaptain-log[INFO]: Creating job mnist-job-17921389 in namespace demo.
-    2021-12-10 19:29:31,589 kaptain-log[INFO]: Waiting for the training job to complete...
-    2021-12-10 19:29:31,767 kaptain-log[INFO]: Waiting for Master Node Training Model to start...
-    2021-12-10 19:29:33,483 kaptain-log[INFO]: Master Node Training Model started in pod: mnist-job-17921389-c5jgc.
-    2021-12-10 19:29:36,367 kaptain-log[INFO]: [mnist-job-17921389-c5jgc/sklearn] logs:
+    2022-07-13 10:53:21,794 kaptain-log[INFO]: Building Docker image.
+    2022-07-13 10:53:21,794 kaptain-log[INFO]: Creating secret docker-796a4baf6ede29c6 in namespace user1.
+    2022-07-13 10:53:21,805 kaptain-log[INFO]: Creating secret context-796a4baf6ede29c6 in namespace user1.
+    2022-07-13 10:53:21,812 kaptain-log[INFO]: Creating job kaniko-796a4baf6ede29c6 in namespace user1.
+    2022-07-13 10:53:27,083 kaptain-log[INFO]: Waiting for Image Build to start...
+    2022-07-13 10:53:32,251 kaptain-log[INFO]: Image Build started in pod: kaniko-796a4baf6ede29c6--1-crzlx.
+    2022-07-13 10:53:34,534 kaptain-log[INFO]: [kaniko-796a4baf6ede29c6--1-crzlx/kaniko] logs:
+    [36mINFO[0m[0000] Retrieving image manifest mesosphere/kubeflow-dev:1950339f-base 
+    [36mINFO[0m[0000] Retrieving image mesosphere/kubeflow-dev:1950339f-base 
+    [36mINFO[0m[0001] Retrieving image manifest mesosphere/kubeflow-dev:1950339f-base 
+    [36mINFO[0m[0001] Retrieving image mesosphere/kubeflow-dev:1950339f-base 
+    [36mINFO[0m[0002] Built cross stage deps: map[]                
+    2022-07-13 10:54:14,026 kaptain-log[INFO]: [kaniko-796a4baf6ede29c6--1-crzlx/kaniko] logs:
+    [36mINFO[0m[0002] Retrieving image manifest mesosphere/kubeflow-dev:1950339f-base 
+    [36mINFO[0m[0002] Retrieving image mesosphere/kubeflow-dev:1950339f-base 
+    [36mINFO[0m[0003] Retrieving image manifest mesosphere/kubeflow-dev:1950339f-base 
+    [36mINFO[0m[0003] Retrieving image mesosphere/kubeflow-dev:1950339f-base 
+    [36mINFO[0m[0004] Executing 0 build triggers                   
+    [36mINFO[0m[0004] Unpacking rootfs as cmd COPY . /kaptain requires it. 
+    [36mINFO[0m[0041] Taking snapshot of full filesystem...        
+    2022-07-13 10:55:00,361 kaptain-log[INFO]: [kaniko-796a4baf6ede29c6--1-crzlx/kaniko] logs:
+    [36mINFO[0m[0088] LABEL checksum=cbefed5a490ca265be68f9486ad37086 
+    2022-07-13 10:55:42,354 kaptain-log[INFO]: [kaniko-796a4baf6ede29c6--1-crzlx/kaniko] logs:
+    [36mINFO[0m[0088] Applying label checksum=cbefed5a490ca265be68f9486ad37086 
+    [36mINFO[0m[0088] WORKDIR /kaptain                             
+    [36mINFO[0m[0088] cmd: workdir                                 
+    [36mINFO[0m[0088] Changed working directory to /kaptain        
+    [36mINFO[0m[0088] Creating directory /kaptain                  
+    [36mINFO[0m[0088] COPY . /kaptain                              
+    [36mINFO[0m[0088] RUN if [ -e requirements.txt ]; then pip install --no-cache -r requirements.txt; fi 
+    [36mINFO[0m[0088] cmd: /bin/bash                               
+    [36mINFO[0m[0088] args: [-cu if [ -e requirements.txt ]; then pip install --no-cache -r requirements.txt; fi] 
+    [36mINFO[0m[0088] Running: [/bin/bash -cu if [ -e requirements.txt ]; then pip install --no-cache -r requirements.txt; fi] 
+    Requirement already satisfied: scikit-learn>0.24.2 in /opt/conda/lib/python3.8/site-packages (from -r requirements.txt (line 1)) (1.1.1)
+    Requirement already satisfied: joblib>=1.0.0 in /opt/conda/lib/python3.8/site-packages (from scikit-learn>0.24.2->-r requirements.txt (line 1)) (1.1.0)
+    Requirement already satisfied: threadpoolctl>=2.0.0 in /opt/conda/lib/python3.8/site-packages (from scikit-learn>0.24.2->-r requirements.txt (line 1)) (3.1.0)
+    Requirement already satisfied: numpy>=1.17.3 in /opt/conda/lib/python3.8/site-packages (from scikit-learn>0.24.2->-r requirements.txt (line 1)) (1.21.6)
+    Requirement already satisfied: scipy>=1.3.2 in /opt/conda/lib/python3.8/site-packages (from scikit-learn>0.24.2->-r requirements.txt (line 1)) (1.8.1)
+    WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+    [36mINFO[0m[0090] ENTRYPOINT ["python", "-u", "training.py"]   
+    [36mINFO[0m[0090] Taking snapshot of full filesystem...        
+    2022-07-13 10:55:42,562 kaptain-log[INFO]: Image build completed successfully. Image pushed: mesosphere/kubeflow:mnist-sklearn-sdk
+    2022-07-13 10:55:42,562 kaptain-log[INFO]: Deleting job kaniko-796a4baf6ede29c6 in namespace user1.
+    2022-07-13 10:55:42,571 kaptain-log[INFO]: Deleting secret docker-796a4baf6ede29c6 in namespace user1.
+    2022-07-13 10:55:42,575 kaptain-log[INFO]: Deleting secret context-796a4baf6ede29c6 in namespace user1.
+    2022-07-13 10:55:42,584 kaptain-log[INFO]: Creating secret train-55ad1342dff5eede in namespace user1.
+    2022-07-13 10:55:42,595 kaptain-log[INFO]: Creating secret train-registry-85c8e1f285264a44 in namespace user1.
+    2022-07-13 10:55:42,603 kaptain-log[INFO]: Submitting a new training job "mnist-job-6f2f5c2a".
+    2022-07-13 10:55:42,604 kaptain-log[INFO]: Creating job mnist-job-6f2f5c2a in namespace user1.
+    2022-07-13 10:55:42,616 kaptain-log[INFO]: Waiting for the training job to complete...
+    2022-07-13 10:55:47,853 kaptain-log[INFO]: Waiting for Master Node Training Model to start...
+    2022-07-13 10:56:43,720 kaptain-log[INFO]: Master Node Training Model started in pod: mnist-job-6f2f5c2a--1-lq5fj.
+    2022-07-13 10:56:45,764 kaptain-log[INFO]: [mnist-job-6f2f5c2a--1-lq5fj/sklearn] logs:
     Classification report for classifier SVC(gamma=0.001):
                   precision    recall  f1-score   support
                0       1.00      0.99      0.99        88
@@ -339,11 +383,14 @@ model.train(cpu=cpu, memory=memory, hyperparameters={})
      [ 0  0  0  0  0  0  0  0 88  0]
      [ 0  0  0  1  0  1  0  0  0 90]]
     Model accuracy: 0.9688542825361512
-    Exporting model to s3://kaptain/models/dev/mnist/trained/fc6f2d4e16fd4b2cbd5d85e49d5b0b55/model.joblib ...
+    2022-07-13 10:56:56,807 kaptain-log[WARNING]: Reason: FailedMount, message: MountVolume.SetUp failed for volume "kube-api-access-cdn48" : object "user1"/"kube-root-ca.crt" not registered
+    2022-07-13 10:56:56,921 kaptain-log[INFO]: [mnist-job-6f2f5c2a--1-lq5fj/sklearn] logs:
+    Exporting model to s3://kaptain/models/dev/mnist/trained/5ec8779b6b5345ed8aea0b5d82c3b5f7/model.joblib ...
     Export completed.
-    2021-12-10 19:29:38,400 kaptain-log[INFO]: Deleting secret train-d3adabf95994484a in namespace demo.
-    2021-12-10 19:29:38,415 kaptain-log[INFO]: Deleting secret train-registry-068ad4ec6b93f037 in namespace demo.
-    2021-12-10 19:29:38,426 kaptain-log[INFO]: Model training is completed.
+    2022-07-13 10:56:57,330 kaptain-log[WARNING]: Reason: FailedMount, message: MountVolume.SetUp failed for volume "kube-api-access-cdn48" : object "user1"/"kube-root-ca.crt" not registered
+    2022-07-13 10:56:57,949 kaptain-log[INFO]: Deleting secret train-55ad1342dff5eede in namespace user1.
+    2022-07-13 10:56:57,953 kaptain-log[INFO]: Deleting secret train-registry-85c8e1f285264a44 in namespace user1.
+    2022-07-13 10:56:57,959 kaptain-log[INFO]: Model training is completed.
 
 
 The default `gpus` argument is 0, but it is shown here as an explicit option.
@@ -382,19 +429,17 @@ model.tune(
 )
 ```
 
-    2021-12-10 19:29:39,806 kaptain-log[INFO]: Skipping image build for the model - the image 'mesosphere/kubeflow:mnist-sklearn-sdk' with the same contents has already been published to the registry.
-    2021-12-10 19:29:39,813 kaptain-log[INFO]: Creating secret tune-b07d30db2ea16212 in namespace demo.
-    2021-12-10 19:29:39,827 kaptain-log[INFO]: Creating secret tune-registry-a3a9649180ddb293 in namespace demo.
-    2021-12-10 19:29:39,835 kaptain-log[INFO]: Creating experiment mnist-tune-0174088b in namespace demo
-    2021-12-10 19:29:39,874 kaptain-log[INFO]: Experiment mnist-tune-0174088b has been created.
-    Progress: 100%|█████████████████████████|12/12 [time: 01:05, accuracy: 0.9666, trials running: 0, pending: 0, failed: 0, killed: 0]
-    2021-12-10 19:30:45,017 kaptain-log[INFO]: Model tuning completed, final status: Succeeded
-    2021-12-10 19:30:45,024 kaptain-log[INFO]: Deleting secret tune-b07d30db2ea16212 in namespace demo.
-    2021-12-10 19:30:45,039 kaptain-log[INFO]: Deleting secret tune-registry-a3a9649180ddb293 in namespace demo.
-    2021-12-10 19:30:45,048 kaptain-log[INFO]: Experiment results:
-    parameters: {'--gamma': '0.0009033059385183185', '--c': '0.8628663122572235'}, best_trial_name: mnist-tune-0174088b-sh2xfkbt
-    2021-12-10 19:30:45,048 kaptain-log[INFO]: Copying saved model with the best metrics from the trial to the target location.
-    2021-12-10 19:30:45,190 kaptain-log[INFO]: Removing intermediate trial models from the storage.
+    2022-07-13 10:57:25,048 kaptain-log[INFO]: Skipping image build for the model - the image 'mesosphere/kubeflow:mnist-sklearn-sdk' with the same contents has already been published to the registry.
+    2022-07-13 10:57:25,055 kaptain-log[INFO]: Creating secret tune-a2163517dfee427b in namespace user1.
+    2022-07-13 10:57:25,067 kaptain-log[INFO]: Creating secret tune-registry-c093d8a74d90db33 in namespace user1.
+    2022-07-13 10:57:25,073 kaptain-log[INFO]: Creating experiment mnist-tune-dd9115bc in namespace user1
+    2022-07-13 10:57:25,309 kaptain-log[INFO]: Experiment mnist-tune-dd9115bc has been created.
+    Progress: 100%|█████████████████████████|12/12 [time: 03:30, accuracy: 0.9622, trials running: 0, pending: 0, failed: 0, killed: 0]
+    2022-07-13 11:00:55,730 kaptain-log[INFO]: Model tuning completed, final status: Succeeded
+    2022-07-13 11:00:55,737 kaptain-log[INFO]: Experiment results:
+    parameters: {'--gamma': '0.0003626001536284', '--c': '0.9760872894343234'}, best_trial_name: mnist-tune-dd9115bc-z6m2nlww
+    2022-07-13 11:00:55,738 kaptain-log[INFO]: Copying saved model with the best metrics from the trial to the target location.
+    2022-07-13 11:00:55,937 kaptain-log[INFO]: Removing intermediate trial models from the storage.
 
 
 ## Verify the Model is Exported to MinIO
@@ -412,9 +457,9 @@ mc --no-color ls -r minio/kaptain/models
 ```
 
     Added `minio` successfully.
-    [2021-12-09 23:26:38 UTC] 321KiB dev/mnist/deploy/25f6e33b86b54499820124695435e6f8/model.joblib
-    [2021-12-09 23:25:24 UTC] 337KiB dev/mnist/trained/b3ca1937766b4698b909bbd5f0f8073c/model.joblib
-    [2021-12-09 23:26:38 UTC] 321KiB dev/mnist/tuned/d039aa7b4bb64f2bb71490bb046cfd00/model.joblib
+    [2022-07-13 10:56:45 UTC] 337KiB dev/mnist/trained/5ec8779b6b5345ed8aea0b5d82c3b5f7/model.joblib
+    [2022-07-13 10:35:06 UTC] 337KiB dev/mnist/trained/607131bcb901423eaef2c8649ddb90ef/model.joblib
+    [2022-07-13 11:00:55 UTC] 314KiB dev/mnist/tuned/e49a5080578c4fff91e62478c0c792c3/model.joblib
 
 
 ## Log and Hyperparameters Metrics to MLFlow
@@ -425,48 +470,41 @@ Hyperparameters and metrics can easily be logged to the MLFlow instance which wa
 ```python
 import mlflow
 
-# Log a batch of metrics
-with mlflow.start_run():
-    mlflow.log_metrics({k:v for k,v in model.hyperparameters.items() if isinstance(v, float)})
-    mlflow.log_metrics({k: v['latest'] for k,v in model.metrics.items()})
+with mlflow.start_run(
+        run_name = model.name,
+        description = model.description,
+        tags = {"version": model.version}):
+    mlflow.log_params(model.hyperparameters)
+    mlflow.log_metrics(
+        {f"{name}.{key}": value for name, values in model.metrics.items() for key, value in values.items()})
 ```
 
 ## Deploy the Model
 
 Model is ready to be deployed. A trained model can be deployed as an auto-scalable inference service with a single call. When providing additional serving dependencies, make sure to specify sufficient resources (mostly memory) in order for the server to install them without issues.
 
-In this tutorial, we will be using [V2 protocol](https://kserve.github.io/website/modelserving/inference_api/#predict-protocol-version-2) for sklearn predictor.
-
 
 ```python
-serving_config = {"protocol_version": "v2"}
-
-model.serving_config = serving_config
 model.deploy(cpu="0.5", memory="500M", replace=True)
 ```
 
-    2021-12-10 19:30:45,529 kaptain-log[INFO]: Building deployment artifacts and uploading to s3://kaptain/models/dev/mnist/deploy/b7d7f70cee7b4918ba5a71d9784deff4
-    2021-12-10 19:30:45,641 kaptain-log[INFO]: Deploying model from s3://kaptain/models/dev/mnist/deploy/b7d7f70cee7b4918ba5a71d9784deff4
-    2021-12-10 19:30:45,644 kaptain-log[INFO]: Reading secrets dev-mnist-secret in namespace demo.
-    2021-12-10 19:30:45,656 kaptain-log[INFO]: Creating secret dev-mnist-secret in namespace demo.
-    2021-12-10 19:30:45,667 kaptain-log[INFO]: Reading service account dev-mnist-service-account in namespace demo.
-    2021-12-10 19:30:45,678 kaptain-log[INFO]: Creating service account dev-mnist-service-account in namespace demo.
+    2022-07-13 11:01:23,209 kaptain-log[INFO]: Building deployment artifacts and uploading to s3://kaptain/models/dev/mnist/deploy/e347c6f4ec91424c94b47f503663d685
+    2022-07-13 11:01:23,277 kaptain-log[INFO]: Deploying model from s3://kaptain/models/dev/mnist/deploy/e347c6f4ec91424c94b47f503663d685
+    2022-07-13 11:01:23,279 kaptain-log[INFO]: Reading secrets dev-mnist-secret in namespace user1.
+    2022-07-13 11:01:23,292 kaptain-log[INFO]: Patching secret dev-mnist-secret in namespace user1.
+    2022-07-13 11:01:23,298 kaptain-log[INFO]: Reading service account dev-mnist-service-account in namespace user1.
+    2022-07-13 11:01:23,304 kaptain-log[INFO]: Patching service account dev-mnist-service-account in namespace user1.
 
 
-    NAME                 READY      PREV                      LATEST                    URL                                                              
-    dev-mnist            Unknown                                                                                                                         
-    dev-mnist            Unknown                                                                                                                         
-    dev-mnist            Unknown    0                         100                                                                                        
-    dev-mnist            Unknown    0                         100                                                                                        
-    dev-mnist            Unknown    0                         100                                                                                        
-    dev-mnist            Unknown    0                         100                                                                                        
-    dev-mnist            Unknown    0                         100                                                                                        
-    dev-mnist            Unknown    0                         100                                                                                        
-    dev-mnist            Unknown    0                         100                                                                                        
-    dev-mnist            True       0                         100                       http://dev-mnist.demo.example.com                                
+    NAME                 READY                           PREV                    LATEST URL                                                              
+    dev-mnist            False                              0                       100 http://dev-mnist.user1.example.com                               
+    dev-mnist            False                              0                       100 http://dev-mnist.user1.example.com                               
+    dev-mnist            False                              0                       100 http://dev-mnist.user1.example.com                               
+    dev-mnist            False                              0                       100 http://dev-mnist.user1.example.com                               
+    dev-mnist            True                               0                       100 http://dev-mnist.user1.example.com                               
 
 
-    2021-12-10 19:31:35,472 kaptain-log[INFO]: Model dev/mnist deployed successfully. Cluster URL: http://dev-mnist.demo.svc.cluster.local/v2/models/dev-mnist/infer
+    2022-07-13 11:01:43,180 kaptain-log[INFO]: Model dev/mnist deployed successfully. Cluster URL: http://dev-mnist.user1.svc.cluster.local
 
 
 ## Test the Model Endpoint
@@ -487,16 +525,7 @@ plt.matshow(digits.images[image_index], cmap="binary")
 n_samples = len(digits.images)
 data = digits.images.reshape(n_samples, -1).tolist()
 
-serving_req = {
-    "inputs": [
-        {
-            "name": "predict",
-            "shape": [1, 64],
-            "datatype": "FP32",
-            "data": data[image_index],
-        }
-    ]
-}
+serving_req = {"instances": [data[image_index]]}
 
 with open("input.json", "w") as json_file:
     json.dump(serving_req, json_file)
@@ -512,7 +541,7 @@ set -o errexit
 model_name="dev-mnist"
 namespace=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
 
-url=http://${model_name}.${namespace}.svc.cluster.local/v2/models/${model_name}/infer
+url=http://${model_name}.${namespace}.svc.cluster.local/v1/models/${model_name}:predict
 
 curl --location \
      --silent \
@@ -525,22 +554,8 @@ curl --location \
 ```
 
     {
-        "model_name": "dev-mnist",
-        "model_version": null,
-        "id": "ce4bc183-4f26-4fed-9894-8beb0cf153e4",
-        "parameters": null,
-        "outputs": [
-            {
-                "name": "predict",
-                "shape": [
-                    1
-                ],
-                "datatype": "FP32",
-                "parameters": null,
-                "data": [
-                    7
-                ]
-            }
+        "predictions": [
+            7
         ]
     }
 
