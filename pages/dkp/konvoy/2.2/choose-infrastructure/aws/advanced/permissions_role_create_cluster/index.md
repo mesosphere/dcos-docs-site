@@ -8,7 +8,7 @@ enterprise: false
 menuWeight: 35
 ---
 
-Configure IAM Prerequisites before starting a cluster
+** Configure IAM Prerequisites before starting a cluster **
 
 This section guides you in creating and using the minimally-scoped policy in order to create DKP clusters on an AWS account. 
 
