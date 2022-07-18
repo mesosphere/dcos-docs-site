@@ -9,7 +9,7 @@ enterprise: false
 
 ## Create a base OS image in the vSphere client
 
-Creating a base OS image from DVD ISO files is a one-time process. Building a base OS image creates a base vSphere template in your vSphere environment. The base OS image is used by Konvoy Image Builder (KIB) to create a VM template with all required software to configure Kubernetes nodes by the DKP vSphere provider afterwards.
+Creating a base OS image from DVD ISO files is a one-time process. Building a base OS image creates a base vSphere template in your vSphere environment. The base OS image is used by Konvoy Image Builder (KIB) to create a VM template to configure Kubernetes nodes by the DKP vSphere provider afterwards.
 
 While creating the base OS image, it is important to take into consideration the following elements:
 
