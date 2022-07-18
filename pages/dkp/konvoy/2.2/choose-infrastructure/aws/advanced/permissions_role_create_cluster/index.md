@@ -5,7 +5,7 @@ title: Minimal Permissions and Role to Create Clusters
 excerpt: Minimal Permissions and Role to Create Clusters
 beta: false
 enterprise: false
-menuWeight: 35
+menuWeight: 15
 ---
 
 **Configure IAM Prerequisites before starting a cluster**
