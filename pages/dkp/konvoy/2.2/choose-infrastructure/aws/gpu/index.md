@@ -18,7 +18,7 @@ Before working with GPUs, ensure you are familiar with the following:
 
 Kommander also accesses [GPU](/dkp/kommander/2.1/gpu/) resources.
 
-<p><strong>NOTE: GPUs in an air-gapped on-premises environment are not currently supported.</p>
+<p class="message--note"><strong>NOTE: GPUs in an air-gapped on-premises environment are not currently supported.</p>
 
 ## Install GPU support on supported distributions on AWS
 
