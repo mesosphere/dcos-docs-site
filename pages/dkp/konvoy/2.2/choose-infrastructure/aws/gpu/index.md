@@ -18,9 +18,11 @@ Before working with GPUs, ensure you are familiar with the following:
 
 Kommander also accesses [GPU](/dkp/kommander/2.1/gpu/) resources.
 
+<p><strong>NOTE: GPUs in an air-gapped on-premises environment are not currently supported.
+
 ## Install GPU support on supported distributions on AWS
 
-Using the [Konvoy Image Builder](../../../image-builder), you can build an image that has support to use Nvidia GPU hardware to support GPU workloads.
+Using the [Konvoy Image Builder](../../../image-builder), you can build an image that has support to use Nvidia GPU hardware to support GPU workloads. DKP supported Nvidia driver versions are 450.x and 460.x.
 
 1. In your `overrides/nvidia.yaml` file add the following to enable GPU builds. You can also access and use the overrides [repo.](https://github.com/mesosphere/konvoy-image-builder/tree/main/overrides)
 
@@ -50,3 +52,7 @@ Using the [Konvoy Image Builder](../../../image-builder), you can build an image
     ```bash
     dkp create cluster aws --cluster-name=$(whoami)-aws-cluster --region us-west-2 --ami <ami>
     ```
+
+More helpful information can be found in the [Nvidia Device](https://github.com/NVIDIA/k8s-device-plugin/blob/master/README.md) Plug-in for Kubernetes instructions and the [Installation Guide of Supported Platforms](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html).
+
+See also: [Nvidia documentation](https://nvidia.custhelp.com/app/answers/detail/a_id/131/kw/driver%20installation%20docs/related/1)
