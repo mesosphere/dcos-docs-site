@@ -22,7 +22,7 @@ Kommander also accesses [GPU](/dkp/kommander/2.1/gpu/) resources.
 
 ## Install GPU support on supported distributions on AWS
 
-Using the [Konvoy Image Builder](../../../image-builder), you can build an image that has support to use Nvidia GPU hardware to support GPU workloads. DKP supported Nvidia driver versions are 450.x and 460.x.
+Using the [Konvoy Image Builder](../../../image-builder), you can build an image that has support to use Nvidia GPU hardware to support GPU workloads. DKP supported Nvidia driver versions are 470.x and 460.x.
 
 1. In your `overrides/nvidia.yaml` file add the following to enable GPU builds. You can also access and use the overrides [repo.](https://github.com/mesosphere/konvoy-image-builder/tree/main/overrides)
 
