@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-This section describes Nvidia GPU support on Kommander. Other GPUs, such as those made by AMD, are not currently supported. This document assumes familiarity with Kubernetes GPU support.
+This section describes Nvidia GPU support on Kommander. DKP supported Nvidia driver versions is 470.x. Other GPUs, such as those made by AMD, are not currently supported. This document assumes familiarity with Kubernetes GPU support. More information about GPUs in AWS environment can be found in the [Advanced AWS](../../../konvoy/2.2/choose-infrastructure/aws/gpu/) section.
 
 # Kommander GPU Overview
 
