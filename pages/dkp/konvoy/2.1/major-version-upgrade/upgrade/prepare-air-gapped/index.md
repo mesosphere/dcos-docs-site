@@ -192,7 +192,7 @@ Follow these steps only if you are upgrading an air-gapped Cluster.
         root_path = ""
         pool_name = ""
         base_image_size = ""
-        ```
+    ```
 
 1.  Create a playbook to apply the config to the cluster.
 
