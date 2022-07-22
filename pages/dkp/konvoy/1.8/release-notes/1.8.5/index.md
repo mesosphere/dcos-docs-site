@@ -59,8 +59,8 @@ The latest tag for the defaultstorageclassprotection addon's Docker image has be
 - Containerd v1.4.7
 - Docker v19.03.15
 - kubeaddons-dispatch stable-1.20-1.4.6
-- kubeaddons-kommander stable-1.20-1.4.3
-- kubernetes-base-addons stable-1.20-4.3.0
+- kubeaddons-kommander stable-1.20-1.4.4
+- kubernetes-base-addons stable-1.20-4.4.0
 - Kubernetes v1.20.13
 - Kubeaddons v0.26.0
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
