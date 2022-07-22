@@ -54,7 +54,7 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 1.  Download the PIP packages. This bundle includes a few packages required by DKP to bootstrap machines.
 
     ```bash
-    curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/konvoy/airgapped/pip-packages/pip-packages.tar.gz
+    curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
 
 1.  Export the following environment variables, ensuring that all control plane and worker nodes are included:
@@ -120,22 +120,22 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 
 1.  Ensure you set the REGISTRY_URL and AIRGAPPED_TAR_FILE variable appropriately, then use the following script to load the air-gapped image bundle:
 
-    ``` sh
+    ```bash
     #!/usr/bin/env bash
     set -euo pipefail
     IFS=$'\n\t'
 
-    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"kommander-image-bundle.tar"}
+    readonly AIRGAPPED_TAR_FILE=${AIRGAPPED_TAR_FILE:-"konvoy-image-bundle.tar.gz"}
     readonly REGISTRY_URL=${REGISTRY_URL?"Need to set REGISTRY_URL. E.g: 10.23.45.67:5000"}
 
     docker load <"${AIRGAPPED_TAR_FILE}"
 
     while read -r IMAGE; do
       echo "Processing ${IMAGE}"
-      REGISTRY_IMAGE="$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker|k8s.gcr).io@${REGISTRY_URL}@")"
+      REGISTRY_IMAGE="${REGISTRY_URL}/$(echo "${IMAGE}" | sed -E "s@^(quay|gcr|ghcr|docker|k8s.gcr|us.gcr).io/@@")"
       docker tag "${IMAGE}" "${REGISTRY_IMAGE}"
       docker push "${REGISTRY_IMAGE}"
-    done < <(tar xfO "${AIRGAPPED_TAR_FILE}" "index.json" | grep -oP '(?<="io.containerd.image.name":").*?(?=",)')
+    done < <(jq -r '.[] | .RepoTags[] | .' <(tar xfO "${AIRGAPPED_TAR_FILE}" manifest.json))
     ```
 
 It may take a while to push all the images to your image registry, depending on the performance of the network between the machine you are running the script on and the Docker registry.
