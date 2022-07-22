@@ -224,9 +224,7 @@ Follow these steps only if you are upgrading an air-gapped Cluster.
     EOF
     ```
 
-1.  Replay the current `/etc/containerd/config.toml` on the nodes.
-
-    Run this command:
+1.  Replay the current `/etc/containerd/config.toml` onto the nodes, by running this command:
 
     ```bash
     konvoy run playbook registry.yaml -y
