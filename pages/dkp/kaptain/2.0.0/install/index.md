@@ -39,7 +39,7 @@ You can deploy Kaptain on a per-workspace basis.
 
 - [`kubectl`][kubectl] on your installation machine
 
-- MinIO is installed on the cluster where you want to deploy Kaptain 
+- MinIO is installed on the cluster where you want to deploy Kaptain
   (If you are installing Kaptain on an attached cluster, [install MinIO manually](../../../kommander/2.2/workspaces/applications/platform-applications/application-deployment/))
 
 ## Install overview
