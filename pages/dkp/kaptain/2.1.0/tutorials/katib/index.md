@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-rc.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-rc.0.tar.gz | tar xz
 ```
 
 </p>
@@ -166,7 +166,7 @@ The following YAML file describes an `Experiment` object:
 
 
 ```python
-%env IMAGE mesosphere/kubeflow-dev:7b20f4d2-mnist-tensorflow-2.8.0-gpu
+%env IMAGE mesosphere/kubeflow:2.1.0-rc.0-mnist-tensorflow-2.8.0-gpu
 ```
 
 
@@ -246,7 +246,7 @@ The one listed should work, but you may want to try it with your own container r
 <p></p>
 <div class="message--note"><strong>NOTE: </strong>
 Performing hyperparameter tuning on data that is split two ways only is not ideal. For this demonstration it is enough, as you do not check the accuracy of the tuned model on a separate hold-out data set. If you wanted to do that yourself, you could do it as follows:
-    
+
 * Split the data three ways
 * Evaluate the model on both the validation and test data sets
 * Add the model evaluation metric for the test data set as an entry in <code>additionalMetricNames</code>, which may contain multiple metrics of interest
@@ -278,7 +278,7 @@ Again, use a random search:
 
 
 ```python
-%env IMAGE mesosphere/kubeflow-dev:616a6a45-mnist-pytorch-1.11.0-gpu
+%env IMAGE mesosphere/kubeflow:2.1.0-rc.0-mnist-pytorch-1.11.0-gpu
 ```
 
 
@@ -483,14 +483,14 @@ If an Experiment needs to be deleted, including deleting it from the "Experiment
 
 ```sh
 %%sh
-kubectl delete experiments.kubeflow.org $EXPERIMENT 
+kubectl delete experiments.kubeflow.org $EXPERIMENT
 ```
 
 ## Katib UI
 
 So far, you have created and submitted experiments via the command line or from within Jupyter notebooks.
 Katib provides a user interface which allows you to create, configure, monitor, and delete experiments from a browser.
-The Katib UI can be launched from Kubeflow's central dashboard. 
+The Katib UI can be launched from Kubeflow's central dashboard.
 Select "Experiments (AutoML)" in the navigation menu.
 
 ![Katib](./img/katib-1.png)

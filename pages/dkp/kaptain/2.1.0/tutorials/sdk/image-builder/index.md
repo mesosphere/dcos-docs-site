@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-rc.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-rc.0.tar.gz | tar xz
 ```
 
 </p>
@@ -274,7 +274,7 @@ requirements = "requirements.txt"
 extra_files = [requirements, "mnist.py", "datasets"]
 
 # Image used in the FROM instruction of the Dockerfile
-base_image = "mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0"
+base_image = "mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0"
 
 # Name of the final image
 image_name = f"mesosphere/kubeflow:kaptain-sdk-mnist-tf-{timestamp}"
@@ -348,16 +348,16 @@ builder.build_image()
     2021-11-02 14:11:59,918 kaptain-log[INFO]: Waiting for Image Build to start...
     2021-11-02 14:12:03,869 kaptain-log[INFO]: Image Build started in pod: kaniko-ffccde4355a4a541-hz9pl.
     2021-11-02 14:12:05,996 kaptain-log[INFO]: [kaniko-ffccde4355a4a541-hz9pl/kaniko] logs:
-    [0001] Retrieving image manifest mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
-    [0001] Retrieving image mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
-    [0001] Retrieving image manifest mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
-    [0001] Retrieving image mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
+    [0001] Retrieving image manifest mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0 
+    [0001] Retrieving image mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0 
+    [0001] Retrieving image manifest mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0 
+    [0001] Retrieving image mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0 
     [0002] Built cross stage deps: map[]                
     2021-11-02 14:12:57,247 kaptain-log[INFO]: [kaniko-ffccde4355a4a541-hz9pl/kaniko] logs:
-    [0002] Retrieving image manifest mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
-    [0002] Retrieving image mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
-    [0003] Retrieving image manifest mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
-    [0003] Retrieving image mesosphere/kubeflow-dev:305a2b36-tensorflow-2.8.0 
+    [0002] Retrieving image manifest mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0 
+    [0002] Retrieving image mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0 
+    [0003] Retrieving image manifest mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0 
+    [0003] Retrieving image mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0 
     [0004] Executing 0 build triggers                   
     [0004] Unpacking rootfs as cmd COPY . /workdir requires it. 
     [0054] Taking snapshot of full filesystem...        

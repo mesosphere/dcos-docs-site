@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-rc.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-dev.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-rc.0.tar.gz | tar xz
 ```
 
 </p>
@@ -449,7 +449,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow-dev:6808f683-tensorflow-2.8.0-gpu
+FROM mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -466,11 +466,11 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow-dev:7b20f4d2-mnist-tensorflow-2.8.0-gpu` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow:2.1.0-rc.0-mnist-tensorflow-2.8.0-gpu` in case you want to skip it for now.
 
 
 ```python
-%env IMAGE mesosphere/kubeflow-dev:7b20f4d2-mnist-tensorflow-2.8.0-gpu
+%env IMAGE mesosphere/kubeflow:2.1.0-rc.0-mnist-tensorflow-2.8.0-gpu
 ```
 
 ## How to Create a Distributed `TFJob`
