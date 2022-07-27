@@ -46,7 +46,7 @@ Review the [list of available applications](../../platform-applications#workspac
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: istio-1.11.6
+        name: istio-1.14.1
         kind: ClusterApp
     EOF
     ```
@@ -68,7 +68,7 @@ Review the [list of available applications](../../platform-applications#workspac
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: istio-1.11.6
+        name: istio-1.14.1
         kind: ClusterApp
       configOverrides:
         name: istio-overrides-attached

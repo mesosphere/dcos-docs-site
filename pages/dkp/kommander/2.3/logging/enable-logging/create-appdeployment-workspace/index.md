@@ -51,7 +51,7 @@ To enable logging in DKP using the CLI, follow these steps on the **management**
      namespace: ${WORKSPACE_NAMESPACE}
    spec:
      appRef:
-       name: logging-operator-3.15.0
+       name: logging-operator-3.17.7
        kind: ClusterApp
    ---
    apiVersion: apps.kommander.d2iq.io/v1alpha2
@@ -61,7 +61,7 @@ To enable logging in DKP using the CLI, follow these steps on the **management**
      namespace: ${WORKSPACE_NAMESPACE}
    spec:
      appRef:
-       name: fluent-bit-0.16.2
+       name: fluent-bit-0.19.20
        kind: ClusterApp
    ---
    apiVersion: apps.kommander.d2iq.io/v1alpha2
@@ -71,7 +71,7 @@ To enable logging in DKP using the CLI, follow these steps on the **management**
      namespace: ${WORKSPACE_NAMESPACE}
    spec:
      appRef:
-       name: minio-operator-4.1.7
+       name: minio-operator-4.4.25
        kind: ClusterApp
    ---
    apiVersion: apps.kommander.d2iq.io/v1alpha2
@@ -81,7 +81,7 @@ To enable logging in DKP using the CLI, follow these steps on the **management**
      namespace: ${WORKSPACE_NAMESPACE}
    spec:
      appRef:
-       name: grafana-loki-0.33.1
+       name: grafana-loki-0.48.4
        kind: ClusterApp
    ---
    apiVersion: apps.kommander.d2iq.io/v1alpha2
@@ -91,7 +91,7 @@ To enable logging in DKP using the CLI, follow these steps on the **management**
      namespace: ${WORKSPACE_NAMESPACE}
    spec:
      appRef:
-       name: grafana-logging-6.9.1
+       name: grafana-logging-6.28.0
        kind: ClusterApp
      configOverrides:
        name: workspace-grafana-overrides-cm

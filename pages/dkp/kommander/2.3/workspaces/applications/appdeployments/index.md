@@ -24,7 +24,7 @@ metadata:
   namespace: ${WORKSPACE_NAMESPACE}
 spec:
   appRef:
-    name: kube-prometheus-stack-33.1.5
+    name: kube-prometheus-stack-34.9.3
     kind: ClusterApp
 ```
 
@@ -57,7 +57,7 @@ This is an example, of how to customize the `AppDeployment` of Kube Prometheus S
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: kube-prometheus-stack-33.1.5
+        name: kube-prometheus-stack-34.9.3
         kind: ClusterApp
       configOverrides:
         name: kube-prometheus-stack-overrides-attached

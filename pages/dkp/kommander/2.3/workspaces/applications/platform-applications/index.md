@@ -33,26 +33,26 @@ The following table describes the list of platform applications that are deploye
 | Common Name           | APP NAME                      | APP ID                | Deployed by default |
 |-----------------------| ----------------------------- | --------------------- | ------------------- |
 | Cert Manager          | cert-manager-1.7.1            | cert-manager          | True                |
-| External DNS          | external-dns-6.1.8            | external-dns          | False               |
+| External DNS          | external-dns-6.5.5            | external-dns          | False               |
 | Fluent Bit            | fluent-bit-0.19.20            | fluent-bit            | False               |
-| Gatekeeper            | gatekeeper-3.7.0              | gatekeeper            | True                |
-| Grafana               | grafana-logging-6.22.0        | grafana-logging       | False               |
-| Loki                  | grafana-loki-0.33.2           | grafana-loki          | False               |
-| Istio                 | istio-1.11.6                  | istio                 | False               |
-| Jaeger                | jaeger-2.29.0                 | jaeger                | False               |
-| Kiali                 | kiali-2.0.1                   | kiali                 | False               |
+| Gatekeeper            | gatekeeper-3.8.1              | gatekeeper            | True                |
+| Grafana Logging       | grafana-logging-6.28.0        | grafana-logging       | False               |
+| Grafana Loki          | grafana-loki-0.48.4           | grafana-loki          | False               |
+| Istio                 | istio-1.14.1                  | istio                 | False               |
+| Jaeger                | jaeger-2.32.2                 | jaeger                | False               |
+| Kiali                 | kiali-1.52.0                  | kiali                 | False               |
 | Kube OIDC Proxy       | kube-oidc-proxy-0.3.1         | kube-oidc-proxy       | True                |
-| Kube Prometheus Stack | kube-prometheus-stack-33.1.5  | kube-prometheus-stack | True                |
-| Kubecost              | kubecost-0.23.3               | kubecost              | True                |
+| Kube Prometheus Stack | kube-prometheus-stack-34.9.3  | kube-prometheus-stack | True                |
+| Kubecost              | kubecost-0.26.0               | kubecost              | True                |
 | Kubernetes Dashboard  | kubernetes-dashboard-5.1.1    | kubernetes-dashboard  | True                |
-| Logging Operator      | logging-operator-3.17.2       | logging-operator      | False               |
-| Minio                 | minio-operator-4.4.10         | minio-operator        | False               |
+| Logging Operator      | logging-operator-3.17.7       | logging-operator      | False               |
+| Minio                 | minio-operator-4.4.25         | minio-operator        | False               |
 | Nvidia                | nvidia-0.4.4                  | nvidia                | False               |
 | Prometheus Adapter    | prometheus-adapter-2.17.1     | prometheus-adapter    | True                |
-| Reloader              | reloader-0.0.104              | reloader              | True                |
+| Reloader              | reloader-0.0.110              | reloader              | True                |
 | Traefik               | traefik-10.9.1                | traefik               | True                |
-| Traefik ForwardAuth   | traefik-forward-auth-0.3.6    | traefik-forward-auth  | True                |
-| Velero                | velero-3.1.5                  | velero                | False               |
+| Traefik ForwardAuth   | traefik-forward-auth-0.3.8    | traefik-forward-auth  | True                |
+| Velero                | velero-3.2.3                  | velero                | False               |
 
 <p class="message--note"><strong>NOTE: </strong>Currently, Kommander only supports a single deployment of <code>cert-manager</code> per cluster. Because of this, <code>cert-manager</code> cannot be installed on <code>Konvoy</code> managed <code>AWS</code> clusters.</p>
 

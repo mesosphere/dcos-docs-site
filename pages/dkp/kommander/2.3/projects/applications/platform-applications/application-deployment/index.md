@@ -39,11 +39,11 @@ The list of available applications that can be deployed on the attached clusters
     apiVersion: apps.kommander.d2iq.io/v1alpha2
     kind: AppDeployment
     metadata:
-      name: project-grafana-logging-6.20.6
+      name: project-grafana-logging-6.28.0
       namespace: ${PROJECT_NAMESPACE}
     spec:
       appRef:
-        name: project-grafana-logging-6.20.6
+        name: project-grafana-logging-6.28.0
         kind: ClusterApp
     EOF
     ```
@@ -65,7 +65,7 @@ The list of available applications that can be deployed on the attached clusters
       namespace: ${PROJECT_NAMESPACE}
     spec:
       appRef:
-        name: project-grafana-logging-6.20.6
+        name: project-grafana-logging-6.28.0
         kind: ClusterApp
       configOverrides:
         name: project-grafana-logging-overrides

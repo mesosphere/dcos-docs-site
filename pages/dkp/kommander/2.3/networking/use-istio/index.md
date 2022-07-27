@@ -39,7 +39,7 @@ Review the [list of available applications](../../workspaces/applications/platfo
       namespace: ${WORKSPACE_NAMESPACE}
     spec:
       appRef:
-        name: istio-1.11.6
+        name: istio-1.14.1
         kind: ClusterApp
     EOF
     ```
