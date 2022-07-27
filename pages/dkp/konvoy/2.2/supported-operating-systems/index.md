@@ -43,7 +43,6 @@ Konvoy supports the following base Operating Systems.
 <!-- vale Vale.Spelling = NO -->
 | Operating System      | Kernel                           | Default Config | FIPS | Air Gapped | FIPS with Air Gapped | GPU Support <!-- vale Vale.Spelling = YES --> |
 |-----------------------|----------------------------------|----------------|------|------------|----------------------|-------------|
-| [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64           | Yes            |      |            |                      |             |
 | [RHEL 7.9][rhel_7_9]  | 3.10.0-1160.el7.x86_64           | Yes            | Yes  | Yes        |                      | Yes         |
 | [RHEL 8.4][rhel_8_4]  | 4.18.0-305.el8.x86_64            | Yes            | Yes  | Yes        |                      | Yes         |
 
