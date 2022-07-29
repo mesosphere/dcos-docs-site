@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 <p class="message--warning"><strong>WARNING: </strong>
-You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.
+Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <b>Kaptain is meant to be deployed on workspaces with a single cluster</b>.
 </p>
 
 ## Prerequisites
@@ -97,6 +97,8 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Create the resource in the workspace you just created, which instructs Kommander to deploy the `AppDeployment` to the `KommanderCluster`s in the same workspace.
 
+<p class="message--important"><strong>IMPORTANT: </strong>If you are deploying Kaptain to an attached cluster, ensure that either the <code>defaults</code> or <code>overrides</code> contain the <code>${WORKSPACE_NAMESPACE}</code> in the <code>global.workspace</code> section of the <code>values.yaml</code>. For an example of this, observe the <code>ConfigMap</code> configuration in the <a href="#enable-kaptain-with-a-custom-configuration-using-the-cli">Enable Kaptain with a custom configuration using the CLI</a> section.</p>
+
 ## Enable Kaptain with a custom configuration using the CLI
 
 If you want to customize your installation and modify the custom domain name, external Dex, creation of profiles, certificates, for example, continue with these steps:
@@ -121,6 +123,8 @@ If you want to customize your installation and modify the custom domain name, ex
 
 1.  Create the `ConfigMap` with the name provided in the step above, with the custom configuration:
 
+    <p class="message--important"><strong>IMPORTANT: </strong>If you are deploying Kaptain to an attached cluster, ensure that the <code>ConfigMap</code> contains the <code>${WORKSPACE_NAMESPACE}</code> in the <code>global.workspace</code> section of the <code>values.yaml</code>, as shown in the following example.</p>
+
     ```yaml
     cat <<EOF | kubectl apply -f -
     apiVersion: v1
@@ -130,6 +134,8 @@ If you want to customize your installation and modify the custom domain name, ex
       name: kaptain-overrides
     data:
       values.yaml: |
+        global:
+          workspace: ${WORKSPACE_NAMESPACE}
         core:
           registrationFlow: true
     EOF
