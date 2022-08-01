@@ -2,6 +2,7 @@ name: Update dkp-cli docs
 on:
   schedule:
     - cron: "0 4 * * *"
+  workflow_dispatch:
 
 jobs:
   dkp-cli-docs:
