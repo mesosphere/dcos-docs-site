@@ -7,7 +7,7 @@ TARGET_PATH=${TARGET_PATH:-"/dkp/kommander/2.3/cli/"}
 
 TMP_DIR=`mktemp -d`
 trap "rm -r $TMP_DIR" EXIT
-curl -fsSL "https://s3.amazonaws.com/downloads.mesosphere.io/dkp-cli/dkp_${DKP_CLI_VERSION}_linux_amd64.tar.gz" | tar xz -O dkp > $TMP_DIR/dkp
+curl -fsSL "https://s3.amazonaws.com/downloads.mesosphere.io/dkp/${DKP_CLI_VERSION}/dkp_${DKP_CLI_VERSION}_linux_amd64.tar.gz" | tar xz -O dkp > $TMP_DIR/dkp
 chmod +x $TMP_DIR/dkp
 mkdir -p $TMP_DIR/docs
 
