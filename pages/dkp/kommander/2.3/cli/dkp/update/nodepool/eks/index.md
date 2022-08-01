@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp update controlplane preprovisioned
-title:  dkp update controlplane preprovisioned
+navigationTitle:  dkp update nodepool eks
+title:  dkp update nodepool eks
 menuWeight: 10
-excerpt: Update a Konvoy cluster control plane in Preprovisioned
+excerpt: Update a Konvoy cluster node pool in EKS
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,19 +11,19 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp update controlplane preprovisioned
+## dkp update nodepool eks
 
-Update a Konvoy cluster control plane in Preprovisioned
+Update a Konvoy cluster node pool in EKS
 
 ```
-dkp update controlplane preprovisioned [flags]
+dkp update nodepool eks [flags]
 ```
 
 ### Options
 
 ```
   -c, --cluster-name name           Name used to prefix the cluster and all the created resources.
-  -h, --help                        help for preprovisioned
+  -h, --help                        help for eks
       --kubeconfig string           Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-version string   Kubernetes version
   -n, --namespace string            If present, the namespace scope for this CLI request. (default "default")
@@ -39,5 +39,5 @@ dkp update controlplane preprovisioned [flags]
 
 ### SEE ALSO
 
-* [dkp update controlplane](/dkp/kommander/2.3/cli/dkp/update/controlplane/)	 - Update a Kubernetes cluster control plane, one of [aws, azure, eks, preprovisioned, vsphere]
+* [dkp update nodepool](/dkp/kommander/2.3/cli/dkp/update/nodepool/)	 - Upate a Kubernetes cluster node pool, one of [aws, azure, eks, preprovisioned, vsphere]
 

@@ -41,5 +41,5 @@ dkp upgrade addons preprovisioned [flags]
 
 ### SEE ALSO
 
-* [dkp upgrade addons](/dkp/kommander/2.3/cli/dkp/upgrade/addons/)	 - Upgrade the core Addons in a cluster, one of [aws, azure, preprovisioned]
+* [dkp upgrade addons](/dkp/kommander/2.3/cli/dkp/upgrade/addons/)	 - Upgrade the core Addons in a cluster, one of [aws, azure, eks, preprovisioned, vsphere]
 

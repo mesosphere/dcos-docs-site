@@ -33,6 +33,7 @@ beta: false
 * [dkp describe](/dkp/kommander/2.3/cli/dkp/describe/)	 - Describe one of [cluster]
 * [dkp detach](/dkp/kommander/2.3/cli/dkp/detach/)	 - Detach one of [cluster]
 * [dkp diagnose](/dkp/kommander/2.3/cli/dkp/diagnose/)	 - Generate a support bundle
+* [dkp edit](/dkp/kommander/2.3/cli/dkp/edit/)	 - Edit a resource on the server
 * [dkp get](/dkp/kommander/2.3/cli/dkp/get/)	 - Get one of [appdeployments, chart, clusters, kubeconfig, nodepools, workspaces]
 * [dkp import](/dkp/kommander/2.3/cli/dkp/import/)	 - Import images from an image bundle into Containerd
 * [dkp install](/dkp/kommander/2.3/cli/dkp/install/)	 - Install one of [kommander]

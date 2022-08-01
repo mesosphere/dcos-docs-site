@@ -31,7 +31,8 @@ dkp create bootstrap [flags]
       --no-proxy strings                 No Proxy list for CAPI controllers (default [])
       --timeout duration                 The length of time to wait before giving up. Zero means wait forever. (default 10m0s)
       --wait                             If true, wait for operations to complete before returning. (default true)
-      --with-aws-bootstrap-credentials   Set false to skip deploying AWS bootstrap credentials from your environment. The instance profiles of the node where the CAPA controller is scheduled on will be used instead. (default true)
+      --with-aws-bootstrap-credentials   Set true to use AWS bootstrap credentials from your environment. When false, the instance profile of the EC2 instance where the CAPA controller is scheduled on will be used instead.
+      --with-gcp-bootstrap-credentials   Set true to use GCP bootstrap credentials from your environment. When false, the service account of the VM instance where the CAPG controller is scheduled on will be used instead.
 ```
 
 ### Options inherited from parent commands

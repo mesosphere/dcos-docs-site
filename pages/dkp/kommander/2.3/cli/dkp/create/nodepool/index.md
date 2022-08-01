@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp create nodepool
 title:  dkp create nodepool
 menuWeight: 10
-excerpt: Create a nodepool, one of [aks, aws, azure]
+excerpt: Create a nodepool, one of [aks, aws, azure, eks, gcp, preprovisioned, vsphere]
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp create nodepool
 
-Create a nodepool, one of [aks, aws, azure]
+Create a nodepool, one of [aks, aws, azure, eks, gcp, preprovisioned, vsphere]
 
 ### Options
 
@@ -33,5 +33,8 @@ Create a nodepool, one of [aks, aws, azure]
 * [dkp create nodepool aks](/dkp/kommander/2.3/cli/dkp/create/nodepool/aks/)	 - Create a nodepool in AKS
 * [dkp create nodepool aws](/dkp/kommander/2.3/cli/dkp/create/nodepool/aws/)	 - Create a nodepool in AWS
 * [dkp create nodepool azure](/dkp/kommander/2.3/cli/dkp/create/nodepool/azure/)	 - Create a nodepool in Azure
-* [dkp create nodepool vsphere](/dkp/kommander/2.3/cli/dkp/create/nodepool/vsphere/)	 - Create nodepool for vsphere cluster
+* [dkp create nodepool eks](/dkp/kommander/2.3/cli/dkp/create/nodepool/eks/)	 - Create a nodepool for EKS
+* [dkp create nodepool gcp](/dkp/kommander/2.3/cli/dkp/create/nodepool/gcp/)	 - Create a nodepool in GCP
+* [dkp create nodepool preprovisioned](/dkp/kommander/2.3/cli/dkp/create/nodepool/preprovisioned/)	 - Create a nodepool for a Pre Provisioned Cluster.
+* [dkp create nodepool vsphere](/dkp/kommander/2.3/cli/dkp/create/nodepool/vsphere/)	 - Create a nodepool in vSphere
 

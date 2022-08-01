@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp get appdeployments
 title:  dkp get appdeployments
 menuWeight: 10
-excerpt: Get AppDeployments from specified Workspace
+excerpt: Get AppDeployments from a Workspace, Project, or all Workspaces and Projects
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,11 @@ beta: false
 
 ## dkp get appdeployments
 
-Get AppDeployments from specified Workspace
+Get AppDeployments from a Workspace, Project, or all Workspaces and Projects
+
+### Synopsis
+
+Prints a table of the most important information about the specified resources. In case the AppDeployments are configured with cluster scoped specification, an optional CLUSTERS column (when printing in table format) will display enabled clusters for each AppDeployment.
 
 ```
 dkp get appdeployments [APPDEPLOYMENT_NAME] [flags]
@@ -28,6 +32,7 @@ dkp get appdeployments [APPDEPLOYMENT_NAME] [flags]
   -h, --help                     help for appdeployments
       --kubeconfig string        Path to the kubeconfig file to use for CLI requests.
   -o, --output string            Output format. One of: table|yaml
+  -p, --project string           Name of the project to show AppDeployments from. Requires workspace flag (workspace that the project belongs to).
       --request-timeout string   The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests.
   -w, --workspace string         Name of the workspace to show AppDeployments from
 ```

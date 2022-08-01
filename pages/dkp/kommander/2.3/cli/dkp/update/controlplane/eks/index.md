@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp update controlplane preprovisioned
-title:  dkp update controlplane preprovisioned
+navigationTitle:  dkp update controlplane eks
+title:  dkp update controlplane eks
 menuWeight: 10
-excerpt: Update a Konvoy cluster control plane in Preprovisioned
+excerpt: Update a Konvoy cluster control plane in EKS
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,19 +11,19 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp update controlplane preprovisioned
+## dkp update controlplane eks
 
-Update a Konvoy cluster control plane in Preprovisioned
+Update a Konvoy cluster control plane in EKS
 
 ```
-dkp update controlplane preprovisioned [flags]
+dkp update controlplane eks [flags]
 ```
 
 ### Options
 
 ```
   -c, --cluster-name name           Name used to prefix the cluster and all the created resources.
-  -h, --help                        help for preprovisioned
+  -h, --help                        help for eks
       --kubeconfig string           Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-version string   Kubernetes version
   -n, --namespace string            If present, the namespace scope for this CLI request. (default "default")
