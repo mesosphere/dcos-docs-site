@@ -137,6 +137,12 @@ In the AWS Console:
 
 1.  Select the _Save_ button.
 
+## Tag the control-plane Subnets
+
+The following steps are only required if your cluster is in multiple Availability Zones (as defined in `ClusterProvisioner.spec.aws.availabilityZones`) and your cluster is using existing Subnets for the control-plane nodepool.
+
+1. Tag the Subnets used by the control-plane nodepool with `konvoy/subnet=control_plane`.
+
 ## Create DKP Bootstrap Controllers on Konvoy 1.8 Cluster
 
 You must configure the adopted cluster as self-managed. The bootstrap controllers must successfully deploy on the cluster for it to become self-managed. Do not begin the other cluster adoption steps until this is successful.
@@ -343,6 +349,8 @@ Every Machine has a bootstrap configuration (KubeadmConfig) and bootstrap data (
 When the cluster adoption process reconciles a Machine object that has not been bootstrapped, it creates the KubeadmConfig from the associated KubeadmConfigTemplate, and CABPK creates the Secret when it reconciles the KubeadmConfig. The owner references are set at this time.
 
 DKP machines are already bootstrapped and also create the KubeadmConfigs and the Secrets. This command will set the appropriate owner references on these resources.
+
+If your cluster is in multiple Availability Zones a DKP 2.x nodepool worker will be automatically created for each zone, appending the name of the Availability Zone to the nodepool's name.
 
 This command also stops the pause on the Cluster object, which then starts the reconcile process:
 
@@ -588,6 +596,9 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
     ```
 
 ## Update the cluster worker node pool to Kubernetes version v1.21.6
+
+1.  If your cluster is in multiple Availability Zones, repeat the following for the number of zones, using values 0,1,2 in `{.items[0].metadata.name}` when exporting `MACHINEDEPLOYMENT_NAME`.
+
 
 1.  Add your Kubernetes v1.21.6 AMI to your environment:
 
