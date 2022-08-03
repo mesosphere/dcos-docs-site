@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp create nodepool aks
-title:  dkp create nodepool aks
+navigationTitle:  dkp create nodepool preprovisioned
+title:  dkp create nodepool preprovisioned
 menuWeight: 10
-excerpt: Create a nodepool in AKS
+excerpt: Create a nodepool for a Pre Provisioned Cluster.
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,12 +11,12 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp create nodepool aks
+## dkp create nodepool preprovisioned
 
-Create a nodepool in AKS
+Create a nodepool for a Pre Provisioned Cluster.
 
 ```
-dkp create nodepool aks name [flags]
+dkp create nodepool preprovisioned name [flags]
 ```
 
 ### Options
@@ -26,15 +26,16 @@ dkp create nodepool aks name [flags]
       --allow-missing-template-keys       If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
   -c, --cluster-name name                 Name used to prefix the cluster and all the created resources.
       --dry-run                           Only print the objects that would be created, without creating them.
-  -h, --help                              help for aks
+  -h, --help                              help for preprovisioned
       --http-proxy string                 HTTP proxy for nodes
       --https-proxy string                HTTPS proxy for nodes
       --kubeconfig string                 Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --kubernetes-version string         Kubernetes version. Run 'az aks get-versions -o table --location <location>' to see available versions. See https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions for more details. Must be a patch version for v1.23.x.
-      --machine-size string               Worker machine size (default "Standard_D8s_v3")
+      --kubernetes-version string         Kubernetes version (default "1.23.7")
   -n, --namespace string                  If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                  No Proxy list for nodes (default [])
+      --os-hint flatcar                   A hint which will allow the installer to generate appropriate configurations for a target OS. Presently, only the hint for flatcar is supported.
   -o, --output string                     Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
+      --override-secret-name string       Name of the secret for any provided overrides on a preprovisioned cluster.All overrides defined at provisioning should be present in this secret.
       --registry-mirror-cacert file       CA certificate chain to use while communicating with the registry mirror using TLS
       --registry-mirror-password string   Password to authenticate to the registry mirror with
       --registry-mirror-url string        URL of a container registry to use as a mirror in the cluster

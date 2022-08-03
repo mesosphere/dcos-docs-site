@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp create nodepool aws
-title:  dkp create nodepool aws
+navigationTitle:  dkp create nodepool eks
+title:  dkp create nodepool eks
 menuWeight: 10
-excerpt: Create a nodepool in AWS
+excerpt: Create a nodepool for EKS
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,12 +11,12 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp create nodepool aws
+## dkp create nodepool eks
 
-Create a nodepool in AWS
+Create a nodepool for EKS
 
 ```
-dkp create nodepool aws [flags]
+dkp create nodepool eks [flags]
 ```
 
 ### Options
@@ -25,20 +25,16 @@ dkp create nodepool aws [flags]
       --additional-security-group-ids strings   A comma separated list of existing security group IDs to use for machines in addition to those created automatically (default [])
       --additional-tags stringToString          Tags to apply to the provisioned infrastructure (default [])
       --allow-missing-template-keys             If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
-      --ami string                              AMI ID to use for machines
-      --ami-base-os string                      Base OS for Lookup search (ex. 'centos-7', 'ubuntu-18.04', 'ubuntu-20.04') (default "ubuntu-20.04")
-      --ami-format string                       Lookup Format string to generate AMI search name from (default "capa-ami-{{.BaseOS}}-?{{.K8sVersion}}-*")
-      --ami-owner string                        Owner ID for AMI Lookup search (default "258751437250")
       --availability-zone string                The AvailabilityZone in the region to deploy the worker nodes to, if not set a random one will be selected (ex. us-west-2a)
   -c, --cluster-name name                       Name used to prefix the cluster and all the created resources.
       --dry-run                                 Only print the objects that would be created, without creating them.
-  -h, --help                                    help for aws
+  -h, --help                                    help for eks
       --http-proxy string                       HTTP proxy for nodes
       --https-proxy string                      HTTPS proxy for nodes
       --iam-instance-profile string             Name of the IAM instance profile to assign to worker machines. (default "nodes.cluster-api-provider-aws.sigs.k8s.io")
       --instance-type string                    Worker machine instance type (default "m5.2xlarge")
       --kubeconfig string                       Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --kubernetes-version string               Kubernetes version (default "1.23.7")
+      --kubernetes-version string               Kubernetes version (default "1.22.6")
   -n, --namespace string                        If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                        No Proxy list for nodes (default [])
   -o, --output string                           Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.

@@ -17,8 +17,7 @@ Upgrade the Kommander version of the targeted cluster
 
 ### Synopsis
 
-Upgrades all Kommander components running on the targeted cluster and prepares platform
-applications to be upgraded. No attached clusters and applications running on them are affected by this action.
+Upgrades all Kommander components and platform applications running on the targeted cluster. No attached clusters and applications running on them are affected by this action.
 
 ```
 dkp upgrade kommander [flags]
@@ -34,7 +33,7 @@ dkp upgrade kommander [flags]
       --disallow-charts-download                   make CLI rely solely on provided chart bundles and do not try to download charts from the Internet
       --gitea-kommander-repository-name string     gitea kommander repository name (default "kommander")
   -h, --help                                       help for kommander
-      --kommander-applications-repository string   git repository with application definitions (default "github.com/mesosphere/kommander-applications.git?ref=main")
+      --kommander-applications-repository string   git repository with application definitions (default "v2.4.0-dev")
       --kommander-charts-version string            Kommander helm charts version to download. Default: download all available versions
       --kubeconfig string                          Path to the kubeconfig file to use for CLI requests.
       --platform-apps-timeout duration             Timeout to wait for upgrade of the set of platform applications (default 30m0s)

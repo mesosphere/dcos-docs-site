@@ -40,5 +40,5 @@ dkp update controlplane azure [flags]
 
 ### SEE ALSO
 
-* [dkp update controlplane](/dkp/kommander/2.3/cli/dkp/update/controlplane/)	 - Update a Kubernetes cluster control plane, one of [aws, azure, preprovisioned]
+* [dkp update controlplane](/dkp/kommander/2.3/cli/dkp/update/controlplane/)	 - Update a Kubernetes cluster control plane, one of [aws, azure, eks, preprovisioned, vsphere]
 
