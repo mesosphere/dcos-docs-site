@@ -7,7 +7,7 @@ excerpt: Create a new Konvoy AKS cluster
 enterprise: false
 ---
 
-Konvoy currently does not support creating a self-managed AKS cluster. It is strongly recommended not attempting to move controller resources to an AKS cluster.
+Konvoy currently does not support creating a self-managed AKS cluster.
 
 Return to the [Explore the New Cluster][explore-cluster] section.
 
