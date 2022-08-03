@@ -597,7 +597,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 ## Update the cluster worker node pool to Kubernetes version v1.21.6
 
-1.  If your cluster is in multipl Availability Zones repeat the following for the number of zones by with values 0,1,2 in `{.items[0].metadata.name}` when exporting `MACHINEDEPLOYMENT_NAME`.
+1.  If your cluster is in multiple Availability Zones, repeat the following for the number of zones, using values 0,1,2 in `{.items[0].metadata.name}` when exporting `MACHINEDEPLOYMENT_NAME`.
 
 
 1.  Add your Kubernetes v1.21.6 AMI to your environment:
