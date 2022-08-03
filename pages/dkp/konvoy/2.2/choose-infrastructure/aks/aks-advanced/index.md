@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Make New Cluster Self-Managed
-title: Make the New Cluster Self-Managed
+navigationTitle: Create a new AKS cluster 
+title: Create a new AKS Cluster
 menuWeight: 25
-excerpt: Make the new Kubernetes cluster manage itself
+excerpt: Create a new Konvoy AKS cluster
 enterprise: false
 ---
 
