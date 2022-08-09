@@ -36,7 +36,6 @@ Along with the KIB Bundle, we publish a file containing checksums for the bundle
 
 | DKP Version  | KIB Version | 
 |------------|----------------------|
-| v2.3.0 | v1.19.9 |
 | V2.2.2 | v1.17.2 |
 | v2.2.1 | v1.13.2 |
 | v2.2.0 | v1.11.0 |
