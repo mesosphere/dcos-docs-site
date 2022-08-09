@@ -28,7 +28,6 @@ Before you begin, you must ensure your versions of KIB and DKP are compatible:
 | EKS Default | 1.22.x |
 
 
-DKP 2.3 comes with support for Kubernetes 1.23, enabling you to benefit from the latest features and security fixes in upstream Kubernetes. This release comes with approximately 47 enhancements.
 -  Create a working `docker` setup.
 
 ## Compatible versions
