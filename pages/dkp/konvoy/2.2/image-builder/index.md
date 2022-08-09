@@ -23,7 +23,7 @@ Before you begin, you must ensure your versions of KIB and DKP are compatible:
 | Kubernetes Support  | Version | 
 |------------|----------------------|
 | Minimum | 1.22.0 |
-| Maximum | 1.23.x |
+| Maximum | 1.22.7 |
 | Default | 1.22.0 |
 | EKS Default | 1.22.x |
 
