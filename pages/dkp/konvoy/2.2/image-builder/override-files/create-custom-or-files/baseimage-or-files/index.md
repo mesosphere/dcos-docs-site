@@ -38,7 +38,7 @@ packer:
 ```
 
 After creating the override file for our `source_ami`, we can pass our override file by using the `--overrides` flag when building our image:
-+
+
  ```bash
  ./konvoy-image build images/ami/centos-7.yaml --overrides override-source-ami.yaml
  ```
