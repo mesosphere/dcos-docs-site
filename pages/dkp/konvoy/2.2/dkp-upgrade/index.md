@@ -11,12 +11,300 @@ The DKP upgrade represents an important step of your environment's lifecycle, as
 
 ## Supported upgrade paths
 
-| From Version | To Version |       |       |
-| :----------: | :--------: | :---: | :---: |
-|    1.8.4     |   1.8.5    | 2.1.0 | 2.1.1 |
-|    1.8.5     |   2.1.0    | 2.1.1 |       |
-|    2.1.0     |   2.2.0    |       |       |
-|    2.1.1     |   2.2.0    |       |       |
+<ac:inline-comment-marker ac:ref="4ac92c3d-a7e2-4f18-860e-c7ff2abe0e62">Supported upgrade paths</ac:inline-comment-marker>
+</h2>
+<table data-layout="default" ac:local-id="c96cd031-29d0-4982-b0f5-ef846df33f0c">
+    <colgroup>
+        <col style="width: 48.0px;" />
+        <col style="width: 101.0px;" />
+        <col style="width: 101.0px;" />
+        <col style="width: 101.0px;" />
+        <col style="width: 101.0px;" />
+        <col style="width: 101.0px;" />
+        <col style="width: 101.0px;" />
+        <col style="width: 101.0px;" />
+        <col style="width: 101.0px;" />
+        <col style="width: 101.0px;" />
+    </colgroup>
+    <tbody>
+        <tr>
+            <th data-highlight-colour="#ffffff">
+                <p style="text-align: center;"> </p>
+            </th>
+            <th data-highlight-colour="#ffffff" colspan="9">
+                <p style="text-align: center;"><strong>From</strong></p>
+            </th>
+        </tr>
+        <tr>
+            <th data-highlight-colour="#ffffff" rowspan="9">
+                <p style="text-align: center;" />
+                <p style="text-align: center;" />
+                <p style="text-align: center;" />
+                <p style="text-align: center;" />
+                <p style="text-align: center;"><strong>To</strong></p>
+            </th>
+            <td>
+                <p />
+            </td>
+            <td>
+                <p><strong>1.8.4</strong></p>
+            </td>
+            <td>
+                <p><strong>1.8.5</strong></p>
+            </td>
+            <td>
+                <p><strong>2.1.0</strong></p>
+            </td>
+            <td>
+                <p><strong>2.1.1</strong></p>
+            </td>
+            <td>
+                <p><strong>2.1.2</strong></p>
+            </td>
+            <td>
+                <p><strong>2.2.0</strong></p>
+            </td>
+            <td>
+                <p><strong>2.2.1</strong></p>
+            </td>
+            <td>
+                <p><strong>2.2.2</strong></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>1.8.5</strong></p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>2.1.0</strong></p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>2.1.1</strong></p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>2.1.2</strong></p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>2.2.0</strong></p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>2.2.1</strong></p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>2.2.2</strong></p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#b3bac5">
+                <p>NA</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>2.3.0</strong></p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td>
+                <p>No</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+            <td data-highlight-colour="#57d9a3">
+                <p>Yes</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ## Understand the upgrade process
 
