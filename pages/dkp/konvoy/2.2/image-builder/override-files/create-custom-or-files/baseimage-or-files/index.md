@@ -13,21 +13,23 @@ When using Konvoy Image Builder (KIB) to create a base OS image, compliant with 
 ```bash
 ./konvoy-image build images/<builder-type>/{os}-{version}.yaml
 ```
-Note:
-In previous versions of the konvoy-image, only azure and aws providers were available, therefore specifying a vsphere was not necessary. 
+
+<p class="message--note"><strong>NOTE: </strong>In previous versions of the konvoy-image, only azure and aws providers were available, therefore specifying a vsphere was not necessary. </p>
 
 Although there are several parameters specified by default in the packer templates for each provider, it is possible to override the default values.  One option is to execute KIB with specific flags to override the values of the source AMI (`--source-ami`), AMI region (`--ami-regions`), AWS EC2 instance type (`--aws-instance-type`), and so on. For a comprehensive list of these flags, please run:
  ```bash
  ./konvoy-image build --help
  ```
-Another option is by creating a file with the parameters to be overriden and specify the `--overrides` flag as shown below (Note: While CLI flags can be used in combination with override files, CLI flags take priority over any override files.):
+Another option is by creating a file with the parameters to be overriden and specify the `--overrides` flag as shown below: 
+
+<p class="message--note"><strong>NOTE: </strong>While CLI flags can be used in combination with override files, CLI flags take priority over any override files.</p>
 
 ```bash
 ./konvoy-image build images/<builder-type>/<os>-<version>.yaml --overrides overrides.yaml
 ```
 
 ### Example 1:
-For example, when using the AWS packer builder to override the above base image with another base image, create an override file and set the source_ami under the packer key. This overrides the image search and forces the use of the specified source_ami.
+For example, when using the AWS Packer builder to override the above base image with another base image, create an override file and set the `source_ami` under the packer key. This overrides the image search and forces the use of the specified `source_ami`.
 
 ```yaml
 ---
@@ -43,7 +45,7 @@ After creating the override file for our `source_ami`, we can pass our override 
 
 ### Example 2:
 
-To abide to best security practices, a user could set their own username and password while creating the base OS image and override the default credentials in KIB by creating a file with the following content:
+To abide to security practices, a user could set their own username and password while creating the base OS image and override the default credentials in KIB by creating a file with the following content:
 
 ```yaml
 ---
