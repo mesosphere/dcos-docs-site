@@ -12,23 +12,6 @@ Konvoy Image Builder (KIB) is a complete solution for building
 
 This section describes how to use the KIB to create a Cluster API compliant machine images. Machine images contain configuration information and software to create a specific, pre-configured, operating environment. For example, you can create an image of your current computer system settings and software. The machine image can then be replicated and distributed, creating your computer system for other users. The KIB uses variable overrides to specify base image and container images to use in your new machine image.
 
-## Prerequisites
-
-Before you begin, you must ensure your versions of KIB and DKP are compatible:
-
--  Download the supported version of the KIB bundle from the KIB Version section of the chart below (prefixed with konvoy-image-bundle) for your Operating System.
-### Supported versions
-
-
-| Kubernetes Support  | Version | 
-|------------|----------------------|
-| Minimum | 1.22.0 |
-| Maximum | 1.22.8 |
-| Default | 1.22.0 |
-| EKS Default | 1.22.x |
-
-
--  Create a working `docker` setup.
 
 ## Compatible versions
 Along with the KIB Bundle, we publish a file containing checksums for the bundle files.  The recommendation for using these checksums is to verify the integrity of the downloads.
