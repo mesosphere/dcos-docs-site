@@ -93,8 +93,6 @@ To enable logging in DKP using the CLI, follow these steps on the **management**
      appRef:
        name: grafana-logging-6.9.1
        kind: ClusterApp
-     configOverrides:
-       name: workspace-grafana-overrides-cm
    EOF
    ```
 
