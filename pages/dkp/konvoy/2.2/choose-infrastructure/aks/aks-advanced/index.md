@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle: Make New Cluster Self-Managed
-title: Make the New Cluster Self-Managed
+navigationTitle: Create a new AKS cluster 
+title: Create a new AKS Cluster
 menuWeight: 25
-excerpt: Make the new Kubernetes cluster manage itself
+excerpt: Create a new Konvoy AKS cluster
 enterprise: false
 ---
 
-Konvoy currently does not support creating a self-managed AKS cluster. It is strongly recommended not attempting to move controller resources to an AKS cluster.
+Konvoy currently does not support creating a self-managed AKS cluster.
 
 Return to the [Explore the New Cluster][explore-cluster] section.
 
