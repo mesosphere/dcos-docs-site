@@ -19,7 +19,7 @@ Before you start, make sure you have completed the steps in [Bootstrap][bootstra
 
     See [Get Started with EKS](../../quick-start) for information on naming your cluster.
 
-1.  Make sure your AWS credentials are up to date. Refresh the credentials using this command:
+1.  Make sure your AWS credentials are up to date if using Static Credentials. Refresh the credentials using this command:
 
     ```bash
     dkp update bootstrap credentials aws

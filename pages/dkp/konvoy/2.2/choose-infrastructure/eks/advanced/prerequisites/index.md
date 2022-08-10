@@ -12,6 +12,7 @@ enterprise: true
 Before you begin using Konvoy, you must have:
 
 - An x86_64-based Linux or macOS machine.
+- A [Self-managed AWS cluster](../../../aws/advanced/self-managed/)
 - The `dkp` binary for Linux, or macOS.
 - [Docker][install_docker] version 18.09.2 or later installed.
 - [kubectl][install_kubectl] for interacting with the running cluster.
