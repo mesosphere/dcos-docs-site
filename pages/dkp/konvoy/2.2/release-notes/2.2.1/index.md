@@ -104,7 +104,7 @@ If any of the these fields are present, then there is a possibility the upgrade 
 
 ### FIPS Upgrade from 2.1.x to 2.2.x
 
-If upgrading a FIPS cluster, there is a bug in the upgrade of `kube-proxy` `DaemonSet` in that it doesn't get automatically upgraded. To correctly upgrade, run the workaround command shown below:
+If upgrading a FIPS cluster, there is a bug in the upgrade of `kube-proxy` `DaemonSet` in that it does not get automatically upgraded. To correctly upgrade, run the workaround command shown below:
 
 ```bash
 kubectl set image -n kube-system daemonset.v1.apps/kube-proxy kube-proxy=docker.io/mesosphere/kube-proxy:v1.22.8_fips.0
