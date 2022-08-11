@@ -57,6 +57,13 @@ The DEX Custom Resource Definitions used for configuring LDAP have been updated 
 
 The mesosphere/dex-k8s-authenticator docker container now includes the appropriate binaries that allow users to download the referenced 'konvoy-async-plugin' after configuring a cluster using an external IDP for authentication.
 
+### FIPS Upgrade from 2.1.x to 2.2.x
+
+If upgrading a FIPS cluster, there is a bug in the upgrade of `kube-proxy` `DaemonSet` in that it doesn't get automatically upgraded. To correctly upgrade, run the workaround command shown below:
+```bash
+kubectl set image -n kube-system daemonset.v1.apps/kube-proxy kube-proxy=docker.io/mesosphere/kube-proxy:v1.22.8_fips.0
+```
+
 ## Component updates
 
 When upgrading to this release, the following services and service components are upgraded to the listed version:
