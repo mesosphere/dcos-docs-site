@@ -25,6 +25,7 @@ dkp upgrade workspace WORKSPACE_NAME [--dry-run] [flags]
       --config string                    Config file to use (default "/root/.kommander/config")
       --context string                   The name of the kubeconfig context to use
       --core-app-timeout duration        Timeout to wait for upgrade of each kommander core application (default 20m0s)
+      --disable-appdeployments strings   List of AppDeployments to be disabled during upgrade (default [fluent-bit])
       --dry-run                          Do not upgrade, just list the AppDeployments that would be upgraded
   -h, --help                             help for workspace
       --kubeconfig string                Path to the kubeconfig file to use for CLI requests.
