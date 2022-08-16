@@ -25,6 +25,7 @@ dkp upgrade catalogapp CATALOGAPP_NAME --to-version VERSION [--workspace WORKSPA
       --config string                    Config file to use (default "/root/.kommander/config")
       --context string                   The name of the kubeconfig context to use
       --core-app-timeout duration        Timeout to wait for upgrade of each kommander core application (default 20m0s)
+      --disable-appdeployments strings   List of AppDeployments to be disabled during upgrade (default [fluent-bit])
   -h, --help                             help for catalogapp
       --kubeconfig string                Path to the kubeconfig file to use for CLI requests.
       --platform-apps-timeout duration   Timeout to wait for upgrade of the set of platform applications (default 30m0s)

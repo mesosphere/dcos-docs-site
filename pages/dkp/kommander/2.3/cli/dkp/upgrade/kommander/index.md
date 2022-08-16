@@ -30,6 +30,7 @@ dkp upgrade kommander [flags]
       --config string                              Config file to use (default "/root/.kommander/config")
       --context string                             The name of the kubeconfig context to use
       --core-app-timeout duration                  Timeout to wait for upgrade of each kommander core application (default 20m0s)
+      --disable-appdeployments strings             List of AppDeployments to be disabled during upgrade (default [fluent-bit])
       --disallow-charts-download                   make CLI rely solely on provided chart bundles and do not try to download charts from the Internet
       --gitea-kommander-repository-name string     gitea kommander repository name (default "kommander")
   -h, --help                                       help for kommander
