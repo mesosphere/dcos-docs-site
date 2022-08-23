@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Upgrade the Cluster
-title: Upgrade the Cluster
+navigationTitle: Scale Up or Down a Cluster Node
+title: Scale Up or Down a Cluster Node
 menuWeight: 84
-excerpt: Upgrade my pre-provisioned Konvoy cluster to the latest Kubernetes version
+excerpt: Procedure to scale-up or scale-down nodes in an existing DKP cluster.
 beta: false
 enterprise: false
 ---
