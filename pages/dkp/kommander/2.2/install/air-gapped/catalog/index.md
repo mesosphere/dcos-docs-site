@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Install Kommander in an air-gapped environment with catalog applications
 title: Install Kommander in an air-gapped environment with catalog applications
 menuWeight: 10
-excerpt: How to install Kommander in an Air-gapped installation with catalog applications
+excerpt: How to install Kommander in an air-gapped installation with catalog applications
 beta: false
 enterprise: true
 ---
