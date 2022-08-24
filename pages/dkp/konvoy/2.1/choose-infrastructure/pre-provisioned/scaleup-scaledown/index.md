@@ -49,7 +49,7 @@ Follow these steps:
     machinedeployment-md-0   cluster-name   9m10s   Running   4          4       4   
     ```
 
-1.  Scale the worker node to the required number.\
+1.  Scale the worker node to the required number.
     In this example we are scaling from 4 to 6 worker nodes:
 
     ```bash
@@ -81,7 +81,7 @@ Follow these steps:
     ```
 ## Scale Down a Cluster Node
 
-Follow these step:
+Follow this step:
 
 1.  Run this command on your worker nodes:
 
