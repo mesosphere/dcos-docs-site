@@ -2,13 +2,11 @@
 layout: layout.pug
 navigationTitle: Prerequisites
 title: Prerequisites for installing Kaptain
-menuWeight: 6
-excerpt: Review the prerequisites that must be met before installing Kaptain
+menuWeight: 2
+excerpt: Ensure these prerequisites are met before installing Kaptain
 beta: false
 enterprise: false
 ---
-
-## Prerequisites
 
 - [`kubectl`][kubectl] on your installation machine 
 
