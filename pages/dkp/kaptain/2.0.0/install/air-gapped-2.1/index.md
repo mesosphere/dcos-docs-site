@@ -16,6 +16,14 @@ You can deploy Kaptain to a cluster in a selected workspace. If you do not inten
 
 For reference values of the required number of worker nodes, CPU, RAM, and storage resources, refer to the [requirements](../requirements/) section.
 
+## Prerequisites
+
+Ensure you meet all [prerequisites](../prerequisites/).
+
+<p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
+
+If you need to run Spark jobs on Kubernetes using Spark Operator, you must install it separately. Use the following instructions to install Spark Operator from Kommander Catalog for [DKP 2.x][install-spark-dkp2].
+
 ## DKP 2.1 air-gapped installation
 
 Refer to [DKP install instructions][dkp_install], if you want to deploy Kaptain in a networked environment or to [DKP 2.2 air-gapped instructions][2.2_air] if you are deploying in DKP 2.2.
@@ -24,57 +32,6 @@ Refer to [DKP install instructions][dkp_install], if you want to deploy Kaptain 
 All DKP commands in this page assume the <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.</p>
 
 Kaptain supports installation on an air-gapped (offline or private) DKP managed cluster. Before installing Kaptain, follow the [air-gapped installation guide][konvoy-air-gap] to set up the air-gapped DKP managed cluster. The cluster admin is responsible for configuring the DKP cluster correctly and ensuring container images have been pre-loaded to the private registry, before installing Kaptain.
-
-## Prerequisites
-
-- [A DKP cluster][dkp-install] with the following Platform applications enabled:
-
-  - Istio
-  - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
-
-- [`kubectl`][kubectl] on your installation machine
-
-- For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
-
-- Ensure the following applications are enabled in Kommander:
-
-  1. Use the existing Kommander configuration file, or initialize the default one:
-
-     ```bash
-     dkp install kommander --init > kommander-config.yaml
-     ```
-
-  1. Ensure the following applications are enabled in the config:
-
-     ```yaml
-     apiVersion: config.kommander.mesosphere.io/v1alpha1
-     kind: Installation
-     apps:
-       ...
-       dex:
-       dex-k8s-authenticator:
-       kube-prometheus-stack:
-       istio:
-       knative:
-       minio-operator:
-       traefik:
-       nvidia:  # to enable GPU support
-       ...
-     ```
-
-  1. Apply the new configuration to Kommander:
-
-     ```bash
-     dkp install kommander --installer-config kommander-config.yaml
-     ```
-
-<!-- TODO: Reference doc for DKP, as commands are different depending on the installation and delete only this step or the whole "Ensure the following applications are enabled in Kommander:" part?-->
-
-Review the [Kommander installation documentation][kommander-install] for more information.
-
-<p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
-
-If you need to run Spark jobs on Kubernetes using Spark Operator, you must install it separately. Use the following instructions to install Spark Operator from Kommander Catalog for [DKP 2.x][install-spark-dkp2].
 
 ### Load the Docker images into your Docker registry
 
@@ -154,6 +111,8 @@ If Kaptain was installed using helm, it can be uninstalled with the following:
 ```bash
 helm uninstall kaptain
 ```
+
+Refer to the [installation overview](../../install#installation-overview) for next steps.
 
 [install-spark-dkp2]: /dkp/kommander/2.2/workspaces/applications/catalog-applications/dkp-applications/spark-operator/
 [kommander-install]: /dkp/kommander/latest/install/

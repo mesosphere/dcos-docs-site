@@ -7,6 +7,9 @@ excerpt: Install Kaptain on an on-premises cluster
 beta: false
 enterprise: false
 ---
+## Prerequisites
+
+Ensure you meet all [prerequisites](../prerequisites/).
 
 ## On-Premise Installation
 
