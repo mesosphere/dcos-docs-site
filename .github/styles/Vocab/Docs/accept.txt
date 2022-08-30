@@ -197,6 +197,7 @@ Nouveau
 (nvidia|Nvidia|NVIDIA)
 (OIDC|oidc)
 (onboarding|Onboarding)
+on-premise
 openssl
 (OpsPortal|opsportal)
 overfit(|s|ted|ting)

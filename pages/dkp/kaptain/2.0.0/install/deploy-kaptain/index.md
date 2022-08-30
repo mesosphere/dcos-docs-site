@@ -113,7 +113,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 If you want to customize your installation and modify the custom domain name, external Dex, creation of profiles, certificates, for example, continue with these steps:
 
-1.  Create the `ConfigMap` with the custom configuration. In the following example, the ConfigMap is configuring Kaptain to communicate with the [Management cluster via Dex](../../configuration/external-dex/), which is a necessary step when deploying Kaptain to a Managed or Attached cluster (Enterprise only). Other configurations can be made in the same way.
+1.  Create the `ConfigMap` with the custom configuration. In the following example, the ConfigMap is configuring Kaptain to communicate with the [Management cluster via Dex](../../configuration/external-dex/), which is a necessary step when deploying Kaptain to a Managed or Attached cluster ([Enterprise](../../../../kommander/2.2/licensing/enterprise/) only). Other configurations can be made in the same way.
 
     ```yaml
     cat <<EOF | kubectl apply -f -

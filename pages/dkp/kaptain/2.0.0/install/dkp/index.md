@@ -12,9 +12,7 @@ enterprise: false
 <strong>All DKP commands on this page</strong> assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
 </p>
 
-<p class="message--warning"><strong>WARNING: </strong>
-You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.
-</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <bold>Kaptain is meant to be deployed on workspaces with a single cluster**</bold>.</p>
 
 ## Requirements
 

@@ -8,6 +8,8 @@ beta: false
 enterprise: false
 ---
 
+<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <bold>Kaptain is meant to be deployed on workspaces with a single cluster**</bold>.</p>
+
 - [`kubectl`][kubectl] on your installation machine 
 
 - A DKP cluster, either one of the following, depending on your license 
@@ -73,7 +75,7 @@ You can install the applications Kaptain requires during the installation of DKP
     dkp install kommander --installer-config kommander-config.yaml
     ```
 
-    This customized configuration file will enable these applications to deploy when installing DKP.
+    This customized configuration file will enable these applications to deploy when installing DKP. For more information, refer to the [Customizing the configuration file](../../../../kommander/2.2/install/configuration/) page.
 
 ### Verify the deployment
 

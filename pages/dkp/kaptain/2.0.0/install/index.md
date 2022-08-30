@@ -10,7 +10,7 @@ enterprise: false
 
 <p class="message--important"><strong>IMPORTANT: </strong>Refer to the <a href="../fresh-install">Kaptain fresh install instructions</a>, if you already have Kaptain and want to move from 1.x to 2.x. Note that it is not possible to migrate your data.</p>
 
-<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. **Kaptain is meant to be deployed on workspaces with a single cluster**.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <bold>Kaptain is meant to be deployed on workspaces with a single cluster**</bold>.</p>
 
 How do you want to deploy Kaptain?
 
@@ -26,7 +26,7 @@ The infrastructure you select determines the specific requirements for a success
 
 To install and deploy Kaptain for the first time, proceed with these steps:
 
-1.  Ensure you have reviewed all [prerequisites](../install/prerequisites/).
+1.  Ensure you have reviewed all [prerequisites](../install/prerequisites/). If you are installing Kaptain on premises, also review the [on-premise prerequisites](../install/on-premise/) page.
 
 1.  Add Kaptain to your DKP Catalog Applicationd according to your set-up: 
 
