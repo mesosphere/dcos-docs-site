@@ -14,8 +14,8 @@ enterprise: false
 
 - A DKP cluster, either one of the following, depending on your license 
 
-  - An **Essential cluster** for [Essential customers](../../../../kommander/2.2/licensing/essential/)
-  - A **Managed** or **Attached** cluster [Enterprise customers](../../../../kommander/2.2/licensing/enterprise/) license, in which case, said cluster must be the only one in its workspace
+  - An **Essential cluster** for [Essential customers][Essential_page]
+  - A **Managed** or **Attached** cluster [Enterprise customers][Enterprise_page], in which case, said cluster must be the only one in its workspace
 
 - The following **Platform applications** (dependencies) enabled in the cluster where you want to install Kaptain:
 
@@ -84,3 +84,5 @@ Verify if the applications have been deployed successfully. For this, refer to t
 Refer to the [installation overview](../../install#installation-overview) for next steps.
 
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
+[Essential_page]: ../../../../kommander/2.2/licensing/essential/
+[Enterprise_page]: ../../../../kommander/2.2/licensing/enterprise/
