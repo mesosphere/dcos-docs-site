@@ -30,15 +30,16 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | ingress.base64CustomCertificate | string | `""` | base64-encoded contents of a custom certificate file (.crt) to use with the provided custom domain name |
 | ingress.base64CustomCertificateKey | string | `""` | base64-encoded contents of a custom certificate private key file (.key) to use with the provided custom domain name |
 | ingress.namespace | string | `"kaptain-ingress"` | Namespace to install Kaptain Ingress resources |
+| ingress.kommanderTraefikCertificateName | string | `"kommander-traefik-tls"` | The name of the Kommander Traefik certificate |
 | core.enabled | bool | `true` |  |
 | core.namespace | string | `"kubeflow"` |  |
-| core.notebook.defaultImage | string | `"mesosphere/kubeflow:2.1.0-rc.0-jupyter-spark-3.3.0-horovod-0.24.2-tensorflow-2.8.0"` | Default image to use when creating a new notebook server |
-| core.notebook.images[0] | string | `"mesosphere/kubeflow:2.1.0-rc.0-jupyter-spark-3.3.0-horovod-0.24.2-tensorflow-2.8.0"` | JupyterLab with Tensorflow, Spark and Horovod pre-installed |
-| core.notebook.images[1] | string | `"mesosphere/kubeflow:2.1.0-rc.0-jupyter-spark-3.3.0-horovod-0.24.2-tensorflow-2.8.0-gpu"` | JupyterLab with Tensorflow, CUDA, Spark and Horovod pre-installed with GPU support |
-| core.notebook.images[2] | string | `"mesosphere/kubeflow:2.1.0-rc.0-jupyter-spark-3.3.0-horovod-0.24.2-pytorch-1.11.0"` | JupyterLab with Pytorch, Spark and Horovod pre-installed |
-| core.notebook.images[3] | string | `"mesosphere/kubeflow:2.1.0-rc.0-jupyter-spark-3.3.0-horovod-0.24.2-pytorch-1.11.0-gpu"` | JupyterLab with Pytorch, CUDA, Spark and Horovod pre-installed with GPU support |
-| core.notebook.images[4] | string | `"mesosphere/kubeflow:2.1.0-rc.0-jupyter-spark-3.3.0-horovod-0.24.2-mxnet-1.9.0"` | JupyterLab with MXNet, Spark and Horovod pre-installed |
-| core.notebook.images[5] | string | `"mesosphere/kubeflow:2.1.0-rc.0-jupyter-spark-3.3.0-horovod-0.24.2-mxnet-1.9.0-gpu"` | JupyterLab with MXNet, CUDA, Spark and Horovod pre-installed with GPU support |
+| core.notebook.defaultImage | string | `"mesosphere/kubeflow:2.1.0-jupyter-spark-3.3.0-tensorflow-2.9.1"` | Default image to use when creating a new notebook server |
+| core.notebook.images[0] | string | `"mesosphere/kubeflow:2.1.0-jupyter-spark-3.3.0-tensorflow-2.9.1"` | JupyterLab with Tensorflow and Spark pre-installed |
+| core.notebook.images[1] | string | `"mesosphere/kubeflow:2.1.0-jupyter-spark-3.3.0-tensorflow-2.9.1-gpu"` | JupyterLab with Tensorflow, CUDA and Spark pre-installed with GPU support |
+| core.notebook.images[2] | string | `"mesosphere/kubeflow:2.1.0-jupyter-spark-3.3.0-pytorch-1.11.0"` | JupyterLab with Pytorch and Spark pre-installed |
+| core.notebook.images[3] | string | `"mesosphere/kubeflow:2.1.0-jupyter-spark-3.3.0-pytorch-1.11.0-gpu"` | JupyterLab with Pytorch, CUDA and Spark pre-installed with GPU support |
+| core.notebook.images[4] | string | `"mesosphere/kubeflow:2.1.0-jupyter-spark-3.3.0-mxnet-1.9.0"` | JupyterLab with MXNet and Spark pre-installed |
+| core.notebook.images[5] | string | `"mesosphere/kubeflow:2.1.0-jupyter-spark-3.3.0-mxnet-1.9.0-gpu"` | JupyterLab with MXNet, CUDA and Spark pre-installed with GPU support |
 | core.notebook.tolerationGroups | list | `[]` | Pod toleration group configurations for Notebook servers |
 | core.notebook.affinityConfig | list | `[]` | Pod affinity configurations for Notebook servers |
 | core.notebook.enableCulling | bool | `false` | Enables scale down idling notebooks to freeing up the allocated resources. |
@@ -46,14 +47,14 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | core.notebook.cullingCheckPeriodMinutes | int | `1` | Notebook status check period |
 | core.disableAntiAffinity | bool | `false` | Enables single-node installation. **DO NOT USE IN PRODUCTION ENVIRONMENTS!** Disabling anti-affinity allows installing Kaptain on a smaller number of nodes (less than 3) or on a single node. This installation mode must be used **for evaluation purposes only**. No data integrity guarantees in case of a hardware failure! |
 | core.registrationFlow | bool | `false` | Enables automatic profile creation |
-| core.tensorboardImage | string | `"mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0"` | Image to use for a Tensorboard in Kubeflow |
+| core.tensorboardImage | string | `"mesosphere/kubeflow:2.1.0-tensorflow-2.9.1"` | Image to use for a Tensorboard in Kubeflow |
 | core.dashboard.uriPathPrefix | string | `"/dashboard/"` |  |
 | core.dashboard.prometheusPort | int | `9090` |  |
 | core.dashboard.refreshIntervalSeconds | int | `10` |  |
 | core.dashboard.gunicornWorkers | int | `3` |  |
 | core.dashboard.gunicornThreads | int | `3` |  |
 | core.dashboard.logLevel | string | `"debug"` |  |
-| core.workflows.executorImage | string | `"gcr.io/ml-pipeline/argoexec:v3.2.3-license-compliance"` |  |
+| core.workflows.executorImage | string | `"gcr.io/ml-pipeline/argoexec:v3.3.8-license-compliance"` |  |
 | core.workflows.containerRuntimeExecutor | string | `"emissary"` | Argo Workflows Executor |
 | core.workflows.artifactRepository.bucket | string | `"mlpipeline"` | Bucket to store artifacts |
 | core.workflows.artifactRepository.keyPrefix | string | <code>"artifacts/{{worklow.name}}/yyyy/mm/dd/{{pod.name}}"</code> | Bucket prefix |
@@ -121,7 +122,7 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | kserve.servingruntime.tensorflow.image | string | `"tensorflow/serving"` |  |
 | kserve.servingruntime.tensorflow.tag | string | `"2.6.2"` |  |
 | kserve.servingruntime.mlserver.image | string | `"docker.io/seldonio/mlserver"` |  |
-| kserve.servingruntime.mlserver.tag | string | `"1.0.0"` |  |
+| kserve.servingruntime.mlserver.tag | string | `"1.1.0"` |  |
 | kserve.servingruntime.mlserver.modelClassPlaceholder | string | `"{{.Labels.modelClass}}"` |  |
 | kserve.servingruntime.sklearnserver.image | string | `"kserve/sklearnserver"` |  |
 | kserve.servingruntime.sklearnserver.tag | string | `"v0.9.0"` |  |
@@ -129,20 +130,18 @@ This page lists Kaptain configuration properties that can be adjusted during the
 | kserve.servingruntime.xgbserver.tag | string | `"v0.9.0"` |  |
 | kserve.servingruntime.tritonserver.image | string | `"nvcr.io/nvidia/tritonserver"` |  |
 | kserve.servingruntime.tritonserver.tag | string | `"21.09-py3"` |  |
-| kserve.servingruntime.pmmlserver.image | string | `"kserve/pmmlserver"` |  |
-| kserve.servingruntime.pmmlserver.tag | string | `"v0.9.0"` |  |
-| kserve.servingruntime.paddleserver.image | string | `"kserve/paddleserver"` |  |
-| kserve.servingruntime.paddleserver.tag | string | `"v0.9.0"` |  |
+| kserve.servingruntime.pmmlserver.image | string | `"mesosphere/kubeflow"` |  |
+| kserve.servingruntime.pmmlserver.tag | string | `"kserve-pmmlserver-v0.9.0-3994c63-cve-patch"` |  |
+| kserve.servingruntime.paddleserver.image | string | `"mesosphere/kubeflow"` |  |
+| kserve.servingruntime.paddleserver.tag | string | `"kserve-paddleserver-v0.9.0-3994c63-cve-patch"` |  |
 | kserve.servingruntime.lgbserver.image | string | `"kserve/lgbserver"` |  |
 | kserve.servingruntime.lgbserver.tag | string | `"v0.9.0"` |  |
 | kserve.servingruntime.torchserve.image | string | `"pytorch/torchserve-kfs"` |  |
 | kserve.servingruntime.torchserve.tag | string | `"0.6.0"` |  |
 | kserve.servingruntime.torchserve.serviceEnvelopePlaceholder | string | `"{{.Labels.serviceEnvelope}}"` |  |
-| kserve.servingruntime.alibi.image | string | `"kserve/alibi-explainer"` |  |
-| kserve.servingruntime.alibi.defaultVersion | string | `"v0.9.0"` |  |
-| kserve.servingruntime.art.image | string | `"kserve/art-explainer"` |  |
-| kserve.servingruntime.art.defaultVersion | string | `"v0.9.0"` |  |
-| kserve.servingruntime.aix.image | string | `"kserve/aix-explainer"` |  |
-| kserve.servingruntime.aix.defaultVersion | string | `"v0.9.0"` |  |
+| kserve.servingruntime.alibi.image | string | `"mesosphere/kubeflow"` |  |
+| kserve.servingruntime.alibi.defaultVersion | string | `"kserve-alibi-explainer-v0.9.0-5b00d22-cve-patch"` |  |
+| kserve.servingruntime.art.image | string | `"mesosphere/kubeflow"` |  |
+| kserve.servingruntime.art.defaultVersion | string | `"kserve-art-explainer-v0.9.0-5b00d22-cve-patch"` |  |
 
 For a full list of attributed 3rd party software, see d2iq.com/legal/3rd
