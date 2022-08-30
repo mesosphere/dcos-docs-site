@@ -8,14 +8,14 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <bold>Kaptain is meant to be deployed on workspaces with a single cluster**</bold>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <b>Kaptain is meant to be deployed on workspaces with a single cluster</b>.</p>
 
 - [`kubectl`][kubectl] on your installation machine 
 
 - A DKP cluster, either one of the following, depending on your license 
 
-  - An **Essential cluster** for customers with an [Essential license](../../../../kommander/2.2/licensing/essential/)
-  - A **Managed** or **Attached** cluster for customers with an [Enterprise license](../../../../kommander/2.2/licensing/enterprise/), in which case, said cluster needs to be the only one in its workspace
+  - An **Essential cluster** for customers with an [Essential](../../../../kommander/2.2/licensing/essential/) license
+  - A **Managed** or **Attached** cluster for customers with an [Enterprise](../../../../kommander/2.2/licensing/enterprise/) license, in which case, said cluster needs to be the only one in its workspace
 
 - The following **Platform applications** (dependencies) enabled in the cluster where you want to install Kaptain:
 
@@ -25,7 +25,7 @@ enterprise: false
 
   You have two options to install these applications. For more instructions, refer to the [Install dependencies section](#install-dependencies).
 
-- Refer to the [on-premise installation](../on-premise/) page, if you are installing Kaptain on premises.
+- Refer to the [on-premise installation](../on-premise/) page, if you are installing Kaptain **on premises**.
 
 ## Install dependencies 
 
