@@ -10,7 +10,7 @@ enterprise: false
 
 <p class="message--important"><strong>IMPORTANT: </strong>Refer to the <a href="../fresh-install">Kaptain fresh install instructions</a>, if you already have Kaptain and want to move from 1.x to 2.x. Note that it is not possible to migrate your data.</p>
 
-<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <bold>Kaptain is meant to be deployed on workspaces with a single cluster**</bold>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <b>Kaptain is meant to be deployed on workspaces with a single cluster</b>.</p>
 
 How do you want to deploy Kaptain?
 
@@ -45,8 +45,6 @@ Kaptain is a DKP Catalog application. To use it, add it to your repository and t
 You can deploy Kaptain to single and multi-cluster environments. The difference between these setups is the following: In a single-cluster environment (with an Essential license), you deploy on one Management cluster only. In a multi-cluster environment (with an Enterprise license), Kaptain is deployed to either one or several Managed clusters or to Attached clusters.
 
 You can deploy Kaptain on a per-workspace basis.
-
-<p class="message--warning"><strong>WARNING: </strong>You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.</p>
 
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [add_dkp]: dkp/
