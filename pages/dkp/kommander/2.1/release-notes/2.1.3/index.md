@@ -42,7 +42,7 @@ The following services and service components are upgraded to the listed version
 - jaeger: 2.21.0
 - karma: 2.0.0
 - kiali: 1.29.1
-- knative: 0.18.3
+- knative: 0.3.9
 - kube-oidc-proxy: 0.2.5
 - kube-prometheus-stack: 18.1.3
 - kubecost: 0.20.0
