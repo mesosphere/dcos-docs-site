@@ -22,8 +22,6 @@ This release provides new features and enhancements to improve the user experien
 
 ## Fixes and Improvements
 
-## Fixes and Improvements
-
 ### Upgrade Konvoy 1.8 with Multiple Availability Zones (Incident 9448)
 
 With this patch release, multiple Availability Zones are now supported when upgrading from Konvoy v1.8.
