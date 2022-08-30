@@ -15,13 +15,7 @@ Moving from Konvoy 1.8.x to DKP 2.1.x is not just an upgrade - you are enhancing
 
 ## Upgrade paths
 
-Verified upgrade paths are as follows:
-
-| To    | From | 1.8.4 | 1.8.5 | 2.1.0 | 2.1.1 |
-|-------|------|:-----:|:-----:|:-----:|:-----:|
-| 1.8.5 |      | Yes   |       |       |       |
-| 2.1.0 |      | Yes   | Yes   |       |       |
-| 2.1.1 |      | Yes   | Yes   | No    |       |
+See the [upgrade table in the DKP 2.3 documentation](https://docs.d2iq.com/dkp/2.3/upgrade-dkp#UpgradeDKP-Supportedupgradepaths) for the full upgrade paths supported. 
 
 ## Understanding the Major Version Upgrade Process
 
