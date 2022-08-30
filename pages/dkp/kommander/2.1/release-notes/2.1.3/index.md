@@ -25,6 +25,10 @@ This release provides new features and enhancements to improve the user experien
 
 With this patch release, multiple Availability Zones are now supported when upgrading from Konvoy v1.8.
 
+### DKP custom credentials plugin restored (COPS-7343)
+
+The mesosphere/dex-k8s-authenticator docker container now includes the appropriate binaries that allow users to download the referenced ‘konvoy-async-plugin’ after configuring a cluster using an external IDP for authentication.
+
 ## Component updates
 
 The following services and service components are upgraded to the listed version:
