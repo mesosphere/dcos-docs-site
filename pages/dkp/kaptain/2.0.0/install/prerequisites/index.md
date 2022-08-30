@@ -14,8 +14,8 @@ enterprise: false
 
 - A DKP cluster, either one of the following, depending on your license 
 
-  - An **Essential cluster** for customers with an [Essential](../../../../kommander/2.2/licensing/essential/) license
-  - A **Managed** or **Attached** cluster for customers with an [Enterprise](../../../../kommander/2.2/licensing/enterprise/) license, in which case, said cluster needs to be the only one in its workspace
+  - An **Essential cluster** for [Essential customers](../../../../kommander/2.2/licensing/essential/)
+  - A **Managed** or **Attached** cluster [Enterprise customers](../../../../kommander/2.2/licensing/enterprise/) license, in which case, said cluster must be the only one in its workspace
 
 - The following **Platform applications** (dependencies) enabled in the cluster where you want to install Kaptain:
 
