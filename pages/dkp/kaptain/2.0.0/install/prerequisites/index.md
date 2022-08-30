@@ -25,7 +25,7 @@ enterprise: false
 
   You have two options to install these applications. For more instructions, refer to the [Install dependencies section](#install-dependencies).
 
-- Refer to the [on premise installation](../on-premise/) page, if you are installing Kaptain on premises.
+- Refer to the [on-premise installation](../on-premise/) page, if you are installing Kaptain on premises.
 
 ## Install dependencies 
 
