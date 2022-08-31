@@ -12,9 +12,7 @@ enterprise: false
 <strong>All DKP commands on this page</strong> assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
 </p>
 
-<p class="message--warning"><strong>WARNING: </strong>
-You can deploy Kaptain to a cluster in a selected workspace. If you do not intend to deploy Kaptain to a certain cluster, you must switch the workspace you are deploying to or move that cluster to another workspace.
-</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <b>Kaptain is meant to be deployed on workspaces with a single cluster</b>.</p>
 
 ## Requirements
 
@@ -22,54 +20,7 @@ For reference values of the required number of worker nodes, CPU, RAM, and stora
 
 ## Prerequisites
 
--   [A DKP cluster][dkp-install] with the following Platform applications enabled:
-
-    - Istio
-    - Knative (optional, if KServe is configured to work in `RawDeployment` mode)
-
--   [`kubectl`][kubectl] on your installation machine
-
--   For customers deploying in a multi-cluster environment (Enterprise): Ensure you have configured [Kaptain to authenticate with a Management Cluster][dex].
-
--   Ensure you enable the following applications in Kommander:
-
-    <p class="message--note"><strong>NOTE: </strong>
-    All DKP commands in this section assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
-    </p>
-
-    1.  Use the existing Kommander configuration file, or initialize the default one:
-
-        ```bash
-        dkp install kommander --init > kommander-config.yaml
-        ```
-
-    1.  Ensure the following applications are enabled in the config:
-
-        ```yaml
-        apiVersion: config.kommander.mesosphere.io/v1alpha1
-        kind: Installation
-        apps:
-          ...
-          dex:
-          dex-k8s-authenticator:
-          kube-prometheus-stack:
-          istio:
-          knative:
-          minio-operator:
-          traefik:
-          nvidia:  # to enable GPU support
-          ...
-        ```
-
-    1.  For GPU deployment, follow the instructions in [Kommander GPU documentation][kommander-gpu].
-
-    1.  Apply the new configuration to Kommander:
-
-        ```bash
-        dkp install kommander --installer-config kommander-config.yaml
-        ```
-
-  Check [Kommander installation documentation][kommander-install] for more information.
+Ensure you meet all [prerequisites](../prerequisites/).
 
 <p class="message--note"><strong>NOTE: </strong>Starting from the 1.3 release, Spark Operator is no longer installed by default with Kaptain.</p>
 
@@ -123,9 +74,7 @@ If you added Kaptain after installing DKP, you must make it available by creatin
     kaptain-catalog-applications https://github.com/mesosphere/kaptain-catalog-applications                True    Fetched revision: master/6c54bd1722604bd03d25dcac7a31c44ff4e03c6a   11m
     ```
 
-## Deploy Kaptain on selected workspaces
-
-You have now added Kaptain to your DKP Catalog applications. The next step is to enable and deploy Kaptain on all clusters in a selected workspace. For this, refer to [Deploy Kaptain][deploy] instructions.
+Refer to the [installation overview](../../install#installation-overview) for next steps.
 
 [download]: ../../download/
 [install-spark-dkp2]: /dkp/kommander/2.2/workspaces/applications/catalog-applications/dkp-applications/spark-operator/

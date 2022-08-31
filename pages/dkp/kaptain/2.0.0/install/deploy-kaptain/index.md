@@ -14,13 +14,22 @@ Ensure the cluster that you want to use to deploy Kaptain is the only cluster in
 
 ## Prerequisites
 
-Ensure you add Kaptain to your DKP Catalog applications before you deploy it to your clusters. Refer to the corresponding documentation for your environment:
+- Ensure you meet all [prerequisites](../prerequisites/).
 
-[Add Kaptain to your DKP Catalog applications in a networked environment][add_dkp]
+- Ensure you have added Kaptain to your DKP Catalog applications before you deploy it to your clusters. Refer to the corresponding documentation for your environment:
 
-[Add Kaptain to your DKP Catalog applications in an air-gapped environment for 2.1][add_air_2.1]
+  - [Networked environment][add_dkp]
 
-[Add Kaptain to your DKP Catalog applications in an air-gapped environment for 2.2][add_air_2.2]
+  - [Air-gapped environment for 2.1][add_air_2.1]
+
+  - [Air-gapped environment for 2.2][add_air_2.2]
+
+<p class="message--warning"><strong>WARNING: </strong>
+(<a href="../../../../kommander/2.2/licensing/enterprise/">Enterprise</a> only) If you are installing Kaptain on a Managed or Attached cluster, you must customize the deployment for Kaptain to communicate with the Management cluster via Dex (unless you have a dedicated dex instance running on said cluster). 
+In the following workflow, we will show you when to do this.
+</p>
+
+<p class="message--note"><strong>NOTE: </strong>You have different <a href="../../../2.0.0/configuration/">configuration options</a> for Kaptain. Some must take place during the deployment of the Kaptain instance, or the installation could fail.</p>
 
 ## Enable and deploy Kaptain using the DKP UI
 
@@ -42,15 +51,16 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Select a version from the drop-down menu, if available. This drop-down menu will only be visible if there is more than one version.
 
-1.  (Optional) If you want to override the default configuration values, copy your customized values into the text editor under **Configure Service** or upload your yaml file that contains the values. For example:
+1.  **Enterprise only**: Customize the deployment so Kaptain can communicate with the [Management cluster via Dex](../../configuration/external-dex/). For this, copy the required values or upload your customized YAML to the **Configure Service**. Here is an example:
 
     ```yaml
     ingress:
       externalDexClientId: dex-controller-kubeflow-authservice
       externalDexClientSecret: kubeflow-authservice
-      oidcProviderEndpoint: https://a0d231e9c62a4487dad581981c82719f-19533575.us-west-2.elb.amazonaws.com/dex
-      oidcProviderBase64CaBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJiekNDQVJXZ0F3SUJBZ0lSQUlGbWwrS0JXYmtSY0NlOUJuWXpXNVF3Q2dZSUtvWkl6ajBFQXdJd0Z6RVYKTUJNR0ExVUVBeE1NYTI5dGJXRnVaR1Z5TFdOaE1CNFhEVEl5TURReE9ERTROREkxTkZvWERUSXlNRGN4TnpFNApOREkxTkZvd0Z6RVZNQk1HQTFVRUF4TU1hMjl0YldGdVpHVnlMV05oTUZrd0V3WUhLb1pJemowQ0FRWUlLb1pJCnpqMERBUWNEUWdBRTAwMk1KVEYyUGZoNWRIdjZBSzhudFlCQmtoK3RMQ3Q3TzNmNVN1b1RWMVI4UW1UcE9uTVEKWEduY3NqN1hhY3hWUSt2L0xUTzlzN1lGUkZTMVcrZ1dsS05DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4RwpBMVVkRXdFQi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZPYkVuMUkzZFFaOGZQUW1ad3RpZFJyVSsxekFNQW9HCkNDcUdTTTQ5QkFNQ0EwZ0FNRVVDSUE3QXR2c21BUkwzUFJDLzhVanV0SGFXc1BudGVqRnh4N0JieDZVVmF2NlcKQWlFQTFoQTdKamd4d2tJV01uSmlUM0ViVmdDaEo4bWV2NGRjOU1VZVp0VFV5YUU9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+      oidcProviderEndpoint: https://management_cluster_endpoint/dex
+      oidcProviderBase64CaBundle: LS0tLS1CRUd...
     ```
+1.  **Optional**: If you want to override the default configuration values, copy any other [customized configuration values](../../configuration/) into the text editor under Configure Service or upload your YAML file that contains the values.
 
 1.  Confirm the details are correct, and then select the **Enable** button to enable and trigger deployment.
     The status changes to **Enabled**.
@@ -73,7 +83,7 @@ Follow these steps to verify the deployment of Kaptain:
 
 <p class="message--note"><strong>NOTE: </strong>It can take several minutes until provisioning finishes and status changes to <b>Deployed</b>.</p>
 
-## Enable and deploy Kaptain using the DKP CLI
+## Enable and deploy Kaptain using the DKP CLI (Essential only)
 
 Follow these steps to enable Kaptain in air-gapped and networked environments from the DKP CLI:
 
@@ -97,13 +107,36 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Create the resource in the workspace you just created, which instructs Kommander to deploy the `AppDeployment` to the `KommanderCluster`s in the same workspace.
 
-<p class="message--important"><strong>IMPORTANT: </strong>If you are deploying Kaptain to an attached cluster, ensure that either the <code>defaults</code> or <code>overrides</code> contain the <code>${WORKSPACE_NAMESPACE}</code> in the <code>global.workspace</code> section of the <code>values.yaml</code>. For an example of this, observe the <code>ConfigMap</code> configuration in the <a href="#enable-kaptain-with-a-custom-configuration-using-the-cli">Enable Kaptain with a custom configuration using the CLI</a> section.</p>
+## Enable Kaptain with a custom configuration using the CLI (Essential and Enterprise)
 
-## Enable Kaptain with a custom configuration using the CLI
+<p class="message--important"><strong>IMPORTANT: </strong>If you are deploying Kaptain to a managed or attached cluster, ensure that the <code>ConfigMap</code> contains the <code>${WORKSPACE_NAMESPACE}</code> in the <code>global.workspace</code> section of the <code>values.yaml</code>, as shown in the following example.</p>
 
 If you want to customize your installation and modify the custom domain name, external Dex, creation of profiles, certificates, for example, continue with these steps:
 
-1.  Provide the name of a `ConfigMap` in the `AppDeployment`, which provides custom configuration on top of the default configuration:
+1.  Create the `ConfigMap` with the custom configuration. In the following example, the ConfigMap is configuring Kaptain to communicate with the [Management cluster via Dex](../../configuration/external-dex/), which is a necessary step when deploying Kaptain to a Managed or Attached cluster ([Enterprise](../../../../kommander/2.2/licensing/enterprise/) only). Other configurations can be made in the same way.
+
+    ```yaml
+    cat <<EOF | kubectl apply -f -
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      namespace: ${WORKSPACE_NAMESPACE}
+      name: kaptain-overrides
+    data:
+      values.yaml: |
+        global:
+          workspace: ${WORKSPACE_NAMESPACE}
+        core:
+          registrationFlow: true
+        ingress:
+          externalDexClientId: dex-controller-kubeflow-authservice
+          externalDexClientSecret: kubeflow-authservice
+          oidcProviderEndpoint: https://management_cluster_endpoint/dex
+          oidcProviderBase64CaBundle: LS0tLS1CRUd...
+    EOF
+    ```
+
+1.  Provide the name of the `ConfigMap` you created in the `AppDeployment`, which provides custom configuration on top of the default configuration:
 
     ```yaml
     cat <<EOF | kubectl apply -f -
@@ -121,26 +154,6 @@ If you want to customize your installation and modify the custom domain name, ex
     EOF
     ```
 
-1.  Create the `ConfigMap` with the name provided in the step above, with the custom configuration:
-
-    <p class="message--important"><strong>IMPORTANT: </strong>If you are deploying Kaptain to an attached cluster, ensure that the <code>ConfigMap</code> contains the <code>${WORKSPACE_NAMESPACE}</code> in the <code>global.workspace</code> section of the <code>values.yaml</code>, as shown in the following example.</p>
-
-    ```yaml
-    cat <<EOF | kubectl apply -f -
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      namespace: ${WORKSPACE_NAMESPACE}
-      name: kaptain-overrides
-    data:
-      values.yaml: |
-        global:
-          workspace: ${WORKSPACE_NAMESPACE}
-        core:
-          registrationFlow: true
-    EOF
-    ```
-
 Kommander waits for the `ConfigMap` to be present before deploying the `AppDeployment` to the attached clusters.
 
 ### Verify the status of deployment using the DKP CLI
@@ -150,6 +163,8 @@ With Kaptain enabled, connect to the cluster and check the `HelmReleases` to ver
 ```bash
 kubectl get helmreleases -n ${WORKSPACE_NAMESPACE}
 ```
+
+The output should look like this: 
 
 ```sh
 NAME                      AGE     READY   STATUS

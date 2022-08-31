@@ -7,10 +7,13 @@ excerpt: Install Kaptain on an on-premises cluster
 beta: false
 enterprise: false
 ---
+## Prerequisites
+
+Ensure you meet all [prerequisites](../prerequisites/).
 
 ## On-Premise Installation
 
-Kaptain natively supports the installation on an on premise cluster. Before installing Kaptain, please follow the [Konvoy On Premises Installation Guide][konvoy-on-prem] or [Kommander Installation Guide in a networked environment][dkp-install] to set up the on premise cluster. The cluster admin is responsible for configuring the cluster correctly and ensuring the requisite cluster-level applications are enabled.
+Kaptain natively supports the installation on an on-premise cluster. Before installing Kaptain, please follow the [Konvoy On Premises Installation Guide][konvoy-on-prem] or [Kommander Installation Guide in a networked environment][dkp-install] to set up the on-premise cluster. The cluster admin is responsible for configuring the cluster correctly and ensuring the requisite cluster-level applications are enabled.
 
 Please note that the IP address of the Kaptain UI will come from the IP address range that is configured in the [MetalLB load balancer][metallb-load-balancer].
 
