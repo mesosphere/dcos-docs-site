@@ -7,7 +7,7 @@ excerpt: View release-specific information for Kommander 2.1.3
 enterprise: false
 beta: false
 ---
-**D2iQ&reg; Kommander&reg; version 2.1.3 was released on August, 25 2022.**
+**D2iQ&reg; Kommander&reg; version 2.1.3 was released on August, 31 2022.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
 
