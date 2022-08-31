@@ -11,7 +11,7 @@ beta: false
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
-To get started with Konvoy, [download](../../download/) and [install](../../install/) the latest version of Konvoy.
+To get started with Konvoy, [download](../../download/) and [install](../../choose-infrastructure/) the latest version of Konvoy.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 
@@ -107,7 +107,6 @@ The following services and service components are upgraded to the listed version
 - traefik-forward-auth: 0.3.2
 - velero: 3.1.5
 
-
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->
@@ -117,9 +116,7 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 For a full list of attributed 3rd party software, see [d2iq.com/legal/3rd](http://d2iq.com/legal/3rd).
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
-[attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/advanced/self-managed
-[project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
 [flux-cli]: https://fluxcd.io/docs/installation/
 [acme]: https://cert-manager.io/docs/configuration/acme/
 [config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/

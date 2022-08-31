@@ -27,7 +27,7 @@ With this patch release, multiple Availability Zones are now supported when upgr
 
 ### DKP custom credentials plugin restored (COPS-7343)
 
-The mesosphere/dex-k8s-authenticator docker container now includes the appropriate binaries that allow users to download the referenced ‘konvoy-async-plugin’ after configuring a cluster using an external IDP for authentication.
+The mesosphere/dex-k8s-authenticator Docker container now includes the appropriate binaries that allow users to download the referenced `konvoy-async-plugin` after configuring a cluster using an external IDP for authentication.
 
 ## Component updates
 
