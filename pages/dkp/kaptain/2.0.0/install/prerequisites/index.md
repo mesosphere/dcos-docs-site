@@ -14,8 +14,9 @@ enterprise: false
 
 - A DKP cluster, either one of the following, depending on your license 
 
-  - An **Essential cluster** for [Essential customers][Essential_page]
-  - A **Managed** or **Attached** cluster [Enterprise customers][Enterprise_page], in which case, said cluster must be the only one in its workspace
+  - An **Essential cluster**. Refer to [this page][Essential_page] for more information on the Essential license.
+  - A **Managed** or **Attached** cluster for Enterprise customers. Refer to [this page][Enterprise_page] for more information on the license. In this case, said cluster must be the only one in its workspace. 
+    D2iQ recommends that you install it on a separate attached or managed cluster, as the management cluster is intended to be a pane of glass for running other clusters and is not intended for workloads.
 
 - The following **Platform applications** (dependencies) enabled in the cluster where you want to install Kaptain:
 
