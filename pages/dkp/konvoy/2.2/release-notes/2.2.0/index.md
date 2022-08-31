@@ -14,7 +14,7 @@ beta: false
 
 **Note:** In DKP 2.2 the Konvoy and Kommander binaries have been merged into a single binary, which you can find by selecting the DKP button above.
 
-[Download](../download/) and [install](../choose-infrastructure) the latest version to get started.
+[Download](../../download/) and [install](../../choose-infrastructure) the latest version to get started.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download Kommander. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install this product.</p>
 
@@ -40,7 +40,7 @@ The following features and capabilities are new for Version 2.2.
 
 ### Integrated DKP Upgrade
 
-You can now upgrade Konvoy and Kommander as a single fluid process using a combination of the [DKP CLI](../cli/dkp) and the UI to upgrade your environment.
+You can now upgrade Konvoy and Kommander as a single fluid process using a combination of the [DKP CLI](../../cli/dkp) and the UI to upgrade your environment.
 
 For more information, see [DKP Upgrade](/dkp/kommander/2.2/dkp-upgrade)
 
@@ -52,7 +52,7 @@ You can use CAPI vSphere Provider while provisioning a [DKP cluster on vSphere](
 
 You can now use your laptop or USB drive to transfer pre-created air-gapped bundles, including OS dependencies and DKP binaries into your air-gapped environment with no external connectivity. This improves the availability of the DKP air-gapped deployment and productivity of your IT operations team.
 
-For more information, see the [air-gapped bundle](../choose-infrastructure) documentation in the choose infrastructure topics.
+For more information, see the [air-gapped bundle](../../choose-infrastructure) documentation in the choose infrastructure topics.
 
 ### Unified DKP user interfaces
 
@@ -87,7 +87,6 @@ New clusters use the "delete first" strategy by default. Existing clusters are s
 ## Component updates
 
 When upgrading to this release, the following services and service components are upgraded to the listed version:
-
 
 | Common Application Name | APP ID | Version | Component Versions |
 |----------------------|--------------------- |---------|--------------------|
