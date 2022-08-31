@@ -18,7 +18,7 @@ Konvoy supports the following base Operating Systems.
 <!-- vale Vale.Terms = NO -->
 
 | Operating System | Kernel | Default Config | FIPS | Air Gapped | FIPS + AG | GPU Support | Konvoy Image Builder |
-|--------------------------|--------|----------------|------|------------|-------------|-------------|-------------
+|--------------------------|--------|----------------|------|------------|-------------|-------------|-------------|
 | [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64 | Yes | Yes | Yes | Yes | Yes | Yes |
 | [RHEL 7.9][rhel_7_9] | 3.10.0-1160.el7.x86_64 | Yes | Yes | Yes |  | Yes | Yes |
 | [RHEL 8.2][rhel_8_2] | 4.18.0-193.6.3.el8_2.x86_64 | Yes | Yes | Yes | Yes | Yes | Yes |
@@ -29,15 +29,13 @@ Konvoy supports the following base Operating Systems.
 | [SUSE Linux Enterprise Server 15][sles_15] |  | Yes |  |  |  | Yes | Yes |
 | [Oracle Linux RHCK 7.9][RHCK] | kernel-3.10.0-1160.el7 | Yes | Yes | Yes | Yes |  | Yes |
 
-
-
 ## Pre-Provisioned/On Premises
 
 <!-- vale Vale.Spelling = NO -->
 <!-- vale Vale.Terms = NO -->
 
 | Operating System | Kernel | Default Config | FIPS | Air Gapped | FIPS + AG | GPU Support | Konvoy Image Builder |
-|--------------------------|--------|----------------|------|------------|-------------|-------------|-------------
+|--------------------------|--------|----------------|------|------------|-------------|-------------|-------------|
 | [CentOS 7.9][centos7] | 3.10.0-1160.el7.x86_64 | Yes | Yes | Yes |  |  | Yes |
 | [RHEL 7.9][rhel_7_9] | 3.10.0-1160.el7.x86_64 |  |  |  |  |  | Yes |
 | [RHEL 8.2][rhel_8_2] | 4.18.0-193.6.3.el8_2.x86_64 |  |  |  |  |  | Yes |
@@ -46,14 +44,12 @@ Konvoy supports the following base Operating Systems.
 | [Ubuntu 20.04 (Focal Fossa)][ubuntu_20] |  |  |  |  |  |  | Yes |
 | [SUSE Linux Enterprise Server 15][sles_15] |  |  |  |  |  |  | Yes |
 
-
-
 ## Azure
 
 <!-- vale Vale.Spelling = NO -->
 <!-- vale Vale.Terms = NO -->
 | Operating System                        | Kernel | Default Config | FIPS | Air Gapped | GPU Support | KIB <!-- vale Vale.Spelling = YES --> <!-- vale Vale.Terms = YES --> |
-|-----------------------------------------|--------|----------------|------|------------|-------------|-------------
+|-----------------------------------------|--------|----------------|------|------------|-------------|-------------|
 | [Ubuntu 20.04 (Focal Fossa)][ubuntu_20] |        | Yes            |      |            |             |
 
 [centos7]: https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS7.2003

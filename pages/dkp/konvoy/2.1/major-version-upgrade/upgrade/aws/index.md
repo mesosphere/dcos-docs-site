@@ -27,7 +27,7 @@ After adopting the cluster, you use this AMI to scale up, or replace a failed in
 
     The output appears similar to this:
 
-    ```bash
+    ```sh
     writing new packer configuration to work/centos-7-1637107496-rPzRE
     starting packer build
     centos-7: output will be in this color.
@@ -597,8 +597,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 ## Update the cluster worker node pool to Kubernetes version v1.21.6
 
-1.  If your cluster is in multiple Availability Zones, repeat the following for the number of zones, using values 0,1,2 in `{.items[0].metadata.name}` when exporting `MACHINEDEPLOYMENT_NAME`.
-
+<p class="message--note"><strong>NOTE: </strong>If your <strong>cluster is in multiple Availability Zones</strong>, repeat the following for the number of zones, using values <code>0</code>,<code>1</code>,<code>2</code> in <code>{.items[0].metadata.name}</code> when exporting <code>MACHINEDEPLOYMENT_NAME</code>.</p>
 
 1.  Add your Kubernetes v1.21.6 AMI to your environment:
 
@@ -693,6 +692,11 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
                 $(kubectl --kubeconfig=admin.conf get machinedeployment ${MACHINEDEPLOYMENT_NAME} -ojsonpath='{.status.updatedReplicas}')
       ]]; do sleep 30; done"
     ```
+
+    <p class="message--note"><strong>NOTE: </strong>As stated above, if your <strong>cluster is in multiple Availability Zones</strong>, return to step 3 in this section.
+    Edit the <code>export MACHINEDEPLOYMENT_NAME</code> section that has the number of zones, and increment it by one (for example if you had <code>export MACHINEDEPLOYMENT_NAME= ...'{.items[0].metadata.name}'</code> - adjust this to say <code>export MACHINEDEPLOYMENT_NAME= ...'{.items[1].metadata.name}'</code>.
+    Then, follow the steps until the <code>machinedeployment</code> update is complete.
+    Repeat these steps for all of the Availability Zones for your cluster.</p>
 
 [kib]: ../../../image-builder
 [kib-releases]: https://github.com/mesosphere/konvoy-image-builder/releases
