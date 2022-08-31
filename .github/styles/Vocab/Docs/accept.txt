@@ -193,6 +193,7 @@ mypy
 Nagios
 namespac(e|es|ed|ing)
 (nginx|NGINX)
+nodepool
 Nouveau
 (nvidia|Nvidia|NVIDIA)
 (OIDC|oidc)
