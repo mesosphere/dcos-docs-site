@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-rc.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-rc.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
 ```
 
 </p>
@@ -78,7 +78,7 @@ A simple `import` will suffice.
 
 <p class="message--warning"><strong>WARNING: </strong>Please do not store passwords directly in notebooks.
     Ideally, credentials are stored safely inside secrets management solutions or provided with service accounts.
-    Please check the section on <a href="https://docs.d2iq.com/dkp/kaptain/">how to manage secrets</a> in the official Kaptain documentation for more details on how to set up Docker credentials that you can attach to a notebook server.
+    Please check the section on how to manage secrets in the <a href="https://docs.d2iq.com/dkap/">official Kaptain documentation</a> for more details on how to set up Docker credentials that you can attach to a notebook server.
     This notebook should be used for demonstration purposes only!
 </p>
 
@@ -263,7 +263,7 @@ The central abstraction of the Kaptain SDK is a model:
 
 ```python
 extra_files = ["datasets/mnist"]
-base_image = "mesosphere/kubeflow:2.1.0-rc.0-tensorflow-2.8.0"
+base_image = "mesosphere/kubeflow:2.1.0-tensorflow-2.9.1"
 # replace with your docker repository with a tag (optional), e.g. "repository/image"  or "repository/image:tag"
 image_name = "mesosphere/kubeflow:mnist-sdk-example"
 # name of the file with additional python packages to install into model image (e.g. "requirements.txt")

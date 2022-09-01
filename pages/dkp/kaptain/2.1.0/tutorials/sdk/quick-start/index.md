@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-rc.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0-rc.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
 ```
 
 </p>
@@ -31,7 +31,7 @@ will likely not work.</p>
 
 ## Introduction
 
-This notebook shows how to build and deploy ML models by using different popular machine learning frameworks. This example will be based on `scikit-learn` library, but because model building will be handled by Kubernetes Job, you can choose to use any other ML library (that can be installed with `pip`). Currently, the SDK supports XGBoost, Onnx and LightGBM as well as PyTorch and TensorFlow for model deployment. See [Kaptain documentation](https://docs.d2iq.com/dkp/kaptain/) for more info.
+This notebook shows how to build and deploy ML models by using different popular machine learning frameworks. This example will be based on `scikit-learn` library, but because model building will be handled by Kubernetes Job, you can choose to use any other ML library (that can be installed with `pip`). Currently, the SDK supports XGBoost, Onnx and LightGBM as well as PyTorch and TensorFlow for model deployment. See [Kaptain documentation](https://docs.d2iq.com/dkap/) for more info.
 
 To perform [distributed training](../../training/) on a cluster's resources, conduct [experiments with multiple parallel trials](../../katib/) to obtain the best hyperparameters, and [deploying a trained or tuned model](../../pipelines/) typically requires additional steps, such as building a Docker image and providing framework-specific specifications for Kubernetes.
 This places the burden on each data scientist to learn all the details of all the components.
@@ -74,7 +74,7 @@ A simple `import` will suffice.
 
 <p class="message--warning"><strong>WARNING: </strong>Please do not store passwords directly in notebooks.
     Ideally, credentials are stored safely inside secrets management solutions or provided with service accounts.
-    Please check the section on <a href="https://docs.d2iq.com/dkp/kaptain/">how to manage secrets</a> in the official Kaptain documentation for more details on how to set up Docker credentials that you can attach to a notebook server.
+    Please check the section on how to manage secrets in the <a href="https://docs.d2iq.com/dkap">official Kaptain documentation</a> for more details on how to set up Docker credentials that you can attach to a notebook server.
     This notebook should be used for demonstration purposes only!
 </p>
 
@@ -238,7 +238,7 @@ Finally, a `Model` instance requires providing a base Docker image (`base_image`
 
 
 ```python
-base_image = "mesosphere/kubeflow:2.1.0-rc.0-base"
+base_image = "mesosphere/kubeflow:2.1.0-base"
 image_name = "mesosphere/kubeflow:mnist-sklearn-sdk"
 
 # name of the file with additional python packages to install into the model image (e.g. "requirements.txt")
@@ -310,16 +310,16 @@ model.train(cpu=cpu, memory=memory, hyperparameters={})
     2022-07-13 10:53:27,083 kaptain-log[INFO]: Waiting for Image Build to start...
     2022-07-13 10:53:32,251 kaptain-log[INFO]: Image Build started in pod: kaniko-796a4baf6ede29c6--1-crzlx.
     2022-07-13 10:53:34,534 kaptain-log[INFO]: [kaniko-796a4baf6ede29c6--1-crzlx/kaniko] logs:
-    [36mINFO[0m[0000] Retrieving image manifest mesosphere/kubeflow:2.1.0-rc.0-base 
-    [36mINFO[0m[0000] Retrieving image mesosphere/kubeflow:2.1.0-rc.0-base 
-    [36mINFO[0m[0001] Retrieving image manifest mesosphere/kubeflow:2.1.0-rc.0-base 
-    [36mINFO[0m[0001] Retrieving image mesosphere/kubeflow:2.1.0-rc.0-base 
+    [36mINFO[0m[0000] Retrieving image manifest mesosphere/kubeflow:2.1.0-base 
+    [36mINFO[0m[0000] Retrieving image mesosphere/kubeflow:2.1.0-base 
+    [36mINFO[0m[0001] Retrieving image manifest mesosphere/kubeflow:2.1.0-base 
+    [36mINFO[0m[0001] Retrieving image mesosphere/kubeflow:2.1.0-base 
     [36mINFO[0m[0002] Built cross stage deps: map[]                
     2022-07-13 10:54:14,026 kaptain-log[INFO]: [kaniko-796a4baf6ede29c6--1-crzlx/kaniko] logs:
-    [36mINFO[0m[0002] Retrieving image manifest mesosphere/kubeflow:2.1.0-rc.0-base 
-    [36mINFO[0m[0002] Retrieving image mesosphere/kubeflow:2.1.0-rc.0-base 
-    [36mINFO[0m[0003] Retrieving image manifest mesosphere/kubeflow:2.1.0-rc.0-base 
-    [36mINFO[0m[0003] Retrieving image mesosphere/kubeflow:2.1.0-rc.0-base 
+    [36mINFO[0m[0002] Retrieving image manifest mesosphere/kubeflow:2.1.0-base 
+    [36mINFO[0m[0002] Retrieving image mesosphere/kubeflow:2.1.0-base 
+    [36mINFO[0m[0003] Retrieving image manifest mesosphere/kubeflow:2.1.0-base 
+    [36mINFO[0m[0003] Retrieving image mesosphere/kubeflow:2.1.0-base 
     [36mINFO[0m[0004] Executing 0 build triggers                   
     [36mINFO[0m[0004] Unpacking rootfs as cmd COPY . /kaptain requires it. 
     [36mINFO[0m[0041] Taking snapshot of full filesystem...        
