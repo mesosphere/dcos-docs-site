@@ -17,7 +17,8 @@
         width: 100%;
         height: 100%;
         margin: 0;
-        padding: 110px 0 0;
+        // accommodate extra space for banner message
+        padding: 130px 0 0;
         list-style-type: none;
         display: flex;
         flex-direction: column;

@@ -21,6 +21,8 @@ $sections-size: 20%;
   }
   &__header {
     z-index: 10;
+    // makes header fully visible with extra space from banner
+    padding-top: 3rem;
     &__row {
       display: flex;
       align-items: flex-start;

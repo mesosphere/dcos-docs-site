@@ -8,6 +8,10 @@
     .header__menu a:hover {
         color: $color-dark;
     }
+    &__container {
+      // accommodate extra 80px from banner and nav bar
+      padding-top: 160px;
+    }
 }
 
 .color__grey {
@@ -18,13 +22,13 @@
     &__item {
         @include sm {
             display: flex;
+            padding: 3rem 0;
         }
         border-bottom: 1px solid $color-light-grey-l2;
         transition: all .5s;
         padding: 5rem 0;
-        @include sm {
+        @include md {
           max-height: 300px;
-          padding: 3rem 0;
         }
         &.disabled {
           opacity: 0;
