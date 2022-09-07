@@ -21,14 +21,18 @@ enterprise: false
 - The following **Platform applications** (dependencies) enabled in the cluster where you want to install Kaptain:
 
   - **Istio**
-  - **MinIO Operator** (installed by default in some clusters, not on attached clusters) 
+  - **MinIO Operator** (installed by default in some clusters, not on attached clusters)
   - **Knative**, if you are running the [serverless installation of KServe](https://kserve.github.io/website/0.9/admin/serverless/), which is the default mode that comes pre-bundled with Kaptain. (Not required if you are using the [RawDeployment installation mode](https://kserve.github.io/website/0.9/admin/kubernetes_deployment/))
 
   You have two options to install these applications. For more instructions, refer to the [Install dependencies section](#install-dependencies).
 
 - Refer to the [on-premise installation](../on-premise/) page, if you are installing Kaptain **on premises**.
 
-## Install dependencies 
+- #### Reference the cluster on which you must execute the commands
+
+  You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location (`KUBECONFIG=clusterKubeconfig.conf`), or by using the `--kubeconfig=cluster_name.conf` flag. For more information, refer to the [Configure Access to Multiple Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) documentation.
+
+## Install dependencies
 
 ### Install dependencies on any type of cluster (Essential and Enterprise)
 
@@ -40,7 +44,9 @@ To install any of the previous applications after you have installed DKP, follow
 
 You can install the applications Kaptain requires during the installation of DKP by adapting the configuration file:
 
-<p class="message--note"><strong>NOTE: </strong>All DKP commands in this section assume KUBECONFIG=clusterKubeconfig.conf is set.</p>
+<p class="message--note"><strong>NOTE: </strong>When installing these applications, <a href="#reference_the_cluster_on_which_you_must_execute_the_commands">set the environment variable</a> to the workspace of the cluster where you will install Kaptain. For customers with an Essential license and a single-cluster experience, the <code>clusterKubeconfig.conf</code> is your Essential cluster. For customers with an Enterprise license and multi-cluster experience, your <code>clusterKubeconfig.conf</code> is the managed or attached cluster where Kaptain should be installed.</p>
+
+1.  Ensure that your `kubectl` configuration [references the cluster on which you must execute the commands](#reference-the-cluster-on-which-you-must-execute-the-commands). For customers with an Essential license and a single-cluster experience, reference your Essential cluster.
 
 1.  Use the existing Kommander configuration file `kommander.yaml`, or initialize the default one, if you have not done so yet:
 
@@ -50,7 +56,7 @@ You can install the applications Kaptain requires during the installation of DKP
 
     Review the [Customizing the configuration file](../../../../kommander/2.2/install/configuration/) page to gain more understanding on how to use a configuration file to install DKP.
 
-1.  Ensure the following applications are enabled in the config: 
+1.  Ensure the following applications are enabled in the config:
 
     ```bash
     apiVersion: config.kommander.mesosphere.io/v1alpha1
@@ -70,7 +76,7 @@ You can install the applications Kaptain requires during the installation of DKP
 
     For GPU deployment, follow the instructions in the [Kommander GPU documentation](../../../../kommander/2.2/gpu/kommander-config/).
 
-1.  Apply the new configuration to Kommander: 
+1.  Apply the new configuration to Kommander:
 
     ```bash
     dkp install kommander --installer-config kommander-config.yaml

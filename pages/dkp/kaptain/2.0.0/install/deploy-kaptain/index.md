@@ -24,8 +24,7 @@ Ensure the cluster that you want to use to deploy Kaptain is the only cluster in
 
   - [Air-gapped environment for 2.2][add_air_2.2]
 
-<p class="message--warning"><strong>WARNING: </strong>
-(<a href="../../../../kommander/2.2/licensing/enterprise/">Enterprise</a> only) If you are installing Kaptain on a Managed or Attached cluster, you must customize the deployment for Kaptain to communicate with the Management cluster via Dex (unless you have a dedicated dex instance running on said cluster). 
+<p class="message--warning"><strong>WARNING: </strong> (<a href="../../../../kommander/2.2/licensing/enterprise/">Enterprise</a> only) If you are installing Kaptain on a Managed or Attached cluster, you must customize the deployment for Kaptain to communicate with the Management cluster via Dex (unless you have a dedicated dex instance running on said cluster). 
 In the following workflow, we will show you when to do this.
 </p>
 
@@ -67,7 +66,7 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 
 1.  Repeat these steps for each additional workspace, if you want to deploy Kaptain to other workspaces.
 
-Alternately, you can use the [CLI](#enable-and-deploy-kaptain-using-the-dkp-cli) to enable your catalog applications.
+Alternately, you can use the [CLI](#enable-and-deploy-kaptain-using-the-dkp-cli-essential-only) to enable your catalog applications.
 
 ### Verify the status of deployment using the DKP UI
 
@@ -86,6 +85,8 @@ Follow these steps to verify the deployment of Kaptain:
 ## Enable and deploy Kaptain using the DKP CLI (Essential only)
 
 Follow these steps to enable Kaptain in air-gapped and networked environments from the DKP CLI:
+
+1.  Ensure you [reference the cluster on which you want to deploy Kaptain](https://archive-docs.d2iq.com/dkp/kaptain/2.0.0/install/prerequisites/#install-dependencies#reference-the-cluster-on-which-you-must-execute-the-commands). For customers with an Essential license and a single-cluster experience, the `clusterKubeconfig.conf` is your Essential cluster. For customers with an Enterprise license and multi-cluster experience, your `clusterKubeconfig.conf` is the managed or attached cluster where you will install Kaptain.
 
 1.  Enable Kaptain to deploy to [your existing Management, Managed and Attached clusters][existcluster] with an `AppDeployment` resource.
 
@@ -112,6 +113,8 @@ Follow these steps to enable Kaptain in air-gapped and networked environments fr
 <p class="message--important"><strong>IMPORTANT: </strong>If you are deploying Kaptain to a managed or attached cluster, ensure that the <code>ConfigMap</code> contains the <code>${WORKSPACE_NAMESPACE}</code> in the <code>global.workspace</code> section of the <code>values.yaml</code>, as shown in the following example.</p>
 
 If you want to customize your installation and modify the custom domain name, external Dex, creation of profiles, certificates, for example, continue with these steps:
+
+1.  Ensure you [reference the cluster on which you want to deploy Kaptain](https://archive-docs.d2iq.com/dkp/kaptain/2.0.0/install/prerequisites/#install-dependencies#reference-the-cluster-on-which-you-must-execute-the-commands). For customers with an Essential license and a single-cluster experience, the `clusterKubeconfig.conf` is your Essential cluster. For customers with an Enterprise license and multi-cluster experience, your `clusterKubeconfig.conf` is the managed or attached cluster where you will install Kaptain.
 
 1.  Create the `ConfigMap` with the custom configuration. In the following example, the ConfigMap is configuring Kaptain to communicate with the [Management cluster via Dex](../../configuration/external-dex/), which is a necessary step when deploying Kaptain to a Managed or Attached cluster ([Enterprise](../../../../kommander/2.2/licensing/enterprise/) only). Other configurations can be made in the same way.
 

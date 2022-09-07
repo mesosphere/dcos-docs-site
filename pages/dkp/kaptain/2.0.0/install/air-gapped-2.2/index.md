@@ -8,9 +8,11 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <b>Kaptain is meant to be deployed on workspaces with a single cluster</b>.</p>
+<p class="message--note"><strong>NOTE: </strong>
+Ensure that your <code>kubectl</code> configuration <a href="https://archive-docs.d2iq.com/dkp/kaptain/2.0.0/install/prerequisites/#reference-the-cluster-on-which-you-must-execute-the-commands">references the cluster on which you must execute the commands.</a>
+</p>
 
-<p class="message--note"><strong>NOTE: </strong>All DKP commands in this page assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <b>Kaptain is meant to be deployed on workspaces with a single cluster</b>.</p>
 
 ## Requirements
 
@@ -27,8 +29,6 @@ If you need to run Spark jobs on Kubernetes using Spark Operator, you must insta
 ## DKP 2.2 air-gapped installation
 
 Refer to [DKP install instructions][dkp_install], if you want to deploy Kaptain in a networked environment or to [DKP 2.1 air-gapped instructions][2.1_air] if you are deploying with DKP 2.1.
-
-
 
 Kaptain supports installation on an air-gapped (a.k.a. offline or private) DKP managed cluster. Before installing Kaptain, please follow the [air-gapped installation guide][konvoy-air-gap] to set up the air-gapped DKP managed cluster. The cluster admin is responsible for configuring the DKP cluster correctly and ensuring container images have been pre-loaded to the private registry before installing Kaptain.
 
