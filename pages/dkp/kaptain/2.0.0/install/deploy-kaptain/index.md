@@ -176,7 +176,7 @@ kaptain-1                 3m40s   True    Release reconciliation succeeded
 1.  Get your Kaptain login credentials:
 
     ```bash
-    kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}')
+    kubectl -n kommander get secret dkp-credentials -o go-template='Username: {{.data.username|base64decode}}{{ "\n"}}Password: {{.data.password|base64decode}}{{ "\n"}}'
     ```
 
     The output displays your username and password.
