@@ -9,10 +9,9 @@ enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>
-Ensure that your <code>kubectl</code> configuration <a href="https://archive-docs.d2iq.com/dkp/kaptain/2.0.0/install/prerequisites/#reference-the-cluster-on-which-you-must-execute-the-commands">references the cluster on which you must execute the commands.</a>
-</p>
+Ensure that your <code>kubectl</code> configuration <a href="https://archive-docs.d2iq.com/dkp/kaptain/2.0.0/install/prerequisites/#reference-the-cluster-on-which-you-must-execute-the-commands">references the cluster on which you must execute the commands.</a> </p>
 
-<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <b>Kaptain is meant to be deployed on workspaces with a single cluster</b>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <b>Kaptain is meant to be deployed on workspaces with a single cluster</b>.</p> 
 
 ## Requirements
 
