@@ -38,6 +38,6 @@ jobs:
     - name: Build & Deploy Preview Docs
       run: |
         if [ "$BRANCH" != "beta" ]; then
-          echo env.PR_NUMBER
+          echo ${{ env.PR_NUMBER }}
         fi
       shell: bash
