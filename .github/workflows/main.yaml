@@ -4,8 +4,23 @@ jobs:
   build-image:
     runs-on: ubuntu-latest
     env:
-      branch: ${{ github.head_ref }}
+      BRANCH: ${{ github.head_ref }}
+      AWS_DEFAULT_REGION: "us-west-2"
+      ALGOLIA_PRIVATE_KEY: {{ secrets.AGOLIA_PRIVATE_KEY }}      
     steps:
+    - name: Set vars
+      run: |
+        if [ "$BRANCH" = "main" ]; then 
+          export BUCKET=preview
+          export HOSTNAME=dev-docs.d2iq.com
+        elif [ "$BRANCH" = "beta" ]; then
+          export BUCKET=staging
+        else
+          PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          export BUCKET="pr-${PR_NUMBER}"
+          export HOSTNAME= "docs-d2iq-com-pr-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
+        fi
+
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Login to docker
@@ -21,7 +36,10 @@ jobs:
         docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
     - name: Build & Deploy Preview Docs
       run: |
-        if [ "$branch" != "beta" ]; then
+        if [ "$BRANCH" != "beta" ]; then
+          echo $BRANCH
+          echo $BUCKET 
+          echo $HOSTNAME         
           echo "Run non beta code"        
         fi
       shell: bash
