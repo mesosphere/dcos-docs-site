@@ -24,8 +24,8 @@ jobs:
           export BUCKET=staging
         else
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          export BUCKET="pr-${PR_NUMBER}"
-          export HOSTNAME="docs-d2iq-com-pr-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
+          BUCKET="pr-${PR_NUMBER}"
+          HOSTNAME="docs-d2iq-com-pr-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
         fi
     - name: Pull image
       run: docker pull mesosphere/docs:latest
