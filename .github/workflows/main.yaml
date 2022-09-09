@@ -4,9 +4,9 @@ jobs:
   build-image:
     runs-on: ubuntu-latest
     env:
-      IS_MAIN: ${{ github.head_ref == "main" }}
-      IS_BETA: ${{ github.head_ref == "beta" }}
-      IS_BRANCH: ${{ github.head_ref == "hm/add-main-workflow" }}
+      IS_MAIN: ${{ github.head_ref == main }}
+      IS_BETA: ${{ github.head_ref == beta }}
+      IS_BRANCH: ${{ github.head_ref == hm/add-main-workflow }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
