@@ -21,7 +21,8 @@ jobs:
       run: |
         if ${{ github.head_ref }} != beta;
         then
-          echo ${{ github.head_ref }}           
-          echo "RUN CODE HERE"
+          echo "TRUE"
+        else
+          echo "FALSE"
         fi
       shell: bash
