@@ -24,20 +24,21 @@ jobs:
           export BUCKET=staging
         else
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          echo $PR_NUMBER          
           BUCKET="pr-${PR_NUMBER}"
           HOSTNAME="docs-d2iq-com-pr-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
         fi
-    - name: Pull image
-      run: docker pull mesosphere/docs:latest
-    - name: Build image
-      run: |
-        cp docker/Dockerfile.production.dockerignore .dockerignore
-        docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
-    - name: Build & Deploy Preview Docs
-      run: |
-        if [ "$BRANCH" != "beta" ]; then
-          echo $BRANCH
-          echo $BUCKET 
-          echo $HOSTNAME
-        fi
-      shell: bash
+    # - name: Pull image
+    #   run: docker pull mesosphere/docs:latest
+    # - name: Build image
+    #   run: |
+    #     cp docker/Dockerfile.production.dockerignore .dockerignore
+    #     docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
+    # - name: Build & Deploy Preview Docs
+    #   run: |
+    #     if [ "$BRANCH" != "beta" ]; then
+    #       echo $BRANCH
+    #       echo $BUCKET 
+    #       echo $HOSTNAME
+    #     fi
+    #   shell: bash
