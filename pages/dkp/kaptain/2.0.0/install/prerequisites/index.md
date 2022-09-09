@@ -28,9 +28,9 @@ enterprise: false
 
 - Refer to the [on-premise installation](../on-premise/) page, if you are installing Kaptain **on premises**.
 
-- #### Reference the cluster on which you must execute the commands
+### Reference the cluster on which you must execute the commands
 
-  You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location (`KUBECONFIG=clusterKubeconfig.conf`), or by using the `--kubeconfig=cluster_name.conf` flag. For more information, refer to the [Configure Access to Multiple Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) documentation.
+You can do this by setting the `KUBECONFIG` environment variable to the appropriate kubeconfig file's location (`KUBECONFIG=clusterKubeconfig.conf`), or by using the `--kubeconfig=cluster_name.conf` flag. For more information, refer to the [Configure Access to Multiple Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) documentation.
 
 ## Install dependencies
 
