@@ -21,7 +21,7 @@ jobs:
         docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
     - name: Build & Deploy Preview Docs
       run: |
-        if [ "$branch" = "hm/add-main-workflow" ]; then
-          echo "matched"
+        if [ "$branch" != "beta" ]; then
+          echo "Run non beta code"        
         fi
       shell: bash
