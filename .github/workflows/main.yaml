@@ -3,6 +3,10 @@ on: [ pull_request ]
 jobs:
   build-image:
     runs-on: ubuntu-latest
+    env:
+      IS_MAIN: ${{ github.head_ref == "main" }}
+      IS_BETA: ${{ github.head_ref == "beta" }}
+      IS_BRANCH: ${{ github.head_ref == "hm/add-main-workflow" }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -19,10 +23,7 @@ jobs:
         docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
     - name: Build & Deploy Preview Docs
       run: |
-        if ${{ github.head_ref }} != beta;
-        then
-          echo "TRUE"
-        else
-          echo "FALSE"
-        fi
+        echo $IS_MAIN
+        echo $IS_BETA
+        echo $IS_BRANCH
       shell: bash
