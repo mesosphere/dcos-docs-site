@@ -22,14 +22,15 @@ jobs:
           HOSTNAME=dev-docs.d2iq.com
         elif [ "$BRANCH" = "beta" ]; then
           BUCKET=staging
+          HOSTNAME=""
         else
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
           BUCKET="pr-${PR_NUMBER}"
           HOSTNAME="docs-d2iq-com-pr-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
-          echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
-          echo "BUCKET=$BUCKET" >> $GITHUB_ENV
-          echo "HOSTNAME=$HOSTNAME" >> $GITHUB_ENV
         fi
+        echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
+        echo "BUCKET=$BUCKET" >> $GITHUB_ENV
+        echo "HOSTNAME=$HOSTNAME" >> $GITHUB_ENV
     # - name: Pull image
     #   run: docker pull mesosphere/docs:latest
     # - name: Build image
