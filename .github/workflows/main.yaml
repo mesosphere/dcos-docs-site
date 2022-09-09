@@ -9,5 +9,8 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_TOKEN }}
-    - name: pull image
+    - name: Pull image
       run: docker pull mesosphere/docs:latest
+    - name: Build image
+      run: cp docker/Dockerfile.production.dockerignore .dockerignore
+      run: docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
