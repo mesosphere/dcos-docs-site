@@ -12,6 +12,7 @@ jobs:
     - name: Pull image
       run: docker pull mesosphere/docs:latest
     - name: Build image
-      run: |
-        cp docker/Dockerfile.production.dockerignore .dockerignore
-        docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
+      # run: |
+      #   cp docker/Dockerfile.production.dockerignore .dockerignore
+      #   
+      run: docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
