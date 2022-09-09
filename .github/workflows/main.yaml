@@ -18,4 +18,10 @@ jobs:
         cp docker/Dockerfile.production.dockerignore .dockerignore
         docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
     - name: Build & Deploy Preview Docs
-      run: echo ${{ github.head_ref }}
+      run: |
+        if ${{ github.head_ref }} != beta;
+        then
+          echo ${{ github.head_ref }}           
+          echo "RUN CODE HERE"
+        fi
+      shell: bash
