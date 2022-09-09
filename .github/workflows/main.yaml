@@ -4,6 +4,8 @@ jobs:
   build-image:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
     - name: Login to docker
       uses: docker/login-action@v2
       with:
@@ -12,7 +14,6 @@ jobs:
     - name: Pull image
       run: docker pull mesosphere/docs:latest
     - name: Build image
-      # run: |
-      #   cp docker/Dockerfile.production.dockerignore .dockerignore
-      #   
-      run: docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
+      run: |
+        cp docker/Dockerfile.production.dockerignore .dockerignore
+        docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
