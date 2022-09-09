@@ -6,7 +6,7 @@ jobs:
     env:
       BRANCH: ${{ github.head_ref }}
       AWS_DEFAULT_REGION: "us-west-2"
-      ALGOLIA_PRIVATE_KEY: {{ secrets.AGOLIA_PRIVATE_KEY }}      
+      ALGOLIA_PRIVATE_KEY: ${{ secrets.AGOLIA_PRIVATE_KEY }}      
     steps:
     - name: Set vars
       run: |
