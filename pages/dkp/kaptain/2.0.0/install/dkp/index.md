@@ -9,8 +9,7 @@ enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>
-<strong>All DKP commands on this page</strong> assume <code>KUBECONFIG=clusterKubeconfig.conf</code> is set.
-</p>
+Ensure that your <code>kubectl</code> configuration <a href="https://archive-docs.d2iq.com/dkp/kaptain/2.0.0/install/prerequisites/#reference-the-cluster-on-which-you-must-execute-the-commands">references the cluster on which you must execute the commands.</a> </p>
 
 <p class="message--important"><strong>IMPORTANT: </strong>Ensure the cluster that you want to use to deploy Kaptain is the only cluster in its workspace. <b>Kaptain is meant to be deployed on workspaces with a single cluster</b>.</p>
 
@@ -34,6 +33,8 @@ If you installed DKP with Kaptain as a workspace application in the Kommander in
 If you added Kaptain after installing DKP, you must make it available by creating a Git Repository. Use the CLI to create the GitRepository resource and add a new repository.
 
 ### Create a Git repository for Kaptain
+
+1.  Ensure you [reference the cluster on which you want to deploy Kaptain](https://archive-docs.d2iq.com/dkp/kaptain/2.0.0/install/prerequisites/#install-dependencies#reference-the-cluster-on-which-you-must-execute-the-commands). For customers with an Essential license and a single-cluster experience, the `clusterKubeconfig.conf` is your Essential cluster. For customers with an Enterprise license and multi-cluster experience, your `clusterKubeconfig.conf` is the managed or attached cluster where you will install Kaptain. 
 
 1.  Ensure the `KUBECONFIG=clusterKubeconfig.conf` is set.
 
