@@ -4,7 +4,7 @@ jobs:
   build-image:
     runs-on: ubuntu-latest
     steps:
-      name: Login to docker
+    - name: Login to docker
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
