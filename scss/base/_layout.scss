@@ -27,7 +27,8 @@ $sidebarWidth: 280px;
     @include md {
         &__sidebar {
             position: fixed;
-            top: 80px;
+            // align top spacing to account for space from the banner and nav
+            top: 142px;
             left: 0;
             width: $sidebarWidth;
             height: 100%;
@@ -46,6 +47,8 @@ $sidebarWidth: 280px;
     }
     @include lg {
         &__sidebar {
+            // align top spacing to account for space from the banner and nav with larger screen sizes
+            top: 122px;
             width: $sidebarWidth + 25px;
             +.layout__content {
                 width: calc(100% - #{$sidebarWidth} - 25px);
