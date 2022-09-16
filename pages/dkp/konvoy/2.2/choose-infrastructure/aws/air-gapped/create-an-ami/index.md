@@ -61,13 +61,15 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
     ```bash
     curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
-     NOTE: If you're installing V2.2.0 or V2.2.1, skip to step 9, as those releases did not have separate `containerd` packages.
+
+    NOTE: If you're installing v2.2.0 or v2.2.1, skip to step 9, as those releases did not have separate `containerd` packages.
 
 1. Set a variable that indicates which os-specific `containerd` bundle to download:
 
     ```bash
     export CONTAINERD_OS=centos-7.9-x86_64
     ```
+
     Note: available packages are:
 
     -   `centos-7.9-x86_64`
@@ -79,8 +81,7 @@ Using the [Konvoy Image Builder](../../../../image-builder), you can build an AM
 1. Download the `containerd` bundle.
 
     ```bash
-    curl --output artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz --location 
-    https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
+    curl --output artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz --location https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
     ```
 
 1.  Follow the instructions to [build an AMI][kib_create_ami] in the setting an additional `--overrides overrides/offline.yaml` flag.
@@ -91,7 +92,7 @@ This Docker image includes code from the MinIO Project (“MinIO”), which is �
 https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
 https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
 
-For a full list of attributed 3rd party software, see [D2IQ Legal](https://d2iq.com/legal/3rd).
+For a full list of attributed 3rd party software, see [D2iQ Legal](https://d2iq.com/legal/3rd).
 
 [kib_create_ami]: ../../../../image-builder/create-ami/
 [seed-a-registry]: ../seed-a-registry
