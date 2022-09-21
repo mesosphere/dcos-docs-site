@@ -46,7 +46,7 @@ jobs:
         role-to-assume: arn:aws:iam::977260619897:role/dcos-docs-site
         aws-region: us-west-2
     - name: Deploy some AWS stuff
-        run: echo 'RUNNING AWS STEP'
+      run: echo 'RUNNING AWS STEP'
     # - name: Build & Deploy Preview Docs
     #   run: |
     #     if [ "$BRANCH" != "beta" ]; then
