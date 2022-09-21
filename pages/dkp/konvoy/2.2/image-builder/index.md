@@ -17,12 +17,12 @@ This section describes how to use the KIB to create a Cluster API compliant mach
 Along with the KIB Bundle, we publish a file containing checksums for the bundle files.  The recommendation for using these checksums is to verify the integrity of the downloads.
 
 
-| DKP Version  | KIB Version | 
-|------------|----------------------|
-| V2.2.2 | v1.17.2 |
-| v2.2.1 | v1.13.2 |
-| v2.2.0 | v1.11.0 |
-| v2.1.x | v1.5.0 |
+| DKP Version | KIB Version | 
+|-------------|----------------------|
+| v2.2.2      | v1.17.2 |
+| v2.2.1      | v1.13.2 |
+| v2.2.0      | v1.11.0 |
+| v2.1.x      | v1.5.0 |
 
 [KIB Version download release center](https://github.com/mesosphere/konvoy-image-builder/releases)
 
