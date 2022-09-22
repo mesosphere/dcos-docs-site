@@ -17,7 +17,7 @@ Use this procedure to deploy a sample podinfo application from DKP Enterprise Gi
 
 -   Github account and [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
--   [Add cluster to Kommander](https://archive-docs.d2iq.com/dkp/kommander/2.2/clusters/attach-cluster/)
+-   [Attach an Existing Kubernetes Cluster](https://archive-docs.d2iq.com/dkp/kommander/2.2/clusters/attach-cluster/)
 
 -   [Setup Workspace and Projects](https://archive-docs.d2iq.com/dkp/kommander/2.2/workspaces/)  
 
