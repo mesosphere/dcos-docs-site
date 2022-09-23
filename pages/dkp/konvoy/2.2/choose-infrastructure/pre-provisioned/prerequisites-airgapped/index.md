@@ -97,7 +97,7 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
     curl --output artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz --location https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
     ```
 
-    To get the fips builds append _fips after -x86_64 in the url. To get the fips build for centos-7.9 the url would be
+    To get the fips builds append _fips after -x86_64 in the URL. To get the fips build for `centos-7.9` the URL would be
     https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-centos-7.9-x86_64_fips.tar.gz
 
     The following OS’s have containerd fips builds:
