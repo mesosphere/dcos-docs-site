@@ -380,6 +380,8 @@ When you provision the cluster, the configured pod and service subnets will be a
 
 Confirm that your [Calico installation is correct][calico-install].
 
+**Note** When you complete this procedure, move on to [Make Cluster Self-managed](https://docs.d2iq.com/dkp/2.3/pre-provisioned-make-cluster-self-managed) to continue the process.
+
 [calico-install]: #set-the-interface
 [calico-method]: https://projectcalico.docs.tigera.io/reference/node/configuration#ip-autodetection-methods
 [calico-overlay]: https://docs.projectcalico.org/networking/vxlan-ipip
