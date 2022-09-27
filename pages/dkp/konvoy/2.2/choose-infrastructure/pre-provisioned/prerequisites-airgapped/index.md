@@ -79,6 +79,35 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
     curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
 
+1. Download the Containerd `1.14.13` packages for the OS you plan to provision DKP on.
+
+    Available packages are:
+
+    -   `centos-7.9-x86_64`
+    -   `rhel-7.9-x86_64`
+    -   `rhel-8.2-x86_64`
+    -   `ubuntu-20.04-x86_64`
+    -   `ubuntu-18.04-x86_64`
+
+    ```bash
+    export CONTAINERD_OS=centos-7.9-x86_64
+    ```
+
+    ```bash
+    curl --output artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz --location https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
+    ```
+
+    To get the fips builds append _fips after -x86_64 in the URL. To get the fips build for `centos-7.9` the URL would be
+    https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-centos-7.9-x86_64_fips.tar.gz
+
+    The following OS’s have containerd fips builds:
+
+    -   `centos-7.9`
+    -   `ol-7.9`
+    -   `rhel-7.9`
+    -   `rhel-8.2`
+    -   `rhel-8.4`
+
 1.  Export the following environment variables, ensuring that all control plane and worker nodes are included:
 
     ```bash
@@ -125,7 +154,10 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 1.  Copy the artifacts onto cluster hosts:
 
     ```bash
-    konvoy-image upload artifacts --container-images-dir=./artifacts/images/ --os-packages-bundle=./artifacts/"$VERSION"_"$BUNDLE_OS".tar.gz --pip-packages-bundle=./artifacts/pip-packages.tar.gz
+    konvoy-image upload artifacts --container-images-dir=./artifacts/images/ \
+                  --os-packages-bundle=./artifacts/"$VERSION"_"$BUNDLE_OS".tar.gz \
+                  --pip-packages-bundle=./artifacts/pip-packages.tar.gz \
+                  --containerd-bundle=artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
     ```
 
 ## Seed your docker registry
