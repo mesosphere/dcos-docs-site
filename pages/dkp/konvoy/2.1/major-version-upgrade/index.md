@@ -18,7 +18,7 @@ See the [upgrade table in the DKP 2.3 documentation](https://docs.d2iq.com/dkp/2
 
 ## Understanding the Major Version Upgrade Process
 
-<p class="message--warning"><strong>WARNING: </strong>D2iQ does <b>NOT support</b> the upgrade of 1.x clusters to 2.x <b>when Kaptain is enabled</b>. Disable Kaptain before upgrading your clusters to 2.x. Otherwise, your upgrade process will possibly get stuck. For more information on using Kaptain on DKP 2.x, refer to Kaptain's<a href="https://archive-docs.d2iq.com/dkp/kaptain/2.0.0/fresh-install/">fresh install</a>documentation.</p>
+<p class="message--warning"><strong>WARNING: </strong>D2iQ does <b>NOT support</b> the upgrade of 1.x clusters to 2.x <b>when Kaptain is enabled</b>. Disable Kaptain before upgrading your clusters to 2.x. Otherwise, your upgrade process might fail. For more information on using Kaptain on DKP 2.x, refer to Kaptain's<a href="https://archive-docs.d2iq.com/dkp/kaptain/2.0.0/fresh-install/">fresh install</a>documentation.</p>
 
 The overall process for upgrading the major version to DKP 2.1 has the following high-level steps:
 
