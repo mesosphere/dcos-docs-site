@@ -12,12 +12,13 @@ enterprise: false
 
 Moving from Konvoy 1.8.x to DKP 2.1.x is not just an upgrade - you are enhancing your existing clusters to use a new architecture. If you currently use Konvoy to manage one cluster, that single-cluster experience continues in DKP 2.1.x, and includes the use of the management tools offered by Kommander. If you currently use Kommander to manage more than one cluster, your multi-cluster experience continues in DKP 2.1.x, with enhanced management and control offered by CAPI.
 
-
 ## Upgrade paths
 
-See the [upgrade table in the DKP 2.3 documentation](https://docs.d2iq.com/dkp/2.3/upgrade-dkp#UpgradeDKP-Supportedupgradepaths) for the full upgrade paths supported. 
+See the [upgrade table in the DKP 2.3 documentation](https://docs.d2iq.com/dkp/2.3/upgrade-dkp#UpgradeDKP-Supportedupgradepaths) for the full upgrade paths supported.
 
 ## Understanding the Major Version Upgrade Process
+
+<p class="message--warning"><strong>WARNING: </strong>D2iQ does <b>NOT support</b> the upgrade of 1.x clusters to 2.x <b>when Kaptain is enabled</b>. Disable Kaptain before upgrading your clusters to 2.x. Otherwise, your upgrade process will possibly get stuck. For more information on using Kaptain on DKP 2.x, refer to Kaptain's<a href="https://archive-docs.d2iq.com/dkp/kaptain/2.0.0/fresh-install/">fresh install</a>documentation.</p>
 
 The overall process for upgrading the major version to DKP 2.1 has the following high-level steps:
 
