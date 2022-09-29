@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp update nodepool preprovisioned
-title:  dkp update nodepool preprovisioned
+navigationTitle:  dkp update nodepool gcp
+title:  dkp update nodepool gcp
 menuWeight: 10
-excerpt: Update a Konvoy cluster node pool in Preprovisioned
+excerpt: Update a Konvoy cluster node pool in GCP
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,19 +11,22 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp update nodepool preprovisioned
+## dkp update nodepool gcp
 
-Update a Konvoy cluster node pool in Preprovisioned
+Update a Konvoy cluster node pool in GCP
 
 ```
-dkp update nodepool preprovisioned [flags]
+dkp update nodepool gcp [flags]
 ```
 
 ### Options
 
 ```
   -c, --cluster-name name           Name used to prefix the cluster and all the created resources.
-  -h, --help                        help for preprovisioned
+  -h, --help                        help for gcp
+      --image string                Full reference to an image to use for all nodes (set either this or --image-family) (ex. 'projects/my-project/global/images/konvoy-ubuntu-2004-1-99-99-1234567890')
+      --image-family string         Full reference to an image family to use for all nodes (set either this or --image) (ex. 'projects/my-project/global/images/family/konvoy-ubuntu-2004-{{.K8sVersion}}')
+      --instance-type string        Worker machine instance type (ex. "n2-standard-8")
       --kubeconfig string           Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-version string   Kubernetes version
   -n, --namespace string            If present, the namespace scope for this CLI request. (default "default")

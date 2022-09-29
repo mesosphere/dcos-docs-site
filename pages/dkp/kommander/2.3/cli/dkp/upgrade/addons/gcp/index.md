@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp upgrade addons vsphere
-title:  dkp upgrade addons vsphere
+navigationTitle:  dkp upgrade addons gcp
+title:  dkp upgrade addons gcp
 menuWeight: 10
-excerpt: Upgrade the core Addons in a vSphere cluster
+excerpt: Upgrade the core Addons in a GCP cluster
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,12 +11,12 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp upgrade addons vsphere
+## dkp upgrade addons gcp
 
-Upgrade the core Addons in a vSphere cluster
+Upgrade the core Addons in a GCP cluster
 
 ```
-dkp upgrade addons vsphere [flags]
+dkp upgrade addons gcp [flags]
 ```
 
 ### Options
@@ -25,7 +25,7 @@ dkp upgrade addons vsphere [flags]
       --allow-missing-template-keys   If true, ignore any errors in templates when a field or map key is missing in the template. Only applies to golang and jsonpath output formats. (default true)
   -c, --cluster-name name             Name used to prefix the cluster and all the created resources.
       --dry-run                       Only print the objects that would be created, without creating them.
-  -h, --help                          help for vsphere
+  -h, --help                          help for gcp
       --kubeconfig string             Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
   -n, --namespace string              If present, the namespace scope for this CLI request. (default "default")
   -o, --output string                 Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
