@@ -30,7 +30,7 @@ dkp create nodepool aks name [flags]
       --http-proxy string                 HTTP proxy for nodes
       --https-proxy string                HTTPS proxy for nodes
       --kubeconfig string                 Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --kubernetes-version string         Kubernetes version. Run 'az aks get-versions -o table --location <location>' to see available versions. See https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions for more details. Must be a patch version for v1.23.x.
+      --kubernetes-version string         Kubernetes version. Run 'az aks get-versions -o table --location <location>' to see available versions. See https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions for more details. Must be a patch version for v1.24.x.
       --machine-size string               Worker machine size (default "Standard_D8s_v3")
   -n, --namespace string                  If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                  No Proxy list for nodes (default [])
