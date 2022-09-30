@@ -1,27 +1,28 @@
 ---
 layout: layout.pug
-navigationTitle: Kommander 2.1.4 Release Notes
-title: Kommander 2.1.4 Release Notes
+navigationTitle: Konvoy 2.1.4 Release Notes
+title: Konvoy 2.1.4 Release Notes
 menuWeight: 50
-excerpt: View release-specific information for Kommander 2.1.4
+excerpt: View release-specific information for Konvoy 2.1.4
 enterprise: false
 beta: false
 ---
-**D2iQ&reg; Kommander&reg; version 2.1.3 was released on October, nn 2022.**
 
-[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
+**D2iQ&reg; Konvoy&reg; version 2.1.2 was released on October dd, 2022.**
 
-To get started with Kommander, [download](../../download/) and [install](../../install/) the latest version of Kommander.
+[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
-<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Kommander.</p>
+To get started with Konvoy, [download](../../download/) and [install](../../choose-infrastructure/) the latest version of Konvoy.
+
+<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 
 ## Release summary
 
-This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Kommander.
+This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Konvoy.
 
 ## Fixes and Improvements
 
-<Add>
+<Add or remove>
 
 ## Component updates
 
