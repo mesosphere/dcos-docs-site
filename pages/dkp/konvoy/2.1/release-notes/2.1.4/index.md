@@ -69,6 +69,7 @@ The following items are known issues with this release.
 
 ### No apparent upgrade path for 1.X vSphere clusters to 2.X
 
+**D2IQ-90769**
 There is a way to migrate existing vsphere clusters from 1.8 to 2.1. When attempting, this ends in failure due to providerID issues with the migration.
 
 <Need to validate if we are still keeping the following issues from 2.1.3:>
