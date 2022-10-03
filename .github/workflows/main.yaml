@@ -47,6 +47,8 @@ jobs:
         aws-region: us-west-2
     - name: Deploy some AWS stuff
       run: echo 'RUNNING AWS STEP'
+    - name: Sleep Step
+      run: sleep 5m
     # - name: Build & Deploy Preview Docs
     #   run: |
     #     if [ "$BRANCH" != "beta" ]; then
