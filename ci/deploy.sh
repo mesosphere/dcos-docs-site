@@ -13,7 +13,7 @@ envsubst < s3config.json > .s3config.json
 # prepare and set up bucket. if it's present we'll just do it all over for now.
 echo "PRINTING STUFF"
 echo $BUCKET
-echo ${{ env.BUCKET }}
+echo $1
 echo $AWS_DEFAULT_REGION
 aws s3api create-bucket --bucket $BUCKET --region $AWS_DEFAULT_REGION --create-bucket-configuration LocationConstraint=$AWS_DEFAULT_REGION || true
 
