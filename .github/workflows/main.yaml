@@ -31,9 +31,11 @@ jobs:
           BUCKET="pr-${PR_NUMBER}"
           HOSTNAME="docs-d2iq-com-pr-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
         fi
-        echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
-        echo "BUCKET=$BUCKET" >> $GITHUB_ENV
-        echo "HOSTNAME=$HOSTNAME" >> $GITHUB_ENV
+        export BUCKET="pr-${PR_NUMBER}"
+        echo "::set-env name=BUCKET::$BUCKET"
+        # echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
+        # echo "BUCKET=$BUCKET" >> $GITHUB_ENV
+        # echo "HOSTNAME=$HOSTNAME" >> $GITHUB_ENV
     - name: Pull image
       run: docker pull mesosphere/docs:latest
     - name: Build image
@@ -55,7 +57,7 @@ jobs:
           echo $AWS_SECRET_ACCESS_KEY
           echo $AWS_SESSION_TOKEN
           echo ${{ env.BUCKET }}
-          echo ${{ env.HOSTNAME }}
+          # echo ${{ env.HOSTNAME }}
           echo "arn:aws:iam::977260619897:role/dcos-docs-site"
           # docker run \
           #   -v "$PWD/pages":/src/pages \
