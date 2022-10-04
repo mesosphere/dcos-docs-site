@@ -11,6 +11,8 @@ envsubst < s3bucketpolicy > .policy
 envsubst < s3config.json > .s3config.json
 
 # prepare and set up bucket. if it's present we'll just do it all over for now.
+echo $BUCKET
+echo $AWS_DEFAULT_REGION
 aws s3api create-bucket --bucket $BUCKET --region $AWS_DEFAULT_REGION --create-bucket-configuration LocationConstraint=$AWS_DEFAULT_REGION || true
 
 if [ "$BUCKET" != "docs-d2iq-com-preview" ]; then
