@@ -9,7 +9,8 @@ jobs:
     env:
       BRANCH: ${{ github.head_ref }}
       AWS_DEFAULT_REGION: "us-west-2"
-      ALGOLIA_PRIVATE_KEY: ${{ secrets.AGOLIA_PRIVATE_KEY }}      
+      ALGOLIA_PRIVATE_KEY: ${{ secrets.AGOLIA_PRIVATE_KEY }}   
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true   
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
