@@ -54,8 +54,8 @@ jobs:
           echo $AWS_DEFAULT_REGION
           echo $AWS_SECRET_ACCESS_KEY
           echo $AWS_SESSION_TOKEN
-          echo env.BUCKET
-          env.HOSTNAME
+          echo ${{ env.BUCKET }}
+          echo ${{ env.HOSTNAME }}
           echo "arn:aws:iam::977260619897:role/dcos-docs-site"
           # docker run \
           #   -v "$PWD/pages":/src/pages \
