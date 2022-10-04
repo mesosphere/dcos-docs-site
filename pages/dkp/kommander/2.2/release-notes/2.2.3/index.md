@@ -63,7 +63,7 @@ When upgrading to this release, the following services and service components ar
 
 ### Components
 
-- CAPPPVersion = "v0.8.3"
+- CAPPPVersion = "v0.8.4"
 - CAPZVersion  = "v1.3.1"
 - Containerd 1.4.13
 - KIB v1.17.2
