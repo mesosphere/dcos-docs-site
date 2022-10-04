@@ -16,6 +16,7 @@ aws s3api create-bucket --bucket $BUCKET --region $AWS_DEFAULT_REGION --create-b
 
 if [ "$BUCKET" != "docs-d2iq-com-preview" ]; then
   echo 'INSIDE BLOCK'
+  echo $BUCKET
   aws s3api put-public-access-block --bucket $BUCKET --public-access-block-configuration "BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false"
   aws s3api put-bucket-policy --bucket $BUCKET --policy file:///src/.policy
   aws s3api put-bucket-website --bucket $BUCKET --website-configuration file:///src/.s3config.json
