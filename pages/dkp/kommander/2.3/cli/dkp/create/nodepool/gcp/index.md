@@ -34,7 +34,7 @@ dkp create nodepool gcp name [flags]
       --image-family string               Full reference to an image family to use for all nodes (set either this or --image) (ex. 'projects/my-project/global/images/family/konvoy-ubuntu-2004-{{.K8sVersion}}')
       --instance-type string              Worker machine instance type (default "n2-standard-8")
       --kubeconfig string                 Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --kubernetes-version string         Kubernetes version (default "1.23.7")
+      --kubernetes-version string         Kubernetes version (default "1.24.4")
   -n, --namespace string                  If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                  No Proxy list for nodes (default [])
   -o, --output string                     Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.

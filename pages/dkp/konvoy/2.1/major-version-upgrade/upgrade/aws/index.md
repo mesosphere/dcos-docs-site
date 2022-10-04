@@ -588,6 +588,27 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
     ```sh
     kubeadmcontrolplane.controlplane.cluster.x-k8s.io/konvoy-migrate-control-plane configured
     ```
+1.  Monitor the upgrade status by using the following command:
+
+    ```
+    watch kubectl --kubeconfig admin.conf get machines
+    ```
+    <p class="message--note"><strong>NOTE:</strong> If the `watch` command is not available in your instance, remove `watch` from the beginning of the prior command and manually run the command each time to get status updates on your upgrade.</p>
+
+    The output appears similar to this:
+
+    ```
+    NAME                                             CLUSTER                  AGE     PROVIDERID                              PHASE     VERSION
+    generic-konvoy184-cfe1-control-plane-bnwpn       generic-konvoy184-cfe1   83m     aws:///us-west-2c/i-05482170a16ad0ced   Running   v1.21.6
+    generic-konvoy184-cfe1-control-plane-kkjct       generic-konvoy184-cfe1   78m     aws:///us-west-2c/i-02a0d48730c8d3404   Running   v1.21.6
+    generic-konvoy184-cfe1-control-plane-nl2fr       generic-konvoy184-cfe1   72m     aws:///us-west-2c/i-04f671f7535bbed72   Running   v1.21.6
+    generic-konvoy184-cfe1-worker-79c76c8fbb-4sp2z   generic-konvoy184-cfe1   7m17s   aws:///us-west-2c/i-095ab521c28558fc8   Running   v1.21.6
+    generic-konvoy184-cfe1-worker-79c76c8fbb-f9c7h   generic-konvoy184-cfe1   11m     aws:///us-west-2c/i-07d3ffe6b542df611   Running   v1.21.6
+    generic-konvoy184-cfe1-worker-79c76c8fbb-hb8vs   generic-konvoy184-cfe1   60m     aws:///us-west-2c/i-0306bcaf8fa3f5e7d   Running   v1.21.6
+    generic-konvoy184-cfe1-worker-79c76c8fbb-nlvml   generic-konvoy184-cfe1   64m     aws:///us-west-2c/i-0426b95370f68d01e   Running   v1.21.6
+    ```
+
+    You can exit this monitoring at any time by pressing CTRL + C.
 
 1.  Wait for the update to complete. When the condition `Ready` is true, the update is complete.
 
@@ -678,6 +699,27 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
     ```sh
     machinedeployment.cluster.x-k8s.io/konvoy-migration-worker configured
     ```
+ 1.  Monitor the upgrade status by using the following command:
+
+    ```
+    watch kubectl --kubeconfig admin.conf get machines
+    ```
+    <p class="message--note"><strong>NOTE:</strong> If the `watch` command is not available in your instance, remove `watch` from the beginning of the prior command and manually run the command each time to get status updates on your upgrade.</p>
+
+    The output appears similar to this:
+
+    ```
+    NAME                                             CLUSTER                  AGE     PROVIDERID                              PHASE     VERSION
+    generic-konvoy184-cfe1-control-plane-bnwpn       generic-konvoy184-cfe1   83m     aws:///us-west-2c/i-05482170a16ad0ced   Running   v1.21.6
+    generic-konvoy184-cfe1-control-plane-kkjct       generic-konvoy184-cfe1   78m     aws:///us-west-2c/i-02a0d48730c8d3404   Running   v1.21.6
+    generic-konvoy184-cfe1-control-plane-nl2fr       generic-konvoy184-cfe1   72m     aws:///us-west-2c/i-04f671f7535bbed72   Running   v1.21.6
+    generic-konvoy184-cfe1-worker-79c76c8fbb-4sp2z   generic-konvoy184-cfe1   7m17s   aws:///us-west-2c/i-095ab521c28558fc8   Running   v1.21.6
+    generic-konvoy184-cfe1-worker-79c76c8fbb-f9c7h   generic-konvoy184-cfe1   11m     aws:///us-west-2c/i-07d3ffe6b542df611   Running   v1.21.6
+    generic-konvoy184-cfe1-worker-79c76c8fbb-hb8vs   generic-konvoy184-cfe1   60m     aws:///us-west-2c/i-0306bcaf8fa3f5e7d   Running   v1.21.6
+    generic-konvoy184-cfe1-worker-79c76c8fbb-nlvml   generic-konvoy184-cfe1   64m     aws:///us-west-2c/i-0426b95370f68d01e   Running   v1.21.6
+    ```
+
+    You can exit this monitoring at any time by pressing CTRL + C.
 
 1.  Wait for the update to complete.
 

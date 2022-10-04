@@ -49,7 +49,7 @@ dkp create cluster aws [flags]
       --kind-cluster-image string                   Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v0.0.0-dev.0")
       --kubeconfig string                           Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string          The image repository to use for pulling kubernetes images
-      --kubernetes-version string                   Kubernetes version (default "1.23.7")
+      --kubernetes-version string                   Kubernetes version (default "1.24.4")
   -n, --namespace string                            If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                            No Proxy list for CAPI controllers (default [])
   -o, --output string                               Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.

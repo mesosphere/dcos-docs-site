@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp serve
 title:  dkp serve
 menuWeight: 10
-excerpt: Serve an image registry
+excerpt: Serve image or Helm chart bundles from an OCI registry
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp serve
 
-Serve an image registry
+Serve image or Helm chart bundles from an OCI registry
 
 ### Options
 
@@ -30,5 +30,5 @@ Serve an image registry
 ### SEE ALSO
 
 * [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
-* [dkp serve image-bundle](/dkp/kommander/2.3/cli/dkp/serve/image-bundle/)	 - Serve an image registry
+* [dkp serve image-bundle](/dkp/kommander/2.3/cli/dkp/serve/image-bundle/)	 - Serve an OCI registry from image bundles
 

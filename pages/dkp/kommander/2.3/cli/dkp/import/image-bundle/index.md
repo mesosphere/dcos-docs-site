@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp import image-bundle
 title:  dkp import image-bundle
 menuWeight: 10
-excerpt: Import images from an image bundle into Containerd
+excerpt: Import images from image bundles into Containerd
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp import image-bundle
 
-Import images from an image bundle into Containerd
+Import images from image bundles into Containerd
 
 ```
 dkp import image-bundle [flags]
@@ -24,7 +24,7 @@ dkp import image-bundle [flags]
 ```
       --containerd-namespace string   Containerd namespace to import images into (default "k8s.io")
   -h, --help                          help for image-bundle
-      --image-bundle string           Tarball containing list of images to push
+      --image-bundle strings          Tarball containing list of images to import. Can also be a glob pattern. (default [])
 ```
 
 ### Options inherited from parent commands

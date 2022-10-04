@@ -31,7 +31,7 @@ dkp create nodepool azure name [flags]
       --http-proxy string                 HTTP proxy for nodes
       --https-proxy string                HTTPS proxy for nodes
       --kubeconfig string                 Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --kubernetes-version string         Kubernetes version (default "1.23.7")
+      --kubernetes-version string         Kubernetes version (default "1.24.4")
       --machine-size string               Worker machine size (default "Standard_D8s_v3")
   -n, --namespace string                  If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                  No Proxy list for nodes (default [])

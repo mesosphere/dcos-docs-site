@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp create image-bundle
 title:  dkp create image-bundle
 menuWeight: 10
-excerpt: Create a tar.gz image bundle
+excerpt: Create an image bundle
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp create image-bundle
 
-Create a tar.gz image bundle
+Create an image bundle
 
 ```
 dkp create image-bundle [flags]
@@ -24,7 +24,7 @@ dkp create image-bundle [flags]
 ```
   -h, --help                     help for image-bundle
       --images-file string       File containing list of images to create bundle from, either as YAML configuration or a simple list of images
-      --output-file string       Output file to write image bundle to (default "images.tar.gz")
+      --output-file string       Output file to write image bundle to (default "images.tar")
       --overwrite                Overwrite image bundle file if it already exists
       --platform platformSlice   platforms to download images (required format: <os>/<arch>[/<variant>]) (default [linux/amd64])
 ```
