@@ -39,20 +39,6 @@ To resolve this issue, use a custom image for the Kommander federation controlle
 
 * Installing a new cluster
 
-* Re-running `dkp install kommander` on an existing v2.2.2 cluster
-
-In the installer configuration, under apps, add the following lines:
-```
-  kommander:
-    enabled: true
-    values: |
-      controller:
-        containers:
-          manager:
-            image:
-              repository: mesosphere/kommander2-federation-controller-manager
-              tag: <patched_image_tag>
-```
 ### No apparent upgrade path for 1.X vSphere clusters to 2.X (D2IQ-90769)
 
 vSphere clusters can now be migrated from 1.X to 2.X versions of DKP.
