@@ -25,7 +25,7 @@ dkp delete bootstrap [flags]
   -h, --help                       help for bootstrap
       --kind-cluster-name string   Kind cluster name for the bootstrap cluster (default "konvoy-capi-bootstrapper")
       --kubeconfig string          Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --timeout duration           The length of time to wait before giving up. Zero means wait forever. (default 5m0s)
+      --timeout duration           The length of time to wait before giving up. Zero means wait forever (e.g. 1s, 2m, 3h). (default 5m0s)
       --wait                       If true, wait for operations to complete before returning. (default true)
 ```
 

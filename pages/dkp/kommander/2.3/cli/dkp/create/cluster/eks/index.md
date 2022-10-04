@@ -44,7 +44,7 @@ dkp create cluster eks [flags]
       --show-managed-fields                     If true, keep the managedFields when printing objects in JSON or YAML format.
       --subnet-ids strings                      A comma separated list of existing subnet IDs to use for the kube-apiserver ELB and all control-plane and worker nodes (default [])
       --template string                         Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --timeout duration                        The length of time to wait before giving up. Zero means wait forever. (default 10m0s)
+      --timeout duration                        The length of time to wait before giving up. Zero means wait forever (e.g. 1s, 2m, 3h). (default 10m0s)
       --vpc-id string                           Existing VPC ID to use for the cluster
       --wait                                    If true, wait for operations to complete before returning. (default true)
       --with-aws-bootstrap-credentials          Set true to use AWS bootstrap credentials from your environment. When false, the instance profile of the EC2 instance where the CAPA controller is scheduled on will be used instead.

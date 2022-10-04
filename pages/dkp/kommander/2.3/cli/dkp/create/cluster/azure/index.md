@@ -56,7 +56,7 @@ dkp create cluster azure [flags]
       --ssh-public-key-file string           Path to the authorized SSH key for the user
       --ssh-username string                  Name of the user to create on the instance (default "konvoy")
       --template string                      Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --timeout duration                     The length of time to wait before giving up. Zero means wait forever. (default 10m0s)
+      --timeout duration                     The length of time to wait before giving up. Zero means wait forever (e.g. 1s, 2m, 3h). (default 10m0s)
       --wait                                 If true, wait for operations to complete before returning. (default true)
       --with-aws-bootstrap-credentials       Set true to use AWS bootstrap credentials from your environment. When false, the instance profile of the EC2 instance where the CAPA controller is scheduled on will be used instead.
       --with-gcp-bootstrap-credentials       Set true to use GCP bootstrap credentials from your environment. When false, the service account of the VM instance where the CAPG controller is scheduled on will be used instead.

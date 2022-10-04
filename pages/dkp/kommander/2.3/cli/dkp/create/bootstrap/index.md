@@ -29,7 +29,7 @@ dkp create bootstrap [flags]
       --kind-cluster-image string        Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v0.0.0-dev.0")
       --kubeconfig string                Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --no-proxy strings                 No Proxy list for CAPI controllers (default [])
-      --timeout duration                 The length of time to wait before giving up. Zero means wait forever. (default 10m0s)
+      --timeout duration                 The length of time to wait before giving up. Zero means wait forever (e.g. 1s, 2m, 3h). (default 10m0s)
       --wait                             If true, wait for operations to complete before returning. (default true)
       --with-aws-bootstrap-credentials   Set true to use AWS bootstrap credentials from your environment. When false, the instance profile of the EC2 instance where the CAPA controller is scheduled on will be used instead.
       --with-gcp-bootstrap-credentials   Set true to use GCP bootstrap credentials from your environment. When false, the service account of the VM instance where the CAPG controller is scheduled on will be used instead.

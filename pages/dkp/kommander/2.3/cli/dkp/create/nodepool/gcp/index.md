@@ -48,7 +48,7 @@ dkp create nodepool gcp name [flags]
       --ssh-public-key-file string        Path to the authorized SSH key for the user
       --ssh-username string               Name of the user to create on the instance (default "konvoy")
       --template string                   Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --timeout duration                  The length of time to wait before giving up. Zero means wait forever. (default 30m0s)
+      --timeout duration                  The length of time to wait before giving up. Zero means wait forever (e.g. 1s, 2m, 3h). (default 30m0s)
       --wait                              If true, wait for operations to complete before returning.
       --zone string                       Zone in the region to deploy the worker nodes to, if not set a random one will be selected (ex. us-west1-a)
 ```

@@ -66,7 +66,7 @@ dkp create cluster vsphere [flags]
       --ssh-username string                  Name of the user to create on the instance (default "konvoy")
       --storage-policy string                This is the vSphere storage policy. Set it to "" if you don't want to use a storage policy.
       --template string                      Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --timeout duration                     The length of time to wait before giving up. Zero means wait forever. (default 10m0s)
+      --timeout duration                     The length of time to wait before giving up. Zero means wait forever (e.g. 1s, 2m, 3h). (default 10m0s)
       --tls-thumb-print string               sha1 thumbprint of the vcenter certificate: openssl x509 -sha1 -fingerprint -in ca.crt -noout
       --virtual-ip-interface string          The network interface, e.g, 'eth0' or 'ens5', to use for the built-in virtual IP control plane endpoint. This interface must be available on every control plane machine. If the value is empty, the flag does nothing. If the value is not empty, the built-in virtual IP control plane endpoint is created, using values from --control-plane-endpoint-host and --control-plane-endpoint-port.
       --vm-template string                   The virtual machine template to use for the workload cluster's virtual machines.

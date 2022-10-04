@@ -53,7 +53,7 @@ dkp create nodepool vsphere name [flags]
       --ssh-username string               Name of the user to create on the instance (default "konvoy")
       --storage-policy string             This is the vSphere storage policy. Set it to "" if you don't want to use a storage policy.
       --template string                   Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --timeout duration                  The length of time to wait before giving up. Zero means wait forever. (default 30m0s)
+      --timeout duration                  The length of time to wait before giving up. Zero means wait forever (e.g. 1s, 2m, 3h). (default 30m0s)
       --tls-thumb-print string            sha1 thumbprint of the vcenter certificate: openssl x509 -sha1 -fingerprint -in ca.crt -noout
       --vm-template string                The virtual machine template to use for the workload cluster's virtual machines.
       --wait                              If true, wait for operations to complete before returning.
