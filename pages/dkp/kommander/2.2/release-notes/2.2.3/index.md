@@ -29,7 +29,7 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 
 ## Fixes and Improvements
 
-### Chartmuseum not hosting with the cert provided to Kommander during installation, x509 unknown error on Workload cluster (D2IQ-93002)
+### ChartMuseum not hosting with the cert provided to Kommander during installation, x509 unknown error on Workload cluster (D2IQ-93002)
 
 [Looking at the ticket, do we have a fix for this? We've resolved CA certs below but not the connected missing airgap bundle ticket.]
 
