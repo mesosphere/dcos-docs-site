@@ -592,7 +592,7 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
     ```
     watch kubectl --kubeconfig admin.conf get machines
-    ``
+    ```
     <p class="message--note"><strong>NOTE:</strong> If the `watch` command is not available in your instance, remove `watch` from the beginning of the prior command and manually run the command each time to get status updates on your upgrade.</p>
 
     The output appears similar to this:
