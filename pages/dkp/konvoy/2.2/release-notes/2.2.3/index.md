@@ -29,30 +29,14 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 
 ## Fixes and Improvements
 
-### Chartmuseum not hosting with the cert provided to Kommander during installation, x509 unknown error on Workload cluster (D2IQ-93002)
+### Workload clusters cannot be successfully attached when the management cluster uses a custom domain and certificate (D2IQ-93002)
 
-[Looking at the ticket, do we have a fix for this? We've resolved CA certs below but not the connected missing airgap bundle ticket.]
+A problem that caused the kommander federation-controller to use system certificates instead of the configured custom certificates was corrected.   The federation-controller now uses custom certificates if they are present.  
 
-### Cannot resolve CA certificate when provided as custom certificate (D2IQ-91798)
+### Missing Cert-manager images in airgapped bundles (D2IQ-93002)
 
-To resolve this issue, use a custom image for the Kommander federation controllers that includes the patch. The easiest way to do that is by using the installer config. This works both when:
+The air-gapped image bundles did not include images for cert-manager, which prevented successful deployment of the platform applications to managed and attached clusters in those environments.   The bundle has been updated to include the correct images.
 
-* Installing a new cluster
-
-* Re-running `dkp install kommander` on an existing v2.2.2 cluster
-
-In the installer configuration, under apps, add the following lines:
-```
-  kommander:
-    enabled: true
-    values: |
-      controller:
-        containers:
-          manager:
-            image:
-              repository: mesosphere/kommander2-federation-controller-manager
-              tag: <patched_image_tag>
-```
 ### No apparent upgrade path for 1.X vSphere clusters to 2.X (D2IQ-90769)
 
 vSphere clusters can now be migrated from 1.X to 2.X versions of DKP.
