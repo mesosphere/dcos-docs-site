@@ -8,7 +8,7 @@ enterprise: false
 beta: false
 ---
 
-**D2iQ&reg; Konvoy&reg; version 2.1.2 was released on October dd, 2022.**
+**D2iQ&reg; Konvoy&reg; version 2.1.4 was released on October dd, 2022.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
@@ -67,10 +67,7 @@ The following services and service components are upgraded to the listed version
 
 The following items are known issues with this release.
 
-### No apparent upgrade path for 1.X vSphere clusters to 2.X
 
-**D2IQ-90769**
-There is a way to migrate existing vsphere clusters from 1.8 to 2.1. When attempting, this ends in failure due to providerID issues with the migration.
 
 <Need to validate if we are still keeping the following issues from 2.1.3:>
 
