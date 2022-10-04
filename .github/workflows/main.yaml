@@ -48,7 +48,7 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        role-to-assume: arn:aws:iam::977260619897:role/dcos-docs-site
+        role-to-assume: arn:aws:iam::139475575661:role/dcos-docs-site
         aws-region: us-west-2
     - name: Build & Deploy Preview Docs
       run: |
@@ -62,9 +62,9 @@ jobs:
           echo ${{ env.BUCKET }}
           echo ${{ env.HOSTNAME }}
           echo BUCKET_POSTFIX=${{ env.BUCKET }}
-          BUCKET = "docs-d2iq-com-${BUCKET_POSTFIX}"
-          echo BUCKET
-          echo "arn:aws:iam::977260619897:role/dcos-docs-site"
+          # BUCKET = "docs-d2iq-com-${${{ env.BUCKET }}}"
+          echo BUCKET_POSTFIX
+          echo "arn:aws:iam::139475575661:role/dcos-docs-site"
           # docker run \
           #   -v "$PWD/pages":/src/pages \
           #   -e ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
