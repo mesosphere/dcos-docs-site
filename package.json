@@ -51,7 +51,7 @@
     "sanitize-html": "^1.14.1",
     "sass-loader": "^6.0.6",
     "semver": "^7.3.2",
-    "semver-sort": "0.0.4",
+    "semver-sort": "1.0.0",
     "shortcode-parser": "0.0.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.0.0",
