@@ -15,7 +15,7 @@ beta: false
 
 ## Release summary
 
-Welcome to D2iQ Kubernetes Platform (DKP) 2.2.3! This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintains compatibility and support for other packages used in Kommander.
+Welcome to D2iQ Kubernetes Platform (DKP) 2.2.3! This release fixes reported issues, integrates changes from previous releases, and maintains compatibility and support for other packages used in Kommander.
 
 DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you want to attach using DKP 2.2.x must be running a Kubernetes version in this range.
 
