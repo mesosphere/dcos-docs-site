@@ -24,21 +24,13 @@ jobs:
         if [ "$BRANCH" = "main" ]; then 
           BUCKET=docs-d2iq-com-preview
           HOSTNAME=dev-docs.d2iq.com
-        elif [ "$BRANCH" = "beta" ]; then
-          BUCKET=docs-d2iq-com-staging
-          HOSTNAME=""
         else
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
           BUCKET="docs-d2iq-com-pr-${PR_NUMBER}"
           HOSTNAME="docs-d2iq-com-pr-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
         fi
-        # export BUCKET="pr-${PR_NUMBER}"
-        # export HOSTNAME="pr-${HOSTNAME}"
         echo "::set-env name=BUCKET::$BUCKET"        
         echo "::set-env name=HOSTNAME::$HOSTNAME"
-        # echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
-        # echo "BUCKET=$BUCKET" >> $GITHUB_ENV
-        # echo "HOSTNAME=$HOSTNAME" >> $GITHUB_ENV
     - name: Pull image
       run: docker pull mesosphere/docs:latest
     - name: Build image
@@ -52,19 +44,17 @@ jobs:
         aws-region: us-west-2
     - name: Build & Deploy Preview Docs
       run: |
-        if [ "$BRANCH" != "beta" ]; then
-          docker run \
-            -v "$PWD/pages":/src/pages \
-            -e ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
-            -e ALGOLIA_UPDATE="" \
-            -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
-            -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
-            -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-            -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
-            -e BUCKET=${{ env.BUCKET }} \
-            -e PRINCIPAL="arn:aws:iam::977260619897:role/dcos-docs-site" \
-            -e REDIR_HOSTNAME=${{ env.HOSTNAME }} \
-            -e DOCS_ENV="preview" \
-            mesosphere/docs /src/ci/deploy.sh          
-        fi
+        docker run \
+          -v "$PWD/pages":/src/pages \
+          -e ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
+          -e ALGOLIA_UPDATE="" \
+          -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+          -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+          -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+          -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
+          -e BUCKET=${{ env.BUCKET }} \
+          -e PRINCIPAL="arn:aws:iam::977260619897:role/dcos-docs-site" \
+          -e REDIR_HOSTNAME=${{ env.HOSTNAME }} \
+          -e DOCS_ENV="preview" \
+          mesosphere/docs /src/ci/deploy.sh          
       shell: bash
