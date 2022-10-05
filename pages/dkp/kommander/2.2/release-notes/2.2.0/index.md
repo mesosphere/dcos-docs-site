@@ -353,6 +353,10 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
     kubectl delete pod -n $WORKSPACE_NAMESPACE $(kubectl get pod -l app.kubernetes.io/name=$SPARK_OPERATOR_RELEASE_NAME -n $WORKSPACE_NAMESPACE -o jsonpath='{range .items[0]}{.metadata.name}')
     ```
 
+### Minio Disk insufficient space when upgrading
+
+If upgrading DKP version 2.1.x to 2.2.x, there is a bug that does not allow upgrading due to insufficient space on the MinIO Disk. To address this issue, disable `fluent-bit` in the `AppDeployments` before upgrading.
+
 ## Additional resources
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].

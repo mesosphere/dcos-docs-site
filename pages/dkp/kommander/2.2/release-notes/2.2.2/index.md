@@ -57,6 +57,12 @@ The DEX Custom Resource Definitions used for configuring LDAP have been updated 
 
 The mesosphere/dex-k8s-authenticator docker container now includes the appropriate binaries that allow users to download the referenced 'konvoy-async-plugin' after configuring a cluster using an external IDP for authentication.
 
+## Known Issues
+
+### Minio Disk insufficient space when upgrading
+
+If upgrading DKP version 2.1.x to 2.2.x, there is a bug that does not allow upgrading due to insufficient space on the MinIO Disk. To address this issue, disable `fluent-bit` in the `AppDeployments` before upgrading.
+
 ## Component and Application updates
 
 When upgrading to this release, the following services and service components are upgraded to the listed version:
