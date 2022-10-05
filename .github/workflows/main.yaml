@@ -61,10 +61,10 @@ jobs:
           echo $AWS_SESSION_TOKEN
           echo ${{ env.BUCKET }}
           echo ${{ env.HOSTNAME }}
-          echo BUCKET_POSTFIX=${{ env.BUCKET }}
-          # BUCKET = "docs-d2iq-com-${${{ env.BUCKET }}}"
-          echo BUCKET_POSTFIX
-          echo "arn:aws:iam::139475575661:role/dcos-docs-site"
+          # echo BUCKET_POSTFIX=${{ env.BUCKET }}
+          echo "docs-d2iq-com-${{ env.BUCKET }}"
+          # echo BUCKET_POSTFIX
+          # echo "arn:aws:iam::139475575661:role/dcos-docs-site"
           # docker run \
           #   -v "$PWD/pages":/src/pages \
           #   -e ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
