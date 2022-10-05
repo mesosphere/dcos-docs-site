@@ -110,7 +110,7 @@ If any of the these fields are present, then there is a possibility the upgrade 
 
 ### Minio Disk insufficient space when upgrading
 
-If upgrading DKP version 2.1.x to 2.2.x, there is a bug that does not allow upgrading due to insufficient space on the MinIO Disk. To address this issue, disable `fluent-bit` in the `AppDeployments` before upgrading.
+When upgrading DKP from v2.1.x to v2.2.x, the upgrade can fail due to insufficient space on the MinIO Disk. To avoid this issue,  we recommend that you disable the `fluent-bit` Platform Application before upgrading.
 
 ## Additional resources
 
