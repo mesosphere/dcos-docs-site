@@ -53,30 +53,18 @@ jobs:
     - name: Build & Deploy Preview Docs
       run: |
         if [ "$BRANCH" != "beta" ]; then
-          echo "$PWD/pages":/src/pages
-          echo $ALGOLIA_PRIVATE_KEY
-          echo $AWS_ACCESS_KEY_ID
-          echo $AWS_DEFAULT_REGION
-          echo $AWS_SECRET_ACCESS_KEY
-          echo $AWS_SESSION_TOKEN
-          echo ${{ env.BUCKET }}
-          echo ${{ env.HOSTNAME }}
-          # echo BUCKET_POSTFIX=${{ env.BUCKET }}
-          echo "docs-d2iq-com-${{ env.BUCKET }}"
-          # echo BUCKET_POSTFIX
-          # echo "arn:aws:iam::139475575661:role/dcos-docs-site"
           # docker run \
-          #   -v "$PWD/pages":/src/pages \
-          #   -e ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
-          #   -e ALGOLIA_UPDATE="" \
-          #   -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
-          #   -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
-          #   -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-          #   -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
-          #   -e BUCKET=${{ env.BUCKET }} \
-          #   -e PRINCIPAL="arn:aws:iam::977260619897:role/dcos-docs-site" \
-          #   -e REDIR_HOSTNAME= \
-          #   -e DOCS_ENV="preview" \
-          #   mesosphere/docs /src/ci/deploy.sh          
+            -v "$PWD/pages":/src/pages \
+            -e ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
+            -e ALGOLIA_UPDATE="" \
+            -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+            -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+            -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+            -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
+            -e BUCKET="docs-d2iq-com-${{ env.BUCKET }}" \
+            -e PRINCIPAL="arn:aws:iam::977260619897:role/dcos-docs-site" \
+            -e REDIR_HOSTNAME= \
+            -e DOCS_ENV="preview" \
+            mesosphere/docs /src/ci/deploy.sh          
         fi
       shell: bash
