@@ -32,8 +32,8 @@ jobs:
           BUCKET="docs-d2iq-com-pr-${PR_NUMBER}"
           HOSTNAME="docs-d2iq-com-pr-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
         fi
-        export BUCKET="pr-${PR_NUMBER}"
-        export HOSTNAME="pr-${HOSTNAME}"
+        # export BUCKET="pr-${PR_NUMBER}"
+        # export HOSTNAME="pr-${HOSTNAME}"
         echo "::set-env name=BUCKET::$BUCKET"        
         echo "::set-env name=HOSTNAME::$HOSTNAME"
         # echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
