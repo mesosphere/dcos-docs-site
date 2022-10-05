@@ -21,5 +21,5 @@ if [ "$BUCKET" != "docs-d2iq-com-preview" ]; then
   aws s3api put-bucket-policy --bucket $BUCKET --policy file:///src/.policy
   aws s3api put-bucket-website --bucket $BUCKET --website-configuration file:///src/.s3config.json
 fi
-
+echo 'Delete step'
 aws s3 sync --delete --quiet --acl bucket-owner-full-control ./build s3://$BUCKET
