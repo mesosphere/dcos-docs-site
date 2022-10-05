@@ -22,14 +22,14 @@ jobs:
     - name: Set vars
       run: |
         if [ "$BRANCH" = "main" ]; then 
-          BUCKET=preview
+          BUCKET=docs-d2iq-com-preview
           HOSTNAME=dev-docs.d2iq.com
         elif [ "$BRANCH" = "beta" ]; then
-          BUCKET=staging
+          BUCKET=docs-d2iq-com-staging
           HOSTNAME=""
         else
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          BUCKET="pr-${PR_NUMBER}"
+          BUCKET="docs-d2iq-com-pr-${PR_NUMBER}"
           HOSTNAME="docs-d2iq-com-pr-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
         fi
         export BUCKET="pr-${PR_NUMBER}"
@@ -53,7 +53,7 @@ jobs:
     - name: Build & Deploy Preview Docs
       run: |
         if [ "$BRANCH" != "beta" ]; then
-          # docker run \
+          docker run \
             -v "$PWD/pages":/src/pages \
             -e ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
             -e ALGOLIA_UPDATE="" \
@@ -61,7 +61,7 @@ jobs:
             -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
             -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
             -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
-            -e BUCKET="docs-d2iq-com-${{ env.BUCKET }}" \
+            -e BUCKET=${{ env.BUCKET }} \
             -e PRINCIPAL="arn:aws:iam::977260619897:role/dcos-docs-site" \
             -e REDIR_HOSTNAME= \
             -e DOCS_ENV="preview" \
