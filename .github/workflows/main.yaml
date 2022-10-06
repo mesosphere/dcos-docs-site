@@ -43,7 +43,7 @@ jobs:
         role-to-assume: arn:aws:iam::139475575661:role/dcos-docs-site
         aws-region: us-west-2
     - name: Sleep
-      run: Sleep 10m
+      run: sleep 10m
     - name: Build & Deploy Preview Docs
       run: |
         docker run \
