@@ -23,13 +23,13 @@ enterprise: false
     ```yaml
     cat <<EOF > fetch.yaml
     ---
-    - hosts: control-plane[0]
-      any_errors_fatal: true
-      name: "{{ play_name | default('Fetch existing cluster artifacts') }}"
-      serial: 1
-      become: yes
+  - hosts: control-plane[0]
+    any_errors_fatal: true
+    name: "{{ play_name | default('Fetch existing cluster artifacts') }}"
+    serial: 1
+    become: yes
 
-      tasks:
+    tasks:
       - name: Fetch cluster CA
         fetch:
           src: /etc/kubernetes/pki/{{ item }}
@@ -57,6 +57,17 @@ enterprise: false
           src: /etc/kubernetes/pki/encryption-config.yaml
           dest: "{{ working_directory }}/cluster-artifacts/etcd-encryption-config.yaml"
           flat: yes
+
+      - name: Get Node specs
+        command: kubectl get nodes -o yaml --kubeconfig /etc/kubernetes/admin.conf
+        register: nodes
+
+      - name: Write Node specs to nodes.yaml
+        become: no
+        delegate_to: localhost
+        copy:
+          content: "{{ nodes.stdout }}"
+          dest: "{{ working_directory }}/cluster-artifacts/nodes.yaml"
     EOF
     ```
 
