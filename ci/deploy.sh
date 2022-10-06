@@ -20,4 +20,4 @@ if [ "$BUCKET" != "docs-d2iq-com-preview" ]; then
   aws s3api put-bucket-website --bucket $BUCKET --website-configuration file:///src/.s3config.json
 fi
 
-aws s3 sync --delete --quiet --acl bucket-owner-full-control ./build s3://$BUCKET
+# aws s3 sync --delete --quiet --acl bucket-owner-full-control ./build s3://$BUCKET
