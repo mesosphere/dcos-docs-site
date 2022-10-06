@@ -23,7 +23,6 @@ Konvoy supports the following base Operating Systems.
 | [RHEL 7.9][rhel_7_9] | 3.10.0-1160.el7.x86_64 | Yes | Yes | Yes |  | Yes | Yes |
 | [RHEL 8.2][rhel_8_2] | 4.18.0-193.6.3.el8_2.x86_64 | Yes | Yes | Yes | Yes | Yes | Yes |
 | [RHEL 8.4][rhel_8_4] | 4.18.0-193.6.3.el8_2.x86_64 | Yes | Yes |  | Yes |  | Yes |
-| [Flatcar][flatcar] | 2905.2.1 |  |  |  |  |  | Yes |
 | [Ubuntu 18.04 (Bionic Beaver)][ubuntu_18] |  | Yes |  |  |  |  | Yes |
 | [Ubuntu 20.04 (Focal Fossa)][ubuntu_20] |  | Yes |  |  |  | Yes | Yes |
 | [SUSE Linux Enterprise Server 15][sles_15] |  | Yes |  |  |  | Yes | Yes |
@@ -40,7 +39,7 @@ Konvoy supports the following base Operating Systems.
 | [RHEL 7.9][rhel_7_9] | 3.10.0-1160.el7.x86_64 |  |  |  |  |  | Yes |
 | [RHEL 8.2][rhel_8_2] | 4.18.0-193.6.3.el8_2.x86_64 |  |  |  |  |  | Yes |
 | [RHEL 8.4][rhel_8_4] | 4.18.0-193.6.3.el8_2.x86_64 |  |  |  |  |  | Yes |
-| [Flatcar][flatcar] | 2905.2.1 | Yes |  |  |  |  | Yes |
+| [Flatcar][flatcar] | 2905.2.1,2905.2.6 | Yes |  |  |  |  | Yes |
 | [Ubuntu 20.04 (Focal Fossa)][ubuntu_20] |  |  |  |  |  |  | Yes |
 | [SUSE Linux Enterprise Server 15][sles_15] |  |  |  |  |  |  | Yes |
 
