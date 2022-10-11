@@ -27,6 +27,16 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 | **Maximum**  | 1.22.x  |
 | **Default**  | 1.22.8  |
 
+### Supported FIPS Manifests
+
+|Operating System version   | Kubernetes version  | containerd version  | Manifest URL  |
+|---------------------------|---------------------|---------------------|---------------|
+| CentOS 7.9 | v1.22.8  | 1.14.13  | [v1.22.8 CentOS 7.9 Manifest][centos7] |
+| Oracle 7.9 | v1.22.8  | 1.14.13  | [v1.22.8 OL 7.9 Manifest][oracle7] |
+| RHEL 7.9 | v1.22.8  | 1.14.13  | [v1.22.8 EL 7.9 Manifest][rhel7] |
+| RHEL 8.2 | v1.22.8  | 1.14.13  | [v1.22.8 EL 8.2 Manifest][rhel82] |
+| RHEL 8.4 | v1.22.8  | 1.14.13  | [v1.22.8 EL 8.4 Manifest][rhel84] |
+
 ## Fixes and Improvements
 
 ### Added Continuous Deployment(CD)/Gitops to the View role
@@ -118,3 +128,8 @@ For a full list of attributed 3rd party software, see [d2iq.com/legal/3rd](http:
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/quick-start-aws#optional-move-controllers-to-the-newly-created-cluster
 [project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
 [flux-cli]: https://fluxcd.io/docs/installation/
+[centos7]: https://downloads.d2iq.com/dkp/fips/v2.2.2/manifest-centos-79.json
+[oracle7]: https://downloads.d2iq.com/dkp/fips/v2.2.2/manifest-oracle-79.json.asc
+[rhel7]: https://downloads.d2iq.com/dkp/fips/v2.2.2/manifest-rhel-79.json
+[rhel82]: https://downloads.d2iq.com/dkp/fips/v2.2.2/manifest-rhel-82.json
+[rhel84]: https://downloads.d2iq.com/dkp/fips/v2.2.2/manifest-rhel-84.json
