@@ -21,8 +21,7 @@ enterprise: false
     Run this script in your Konvoy 1.8 cluster directory.
 
     ```yaml
-    cat <<EOF > fetch.yaml
-    ---
+      cat <<EOF > fetch.yaml
     - hosts: control-plane[0]
       any_errors_fatal: true
       name: "{{ play_name | default('Fetch existing cluster artifacts') }}"
@@ -30,33 +29,44 @@ enterprise: false
       become: yes
 
       tasks:
-      - name: Fetch cluster CA
-        fetch:
-          src: /etc/kubernetes/pki/{{ item }}
-          dest: "{{ working_directory }}/cluster-artifacts/{{ item }}"
-          flat: yes
-        with_items:
-          - ca.crt
-          - ca.key
-          - sa.pub
-          - sa.key
-          - front-proxy-ca.crt
-          - front-proxy-ca.key
+        - name: Fetch cluster CA
+          fetch:
+            src: /etc/kubernetes/pki/{{ item }}
+            dest: "{{ working_directory }}/cluster-artifacts/{{ item }}"
+            flat: yes
+          with_items:
+            - ca.crt
+            - ca.key
+            - sa.pub
+            - sa.key
+            - front-proxy-ca.crt
+            - front-proxy-ca.key
 
-      - name: Fetch etcd CA
-        fetch:
-          src: /etc/kubernetes/pki/etcd/{{ item }}
-          dest: "{{ working_directory }}/cluster-artifacts/etcd-{{ item }}"
-          flat: yes
-        with_items:
-          - ca.crt
-          - ca.key
+        - name: Fetch etcd CA
+          fetch:
+            src: /etc/kubernetes/pki/etcd/{{ item }}
+            dest: "{{ working_directory }}/cluster-artifacts/etcd-{{ item }}"
+            flat: yes
+          with_items:
+            - ca.crt
+            - ca.key
 
-      - name: Fetch etcd encryption-config.yaml
-        fetch:
-          src: /etc/kubernetes/pki/encryption-config.yaml
-          dest: "{{ working_directory }}/cluster-artifacts/etcd-encryption-config.yaml"
-          flat: yes
+        - name: Fetch etcd encryption-config.yaml
+          fetch:
+            src: /etc/kubernetes/pki/encryption-config.yaml
+            dest: "{{ working_directory }}/cluster-artifacts/etcd-encryption-config.yaml"
+            flat: yes
+
+        - name: Get Node specs
+          command: kubectl get nodes -o yaml --kubeconfig /etc/kubernetes/admin.conf
+          register: nodes
+
+        - name: Write Node specs to nodes.yaml
+          become: no
+          delegate_to: localhost
+          copy:
+            content: "{{ nodes.stdout }}"
+            dest: "{{ working_directory }}/cluster-artifacts/nodes.yaml"
     EOF
     ```
 
