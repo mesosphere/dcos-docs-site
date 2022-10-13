@@ -28,7 +28,7 @@ enterprise: false
 
 - Refer to the [on-premise installation](../on-premise/) page, if you are installing Kaptain **on premises**.
 
-<p class="message--warning"><strong>WARNING:</strong> Ensure that DKP Kommander is installed using the default certificate and not a customer-issued or ACME certificate. Otherwise, the installation of Kaptain can  break. Custom and ACME certificates are supported in Kaptain versions 2.2 and later, and DKP versions 2.3 and later.</p>
+<p class="message--warning"><strong>WARNING:</strong> Ensure that DKP Kommander is installed using the default certificate and not a customer-issued or ACME certificate. Otherwise, the installation of Kaptain can break. Custom and ACME certificates are supported in Kaptain versions 2.2 and later, and DKP versions 2.3 and later.</p>
 
 ### Reference the cluster on which you must execute the commands
 
