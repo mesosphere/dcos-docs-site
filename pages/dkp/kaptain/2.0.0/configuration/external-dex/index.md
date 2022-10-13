@@ -17,7 +17,7 @@ Configure Kaptain to use the Dex OIDC Provider on a Kommander management cluster
 - The managed cluster is [attached][attached-cluster] to the management cluster (Kommander). (You will need to [create a cluster via Kommander][create-managed-cluster] to have a managed Konvoy cluster.)
 - A Dex Client created on the management cluster.
 
-<p class="message--warning"><strong>WARNING:</strong> Ensure that DKP ’s Kommander has been installed using the default certificate and not a customer issued or ACME certificate. Otherwise, the installation of Kaptain will break. Custom and ACME certificates are supported in Kaptain versions 2.2 and later on DKP versions 2.3 and later.</p> 
+<p class="message--warning"><strong>WARNING:</strong> Ensure that DKP Kommander is installed using the default certificate and not a customer-issued or ACME certificate. Otherwise, the installation of Kaptain can  break. Custom and ACME certificates are supported in Kaptain versions 2.2 and later, and DKP versions 2.3 and later.</p> 
 
 ## Kaptain configuration requirements
 
