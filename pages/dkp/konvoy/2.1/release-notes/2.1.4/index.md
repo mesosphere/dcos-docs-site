@@ -71,9 +71,6 @@ The following services and service components are upgraded to the listed version
 The following items are known issues with this release.
 
 
-
-<Need to validate if we are still keeping the following issues from 2.1.3:>
-
 ### cert-manager expiration workaround
 
 Due to an oversight, some Kommander versions do not properly handle certificate renewal for the Cluster CA and certificates that are created for Kommander applications. The `cert-manager` component renews all certificates 60 days after you install Kommander on your cluster. When this occurs, some Kommander applications and pods fail to receive the renewed certificate information, causing them to stop working upon expiration. This occurs 60-90 days after Kommander was installed, which normally would coincide with the date you created the cluster. While the effects can vary, the most common failure is the inability to log in to the UI due to an expired certificate in the `dex-k8s-authenticator pod`. You may also see issues with flux no longer being able to access the internal gitea repository.
