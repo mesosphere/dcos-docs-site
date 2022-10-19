@@ -31,17 +31,17 @@ After adopting the cluster, you use this AMI to scale up, or replace a failed in
     writing new packer configuration to work/centos-7-1637107496-rPzRE
     starting packer build
     centos-7: output will be in this color.
-
+    
     ...
-
+    
     Build 'centos-7' finished after 13 minutes 53 seconds.
-
+    
     ==> Wait completed after 13 minutes 53 seconds
-
+    
     ==> Builds finished. The artifacts of successful builds are:
     --> centos-7: AMIs were created:
     us-west-2: ami-03364d732f61fb1e2
-
+    
     --> centos-7: AMIs were created:
     us-west-2: ami-03364d732f61fb1e2
     ```
@@ -588,16 +588,18 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
     ```sh
     kubeadmcontrolplane.controlplane.cluster.x-k8s.io/konvoy-migrate-control-plane configured
     ```
+
 1.  Monitor the upgrade status by using the following command:
 
-    ```
+    ```bash
     watch kubectl --kubeconfig admin.conf get machines
     ```
-    <p class="message--note"><strong>NOTE:</strong> If the `watch` command is not available in your instance, remove `watch` from the beginning of the prior command and manually run the command each time to get status updates on your upgrade.</p>
+
+    <p class="message--note"><strong>NOTE:</strong> If the <code>watch</code> command is not available in your instance, remove <code>watch</code> from the beginning of the prior command and manually run the command each time to get status updates on your upgrade.</p>
 
     The output appears similar to this:
 
-    ```
+    ```sh
     NAME                                             CLUSTER                  AGE     PROVIDERID                              PHASE     VERSION
     generic-konvoy184-cfe1-control-plane-bnwpn       generic-konvoy184-cfe1   83m     aws:///us-west-2c/i-05482170a16ad0ced   Running   v1.21.6
     generic-konvoy184-cfe1-control-plane-kkjct       generic-konvoy184-cfe1   78m     aws:///us-west-2c/i-02a0d48730c8d3404   Running   v1.21.6
@@ -699,16 +701,18 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
     ```sh
     machinedeployment.cluster.x-k8s.io/konvoy-migration-worker configured
     ```
- 1.  Monitor the upgrade status by using the following command:
 
-    ```
+1.  Monitor the upgrade status by using the following command:
+
+    ```bash
     watch kubectl --kubeconfig admin.conf get machines
     ```
-    <p class="message--note"><strong>NOTE:</strong> If the `watch` command is not available in your instance, remove `watch` from the beginning of the prior command and manually run the command each time to get status updates on your upgrade.</p>
+
+    <p class="message--note"><strong>NOTE:</strong> If the <code>watch</code> command is not available in your instance, remove <code>watch</code> from the beginning of the prior command and manually run the command each time to get status updates on your upgrade.</p>
 
     The output appears similar to this:
 
-    ```
+    ```sh
     NAME                                             CLUSTER                  AGE     PROVIDERID                              PHASE     VERSION
     generic-konvoy184-cfe1-control-plane-bnwpn       generic-konvoy184-cfe1   83m     aws:///us-west-2c/i-05482170a16ad0ced   Running   v1.21.6
     generic-konvoy184-cfe1-control-plane-kkjct       generic-konvoy184-cfe1   78m     aws:///us-west-2c/i-02a0d48730c8d3404   Running   v1.21.6
