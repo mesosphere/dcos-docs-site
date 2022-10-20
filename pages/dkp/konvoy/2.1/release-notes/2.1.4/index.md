@@ -66,7 +66,7 @@ The following services and service components are upgraded to the listed version
 
 ### Konvoy migration preserves providerIDs
 
-Attempting to migrate existing vSphere 1.8 clusters to 2.1 results in failure. The problem occurred when migrating a 1.8 cluster with a cloud-privider who assigned providerIDs to each node. Originally we would replace these with D2iQ IDs, but now we preserve the providerIDs.
+Previously, attempting to migrate existing 1.8 clusters to 2.1 ended in failure due to providerID issues with the migration. The problem occurred when migrating a 1.8 cluster with a cloud-provider that assigned providerIDs to each node. Originally we would replace these with D2iQ IDs, but now we preserve the providerIDs, so that these migrations now succeed.
 
 ## Additional resources
 
