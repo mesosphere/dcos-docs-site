@@ -62,6 +62,12 @@ The following services and service components are upgraded to the listed version
 | Traefik ForwardAuth | traefik-forward-auth | 0.3.2 | - chart: 0.3.2<br>- traefik-forward-auth: 3.0.2 |
 | Velero | velero | 3.1.5 | - chart: 3.1.5<br>- velero: 1.5.2 |
 
+## Known Issues
+
+### Konvoy ProviderID Changes
+
+<content>
+
 ## Additional resources
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
