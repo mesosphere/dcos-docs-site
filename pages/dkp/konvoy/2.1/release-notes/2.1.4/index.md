@@ -62,6 +62,12 @@ The following services and service components are upgraded to the listed version
 | Traefik ForwardAuth | traefik-forward-auth | 0.3.2 | - chart: 0.3.2<br>- traefik-forward-auth: 3.0.2 |
 | Velero | velero | 3.1.5 | - chart: 3.1.5<br>- velero: 1.5.2 |
 
+## Known Issues
+
+### Konvoy migration preserves providerIDs
+
+Previously, attempting to migrate existing 1.8 clusters to 2.1 ended in failure due to providerID issues with the migration. The problem occurred when migrating a 1.8 cluster with a cloud-provider that assigned providerIDs to each node. Originally, we would replace these with D2iQ IDs, but now we preserve the providerIDs so that these migrations succeed.
+
 ## Additional resources
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
