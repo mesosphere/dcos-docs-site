@@ -12,6 +12,8 @@ You can install Kommander on a small environment with smaller memory, storage, a
 
 You can install this minimal setup on networked and air-gapped environments, regardless of the license type (Essential or Enterprise).
 
+<p class="message--important"><strong>Enterprise considerations: </strong>D2iQ recommends performing testing and demo tasks in a single-cluster environment. The Enterprise license is designed for multi-cluster environments and fleet management, which require a minimum amount of resources. Applying an Enterprise license key to the previous installation adds modifications to your environment that can exhaust a small environment’s resources.</p>
+
 ## Prerequisites
 
 Ensure you have done the following:
@@ -30,49 +32,58 @@ In this YAML file you can find commented lines, that correspond to all platform 
 
 For example, if you want to test Grafana to allow monitoring, remove the pound sign preceding `grafana-logging: null`. Since Grafana depends on Loki, you also have to remove the pound preceding `grafana-loki: null` and `minio-operator: null`. Note that depending on the size of your cluster, enabling several platform applications could exhaust your cluster’s resources.
 
-1.  Edit your `install.yaml` file to match the following example:
+1.  Initialize your Kommander installation and name it `kommander.minimal`:
+
+    ```bash
+    dkp install kommander --init --kubeconfig=<cluster-kubeconfig>.conf -oyaml > kommander_minimal.yaml
+    ```
+
+1.  Edit your `kommander_minimal.yaml` file to match the following example:
 
     ```yaml
     apiVersion: config.kommander.mesosphere.io/v1alpha1
     kind: Installation
     apps:
-      #centralized-grafana: null
-      #centralized-kubecost: null
-      dex: null
-      dex-k8s-authenticator: null
-      #fluent-bit: null
-      gitea: null
-      #gatekeeper: null
-      #grafana-logging: null
-      #grafana-loki: null
-      #karma: null
-      #karma-traefik: null
-      kommander: null
-      #kube-prometheus-stack: null
-      #kubecost: null
-      #kubecost-thanos-traefik: null
-      kubefed: null
-      #kubernetes-dashboard: null
-      #kubetunnel: null
-      #kube-oidc-proxy was not included in the generated --init
-      kube-oidc-proxy: null
-      #logging-operator: null
-      #minio-operator: null
-      #metallb:
-          #values: |
-            #configInline:
-              #address-pools:
-              #- name: default
-              #protocol: layer2
-              #addresses:
-              #- 192.168.251.1-192.168.251.254
-      #prometheus-adapter: null
-      #prometheus-thanos-traefik: null
-      reloader: null
-      #thanos: null
-      traefik: null
-      traefik-forward-auth-mgmt: null
-      #velero: null
+      dex:
+        enabled: true
+      dex-k8s-authenticator:
+        enabled: true
+      dkp-insights-management:
+        enabled: false
+      fluent-bit:
+        enabled: true
+      gatekeeper:
+        enabled: true
+      gitea:
+        enabled: true
+      grafana-logging:
+        enabled: false
+      grafana-loki:
+        enabled: false
+      kommander:
+        enabled: true
+      kube-prometheus-stack:
+        enabled: false
+      kubefed:
+        enabled: true
+      kubernetes-dashboard:
+       enabled: false
+      kubetunnel:
+        enabled: false
+      logging-operator:
+       enabled: false
+      minio-operator:
+        enabled: false
+      prometheus-adapter:
+        enabled: false
+      reloader:
+        enabled: true
+      traefik:
+        enabled: true
+      traefik-forward-auth-mgmt:
+        enabled: true
+      velero:
+        enabled: false
     ageEncryptionSecretName: sops-age
     clusterHostname: ""
     ```
@@ -80,10 +91,10 @@ For example, if you want to test Grafana to allow monitoring, remove the pound s
 1.  Install Kommander on your cluster with the following command:
 
     ```bash
-    dkp install kommander --installer-config ./install.yaml --kubeconfig=<cluster-kubeconfig>
+    dkp install kommander --installer-config ./kommander_minimal.yaml --kubeconfig=<cluster-kubeconfig>.conf
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>An alternative to using the <code>--kubeconfig=&lt;cluster-config&gt;</code> flag is to initialize the KUBECONFIG environment variable. You can do this by running <code>export KUBECONFIG=&lt;cluster-config&gt;</code>. Setting your KUBECONFIG (either by flag or by environment variable) ensures that Kommander is installed on the workload cluster.</p>
+    <p class="message--note"><strong>NOTE: </strong>An alternative to using the <code>--kubeconfig=&lt;cluster-config&gt;.conf</code> flag is to initialize the KUBECONFIG environment variable. You can do this by running <code>export KUBECONFIG=&lt;cluster-config&gt;.conf</code>. Setting your KUBECONFIG (either by flag or by environment variable) ensures that Kommander is installed on the workload cluster.</p>
 
 [2.2]: ../../introduction
 [airgap]: ../air-gapped#prerequisites
