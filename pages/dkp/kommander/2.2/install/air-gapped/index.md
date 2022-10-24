@@ -84,7 +84,14 @@ Check the built-in help text for each command for more information.
 
 ### Load the Docker images into your Docker registry
 
-1.  See the `NOTICES.txt` file for 3rd party software attributions and place the `kommander-image-bundle-v2.2.2.tar.gz` and `dkp-catalog-applications-image-bundle-v2.2.2.tar.gz` bundles within a location where you can load and push the images to your private Docker registry.
+1. Untar the kommander image bundle
+
+```bash
+tar -xf dkp-catalog-applications-image-bundle-v2.2.1.tar.gz
+```
+
+See the `NOTICES.txt` file for 3rd party software attributions and place the `kommander-image-bundle-v2.2.1.tar.gz` and `dkp-catalog-applications-image-bundle-v2.2.1.tar.gz` bundles within a location where you can load and push the images to your private Docker registry.
+
 
 1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
