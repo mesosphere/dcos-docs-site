@@ -24,15 +24,15 @@ Ensure you have done the following:
 
 ## Minimal Kommander installation
 
-The YAML file that is used to install a minimal configuration of Kommander contains the bare minimum setup that allows you to deploy applications, access the DKP UI, create and attach clusters. It does **NOT** include applications for cost monitoring, logging, alerting, object storage, etc.
+The YAML file that is used to install a minimal configuration of Kommander contains the bare minimum setup that allows you to deploy applications, and access the DKP UI. It does **NOT** include applications for cost monitoring, logging, alerting, object storage, etc.
 
-In this YAML file you can find commented lines, that correspond to all platform applications which would be included in a normal Kommander setup. Since these lines are commented, they are not taken into account during installation. If you want to test an additional platform application, you can enable it individually to be installed by uncommenting the corresponding line in the YAML file.
+In this YAML file you can find the lines that correspond to all platform applications which would be included in a normal Kommander setup. Applications that have `enabled` set to `false` are not taken into account during installation. If you want to test an additional application, you can enable it individually to be installed by setting `enabled` to `true` on the corresponding line in the YAML file.
+
+For example, if you want to enable the logging stack, set `enabled` to `true` for `grafana-logging`, `grafana-loki`, `logging-operator` and `minio-operator`. Note that depending on the size of your cluster, enabling several platform applications could exhaust your cluster’s resources.
 
 <p class="message--important"><strong>IMPORTANT: </strong>Some applications depend on other applications to work properly. Refer to the <a href="../../workspaces/applications/platform-applications/platform-application-dependencies/">dependencies documentation</a> to find out which other applications you need to enable to test the target application.</p>
 
-For example, if you want to test Grafana to allow monitoring, remove the pound sign preceding `grafana-logging: null`. Since Grafana depends on Loki, you also have to remove the pound preceding `grafana-loki: null` and `minio-operator: null`. Note that depending on the size of your cluster, enabling several platform applications could exhaust your cluster’s resources.
-
-1.  Initialize your Kommander installation and name it `kommander.minimal`:
+1.  Initialize your Kommander installation and name it `kommander_minimal.yaml`:
 
     ```bash
     dkp install kommander --init --kubeconfig=<cluster-kubeconfig>.conf -oyaml > kommander_minimal.yaml
