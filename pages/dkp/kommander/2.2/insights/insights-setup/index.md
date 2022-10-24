@@ -63,7 +63,7 @@ The DKP Insights Management component can be disabled using the instructions for
         enabled: false
     ```
 
-1. Install Kommander using the updated configuration file:
+1.  Install Kommander using the updated configuration file:
 
     ```
     dkp install kommander --installer-config kommander.yaml
