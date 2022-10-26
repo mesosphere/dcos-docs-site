@@ -50,7 +50,8 @@ To enable Nvidia GPU support when installing Kommander, perform the following st
 
     ```yaml
     apps:
-      nvidia: null
+      nvidia:
+        enabled: true
     ```
 
 1. Install Kommander, using the configuration file you created:
