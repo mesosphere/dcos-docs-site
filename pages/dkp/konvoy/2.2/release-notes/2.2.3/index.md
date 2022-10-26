@@ -7,7 +7,7 @@ excerpt: View release-specific information for DKP 2.2.3
 enterprise: false
 beta: false
 ---
-**D2iQ&reg; Konvoy&reg; version 2.2.3 was released on October 14th, 2022.**
+**D2iQ&reg; Konvoy&reg; version 2.2.3 was released on October 25th, 2022.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download DKP[/button]
 
