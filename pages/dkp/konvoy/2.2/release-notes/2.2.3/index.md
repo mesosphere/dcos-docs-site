@@ -37,10 +37,6 @@ A problem that caused the kommander federation-controller to use system certific
 
 The air-gapped image bundles did not include images for cert-manager, which prevented successful deployment of the platform applications to managed and attached clusters in those environments.   The bundle has been updated to include the correct images.
 
-### No apparent upgrade path for 1.X vSphere clusters to 2.X (D2IQ-90769)
-
-vSphere clusters can now be migrated from 1.X to 2.X versions of DKP.
-
 ## Component and Application updates
 
 When upgrading to this release, the following services and service components are upgraded to the listed version:
