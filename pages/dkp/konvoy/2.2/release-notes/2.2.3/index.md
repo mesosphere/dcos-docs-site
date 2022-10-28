@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: DKP 2.2.3 Release Notes
 title: DKP 2.2.3 Release Notes
-menuWeight: 30
+menuWeight: 40
 excerpt: View release-specific information for DKP 2.2.3
 enterprise: false
 beta: false
@@ -31,11 +31,11 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 
 ### Workload clusters cannot be successfully attached when the management cluster uses a custom domain and certificate (D2IQ-93002)
 
-A problem that caused the kommander federation-controller to use system certificates instead of the configured custom certificates was corrected.   The federation-controller now uses custom certificates if they are present.  
+A problem that caused the Kommander federation-controller to use system certificates instead of the configured custom certificates was corrected. The federation-controller now uses custom certificates if they are present.  
 
-### Missing Cert-manager images in airgapped bundles (D2IQ-93002)
+### Missing cert-manager images in air-gapped bundles (D2IQ-93002)
 
-The air-gapped image bundles did not include images for cert-manager, which prevented successful deployment of the platform applications to managed and attached clusters in those environments.   The bundle has been updated to include the correct images.
+The air-gapped image bundles did not include images for cert-manager, which prevented successful deployment of the platform applications to managed and attached clusters in those environments. The bundle has been updated to include the correct images.
 
 ## Component and Application updates
 
