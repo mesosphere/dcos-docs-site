@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: DKP 2.2.3 Release Notes
 title: DKP 2.2.3 Release Notes
-menuWeight: 30
+menuWeight: 40
 excerpt: View release-specific information for DKP 2.2.3
 enterprise: false
 beta: false
