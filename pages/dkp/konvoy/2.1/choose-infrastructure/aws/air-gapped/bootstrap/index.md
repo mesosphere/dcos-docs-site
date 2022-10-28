@@ -14,13 +14,13 @@ Konvoy deploys all cluster lifecycle services to a bootstrap cluster, which depl
 1.  Download the bootstrap docker image on a machine that has access to this artifact.
 
     ```docker
-    curl -O http://downloads.mesosphere.io/konvoy/airgapped/v2.1.1/konvoy-bootstrap_v2.1.1.tar
+    curl -O http://downloads.mesosphere.io/konvoy/airgapped/v2.1.4/konvoy-bootstrap_v2.1.4.tar
     ```
 
 1.  Load the bootstrap docker image on your bastion machine.
 
     ```docker
-    docker load -i konvoy-bootstrap_v2.1.1.tar
+    docker load -i konvoy-bootstrap_v2.1.4.tar
     ```
 
 1.  Create a bootstrap cluster:

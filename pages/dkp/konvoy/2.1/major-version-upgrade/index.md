@@ -24,7 +24,7 @@ The overall process for upgrading the major version to DKP 2.1 has the following
 
 -   Upgrade all clusters to [Konvoy 1.8.3](/dkp/konvoy/1.8/release-notes/1.8.3/), [Konvoy 1.8.4](/dkp/konvoy/1.8/release-notes/1.8.4/), or [Konvoy 1.8.5](/dkp/konvoy/1.8/release-notes/1.8.5/)
 
--   [Download and install DKP 2.1.0 or 2.1.1](../download)
+-   [Download and install the latest version of DKP 2.1.x](../download)
 
 -   [Review the CAPI concepts and terms](capi-concepts-and-terms), and [understand the standard configuration](understand-standard-config)
 
