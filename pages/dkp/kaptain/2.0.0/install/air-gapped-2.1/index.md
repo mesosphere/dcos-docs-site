@@ -32,7 +32,7 @@ Kaptain supports installation on an air-gapped (offline or private) DKP managed 
 
 ### Load the Docker images into your Docker registry
 
-1.  Download the image bundle file:
+1.  Download the image bundle files from the [support portal](https://support.d2iq.com/hc/en-us/articles/4409164864788):
 
     - Download `kaptain-air-gapped-2.0.0.tar.gz` that will contain the required artifacts to perform an air-gapped installation. Extract the image bundle archive and other files before use.
 	  
@@ -77,7 +77,7 @@ Based on the network latency between the environment of script execution, the Do
 
 1.  Ensure the `KUBECONFIG=clusterKubeconfig.conf` is set.
 
-1.  Download the `kaptain-2.0.0.tgz` chart archive from the link obtained from support.
+1.  Download the `kaptain-2.0.0.tgz` chart archive from the [support portal](https://support.d2iq.com/hc/en-us/articles/4409164864788).
 
 1.  Add the following to a file named 'values.yaml' to pass to the helm install with the following contents:
 
