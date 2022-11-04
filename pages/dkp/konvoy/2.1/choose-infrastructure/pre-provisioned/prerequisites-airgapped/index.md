@@ -13,7 +13,7 @@ beta: false
 1.  Download the bootstrap docker image on a machine that has access to this artifact:
 
     ```docker
-    curl --remote-name http://downloads.mesosphere.io/konvoy/airgapped/v2.1.4/konvoy-bootstrap_v2.1.4.tar
+    curl --remote-name http://downloads.d2iq.com/konvoy/airgapped/v2.1.4/konvoy-bootstrap_v2.1.4.tar
     ```
 
 1.  Load the bootstrap docker image on your bastion machine:
