@@ -14,7 +14,7 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 1.  Download the images bundle.
 
     ```bash
-    curl --output konvoy-image-bundle.tar.gz --location https://downloads.d2iq.com/konvoy/airgapped/v2.1.1/konvoy_image_bundle_v2.1.1_linux_amd64.tar.gz
+    curl --output konvoy-image-bundle.tar.gz --location https://downloads.d2iq.com/konvoy/airgapped/v2.1.4/konvoy_image_bundle_v2.1.4_linux_amd64.tar.gz
     ```
 
 
