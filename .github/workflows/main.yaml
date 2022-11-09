@@ -56,5 +56,5 @@ jobs:
           -e PRINCIPAL="arn:aws:iam::977260619897:role/dcos-docs-site" \
           -e REDIR_HOSTNAME=${{ env.HOSTNAME }} \
           -e DOCS_ENV="preview" \
-          mesosphere/docs /src/ci/deploy.sh          
+          mesosphere/docs /src/ci/deploy.sh
       shell: bash
