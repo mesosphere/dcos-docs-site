@@ -38,7 +38,7 @@ jobs:
         cp docker/Dockerfile.production.dockerignore .dockerignore
         docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v1-node16
       with:
         role-to-assume: arn:aws:iam::139475575661:role/dcos-docs-site
         aws-region: us-west-2
