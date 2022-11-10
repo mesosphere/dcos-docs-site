@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.2.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.2.0.tar.gz | tar xz
 ```
 
 </p>
@@ -238,7 +238,7 @@ Finally, a `Model` instance requires providing a base Docker image (`base_image`
 
 
 ```python
-base_image = "mesosphere/kubeflow:2.1.0-base"
+base_image = "mesosphere/kubeflow:2.2.0-base"
 image_name = "mesosphere/kubeflow:mnist-sklearn-sdk"
 
 # name of the file with additional python packages to install into the model image (e.g. "requirements.txt")
@@ -310,16 +310,16 @@ model.train(cpu=cpu, memory=memory, hyperparameters={})
     2022-07-13 10:53:27,083 kaptain-log[INFO]: Waiting for Image Build to start...
     2022-07-13 10:53:32,251 kaptain-log[INFO]: Image Build started in pod: kaniko-796a4baf6ede29c6--1-crzlx.
     2022-07-13 10:53:34,534 kaptain-log[INFO]: [kaniko-796a4baf6ede29c6--1-crzlx/kaniko] logs:
-    [36mINFO[0m[0000] Retrieving image manifest mesosphere/kubeflow:2.1.0-base 
-    [36mINFO[0m[0000] Retrieving image mesosphere/kubeflow:2.1.0-base 
-    [36mINFO[0m[0001] Retrieving image manifest mesosphere/kubeflow:2.1.0-base 
-    [36mINFO[0m[0001] Retrieving image mesosphere/kubeflow:2.1.0-base 
+    [36mINFO[0m[0000] Retrieving image manifest mesosphere/kubeflow:2.2.0-base 
+    [36mINFO[0m[0000] Retrieving image mesosphere/kubeflow:2.2.0-base 
+    [36mINFO[0m[0001] Retrieving image manifest mesosphere/kubeflow:2.2.0-base 
+    [36mINFO[0m[0001] Retrieving image mesosphere/kubeflow:2.2.0-base 
     [36mINFO[0m[0002] Built cross stage deps: map[]                
     2022-07-13 10:54:14,026 kaptain-log[INFO]: [kaniko-796a4baf6ede29c6--1-crzlx/kaniko] logs:
-    [36mINFO[0m[0002] Retrieving image manifest mesosphere/kubeflow:2.1.0-base 
-    [36mINFO[0m[0002] Retrieving image mesosphere/kubeflow:2.1.0-base 
-    [36mINFO[0m[0003] Retrieving image manifest mesosphere/kubeflow:2.1.0-base 
-    [36mINFO[0m[0003] Retrieving image mesosphere/kubeflow:2.1.0-base 
+    [36mINFO[0m[0002] Retrieving image manifest mesosphere/kubeflow:2.2.0-base 
+    [36mINFO[0m[0002] Retrieving image mesosphere/kubeflow:2.2.0-base 
+    [36mINFO[0m[0003] Retrieving image manifest mesosphere/kubeflow:2.2.0-base 
+    [36mINFO[0m[0003] Retrieving image mesosphere/kubeflow:2.2.0-base 
     [36mINFO[0m[0004] Executing 0 build triggers                   
     [36mINFO[0m[0004] Unpacking rootfs as cmd COPY . /kaptain requires it. 
     [36mINFO[0m[0041] Taking snapshot of full filesystem...        
@@ -444,6 +444,8 @@ model.tune(
 
 ## Verify the Model is Exported to MinIO
 
+First, you will need to install the MinIO Client. Refer to the [quickstart guide](https://min.io/docs/minio/linux/reference/minio-mc.html#install-mc) for instructions.
+
 
 ```sh
 %%sh
@@ -452,7 +454,7 @@ set -o errexit
 minio_accesskey=$(kubectl get secret minio-creds-secret -o jsonpath="{.data.accesskey}" | base64 --decode)
 minio_secretkey=$(kubectl get secret minio-creds-secret -o jsonpath="{.data.secretkey}" | base64 --decode)
 
-mc --no-color alias set minio http://minio.kubeflow ${minio_accesskey} ${minio_secretkey}
+mc --no-color alias set minio http://kaptain-minio.kubeflow ${minio_accesskey} ${minio_secretkey}
 mc --no-color ls -r minio/kaptain/models
 ```
 

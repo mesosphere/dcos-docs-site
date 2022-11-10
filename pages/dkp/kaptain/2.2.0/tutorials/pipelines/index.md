@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.2.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.2.0.tar.gz | tar xz
 ```
 
 </p>
@@ -71,7 +71,8 @@ This notebook.
 Ensure Kubeflow Pipelines is available:
 
 
-```python
+```sh
+%%sh
 pip show kfp
 ```
 
@@ -91,7 +92,7 @@ kind: Secret
 metadata:
   name: minio-s3-secret
   annotations:
-     serving.kserve.io/s3-endpoint: minio.kubeflow
+     serving.kserve.io/s3-endpoint: kaptain-minio.kubeflow
      serving.kserve.io/s3-usehttps: "0" # Default: 1. Must be 0 when testing with MinIO!
 type: Opaque
 data:
@@ -121,7 +122,18 @@ kubectl apply -f minio_secret.yaml
 
 ### Copy input data set into MinIO using its CLI
 
-First, configure credentials for `mc`, the MinIO command line client.
+First, you will need to install the MinIO Command Line Client `mc`. Refer to the [quickstart guide](https://min.io/docs/minio/linux/reference/minio-mc.html#install-mc) for instructions.
+
+
+```sh
+%%sh
+set -o errexit
+
+curl https://dl.min.io/client/mc/release/linux-amd64/mc --create-dirs -o ${HOME}/mc
+chmod +x ${HOME}/mc
+```
+
+Next, configure credentials for `mc`.
 
 
 ```sh
@@ -131,7 +143,7 @@ set -o errexit
 minio_accesskey=$(kubectl get secret minio-creds-secret -o jsonpath="{.data.accesskey}" | base64 --decode)
 minio_secretkey=$(kubectl get secret minio-creds-secret -o jsonpath="{.data.secretkey}" | base64 --decode)
 
-mc --no-color alias set minio http://minio.kubeflow ${minio_accesskey} ${minio_secretkey}
+./mc --no-color alias set minio http://kaptain-minio.kubeflow ${minio_accesskey} ${minio_secretkey}
 ```
 
     mc: Configuration written to `/home/kubeflow/.mc/config.json`. Please update your access credentials.
@@ -157,7 +169,7 @@ EXPORT_BUCKET = "pipelines-tutorial-model"
 
 ```sh
 %%sh
-mc --no-color mb "minio/${INPUT_BUCKET}"
+./mc --no-color mb "minio/${INPUT_BUCKET}"
 ```
 
     Bucket created successfully `minio/tutorial`.
@@ -167,9 +179,10 @@ mc --no-color mb "minio/${INPUT_BUCKET}"
 ```sh
 %%sh
 set -o errexit
+
 tar --dereference -czf datasets.tar.gz ./datasets
-mc --no-color cp datasets.tar.gz "minio/${INPUT_BUCKET}/datasets.tar.gz"
-mc --no-color policy set download "minio/${INPUT_BUCKET}"
+./mc --no-color cp datasets.tar.gz "minio/${INPUT_BUCKET}/datasets.tar.gz"
+./mc anonymous --no-color set download "minio/${INPUT_BUCKET}"
 ```
 
     ...ts.tar.gz:  16.14 MiB / 16.14 MiB |=========================| 141.66 MiB/s 0sAccess permission for `minio/tutorial` is set to `download`
@@ -233,7 +246,7 @@ def download_dataset(data_dir: OutputPath(str), input_bucket: str):
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
 
-    url = f"http://minio.kubeflow/{input_bucket}/datasets.tar.gz"
+    url = f"http://kaptain-minio.kubeflow/{input_bucket}/datasets.tar.gz"
     stream = urllib.request.urlopen(url)
     tar = tarfile.open(fileobj=stream, mode="r|gz")
     tar.extractall(path=data_dir)
@@ -377,7 +390,7 @@ def export_model(
 
     s3 = boto3.client(
         "s3",
-        endpoint_url="http://minio.kubeflow",
+        endpoint_url="http://kaptain-minio.kubeflow",
         aws_access_key_id="minio",
         aws_secret_access_key="minio123",
         config=Config(signature_version="s3v4"),
@@ -465,7 +478,7 @@ For GPU support, please add the "-gpu" suffix to the base image.
 
 
 ```python
-BASE_IMAGE = "mesosphere/kubeflow:2.1.0-tensorflow-2.9.1"
+BASE_IMAGE = "mesosphere/kubeflow:2.2.0-tensorflow-2.9.1"
 ```
 
 

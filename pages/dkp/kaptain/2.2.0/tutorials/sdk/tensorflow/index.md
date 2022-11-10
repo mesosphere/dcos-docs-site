@@ -13,12 +13,12 @@ enterprise: false
 [//]: # "WARNING: This page is auto-generated from Jupyter notebooks and should not be modified directly."
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz">download</a>. You can either
+<a href="https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.2.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run the following command
 from a Jupyter Notebook Terminal running in your Kaptain installation:
 
 ```bash
-curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.1.0.tar.gz | tar xz
+curl -L https://downloads.d2iq.com/kaptain/d2iq-tutorials-2.2.0.tar.gz | tar xz
 ```
 
 </p>
@@ -263,7 +263,7 @@ The central abstraction of the Kaptain SDK is a model:
 
 ```python
 extra_files = ["datasets/mnist"]
-base_image = "mesosphere/kubeflow:2.1.0-tensorflow-2.9.1"
+base_image = "mesosphere/kubeflow:2.2.0-tensorflow-2.9.1"
 # replace with your docker repository with a tag (optional), e.g. "repository/image"  or "repository/image:tag"
 image_name = "mesosphere/kubeflow:mnist-sdk-example"
 # name of the file with additional python packages to install into model image (e.g. "requirements.txt")
@@ -359,6 +359,8 @@ The low accuracy of the model is to make the demonstration of distributed traini
 
 ### Verify the Model is Exported to MinIO
 
+First, you will need to install the MinIO Client. Refer to the [quickstart guide](https://min.io/docs/minio/linux/reference/minio-mc.html#install-mc) for instructions.
+
 
 ```sh
 %%sh
@@ -367,7 +369,7 @@ set -o errexit
 minio_accesskey=$(kubectl get secret minio-creds-secret -o jsonpath="{.data.accesskey}" | base64 --decode)
 minio_secretkey=$(kubectl get secret minio-creds-secret -o jsonpath="{.data.secretkey}" | base64 --decode)
 
-mc --no-color alias set minio http://minio.kubeflow ${minio_accesskey} ${minio_secretkey}
+mc --no-color alias set minio http://kaptain-minio.kubeflow ${minio_accesskey} ${minio_secretkey}
 mc --no-color ls -r minio/kaptain/models
 ```
 
