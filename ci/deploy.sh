@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# print $1
 set -ex
 
 npm run build

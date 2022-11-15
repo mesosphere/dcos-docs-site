@@ -57,4 +57,14 @@ jobs:
           -e REDIR_HOSTNAME=${{ env.HOSTNAME }} \
           -e DOCS_ENV="preview" \
           mesosphere/docs /src/ci/deploy.sh
+        echo "http://${{ env.HOSTNAME }}"
       shell: bash
+    - name: Push Image
+      run: |
+        if [ "$BRANCH" = "main" ]; then 
+          echo 'PUSH IMAGE AND RESTART DEV DEPLOYMENT'
+      shell: bash
+          # docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
+          # docker push mesosphere/docs:latest
+          # kubectl -n docs-site rollout restart deployment docs-site-dev
+          # kubectl -n docs-site rollout status deploy/docs-site-dev -w --timeout=10m          
