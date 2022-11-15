@@ -704,7 +704,7 @@ It is illegal to specify both the 'resources' parameter or any 'simple' resource
 - `parallel_trials`: Maximum number of trials to run in parallel (default: 2).
 - `failed_trials`: Maximum number of failed trials before hyperparameter tuning stops (default: 4).
 - `algorithm`: Algorithm to use for hyperparameter search (default: random).
-- `algorithm_setting`: Algorithm settings. Please see https://www.kubeflow.org/docs/components/hyperparameter-tuning/experiment/ for details.
+- `algorithm_setting`: Algorithm settings. Please see https://www.kubeflow.org/docs/components/katib/experiment/ for details.
 - `verbose`: Enable verbose output (can also be set via environment variable KAPTAIN_SDK_VERBOSE).
 - `delete_experiment`: Delete the experiment resource upon the completion of the tuning step. Can be set via 'KAPTAIN_SDK_DELETE_EXPERIMENT' environment variable. Note: once the experiment is deleted, it won't be available for viewing in the Katib UI.
 - `ttl_seconds_after_finished`: Number of seconds after which a completed training job gets automatically deleted.
@@ -727,13 +727,13 @@ Deploys a model.
 
 Resources may be specified via the 'simple' resource parameters::
 
-model.deploy(model_uri=uri, cpu=1, memory="2G", gpus=0)
+    model.deploy(model_uri=uri, cpu=1, memory="2G", gpus=0)
 
 ... the deployed model process will have both the request and limit set for all resource parameters.
 
 More fine-grained resource specification is possible via the 'resources' parameter::
 
-model.deploy(model_uri=uri, resources=Resources(cpu_request=1, memory_limit="2G", gpu_limit=gpus))
+    model.deploy(model_uri=uri, resources=Resources(cpu_request=1, memory_limit="2G", gpu_limit=gpus))
 
 It is illegal to specify both the 'resources' parameter or any 'simple' resource parameters (gpus, memory, cpu).
 
