@@ -59,13 +59,13 @@ jobs:
           mesosphere/docs /src/ci/deploy.sh
         echo "http://${{ env.HOSTNAME }}"
       shell: bash
-    - name: Push Image
+    - name: Push Image and Restart Server
       run: |
-        if [ "$BRANCH" = "main" ]; then 
-          echo 'PUSH IMAGE AND RESTART DEV DEPLOYMENT'
+        if [ "$BRANCH" = "main" ]; then           
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
+          docker push mesosphere/docs:latest
+          kubectl -n docs-site rollout restart deployment docs-site-dev
+          kubectl -n docs-site rollout status deploy/docs-site-dev -w --timeout=10m            
         fi
       shell: bash
-          # docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
-          # docker push mesosphere/docs:latest
-          # kubectl -n docs-site rollout restart deployment docs-site-dev
-          # kubectl -n docs-site rollout status deploy/docs-site-dev -w --timeout=10m          
+        
