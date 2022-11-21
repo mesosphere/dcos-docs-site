@@ -67,7 +67,7 @@ Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS
     }
     ```
 
--   Set the `AZURE_CLIENT_SECRET` environment variable:
+-   Set the `AZURE_CLIENT_SECRET` and `AZURE_SUBSCRIPTION_ID` environment variables:
 
     ```bash
     export AZURE_CLIENT_SECRET="<azure_client_secret>"
