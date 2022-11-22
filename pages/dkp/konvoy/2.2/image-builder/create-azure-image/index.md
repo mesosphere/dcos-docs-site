@@ -87,6 +87,7 @@ konvoy-image build azure --client-id "<azure_client_id>" --tenant-id "<azure_ten
 By default, the image builder builds in the `westus2` location. To specify another location set the `--location` flag:
 
 ```bash
+konvoy-image build azure --client-id "<azure_client_id>" --tenant-id "<azure_tenant_id>" --location eastus --overrides override-source-image.yaml images/azure/centos-7.yaml
 konvoy-image build azure --client-id <azure_client_id> --tenant-id <azure_tenant_id> --location eastus --overrides override-source-image.yaml images/azure/centos-7.yaml
 ```
 
