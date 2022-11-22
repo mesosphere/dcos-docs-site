@@ -4,7 +4,7 @@ on:
     - cron:  "0 * * * *"
 jobs:
   cleanup-buckets:
-      permissions:
+    permissions:
       contents: read
       id-token: write
     runs-on: self-hosted
