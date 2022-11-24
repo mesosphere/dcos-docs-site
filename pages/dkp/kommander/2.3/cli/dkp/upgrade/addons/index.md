@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dkp upgrade addons
 title:  dkp upgrade addons
 menuWeight: 10
-excerpt: Upgrade the core Addons in a cluster, one of [aws, azure, eks, gcp, preprovisioned, vsphere]
+excerpt: Upgrade the core Addons in a cluster, one of [aws, azure, eks, preprovisioned, vsphere]
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -13,7 +13,7 @@ beta: false
 
 ## dkp upgrade addons
 
-Upgrade the core Addons in a cluster, one of [aws, azure, eks, gcp, preprovisioned, vsphere]
+Upgrade the core Addons in a cluster, one of [aws, azure, eks, preprovisioned, vsphere]
 
 ### Options
 
@@ -33,7 +33,6 @@ Upgrade the core Addons in a cluster, one of [aws, azure, eks, gcp, preprovision
 * [dkp upgrade addons aws](/dkp/kommander/2.3/cli/dkp/upgrade/addons/aws/)	 - Upgrade the core Addons in a AWS cluster
 * [dkp upgrade addons azure](/dkp/kommander/2.3/cli/dkp/upgrade/addons/azure/)	 - Upgrade the core Addons in a Azure cluster
 * [dkp upgrade addons eks](/dkp/kommander/2.3/cli/dkp/upgrade/addons/eks/)	 - Upgrade the core Addons in a EKS cluster
-* [dkp upgrade addons gcp](/dkp/kommander/2.3/cli/dkp/upgrade/addons/gcp/)	 - Upgrade the core Addons in a GCP cluster
 * [dkp upgrade addons preprovisioned](/dkp/kommander/2.3/cli/dkp/upgrade/addons/preprovisioned/)	 - Upgrade the core Addons in a Preprovisioned cluster
 * [dkp upgrade addons vsphere](/dkp/kommander/2.3/cli/dkp/upgrade/addons/vsphere/)	 - Upgrade the core Addons in a vSphere cluster
 

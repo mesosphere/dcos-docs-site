@@ -49,7 +49,7 @@ dkp edit (RESOURCE/NAME | -f FILENAME)
       --show-managed-fields           If true, keep the managedFields when printing objects in JSON or YAML format.
       --subresource string            If specified, edit will operate on the subresource of the requested object. Must be one of [status]. This flag is alpha and may change in the future.
       --template string               Template string or path to template file to use when -o=go-template, -o=go-template-file. The template format is golang templates [http://golang.org/pkg/text/template/#pkg-overview].
-      --validate string[="strict"]    Must be one of: strict (or true), warn, ignore (or false).
+      --validate string               Must be one of: strict (or true), warn, ignore (or false).
                                       		"true" or "strict" will use a schema to validate the input and fail the request if invalid. It will perform server side validation if ServerSideFieldValidation is enabled on the api-server, but will fall back to less reliable client-side validation if not.
                                       		"warn" will warn about unknown or duplicate fields without blocking the request if server-side field validation is enabled on the API server, and behave as "ignore" otherwise.
                                       		"false" or "ignore" will not perform any schema validation, silently dropping any unknown or duplicate fields. (default "strict")

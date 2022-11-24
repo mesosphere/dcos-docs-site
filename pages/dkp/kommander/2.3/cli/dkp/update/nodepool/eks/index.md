@@ -24,7 +24,6 @@ dkp update nodepool eks [flags]
 ```
   -c, --cluster-name name           Name used to prefix the cluster and all the created resources.
   -h, --help                        help for eks
-      --instance-type string        Instance type to use for node pool machines
       --kubeconfig string           Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-version string   Kubernetes version
   -n, --namespace string            If present, the namespace scope for this CLI request. (default "default")
@@ -40,5 +39,5 @@ dkp update nodepool eks [flags]
 
 ### SEE ALSO
 
-* [dkp update nodepool](/dkp/kommander/2.3/cli/dkp/update/nodepool/)	 - Upate a Kubernetes cluster node pool, one of [aws, azure, eks, gcp, preprovisioned, vsphere]
+* [dkp update nodepool](/dkp/kommander/2.3/cli/dkp/update/nodepool/)	 - Upate a Kubernetes cluster node pool, one of [aws, azure, eks, preprovisioned, vsphere]
 
