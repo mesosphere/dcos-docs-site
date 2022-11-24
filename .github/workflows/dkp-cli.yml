@@ -35,7 +35,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: update dkp-cli documentation
-          title: Update dkp-cli documentation for ${{ dkp-version }} (automated)
+          title: Update dkp-cli documentation for ${{ inputs.dkp-version }} (automated)
           body: This pull request was generated automatically based on changes in the CLI. Do not edit the files directly, they would be overwritten by future automated updates. Changes to the help text must be made in the `konvoy`, `kommander-cli` and `dkp-diagnostics` repositories.
-          branch: automation/update-dkp-cli-docs_${{ dkp-version }}
+          branch: automation/update-dkp-cli-docs_${{ inputs.dkp-version }}
           base: main
