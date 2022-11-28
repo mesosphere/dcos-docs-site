@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp open
-title:  dkp open
+navigationTitle:  dkp cluster
+title:  dkp cluster
 menuWeight: 10
-excerpt: Open one of [dashboard]
+excerpt: Get cluster information
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,16 +11,16 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp open
+## dkp cluster
 
-Open one of [dashboard]
+Get cluster information
 
 ### Options
 
 ```
       --config string            Config file to use (default "/root/.kommander/config")
       --context string           The name of the kubeconfig context to use
-  -h, --help                     help for open
+  -h, --help                     help for cluster
       --kubeconfig string        Path to the kubeconfig file to use for CLI requests.
       --request-timeout string   The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests.
 ```
@@ -34,5 +34,5 @@ Open one of [dashboard]
 ### SEE ALSO
 
 * [dkp](/dkp/kommander/2.2/cli/dkp/)	 - 
-* [dkp open dashboard](/dkp/kommander/2.2/cli/dkp/open/dashboard/)	 - Open DKP UI in your browser
+* [dkp cluster type](/dkp/kommander/2.2/cli/dkp/cluster/type/)	 - Retrieve cluster type
 

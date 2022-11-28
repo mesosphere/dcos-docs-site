@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dkp open dashboard
-title:  dkp open dashboard
+navigationTitle:  dkp cluster type
+title:  dkp cluster type
 menuWeight: 10
-excerpt: Open DKP UI in your browser
+excerpt: Retrieve cluster type
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 beta: false
@@ -11,18 +11,18 @@ beta: false
 <!-- vale off -->
 <!-- markdownlint-disable -->
 
-## dkp open dashboard
+## dkp cluster type
 
-Open DKP UI in your browser
+Retrieve cluster type
 
 ```
-dkp open dashboard [flags]
+dkp cluster type [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for dashboard
+  -h, --help   help for type
 ```
 
 ### Options inherited from parent commands
@@ -37,5 +37,5 @@ dkp open dashboard [flags]
 
 ### SEE ALSO
 
-* [dkp open](/dkp/kommander/2.2/cli/dkp/open/)	 - Open one of [dashboard]
+* [dkp cluster](/dkp/kommander/2.2/cli/dkp/cluster/)	 - Get cluster information
 

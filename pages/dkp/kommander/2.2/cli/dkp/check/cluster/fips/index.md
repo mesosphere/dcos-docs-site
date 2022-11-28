@@ -23,18 +23,18 @@ are using the certified algorithms.
 
 Examples:
 
-    With a signature file named "manifest-rhel8.json.asc" run:
+    With a signature file named "manifest-rhel-84.json.asc" run:
 
 	dkp check cluster fips \
-		--signature-file manifest-rhel8.json.asc \
-		--signature-configmap prod-rhel8-fips-signatures \
-		--output-configmap prod-rhel8-fips-validation
+		--signature-file manifest-rhel-84.json.asc \
+		--signature-configmap prod-rhel-84-fips-signatures \
+		--output-configmap prod-rhel-84-fips-validation
 
     If you already have a signature ConfigMap, you can omit the signature-file flag:
 
 	dkp check cluster fips \
-		--signature-configmap prod-rhel8-fips-signatures \
-		--output-configmap prod-rhel8-fips-validation
+		--signature-configmap prod-rhel-84-fips-signatures \
+		--output-configmap prod-rhel-84-fips-validation
 
     The validation will be re-checked against the existing signature data.
 
@@ -52,7 +52,7 @@ dkp check cluster fips [flags]
       --output-configmap string      ConfigMap with fips signature data to verify. [required]
       --signature-configmap string   ConfigMap with fips signature data to verify. [required]
       --signature-file string        File containing fips signature data.
-      --timeout duration             The length of time to wait before giving up. Zero means wait forever. (default 20m0s)
+      --timeout duration             The length of time to wait before giving up. Zero means wait forever. (default 10m0s)
 ```
 
 ### Options inherited from parent commands
