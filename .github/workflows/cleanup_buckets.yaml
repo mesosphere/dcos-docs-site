@@ -32,6 +32,7 @@ jobs:
         echo $buckets
         open_prs=$(docker run curlimages/curl:7.75.0 "https://api.github.com/repos/mesosphere/dcos-docs-site/pulls?state=open" | jq '.[].number')
         echo $open_prs
+        docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION  -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN amazon/aws-cli s3 rb s3://docs-d2iq-com-pr-4627 --force
         for bucket in $buckets; do
           found=false
           for pr in $open_prs; do
