@@ -28,9 +28,6 @@ jobs:
       run: |
         set -euxo pipefail
         sudo apt-get update && sudo apt-get install jq
-        echo $AWS_SECRET_ACCESS_KEY
-        echo $AWS_SESSION_TOKEN
-        echo $AWS_DEFAULT_REGION
         buckets=$(docker run -e $AWS_ACCESS_KEY_ID -e $AWS_DEFAULT_REGION  -e $AWS_SECRET_ACCESS_KEY -e $AWS_SESSION_TOKEN amazon/aws-cli s3api list-buckets | jq '.Buckets | .[].Name' -r | grep "docs-d2iq-com-pr-")
         echo $buckets
         open_prs=$(docker run curlimages/curl:7.75.0 "https://api.github.com/repos/mesosphere/dcos-docs-site/pulls?state=open" | jq '.[].number')
