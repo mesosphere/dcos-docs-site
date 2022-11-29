@@ -26,8 +26,8 @@ jobs:
           HOSTNAME=dev-docs.d2iq.com
         else
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          BUCKET="docs-d2iq-com-pr-test-${PR_NUMBER}"
-          HOSTNAME="docs-d2iq-com-pr-test-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
+          BUCKET="docs-d2iq-com-pr-${PR_NUMBER}"
+          HOSTNAME="docs-d2iq-com-pr-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
         fi
         echo "::set-env name=BUCKET::$BUCKET"        
         echo "::set-env name=HOSTNAME::$HOSTNAME"
