@@ -178,7 +178,7 @@ Mesosphere
 mesosphere
 (metallb|Metallb)
 Metalsmith
-middleware
+(middleware|Middleware)
 misconfiguration
 misconfigured
 Mitogen
