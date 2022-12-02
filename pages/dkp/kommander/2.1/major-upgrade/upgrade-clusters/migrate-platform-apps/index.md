@@ -47,7 +47,7 @@ Check for the following in your existing `cluster.yaml`:
 - One or more of `spec.kubernetes.networking.noProxy`, `spec.kubernetes.networking.httpProxy` or `spec.kubernetes.networking.httpsProxy` is set in `ClusterConfiguration`.
 - Gatekeeper is enabled. Gatekeeper is enabled by default, but if you have manually disabled it, re-enable the application by changing the enabled field from `false` to `true` in the `addons` object of the cluster's `ClusterConfiguration` and perform a `konvoy up` to update the addons.
 
-If none of the conditions apply to your cluster, then you can skip to next section.
+If none of the conditions apply to your cluster, then you can skip to next section. If they do, follow the below steps.
 
 1.  Because Kommander 2.0+ uses Flux to manage applications, you must configure the Gatekeeper `mutatingwebhookconfigurations` (which is a cluster-scoped resource) to allow `dry-run` calls. They are required by the Flux kustomize controller to calculate the difference of a resource. To do this:
 
@@ -212,6 +212,55 @@ velero
  ✓ Ensuring check that there remain no addons and deletion of the Kubeaddons controller
 ```
 
+If there is a timeout error at this step, start `kommander migrate -y` again, and it will eventually continue where this timed out.
+
+When this is complete, you will have to edit a Traefik Middleware in order for Gitea to correctly perform.
+
+To do this, edit the Middleware object:
+
+```bash
+kubectl edit middlewares stripprefixes -nkommander
+```
+
+This file will look something like this:
+
+```yaml
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  annotations:
+    ...
+  name: stripprefixes
+  namespace: kommander
+  ...
+spec:
+  stripPrefix:
+    prefixes:
+    - /dkp/alertmanager
+    - /dkp/api-server
+    - /dkp/kommander/dashboard
+    ...
+```
+
+You will then need to add `/dkp/kommander/git` to the `spec.stripPrefix.prefixes` list:
+
+```yaml
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  ...
+  name: stripprefixes
+  namespace: kommander
+  ...
+spec:
+  stripPrefix:
+    prefixes:
+    ...
+    - /dkp/kommander/git
+```
+
+Then, save this file.
+
 Refer to the [Verify installation][verify-install] topic to ensure successful completion.
 
 ### Environments with an HTTP proxy server
@@ -231,11 +280,11 @@ The `kommander migrate` command requires a connection from your environment to t
     kubectl --kubeconfig admin.conf -n kommander port-forward svc/kommander-traefik 443:443
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>It is necessary that you open a new terminal window because the `kubectl port-forward` command does not return, and you need to leave this connection open for the duration of the migration.</p>
+    <p class="message--note"><strong>NOTE: </strong>It is necessary that you open a new terminal window because the <code>kubectl port-forward</code> command does not return, and you need to leave this connection open for the duration of the migration.</p>
 
 1.  From your standard terminal window, continue with the [Move your applications](#move-your-applications) section.
 
-    <p class="message--important"><strong>IMPORTANT: </strong>Once the migration is completed, revert the changes in your hosts `/etc/hosts` file.</p>
+    <p class="message--important"><strong>IMPORTANT: </strong>Once the migration is completed, revert the changes in your hosts <code>/etc/hosts</code> file.</p>
 
 ## Post-upgrade cleanup
 

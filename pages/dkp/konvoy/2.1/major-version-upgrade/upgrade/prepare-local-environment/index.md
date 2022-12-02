@@ -125,6 +125,7 @@ enterprise: false
     etcd-encryption-config.yaml
     front-proxy-ca.crt
     front-proxy-ca.key
+    nodes.yaml
     sa.key
     sa.pub
     ```
