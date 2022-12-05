@@ -29,7 +29,7 @@ This release provides new features and enhancements to improve the user experien
 Corrected an issue where a `MachineDeployment` would be incorrectly named when running `dkp describe cluster` after upgrading from Konvoy v1.8. to v2.1.
 
 <!-- vale Vale.Avoid = NO -->
-### Preprovisioned cluster adoption is broken (D2IQ-94144)
+### Pre-provisioned cluster adoption is broken (D2IQ-94144)
 <!-- vale Vale.Avoid = YES -->
 
 Corrected an issue that prevented the adoption of pre-provisioned clusters in Konvoy 2.1.
