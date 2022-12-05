@@ -214,52 +214,7 @@ velero
 
 If there is a timeout error at this step, start `kommander migrate -y` again, and it will eventually continue where this timed out.
 
-When this is complete, you will have to edit a Traefik Middleware in order for Gitea to correctly perform.
-
-To do this, edit the Middleware object:
-
-```bash
-kubectl edit middlewares stripprefixes -nkommander
-```
-
-This file will look something like this:
-
-```yaml
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  annotations:
-    ...
-  name: stripprefixes
-  namespace: kommander
-  ...
-spec:
-  stripPrefix:
-    prefixes:
-    - /dkp/alertmanager
-    - /dkp/api-server
-    - /dkp/kommander/dashboard
-    ...
-```
-
-You will then need to add `/dkp/kommander/git` to the `spec.stripPrefix.prefixes` list:
-
-```yaml
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  ...
-  name: stripprefixes
-  namespace: kommander
-  ...
-spec:
-  stripPrefix:
-    prefixes:
-    ...
-    - /dkp/kommander/git
-```
-
-Then, save this file.
+If you are upgrading to DKP v2.1.4 or below, [check the release notes][traefik-cm-release-notes] you will need to confirm that the Traefik Middleware ConfigMap was updated correctly. If you are on at least DKP v2.1.5, continue below.
 
 Refer to the [Verify installation][verify-install] topic to ensure successful completion.
 
@@ -304,3 +259,4 @@ Refer to the [Verify installation][verify-install] topic to ensure successful co
 
 [download]: ../../../download
 [verify-install]: ../../../install/networked#verify-installation
+[traefik-cm-release-notes]: ../../../release-notes/2.1.4#updating-override-upon-major-version-upgrade-to-ensure-Gitea-functionality
