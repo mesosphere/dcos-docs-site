@@ -34,7 +34,7 @@ Corrected an issue where a `MachineDeployment` would be incorrectly named when r
 
 Corrected an issue that prevented the upgrade of pre-provisioned clusters in Konvoy 2.1.
 
-Konvoy Image Builder (KIB) Update to version 1.5.2
+### Konvoy Image Builder (KIB) Update to version 1.5.2
 An update for KIB has been included with this release. Refer to the [public repository][publicrepo] for more information
 
 ## Component updates
