@@ -32,7 +32,10 @@ Corrected an issue where a `MachineDeployment` would be incorrectly named when r
 ### Pre-provisioned cluster adoption is broken (D2IQ-94144)
 <!-- vale Vale.Avoid = YES -->
 
-Corrected an issue that prevented the adoption of pre-provisioned clusters in Konvoy 2.1.
+Corrected an issue that prevented the upgrade of pre-provisioned clusters in Konvoy 2.1.
+
+Konvoy Image Builder (KIB) Update to version 1.5.2
+An update for KIB has been included with this release. Refer to the [public repository][publicrepo] for more information
 
 ## Component updates
 
@@ -88,3 +91,4 @@ For a full list of attributed 3rd party software, see [d2iq.com/legal/3rd](http:
 [acme]: https://cert-manager.io/docs/configuration/acme/
 [config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [selfsigned]: https://cert-manager.io/docs/configuration/selfsigned/
+[publicrepo]: https://github.com/mesosphere/konvoy-image-builder/releases/tag/v1.5.2
