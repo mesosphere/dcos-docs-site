@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Konvoy 2.1.4 Release Notes
-title: Konvoy 2.1.4 Release Notes
+navigationTitle: Release Notes Konvoy 2.1.4
+title: Release Notes Konvoy 2.1.4
 menuWeight: 50
 excerpt: View release-specific information for Konvoy 2.1.4
 enterprise: false
@@ -75,9 +75,7 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 For a full list of attributed 3rd party software, see [d2iq.com/legal/3rd](http://d2iq.com/legal/3rd).
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
-[attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/advanced/self-managed
-[project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
 [flux-cli]: https://fluxcd.io/docs/installation/
 [acme]: https://cert-manager.io/docs/configuration/acme/
 [config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/

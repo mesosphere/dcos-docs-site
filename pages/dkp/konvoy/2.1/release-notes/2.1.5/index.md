@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Konvoy 2.1.5 Release Notes
-title: Konvoy 2.1.5 Release Notes
-menuWeight: 50
+navigationTitle: Release Notes Konvoy 2.1.5
+title: Release Notes Konvoy 2.1.5
+menuWeight: 60
 excerpt: View release-specific information for Konvoy 2.1.5
 enterprise: false
 beta: false
@@ -22,11 +22,15 @@ This release provides new features and enhancements to improve the user experien
 
 ## Fixes and Improvements
 
+<!-- vale Vale.Avoid = NO -->
 ### Wrong MachineDeployment (nodepool) names after Konvoy v1.8.5 to DKP v2.1.3 upgrade (D2IQ-93614)
+<!-- vale Vale.Avoid = YES -->
 
 Corrected an issue where a `MachineDeployment` would be incorrectly named when running `dkp describe cluster` after upgrading from Konvoy v1.8. to v2.1.
 
+<!-- vale Vale.Avoid = NO -->
 ### Preprovisioned cluster adoption is broken (D2IQ-94144)
+<!-- vale Vale.Avoid = YES -->
 
 Corrected an issue that prevented the adoption of pre-provisioned clusters in Konvoy 2.1.
 
@@ -79,9 +83,7 @@ For more information about working with native Kubernetes, see the [Kubernetes d
 For a full list of attributed 3rd party software, see [d2iq.com/legal/3rd](http://d2iq.com/legal/3rd).
 
 [kubernetes-doc]: https://kubernetes.io/docs/home/
-[attach-cluster]: ../../clusters/attach-cluster#attaching-a-cluster
 [konvoy-self-managed]: /dkp/konvoy/2.1/choose-infrastructure/aws/advanced/self-managed
-[project-custom-applications-git-repo]: ../../projects/applications/catalog-applications/custom-applications/add-create-git-repo
 [flux-cli]: https://fluxcd.io/docs/installation/
 [acme]: https://cert-manager.io/docs/configuration/acme/
 [config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
