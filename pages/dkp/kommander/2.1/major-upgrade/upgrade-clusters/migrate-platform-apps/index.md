@@ -259,4 +259,4 @@ Refer to the [Verify installation][verify-install] topic to ensure successful co
 
 [download]: ../../../download
 [verify-install]: ../../../install/networked#verify-installation
-[traefik-cm-release-notes]: ../../../release-notes/2.1.4#updating-override-upon-major-version-upgrade-to-ensure-Gitea-functionality
+[traefik-cm-release-notes]: ../../../release-notes/2.1.4#updating-override-upon-major-version-upgrade-to-ensure-gitea-functionality
