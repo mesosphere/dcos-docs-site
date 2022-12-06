@@ -1,24 +1,30 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes Konvoy 2.1.4
-title: Release Notes Konvoy 2.1.4
-menuWeight: 50
-excerpt: View release-specific information for Konvoy 2.1.4
+navigationTitle: Release Notes Kommander 2.1.5
+title: Release Notes Kommander 2.1.5
+menuWeight: 60
+excerpt: View release-specific information for Kommander 2.1.5
 enterprise: false
 beta: false
 ---
 
-**D2iQ&reg; Konvoy&reg; version 2.1.4 was released on October 19, 2022.**
+**D2iQ&reg; Kommander&reg; version 2.1.5 was released on December 6th, 2022.**
 
-[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
+[button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Kommander[/button]
 
-To get started with Konvoy, [download](../../download/) and [install](../../choose-infrastructure/) the latest version of Konvoy.
+To get started with Kommander, [download](../../download/) and [install](../../choose-infrastructure/) the latest version of Kommander.
 
-<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
+<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Kommander.</p>
 
 ## Release summary
 
-This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Konvoy.
+This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Kommander.
+
+## Fixes and Improvements
+
+### DKP users can download cluster admin kubeconfigs D2IQ-93695
+
+An issue arose where a user with global edit permissions could edit their role to have admin permissions. This release includes a fix to prevent this issue from occurring and assigns permissions appropriately.
 
 ## Component updates
 
@@ -61,12 +67,6 @@ The following services and service components are upgraded to the listed version
 | Traefik | traefik | 10.3.0 | - chart: 10.3.0<br>- traefik: 2.5.0 |
 | Traefik ForwardAuth | traefik-forward-auth | 0.3.2 | - chart: 0.3.2<br>- traefik-forward-auth: 3.0.2 |
 | Velero | velero | 3.1.5 | - chart: 3.1.5<br>- velero: 1.5.2 |
-
-## Known Issues
-
-### Konvoy migration preserves providerIDs
-
-Previously, attempting to migrate existing 1.8 clusters to 2.1 ended in failure due to providerID issues with the migration. The problem occurred when migrating a 1.8 cluster with a cloud-provider that assigned providerIDs to each node. Originally, we would replace these with D2iQ IDs, but now we preserve the providerIDs so that these migrations succeed.
 
 ## Additional resources
 
