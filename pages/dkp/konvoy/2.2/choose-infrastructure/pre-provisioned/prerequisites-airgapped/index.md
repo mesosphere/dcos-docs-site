@@ -15,13 +15,13 @@ The instructions below outline how to fulfill the prerquisites for using pre-pro
 1.  Download the bootstrap docker image on a machine that has access to this artifact:
 
     ```docker
-    curl --remote-name https://downloads.d2iq.com/dkp/v2.2.1/konvoy-bootstrap_v2.2.1.tar
+    curl --remote-name https://downloads.d2iq.com/dkp/v2.2.2/konvoy-bootstrap_v2.2.2.tar
     ```
 
 1.  Load the bootstrap Docker image on your bastion machine:
 
     ```docker
-    docker load -i konvoy-bootstrap_v2.2.1.tar
+    docker load -i konvoy-bootstrap_v2.2.2.tar
     ```
 
 ## Copy air-gapped artifacts onto cluster hosts
@@ -79,6 +79,35 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
     curl --output artifacts/pip-packages.tar.gz --location https://downloads.d2iq.com/dkp/airgapped/pip-packages/pip-packages.tar.gz
     ```
 
+1. Download the Containerd `1.14.13` packages for the OS you plan to provision DKP on.
+
+    Available packages are:
+
+    -   `centos-7.9-x86_64`
+    -   `rhel-7.9-x86_64`
+    -   `rhel-8.2-x86_64`
+    -   `ubuntu-20.04-x86_64`
+    -   `ubuntu-18.04-x86_64`
+
+    ```bash
+    export CONTAINERD_OS=centos-7.9-x86_64
+    ```
+
+    ```bash
+    curl --output artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz --location https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
+    ```
+
+    To get the fips builds append _fips after -x86_64 in the URL. To get the fips build for `centos-7.9` the URL would be
+    https://packages.d2iq.com/dkp/containerd/containerd-1.4.13-d2iq.1-centos-7.9-x86_64_fips.tar.gz
+
+    The following OS’s have containerd fips builds:
+
+    -   `centos-7.9`
+    -   `ol-7.9`
+    -   `rhel-7.9`
+    -   `rhel-8.2`
+    -   `rhel-8.4`
+
 1.  Export the following environment variables, ensuring that all control plane and worker nodes are included:
 
     ```bash
@@ -125,7 +154,10 @@ Using the [Konvoy Image Builder](../../../image-builder), you can copy the requi
 1.  Copy the artifacts onto cluster hosts:
 
     ```bash
-    konvoy-image upload artifacts --container-images-dir=./artifacts/images/ --os-packages-bundle=./artifacts/"$VERSION"_"$BUNDLE_OS".tar.gz --pip-packages-bundle=./artifacts/pip-packages.tar.gz
+    konvoy-image upload artifacts --container-images-dir=./artifacts/images/ \
+                  --os-packages-bundle=./artifacts/"$VERSION"_"$BUNDLE_OS".tar.gz \
+                  --pip-packages-bundle=./artifacts/pip-packages.tar.gz \
+                  --containerd-bundle=artifacts/containerd-1.4.13-d2iq.1-"$CONTAINERD_OS".tar.gz
     ```
 
 ## Seed your docker registry
@@ -135,7 +167,7 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 1.  Download the images bundle:
 
     ```bash
-    curl --output konvoy-image-bundle.tar.gz --location https://downloads.d2iq.com/dkp/v2.2.1/konvoy_image_bundle_v2.2.1_linux_amd64.tar.gz
+    curl --output konvoy-image-bundle.tar.gz --location https://downloads.d2iq.com/dkp/v2.2.2/konvoy_image_bundle_v2.2.2_linux_amd64.tar.gz
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private docker registry.
@@ -158,7 +190,7 @@ Then [begin creating the bootstrap cluster][bootstrap].
 
 [bootstrap]: ../bootstrap
 
-This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the versions of MinIO packaged with DKP/Kommander/Konvoy 2.2.1 are available at these URLs: 
+This Docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the GNU Affero General Public License 3.0. The complete source code for the versions of MinIO packaged with DKP/Kommander/Konvoy 2.2.2 are available at these URLs: 
 https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z
 https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z
 

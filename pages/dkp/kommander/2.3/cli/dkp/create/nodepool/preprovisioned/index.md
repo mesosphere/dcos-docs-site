@@ -30,7 +30,7 @@ dkp create nodepool preprovisioned name [flags]
       --http-proxy string                 HTTP proxy for nodes
       --https-proxy string                HTTPS proxy for nodes
       --kubeconfig string                 Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --kubernetes-version string         Kubernetes version (default "1.23.7")
+      --kubernetes-version string         Kubernetes version (default "1.24.4")
   -n, --namespace string                  If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                  No Proxy list for nodes (default [])
       --os-hint flatcar                   A hint which will allow the installer to generate appropriate configurations for a target OS. Presently, only the hint for flatcar is supported.

@@ -27,7 +27,7 @@ catalog:
       gitRepositorySpec:
         url: https://github.com/mesosphere/dkp-catalog-applications
         ref:
-          tag: v2.2.1
+          tag: v2.2.2
 ```
 
 Use this configuration when installing or reconfiguring Kommander by passing it to the `dkp install kommander` command:
@@ -55,7 +55,7 @@ When running in air-gapped environments, update the configuration by replacing `
 1.  Download the DKP catalog application Git repository archive:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-catalog-applications-v2.2.1.tar.gz" -O dkp-catalog-applications.tar.gz
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-catalog-applications-v2.2.2.tar.gz" -O dkp-catalog-applications.tar.gz
     ```
 
 <p class="message--note"><strong>NOTE: </strong>This docker image includes code from the MinIO Project (“MinIO”), which is © 2015-2021 MinIO, Inc. MinIO is made available subject to the terms and conditions of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>. Complete source code for MinIO is available <a href="https://github.com/minio/minio/tree/RELEASE.2021-02-14T04-01-33Z">here</a>, <a href="https://github.com/minio/minio/tree/RELEASE.2022-02-24T22-12-01Z">here</a>, and <a href="https://github.com/minio/minio/tree/RELEASE.2022-01-08T03-11-54Z">here</a></p>

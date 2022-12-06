@@ -13,13 +13,13 @@ beta: false
 1.  Download the bootstrap docker image on a machine that has access to this artifact:
 
     ```docker
-    curl --remote-name http://downloads.mesosphere.io/konvoy/airgapped/v2.1.1/konvoy-bootstrap_v2.1.1.tar
+    curl --remote-name http://downloads.d2iq.com/konvoy/airgapped/v2.1.4/konvoy-bootstrap_v2.1.4.tar
     ```
 
 1.  Load the bootstrap docker image on your bastion machine:
 
     ```docker
-    docker load -i konvoy-bootstrap_v2.1.1.tar
+    docker load -i konvoy-bootstrap_v2.1.4.tar
     ```
 
 ## Copy air-gapped artifacts onto cluster hosts
@@ -113,7 +113,7 @@ Before creating a Kubernetes cluster you must have the required images in a loca
 1.  Download the images bundle.
 
     ```bash
-    curl --output konvoy-image-bundle.tar.gz --location https://downloads.d2iq.com/konvoy/airgapped/v2.1.1/konvoy_image_bundle_v2.1.1_linux_amd64.tar.gz
+    curl --output konvoy-image-bundle.tar.gz --location https://downloads.d2iq.com/konvoy/airgapped/v2.1.4/konvoy_image_bundle_v2.1.4_linux_amd64.tar.gz
     ```
 
 1.  Place the bundle in a location where you can load and push the images to your private docker registry.

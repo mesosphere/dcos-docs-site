@@ -55,7 +55,7 @@ If you added Kaptain after installing DKP, you must make it available by rerunni
 
 ### Load the Docker images into your Docker registry
 
-1.  Download the image bundle file:
+1.  Download the image bundle files from the [support portal](https://support.d2iq.com/hc/en-us/articles/4409164864788):
 
     - Download `kaptain-air-gapped.tar.gz` that will contain the required artifacts to perform an air-gapped installation. Extract the image bundle archive and other files before use:
 
@@ -82,7 +82,7 @@ If you added Kaptain after installing DKP, you must make it available by rerunni
 
     Based on the network latency between the environment of script execution, the Docker registry, and the disk speed, this can take a while to upload all the images to your image registry.
 
-1.  Download the application bundles and chart archive (get links from support)
+1.  Download the application bundles and chart archive from the [support portal](https://support.d2iq.com/hc/en-us/articles/4409164864788).
 
 1.  Extract the application bundle to the location referenced in the Kommander configuration file above.
 

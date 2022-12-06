@@ -26,6 +26,7 @@ beta: false
 
 * [dkp attach](/dkp/kommander/2.2/cli/dkp/attach/)	 - Attach one of [cluster]
 * [dkp check](/dkp/kommander/2.2/cli/dkp/check/)	 - Check, one of [cluster]
+* [dkp cluster](/dkp/kommander/2.2/cli/dkp/cluster/)	 - Get cluster information
 * [dkp completion](/dkp/kommander/2.2/cli/dkp/completion/)	 - Generate the autocompletion script for the specified shell
 * [dkp config](/dkp/kommander/2.2/cli/dkp/config/)	 - Manage DKP Kommander's configuration
 * [dkp create](/dkp/kommander/2.2/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, capi-components, chart-bundle, cluster, image-bundle, nodepool, workspace]
@@ -33,6 +34,7 @@ beta: false
 * [dkp describe](/dkp/kommander/2.2/cli/dkp/describe/)	 - Describe one of [cluster]
 * [dkp detach](/dkp/kommander/2.2/cli/dkp/detach/)	 - Detach one of [cluster]
 * [dkp diagnose](/dkp/kommander/2.2/cli/dkp/diagnose/)	 - Generate a support bundle
+* [dkp edit](/dkp/kommander/2.2/cli/dkp/edit/)	 - Edit a resource on the server
 * [dkp get](/dkp/kommander/2.2/cli/dkp/get/)	 - Get one of [appdeployments, chart, clusters, kubeconfig, nodepools, workspaces]
 * [dkp import](/dkp/kommander/2.2/cli/dkp/import/)	 - Import images from an image bundle into Containerd
 * [dkp install](/dkp/kommander/2.2/cli/dkp/install/)	 - Install one of [kommander]

@@ -11,7 +11,7 @@ The DKP upgrade represents an important step of your environment's lifecycle, as
 
 ## Supported upgrade paths
 
-See the [upgrade table in the DKP 2.3 documentation](https://docs.d2iq.com/dkp/2.3/upgrade-dkp#UpgradeDKP-Supportedupgradepaths) for the full upgrade paths supported. 
+See the [upgrade table](https://docs.d2iq.com/dkp/latest/upgrade-dkp#UpgradeDKP-Supportedupgradepaths) in the documentation of the latest DKP version for the full upgrade paths supported.
 
 ## Understand the upgrade process
 

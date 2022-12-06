@@ -67,10 +67,11 @@ Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS
     }
     ```
 
--   Set the `AZURE_CLIENT_SECRET` environment variable:
+-   Set the `AZURE_CLIENT_SECRET` and `AZURE_SUBSCRIPTION_ID` environment variables:
 
     ```bash
-    export AZURE_CLIENT_SECRET=<azure_client_secret>
+    export AZURE_CLIENT_SECRET="<azure_client_secret>"
+    export AZURE_SUBSCRIPTION_ID="<subscription_id>"
     ```
 
 -   Ensure you have an [override file](../override-files) to configure specific attributes of your Azure image.
@@ -79,13 +80,14 @@ Extract the bundle and `cd` into the extracted `konvoy-image-bundle-$VERSION_$OS
 
 Run the `konvoy-image` command to build and validate the image.
 
-```sh
-konvoy-image build azure --client-id <azure_client_id> --tenant-id <azure_tenant_id> --overrides override-source-image.yaml images/azure/centos-7.yaml
+```bash
+konvoy-image build azure --client-id "<azure_client_id>" --tenant-id "<azure_tenant_id>" images/azure/image.yaml --overrides overrides/image.yaml
 ```
 
 By default, the image builder builds in the `westus2` location. To specify another location set the `--location` flag:
 
-```sh
+```bash
+konvoy-image build azure --client-id "<azure_client_id>" --tenant-id "<azure_tenant_id>" --location eastus --overrides override-source-image.yaml images/azure/centos-7.yaml
 konvoy-image build azure --client-id <azure_client_id> --tenant-id <azure_tenant_id> --location eastus --overrides override-source-image.yaml images/azure/centos-7.yaml
 ```
 
