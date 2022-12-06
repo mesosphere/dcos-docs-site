@@ -8,7 +8,7 @@ enterprise: false
 beta: false
 ---
 
-**D2iQ&reg; Konvoy&reg; version 2.1.5 was released on December 1st, 2022.**
+**D2iQ&reg; Konvoy&reg; version 2.1.5 was released on December 6th, 2022.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
