@@ -3,7 +3,8 @@
 set -e
 
 DKP_CLI_VERSION=${DKP_CLI_VERSION:-"v0.0.0-dev.0"}
-TARGET_PATH=${TARGET_PATH:-"/dkp/kommander/2.3/cli/"}
+TARGET_VERSION=${TARGET_VERSION:-"2.3"}
+TARGET_PATH=${TARGET_PATH:-"/dkp/kommander/$TARGET_VERSION/cli/"}
 
 TMP_DIR=`mktemp -d`
 trap "rm -r $TMP_DIR" EXIT

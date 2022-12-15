@@ -31,6 +31,6 @@ Update one of [bootstrap (cluster), controlplane, nodepool]
 
 * [dkp](/dkp/kommander/2.3/cli/dkp/)	 - 
 * [dkp update bootstrap](/dkp/kommander/2.3/cli/dkp/update/bootstrap/)	 - Update bootstrap cluster
-* [dkp update controlplane](/dkp/kommander/2.3/cli/dkp/update/controlplane/)	 - Update a Kubernetes cluster control plane, one of [aws, azure, eks, preprovisioned, vsphere]
-* [dkp update nodepool](/dkp/kommander/2.3/cli/dkp/update/nodepool/)	 - Upate a Kubernetes cluster node pool, one of [aws, azure, eks, preprovisioned, vsphere]
+* [dkp update controlplane](/dkp/kommander/2.3/cli/dkp/update/controlplane/)	 - Update a Kubernetes cluster control plane, one of [aws, azure, eks, gcp, preprovisioned, vsphere]
+* [dkp update nodepool](/dkp/kommander/2.3/cli/dkp/update/nodepool/)	 - Upate a Kubernetes cluster node pool, one of [aws, azure, eks, gcp, preprovisioned, vsphere]
 

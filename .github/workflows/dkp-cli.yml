@@ -1,24 +1,41 @@
 name: Update dkp-cli docs
 on:
-  schedule:
-    - cron: "0 4 * * *"
   workflow_dispatch:
+    inputs:
+      dkp-version:
+        description: DKP version to generate the docs for, e.g. v2.3.1
+        type: string
+        required: true
+        default: v2.3.1
+      target-version:
+        description: Target documentation version
+        type: choice
+        required: true
+        default: "2.3"
+        options:
+          - "2.3"
+          - "2.2"
 
 jobs:
   dkp-cli-docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - name: Update dkp-cli docs
         run: |
-          make update-dkp-cli-docs
+          ci/update-dkp-cli-docs.sh
+        env:
+          DKP_CLI_VERSION: ${{ inputs.dkp-version }}
+          TARGET_VERSION: ${{ inputs.target-version }}
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: update dkp-cli documentation
-          title: Update dkp-cli documentation (automated)
-          body: This pull request was generated automatically based on recent changes in the CLI. Do not edit the files directly, they would be overwritten by future automated updates. Changes to the help text must be made in the `konvoy`, `kommander-cli` and `dkp-diagnostics` repositories.
-          branch: automation/update-dkp-cli-docs
+          title: Update dkp-cli documentation for ${{ inputs.dkp-version }} (automated)
+          body: This pull request was generated automatically based on changes in the CLI. Do not edit the files directly, they would be overwritten by future automated updates. Changes to the help text must be made in the `konvoy`, `kommander-cli` and `dkp-diagnostics` repositories.
+          branch: automation/update-dkp-cli-docs_${{ inputs.dkp-version }}
           base: main

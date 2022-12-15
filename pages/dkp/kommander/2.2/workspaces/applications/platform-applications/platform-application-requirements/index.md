@@ -22,7 +22,7 @@ The following table describes all the workspace platform applications that are a
 | fluentbit | cpu: 350m<br />memory: 350Mi |  | No |
 | gatekeeper | cpu: 300m<br />memory: 768Mi | | Yes |
 | grafana-logging | cpu: 200m<br />memory: 100Mi |  | No |
-| grafana-loki | | # of PVs: 4<br />PV sizes: 10Gi x 4 (total: 40Gi) | No |
+| grafana-loki | | # of PVs: 8<br />PV sizes: 10Gi x 8 (total: 80Gi) | No |
 | istio | cpu: 1270m<br />memory: 4500Mi |  | No |
 | jaeger |  | | No |
 | kiali | cpu: 20m<br />memory: 128Mi | | No |

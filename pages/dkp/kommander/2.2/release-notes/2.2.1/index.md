@@ -108,6 +108,10 @@ Before attempting to upgrade an existing cluster to this release, check the `kom
 
 If any of the these fields are present, then there is a possibility the upgrade can fail.  If you encounter this situation, file a support ticket for advice on how to remediate the issue before attempting to continue the upgrade.
 
+### Minio Disk insufficient space when upgrading
+
+When upgrading DKP from v2.1.x to v2.2.x, the upgrade can fail due to insufficient space on the MinIO Disk. To avoid this issue, we recommend that you disable the `fluent-bit` Platform Application before upgrading.
+
 ## Additional resources
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].

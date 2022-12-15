@@ -30,6 +30,7 @@ dkp create appdeployment APPDEPLOYMENT_NAME --app NAME [flags]
   -h, --help                      help for appdeployment
       --kubeconfig string         Path to the kubeconfig file to use for CLI requests.
   -o, --output string             Output format. One of: yaml|json (default "yaml")
+  -p, --project string            Name of the project to create the AppDeployment in. Requires workspace flag (workspace that the project belongs to).
       --request-timeout string    The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests.
   -w, --workspace string          Name of the workspace to create the AppDeployment in
 ```

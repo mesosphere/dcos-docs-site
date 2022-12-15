@@ -33,11 +33,11 @@ dkp create cluster eks [flags]
   -c, --cluster-name name                       Name used to prefix the cluster and all the created resources.
       --dry-run                                 Only print the objects that would be created, without creating them.
       --etcd-image-repository string            The image repository to use for pulling the etcd image
-      --etcd-version string                     The version of etcd to use
+      --etcd-version string                     The version of etcd to use. Overriding kubeadm's default value as etcd v3.5.x is not recommended for production use. This default value will removed in a future release once etcd is fixed. (default "3.4.13-0")
   -h, --help                                    help for eks
       --http-proxy string                       HTTP proxy for CAPI controllers
       --https-proxy string                      HTTPS proxy for CAPI controllers
-      --kind-cluster-image string               Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v0.0.0-dev.0")
+      --kind-cluster-image string               Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v2.2.3")
       --kubeconfig string                       Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string      The image repository to use for pulling kubernetes images
       --kubernetes-version string               Kubernetes version (default "1.21.5")

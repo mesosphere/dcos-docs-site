@@ -25,29 +25,29 @@ Depending on your configuration, there are three different ways you can install 
 1.  Download the DKP image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/kommander-image-bundle-v2.2.1.tar" -O - | tar -xvf -
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/kommander-image-bundle-v2.2.2.tar" -O - | tar -xvf -
     ```
 
 1.  Optionally download the DKP catalog applications image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-catalog-applications-image-bundle-v2.2.1.tar" -O - | tar -xvf -
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-catalog-applications-image-bundle-v2.2.2.tar" -O - | tar -xvf -
     ```
 
 1.  Optionally download the DKP insights image bundle file:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-insights-image-bundle-v2.2.1.tar"
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-insights-image-bundle-v2.2.2.tar"
     ```
 
-1.  See the NOTICES.txt file for 3rd party software attributions and place the kommander-image-bundle-v2.2.1.tar and dkp-catalog-applications-image-bundle-v2.2.1.tar bundles within a location where you can load and push the images to your private Docker registry.
+1.  See the NOTICES.txt file for 3rd party software attributions and place the kommander-image-bundle-v2.2.2.tar and dkp-catalog-applications-image-bundle-v2.2.2.tar bundles within a location where you can load and push the images to your private Docker registry.
 
 1.  Run the following command to load the air-gapped image bundle into your private Docker registry:
 
     ```bash
-    dkp push image-bundle --image-bundle kommander-image-bundle-v2.2.1.tar --to-registry <REGISTRY_URL>
-    dkp push image-bundle --image-bundle dkp-catalog-applications-image-bundle-v2.2.1.tar --to-registry <REGISTRY_URL>`
-    dkp push image-bundle --image-bundle dkp-insights-image-bundle-v2.2.1.tar --to-registry <REGISTRY_URL>`
+    dkp push image-bundle --image-bundle kommander-image-bundle-v2.2.2.tar --to-registry <REGISTRY_URL>
+    dkp push image-bundle --image-bundle dkp-catalog-applications-image-bundle-v2.2.2.tar --to-registry <REGISTRY_URL>`
+    dkp push image-bundle --image-bundle dkp-insights-image-bundle-v2.2.2.tar --to-registry <REGISTRY_URL>`
     ```
 
 ## Install air-gapped Kommander with the DKP Catalog Applications
@@ -61,25 +61,25 @@ To use the DKP Catalog Applications in an air-gapped environment, you need the f
 1.  Download the DKP catalog application definitions:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-catalog-applications-v2.2.1.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-catalog-applications-v2.2.2.tar.gz"
     ```
 
 1.  Download the [DKP catalog applications](/wiki/spaces/DENT/pages/29919387) chart bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-catalog-applications-charts-bundle-v2.2.1.tar.gz" -O - | tar -xvf -
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-catalog-applications-charts-bundle-v2.2.2.tar.gz" -O - | tar -xvf -
     ```
 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-kommander-charts-bundle-v2.2.1.tar.gz" -O - | tar -xvf -
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-kommander-charts-bundle-v2.2.2.tar.gz" -O - | tar -xvf -
     ```
 
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/kommander-applications-v2.2.1.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/kommander-applications-v2.2.2.tar.gz"
     ```
 
 ### Install Kommander
@@ -118,9 +118,9 @@ Follow these steps:
 
     ```bash
     dkp install kommander --installer-config ./install.yaml\
-    --kommander-applications-repository kommander-applications-v2.2.1.tar.gz\
-    --charts-bundle dkp-kommander-charts-bundle-v2.2.1.tar.gz\
-    --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.1.tar.gz
+    --kommander-applications-repository kommander-applications-v2.2.2.tar.gz\
+    --charts-bundle dkp-kommander-charts-bundle-v2.2.2.tar.gz\
+    --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.2.tar.gz
     ```
 
 1.  [Verify your installation](https:...).
@@ -136,25 +136,25 @@ If you are utilizing [DKP Insights](/wiki/spaces/DINS) in an air-gapped environm
 1.  Download the DKP Insights catalog:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-insights-v2.2.1.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-insights-v2.2.2.tar.gz"
     ```
 
 1.  Download the DKP Insights chart bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-insights-charts-bundle-v2.2.1.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-insights-charts-bundle-v2.2.2.tar.gz"
     ```
 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-kommander-charts-bundle-v2.2.1.tar.gz" -O - | tar -xvf -
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-kommander-charts-bundle-v2.2.2.tar.gz" -O - | tar -xvf -
     ```
 
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/kommander-applications-v2.2.1.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/kommander-applications-v2.2.2.tar.gz"
     ```
 
 ### Install Kommander
@@ -185,22 +185,22 @@ If you are utilizing [DKP Insights](/wiki/spaces/DINS) in an air-gapped environm
           labels:
             kommander.d2iq.io/workspace-default-catalog-repository: "true"
             kommander.d2iq.io/gitapps-gitrepository-type: "dkp"
-          path: ./dkp-insights-v2.2.1.tar.gz
+          path: ./dkp-insights-v2.2.2.tar.gz
     ```
 
 1.  Push the DKP Insights charts bundle:
 
     ```bash
-    dkp push chart-bundle dkp-insights-charts-bundle-v2.2.1.tar.gz
+    dkp push chart-bundle dkp-insights-charts-bundle-v2.2.2.tar.gz
     ```
 
 1.  Install DKP with Insights enabled by running:
 
     ```bash
     dkp install kommander --installer-config ./install.yaml\
-    --kommander-applications-repository kommander-applications-v2.2.1.tar.gz\
-    --charts-bundle dkp-kommander-charts-bundle-v2.2.1.tar.gz\
-    --charts-bundle dkp-insights-charts-bundle-v2.2.1.tar.gz
+    --kommander-applications-repository kommander-applications-v2.2.2.tar.gz\
+    --charts-bundle dkp-kommander-charts-bundle-v2.2.2.tar.gz\
+    --charts-bundle dkp-insights-charts-bundle-v2.2.2.tar.gz
     ```
 
 1.  [Verify your installation](...).
@@ -216,37 +216,37 @@ Follow these steps:
 1.  Download the DKP catalog application definitions:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-catalog-applications-v2.2.1.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-catalog-applications-v2.2.2.tar.gz"
     ```
 
 1.  Download the [DKP catalog applications](/wiki/spaces/DENT/pages/29919387) chart bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-catalog-applications-charts-bundle-v2.2.1.tar.gz" -O - | tar -xvf -
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-catalog-applications-charts-bundle-v2.2.2.tar.gz" -O - | tar -xvf -
     ```
 
 1.  Download the DKP Insights catalog:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-insights-v2.2.1.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-insights-v2.2.2.tar.gz"
     ```
 
 1.  Download the DKP Insights chart bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-insights-charts-bundle-v2.2.1.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-insights-charts-bundle-v2.2.2.tar.gz"
     ```
 
 1.  Download the Kommander charts bundle:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/dkp-kommander-charts-bundle-v2.2.1.tar.gz" -O - | tar -xvf -
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/dkp-kommander-charts-bundle-v2.2.2.tar.gz" -O - | tar -xvf -
     ```
 
 1.  Download the Kommander application definitions:
 
     ```bash
-    wget "https://downloads.d2iq.com/dkp/v2.2.1/kommander-applications-v2.2.1.tar.gz"
+    wget "https://downloads.d2iq.com/dkp/v2.2.2/kommander-applications-v2.2.2.tar.gz"
     ```
 
 ### Install Kommander
@@ -279,7 +279,7 @@ Follow these steps:
           labels:
             kommander.d2iq.io/workspace-default-catalog-repository: "true"
             kommander.d2iq.io/gitapps-gitrepository-type: "dkp"
-          path: ./dkp-insights-v2.2.1.tar.gz
+          path: ./dkp-insights-v2.2.2.tar.gz
         - name: dkp-catalog-applications
           labels:
             kommander.d2iq.io/project-default-catalog-repository: "true"
@@ -294,10 +294,10 @@ Follow these steps:
 
     ```bash
     dkp install kommander --installer-config ./install.yaml\
-    --kommander-applications-repository kommander-applications-v2.2.1.tar.gz\
-    --charts-bundle dkp-kommander-charts-bundle-v2.2.1.tar.gz\
-    --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.1.tar.gz\
-    --charts-bundle dkp-insights-charts-bundle-v2.2.1.tar.gz
+    --kommander-applications-repository kommander-applications-v2.2.2.tar.gz\
+    --charts-bundle dkp-kommander-charts-bundle-v2.2.2.tar.gz\
+    --charts-bundle dkp-catalog-applications-charts-bundle-v2.2.2.tar.gz\
+    --charts-bundle dkp-insights-charts-bundle-v2.2.2.tar.gz
     ```
 
 1.  [Verify your installation](https://d2iq.atlassian.net/wiki/spaces/DENT/pages/29892245/Install+Kommander+in+a+Networked+Environment#Verify-installation).

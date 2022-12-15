@@ -26,6 +26,7 @@ beta: false
 
 * [dkp attach](/dkp/kommander/2.3/cli/dkp/attach/)	 - Attach one of [cluster]
 * [dkp check](/dkp/kommander/2.3/cli/dkp/check/)	 - Check, one of [cluster]
+* [dkp cluster](/dkp/kommander/2.3/cli/dkp/cluster/)	 - Get cluster information
 * [dkp completion](/dkp/kommander/2.3/cli/dkp/completion/)	 - Generate the autocompletion script for the specified shell
 * [dkp config](/dkp/kommander/2.3/cli/dkp/config/)	 - Manage DKP Kommander's configuration
 * [dkp create](/dkp/kommander/2.3/cli/dkp/create/)	 - Create one of [appdeployment, bootstrap, capi-components, chart-bundle, cluster, image-bundle, nodepool, workspace]
@@ -41,7 +42,7 @@ beta: false
 * [dkp open](/dkp/kommander/2.3/cli/dkp/open/)	 - Open one of [dashboard]
 * [dkp push](/dkp/kommander/2.3/cli/dkp/push/)	 - Push one of [chart, chart-bundle, image-bundle]
 * [dkp scale](/dkp/kommander/2.3/cli/dkp/scale/)	 - Scale one of [nodepool]
-* [dkp serve](/dkp/kommander/2.3/cli/dkp/serve/)	 - Serve an image registry
+* [dkp serve](/dkp/kommander/2.3/cli/dkp/serve/)	 - Serve image or Helm chart bundles from an OCI registry
 * [dkp update](/dkp/kommander/2.3/cli/dkp/update/)	 - Update one of [bootstrap (cluster), controlplane, nodepool]
 * [dkp upgrade](/dkp/kommander/2.3/cli/dkp/upgrade/)	 - Upgrade one of [addons, capi-components, catalogapp, kommander, workspace]
 * [dkp version](/dkp/kommander/2.3/cli/dkp/version/)	 - Print version information

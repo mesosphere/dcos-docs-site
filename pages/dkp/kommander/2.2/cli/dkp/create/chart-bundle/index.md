@@ -22,7 +22,7 @@ dkp create chart-bundle [flags]
 ### Options
 
 ```
-      --catalog-repository string         Git repository containing catalog application definitions (default "github.com/mesosphere/kommander-applications.git?ref=main")
+      --catalog-repository string         Git repository containing catalog application definitions
       --config string                     Config file to use (default "/root/.kommander/config")
       --context string                    The name of the kubeconfig context to use
       --dry-run                           Export in YAML format to stdout
