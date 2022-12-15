@@ -74,7 +74,7 @@ jobs:
           -e REDIR_HOSTNAME="archive-docs.d2iq.com" \
           -e DOCS_ENV="production" \
           mesosphere/docs /src/ci/deploy.sh
-        echo "http://${{ env.HOSTNAME }}"
+        echo "http://archive-docs.d2iq.com"
       shell: bash      
     - name: Push Image and Restart Server
       run: |
