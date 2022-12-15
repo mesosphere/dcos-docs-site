@@ -75,7 +75,7 @@ jobs:
           -e DOCS_ENV="production" \
           mesosphere/docs /src/ci/deploy.sh
         echo "http://archive-docs.d2iq.com"
-      shell: bash      
+      shell: bash
     - name: Push Image and Restart Server
       run: |
         if [ "$BRANCH" = "main" ]; then           
