@@ -259,6 +259,54 @@ flux reconcile -n kommander-flux source git management --kubeconfig MANAGED_KUBE
 ✔ fetched revision main/GIT_HASH
 ```
 
+### Updating override upon major version upgrade to ensure Gitea functionality
+
+When running the `kommander migrate -y` function is complete, you will have to edit a Traefik Middleware object in order for Gitea to correctly perform.
+
+To do this, edit the ConfigMap that contains the Middleware object:
+
+```bash
+kubectl edit configmap traefik-10.3.0-migration-overrides -nkommander
+```
+
+Search for the yaml snippet that contains the `Middleware` with the name `stripprefixes`. This will look something like this:
+
+```yaml
+              apiVersion: traefik.containo.us/v1alpha1
+              kind: Middleware
+              metadata:
+                name: stripprefixes
+                ...
+              spec:
+                stripPrefix:
+                  prefixes:
+                    - /dkp/alertmanager
+                    - /dkp/api-server
+                    - /dkp/kommander/dashboard
+                    - /dkp/kommander/gitserver
+                    ...
+```
+
+You will then need to add `/dkp/kommander/git` to the `spec.stripPrefix.prefixes` list:
+
+```yaml
+              apiVersion: traefik.containo.us/v1alpha1
+              kind: Middleware
+              metadata:
+                name: stripprefixes
+                ...
+              spec:
+                stripPrefix:
+                  prefixes:
+                    - /dkp/alertmanager
+                    - /dkp/api-server
+                    - /dkp/kommander/dashboard
+                    - /dkp/kommander/gitserver
+                    - /dkp/kommander/git
+```
+
+Then, save this file.
+
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->

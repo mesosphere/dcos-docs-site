@@ -46,6 +46,33 @@ After adopting the cluster, you use this AMI to scale up, or replace a failed in
     us-west-2: ami-03364d732f61fb1e2
     ```
 
+    <p class="message--note"><strong>NOTE: </strong>The source AMI may have moved since Konvoy Image Builder v1.5.0 was released. You may need to update the iamge `yaml` file to the following:</p>
+
+    ```yaml
+    cat <<EOF > images/ami/updated-centos-7.yaml
+    download_images: true
+    
+    packer:
+      ami_filter_name: "CentOS Linux 7*"
+      ami_filter_owners: "125523088429"
+      distribution: "CentOS"
+      distribution_version: "7.9"
+      source_ami: ""
+      ssh_username: "centos"
+      root_device_name: "/dev/sda1"
+    
+    build_name: "centos-7"
+    packer_builder_type: "amazon"
+    python_path: ""
+    EOF
+    ```
+
+    Then run the image build command:
+
+    ```bash
+    konvoy-image build images/ami/updated-centos-7.yaml --overrides kubever.yaml
+    ```
+
 1.  Add the new AMI IDs to the Konvoy 1.8 configuration. In the example above the AMI that was created is `ami-03364d732f61fb1e2`. Add a `postAdoptImageID:` to every node pool in `cluster.yaml`, setting its value to the AMI ID created in the previous step:
 
     ```yaml
@@ -144,6 +171,8 @@ The following steps are only required if your cluster is in multiple Availabilit
 1. Tag the Subnets used by the control-plane nodepool with `konvoy/subnet=control_plane`.
 
 ## Create DKP Bootstrap Controllers on Konvoy 1.8 Cluster
+
+Before proceeding with this step, you must download the `dkp` binary and put it in this directory.
 
 You must configure the adopted cluster as self-managed. The bootstrap controllers must successfully deploy on the cluster for it to become self-managed. Do not begin the other cluster adoption steps until this is successful.
 
@@ -463,6 +492,33 @@ You use this AMI to update the cluster Kubernetes version to v1.21.6.
     us-west-2: ami-0e7253eeb699eddca
     ```
 
+    <p class="message--note"><strong>NOTE: </strong>The source AMI may have moved since Konvoy Image Builder v1.5.0 was released. You may need to update the image yaml file to the following:</p>
+
+    ```yaml
+    cat <<EOF > images/ami/updated-centos-7.yaml
+    download_images: true
+    
+    packer:
+      ami_filter_name: "CentOS Linux 7*"
+      ami_filter_owners: "125523088429"
+      distribution: "CentOS"
+      distribution_version: "7.9"
+      source_ami: ""
+      ssh_username: "centos"
+      root_device_name: "/dev/sda1"
+    
+    build_name: "centos-7"
+    packer_builder_type: "amazon"
+    python_path: ""
+    EOF
+    ```
+
+    Then run the image build command:
+
+    ```bash
+    konvoy-image build images/ami/updated-centos-7.yaml --overrides kubever.yaml
+    ```
+
 ## Prepare the Dex Addon for Kubernetes v1.21.6
 
 The Dex Addon acts as the cluster's OpenID Connect identity provider. You must change its configuration so that it works correctly with both Kubernetes v1.21.6 and v1.20.13.
@@ -501,10 +557,10 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
           # Temporarily we're going to use our custom built container. Documentation
           # for how to build a new version: https://github.com/mesosphere/dex/blob/v2.27.0-d2iq/README.d2iq.md
           env:
-          - name: KUBERNETES_POD_NAMESPACE
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.namespace
+            - name: KUBERNETES_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
           image: mesosphere/dex
           ...
     ```
@@ -604,10 +660,10 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
     generic-konvoy184-cfe1-control-plane-bnwpn       generic-konvoy184-cfe1   83m     aws:///us-west-2c/i-05482170a16ad0ced   Running   v1.21.6
     generic-konvoy184-cfe1-control-plane-kkjct       generic-konvoy184-cfe1   78m     aws:///us-west-2c/i-02a0d48730c8d3404   Running   v1.21.6
     generic-konvoy184-cfe1-control-plane-nl2fr       generic-konvoy184-cfe1   72m     aws:///us-west-2c/i-04f671f7535bbed72   Running   v1.21.6
-    generic-konvoy184-cfe1-worker-79c76c8fbb-4sp2z   generic-konvoy184-cfe1   7m17s   aws:///us-west-2c/i-095ab521c28558fc8   Running   v1.21.6
-    generic-konvoy184-cfe1-worker-79c76c8fbb-f9c7h   generic-konvoy184-cfe1   11m     aws:///us-west-2c/i-07d3ffe6b542df611   Running   v1.21.6
-    generic-konvoy184-cfe1-worker-79c76c8fbb-hb8vs   generic-konvoy184-cfe1   60m     aws:///us-west-2c/i-0306bcaf8fa3f5e7d   Running   v1.21.6
-    generic-konvoy184-cfe1-worker-79c76c8fbb-nlvml   generic-konvoy184-cfe1   64m     aws:///us-west-2c/i-0426b95370f68d01e   Running   v1.21.6
+    generic-konvoy184-cfe1-worker-79c76c8fbb-4sp2z   generic-konvoy184-cfe1   7m17s   aws:///us-west-2c/i-095ab521c28558fc8   Running   v1.20.13
+    generic-konvoy184-cfe1-worker-79c76c8fbb-f9c7h   generic-konvoy184-cfe1   11m     aws:///us-west-2c/i-07d3ffe6b542df611   Running   v1.20.13
+    generic-konvoy184-cfe1-worker-79c76c8fbb-hb8vs   generic-konvoy184-cfe1   60m     aws:///us-west-2c/i-0306bcaf8fa3f5e7d   Running   v1.20.13
+    generic-konvoy184-cfe1-worker-79c76c8fbb-nlvml   generic-konvoy184-cfe1   64m     aws:///us-west-2c/i-0426b95370f68d01e   Running   v1.20.13
     ```
 
     You can exit this monitoring at any time by pressing CTRL + C.

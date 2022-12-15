@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes Konvoy 2.1.4
-title: Release Notes Konvoy 2.1.4
-menuWeight: 50
-excerpt: View release-specific information for Konvoy 2.1.4
+navigationTitle: Release Notes Konvoy 2.1.5
+title: Release Notes Konvoy 2.1.5
+menuWeight: 60
+excerpt: View release-specific information for Konvoy 2.1.5
 enterprise: false
 beta: false
 ---
 
-**D2iQ&reg; Konvoy&reg; version 2.1.4 was released on October 19, 2022.**
+**D2iQ&reg; Konvoy&reg; version 2.1.5 was released on December 6th, 2022.**
 
 [button color="purple" href="https://support.d2iq.com/hc/en-us/articles/4409215222932-Product-Downloads"]Download Konvoy[/button]
 
@@ -19,6 +19,23 @@ To get started with Konvoy, [download](../../download/) and [install](../../choo
 ## Release summary
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Konvoy.
+
+## Fixes and Improvements
+
+<!-- vale Vale.Avoid = NO -->
+### Wrong MachineDeployment (nodepool) names after Konvoy v1.8.5 to DKP v2.1.3 upgrade (D2IQ-93614)
+<!-- vale Vale.Avoid = YES -->
+
+Corrected an issue where a `MachineDeployment` would be incorrectly named when running `dkp describe cluster` after upgrading from Konvoy v1.8. to v2.1.
+
+<!-- vale Vale.Avoid = NO -->
+### Pre-provisioned cluster adoption is broken (D2IQ-94144)
+<!-- vale Vale.Avoid = YES -->
+
+Corrected an issue that prevented the upgrade of pre-provisioned clusters in Konvoy 2.1.
+
+### Konvoy Image Builder (KIB) Update to version 1.5.2
+An update for KIB has been included with this release. Refer to the [public repository][publicrepo] for more information.
 
 ## Component updates
 
@@ -62,12 +79,6 @@ The following services and service components are upgraded to the listed version
 | Traefik ForwardAuth | traefik-forward-auth | 0.3.2 | - chart: 0.3.2<br>- traefik-forward-auth: 3.0.2 |
 | Velero | velero | 3.1.5 | - chart: 3.1.5<br>- velero: 1.5.2 |
 
-## Known Issues
-
-### Konvoy migration preserves providerIDs
-
-Previously, attempting to migrate existing 1.8 clusters to 2.1 ended in failure due to providerID issues with the migration. The problem occurred when migrating a 1.8 cluster with a cloud-provider that assigned providerIDs to each node. Originally, we would replace these with D2iQ IDs, but now we preserve the providerIDs so that these migrations succeed.
-
 ## Additional resources
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
@@ -80,3 +91,4 @@ For a full list of attributed 3rd party software, see [d2iq.com/legal/3rd](http:
 [acme]: https://cert-manager.io/docs/configuration/acme/
 [config_kub]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [selfsigned]: https://cert-manager.io/docs/configuration/selfsigned/
+[publicrepo]: https://github.com/mesosphere/konvoy-image-builder/releases/tag/v1.5.2
