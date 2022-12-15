@@ -59,6 +59,23 @@ jobs:
           mesosphere/docs /src/ci/deploy.sh
         echo "http://${{ env.HOSTNAME }}"
       shell: bash
+    - name: Build & Deploy Main Docs
+      run: |
+        docker run \
+          -v "$PWD/pages":/src/pages \
+          -e ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
+          -e ALGOLIA_UPDATE="" \
+          -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+          -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+          -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+          -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
+          -e BUCKET=docs-d2iq-com-production \
+          -e PRINCIPAL="arn:aws:iam::977260619897:role/dcos-docs-site" \
+          -e REDIR_HOSTNAME="archive-docs.d2iq.com" \
+          -e DOCS_ENV="production" \
+          mesosphere/docs /src/ci/deploy.sh
+        echo "http://${{ env.HOSTNAME }}"
+      shell: bash      
     - name: Push Image and Restart Server
       run: |
         if [ "$BRANCH" = "main" ]; then           
