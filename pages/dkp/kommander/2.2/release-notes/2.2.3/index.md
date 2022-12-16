@@ -29,11 +29,13 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 
 ## Fixes and Improvements
 
+<!-- vale Vale.Avoid = NO -->
 ### Workload clusters cannot be successfully attached when the management cluster uses a custom domain and certificate (D2IQ-93002)
 
 A problem that caused the Kommander federation-controller to use system certificates instead of the configured custom certificates was corrected. The federation-controller now uses custom certificates if they are present.  
 
 ### Missing cert-manager images in air-gapped bundles (D2IQ-93002)
+<!-- vale Vale.Avoid = YES -->
 
 The air-gapped image bundles did not include images for cert-manager, which prevented successful deployment of the platform applications to managed and attached clusters in those environments. The bundle has been updated to include the correct images.
 
@@ -102,7 +104,7 @@ Follow these steps to manually correct this issue:
 
 1.  Update the ConfigMap as follows:
 
-    ```
+    ```yaml
     cat <<EOF | kubectl apply -f -
     apiVersion: v1
     data:
@@ -134,7 +136,7 @@ Follow these steps to manually correct this issue:
     EOF
     ```
 
-1.  Execute these commands: `kubectl edit calico-cni-installation-c3-0193d` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`
+1.  Execute these commands: `kubectl edit configmap calico-cni-installation-c3-0193d` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`.
 
 ## Additional resources
 

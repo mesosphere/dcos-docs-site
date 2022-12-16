@@ -40,7 +40,7 @@ The following features and capabilities are new for Version 2.2.
 
 ### Integrated DKP Upgrade
 
-You can now upgrade Konvoy and Kommander as a single fluid process using a combination of the [DKP CLI](../cli/dkp) and the UI to upgrade your environment.
+You can now upgrade Konvoy and Kommander as a single fluid process using a combination of the [DKP CLI](../../cli/dkp) and the UI to upgrade your environment.
 
 For more information, see [DKP Upgrade](/dkp/kommander/2.2/dkp-upgrade)
 
@@ -88,7 +88,6 @@ New clusters use the "delete first" strategy by default. Existing clusters are s
 
 When upgrading to this release, the following services and service components are upgraded to the listed version:
 
-
 | Common Application Name | APP ID | Version | Component Versions |
 |----------------------|--------------------- |---------|--------------------|
 | Cert Manager | cert-manager | 1.7.1 | - chart: 1.7.1<br>- cert-manager: 1.7.1 |
@@ -124,7 +123,6 @@ When upgrading to this release, the following services and service components ar
 | Traefik | traefik | 10.9.1 | - chart: 10.9.1<br>- traefik: 2.5.6 |
 | Traefik ForwardAuth | traefik-forward-auth | 0.3.6 | - chart: 0.3.6<br>- traefik-forward-auth: 3.1.0 |
 | Velero | velero | 3.1.5 | - chart: 3.1.5<br>- velero: 1.5.2 |
-
 
 ## Known issues
 
@@ -355,7 +353,7 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
 
 ### Minio Disk insufficient space when upgrading
 
-When upgrading DKP from v2.1.x to v2.2.x, the upgrade can fail due to insufficient space on the MinIO Disk. To avoid this issue, we recommend that you disable the `fluent-bit` Platform Application before upgrading. 
+When upgrading DKP from v2.1.x to v2.2.x, the upgrade can fail due to insufficient space on the MinIO Disk. To avoid this issue, we recommend that you disable the `fluent-bit` Platform Application before upgrading.
 
 ### Calico not updated during DKP upgrade
 
@@ -365,7 +363,7 @@ Follow these steps to manually correct this issue:
 
 1.  Update the ConfigMap as follows:
 
-    ```
+    ```yaml
     cat <<EOF | kubectl apply -f -
     apiVersion: v1
     data:
@@ -397,7 +395,7 @@ Follow these steps to manually correct this issue:
     EOF
     ```
 
-1.  Execute these commands: `kubectl edit calico-cni-installation-c3-0193d` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`
+1.  Execute these commands: `kubectl edit configmap calico-cni-installation-c3-0193d` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`.
 
 ## Additional resources
 

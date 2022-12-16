@@ -71,7 +71,7 @@ Follow these steps to manually correct this issue:
 
 1.  Update the ConfigMap as follows:
 
-    ```
+    ```yaml
     cat <<EOF | kubectl apply -f -
     apiVersion: v1
     data:
@@ -103,7 +103,7 @@ Follow these steps to manually correct this issue:
     EOF
     ```
 
-1.  Execute these commands: `kubectl edit calico-cni-installation-c3-0193d` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`
+1.  Execute these commands: `kubectl edit configmap calico-cni-installation-c3-0193d` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`.
 
 ## Component and Application updates
 

@@ -33,13 +33,15 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 
 ### ClusterResourceSet deployments create an unbounded number of service-account-tokens (COPS-7267)
 
-An issue with the ClusterResourceSet controller in 2.2.0 caused an unbounded number of service account tokens to be created for each ClusterResourceSet.    The problem has been corrected.   A remediation is also available to identify and remove the excess secrets;  see this [knowledge base](https://support.d2iq.com/hc/en-us/articles/6019137621908-Customer-Advisory-D2iQ-2022-0002-Unbounded-Number-of-Service-Account-Token-Secrets-Created) article for more information.
+An issue with the ClusterResourceSet controller in 2.2.0 caused an unbounded number of service account tokens to be created for each ClusterResourceSet. The problem has been corrected. A remediation is also available to identify and remove the excess secrets;  see this [knowledge base](https://support.d2iq.com/hc/en-us/articles/6019137621908-Customer-Advisory-D2iQ-2022-0002-Unbounded-Number-of-Service-Account-Token-Secrets-Created) article for more information.
 
 ### Certs showing as updated but not reloading in Kommander pods (COPS-7212)
 
 Previous Kommander 2.x versions did not properly handle certificate renewal for the Cluster CA and the certificates that are created for Kommander applications. When the certificates expired, some Kommander applications and pods failed to receive the renewed certificate information, causing them to stop working upon expiration. This problem has been corrected.
 
+<!-- vale Microsoft.HeadingColons = NO -->
 ### kube-oidc-proxy error: certificate signed by unknown authority (COPS-7217)
+<!-- vale Microsoft.HeadingColons = YES -->
 
 When adding a new Attached Cluster to the Management Cluster, using a custom domain and TLS certificate issued by Let's Encrypt, the kube-oidc-proxy helm chart in the Attached Cluster did not complete installation and the associated pod returned an error.
 
@@ -106,7 +108,7 @@ Before attempting to upgrade an existing cluster to this release, check the `kom
 - kommanderAppManagementImageRepository
 - kommanderChartsVersion
 
-If any of the these fields are present, then there is a possibility the upgrade can fail.  If you encounter this situation, file a support ticket for advice on how to remediate the issue before attempting to continue the upgrade.
+If any of the these fields are present, then there is a possibility the upgrade can fail. If you encounter this situation, file a support ticket for advice on how to remediate the issue before attempting to continue the upgrade.
 
 ### Minio Disk insufficient space when upgrading
 
@@ -120,7 +122,7 @@ Follow these steps to manually correct this issue:
 
 1.  Update the ConfigMap as follows:
 
-    ```
+    ```yaml
     cat <<EOF | kubectl apply -f -
     apiVersion: v1
     data:
@@ -152,7 +154,7 @@ Follow these steps to manually correct this issue:
     EOF
     ```
 
-1.  Execute these commands: `kubectl edit calico-cni-installation-c3-0193d` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`
+1.  Execute these commands: `kubectl edit configmap calico-cni-installation-c3-0193d` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`.
 
 ## Additional resources
 
