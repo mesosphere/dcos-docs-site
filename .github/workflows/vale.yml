@@ -1,16 +1,16 @@
 name: Linting
-on: [ pull_request ]
+on: [pull_request]
 
 jobs:
   prose:
+    name: Linting with Vale
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    continue-on-error: true
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
-    - uses: pierrebeitz/vale-action@ce94dd2b4ef576bf1237f45bf2bbd9ed4877e740
-      with:
-        onlyAnnotateModifiedLines: true
-      env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Vale Linter
+        uses: errata-ai/vale-action@reviewdog
+        with:
+          onlyAnnotateModifiedLines: true
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
