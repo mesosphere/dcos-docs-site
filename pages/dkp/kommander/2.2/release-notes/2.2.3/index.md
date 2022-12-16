@@ -29,11 +29,13 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 
 ## Fixes and Improvements
 
+<!-- vale Vale.Avoid = NO -->
 ### Workload clusters cannot be successfully attached when the management cluster uses a custom domain and certificate (D2IQ-93002)
 
 A problem that caused the Kommander federation-controller to use system certificates instead of the configured custom certificates was corrected. The federation-controller now uses custom certificates if they are present.  
 
 ### Missing cert-manager images in air-gapped bundles (D2IQ-93002)
+<!-- vale Vale.Avoid = YES -->
 
 The air-gapped image bundles did not include images for cert-manager, which prevented successful deployment of the platform applications to managed and attached clusters in those environments. The bundle has been updated to include the correct images.
 
@@ -89,6 +91,52 @@ When upgrading to this release, the following services and service components ar
 | Traefik | traefik | 10.9.1 | - chart: 10.9.1<br>- traefik: 2.5.6 |
 | Traefik ForwardAuth | traefik-forward-auth | 0.3.8 | - chart: 0.3.8<br>- traefik-forward-auth: 3.1.0 |
 | Velero | velero | 3.1.5 | - chart: 3.1.5<br>- velero: 1.5.2 |
+
+## Known Issues
+
+The following items are known issues with this release.
+
+### Calico not updated during DKP upgrade
+
+When upgrading a DKP cluster, after what seems to be a successful upgrade, the Calico service might not update as expected and, therefor, is still using the old image. The wrong CNI ClusterResourceSet is being generated and not accounting for Flatcar. This issue only impacts Calico, no other add-ons.
+
+Follow these steps to manually correct this issue:
+
+1.  Update the ConfigMap as follows:
+
+    ```yaml
+    cat <<EOF | kubectl apply -f -
+    apiVersion: v1
+    data:
+      custom-resources.yaml: |+
+        # This section includes base Calico installation configuration.
+        # For more information, see: https://docs.projectcalico.org/reference/installation/api
+        apiVersion: operator.tigera.io/v1
+        kind: Installation
+        metadata:
+          name: default
+        spec:
+          # Configures Calico networking.
+          calicoNetwork:
+            # Note: The ipPools section cannot be modified post-install.
+            ipPools:
+            - blockSize: 26
+              cidr: 192.168.0.0/16
+              encapsulation: IPIP
+              natOutgoing: Enabled
+              nodeSelector: all()
+            bgp: Enabled
+            nodeAddressAutodetectionV4:
+              firstFound: true
+          # FlexVolume path must be mounted under /opt on flatcar/coreos systems
+          flexVolumePath: /opt/libexec/kubernetes/kubelet-plugins/volume/exec/
+    kind: ConfigMap
+    metadata:
+      name: calico-cni-installation-$CLUSTER_NAME
+    EOF
+    ```
+
+1.  Execute these commands: `kubectl edit clusterresourceset calico-cni-installation-$CLUSTER_NAME` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`.
 
 ## Additional resources
 
