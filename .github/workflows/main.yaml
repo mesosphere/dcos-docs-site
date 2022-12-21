@@ -1,0 +1,88 @@
+name: Main
+on: [ pull_request ]
+jobs:
+  build-image:
+    permissions:
+      contents: read
+      id-token: write    
+    runs-on: self-hosted
+    env:
+      BRANCH: ${{ github.head_ref }}
+      AWS_DEFAULT_REGION: "us-west-2"
+      ALGOLIA_PRIVATE_KEY: ${{ secrets.AGOLIA_PRIVATE_KEY }}   
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true   
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Login to docker
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_TOKEN }}
+    - name: Set vars
+      run: |
+        if [ "$BRANCH" = "main" ]; then 
+          BUCKET=docs-d2iq-com-preview
+          HOSTNAME=dev-docs.d2iq.com
+        else
+          PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          BUCKET="docs-d2iq-com-pr-${PR_NUMBER}"
+          HOSTNAME="docs-d2iq-com-pr-${PR_NUMBER}.s3-website-us-west-2.amazonaws.com"
+        fi
+        echo "::set-env name=BUCKET::$BUCKET"        
+        echo "::set-env name=HOSTNAME::$HOSTNAME"
+    - name: Pull image
+      run: docker pull mesosphere/docs:latest
+    - name: Build image
+      run: |
+        cp docker/Dockerfile.production.dockerignore .dockerignore
+        docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1-node16
+      with:
+        role-to-assume: arn:aws:iam::139475575661:role/dcos-docs-site
+        aws-region: us-west-2
+    - name: Build & Deploy Preview Docs
+      run: |
+        docker run \
+          -v "$PWD/pages":/src/pages \
+          -e ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
+          -e ALGOLIA_UPDATE="" \
+          -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+          -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+          -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+          -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
+          -e BUCKET=${{ env.BUCKET }} \
+          -e PRINCIPAL="arn:aws:iam::977260619897:role/dcos-docs-site" \
+          -e REDIR_HOSTNAME=${{ env.HOSTNAME }} \
+          -e DOCS_ENV="preview" \
+          mesosphere/docs /src/ci/deploy.sh
+        echo "http://${{ env.HOSTNAME }}"
+      shell: bash
+    - name: Build & Deploy Main Docs
+      run: |
+        docker run \
+          -v "$PWD/pages":/src/pages \
+          -e ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
+          -e ALGOLIA_UPDATE="true" \
+          -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+          -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+          -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+          -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
+          -e BUCKET=docs-d2iq-com-production \
+          -e PRINCIPAL="arn:aws:iam::977260619897:role/dcos-docs-site" \
+          -e REDIR_HOSTNAME="archive-docs.d2iq.com" \
+          -e DOCS_ENV="production" \
+          mesosphere/docs /src/ci/deploy.sh
+        echo "http://archive-docs.d2iq.com"
+      shell: bash
+    - name: Push Image and Restart Server
+      run: |
+        if [ "$BRANCH" = "main" ]; then           
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
+          docker push mesosphere/docs:latest
+          kubectl -n docs-site rollout restart deployment docs-site-dev
+          kubectl -n docs-site rollout status deploy/docs-site-dev -w --timeout=10m            
+        fi
+      shell: bash
+        
