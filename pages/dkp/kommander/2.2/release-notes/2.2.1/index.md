@@ -154,7 +154,13 @@ Follow these steps to manually correct this issue:
     EOF
     ```
 
-1.  Execute these commands: `kubectl edit clusterresourceset calico-cni-installation-$CLUSTER_NAME` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`.
+1.  Run these commands: 
+
+`kubectl edit clusterresourceset calico-cni-installation-$CLUSTER_NAME` 
+
+and update 
+
+`spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`
 
 ## Additional resources
 
