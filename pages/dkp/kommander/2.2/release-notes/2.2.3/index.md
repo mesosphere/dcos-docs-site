@@ -96,7 +96,7 @@ When upgrading to this release, the following services and service components ar
 
 The following items are known issues with this release.
 
-### Calico not updated during DKP upgrade
+### Calico not updated during DKP upgrade on Flatcar
 
 When upgrading a DKP cluster, after what seems to be a successful upgrade, the Calico service might not update as expected and, therefor, is still using the old image. The wrong CNI ClusterResourceSet is being generated and not accounting for Flatcar. This issue only impacts Calico, no other add-ons.
 

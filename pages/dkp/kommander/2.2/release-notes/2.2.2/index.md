@@ -63,7 +63,7 @@ The mesosphere/dex-k8s-authenticator docker container now includes the appropria
 
 When upgrading DKP from v2.1.x to v2.2.x, the upgrade can fail due to insufficient space on the MinIO Disk. To avoid this issue, we recommend that you disable the `fluent-bit` Platform Application before upgrading.
 
-### Calico not updated during DKP upgrade
+### Calico not updated during DKP upgrade on Flatcar
 
 When upgrading a DKP cluster, after what seems to be a successful upgrade, the Calico service might not update as expected and, therefor, is still using the old image. The wrong CNI ClusterResourceSet is being generated and not accounting for Flatcar. This issue only impacts Calico, no other add-ons.
 

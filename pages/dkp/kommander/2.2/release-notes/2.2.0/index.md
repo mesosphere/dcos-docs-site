@@ -355,7 +355,7 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
 
 When upgrading DKP from v2.1.x to v2.2.x, the upgrade can fail due to insufficient space on the MinIO Disk. To avoid this issue, we recommend that you disable the `fluent-bit` Platform Application before upgrading.
 
-### Calico not updated during DKP upgrade
+### Calico not updated during DKP upgrade on Flatcar
 
 When upgrading a DKP cluster running on Flatcar OS, you may find that after the upgrade the Calico services were not updated. This occurs because the upgrade procedure is not correctly updating the Flatcar specific CNI ClusterResourceSet(CRS). This issue only impacts the Calico CRS.
 
@@ -395,7 +395,9 @@ Follow these steps to manually correct this issue:
     EOF
     ```
 
-1.  Execute these commands: `kubectl edit clusterresourceset calico-cni-installation-$CLUSTER_NAME` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`.
+1.  Run these commands: 
+
+`kubectl edit clusterresourceset calico-cni-installation-$CLUSTER_NAME` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`.
 
 ## Additional resources
 
