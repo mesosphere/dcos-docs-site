@@ -116,7 +116,7 @@ When upgrading DKP from v2.1.x to v2.2.x, the upgrade can fail due to insufficie
 
 ### Calico not updated during DKP upgrade on Flatcar
 
-When upgrading a DKP cluster, after what seems to be a successful upgrade, the Calico service might not update as expected and, therefor, is still using the old image. The wrong CNI ClusterResourceSet is being generated and not accounting for Flatcar. This issue only impacts Calico, no other add-ons.
+When upgrading a DKP cluster running on Flatcar OS, you may find that after the upgrade the Calico services were not updated. This occurs because the upgrade procedure is not correctly updating the Flatcar specific CNI ClusterResourceSet(CRS). This issue only impacts the Calico CRS.
 
 Follow these steps to manually correct this issue:
 
