@@ -49,15 +49,29 @@ New versions of DKP come pre-bundled with newer versions of CAPI, newer versions
 
 <p class="message--warning"><strong>IMPORTANT:</strong>Ensure your <code>dkp</code> configuration references the management cluster where you want to run the upgrade by setting the <code>KUBECONFIG</code> environment variable, or using the <code>--kubeconfig</code> flag, <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/">in accordance with Kubernetes conventions</a>.
 
-Run the following upgrade command for the CAPI components.
+1.  If your cluster was upgraded to 2.1 from 1.8, prepare the old cert-manager installation for upgrade:
 
-```bash
-dkp upgrade capi-components
-```
+    ```bash
+    helm -n cert-manager get manifest cert-manager-kubeaddons | kubectl label -f - clusterctl.cluster.x-k8s.io/core=cert-manager
+    kubectl delete validatingwebhookconfigurations/cert-manager-kubeaddons-webhook mutatingwebhookconfigurations/cert-manager-kubeaddons-webhook
+    ```
+
+
+1.  For <strong>all</strong> clusters, upgrade capi-components:
+
+    ```bash
+    dkp upgrade capi-components
+    ```
+
+1.  If your cluster was upgraded to 2.1 from 1.8, remove the remaining old cert-manager resources from 1.8:
+
+    ```bash
+    helm -n cert-manager delete cert-manager-kubeaddons
+    ```
 
 The command should output something similar to the following:
 
-```text
+```sh
 ✓ Upgrading CAPI components
 ✓ Waiting for CAPI components to be upgraded
 ✓ Initializing new CAPI components
@@ -122,24 +136,24 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
 
 1. Upgrade the Kubernetes version of the control plane.
 
-```bash
-dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
-```
+    ```bash
+    dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
+    ```
 
-The output should be similar to:
+    The output should be similar to:
 
-```text
-Updating control plane resource controlplane.cluster.x-k8s.io/v1beta1, Kind=KubeadmControlPlane default/my-aws-cluster-control-plane
-Waiting for control plane update to finish.
- ✓ Updating the control plane
-```
+    ```text
+    Updating control plane resource controlplane.cluster.x-k8s.io/v1beta1, Kind=KubeadmControlPlane default/my-aws-cluster-control-plane
+    Waiting for control plane update to finish.
+    ✓  Updating the control plane
+    ```
 
 2. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
 
-```bash
-export NODEPOOL_NAME=my-nodepool
-dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
-```
+    ```bash
+    export NODEPOOL_NAME=my-nodepool
+    dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
+    ```
 The output should be similar to:
 
 ```text
