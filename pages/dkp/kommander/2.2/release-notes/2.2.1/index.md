@@ -33,13 +33,15 @@ DKP 2.2.x supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster yo
 
 ### ClusterResourceSet deployments create an unbounded number of service-account-tokens (COPS-7267)
 
-An issue with the ClusterResourceSet controller in 2.2.0 caused an unbounded number of service account tokens to be created for each ClusterResourceSet.    The problem has been corrected.   A remediation is also available to identify and remove the excess secrets;  see this [knowledge base](https://support.d2iq.com/hc/en-us/articles/6019137621908-Customer-Advisory-D2iQ-2022-0002-Unbounded-Number-of-Service-Account-Token-Secrets-Created) article for more information.
+An issue with the ClusterResourceSet controller in 2.2.0 causes an unbounded number of service account tokens to be created for each ClusterResourceSet. This problem has been corrected. A remediation is also available to identify and remove the excess secrets; see this [knowledge base](https://support.d2iq.com/hc/en-us/articles/6019137621908-Customer-Advisory-D2iQ-2022-0002-Unbounded-Number-of-Service-Account-Token-Secrets-Created) article for more information.
 
 ### Certs showing as updated but not reloading in Kommander pods (COPS-7212)
 
 Previous Kommander 2.x versions did not properly handle certificate renewal for the Cluster CA and the certificates that are created for Kommander applications. When the certificates expired, some Kommander applications and pods failed to receive the renewed certificate information, causing them to stop working upon expiration. This problem has been corrected.
 
+<!-- vale Microsoft.HeadingColons = NO -->
 ### kube-oidc-proxy error: certificate signed by unknown authority (COPS-7217)
+<!-- vale Microsoft.HeadingColons = YES -->
 
 When adding a new Attached Cluster to the Management Cluster, using a custom domain and TLS certificate issued by Let's Encrypt, the kube-oidc-proxy helm chart in the Attached Cluster did not complete installation and the associated pod returned an error.
 
@@ -106,11 +108,59 @@ Before attempting to upgrade an existing cluster to this release, check the `kom
 - kommanderAppManagementImageRepository
 - kommanderChartsVersion
 
-If any of the these fields are present, then there is a possibility the upgrade can fail.  If you encounter this situation, file a support ticket for advice on how to remediate the issue before attempting to continue the upgrade.
+If any of the these fields are present, the upgrade can fail. If you encounter this situation, contact D2iQ Support for advice on how to remediate the issue before attempting to continue the upgrade.
 
 ### Minio Disk insufficient space when upgrading
 
 When upgrading DKP from v2.1.x to v2.2.x, the upgrade can fail due to insufficient space on the MinIO Disk. To avoid this issue, we recommend that you disable the `fluent-bit` Platform Application before upgrading.
+
+### Calico not updated during DKP upgrade on Flatcar
+
+When upgrading a DKP cluster running on Flatcar OS, you may find that after the upgrade the Calico services were not updated. This occurs because the upgrade procedure is not correctly updating the Flatcar specific CNI ClusterResourceSet(CRS). This issue only impacts the Calico CRS.
+
+Follow these steps to manually correct this issue:
+
+1.  Update the ConfigMap as follows:
+
+    ```yaml
+    cat <<EOF | kubectl apply -f -
+    apiVersion: v1
+    data:
+      custom-resources.yaml: |+
+        # This section includes base Calico installation configuration.
+        # For more information, see: https://docs.projectcalico.org/reference/installation/api
+        apiVersion: operator.tigera.io/v1
+        kind: Installation
+        metadata:
+          name: default
+        spec:
+          # Configures Calico networking.
+          calicoNetwork:
+            # Note: The ipPools section cannot be modified post-install.
+            ipPools:
+            - blockSize: 26
+              cidr: 192.168.0.0/16
+              encapsulation: IPIP
+              natOutgoing: Enabled
+              nodeSelector: all()
+            bgp: Enabled
+            nodeAddressAutodetectionV4:
+              firstFound: true
+          # FlexVolume path must be mounted under /opt on flatcar/coreos systems
+          flexVolumePath: /opt/libexec/kubernetes/kubelet-plugins/volume/exec/
+    kind: ConfigMap
+    metadata:
+      name: calico-cni-installation-$CLUSTER_NAME
+    EOF
+    ```
+
+1.  Run these commands: 
+
+`kubectl edit clusterresourceset calico-cni-installation-$CLUSTER_NAME` 
+
+and update 
+
+`spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`
 
 ## Additional resources
 
