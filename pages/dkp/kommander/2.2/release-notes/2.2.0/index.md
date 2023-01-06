@@ -355,50 +355,6 @@ Upgrading catalog applications using Spark Operator can fail when running `dkp u
 
 When upgrading DKP from v2.1.x to v2.2.x, the upgrade can fail due to insufficient space on the MinIO Disk. To avoid this issue, we recommend that you disable the `fluent-bit` Platform Application before upgrading.
 
-### Calico not updated during DKP upgrade on Flatcar
-
-When upgrading a DKP cluster running on Flatcar OS, you may find that after the upgrade the Calico services were not updated. This occurs because the upgrade procedure is not correctly updating the Flatcar specific CNI ClusterResourceSet(CRS). This issue only impacts the Calico CRS.
-
-Follow these steps to manually correct this issue:
-
-1.  Update the ConfigMap as follows:
-
-    ```yaml
-    cat <<EOF | kubectl apply -f -
-    apiVersion: v1
-    data:
-      custom-resources.yaml: |+
-        # This section includes base Calico installation configuration.
-        # For more information, see: https://docs.projectcalico.org/reference/installation/api
-        apiVersion: operator.tigera.io/v1
-        kind: Installation
-        metadata:
-          name: default
-        spec:
-          # Configures Calico networking.
-          calicoNetwork:
-            # Note: The ipPools section cannot be modified post-install.
-            ipPools:
-            - blockSize: 26
-              cidr: 192.168.0.0/16
-              encapsulation: IPIP
-              natOutgoing: Enabled
-              nodeSelector: all()
-            bgp: Enabled
-            nodeAddressAutodetectionV4:
-              firstFound: true
-          # FlexVolume path must be mounted under /opt on flatcar/coreos systems
-          flexVolumePath: /opt/libexec/kubernetes/kubelet-plugins/volume/exec/
-    kind: ConfigMap
-    metadata:
-      name: calico-cni-installation-$CLUSTER_NAME
-    EOF
-    ```
-
-1.  Run these commands: 
-
-`kubectl edit clusterresourceset calico-cni-installation-$CLUSTER_NAME` and update `spec.clusterSelector.matchLabels.konvoy.d2iq.io/osHint` to `konvoy.d2iq.io/osHint: flatcar`.
-
 ## Additional resources
 
 For more information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
