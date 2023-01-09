@@ -7,7 +7,9 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    runs-on: self-hosted
+    runs-on:
+    - self-hosted
+    - small
     env:
       AWS_DEFAULT_REGION: "us-west-2"
     steps:

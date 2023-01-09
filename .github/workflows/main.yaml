@@ -5,7 +5,9 @@ jobs:
     permissions:
       contents: read
       id-token: write    
-    runs-on: self-hosted
+    runs-on:
+    - self-hosted
+    - small
     env:
       BRANCH: ${{ github.head_ref }}
       AWS_DEFAULT_REGION: "us-west-2"
