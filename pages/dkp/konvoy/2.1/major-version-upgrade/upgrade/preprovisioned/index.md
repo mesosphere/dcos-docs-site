@@ -372,6 +372,8 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
 
 ## Update the cluster control plane Kubernetes version to v1.21.6
 
+<<< Insert GPG key here? See Incident D2IQ-95189 for the information. >>>
+
 1.  Prepare a patch with the Kubernetes version.
 
     ```yaml
