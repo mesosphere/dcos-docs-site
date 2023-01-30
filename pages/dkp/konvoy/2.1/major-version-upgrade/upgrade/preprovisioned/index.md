@@ -130,7 +130,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Update your environment with the cluster name for use in later steps by running the shell command from the last line of output in the previous step:
 
-    ```text
+    ```sh
     INFO[2021-11-15T19:59:35-05:00] Run 'export CLUSTER_NAME=konvoy-migration' and follow the rest of the documentation  src="cluster/adopt.go:178"
     ```
 
@@ -176,7 +176,7 @@ INFO[2021-11-12T18:22:55-08:00] Created/Updated NVIDIA GPU Feature Discovery Cus
 
 1.  Patch the `calico-node` DaemonSet to trigger a rolling update of the calico-node pods.
 
-    ```sh
+    ```bash
     kubectl patch -n kube-system daemonset/calico-node --kubeconfig=admin.conf -p '{"spec":{"template":{"spec":{"$setElementOrder/containers":[{"name":"calico-node"},{"name":"bird-metrics"}],"affinity":null,"containers":[{"$setElementOrder/env":[{"name":"DATASTORE_TYPE"},{"name":"WAIT_FOR_DATASTORE"},{"name":"NODENAME"},{"name":"CALICO_NETWORKING_BACKEND"},{"name":"CLUSTER_TYPE"},{"name":"CALICO_IPV4POOL_IPIP"},{"name":"FELIX_IPINIPMTU"},{"name":"CALICO_IPV4POOL_CIDR"},{"name":"CALICO_DISABLE_FILE_LOGGING"},{"name":"FELIX_DEFAULTENDPOINTTOHOSTACTION"},{"name":"FELIX_IPV6SUPPORT"},{"name":"FELIX_LOGSEVERITYSCREEN"},{"name":"FELIX_HEALTHENABLED"},{"name":"FELIX_PROMETHEUSMETRICSENABLED"},{"name":"FELIX_PROMETHEUSMETRICSPORT"}],"env":[{"$patch":"delete","name":"IP"}],"name":"calico-node"}]}}}}'
     ```
 
@@ -370,9 +370,54 @@ The Dex Addon acts as the cluster's OpenID Connect identity provider. You must c
           ...
     ```
 
+## Update pre-provisioned machine templates to include proxy overrides
+
+<p class="message--note"><strong>NOTE: </strong>If you are not utilizing proxies you can skip this section and procedures.</p>
+
+When adopting the DKP cluster, there is no parameter to include the proxy override secret. Therefore, if you require proxy settings in this environment, you need to manually update the pre-provisioned machine templates to include them.
+
+Follow these steps:
+
+1.  Set up the http proxy override file, as described in [HTTP proxy override files](/dkp/konvoy/2.1/image-builder/override-files/create-custom-or-files/proxy-or-files/).
+
+1.  Set up the http proxy override secret, as described in [Create a secret](/dkp/konvoy/2.1/choose-infrastructure/pre-provisioned/create-secrets-and-overrides/#create-a-secret).
+
+1.  Update the Control Plane Preprovisioned Machine Template:
+
+    ```bash
+    export CLUSTER_NAME=<cluster name> # (if not set already)
+    kubectl edit preprovisionedmachinetemplate ${CLUSTER_NAME}-control-plane --kubeconfig ${CLUSTER_NAME}.conf
+    ```
+
+    Within `spec.template.spec`, add the following section aligned with the `inventoryRef` section, e.g.:
+
+    ```yaml
+          inventoryRef:
+            name: ${CLUSTER_NAME}-control-plane
+          overrideRef:
+            name: ${CLUSTER_NAME}-user-overrides
+    ```
+
+1.  Update Worker Preprovisioned Machine Template:
+
+    ```bash
+    kubectl edit preprovisionedmachinetemplate ${CLUSTER_NAME}-worker --kubeconfig ${CLUSTER_NAME}.conf
+    ```
+
+    Within `spec.template.spec`, add the following section aligned with the `inventoryRef` section, e.g.:
+
+    ```yaml
+          inventoryRef:
+            name: ${CLUSTER_NAME}-worker
+          overrideRef:
+            name: ${CLUSTER_NAME}-user-overrides
+    ```
+
+<p class="message--note"><strong>NOTE: </strong>Replace <code>&lt;cluster name&gt;</code> with the actual name of your cluster to be upgraded.</p>
+
 ## Update the cluster control plane Kubernetes version to v1.21.6
 
-<<< Insert GPG key here? See Incident D2IQ-95189 for the information. >>>
+<!-- Insert GPG key here? See Incident D2IQ-95189 for the information. -->
 
 1.  Prepare a patch with the Kubernetes version.
 
