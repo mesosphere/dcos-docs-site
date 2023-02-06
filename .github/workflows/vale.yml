@@ -4,7 +4,8 @@ on: [pull_request]
 jobs:
   prose:
     name: Linting with Vale
-    runs-on: ubuntu-latest
+    runs-on:
+    - ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
