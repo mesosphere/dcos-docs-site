@@ -15,22 +15,20 @@ on:
         options:
           - "2.3"
           - "2.2"
-
 jobs:
   dkp-cli-docs:
-    runs-on: ubuntu-latest
+    runs-on:
+    - ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
       - name: Update dkp-cli docs
         run: |
           ci/update-dkp-cli-docs.sh
         env:
           DKP_CLI_VERSION: ${{ inputs.dkp-version }}
           TARGET_VERSION: ${{ inputs.target-version }}
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
