@@ -34,7 +34,7 @@ jobs:
           buckets=$(echo $bucket_list | grep "docs-d2iq-com-pr-")
           for bucket in $buckets; do
             found=false
-            for pr in $open_prs; do
+            for pr in $bucket; do
               if [[ $bucket == *"$pr"* ]]; then
                 found=true
                 break
