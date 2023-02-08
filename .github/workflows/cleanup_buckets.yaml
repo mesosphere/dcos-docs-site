@@ -29,8 +29,7 @@ jobs:
       run: |
         set -euxo pipefail
         sudo apt-get update && sudo apt-get install jq
-        bucket_list = $(docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION  -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN amazon/aws-cli s3api list-buckets)
-        echo $bucket_list
+        bucket_list = $(docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION  -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN amazon/aws-cli s3api list-buckets)        
 
       shell: bash    
 
