@@ -1,5 +1,8 @@
 name: Cleanup Buckets
 on:
+  push:
+    branches:
+      - 'hm/fix-cleanup-buckets-job'
   schedule:
     - cron:  "0 * * * *"
 jobs:
