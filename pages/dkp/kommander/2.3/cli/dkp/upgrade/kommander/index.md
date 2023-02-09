@@ -34,7 +34,7 @@ dkp upgrade kommander [flags]
       --disallow-charts-download                   make CLI rely solely on provided chart bundles and do not try to download charts from the Internet
       --gitea-kommander-repository-name string     gitea kommander repository name (default "kommander")
   -h, --help                                       help for kommander
-      --kommander-applications-repository string   git repository with application definitions (default "v2.4.0-dev")
+      --kommander-applications-repository string   git repository with application definitions (default "v2.3.2-rc.2")
       --kommander-charts-version string            Kommander helm charts version to download. Default: download all available versions
       --kubeconfig string                          Path to the kubeconfig file to use for CLI requests.
       --platform-apps-timeout duration             Timeout to wait for upgrade of the set of platform applications (default 30m0s)

@@ -30,7 +30,7 @@ dkp create chart-bundle [flags]
   -h, --help                              help for chart-bundle
       --kommander-charts-version string   Kommander helm charts version to download. Default: download all available versions
       --kubeconfig string                 Path to the kubeconfig file to use for CLI requests.
-  -o, --output string                     Output format. One of: yaml|json (default "yaml")
+  -o, --output string                     File path to write charts bundle to (default "charts-bundle.tar.gz")
       --request-timeout string            The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests.
       --skip-charts strings               Charts to not to include in the bundle, in the format <chart-name1>,<chart-name2>:<chart-version2>,... (default [])
 ```

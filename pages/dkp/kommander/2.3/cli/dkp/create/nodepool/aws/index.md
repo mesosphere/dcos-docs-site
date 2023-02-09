@@ -38,7 +38,7 @@ dkp create nodepool aws [flags]
       --iam-instance-profile string             Name of the IAM instance profile to assign to worker machines. (default "nodes.cluster-api-provider-aws.sigs.k8s.io")
       --instance-type string                    Worker machine instance type (default "m5.2xlarge")
       --kubeconfig string                       Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --kubernetes-version string               Kubernetes version (default "1.24.4")
+      --kubernetes-version string               Kubernetes version (default "1.23.12")
   -n, --namespace string                        If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                        No Proxy list for nodes (default [])
   -o, --output string                           Output format. One of: json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-as-json|jsonpath-file.
