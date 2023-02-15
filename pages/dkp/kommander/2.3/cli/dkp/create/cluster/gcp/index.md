@@ -43,10 +43,10 @@ dkp create cluster gcp [flags]
       --https-proxy string                           HTTPS proxy for CAPI controllers
       --image string                                 Full reference to an image to use for all nodes (set either this or --image-family) (ex. 'projects/my-project/global/images/konvoy-ubuntu-2004-1-99-99-1234567890')
       --image-family string                          Full reference to an image family to use for all nodes (set either this or --image) (ex. 'projects/my-project/global/images/family/konvoy-ubuntu-2004-{{.K8sVersion}}')
-      --kind-cluster-image string                    Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v0.0.0-dev.0")
+      --kind-cluster-image string                    Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v2.3.2")
       --kubeconfig string                            Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string           The image repository to use for pulling kubernetes images
-      --kubernetes-version string                    Kubernetes version (default "1.24.4")
+      --kubernetes-version string                    Kubernetes version (default "1.23.12")
   -n, --namespace string                             If present, the namespace scope for this CLI request. (default "default")
       --network string                               The GCP network name to deploy the cluster to (default "default")
       --no-proxy strings                             No Proxy list for CAPI controllers (default [])

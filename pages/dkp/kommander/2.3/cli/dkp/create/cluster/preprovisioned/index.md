@@ -40,10 +40,10 @@ dkp create cluster preprovisioned [flags]
   -h, --help                                    help for preprovisioned
       --http-proxy string                       HTTP proxy for CAPI controllers
       --https-proxy string                      HTTPS proxy for CAPI controllers
-      --kind-cluster-image string               Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v0.0.0-dev.0")
+      --kind-cluster-image string               Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v2.3.2")
       --kubeconfig string                       Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string      The image repository to use for pulling kubernetes images
-      --kubernetes-version string               Kubernetes version (default "1.24.4")
+      --kubernetes-version string               Kubernetes version (default "1.23.12")
   -n, --namespace string                        If present, the namespace scope for this CLI request. (default "default")
       --no-proxy strings                        No Proxy list for CAPI controllers (default [])
       --os-hint flatcar                         A hint which will allow the installer to generate appropriate configurations for a target OS. Presently, only the hint for flatcar is supported.
