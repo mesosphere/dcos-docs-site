@@ -46,7 +46,7 @@ dkp create cluster vsphere [flags]
   -h, --help                                 help for vsphere
       --http-proxy string                    HTTP proxy for CAPI controllers
       --https-proxy string                   HTTPS proxy for CAPI controllers
-      --kind-cluster-image string            Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v2.3.2-rc.2")
+      --kind-cluster-image string            Kind node image for the bootstrap cluster (default "mesosphere/konvoy-bootstrap:v2.3.2")
       --kubeconfig string                    Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
       --kubernetes-image-repository string   The image repository to use for pulling kubernetes images
       --kubernetes-version string            Kubernetes version (default "1.23.12")
