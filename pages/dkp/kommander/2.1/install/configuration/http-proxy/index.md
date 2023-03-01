@@ -79,7 +79,6 @@ Gatekeeper acts as a [Kubernetes mutating webhook](https://kubernetes.io/docs/re
     kubectl label namespace kommander-flux gatekeeper.d2iq.com/mutate=pod-proxy
     ```
 
-
 ## Create Gatekeeper ConfigMap in the kommander namespace
 
 To configure Gatekeeper so that these environment variables are mutated in the pods, create the following `gatekeeper-overrides` ConfigMap in the `kommander` Workspace you created in a previous step:
@@ -139,16 +138,13 @@ To ensure that core components work correctly, always add these addresses to the
 </p>
 
 <p class="message--important"><strong>IMPORTANT: </strong>The <code>NO_PROXY</code> variable contains the Kubernetes Services CIDR. This example uses the default CIDR, <code>10.96.0.0/12</code>. If your cluster's CIDR is different, update the value in <code>NO_PROXY</code>.
-
-Based on the order in which the Gatekeeper Deployment is Ready (in relation to other Deployments), not all the core services are guaranteed to be mutated with the proxy environment variables. Only the user deployed workloads are guaranteed to be mutated with the proxy environment variables. If you need a core service to be mutated with your proxy environment variables, you can restart the AppDeployment for that core service.
-</p>
-
+<br /><br />Based on the order in which the Gatekeeper Deployment is Ready (in relation to other Deployments), not all the core services are guaranteed to be mutated with the proxy environment variables. Only the user deployed workloads are guaranteed to be mutated with the proxy environment variables. If you need a core service to be mutated with your proxy environment variables, you can restart the AppDeployment for that core service.</p>
 
 ## Install Kommander
 
 Kommander installs with a dedicated CLI.
 
-NOTE: To ensure Kommander is installed on the workload cluster, use the `--kubeconfig=cluster_name.conf` flag.
+**NOTE:** To ensure Kommander is installed on the workload cluster, use the `--kubeconfig=<cluster_name>.conf` flag.
 
 1. Install Kommander using the configuration files and ConfigMap from previous steps:
 
@@ -215,7 +211,7 @@ data:
 EOF
 ```
 
-Set the `httpProxy` and `httpsProxy` environment variables to the address of the HTTP and HTTPS proxy server, respectively. Set the `noProxy` environment variable to the addresses that should be accessed directly, not through the proxy. The list of the recommended settings is in the section, _HTTP Proxy Configuration Considerations_ above.
+Set the `httpProxy` and `httpsProxy` environment variables to the address of the HTTP and HTTPS proxy server, respectively. Set the `noProxy` environment variable to the addresses that should be accessed directly, not through the proxy. The list of the recommended settings is in the section, [_HTTP Proxy Configuration Considerations_](#http-proxy-configuration-considerations) above.
 
 # Configure your applications
 
@@ -227,10 +223,9 @@ In a default installation with `gatekeeper` enabled, you can have proxy environm
 
 No further manual changes are required.
 
-
 ## Manually configure your application
 
-<p class="message--important"><strong>IMPORTANT:</strong> If Gatekeeper is not installed, and you need to use an HTTP proxy, you must manually configure your applications. </p>
+<p class="message--important"><strong>IMPORTANT:</strong> If Gatekeeper is not installed, and you need to use an HTTP proxy, you must manually configure your applications.</p>
 
 Some applications follow the convention of `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` environment variables.
 
