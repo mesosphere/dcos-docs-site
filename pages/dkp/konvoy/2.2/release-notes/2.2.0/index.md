@@ -30,9 +30,9 @@ DKP 2.2 supports Kubernetes versions between 1.21.0 and 1.22.x. Any cluster you 
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.21.0 |
-|**Maximum** | 1.22.x |
-|**Default** | 1.22.0|
+| **Minimum**        | 1.21.0  |
+| **Maximum**        | 1.22.x  |
+| **Default**        | 1.22.8  |
 
 ## New features and capabilities
 

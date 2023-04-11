@@ -35,7 +35,7 @@ dkp create nodepool vsphere name [flags]
       --http-proxy string                 HTTP proxy for nodes
       --https-proxy string                HTTPS proxy for nodes
       --kubeconfig string                 Path to the kubeconfig for the management cluster. If unspecified, default discovery rules apply.
-      --kubernetes-version string         Kubernetes version (default "1.24.4")
+      --kubernetes-version string         Kubernetes version (default "1.23.12")
       --memory int                        The size of a worker machine's memory, in GB (default 32)
   -n, --namespace string                  If present, the namespace scope for this CLI request. (default "default")
       --network string                    The vSphere network to deploy the workload cluster on.
