@@ -15,7 +15,7 @@ Follow these steps to resolve a failed migration:
 1.  Retrieve the metallb-overrrides configMap using the following command:
 
     ``` bash
-    kubectl edit configmap metallb-overrides -n kommander
+    kubectl edit configMap metallb-overrides -n kommander
     ```
 
 2.  Replace the repository values for both the metallb controller and speaker with the new quay.io addresses:
