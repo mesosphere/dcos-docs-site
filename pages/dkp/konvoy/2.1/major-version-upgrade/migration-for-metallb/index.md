@@ -8,53 +8,53 @@ beta: true
 enterprise: false
 ---
 
-The MetalLB project has moved all Docker images from dockerhub.io to quay.io. This prevents older versions of DKP (up to and including DKP 2.1.x) from installing MetalLB correctly. Attempting to migrate any cluster using MetalLB from Konvoy 1.8 to DKP 2.1 will fail due to this issue. 
+The MetalLB project has moved all Docker images from dockerhub.io to quay.io. This prevents older versions of DKP (up to and including DKP 2.1.x) from installing MetalLB correctly. Attempting to migrate any cluster using MetalLB from Konvoy 1.8 to DKP 2.1 will fail due to this issue.
 
 Follow these steps to resolve a failed migration:
 
 1.  Retrieve the metallb-overrrides configMap using the following command:
 
     ``` bash
-    kubectl edit configMap metallb-overrides -n kommander
+    kubectl edit configmap metallb-overrides -n kommander
     ```
 
-2.  Replace the repository values for both the metallb controller and speaker with the new quay.io addresses:
+1.  Replace the repository values for both the metallb controller and speaker with the new quay.io addresses:
 
     These two values:
 
-    ```bash
+    ```yaml
     controller:
-       image:
-       repository: metallb/controller
+      image:
+        repository: metallb/controller
     ```
 
-    ```bash
+    ```yaml
     speaker:
       image:
         repository: metallb/speaker
     ```
 
-    ...become these two values:
+    …become these two values:
 
-    ```
+    ```yaml
     controller:
       image:
         repository: quay.io/metallb/controller
     ```
 
-    ```
+    ```yaml
     speaker:
       image:
-      repository: quay.io/metallb/speaker
-  ```
+        repository: quay.io/metallb/speaker
+    ```
 
-3. Re-run the migration.
+1.  Re-run the migration.
 
 ## Additional Considerations for Failed Migrations
 
-If you did not edit the configMap to change the repository values for the MetalLB controller and speaker values, and you ran the command `./kommander migrate -y`, the following error appears when you migrate from Konvoy 1.8.x → DKP 2.x.y:
+If you did not edit the configMap to change the repository values for the MetalLB controller and speaker values, and you ran the command `kommander migrate -y`, the following error appears when you migrate from Konvoy 1.8.x → DKP 2.1.y:
 
-```bash
+```sh
 ✓ Checking if migration from DKP 1.x is necessary
 Found the following Konvoy 1.x addons:
 cert-manager
@@ -81,18 +81,19 @@ As a result, after you begin migration, you cannot switch to a newer version of 
 
 Follow these steps to resolve the issue:
 
-1. Retrieve the gatekeeper-overrides configMap using the following command:
+1.  Retrieve the gatekeeper-overrides configMap using the following command:
 
-  ```bash
-  kubectl edit configmap gatekeeper-overrrides -n kommander
-  ```
+    ```bash
+    kubectl edit configmap gatekeeper-overrrides -n kommander
+    ```
 
-2. Set the blank values in podProxySettings to “”, resulting in the following:
-  ```bash
-  podProxySettings:
- noProxy: ""
- httpProxy: ""
- httpsProxy: ""
-  ```
+1.  Set the blank values in podProxySettings to “”, resulting in the following:
 
-3. Re-run the migration.
+    ```yaml
+    podProxySettings:
+      noProxy: ""
+      httpProxy: ""
+      httpsProxy: ""
+    ```
+
+1.  Re-run the migration.
