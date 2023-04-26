@@ -12,7 +12,7 @@ The MetalLB project has moved all Docker images from dockerhub.io to quay.io. Th
 
 Follow these steps to resolve a failed migration:
 
-1.  Retrieve the metallb-overrrides config map using the following command:
+1.  Retrieve the metallb-overrrides configMap using the following command:
 
     ``` bash
     kubectl edit configmap metallb-overrides -n kommander
