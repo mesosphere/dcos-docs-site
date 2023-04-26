@@ -8,7 +8,7 @@ beta: true
 enterprise: false
 ---
 
-The MetalLB project has moved all Docker images from dockerhub.io to quay.io.  This prevents older versions of DKP (up to and including DKP 2.1.x) from installing MetalLB correctly.     Attempting to migrate any cluster using MetalLB from Konvoy 1.8 to DKP 2.1 will fail due to this issue. 
+The MetalLB project has moved all Docker images from dockerhub.io to quay.io. This prevents older versions of DKP (up to and including DKP 2.1.x) from installing MetalLB correctly. Attempting to migrate any cluster using MetalLB from Konvoy 1.8 to DKP 2.1 will fail due to this issue. 
 
 Follow these steps to resolve a failed migration:
 
