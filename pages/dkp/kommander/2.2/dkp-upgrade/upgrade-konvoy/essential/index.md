@@ -9,25 +9,25 @@ menuWeight: 30
 ---
 ## Prerequisites
 
-* Create an [on-demand backup][backup] of your current configuration with Velero.
+-   Create an [on-demand backup][backup] of your current configuration with Velero.
 
-* Follow the steps listed in the [DKP upgrade overview][dkpup].
+-   Follow the steps listed in the [DKP upgrade overview][dkpup].
 
-* Ensure that all platform applications in the management cluster have been upgraded to avoid compatibility issues with the [Kubernetes version][releasenotes] included in this release. This is done automatically when [upgrading Kommander][upgradekomm], so ensure that you upgrade Kommander prior to upgrading Konvoy.
+-   Ensure that all platform applications in the management cluster have been upgraded to avoid compatibility issues with the [Kubernetes version][releasenotes] included in this release. This is done automatically when [upgrading Kommander][upgradekomm], so ensure that you upgrade Kommander prior to upgrading Konvoy.
 
-* For air-gapped: Download the required bundles either at our [support site][supportsite] or by using the CLI.
+-   For air-gapped: Download the required bundles either at our [support site][supportsite] or by using the CLI.
 
-* For Azure, set the required [environment variables][envariables].
+-   For Azure, set the required [environment variables][envariables].
 
-* For AWS, set the required [environment variables][envariables2].
+-   For AWS, set the required [environment variables][envariables2].
 
 The following infrastructure environments are supported:
 
-* Amazon Web Services (AWS)
+-   Amazon Web Services (AWS)
 
-* Microsoft Azure
+-   Microsoft Azure
 
-* Pre-provisioned environments
+-   Pre-provisioned environments
 
 ## Overview
 
@@ -84,13 +84,13 @@ Examples:
 export CLUSTER_NAME=my-azure-cluster
 dkp upgrade addons azure --cluster-name=${CLUSTER_NAME}
 ```
+
 OR
 
 ```bash
 export CLUSTER_NAME=my-aws-cluster
 dkp upgrade addons aws --cluster-name=${CLUSTER_NAME}
 ```
-
 
 The output for the AWS example should be similar to:
 
@@ -109,7 +109,9 @@ configmap/node-feature-discovery-my-aws-cluster upgraded
 clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-my-aws-cluster upgraded
 configmap/nvidia-feature-discovery-my-aws-cluster upgraded
 ```
-### See also ###
+
+### See also
+
 [DKP upgrade addons](/../../dkp/konvoy/2.2/cli/dkp/upgrade/addons/)
 
 Once complete, begin upgrading the Kubernetes version.
@@ -120,29 +122,39 @@ When upgrading the Kubernetes version of a cluster, first upgrade the control pl
 
 <p class="message--note"><strong>NOTE:</strong> If an AMI was specified when initially creating a cluster, you must build a new one with <a href="/dkp/konvoy/2.2/image-builder/">Konvoy Image Builder</a> and pass it with <code>--ami</code>.
 
-1. Upgrade the Kubernetes version of the control plane.
+1.  Upgrade the Kubernetes version of the control plane.
 
-```bash
-dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
-```
+    ```bash
+    dkp update controlplane aws --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
+    ```
+
+    The output should be similar to:
+
+    ```sh
+    Updating control plane resource controlplane.cluster.x-k8s.io/v1beta1, Kind=KubeadmControlPlane default/my-aws-cluster-control-plane
+    Waiting for control plane update to finish.
+     ✓ Updating the control plane
+    ```
+
+1.  Upgrade the Kubernetes version of each of your node pools. Get a list of all node pools available in your cluster by running the following command:
+
+    ```bash
+    dkp get nodepool --cluster-name ${CLUSTER_NAME}
+    ```
+
+1.  Replace `my-nodepool` with the name of the node pool.
+
+    ```bash
+    export NODEPOOL_NAME=<my-nodepool>
+    ```
+
+    ```bash
+    dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
+    ```
 
 The output should be similar to:
 
-```text
-Updating control plane resource controlplane.cluster.x-k8s.io/v1beta1, Kind=KubeadmControlPlane default/my-aws-cluster-control-plane
-Waiting for control plane update to finish.
- ✓ Updating the control plane
-```
-
-2. Upgrade the Kubernetes version of each of your node pools. Replace `my-nodepool` with the name of the node pool.
-
-```bash
-export NODEPOOL_NAME=my-nodepool
-dkp update nodepool aws ${NODEPOOL_NAME} --cluster-name=${CLUSTER_NAME} --kubernetes-version=v1.22.8
-```
-The output should be similar to:
-
-```text
+```sh
 Updating node pool resource cluster.x-k8s.io/v1beta1, Kind=MachineDeployment default/my-aws-cluster-my-nodepool
 Waiting for node pool update to finish.
  ✓ Updating the my-aws-cluster-my-nodepool node pool
@@ -159,6 +171,6 @@ For the overall process for upgrading to the latest version of DKP, refer back t
 [kubeconfig]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/
 [CAPI]: https://cluster-api.sigs.k8s.io/
 [releasenotes]: ../../../release-notes
-[backup]: ../../../backup-and-restore/#back-up-on-demand
+[backup]: ../../../backup-and-restore#back-up-on-demand
 [envariables]: /dkp/konvoy/2.2/choose-infrastructure/azure/quick-start-azure/#configure-azure-prerequisites
 [envariables2]: /dkp/konvoy/2.2/choose-infrastructure/aws/quick-start-aws/#configure-aws-prerequisites
