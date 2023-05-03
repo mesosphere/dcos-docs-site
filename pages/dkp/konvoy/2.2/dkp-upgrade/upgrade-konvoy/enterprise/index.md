@@ -130,6 +130,14 @@ clusterresourceset.addons.cluster.x-k8s.io/nvidia-feature-discovery-my-aws-clust
 configmap/nvidia-feature-discovery-my-aws-cluster upgraded
 ```
 
+<p class="message--warning"><strong>IMPORTANT:</strong> If your cluster was previously upgraded from 1.8 and was previously using the EBS CSI driver, you must also run the following commands to upgrade the driver.</p>
+
+```bash
+export CLUSTER_NAME=my-aws-cluster
+helm uninstall -n kube-system awsebscsiprovisioner-kubeaddons
+kubectl label cluster $CLUSTER_NAME konvoy.d2iq.io/csi=aws-ebs
+```
+
 ### See also ###
 [DKP upgrade addons](/../../dkp/konvoy/2.2/cli/dkp/upgrade/addons/)
 
