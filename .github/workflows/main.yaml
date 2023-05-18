@@ -54,7 +54,7 @@ jobs:
           -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
           -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
           -e BUCKET=${{ env.BUCKET }} \
-          -e PRINCIPAL=${{ secrets.AWS_DOCS_SITE_ROLE }}
+          -e PRINCIPAL=${{ secrets.AWS_DOCS_SITE_ROLE }} \
           -e REDIR_HOSTNAME=${{ env.HOSTNAME }} \
           -e DOCS_ENV="preview" \
           mesosphere/docs /src/ci/deploy.sh
