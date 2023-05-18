@@ -10,8 +10,8 @@ jobs:
     env:
       BRANCH: ${{ github.head_ref }}
       AWS_DEFAULT_REGION: "us-west-2"
-      ALGOLIA_PRIVATE_KEY: ${{ secrets.AGOLIA_PRIVATE_KEY }}   
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: true   
+      ALGOLIA_PRIVATE_KEY: ${{ secrets.AGOLIA_PRIVATE_KEY }}
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -41,7 +41,7 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1-node16
       with:
-        role-to-assume: arn:aws:iam::139475575661:role/dcos-docs-site
+        role-to-assume: ${{ secrets.AWS_DOCS_SITE_ROLE }}
         aws-region: us-west-2
     - name: Build & Deploy Preview Docs
       run: |
@@ -54,7 +54,7 @@ jobs:
           -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
           -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \
           -e BUCKET=${{ env.BUCKET }} \
-          -e PRINCIPAL="arn:aws:iam::977260619897:role/dcos-docs-site" \
+          -e PRINCIPAL=${{ secrets.AWS_DOCS_SITE_ROLE }} \
           -e REDIR_HOSTNAME=${{ env.HOSTNAME }} \
           -e DOCS_ENV="preview" \
           mesosphere/docs /src/ci/deploy.sh

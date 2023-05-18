@@ -20,7 +20,7 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1-node16
       with:
-        role-to-assume: arn:aws:iam::139475575661:role/dcos-docs-site
+        role-to-assume: ${{ secrets.AWS_DOCS_SITE_ROLE }}
         aws-region: us-west-2
     - name: Cleanup Buckets
       run: |
