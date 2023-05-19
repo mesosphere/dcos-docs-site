@@ -68,14 +68,11 @@ jobs:
     - name: Create File
       run: |        
         mkdir ./test
-        touch ./test//hello-world.txt
+        touch ./test/hello-world.txt
         echo "hello world" > ./test/hello-world.txt        
-    - uses: shallwefootball/s3-upload-action@master
-      with:
-        aws_key_id: ${{ env.AWS_ACCESS_KEY_ID }}
-        aws_secret_access_key: ${{ env.AWS_SECRET_ACCESS_KEY }}
-        aws_bucket: ${{ env.BUCKET }}
-        source_dir: './test'
+    - name: Copy files to the test website with the AWS CLI
+      run: |
+        aws s3 sync ./test s3://docs-d2iq-com-pr-4698    
     # - name: Build & Deploy Main Docs
     #   run: |
     #     docker run \
