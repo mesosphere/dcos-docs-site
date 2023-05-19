@@ -60,6 +60,17 @@ jobs:
           mesosphere/docs /src/ci/deploy.sh
         echo "http://${{ env.HOSTNAME }}"
       shell: bash
+    - name: Create File
+      run: |
+        touch ./hello-world.txt
+        echo "hello world" > ./hello-world.txt
+        touch 
+    - uses: shallwefootball/s3-upload-action@master
+      with:
+        aws_key_id: $AWS_ACCESS_KEY_ID
+        aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
+        aws_bucket: ${{ env.BUCKET }}
+        source_dir: './hello-world.txt'        
     - name: Build & Deploy Main Docs
       run: |
         docker run \
