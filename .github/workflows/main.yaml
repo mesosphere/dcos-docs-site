@@ -64,7 +64,6 @@ jobs:
       run: |
         touch ./hello-world.txt
         echo "hello world" > ./hello-world.txt
-        touch 
     - uses: shallwefootball/s3-upload-action@master
       with:
         aws_key_id: $AWS_ACCESS_KEY_ID
