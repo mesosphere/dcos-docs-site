@@ -59,12 +59,18 @@ jobs:
           -e DOCS_ENV="preview" \
           mesosphere/docs /src/ci/deploy.sh
         echo "http://${{ env.HOSTNAME }}"
-      shell: bash
+      shell: bash      
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: ${{ secrets.AWS_DOCS_SITE_ROLE }}
+        aws-region: us-west-2        
     - name: Create File
       run: |
+        echo $AWS_ACCESS_KEY_ID
         mkdir ./test
         touch ./test//hello-world.txt
-        echo "hello world" > ./test/hello-world.txt
+        echo "hello world" > ./test/hello-world.txt        
     - uses: shallwefootball/s3-upload-action@master
       with:
         aws_key_id: $AWS_ACCESS_KEY_ID
