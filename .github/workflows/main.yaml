@@ -63,7 +63,7 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        role-to-assume: ${{ secrets.AWS_DOCS_SITE_ROLE }}
+        role-to-assume: arn:aws:iam::139475575661:role/dcos-docs-site
         aws-region: us-west-2        
     - name: Create File
       run: |        
@@ -72,7 +72,7 @@ jobs:
         echo "hello world" > ./test/hello-world.txt        
     - name: Copy files to the test website with the AWS CLI
       run: |
-        aws s3 sync ./test s3://docs-d2iq-com-pr-4698    
+        aws s3 sync ./test s3://docs-d2iq-com-pr-4698
     # - name: Build & Deploy Main Docs
     #   run: |
     #     docker run \
