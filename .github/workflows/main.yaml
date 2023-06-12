@@ -60,6 +60,13 @@ jobs:
           mesosphere/docs /src/ci/deploy.sh
         echo "http://${{ env.HOSTNAME }}"
       shell: bash
+    - name: S3-push
+      uses: mesosphere/workflow-db/.github/workflows/release-publish-to-s3.yml@main
+      with:
+        aws_role_to_assume: arn:aws:iam::139475575661:role/dcos-docs-site
+        release_version: ""
+        target_bucket: ${{ env.BUCKET }}
+        target_folder: ""      
     - name: Build & Deploy Main Docs
       run: |
         docker run \
