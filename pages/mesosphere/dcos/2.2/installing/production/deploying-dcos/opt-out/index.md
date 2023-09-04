@@ -1,0 +1,35 @@
+---
+layout: layout.pug
+navigationTitle:  Opt-Out
+excerpt: Disabling authentication and telemetry for your cluster
+title: Opt-Out
+model: /mesosphere/dcos/2.2/data.yml
+render: mustache
+menuWeight: 20
+---
+
+## Authentication
+
+You can opt out of the provided authentication by disabling it for your cluster. To disable authentication, add this parameter to your [`config.yaml`](/mesosphere/dcos/{{ model.folder_version }}/installing/production/advanced-configuration/configuration-reference/) file during installation (this requires using the [installation](/mesosphere/dcos/{{ model.folder_version }}/installing/production/deploying-dcos/installation/) method):
+
+```yaml
+oauth_enabled: 'false'
+```
+
+<p class="message--note"><strong>NOTE: </strong>If you have already installed your cluster and would like to disable this in place, you can go through an upgrade with the same <a href="/mesosphere/dcos/{{ model.folder_version }}/installing/production/advanced-configuration/configuration-reference/"> configuration parameter</a> set.</p>
+
+
+
+## Telemetry
+
+You can opt out of providing anonymous data by disabling telemetry for your cluster. To disable telemetry, you can either:
+
+- Add this parameter to your [`config.yaml`](/mesosphere/dcos/{{ model.folder_version }}/installing/production/advanced-configuration/configuration-reference/) file during installation:
+
+    ```yaml
+    telemetry_enabled: 'false'
+    ```
+
+
+
+<p class="message--note"><strong>NOTE: </strong>If you have already installed your cluster and would like to disable this in place, you can go through an upgrade with the same <a href="/mesosphere/dcos/{{ model.folder_version }}/installing/production/advanced-configuration/configuration-reference/"> configuration parameter</a> set.</p>
